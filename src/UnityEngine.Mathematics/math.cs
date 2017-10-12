@@ -238,9 +238,9 @@ namespace UnityEngine
 
         // exp
         public static float exp(float x) { return (float)System.Math.Exp((float)x); }
-        public static float2 exp(float2 a, float2 b) { return new float2(exp(a.x), exp(a.y)); }
-        public static float3 exp(float3 a, float3 b) { return new float3(exp(a.x), exp(a.y), exp(a.z)); }
-        public static float4 exp(float4 a, float4 b) { return new float4(exp(a.x), exp(a.y), exp(a.z), exp(a.w)); }
+        public static float2 exp(float2 a) { return new float2(exp(a.x), exp(a.y)); }
+        public static float3 exp(float3 a) { return new float3(exp(a.x), exp(a.y), exp(a.z)); }
+        public static float4 exp(float4 a) { return new float4(exp(a.x), exp(a.y), exp(a.z), exp(a.w)); }
 
         // mod
         public static float mod(float a, float b) { return a % b; }
