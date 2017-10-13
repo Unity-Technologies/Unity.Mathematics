@@ -3,6 +3,7 @@
 // * Also int3 etc bool casts? should they exist?
 // * Should we allow float4 value = 5; it is convenient and how it is in hlsl but maybe not the right fit in C#?
 
+using System;
 using System.Runtime.CompilerServices;
 
 namespace UnityEngine
@@ -11,7 +12,7 @@ namespace UnityEngine
     {
         // min
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float min(float a, float b) { return a < b ? a : b; }
+        public static float min(float a, float b) { return Math.Min(a, b); } // Use Math.Min as it is handling properly NaN
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float2 min(float2 a, float2 b) { return new float2(min(a.x, b.x), min(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -20,7 +21,7 @@ namespace UnityEngine
         public static float4 min(float4 a, float4 b) { return new float4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int min(int a, int b) { return a < b ? a : b; }
+        public static int min(int a, int b) { return Math.Min(a, b); } // Use Math.Min as it is handling properly NaN
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int2 min(int2 a, int2 b) { return new int2(min(a.x, b.x), min(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -30,7 +31,7 @@ namespace UnityEngine
 
         // max
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float max(float a, float b) { return a > b ? a : b; }
+        public static float max(float a, float b) { return Math.Max(a, b); } // Use Math.Max as it is handling properly NaN
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float2 max(float2 a, float2 b) { return new float2(max(a.x, b.x), max(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -39,7 +40,7 @@ namespace UnityEngine
         public static float4 max(float4 a, float4 b) { return new float4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int max(int a, int b) { return a > b ? a : b; }
+        public static int max(int a, int b) { return Math.Max(a, b); } // Use Math.Max as it is handling properly NaN
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int2 max(int2 a, int2 b) { return new int2(max(a.x, b.x), max(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
