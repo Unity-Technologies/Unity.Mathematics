@@ -6,6 +6,7 @@ using System.Diagnostics;
 namespace UnityEngine
 {
     [DebuggerTypeProxy(typeof(int4.DebuggerProxy))]
+    [System.Serializable]
     public partial struct int4
     {
         internal sealed class DebuggerProxy

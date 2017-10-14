@@ -7,6 +7,7 @@ using System.Diagnostics;
 namespace UnityEngine
 {
     [DebuggerTypeProxy(typeof(float2.DebuggerProxy))]
+    [System.Serializable]
     public partial struct float2 : IFormattable
     {
         internal sealed class DebuggerProxy
