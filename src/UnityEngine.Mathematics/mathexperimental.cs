@@ -17,25 +17,25 @@ namespace UnityEngine.Experimental
         static public float4 normalizeSafe(float4 v, float4 defaultValue = new float4())
         {
             float len = math.dot(v, v);
-            return math.select(defaultValue, v * math.rsqrt(len), len > epsilon4f);
+            return math.select(len > epsilon4f, defaultValue, v * math.rsqrt(len));
         }
 
         //@TODO: Merge back into one function with default values... Causes compiler error right now...
         static public float3 normalizeSafe(float3 v, float3 defaultValue)
         {
             float len = math.dot(v, v);
-            return math.select(defaultValue, v * math.rsqrt(len), len > epsilon3f);
+            return math.select(len > epsilon3f, defaultValue, v * math.rsqrt(len));
         }
         static public float3 normalizeSafe(float3 v)
         {
             float len = math.dot(v, v);
-            return math.select(new float3(), v * math.rsqrt(len), len > epsilon3f);
+            return math.select(len > epsilon3f, new float3(), v * math.rsqrt(len));
         }
 
         static public float2 normalizeSafe(float2 v, float2 defaultValue = new float2())
         {
             float len = math.dot(v, v);
-            return math.select(defaultValue, v * math.rsqrt(len), len > epsilon2f);
+            return math.select(len > epsilon2f, defaultValue, v * math.rsqrt(len));
         }
     }
 }
