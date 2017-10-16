@@ -131,11 +131,11 @@ namespace UnityEngine
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float dot(float pt1, float pt2) { return pt1 * pt1; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float2 pt1, float2 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y; }
+        public static float dot(float2 pt1, float2 pt2) { return csum(pt1 * pt2); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float3 pt1, float3 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z; }
+        public static float dot(float3 pt1, float3 pt2) { return csum(pt1 * pt2); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float4 pt1, float4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
+        public static float dot(float4 pt1, float4 pt2) { return csum(pt1 * pt2); }
 
         // tan
         public static float tan(float value) { return (float)System.Math.Tan(value); }
@@ -199,9 +199,9 @@ namespace UnityEngine
 
         // frac
         public static float frac(float a) { return a - floor(a); }
-        public static float2 frac(float2 a) { return new float2(frac(a.x), frac(a.y)); }
-        public static float3 frac(float3 a) { return new float3(frac(a.x), frac(a.y), frac(a.z)); }
-        public static float4 frac(float4 a) { return new float4(frac(a.x), frac(a.y), frac(a.z), frac(a.w)); }
+        public static float2 frac(float2 a) { return a - floor(a); }
+        public static float3 frac(float3 a) { return a - floor(a); }
+        public static float4 frac(float4 a) { return a - floor(a); }
 
         // rcp
         public static float rcp(float a) { return 1f / a; }
@@ -260,11 +260,11 @@ namespace UnityEngine
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float rsqrt(float a) { return 1.0F / sqrt(a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float2 rsqrt(float2 a) { return new float2(rsqrt(a.x), rsqrt(a.y)); }
+        public static float2 rsqrt(float2 a) { return 1.0f / sqrt(a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 rsqrt(float3 a) { return new float3(rsqrt(a.x), rsqrt(a.y), rsqrt(a.z)); }
+        public static float3 rsqrt(float3 a) { return 1.0f / sqrt(a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float4 rsqrt(float4 a) { return new float4(rsqrt(a.x), rsqrt(a.y), rsqrt(a.z), rsqrt(a.w)); }
+        public static float4 rsqrt(float4 a) { return 1.0f / sqrt(a); }
 
         // normalize
         public static float2 normalize(float2 v) { return rsqrt(dot(v, v)) * v; }
@@ -288,12 +288,27 @@ namespace UnityEngine
 
         public static float smoothstep(float a, float b, float x)
         {
-            float t = saturate((x - a) / (b - a));
+            var t = saturate((x - a) / (b - a));
             return t * t * (3.0F - (2.0F * t));
         }
-        public static float2 smoothstep(float2 a, float2 b, float2 x) { return new float2(smoothstep(a.x, b.x, x.x), smoothstep(a.y, b.y, x.y)); }
-        public static float3 smoothstep(float3 a, float3 b, float3 x) { return new float3(smoothstep(a.x, b.x, x.x), smoothstep(a.y, b.y, x.y), smoothstep(a.z, b.z, x.z)); }
-        public static float4 smoothstep(float4 a, float4 b, float4 x) { return new float4(smoothstep(a.x, b.x, x.x), smoothstep(a.y, b.y, x.y), smoothstep(a.z, b.z, x.z), smoothstep(a.w, b.w, x.w)); }
+
+        public static float2 smoothstep(float2 a, float2 b, float2 x)
+        {
+            var t = saturate((x - a) / (b - a));
+            return t * t * (3.0F - (2.0F * t));
+        }
+
+        public static float3 smoothstep(float3 a, float3 b, float3 x)
+        {
+            var t = saturate((x - a) / (b - a));
+            return t * t * (3.0F - (2.0F * t));
+        }
+
+        public static float4 smoothstep(float4 a, float4 b, float4 x)
+        {
+            var t = saturate((x - a) / (b - a));
+            return t * t * (3.0F - (2.0F * t));
+        }
 
         // any
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -388,11 +403,11 @@ namespace UnityEngine
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float step(float a, float b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float2 step(float2 a, float2 b) { return new float2(step(a.x, b.x), step(a.y, b.y)); }
+        public static float2 step(float2 a, float2 b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 step(float3 a, float3 b) { return new float3(step(a.x, b.x), step(a.y, b.y), step(a.z, b.z)); }
+        public static float3 step(float3 a, float3 b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float4 step(float4 a, float4 b) { return new float4(step(a.x, b.x), step(a.y, b.y), step(a.z, b.z), step(a.w, b.w)); }
+        public static float4 step(float4 a, float4 b) { return select(0.0f, 1.0f, b >= a); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float reflect(float i, float n) { return i - 2f * n * dot(i, n); }
