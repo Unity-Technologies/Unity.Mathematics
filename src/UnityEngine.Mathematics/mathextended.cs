@@ -132,6 +132,7 @@ namespace UnityEngine
         [MethodImpl((MethodImplOptions)0x100)]
         public static float4 nfence(float4 value) { return value; }
 
+#if false
 
         //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...
 
@@ -141,9 +142,6 @@ namespace UnityEngine
         public static float4 chgsign(float4 val, float4 sign) { return new float4(chgsign(val.x, sign.x), chgsign(val.y, sign.y), chgsign(val.z, sign.z), chgsign(val.w, sign.w)); }
         public static float chgsign(float val, float sign) { return sign >= 0.0F ? val : -val; }
 
-
-        //@TODO: Complete this
-#if false
         //  sign: change sign
         //  return value: Returns -1 if x is less than zero; 0 if x equals zero; and 1 if x is greater than zero.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
