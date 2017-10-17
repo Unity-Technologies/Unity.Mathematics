@@ -49,7 +49,7 @@ namespace UnityEngine
 
         public override string ToString()
         {
-            return string.Format("int({0}, {1})", x, y);
+            return string.Format("int2({0}, {1})", x, y);
         }
     }
 }
