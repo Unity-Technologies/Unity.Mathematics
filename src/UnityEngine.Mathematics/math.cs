@@ -131,11 +131,11 @@ namespace UnityEngine
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float dot(float pt1, float pt2) { return pt1 * pt1; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float2 pt1, float2 pt2) { return csum(pt1 * pt2); }
+        public static float dot(float2 pt1, float2 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float3 pt1, float3 pt2) { return csum(pt1 * pt2); }
+        public static float dot(float3 pt1, float3 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float4 pt1, float4 pt2) { return csum(pt1 * pt2); }
+        public static float dot(float4 pt1, float4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
 
         // tan
         public static float tan(float value) { return (float)System.Math.Tan(value); }
