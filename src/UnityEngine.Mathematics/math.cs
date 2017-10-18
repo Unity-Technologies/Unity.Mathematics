@@ -129,7 +129,7 @@ namespace UnityEngine
 
         // dot
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float dot(float pt1, float pt2) { return pt1 * pt1; }
+        public static float dot(float pt1, float pt2) { return pt1 * pt2; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float dot(float2 pt1, float2 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
