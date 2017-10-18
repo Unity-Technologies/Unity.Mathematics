@@ -368,36 +368,36 @@ namespace UnityEngine
 
         // Select
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int select(bool c, int a, int b) { return c ? b : a; }
+        public static int select(bool c, int a, int b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int2 select(bool c, int2 a, int2 b) { return c ? b : a; }
+        public static int2 select(bool c, int2 a, int2 b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int3 select(bool c, int3 a, int3 b) { return c ? b : a; }
+        public static int3 select(bool c, int3 a, int3 b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int4 select(bool c, int4 a, int4 b) { return c ? b : a; }
+        public static int4 select(bool c, int4 a, int4 b) { return c ? a : b; }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int2 select(bool2 c, int2 a, int2 b) { return new int2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static int2 select(bool2 c, int2 a, int2 b) { return new int2(c.x ? a.x : b.x, c.y ? a.y : b.y); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int3 select(bool3 c, int3 a, int3 b) { return new int3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static int3 select(bool3 c, int3 a, int3 b) { return new int3(c.x ? a.x : b.x, c.y ? a.y : b.y, c.z ? a.z : b.z); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int4 select(bool4 c, int4 a, int4 b) { return new int4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static int4 select(bool4 c, int4 a, int4 b) { return new int4(c.x ? a.x : b.x, c.y ? a.y : b.y, c.z ? a.z : b.z, c.w ? a.w : b.w); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float select(bool c, float a, float b) { return c ? b : a; }
+        public static float select(bool c, float a, float b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float2 select(bool c, float2 a, float2 b) { return c ? b : a; }
+        public static float2 select(bool c, float2 a, float2 b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 select(bool c, float3 a, float3 b) { return c ? b : a; }
+        public static float3 select(bool c, float3 a, float3 b) { return c ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float4 select(bool c, float4 a, float4 b) { return c ? b : a; }
+        public static float4 select(bool c, float4 a, float4 b) { return c ? a : b; }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float2 select(bool2 c, float2 a, float2 b) { return new float2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static float2 select(bool2 c, float2 a, float2 b) { return new float2(c.x ? a.x : b.x, c.y ? a.y : b.y); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 select(bool3 c, float3 a, float3 b) { return new float3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static float3 select(bool3 c, float3 a, float3 b) { return new float3(c.x ? a.x : b.x, c.y ? a.y : b.y, c.z ? a.z : b.z); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float4 select(bool4 c, float4 a, float4 b) { return new float4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static float4 select(bool4 c, float4 a, float4 b) { return new float4(c.x ? a.x : b.x, c.y ? a.y : b.y, c.z ? a.z : b.z, c.w ? a.w : b.w); }
 
         //Step
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
