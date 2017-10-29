@@ -128,8 +128,8 @@
 
             bool c = lenU > epsilon_normal && lenV > epsilon_normal;
 
-            o.m0 = math.select(c, new float3(1, 0, 0), u / lenU);
-            o.m1 = math.select(c, new float3(0, 1, 0), v / lenV);
+            o.m0 = math.select(new float3(1, 0, 0), u / lenU, c);
+            o.m1 = math.select(new float3(0, 1, 0), v / lenV, c);
             o.m2 = math.cross(o.m0, o.m1);
 
             return o;
