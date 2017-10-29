@@ -4,7 +4,7 @@ A prototype of a C# math library providing vector types and math functions with 
 
 ## Building
 
-Open the `src\UnityEngine.Mathematics.sln` under Visual Studio 2015 or MonoDevelop and compile in Debug\Release.
+Open the `src\Unity.Mathematics.sln` under Visual Studio 2015 or MonoDevelop and compile in Debug\Release.
 
 ## Tasks TODO
 
