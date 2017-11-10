@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="TestBool1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestBool4.cs" />
+    <Compile Include="TestBool3.cs" />
     <Compile Include="TestBool2.cs" />
   </ItemGroup>
   <ItemGroup>
