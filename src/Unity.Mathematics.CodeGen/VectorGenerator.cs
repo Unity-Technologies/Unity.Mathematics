@@ -6,37 +6,55 @@ namespace Unity.Mathematics.Mathematics.CodeGen
     class VectorGenerator
     {
         string[] m_Types;
-        bool m_IsFloat;
-        bool m_IsBool;
+        private GeneratorJob m_Job;
 
         static readonly string[] floatTypes = { "float", "float2", "float3", "float4" };
         static readonly string[] intTypes = { "int", "int2", "int3", "int4" };
         static readonly string[] boolTypes = { "bool", "bool2", "bool3", "bool4" };
-        static readonly string[] components = { "x", "y", "z", "w" }; static readonly string[] fields = { "x", "y", "z", "w" };
+        static readonly string[] components = { "x", "y", "z", "w" };
+        static readonly string[] fields = { "x", "y", "z", "w" };
 
-        public VectorGenerator(bool isFloat, bool isBool)
+        private struct GeneratorJob
         {
-            m_IsFloat = isFloat;
-            m_IsBool = isBool;
+            public bool supportsArithmetic;
+            public bool supportsShifts;
+            public bool supportsBitwiseLogic;
+            public bool supportsBitwiseComplement;
 
-            if (m_IsFloat)
-                m_Types = floatTypes;
-            else if (m_IsBool)
-                m_Types = boolTypes;
-            else
-                m_Types = intTypes;
+            public GeneratorJob(string[] names)
+            {
+                typeNames = names;
+                supportsArithmetic = false;
+                supportsShifts = false;
+                supportsBitwiseLogic = false;
+                supportsBitwiseComplement = false;
+            }
+
+            public string[] typeNames;
+        }
+
+        private static readonly GeneratorJob[] s_Jobs = new[]
+        {
+            new GeneratorJob { typeNames = floatTypes, supportsArithmetic = true, supportsShifts = false },
+            new GeneratorJob { typeNames = intTypes, supportsArithmetic = true, supportsShifts = true, supportsBitwiseLogic = true, supportsBitwiseComplement = true },
+            new GeneratorJob { typeNames = boolTypes, supportsArithmetic = false, supportsShifts = false, supportsBitwiseLogic = true },
+        };
+
+        private VectorGenerator(GeneratorJob job)
+        {
+            m_Job = job;
+            m_Types = m_Job.typeNames;
         }
 
         public static void Write(string dir)
         {
-            for (int t = 0; t < 3; t++)
+            foreach (GeneratorJob job in s_Jobs)
             {
-                for (int i = 1; i < floatTypes.Length; i++)
+                var typeNames = job.typeNames;
+                for (int i = 1; i < typeNames.Length; i++)
                 {
-
                     StringBuilder builder = new StringBuilder();
-
-                    VectorGenerator gen = new VectorGenerator(t == 0, t == 2);
+                    VectorGenerator gen = new VectorGenerator(job);
 
                     gen.Generate(i + 1, builder);
 
@@ -46,7 +64,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     // Convert all EOL to platform EOL
                     text = text.Replace("\n", Environment.NewLine);
 
-                    System.IO.File.WriteAllText(dir + "/" + gen.m_Types[i] + ".gen.cs", text);
+                    System.IO.File.WriteAllText(dir + "/" + typeNames[i] + ".gen.cs", text);
 
                 }
             }
@@ -74,10 +92,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public void GenerateOperators(int count, StringBuilder str)
         {
             string resultType = m_Types[count - 1];
-            string resultIntType = intTypes[count - 1];
             string resultBoolType = boolTypes[count - 1];
 
-            if (!m_IsBool)
+            if (m_Job.supportsArithmetic)
             {
                 str.Append("\n\t\t// mul\n");
                 GenerateBinaryOperator(count, "*", count, resultType, str);
@@ -107,6 +124,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             }
 
+            if (m_Job.supportsShifts)
+            {
+                str.Append("\n\t\t// left shift\n");
+                GenerateBinaryOperatorScalarRhs(count, "<<", count, resultType, str);
+
+                str.Append("\n\t\t// right shift\n");
+                GenerateBinaryOperatorScalarRhs(count, ">>", count, resultType, str);
+            }
+
+
+
             str.Append("\n\t\t// equal \n");
             GenerateBinaryOperator(count, "==", count, resultBoolType, str);
 
@@ -114,9 +142,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t// not equal \n");
             GenerateBinaryOperator(count, "!=", count, resultBoolType, str);
 
-            if (!m_IsFloat)
+            if (m_Job.supportsBitwiseLogic)
             {
-
                 string[] binaryOps = { "&", "|", "^" };
                 foreach (string binOp in binaryOps)
                 {
@@ -124,19 +151,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     GenerateBinaryOperator(count, binOp, count, resultType, str);
                 }
 
-                if (!m_IsBool)
-                {
-                    str.Append("\n\t\t// operator ~ \n");
-                    GenerateUnaryOperator(count, "~", str);
-                }
+            }
+
+            if (m_Job.supportsBitwiseComplement)
+            {
+                str.Append("\n\t\t// operator ~ \n");
+                GenerateUnaryOperator(count, "~", str);
             }
         }
 
         void GenerateBinaryOperator(int count, string op, int resultCount, string resultType, StringBuilder str)
         {
             GenerateBinaryOperator(count - 1, count - 1, op, resultCount, resultType, str);
-            GenerateBinaryOperator(count - 1, 0, op, resultCount, resultType, str);
+            GenerateBinaryOperatorScalarRhs(count, op, resultCount, resultType, str);
             GenerateBinaryOperator(0, count - 1, op, resultCount, resultType, str);
+        }
+
+        void GenerateBinaryOperatorScalarRhs(int count, string op, int resultCount, string resultType, StringBuilder str)
+        {
+            GenerateBinaryOperator(count - 1, 0, op, resultCount, resultType, str);
         }
 
 

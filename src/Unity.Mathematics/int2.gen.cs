@@ -72,6 +72,14 @@ namespace Unity.Mathematics
         // plus 
         [MethodImpl(0x100)]
         public static int2 operator + (int2 val) { return new int2 (+val.x, +val.y); }
+        // left shift
+        [MethodImpl(0x100)]
+        public static int2 operator << (int2 lhs, int rhs) { return new int2 (lhs.x << rhs, lhs.y << rhs); }
+
+        // right shift
+        [MethodImpl(0x100)]
+        public static int2 operator >> (int2 lhs, int rhs) { return new int2 (lhs.x >> rhs, lhs.y >> rhs); }
+
         // equal 
         [MethodImpl(0x100)]
         public static bool2 operator == (int2 lhs, int2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
