@@ -89,6 +89,12 @@
     <Compile Include="matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="mathquat.cs" />
+    <Compile Include="uint2.cs" />
+    <Compile Include="uint2.gen.cs" />
+    <Compile Include="uint3.cs" />
+    <Compile Include="uint3.gen.cs" />
+    <Compile Include="uint4.cs" />
+    <Compile Include="uint4.gen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

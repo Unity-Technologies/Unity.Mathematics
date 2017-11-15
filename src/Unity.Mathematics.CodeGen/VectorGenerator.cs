@@ -8,36 +8,36 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         string[] m_Types;
         private GeneratorJob m_Job;
 
+        [Flags]
+        private enum Features
+        {
+            Arithmetic = 1 << 0,
+            Shifts = 1 << 1,
+            BitwiseLogic = 1 << 2,
+            BitwiseComplement = 1 << 3,
+            UnaryNegation = 1 << 4,
+            All = Arithmetic | Shifts | BitwiseLogic | BitwiseComplement | UnaryNegation
+        }
+
         static readonly string[] floatTypes = { "float", "float2", "float3", "float4" };
         static readonly string[] intTypes = { "int", "int2", "int3", "int4" };
+        static readonly string[] uintTypes = { "uint", "uint2", "uint3", "uint4" };
         static readonly string[] boolTypes = { "bool", "bool2", "bool3", "bool4" };
         static readonly string[] components = { "x", "y", "z", "w" };
         static readonly string[] fields = { "x", "y", "z", "w" };
 
         private struct GeneratorJob
         {
-            public bool supportsArithmetic;
-            public bool supportsShifts;
-            public bool supportsBitwiseLogic;
-            public bool supportsBitwiseComplement;
-
-            public GeneratorJob(string[] names)
-            {
-                typeNames = names;
-                supportsArithmetic = false;
-                supportsShifts = false;
-                supportsBitwiseLogic = false;
-                supportsBitwiseComplement = false;
-            }
-
+            public Features features;
             public string[] typeNames;
         }
 
         private static readonly GeneratorJob[] s_Jobs = new[]
         {
-            new GeneratorJob { typeNames = floatTypes, supportsArithmetic = true, supportsShifts = false },
-            new GeneratorJob { typeNames = intTypes, supportsArithmetic = true, supportsShifts = true, supportsBitwiseLogic = true, supportsBitwiseComplement = true },
-            new GeneratorJob { typeNames = boolTypes, supportsArithmetic = false, supportsShifts = false, supportsBitwiseLogic = true },
+            new GeneratorJob { typeNames = floatTypes, features = Features.Arithmetic | Features.UnaryNegation },
+            new GeneratorJob { typeNames = intTypes, features = Features.All },
+            new GeneratorJob { typeNames = uintTypes, features = Features.All & ~Features.UnaryNegation },
+            new GeneratorJob { typeNames = boolTypes, features = Features.BitwiseLogic },
         };
 
         private VectorGenerator(GeneratorJob job)
@@ -94,7 +94,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string resultType = m_Types[count - 1];
             string resultBoolType = boolTypes[count - 1];
 
-            if (m_Job.supportsArithmetic)
+            if (0 != (m_Job.features & Features.Arithmetic))
             {
                 str.Append("\n\t\t// mul\n");
                 GenerateBinaryOperator(count, "*", count, resultType, str);
@@ -115,25 +115,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append("\n\t\t// greater \n");
                 GenerateBinaryOperator(count, ">", count, resultBoolType, str);
                 GenerateBinaryOperator(count, ">=", count, resultBoolType, str);
+            }
 
+            if (0 != (m_Job.features & Features.UnaryNegation))
+            {
                 str.Append("\n\t\t// neg \n");
                 GenerateUnaryOperator(count, "-", str);
 
                 str.Append("\n\t\t// plus \n");
                 GenerateUnaryOperator(count, "+", str);
-
             }
 
-            if (m_Job.supportsShifts)
+            if (0 != (m_Job.features & Features.Shifts))
             {
                 str.Append("\n\t\t// left shift\n");
-                GenerateBinaryOperatorScalarRhs(count, "<<", count, resultType, str);
+                GenerateShiftOperator(count, "<<", count, resultType, str);
 
                 str.Append("\n\t\t// right shift\n");
-                GenerateBinaryOperatorScalarRhs(count, ">>", count, resultType, str);
+                GenerateShiftOperator(count, ">>", count, resultType, str);
             }
-
-
 
             str.Append("\n\t\t// equal \n");
             GenerateBinaryOperator(count, "==", count, resultBoolType, str);
@@ -142,7 +142,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t// not equal \n");
             GenerateBinaryOperator(count, "!=", count, resultBoolType, str);
 
-            if (m_Job.supportsBitwiseLogic)
+            if (0 != (m_Job.features & Features.BitwiseLogic))
             {
                 string[] binaryOps = { "&", "|", "^" };
                 foreach (string binOp in binaryOps)
@@ -153,7 +153,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             }
 
-            if (m_Job.supportsBitwiseComplement)
+            if (0 != (m_Job.features & Features.BitwiseComplement))
             {
                 str.Append("\n\t\t// operator ~ \n");
                 GenerateUnaryOperator(count, "~", str);
@@ -171,8 +171,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             GenerateBinaryOperator(count - 1, 0, op, resultCount, resultType, str);
         }
-
-
 
         void GenerateBinaryOperator(int lhsTypeIndex, int rhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
         {
@@ -212,7 +210,33 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("); }\n");
         }
 
+        void GenerateShiftOperator(int lhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
+        {
+            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, int rhs)", resultType, op, m_Types[lhsTypeIndex - 1]);
+            str.Append(" { ");
+            str.AppendFormat("return new {0} (", resultType);
 
+            for (int i = 0; i < resultCount; i++)
+            {
+                if (lhsTypeIndex == 0)
+                {
+                    str.AppendFormat("lhs {0} rhs", op);
+                    if (i != resultCount - 1)
+                        str.Append(", ");
+                }
+                else
+                {
+                    int lhsIndex = i;
+                    str.AppendFormat("lhs.{0} {1} rhs", fields[lhsIndex], op);
+                    if (i != resultCount - 1)
+                        str.Append(", ");
+                }
+            }
+
+
+            str.Append("); }\n");
+        }
 
         void GenerateUnaryOperator(int count, string op, StringBuilder str)
         {
