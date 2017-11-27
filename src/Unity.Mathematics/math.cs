@@ -1,4 +1,4 @@
-﻿// * TODO: Validate -1 vs 1 behaviour in math lib. eg < returns 0 / -1
+// * TODO: Validate -1 vs 1 behaviour in math lib. eg < returns 0 / -1
 //   Check if all operators act accordingly
 // * Also int3 etc bool casts? should they exist?
 // * Should we allow float4 value = 5; it is convenient and how it is in hlsl but maybe not the right fit in C#?
@@ -243,12 +243,23 @@ namespace Unity.Mathematics
         public static float3 exp(float3 a) { return new float3(exp(a.x), exp(a.y), exp(a.z)); }
         public static float4 exp(float4 a) { return new float4(exp(a.x), exp(a.y), exp(a.z), exp(a.w)); }
 
+        // log
+        public static float log(float x) { return (float)System.Math.Log((float)x); }
+        public static float2 log(float2 a) { return new float2(log(a.x), log(a.y)); }
+        public static float3 log(float3 a) { return new float3(log(a.x), log(a.y), log(a.z)); }
+        public static float4 log(float4 a) { return new float4(log(a.x), log(a.y), log(a.z), log(a.w)); }
+
+        // log10
+        public static float log10(float x) { return (float)System.Math.Log10((float)x); }
+        public static float2 log10(float2 a) { return new float2(log10(a.x), log10(a.y)); }
+        public static float3 log10(float3 a) { return new float3(log10(a.x), log10(a.y), log10(a.z)); }
+        public static float4 log10(float4 a) { return new float4(log10(a.x), log10(a.y), log10(a.z), log10(a.w)); }
+
         // mod
         public static float mod(float a, float b) { return a % b; }
         public static float2 mod(float2 a, float2 b) { return new float2(a.x % b.x, a.y % b.y); }
         public static float3 mod(float3 a, float3 b) { return new float3(a.x % b.x, a.y % b.y, a.z % b.z); }
         public static float4 mod(float4 a, float4 b) { return new float4(a.x % b.x, a.y % b.y, a.z % b.z, a.w % b.w); }
-
 
         // sqrt
         public static float sqrt(float a) { return (float)System.Math.Sqrt((float)a); }
