@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct uint2
+    public partial struct uint2 : System.IEquatable<uint2>
     {
 
         // mul
@@ -89,6 +89,10 @@ namespace Unity.Mathematics
         public static bool2 operator != (uint2 lhs, uint rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
         [MethodImpl(0x100)]
         public static bool2 operator != (uint lhs, uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+
+        // Equals 
+        [MethodImpl(0x100)]
+        public bool Equals(uint2 rhs)  { return x == rhs.x && y == rhs.y; }
 
         // operator &
         [MethodImpl(0x100)]

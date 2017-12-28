@@ -79,7 +79,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("#pragma warning disable 0660, 0661\n");
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
-            str.AppendFormat("\tpublic partial struct {0}\n", m_Types[count - 1]);
+            str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_Types[count - 1]);
             str.Append("\t{\n");
 
             GenerateOperators(count, str);
@@ -141,6 +141,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.Append("\n\t\t// not equal \n");
             GenerateBinaryOperator(count, "!=", count, resultBoolType, str);
+
+            str.Append("\n\t\t// Equals \n");
+            GenerateEquals(count, resultType, str);
 
             if (0 != (m_Job.features & Features.BitwiseLogic))
             {
@@ -209,6 +212,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.Append("); }\n");
         }
+
+        void GenerateEquals(int resultCount, string resultType, StringBuilder str)
+        {
+            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.AppendFormat("\t\tpublic bool Equals({0} rhs) ", resultType);
+            str.Append(" { ");
+            str.AppendFormat("return ", resultType);
+
+            for (int i = 0; i < resultCount; i++)
+            {
+                str.Append(fields[i] + " == rhs." + fields[i]);
+                if (i != resultCount-1)
+                    str.Append(" && ");
+            }
+
+            str.Append("; }\n");
+        }
+
 
         void GenerateShiftOperator(int lhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
         {

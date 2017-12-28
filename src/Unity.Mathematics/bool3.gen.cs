@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct bool3
+    public partial struct bool3 : System.IEquatable<bool3>
     {
 
         // equal 
@@ -21,6 +21,10 @@ namespace Unity.Mathematics
         public static bool3 operator != (bool3 lhs, bool rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
         [MethodImpl(0x100)]
         public static bool3 operator != (bool lhs, bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
+
+        // Equals 
+        [MethodImpl(0x100)]
+        public bool Equals(bool3 rhs)  { return x == rhs.x && y == rhs.y && z == rhs.z; }
 
         // operator &
         [MethodImpl(0x100)]

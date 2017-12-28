@@ -3,7 +3,7 @@ using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct int4
+    public partial struct int4 : System.IEquatable<int4>
     {
 
         // mul
@@ -95,6 +95,10 @@ namespace Unity.Mathematics
         public static bool4 operator != (int4 lhs, int rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
         [MethodImpl(0x100)]
         public static bool4 operator != (int lhs, int4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
+
+        // Equals 
+        [MethodImpl(0x100)]
+        public bool Equals(int4 rhs)  { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
         // operator &
         [MethodImpl(0x100)]
