@@ -100,6 +100,27 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public bool Equals(int2 rhs)  { return x == rhs.x && y == rhs.y; }
 
+        // [int index] 
+        unsafe public int this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (int* array = &x) { return array[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (int* array = &x) { array[index] = value; }
+            }
+        }
+
         // operator &
         [MethodImpl(0x100)]
         public static int2 operator & (int2 lhs, int2 rhs) { return new int2 (lhs.x & rhs.x, lhs.y & rhs.y); }

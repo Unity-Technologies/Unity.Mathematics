@@ -30,14 +30,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             public Features features;
             public string[] typeNames;
+            public string indexOperatorReturnType;
         }
 
         private static readonly GeneratorJob[] s_Jobs = new[]
         {
-            new GeneratorJob { typeNames = floatTypes, features = Features.Arithmetic | Features.UnaryNegation },
-            new GeneratorJob { typeNames = intTypes, features = Features.All },
-            new GeneratorJob { typeNames = uintTypes, features = Features.All & ~Features.UnaryNegation },
-            new GeneratorJob { typeNames = boolTypes, features = Features.BitwiseLogic },
+            new GeneratorJob { indexOperatorReturnType = "float", typeNames = floatTypes, features = Features.Arithmetic | Features.UnaryNegation },
+            new GeneratorJob { indexOperatorReturnType = "int", typeNames = intTypes, features = Features.All },
+            new GeneratorJob { indexOperatorReturnType = "uint", typeNames = uintTypes, features = Features.All & ~Features.UnaryNegation },
+            new GeneratorJob { indexOperatorReturnType = "bool1", typeNames = boolTypes, features = Features.BitwiseLogic },
         };
 
         private VectorGenerator(GeneratorJob job)
@@ -145,6 +146,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t// Equals \n");
             GenerateEquals(count, resultType, str);
 
+            str.Append("\n\t\t// [int index] \n");
+            GenerateIndexOperator(count, m_Job.indexOperatorReturnType, str);
+
             if (0 != (m_Job.features & Features.BitwiseLogic))
             {
                 string[] binaryOps = { "&", "|", "^" };
@@ -211,6 +215,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             str.Append("); }\n");
+        }
+
+        void GenerateIndexOperator(int count, string indexOperatorReturnType, StringBuilder str)
+        {
+            str.AppendFormat("\t\tunsafe public {0} this[int index]\n", indexOperatorReturnType);
+            str.AppendLine("\t\t{");
+            str.AppendLine("\t\t\tget");
+            str.AppendLine("\t\t\t{");
+            str.AppendLine("#if ENABLE_UNITY_COLLECTIONS_CHECKS");
+            str.AppendFormat("\t\t\t\tif ((uint)index >= {0})\n", count);
+            str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
+            str.AppendLine("#endif");
+            str.Append("\t\t\t\tfixed (");
+            str.Append(indexOperatorReturnType);
+            str.Append("* array = &x) { return array[index]; }\n");
+            str.AppendLine("\t\t\t}");
+
+            str.AppendLine("\t\t\tset");
+            str.AppendLine("\t\t\t{");
+            str.AppendLine("#if ENABLE_UNITY_COLLECTIONS_CHECKS");
+            str.AppendFormat("\t\t\t\tif ((uint)index >= {0})\n", count);
+            str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
+            str.AppendLine("#endif");
+            str.Append("\t\t\t\tfixed (");
+            str.Append(indexOperatorReturnType);
+            str.Append("* array = &x) { array[index] = value; }\n");
+            str.AppendLine("\t\t\t}");
+            str.AppendLine("\t\t}");
+
         }
 
         void GenerateEquals(int resultCount, string resultType, StringBuilder str)
