@@ -27,25 +27,25 @@ namespace Unity.Mathematics
         public bool Equals(bool2 rhs)  { return x == rhs.x && y == rhs.y; }
 
         // [int index] 
-        unsafe public bool1 this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+        unsafe public bool this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (bool1* array = &x) { return array[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+#endif
+                fixed (bool2* array = &this) { return ((bool*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (bool1* array = &x) { array[index] = value; }
-            }
-        }
+#endif
+                fixed (bool* array = &x) { array[index] = value; }
+            }
+        }
 
         // operator &
         [MethodImpl(0x100)]

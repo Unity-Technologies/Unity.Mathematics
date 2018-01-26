@@ -1,5 +1,6 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using System.Runtime.InteropServices;
 
 #pragma warning disable 0660, 0661
 
@@ -24,10 +25,14 @@ namespace Unity.Mathematics
             }
         }
 
-        public bool1 x;
-        public bool1 y;
-        public bool1 z;
-        public bool1 w;
+        [MarshalAs(UnmanagedType.U1)] // Allow this struct to be passed to a dynamic delegate and marshal correctly
+        public bool x;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool y;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool z;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool w;
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public bool4(bool x, bool y, bool z, bool w)

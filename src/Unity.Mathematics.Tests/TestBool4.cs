@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,10 +15,10 @@ namespace Unity.Mathematics.Tests
             [Values(false, true)] bool originalValue)
         {
             bool4 testValue = new bool4(originalValue);
-            Assert.AreEqual(testValue.x, (bool1)originalValue);
-            Assert.AreEqual(testValue.y, (bool1)originalValue);
-            Assert.AreEqual(testValue.z, (bool1)originalValue);
-            Assert.AreEqual(testValue.w, (bool1)originalValue);
+            Assert.AreEqual(testValue.x, originalValue);
+            Assert.AreEqual(testValue.y, originalValue);
+            Assert.AreEqual(testValue.z, originalValue);
+            Assert.AreEqual(testValue.w, originalValue);
         }
 
         [Test]
@@ -30,10 +30,10 @@ namespace Unity.Mathematics.Tests
         {
             bool3 xyz = new bool3(firstArgument, secondArgument, thirdArgument);
             bool4 testValue = new bool4(xyz, fourthArgument);
-            Assert.AreEqual(testValue.x, (bool1)firstArgument);
-            Assert.AreEqual(testValue.y, (bool1)secondArgument);
-            Assert.AreEqual(testValue.z, (bool1)thirdArgument);
-            Assert.AreEqual(testValue.w, (bool1)fourthArgument);
+            Assert.AreEqual(testValue.x, firstArgument);
+            Assert.AreEqual(testValue.y, secondArgument);
+            Assert.AreEqual(testValue.z, thirdArgument);
+            Assert.AreEqual(testValue.w, fourthArgument);
         }
 
         [Test]
@@ -44,10 +44,10 @@ namespace Unity.Mathematics.Tests
 			[Values(false, true)] bool fourthArgument)
         {
             bool4 testValue = new bool4(firstArgument, secondArgument, thirdArgument, fourthArgument);
-            Assert.AreEqual(testValue.x, (bool1)firstArgument);
-            Assert.AreEqual(testValue.y, (bool1)secondArgument);
-            Assert.AreEqual(testValue.z, (bool1)thirdArgument);
-            Assert.AreEqual(testValue.w, (bool1)fourthArgument);
+            Assert.AreEqual(testValue.x, firstArgument);
+            Assert.AreEqual(testValue.y, secondArgument);
+            Assert.AreEqual(testValue.z, thirdArgument);
+            Assert.AreEqual(testValue.w, fourthArgument);
         }
 
         [Test]
