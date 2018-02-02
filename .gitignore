@@ -219,3 +219,4 @@ _Pvt_Extensions
 ext/llvm/win64_debug/
 ext/llvm/win64_release/
 ext/llvm/macos/
+*.idea
