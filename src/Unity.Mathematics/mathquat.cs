@@ -1,10 +1,9 @@
-﻿// Needs lots of work before ready...
-#if false
+﻿using System;
+using System.Xml;
 
-using System.Runtime.CompilerServices;
-
-namespace Unity.Mathematics.Experimental
+namespace Unity.Mathematics
 {
+    [Serializable]
     public partial struct quaternion
     {
         public float4 value;
@@ -14,32 +13,9 @@ namespace Unity.Mathematics.Experimental
 
         public static quaternion identity { get { return new quaternion(0.0F, 0.0F, 0.0F, 1.0F); } }
 
-        public static quaternion axisAngle(float3 axis, float angle)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        //@TODO: Seperated x, y, z
-        public static quaternion euler(float3 eulerInDegrees)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        //@TODO: Decide on saturate for t (old math lib did it...)
-
-        public static quaternion slerp(quaternion lhs, quaternion rhs, float t)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public static quaternion lerp(quaternion lhs, quaternion rhs, float t)
-        {
-            var res = math.normalize(lhs.value + t * (math.chgsign(rhs.value, math.dot(lhs.value, rhs.value)) - rhs.value));
-            return new quaternion(res);
-        }
     }
 
-    public static partial class math_experimental
+    public static partial class math
     {
         public static quaternion normalize(quaternion q)
         {
@@ -86,7 +62,7 @@ namespace Unity.Mathematics.Experimental
 
         // get unit quaternion from rotation matrix
         // u, v, w must be ortho-normal.
-        static quaternion matrixToQuat(float3 u, float3 v, float3 w)
+        public static quaternion matrixToQuat(float3 u, float3 v, float3 w)
         {
             float4 q;
             if (u.x >= 0f)
@@ -107,8 +83,91 @@ namespace Unity.Mathematics.Experimental
             }
             return normalize(new quaternion(q));
         }
+
+        public static float3x3 quatToMatrix(quaternion q)
+        {
+            q = math.normalize(q);
+            
+            // Precalculate coordinate products
+            float x = q.value.x * 2.0F;
+            float y = q.value.y * 2.0F;
+            float z = q.value.z * 2.0F;
+            float xx = q.value.x * x;
+            float yy = q.value.y * y;
+            float zz = q.value.z * z;
+            float xy = q.value.x * y;
+            float xz = q.value.x * z;
+            float yz = q.value.y * z;
+            float wx = q.value.w * x;
+            float wy = q.value.w * y;
+            float wz = q.value.w * z;
+
+            // Calculate 3x3 matrix from orthonormal basis
+            var m = new float3x3
+            {
+                m0 = new float3(1.0f - (yy + zz), xy + wz, xz - wy),
+                m1 = new float3(xy - wz, 1.0f - (xx + zz), yz + wx),
+                m2 = new float3(xz + wy, yz - wx, 1.0f - (xx + yy))
+            };
+            return m;
+        }
+
+        public static float4x4 rottrans(quaternion q, float3 t)
+        {
+            var m3x3 = quatToMatrix(q);
+            var m = new float4x4
+            {
+                m0 = new float4(m3x3.m0, 0.0f),
+                m1 = new float4(m3x3.m1, 0.0f),
+                m2 = new float4(m3x3.m2, 0.0f),
+                m3 = new float4(t, 1.0f)
+            };
+            return m;
+        }
+        
+        public static quaternion axisAngle(float3 axis, float angle)
+        {
+            float3 axisUnit  = math.normalize(axis);
+            float sina = math.sin(0.5f * angle);
+            float cosa = math.cos(0.5f * angle);
+            return new quaternion { value = new float4( axisUnit.x * sina, axisUnit.y * sina, axisUnit.z * sina, cosa ) };
+        }
+
+        //@TODO: Seperated x, y, z
+        public static quaternion euler(float3 eulerInDegrees)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        //@TODO: Decide on saturate for t (old math lib did it...)
+
+        public static quaternion slerp(quaternion lhs, quaternion rhs, float t)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public static quaternion lerp(quaternion lhs, quaternion rhs, float t)
+        {
+            throw new System.NotImplementedException();
+            // var res = math.normalize(lhs.value + t * (math.chgsign(rhs.value, math.dot(lhs.value, rhs.value)) - rhs.value));
+            // return new quaternion(res);
+        }
+
+        public static float3 forward(quaternion q)
+        {
+            return mul(q, new float3(0, 0, 1));
+        }
+        
+        public static float3 up(quaternion q)
+        {
+            return mul(q, new float3(0, 1, 0));
+        }
+
+        public static quaternion lookRotationToQuaternion(float3 direction, float3 up)
+        {
+            var m = lookRotationToMatrix(direction, up);
+            var q = matrixToQuat(m.m0,m.m1,m.m2);
+            return q;
+        }
     }
-
 }
-
-#endif
