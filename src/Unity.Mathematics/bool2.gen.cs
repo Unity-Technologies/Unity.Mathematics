@@ -28,24 +28,24 @@ namespace Unity.Mathematics
 
         // [int index] 
         unsafe public bool1 this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (bool1* array = &x) { return array[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+#endif
+                fixed (bool2* array = &this) { return ((bool1*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
+#endif
                 fixed (bool1* array = &x) { array[index] = value; }
-            }
-        }
+            }
+        }
 
         // operator &
         [MethodImpl(0x100)]

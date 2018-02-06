@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Text;
 
 namespace Unity.Mathematics.Mathematics.CodeGen
@@ -147,7 +147,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateEquals(count, resultType, str);
 
             str.Append("\n\t\t// [int index] \n");
-            GenerateIndexOperator(count, m_Job.indexOperatorReturnType, str);
+            GenerateIndexOperator(count, resultType, m_Job.indexOperatorReturnType, str);
 
             if (0 != (m_Job.features & Features.BitwiseLogic))
             {
@@ -217,7 +217,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("); }\n");
         }
 
-        void GenerateIndexOperator(int count, string indexOperatorReturnType, StringBuilder str)
+        void GenerateIndexOperator(int count, string vectorType, string indexOperatorReturnType, StringBuilder str)
         {
             str.AppendFormat("\t\tunsafe public {0} this[int index]\n", indexOperatorReturnType);
             str.AppendLine("\t\t{");
@@ -227,11 +227,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t\t\tif ((uint)index >= {0})\n", count);
             str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
             str.AppendLine("#endif");
+            // To workaround an undefined behavior with taking the fixed address of a struct field (that could be allocated on the stack)
+            // we are fixing this instead of a field
+            // See issue https://github.com/dotnet/coreclr/issues/16210
             str.Append("\t\t\t\tfixed (");
-            str.Append(indexOperatorReturnType);
-            str.Append("* array = &x) { return array[index]; }\n");
+            str.Append(vectorType);
+            str.Append("* array = &this) { return ((").Append(indexOperatorReturnType).Append("*)array)[index]; }\n");
             str.AppendLine("\t\t\t}");
-
             str.AppendLine("\t\t\tset");
             str.AppendLine("\t\t\t{");
             str.AppendLine("#if ENABLE_UNITY_COLLECTIONS_CHECKS");
