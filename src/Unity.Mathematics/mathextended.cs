@@ -25,7 +25,6 @@ namespace Unity.Mathematics
         // Returns the number of enabled mask bits. (0 ... 4)
         public static unsafe int compress(int* output, int index, int4 val, bool4 mask)
         {
-            int4 outputValue = new int4(0);
             if (mask.x)
                 output[index++] = val.x;
             if (mask.y)
@@ -131,7 +130,7 @@ namespace Unity.Mathematics
         public static float3 nfence(float3 value) { return value; }
         [MethodImpl((MethodImplOptions)0x100)]
         public static float4 nfence(float4 value) { return value; }
-
+        
 #if false
 
         //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...
