@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Unity.Mathematics;
 
 namespace Unity.Mathematics.Shaders
 {

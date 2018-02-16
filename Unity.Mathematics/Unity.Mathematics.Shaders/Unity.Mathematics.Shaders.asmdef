@@ -1,0 +1,6 @@
+{
+    "name": "Unity.Mathematics.Shaders",
+    "references": [
+        "Unity.Mathematics"
+    ]
+}
