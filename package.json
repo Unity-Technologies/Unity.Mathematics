@@ -1,0 +1,10 @@
+{
+    "category": "Unity", 
+    "description": "Unity SIMD Math", 
+    "keywords": [
+        "unity"
+    ], 
+    "name": "com.unity.mathematics", 
+    "unity": "2018.1", 
+    "version": "0.0.3"
+}
