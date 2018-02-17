@@ -1,10 +1,10 @@
 {
-    "category": "Unity", 
-    "description": "Unity SIMD Math", 
+    "category": "Unity",
+    "description": "Unity's C# SIMD math library providing vector types and math functions with a shader like syntax. This package is still in experimental phase.",
     "keywords": [
         "unity"
-    ], 
-    "name": "com.unity.mathematics", 
-    "unity": "2018.1", 
+    ],
+    "name": "com.unity.mathematics",
+    "unity": "2018.1",
     "version": "0.0.3"
 }
