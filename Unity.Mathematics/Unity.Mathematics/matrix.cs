@@ -16,9 +16,9 @@
         }
 
         public float4x4(float m00, float m01, float m02, float m03,
-                        float m10, float m11, float m12, float m13,
-                        float m20, float m21, float m22, float m23,
-                        float m30, float m31, float m32, float m33)
+            float m10, float m11, float m12, float m13,
+            float m20, float m21, float m22, float m23,
+            float m30, float m31, float m32, float m33)
         {
             this.m0 = new float4(m00, m01, m02, m03);
             this.m1 = new float4(m10, m11, m12, m13);
@@ -30,6 +30,14 @@
         {
             return new float4x4(mat.m0 * s, mat.m1 * s, mat.m2 * s, mat.m3 * s);
         }
+
+        public static float4x4 identity => new float4x4
+        {
+            m0 = new float4(1.0f, 0.0f, 0.0f, 0.0f),
+            m1 = new float4(0.0f, 1.0f, 0.0f, 0.0f),
+            m2 = new float4(0.0f, 0.0f, 1.0f, 0.0f),
+            m3 = new float4(0.0f, 0.0f, 0.0f, 1.0f)
+        };
     }
 
     public partial struct float2x2
@@ -44,7 +52,7 @@
         }
 
         public float2x2(float m00, float m01,
-                        float m10, float m11)
+            float m10, float m11)
         {
             this.m0 = new float2(m00, m01);
             this.m1 = new float2(m10, m11);
@@ -70,8 +78,8 @@
         }
 
         public float3x3(float m00, float m01, float m02,
-                        float m10, float m11, float m12,
-                        float m20, float m21, float m22)
+            float m10, float m11, float m12,
+            float m20, float m21, float m22)
         {
             this.m0 = new float3(m00, m01, m02);
             this.m1 = new float3(m10, m11, m12);
@@ -138,6 +146,73 @@
         public static float2x2 transpose(float2x2 i) { return new float2x2(i.m0.x, i.m1.x, i.m0.y, i.m1.y); }
         public static float3x3 transpose(float3x3 i) { return new float3x3(i.m0.x, i.m1.x, i.m2.x, i.m0.y, i.m1.y, i.m2.y, i.m0.z, i.m1.z, i.m2.z); }
         public static float4x4 transpose(float4x4 i) { return new float4x4(i.m0.x, i.m1.x, i.m2.x, i.m3.x, i.m0.y, i.m1.y, i.m2.y, i.m3.y, i.m0.z, i.m1.z, i.m2.z, i.m3.z, i.m0.w, i.m1.w, i.m2.w, i.m3.w); }
+        
+        public static float4x4 scale(float3 vector)
+        {
+            float4x4 matrix4x4 = new float4x4();
+            matrix4x4.m0 = new float4(vector.x,0.0f,0.0f,0.0f);
+            matrix4x4.m1 = new float4(0.0f,vector.y,0.0f,0.0f);
+            matrix4x4.m2 = new float4(0.0f,0.0f,vector.z,0.0f);
+            matrix4x4.m3 = new float4(0.0f, 0.0f, 0.0f, 1.0f);
+            return matrix4x4;
+        }
+
+        public static float4x4 translate(float3 vector)
+        {
+            float4x4 matrix4x4 = new float4x4();
+            matrix4x4.m0 = new float4(1.0f, 0.0f, 0.0f, 0.0f);
+            matrix4x4.m1 = new float4(0.0f, 1.0f, 0.0f, 0.0f);
+            matrix4x4.m2 = new float4(0.0f, 0.0f, 1.0f, 0.0f);
+            matrix4x4.m3 = new float4(vector.x, vector.y, vector.z, 1.0f);
+            return matrix4x4;
+        }        
+
+        const float epsilon = 0.000001F;
+
+        public static float3x3 identity3
+        {
+            get { return new float3x3(new float3(1, 0, 0), new float3(0, 1, 0), new float3(0, 0, 1)); }
+        }
+        public static float4x4 identity4
+        {
+            get { return new float4x4(new float4(1, 0, 0, 0), new float4(0, 1, 0, 0), new float4(0, 0, 1, 0), new float4(0, 0, 0, 1)); }
+        }
+
+        public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
+        {
+            float3x3 rot = lookRotationToMatrix(forward, up);
+
+            float4x4 matrix;
+            matrix.m0 = new float4(rot.m0, 0.0F);
+            matrix.m1 = new float4(rot.m1, 0.0F);
+            matrix.m2 = new float4(rot.m2, 0.0F);
+            matrix.m3 = new float4(position, 1.0F);
+
+            return matrix;
+        }
+
+        public static float3x3 lookRotationToMatrix(float3 forward, float3 up)
+        {
+            float3 z = forward;
+            // compute u0
+            float mag = math.length(z);
+            if (mag < epsilon)
+                return identity3;
+            z /= mag;
+
+            float3 x = math.cross(up, z);
+            mag = math.length(x);
+            if (mag < epsilon)
+                return identity3;
+            x /= mag;
+
+            float3 y = math.cross(z, x);
+            float yLength = math.length(y);
+            if (yLength < 0.9F || yLength > 1.1F)
+                return identity3;
+
+            return new float3x3(x, y, z);
+        }
 
         /* @TODO:
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline

@@ -287,6 +287,12 @@ namespace Unity.Mathematics
         public static float length(float2 v) { return sqrt(dot(v, v)); }
         public static float length(float3 v) { return sqrt(dot(v, v)); }
         public static float length(float4 v) { return sqrt(dot(v, v)); }
+        
+        // length squared
+        public static float lengthSquared(float v) { return v*v; }
+        public static float lengthSquared(float2 v) { return dot(v, v); }
+        public static float lengthSquared(float3 v) { return dot(v, v); }
+        public static float lengthSquared(float4 v) { return dot(v, v); }
 
         // distance
         public static float distance(float pt1, float pt2) { return length(pt2 - pt1); }
@@ -438,5 +444,8 @@ namespace Unity.Mathematics
         public static void sincos(float3 x, out float3 s, out float3 c) { s = sin(x); c = cos(x); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static void sincos(float4 x, out float4 s, out float4 c) { s = sin(x); c = cos(x); }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
     }
 }
