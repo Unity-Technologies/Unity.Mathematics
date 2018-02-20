@@ -1,7 +1,4 @@
-﻿using Unity.Mathematics;
-using System.Runtime.CompilerServices;
-
-namespace Unity.Mathematics.Experimental
+﻿namespace Unity.Mathematics.Experimental
 {
     public static partial class math_experimental
     {
