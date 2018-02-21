@@ -6,7 +6,7 @@ namespace Unity.Mathematics
     public partial struct bool2 : System.IEquatable<bool2>
     {
 
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool2 operator == (bool2 lhs, bool2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
         [MethodImpl(0x100)]
@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator == (bool lhs, bool2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool2 operator != (bool2 lhs, bool2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
         [MethodImpl(0x100)]
@@ -22,30 +22,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator != (bool lhs, bool2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(bool2 rhs)  { return x == rhs.x && y == rhs.y; }
 
-        // [int index] 
+        // [int index]
         unsafe public bool1 this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (bool1* array = &x) { return array[index]; }
+
+                fixed (bool2* array = &this) { return ((bool1*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
+
                 fixed (bool1* array = &x) { array[index] = value; }
             }
+
         }
+
 
         // operator &
         [MethodImpl(0x100)]

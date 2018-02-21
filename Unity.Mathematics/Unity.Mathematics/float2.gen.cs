@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static float2 operator / (float lhs, float2 rhs) { return new float2 (lhs / rhs.x, lhs / rhs.y); }
 
-        // smaller 
+        // smaller
         [MethodImpl(0x100)]
         public static bool2 operator < (float2 lhs, float2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
         [MethodImpl(0x100)]
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator <= (float lhs, float2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
-        // greater 
+        // greater
         [MethodImpl(0x100)]
         public static bool2 operator > (float2 lhs, float2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
         [MethodImpl(0x100)]
@@ -66,13 +66,13 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator >= (float lhs, float2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
-        // neg 
+        // neg
         [MethodImpl(0x100)]
         public static float2 operator - (float2 val) { return new float2 (-val.x, -val.y); }
-        // plus 
+        // plus
         [MethodImpl(0x100)]
         public static float2 operator + (float2 val) { return new float2 (+val.x, +val.y); }
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool2 operator == (float2 lhs, float2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
         [MethodImpl(0x100)]
@@ -80,7 +80,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator == (float lhs, float2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool2 operator != (float2 lhs, float2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
         [MethodImpl(0x100)]
@@ -88,30 +88,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator != (float lhs, float2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(float2 rhs)  { return x == rhs.x && y == rhs.y; }
 
-        // [int index] 
+        // [int index]
         unsafe public float this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (float* array = &x) { return array[index]; }
+
+                fixed (float2* array = &this) { return ((float*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
+
                 fixed (float* array = &x) { array[index] = value; }
             }
+
         }
+
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxx
         {

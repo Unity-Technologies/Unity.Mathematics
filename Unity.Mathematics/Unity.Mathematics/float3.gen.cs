@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static float3 operator / (float lhs, float3 rhs) { return new float3 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z); }
 
-        // smaller 
+        // smaller
         [MethodImpl(0x100)]
         public static bool3 operator < (float3 lhs, float3 rhs) { return new bool3 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z); }
         [MethodImpl(0x100)]
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool3 operator <= (float lhs, float3 rhs) { return new bool3 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z); }
 
-        // greater 
+        // greater
         [MethodImpl(0x100)]
         public static bool3 operator > (float3 lhs, float3 rhs) { return new bool3 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z); }
         [MethodImpl(0x100)]
@@ -66,13 +66,13 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool3 operator >= (float lhs, float3 rhs) { return new bool3 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z); }
 
-        // neg 
+        // neg
         [MethodImpl(0x100)]
         public static float3 operator - (float3 val) { return new float3 (-val.x, -val.y, -val.z); }
-        // plus 
+        // plus
         [MethodImpl(0x100)]
         public static float3 operator + (float3 val) { return new float3 (+val.x, +val.y, +val.z); }
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool3 operator == (float3 lhs, float3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
         [MethodImpl(0x100)]
@@ -80,7 +80,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool3 operator == (float lhs, float3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool3 operator != (float3 lhs, float3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
         [MethodImpl(0x100)]
@@ -88,30 +88,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool3 operator != (float lhs, float3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(float3 rhs)  { return x == rhs.x && y == rhs.y && z == rhs.z; }
 
-        // [int index] 
+        // [int index]
         unsafe public float this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 3)
                     throw new System.ArgumentException("index must be between[0...2]");
 #endif
-                fixed (float* array = &x) { return array[index]; }
+
+                fixed (float3* array = &this) { return ((float*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 3)
                     throw new System.ArgumentException("index must be between[0...2]");
 #endif
+
                 fixed (float* array = &x) { array[index] = value; }
             }
+
         }
+
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxx
         {

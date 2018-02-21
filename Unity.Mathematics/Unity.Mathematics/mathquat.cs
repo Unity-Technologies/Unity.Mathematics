@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace Unity.Mathematics
 {
@@ -11,7 +12,6 @@ namespace Unity.Mathematics
         public quaternion(float4 value)                       { this.value = value; }
 
         public static quaternion identity { get { return new quaternion(0.0F, 0.0F, 0.0F, 1.0F); } }
-
     }
 
     public static partial class math
@@ -82,11 +82,10 @@ namespace Unity.Mathematics
             }
             return normalize(new quaternion(q));
         }
-
         public static float3x3 quatToMatrix(quaternion q)
         {
             q = math.normalize(q);
-            
+
             // Precalculate coordinate products
             float x = q.value.x * 2.0F;
             float y = q.value.y * 2.0F;
@@ -123,13 +122,13 @@ namespace Unity.Mathematics
             };
             return m;
         }
-        
+
         public static quaternion axisAngle(float3 axis, float angle)
         {
-            float3 axisUnit  = math.normalize(axis);
+            float3 axisUnit = math.normalize(axis);
             float sina = math.sin(0.5f * angle);
             float cosa = math.cos(0.5f * angle);
-            return new quaternion { value = new float4( axisUnit.x * sina, axisUnit.y * sina, axisUnit.z * sina, cosa ) };
+            return new quaternion { value = new float4(axisUnit.x * sina, axisUnit.y * sina, axisUnit.z * sina, cosa) };
         }
 
         //@TODO: Seperated x, y, z
@@ -156,7 +155,7 @@ namespace Unity.Mathematics
         {
             return mul(q, new float3(0, 0, 1));
         }
-        
+
         public static float3 up(quaternion q)
         {
             return mul(q, new float3(0, 1, 0));
@@ -165,7 +164,7 @@ namespace Unity.Mathematics
         public static quaternion lookRotationToQuaternion(float3 direction, float3 up)
         {
             var m = lookRotationToMatrix(direction, up);
-            var q = matrixToQuat(m.m0,m.m1,m.m2);
+            var q = matrixToQuat(m.m0, m.m1, m.m2);
             return q;
         }
     }

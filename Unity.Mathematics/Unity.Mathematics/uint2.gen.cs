@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint2 operator / (uint lhs, uint2 rhs) { return new uint2 (lhs / rhs.x, lhs / rhs.y); }
 
-        // smaller 
+        // smaller
         [MethodImpl(0x100)]
         public static bool2 operator < (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
         [MethodImpl(0x100)]
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator <= (uint lhs, uint2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
-        // greater 
+        // greater
         [MethodImpl(0x100)]
         public static bool2 operator > (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
         [MethodImpl(0x100)]
@@ -74,7 +74,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint2 operator >> (uint2 lhs, int rhs) { return new uint2 (lhs.x >> rhs, lhs.y >> rhs); }
 
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool2 operator == (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
         [MethodImpl(0x100)]
@@ -82,7 +82,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator == (uint lhs, uint2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool2 operator != (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
         [MethodImpl(0x100)]
@@ -90,30 +90,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool2 operator != (uint lhs, uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(uint2 rhs)  { return x == rhs.x && y == rhs.y; }
 
-        // [int index] 
+        // [int index]
         unsafe public uint this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (uint* array = &x) { return array[index]; }
+
+                fixed (uint2* array = &this) { return ((uint*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
+
                 fixed (uint* array = &x) { array[index] = value; }
             }
+
         }
+
 
         // operator &
         [MethodImpl(0x100)]
@@ -139,7 +151,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint2 operator ^ (uint lhs, uint2 rhs) { return new uint2 (lhs ^ rhs.x, lhs ^ rhs.y); }
 
-        // operator ~ 
+        // operator ~
         [MethodImpl(0x100)]
         public static uint2 operator ~ (uint2 val) { return new uint2 (~val.x, ~val.y); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxx

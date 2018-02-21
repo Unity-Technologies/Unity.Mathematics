@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint4 operator / (uint lhs, uint4 rhs) { return new uint4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
 
-        // smaller 
+        // smaller
         [MethodImpl(0x100)]
         public static bool4 operator < (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
         [MethodImpl(0x100)]
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool4 operator <= (uint lhs, uint4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
 
-        // greater 
+        // greater
         [MethodImpl(0x100)]
         public static bool4 operator > (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
         [MethodImpl(0x100)]
@@ -74,7 +74,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint4 operator >> (uint4 lhs, int rhs) { return new uint4 (lhs.x >> rhs, lhs.y >> rhs, lhs.z >> rhs, lhs.w >> rhs); }
 
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool4 operator == (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
         [MethodImpl(0x100)]
@@ -82,7 +82,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool4 operator == (uint lhs, uint4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool4 operator != (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
         [MethodImpl(0x100)]
@@ -90,30 +90,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool4 operator != (uint lhs, uint4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(uint4 rhs)  { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
-        // [int index] 
+        // [int index]
         unsafe public uint this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (uint* array = &x) { return array[index]; }
+
+                fixed (uint4* array = &this) { return ((uint*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
+
                 fixed (uint* array = &x) { array[index] = value; }
             }
+
         }
+
 
         // operator &
         [MethodImpl(0x100)]
@@ -139,7 +151,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static uint4 operator ^ (uint lhs, uint4 rhs) { return new uint4 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z, lhs ^ rhs.w); }
 
-        // operator ~ 
+        // operator ~
         [MethodImpl(0x100)]
         public static uint4 operator ~ (uint4 val) { return new uint4 (~val.x, ~val.y, ~val.z, ~val.w); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxx

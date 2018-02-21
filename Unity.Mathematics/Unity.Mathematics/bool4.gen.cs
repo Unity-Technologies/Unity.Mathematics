@@ -6,7 +6,7 @@ namespace Unity.Mathematics
     public partial struct bool4 : System.IEquatable<bool4>
     {
 
-        // equal 
+        // equal
         [MethodImpl(0x100)]
         public static bool4 operator == (bool4 lhs, bool4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
         [MethodImpl(0x100)]
@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool4 operator == (bool lhs, bool4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
-        // not equal 
+        // not equal
         [MethodImpl(0x100)]
         public static bool4 operator != (bool4 lhs, bool4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
         [MethodImpl(0x100)]
@@ -22,30 +22,42 @@ namespace Unity.Mathematics
         [MethodImpl(0x100)]
         public static bool4 operator != (bool lhs, bool4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
-        // Equals 
+        // Equals
         [MethodImpl(0x100)]
         public bool Equals(bool4 rhs)  { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
-        // [int index] 
+        // [int index]
         unsafe public bool1 this[int index]
         {
+
             get
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (bool1* array = &x) { return array[index]; }
+
+                fixed (bool4* array = &this) { return ((bool1*)array)[index]; }
             }
+
             set
+
             {
+
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
+
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
+
                 fixed (bool1* array = &x) { array[index] = value; }
             }
+
         }
+
 
         // operator &
         [MethodImpl(0x100)]
