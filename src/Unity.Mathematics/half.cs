@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace Unity.Mathematics
+﻿namespace Unity.Mathematics
 {
     public struct half
     {
