@@ -101,7 +101,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (float* array = &x) { return array[index]; }
+                fixed (float4* array = &this) { return ((float*)array)[index]; }
             }
             set
             {
@@ -109,7 +109,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (float* array = &x) { array[index] = value; }
+                fixed (float4* array = &this) { ((float*)array)[index] = value; }
             }
         }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
