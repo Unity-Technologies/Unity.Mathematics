@@ -56,7 +56,8 @@ After years of feedback and experience with the previous API, we believe that pr
 
 ### Why not using `System.Numerics.Vectors`?
 
-Mainly for the reason mentioned above, `System.Numerics.Vectors` is in many ways similar to our previous Vector library (more object oriented than graphics programming oriented)
+Mainly for the reason mentioned above, `System.Numerics.Vectors` is in many ways similar to our previous Vector library (more object oriented than graphics programming oriented).
+Also the fact that our `burst` compiler is able to recognize a lot more patterns for SIMD types and math intrinsics makes it easier to work with a dedicated API that reflects this ability.
 
 ### Why can't we send a PR yet?
 
