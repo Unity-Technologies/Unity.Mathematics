@@ -52,7 +52,7 @@ We assume that your IDE has support for `editorconfig`, you can download the fol
 
 ### Why developing another Math library instead of using existing Unity Vector3...etc.?
 
-After years of feedback and experience with the previous API, we believe that providing an API that is closer to the way graphics developers have been using math libraries should better help its adoption and the ease of its usage. Unity developers might at some point be able to write shaders in C# directly, and having a math library that matches the behavior of GLSL/HLSL should simplify its integration.
+After years of feedback and experience with the previous API, we believe that providing an API that is closer to the way graphics developers have been using math libraries should better help its adoption and the ease of its usage. HLSL / GLSL math library is a very well designed, well understood math library leading to greater consistency.
 
 ### Why not using `System.Numerics.Vectors`?
 
