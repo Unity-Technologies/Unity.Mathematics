@@ -65,7 +65,6 @@ We are working on providing a Contributor License Agreement (CLA) with a sign-ov
 
 ## Licensing
 
-Unity Companion License (“License”)
-Software Copyright © 2017 Unity Technologies ApS 
+Unity Companion License (“License”) Software Copyright © 2017 Unity Technologies ApS
 
-Licensed under the Unity Companion License for Unity-dependent projects--see [Unity Companion License](https://unity3d.com/legal/licenses/Unity_Companion_License).
+For licensing details see [LICENSE.md](LICENSE.md)
