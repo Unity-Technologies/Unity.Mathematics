@@ -6,7 +6,11 @@ The main goal of this library is to provide a friendly Math API familiar to SIMD
 
 In addition to this, the `burst` compiler is able to recognize these types and provide the optimized SIMD type for the running CPU on all supported platforms (x64, ARMv7a...etc.)
 
+> NOTICE: The API is a work in progress and we may introduce breaking changes (API and underlying behavior)
+
 ## Usage
+
+You can use this library in your Unity game by using the Package Manager and referencing the package `com.unity.mathematics`. See the forum [Welcome](https://forum.unity.com/threads/welcome.522627) page for more details.
 
 ```C#
 using Unity.Mathematics;
