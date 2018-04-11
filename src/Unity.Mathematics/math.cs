@@ -12,7 +12,7 @@ namespace Unity.Mathematics
     {
         // min
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float min(float a, float b) { return Math.Min(a, b); } // Use Math.Min as it is handling properly NaN
+        public static float min(float a, float b) { return float.IsNaN(b) || a < b ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float2 min(float2 a, float2 b) { return new float2(min(a.x, b.x), min(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -21,7 +21,7 @@ namespace Unity.Mathematics
         public static float4 min(float4 a, float4 b) { return new float4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int min(int a, int b) { return Math.Min(a, b); } // Use Math.Min as it is handling properly NaN
+        public static int min(int a, int b) { return a < b ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int2 min(int2 a, int2 b) { return new int2(min(a.x, b.x), min(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -30,8 +30,8 @@ namespace Unity.Mathematics
         public static int4 min(int4 a, int4 b) { return new int4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
 
         // max
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float max(float a, float b) { return Math.Max(a, b); } // Use Math.Max as it is handling properly NaN
+        [MethodImpl((MethodImplOptions) 0x100)] // agressive inline
+        public static float max(float a, float b) { return float.IsNaN(b) || a > b ? a : b; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float2 max(float2 a, float2 b) { return new float2(max(a.x, b.x), max(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -40,7 +40,7 @@ namespace Unity.Mathematics
         public static float4 max(float4 a, float4 b) { return new float4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static int max(int a, int b) { return Math.Max(a, b); } // Use Math.Max as it is handling properly NaN
+        public static int max(int a, int b) { return a > b ? a : b; } // Use Math.Max as it is handling properly NaN
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int2 max(int2 a, int2 b) { return new int2(max(a.x, b.x), max(a.y, b.y)); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -210,7 +210,7 @@ namespace Unity.Mathematics
         public static float4 rcp(float4 a) { return 1f / a; }
 
         // sign
-        public static float sign(float f) { return f == 0f ? 0f : (f > 0f ? 1f : -1f); }
+        public static float sign(float f) { return f == 0f ? 0f : (f > 0f ? 1f : 0.0f) - (f < 0f ? 1.0f : 0.0f); }
         public static float2 sign(float2 f) { return new float2(sign(f.x), sign(f.y)); }
         public static float3 sign(float3 f) { return new float3(sign(f.x), sign(f.y), sign(f.z)); }
         public static float4 sign(float4 f) { return new float4(sign(f.x), sign(f.y), sign(f.z), sign(f.w)); }
@@ -287,7 +287,7 @@ namespace Unity.Mathematics
         public static float length(float2 v) { return sqrt(dot(v, v)); }
         public static float length(float3 v) { return sqrt(dot(v, v)); }
         public static float length(float4 v) { return sqrt(dot(v, v)); }
-        
+
         // length squared
         public static float lengthSquared(float v) { return v*v; }
         public static float lengthSquared(float2 v) { return dot(v, v); }
@@ -444,7 +444,7 @@ namespace Unity.Mathematics
         public static void sincos(float3 x, out float3 s, out float3 c) { s = sin(x); c = cos(x); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static void sincos(float4 x, out float4 s, out float4 c) { s = sin(x); c = cos(x); }
-        
+
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
     }
