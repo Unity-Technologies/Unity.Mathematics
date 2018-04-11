@@ -30,6 +30,15 @@ namespace Unity.Mathematics
         public float y;
         public float z;
         public float w;
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(float4 xyzw)
+        {
+            this.x = xyzw.x;
+            this.y = xyzw.y;
+            this.z = xyzw.z;
+            this.w = xyzw.w;
+        }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public float4(float x, float y, float z, float w)
@@ -48,6 +57,42 @@ namespace Unity.Mathematics
         {
             this.x = xy.x;
             this.y = xy.y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(float2 xy, float z, float w)
+        {
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+            this.w = w;
+        }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(float x, float2 yz, float w)
+        {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+            this.w = w;
+        }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(float x, float3 yzw)
+        {
+            this.x = x;
+            this.y = yzw.x;
+            this.z = yzw.y;
+            this.w = yzw.z;
+        }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(float x, float y, float2 zw)
+        {
+            this.x = x;
+            this.y = y;
             this.z = zw.x;
             this.w = zw.y;
         }
@@ -71,6 +116,15 @@ namespace Unity.Mathematics
             y = val.y;
             z = val.z;
             w = val.w;
+        }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float4(bool4 val)
+        {
+            x = val.x ? 1.0f : 0.0f;
+            y = val.y ? 1.0f : 0.0f;
+            z = val.z ? 1.0f : 0.0f;
+            w = val.w ? 1.0f : 0.0f;
         }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline

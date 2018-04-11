@@ -147,6 +147,16 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)]
         public static float4 nfence(float4 value) { return value; }
 
+        // fract
+        [MethodImpl((MethodImplOptions)0x100)]
+        public static float fract(float a) { return a - floor(a); }
+        [MethodImpl((MethodImplOptions)0x100)]
+        public static float2 fract(float2 a) { return a - floor(a); }
+        [MethodImpl((MethodImplOptions)0x100)]
+        public static float3 fract(float3 a) { return a - floor(a); }
+        [MethodImpl((MethodImplOptions)0x100)]
+        public static float4 fract(float4 a) { return a - floor(a); }
+        
 #if false
 
         //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...

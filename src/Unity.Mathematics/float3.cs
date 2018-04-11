@@ -45,6 +45,14 @@ namespace Unity.Mathematics
             this.y = xy.y;
             this.z = z;
         }
+        
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public float3(float x, float2 yz)
+        {
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public float3(int val) { x = y = z = val; }
