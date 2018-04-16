@@ -69,7 +69,7 @@
 
 namespace Unity.Mathematics
 {
-    public static partial class math
+    public static partial class noise
     {
         //
         // 2-D tiling simplex noise with rotating gradients and analytical derivative.

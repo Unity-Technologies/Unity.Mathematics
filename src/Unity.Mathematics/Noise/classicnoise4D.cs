@@ -14,7 +14,7 @@
 
 namespace Unity.Mathematics
 {
-    public static partial class math
+    public static partial class noise
     {
         // Classic Perlin noise
         public static float cnoise(float4 P)

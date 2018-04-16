@@ -11,7 +11,7 @@
 
 namespace Unity.Mathematics
 {
-    public static partial class math
+    public static partial class noise
     {
         public static float snoise(float2 v)
         {

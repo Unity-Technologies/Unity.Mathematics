@@ -6,7 +6,7 @@
 
 namespace Unity.Mathematics
 {
-    public static partial class math
+    public static partial class noise
     {
         // Cellular noise, returning F1 and F2 in a float2.
         // Speeded up by using 2x2 search window instead of 3x3,

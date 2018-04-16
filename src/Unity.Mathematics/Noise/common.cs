@@ -1,6 +1,6 @@
 ﻿namespace Unity.Mathematics
 {
-    public static partial class math
+    public static partial class noise
     {
         // Modulo 289 without a division (only multiplications)
         static float  mod289(float x)  { return x - floor(x * (1.0f / 289.0f)) * 289.0f; } 
