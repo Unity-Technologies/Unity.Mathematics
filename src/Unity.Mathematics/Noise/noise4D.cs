@@ -3,7 +3,7 @@
 //               noise functions.
 //      Author : Ian McEwan, Ashima Arts.
 //  Maintainer : stegu
-//     Lastmod : 20110822 (ijm)
+//     Lastmath.mod : 20110822 (ijm)
 //     License : Copyright (C) 2011 Ashima Arts. All rights reserved.
 //               Distributed under the MIT License. See LICENSE file.
 //               https://github.com/ashima/webgl-noise
@@ -16,36 +16,36 @@ namespace Unity.Mathematics
     {
         public static float snoise(float4 v)
         {
-            // (sqrt(5) - 1)/4 = F4, used once below
+            // (math.sqrt(5) - 1)/4 = F4, used once below
             const float F4 = 0.309016994374947451f;
-            float4 C = new float4( 0.138196601125011f,  // (5 - sqrt(5))/20  G4
+            float4 C = new float4( 0.138196601125011f,  // (5 - math.sqrt(5))/20  G4
                 0.276393202250021f,  // 2 * G4
                 0.414589803375032f,  // 3 * G4
                 -0.447213595499958f); // -1 + 4 * G4
 
             // First corner
-            float4 i  = floor(v + dot(v, new float4(F4)) );
-            float4 x0 = v -   i + dot(i, C.xxxx);
+            float4 i  = math.floor(v + math.dot(v, new float4(F4)) );
+            float4 x0 = v -   i + math.dot(i, C.xxxx);
 
             // Other corners
 
             // Rank sorting originally contributed by Bill Licea-Kane, AMD (formerly ATI)
             float4 i0 = new float4(0.0f);
-            float3 isX = step( x0.yzw, x0.xxx );
-            float3 isYZ = step( x0.zww, x0.yyz );
-            //  i0.x = dot( isX, float3( 1.0 ) );
+            float3 isX = math.step( x0.yzw, x0.xxx );
+            float3 isYZ = math.step( x0.zww, x0.yyz );
+            //  i0.x = math.dot( isX, float3( 1.0 ) );
             i0.x = isX.x + isX.y + isX.z;
             i0.yzw = 1.0f - isX;
-            //  i0.y += dot( isYZ.xy, float2( 1.0 ) );
+            //  i0.y += math.dot( isYZ.xy, float2( 1.0 ) );
             i0.y += isYZ.x + isYZ.y;
             i0.zw += 1.0f - isYZ.xy;
             i0.z += isYZ.z;
             i0.w += 1.0f - isYZ.z;
 
             // i0 now contains the unique values 0,1,2,3 in each channel
-            float4 i3 = clamp( i0, 0.0f, 1.0f );
-            float4 i2 = clamp( i0-1.0f, 0.0f, 1.0f );
-            float4 i1 = clamp( i0-2.0f, 0.0f, 1.0f );
+            float4 i3 = math.clamp( i0, 0.0f, 1.0f );
+            float4 i2 = math.clamp( i0-1.0f, 0.0f, 1.0f );
+            float4 i1 = math.clamp( i0-2.0f, 0.0f, 1.0f );
 
             //  x0 = x0 - 0.0 + 0.0 * C.xxxx
             //  x1 = x0 - i1  + 1.0 * C.xxxx
@@ -77,20 +77,20 @@ namespace Unity.Mathematics
             float4 p4 = grad4(j1.w, ip);
 
             // Normalise gradients
-            float4 norm = taylorInvSqrt(new float4(dot(p0,p0), dot(p1,p1), dot(p2, p2), dot(p3,p3)));
+            float4 norm = taylorInvSqrt(new float4(math.dot(p0,p0), math.dot(p1,p1), math.dot(p2, p2), math.dot(p3,p3)));
             p0 *= norm.x;
             p1 *= norm.y;
             p2 *= norm.z;
             p3 *= norm.w;
-            p4 *= taylorInvSqrt(dot(p4,p4));
+            p4 *= taylorInvSqrt(math.dot(p4,p4));
 
             // Mix contributions from the five corners
-            float3 m0 = max(0.6f - new float3(dot(x0,x0), dot(x1,x1), dot(x2,x2)), 0.0f);
-            float2 m1 = max(0.6f - new float2(dot(x3,x3), dot(x4,x4)            ), 0.0f);
+            float3 m0 = math.max(0.6f - new float3(math.dot(x0,x0), math.dot(x1,x1), math.dot(x2,x2)), 0.0f);
+            float2 m1 = math.max(0.6f - new float2(math.dot(x3,x3), math.dot(x4,x4)            ), 0.0f);
             m0 = m0 * m0;
             m1 = m1 * m1;
-            return 49.0f * ( dot(m0*m0, new float3( dot( p0, x0 ), dot( p1, x1 ), dot( p2, x2 )))
-                            + dot(m1*m1, new float2( dot( p3, x3 ), dot( p4, x4 ) ) ) ) ;
+            return 49.0f * ( math.dot(m0*m0, new float3( math.dot( p0, x0 ), math.dot( p1, x1 ), math.dot( p2, x2 )))
+                            + math.dot(m1*m1, new float2( math.dot( p3, x3 ), math.dot( p4, x4 ) ) ) ) ;
 
         }
     }

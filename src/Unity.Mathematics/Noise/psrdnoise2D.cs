@@ -49,7 +49,7 @@
 // Version 2016-05-10.
 //
 // Many thanks to Ian McEwan of Ashima Arts for the
-// idea of using a permutation polynomial.
+// idea of umath.sing a permutation polynomial.
 //
 // Copyright (c) 2016 Stefan Gustavson. All rights reserved.
 // Distributed under the MIT license. See LICENSE file.
@@ -62,7 +62,7 @@
 // one axis of the simplex grid is perfectly aligned with the input x axis.
 // The errors were rare, and they are now very unlikely to ever be visible
 // after a quick fix was introduced: a small offset is added to the y coordinate.
-// A proper fix would involve using round() instead of floor() in selected
+// A proper fix would involve umath.sing round() instead of math.floor() in selected
 // places, but the quick fix works fine.
 // (If you run into problems with this, please let me know.)
 //
@@ -83,8 +83,8 @@ namespace Unity.Mathematics
             // Skew to hexagonal grid
             float2 uv = new float2(pos.x + pos.y * 0.5f, pos.y);
 
-            float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 i0 = math.floor(uv);
+            float2 f0 = math.fract(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? new float2(1.0f, 0.0f) : new float2(0.0f, 1.0f);
 
@@ -105,8 +105,8 @@ namespace Unity.Mathematics
 
             // Wrap i0, i1 and i2 to the desired period before gradient hashing:
             // wrap points in (x,y), map to (u,v)
-            float3 xw = mod(new float3(p0.x, p1.x, p2.x), per.x);
-            float3 yw = mod(new float3(p0.y, p1.y, p2.y), per.y);
+            float3 xw = math.mod(new float3(p0.x, p1.x, p2.x), per.x);
+            float3 yw = math.mod(new float3(p0.y, p1.y, p2.y), per.y);
             float3 iuw = xw + 0.5f * yw;
             float3 ivw = yw;
 
@@ -115,20 +115,20 @@ namespace Unity.Mathematics
             float2 g1 = rgrad2(new float2(iuw.y, ivw.y), rot);
             float2 g2 = rgrad2(new float2(iuw.z, ivw.z), rot);
 
-            // Gradients dot vectors to corresponding corners
+            // Gradients math.dot vectors to corresponding corners
             // (The derivatives of this are simply the gradients)
-            float3 w = new float3(dot(g0, d0), dot(g1, d1), dot(g2, d2));
+            float3 w = new float3(math.dot(g0, d0), math.dot(g1, d1), math.dot(g2, d2));
 
             // Radial weights from corners
-            // 0.8 is the square of 2/sqrt(5), the distance from
+            // 0.8 is the square of 2/math.sqrt(5), the distance from
             // a grid point to the nearest simplex boundary
-            float3 t = 0.8f - new float3(dot(d0, d0), dot(d1, d1), dot(d2, d2));
+            float3 t = 0.8f - new float3(math.dot(d0, d0), math.dot(d1, d1), math.dot(d2, d2));
 
             // Partial derivatives for analytical gradient computation
             float3 dtdx = -2.0f * new float3(d0.x, d1.x, d2.x);
             float3 dtdy = -2.0f * new float3(d0.y, d1.y, d2.y);
 
-            // Set influence of each surflet to zero outside radius sqrt(0.8)
+            // Set influence of each surflet to zero outside radius math.sqrt(0.8)
             if (t.x < 0.0f)
             {
                 dtdx.x = 0.0f;
@@ -154,8 +154,8 @@ namespace Unity.Mathematics
             float3 t3 = t2 * t;
 
             // Final noise value is:
-            // sum of ((radial weights) times (gradient dot vector from corner))
-            float n = dot(t4, w);
+            // sum of ((radial weights) times (gradient math.dot vector from corner))
+            float n = math.dot(t4, w);
 
             // Final analytical derivative (gradient of a sum of scalar products)
             float2 dt0 = new float2(dtdx.x, dtdy.x) * 4.0f * t3.x;
@@ -172,7 +172,7 @@ namespace Unity.Mathematics
         // 2-D tiling simplex noise with fixed gradients
         // and analytical derivative.
         // This function is implemented as a wrapper to "psrdnoise",
-        // at the minimal cost of three extra additions.
+        // at the math.minimal math.cost of three extra additions.
         //
         public static float3 psrdnoise(float2 pos, float2 per)
         {
@@ -190,8 +190,8 @@ namespace Unity.Mathematics
             // Skew to hexagonal grid
             float2 uv = new float2(pos.x + pos.y * 0.5f, pos.y);
 
-            float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 i0 = math.floor(uv);
+            float2 f0 = math.fract(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? new float2(1.0f, 0.0f) : new float2(0.0f, 1.0f);
 
@@ -212,8 +212,8 @@ namespace Unity.Mathematics
 
             // Wrap i0, i1 and i2 to the desired period before gradient hashing:
             // wrap points in (x,y), map to (u,v)
-            float3 xw = mod(new float3(p0.x, p1.x, p2.x), per.x);
-            float3 yw = mod(new float3(p0.y, p1.y, p2.y), per.y);
+            float3 xw = math.mod(new float3(p0.x, p1.x, p2.x), per.x);
+            float3 yw = math.mod(new float3(p0.y, p1.y, p2.y), per.y);
             float3 iuw = xw + 0.5f * yw;
             float3 ivw = yw;
 
@@ -222,25 +222,25 @@ namespace Unity.Mathematics
             float2 g1 = rgrad2(new float2(iuw.y, ivw.y), rot);
             float2 g2 = rgrad2(new float2(iuw.z, ivw.z), rot);
 
-            // Gradients dot vectors to corresponding corners
+            // Gradients math.dot vectors to corresponding corners
             // (The derivatives of this are simply the gradients)
-            float3 w = new float3(dot(g0, d0), dot(g1, d1), dot(g2, d2));
+            float3 w = new float3(math.dot(g0, d0), math.dot(g1, d1), math.dot(g2, d2));
 
             // Radial weights from corners
-            // 0.8 is the square of 2/sqrt(5), the distance from
+            // 0.8 is the square of 2/math.sqrt(5), the distance from
             // a grid point to the nearest simplex boundary
-            float3 t = 0.8f - new float3(dot(d0, d0), dot(d1, d1), dot(d2, d2));
+            float3 t = 0.8f - new float3(math.dot(d0, d0), math.dot(d1, d1), math.dot(d2, d2));
 
-            // Set influence of each surflet to zero outside radius sqrt(0.8)
-            t = max(t, 0.0f);
+            // Set influence of each surflet to zero outside radius math.sqrt(0.8)
+            t = math.max(t, 0.0f);
 
             // Fourth power of t
             float3 t2 = t * t;
             float3 t4 = t2 * t2;
 
             // Final noise value is:
-            // sum of ((radial weights) times (gradient dot vector from corner))
-            float n = dot(t4, w);
+            // sum of ((radial weights) times (gradient math.dot vector from corner))
+            float n = math.dot(t4, w);
 
             // Rescale to cover the range [-1,1] reasonably well
             return 11.0f * n;
@@ -250,7 +250,7 @@ namespace Unity.Mathematics
         // 2-D tiling simplex noise with fixed gradients,
         // without the analytical derivative.
         // This function is implemented as a wrapper to "psrnoise",
-        // at the minimal cost of three extra additions.
+        // at the math.minimal math.cost of three extra additions.
         //
         public static float psrnoise(float2 pos, float2 per)
         {
@@ -269,8 +269,8 @@ namespace Unity.Mathematics
             // Skew to hexagonal grid
             float2 uv = new float2(pos.x + pos.y * 0.5f, pos.y);
 
-            float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 i0 = math.floor(uv);
+            float2 f0 = math.fract(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? new float2(1.0f, 0.0f) : new float2(0.0f, 1.0f);
 
@@ -303,20 +303,20 @@ namespace Unity.Mathematics
             float2 g1 = rgrad2(new float2(iuw.y, ivw.y), rot);
             float2 g2 = rgrad2(new float2(iuw.z, ivw.z), rot);
 
-            // Gradients dot vectors to corresponding corners
+            // Gradients math.dot vectors to corresponding corners
             // (The derivatives of this are simply the gradients)
-            float3 w = new float3(dot(g0, d0), dot(g1, d1), dot(g2, d2));
+            float3 w = new float3(math.dot(g0, d0), math.dot(g1, d1), math.dot(g2, d2));
 
             // Radial weights from corners
-            // 0.8 is the square of 2/sqrt(5), the distance from
+            // 0.8 is the square of 2/math.sqrt(5), the distance from
             // a grid point to the nearest simplex boundary
-            float3 t = 0.8f - new float3(dot(d0, d0), dot(d1, d1), dot(d2, d2));
+            float3 t = 0.8f - new float3(math.dot(d0, d0), math.dot(d1, d1), math.dot(d2, d2));
 
             // Partial derivatives for analytical gradient computation
             float3 dtdx = -2.0f * new float3(d0.x, d1.x, d2.x);
             float3 dtdy = -2.0f * new float3(d0.y, d1.y, d2.y);
 
-            // Set influence of each surflet to zero outside radius sqrt(0.8)
+            // Set influence of each surflet to zero outside radius math.sqrt(0.8)
             if (t.x < 0.0f)
             {
                 dtdx.x = 0.0f;
@@ -342,8 +342,8 @@ namespace Unity.Mathematics
             float3 t3 = t2 * t;
 
             // Final noise value is:
-            // sum of ((radial weights) times (gradient dot vector from corner))
-            float n = dot(t4, w);
+            // sum of ((radial weights) times (gradient math.dot vector from corner))
+            float n = math.dot(t4, w);
 
             // Final analytical derivative (gradient of a sum of scalar products)
             float2 dt0 = new float2(dtdx.x, dtdy.x) * 4.0f * t3.x;
@@ -359,7 +359,7 @@ namespace Unity.Mathematics
         //
         // 2-D non-tiling simplex noise with fixed gradients and analytical derivative.
         // This function is implemented as a wrapper to "srdnoise",
-        // at the minimal cost of three extra additions.
+        // at the math.minimal math.cost of three extra additions.
         //
         public static float3 srdnoise(float2 pos)
         {
@@ -377,8 +377,8 @@ namespace Unity.Mathematics
             // Skew to hexagonal grid
             float2 uv = new float2(pos.x + pos.y * 0.5f, pos.y);
 
-            float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 i0 = math.floor(uv);
+            float2 f0 = math.fract(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? new float2(1.0f, 0.0f) : new float2(0.0f, 1.0f);
 
@@ -413,25 +413,25 @@ namespace Unity.Mathematics
             float2 g1 = rgrad2(new float2(iuw.y, ivw.y), rot);
             float2 g2 = rgrad2(new float2(iuw.z, ivw.z), rot);
 
-            // Gradients dot vectors to corresponding corners
+            // Gradients math.dot vectors to corresponding corners
             // (The derivatives of this are simply the gradients)
-            float3 w = new float3(dot(g0, d0), dot(g1, d1), dot(g2, d2));
+            float3 w = new float3(math.dot(g0, d0), math.dot(g1, d1), math.dot(g2, d2));
 
             // Radial weights from corners
-            // 0.8 is the square of 2/sqrt(5), the distance from
+            // 0.8 is the square of 2/math.sqrt(5), the distance from
             // a grid point to the nearest simplex boundary
-            float3 t = 0.8f - new float3(dot(d0, d0), dot(d1, d1), dot(d2, d2));
+            float3 t = 0.8f - new float3(math.dot(d0, d0), math.dot(d1, d1), math.dot(d2, d2));
 
-            // Set influence of each surflet to zero outside radius sqrt(0.8)
-            t = max(t, 0.0f);
+            // Set influence of each surflet to zero outside radius math.sqrt(0.8)
+            t = math.max(t, 0.0f);
 
             // Fourth power of t
             float3 t2 = t * t;
             float3 t4 = t2 * t2;
 
             // Final noise value is:
-            // sum of ((radial weights) times (gradient dot vector from corner))
-            float n = dot(t4, w);
+            // sum of ((radial weights) times (gradient math.dot vector from corner))
+            float n = math.dot(t4, w);
 
             // Rescale to cover the range [-1,1] reasonably well
             return 11.0f * n;
@@ -441,7 +441,7 @@ namespace Unity.Mathematics
         // 2-D non-tiling simplex noise with fixed gradients,
         // without the analytical derivative.
         // This function is implemented as a wrapper to "srnoise",
-        // at the minimal cost of three extra additions.
+        // at the math.minimal math.cost of three extra additions.
         // Note: if this kind of noise is all you want, there are faster
         // GLSL implementations of non-tiling simplex noise out there.
         // This one is included mainly for completeness and compatibility

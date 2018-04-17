@@ -9,7 +9,7 @@ namespace Unity.Mathematics
     public static partial class noise
     {
         // Cellular noise, returning F1 and F2 in a float2.
-        // Speeded up by using 2x2x2 search window instead of 3x3x3,
+        // Speeded up by umath.sing 2x2x2 search window instead of 3x3x3,
         // at the expense of some pattern artifacts.
         // F2 is often wrong and has sharp discontinuities.
         // If you need a good F2, use the slower 3x3x3 version.
@@ -22,20 +22,20 @@ namespace Unity.Mathematics
             const float Kzo = 0.416666666667f; // 1/2-1/6*2
             const float jitter = 0.8f; // smaller jitter gives less errors in F2
             
-            float3 Pi = mod289(floor(P));
-            float3 Pf = fract(P);
+            float3 Pi = mod289(math.floor(P));
+            float3 Pf = math.fract(P);
             float4 Pfx = Pf.x + new float4(0.0f, -1.0f, 0.0f, -1.0f);
             float4 Pfy = Pf.y + new float4(0.0f, 0.0f, -1.0f, -1.0f);
             float4 p = permute(Pi.x + new float4(0.0f, 1.0f, 0.0f, 1.0f));
             p = permute(p + Pi.y + new float4(0.0f, 0.0f, 1.0f, 1.0f));
             float4 p1 = permute(p + Pi.z); // z+0
             float4 p2 = permute(p + Pi.z + new float4(1.0f,1.0f,1.0f,1.0f)); // z+1
-            float4 ox1 = fract(p1 * K) - Ko;
-            float4 oy1 = mod7(floor(p1 * K)) * K - Ko;
-            float4 oz1 = floor(p1 * K2) * Kz - Kzo; // p1 < 289 guaranteed
-            float4 ox2 = fract(p2 * K) - Ko;
-            float4 oy2 = mod7(floor(p2 * K)) * K - Ko;
-            float4 oz2 = floor(p2 * K2) * Kz - Kzo;
+            float4 ox1 = math.fract(p1 * K) - Ko;
+            float4 oy1 = mod7(math.floor(p1 * K)) * K - Ko;
+            float4 oz1 = math.floor(p1 * K2) * Kz - Kzo; // p1 < 289 guaranteed
+            float4 ox2 = math.fract(p2 * K) - Ko;
+            float4 oy2 = mod7(math.floor(p2 * K)) * K - Ko;
+            float4 oz2 = math.floor(p2 * K2) * Kz - Kzo;
             float4 dx1 = Pfx + jitter * ox1;
             float4 dy1 = Pfy + jitter * oy1;
             float4 dz1 = Pf.z + jitter * oz1;
@@ -48,16 +48,16 @@ namespace Unity.Mathematics
             // Sort out the two smallest distances (F1, F2)
             
             // Do it right and sort out both F1 and F2
-            float4 d = min(d1,d2); // F1 is now in d
-            d2 = max(d1,d2); // Make sure we keep all candidates for F2
+            float4 d = math.min(d1,d2); // F1 is now in d
+            d2 = math.max(d1,d2); // Make sure we keep all candidates for F2
             d.xy = (d.x < d.y) ? d.xy : d.yx; // Swap smallest to d.x
             d.xz = (d.x < d.z) ? d.xz : d.zx;
             d.xw = (d.x < d.w) ? d.xw : d.wx; // F1 is now in d.x
-            d.yzw = min(d.yzw, d2.yzw); // F2 now not in d2.yzw
-            d.y = min(d.y, d.z); // nor in d.z
-            d.y = min(d.y, d.w); // nor in d.w
-            d.y = min(d.y, d2.x); // F2 is now in d.y
-            return sqrt(d.xy); // F1 and F2
+            d.yzw = math.min(d.yzw, d2.yzw); // F2 now not in d2.yzw
+            d.y = math.min(d.y, d.z); // nor in d.z
+            d.y = math.min(d.y, d.w); // nor in d.w
+            d.y = math.min(d.y, d2.x); // F2 is now in d.y
+            return math.sqrt(d.xy); // F1 and F2
         }
     }
 }

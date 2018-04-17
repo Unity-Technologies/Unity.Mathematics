@@ -13,7 +13,7 @@ namespace Unity.Mathematics
         // slower than the 2x2x2 version.
         // The code below is a bit scary even to its author,
         // but it has at least half decent performance on a
-        // modern GPU. In any case, it beats any software
+        // math.modern GPU. In any case, it beats any software
         // implementation of Worley noise hands down.
 
         public static float2 cellular(float3 P)
@@ -25,8 +25,8 @@ namespace Unity.Mathematics
             const float Kzo = 0.416666666667f; // 1/2-1/6*2
             const float jitter = 1.0f; // smaller jitter gives more regular pattern
 
-            float3 Pi = mod289(floor(P));
-            float3 Pf = fract(P) - 0.5f;
+            float3 Pi = mod289(math.floor(P));
+            float3 Pf = math.fract(P) - 0.5f;
 
             float3 Pfx = Pf.x + new float3(1.0f, 0.0f, -1.0f);
             float3 Pfy = Pf.y + new float3(1.0f, 0.0f, -1.0f);
@@ -49,41 +49,41 @@ namespace Unity.Mathematics
             float3 p32 = permute(p3 + Pi.z);
             float3 p33 = permute(p3 + Pi.z + 1.0f);
 
-            float3 ox11 = fract(p11 * K) - Ko;
-            float3 oy11 = mod7(floor(p11 * K)) * K - Ko;
-            float3 oz11 = floor(p11 * K2) * Kz - Kzo; // p11 < 289 guaranteed
+            float3 ox11 = math.fract(p11 * K) - Ko;
+            float3 oy11 = mod7(math.floor(p11 * K)) * K - Ko;
+            float3 oz11 = math.floor(p11 * K2) * Kz - Kzo; // p11 < 289 guaranteed
 
-            float3 ox12 = fract(p12 * K) - Ko;
-            float3 oy12 = mod7(floor(p12 * K)) * K - Ko;
-            float3 oz12 = floor(p12 * K2) * Kz - Kzo;
+            float3 ox12 = math.fract(p12 * K) - Ko;
+            float3 oy12 = mod7(math.floor(p12 * K)) * K - Ko;
+            float3 oz12 = math.floor(p12 * K2) * Kz - Kzo;
 
-            float3 ox13 = fract(p13 * K) - Ko;
-            float3 oy13 = mod7(floor(p13 * K)) * K - Ko;
-            float3 oz13 = floor(p13 * K2) * Kz - Kzo;
+            float3 ox13 = math.fract(p13 * K) - Ko;
+            float3 oy13 = mod7(math.floor(p13 * K)) * K - Ko;
+            float3 oz13 = math.floor(p13 * K2) * Kz - Kzo;
 
-            float3 ox21 = fract(p21 * K) - Ko;
-            float3 oy21 = mod7(floor(p21 * K)) * K - Ko;
-            float3 oz21 = floor(p21 * K2) * Kz - Kzo;
+            float3 ox21 = math.fract(p21 * K) - Ko;
+            float3 oy21 = mod7(math.floor(p21 * K)) * K - Ko;
+            float3 oz21 = math.floor(p21 * K2) * Kz - Kzo;
 
-            float3 ox22 = fract(p22 * K) - Ko;
-            float3 oy22 = mod7(floor(p22 * K)) * K - Ko;
-            float3 oz22 = floor(p22 * K2) * Kz - Kzo;
+            float3 ox22 = math.fract(p22 * K) - Ko;
+            float3 oy22 = mod7(math.floor(p22 * K)) * K - Ko;
+            float3 oz22 = math.floor(p22 * K2) * Kz - Kzo;
 
-            float3 ox23 = fract(p23 * K) - Ko;
-            float3 oy23 = mod7(floor(p23 * K)) * K - Ko;
-            float3 oz23 = floor(p23 * K2) * Kz - Kzo;
+            float3 ox23 = math.fract(p23 * K) - Ko;
+            float3 oy23 = mod7(math.floor(p23 * K)) * K - Ko;
+            float3 oz23 = math.floor(p23 * K2) * Kz - Kzo;
 
-            float3 ox31 = fract(p31 * K) - Ko;
-            float3 oy31 = mod7(floor(p31 * K)) * K - Ko;
-            float3 oz31 = floor(p31 * K2) * Kz - Kzo;
+            float3 ox31 = math.fract(p31 * K) - Ko;
+            float3 oy31 = mod7(math.floor(p31 * K)) * K - Ko;
+            float3 oz31 = math.floor(p31 * K2) * Kz - Kzo;
 
-            float3 ox32 = fract(p32 * K) - Ko;
-            float3 oy32 = mod7(floor(p32 * K)) * K - Ko;
-            float3 oz32 = floor(p32 * K2) * Kz - Kzo;
+            float3 ox32 = math.fract(p32 * K) - Ko;
+            float3 oy32 = mod7(math.floor(p32 * K)) * K - Ko;
+            float3 oz32 = math.floor(p32 * K2) * Kz - Kzo;
 
-            float3 ox33 = fract(p33 * K) - Ko;
-            float3 oy33 = mod7(floor(p33 * K)) * K - Ko;
-            float3 oz33 = floor(p33 * K2) * Kz - Kzo;
+            float3 ox33 = math.fract(p33 * K) - Ko;
+            float3 oy33 = mod7(math.floor(p33 * K)) * K - Ko;
+            float3 oz33 = math.floor(p33 * K2) * Kz - Kzo;
 
             float3 dx11 = Pfx + jitter * ox11;
             float3 dy11 = Pfy.x + jitter * oy11;
@@ -133,35 +133,35 @@ namespace Unity.Mathematics
 
             // Sort out the two smallest distances (F1, F2)
             // Do it right and sort out both F1 and F2
-            float3 d1a = min(d11, d12);
-            d12 = max(d11, d12);
-            d11 = min(d1a, d13); // Smallest now not in d12 or d13
-            d13 = max(d1a, d13);
-            d12 = min(d12, d13); // 2nd smallest now not in d13
-            float3 d2a = min(d21, d22);
-            d22 = max(d21, d22);
-            d21 = min(d2a, d23); // Smallest now not in d22 or d23
-            d23 = max(d2a, d23);
-            d22 = min(d22, d23); // 2nd smallest now not in d23
-            float3 d3a = min(d31, d32);
-            d32 = max(d31, d32);
-            d31 = min(d3a, d33); // Smallest now not in d32 or d33
-            d33 = max(d3a, d33);
-            d32 = min(d32, d33); // 2nd smallest now not in d33
-            float3 da = min(d11, d21);
-            d21 = max(d11, d21);
-            d11 = min(da, d31); // Smallest now in d11
-            d31 = max(da, d31); // 2nd smallest now not in d31
+            float3 d1a = math.min(d11, d12);
+            d12 = math.max(d11, d12);
+            d11 = math.min(d1a, d13); // Smallest now not in d12 or d13
+            d13 = math.max(d1a, d13);
+            d12 = math.min(d12, d13); // 2nd smallest now not in d13
+            float3 d2a = math.min(d21, d22);
+            d22 = math.max(d21, d22);
+            d21 = math.min(d2a, d23); // Smallest now not in d22 or d23
+            d23 = math.max(d2a, d23);
+            d22 = math.min(d22, d23); // 2nd smallest now not in d23
+            float3 d3a = math.min(d31, d32);
+            d32 = math.max(d31, d32);
+            d31 = math.min(d3a, d33); // Smallest now not in d32 or d33
+            d33 = math.max(d3a, d33);
+            d32 = math.min(d32, d33); // 2nd smallest now not in d33
+            float3 da = math.min(d11, d21);
+            d21 = math.max(d11, d21);
+            d11 = math.min(da, d31); // Smallest now in d11
+            d31 = math.max(da, d31); // 2nd smallest now not in d31
             d11.xy = (d11.x < d11.y) ? d11.xy : d11.yx;
             d11.xz = (d11.x < d11.z) ? d11.xz : d11.zx; // d11.x now smallest
-            d12 = min(d12, d21); // 2nd smallest now not in d21
-            d12 = min(d12, d22); // nor in d22
-            d12 = min(d12, d31); // nor in d31
-            d12 = min(d12, d32); // nor in d32
-            d11.yz = min(d11.yz, d12.xy); // nor in d12.yz
-            d11.y = min(d11.y, d12.z); // Only two more to go
-            d11.y = min(d11.y, d11.z); // Done! (Phew!)
-            return sqrt(d11.xy); // F1, F2
+            d12 = math.min(d12, d21); // 2nd smallest now not in d21
+            d12 = math.min(d12, d22); // nor in d22
+            d12 = math.min(d12, d31); // nor in d31
+            d12 = math.min(d12, d32); // nor in d32
+            d11.yz = math.min(d11.yz, d12.xy); // nor in d12.yz
+            d11.y = math.min(d11.y, d12.z); // Only two more to go
+            d11.y = math.min(d11.y, d11.z); // Done! (Phew!)
+            return math.sqrt(d11.xy); // F1, F2
         }
     }
 }
