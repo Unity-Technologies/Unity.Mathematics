@@ -18,4 +18,4 @@ build_package:mac:
     - cd ..
     - python Tools/CI/validation.py --package-path src/package
     - cd src/
-    - echo "npm publish com.unity.mathematics-$CI_COMMIT_TAG.tgz"
+    - npm publish com.unity.mathematics-$CI_COMMIT_TAG.tgz
