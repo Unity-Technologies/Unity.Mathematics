@@ -452,7 +452,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 lessThan(float2 x, float2 y) { return x < y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 lessThan(float x, float y) { return x < y; }
+        public static bool lessThan(float x, float y) { return x < y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool4 lessThanEqual(float4 x, float4 y) { return x <= y; }
@@ -461,7 +461,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 lessThanEqual(float2 x, float2 y) { return x <= y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 lessThanEqual(float x, float y) { return x <= y; }
+        public static bool lessThanEqual(float x, float y) { return x <= y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool4 greaterThan(float4 x, float4 y) { return x > y; }
@@ -470,7 +470,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 greaterThan(float2 x, float2 y) { return x > y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 greaterThan(float x, float y) { return x > y; }
+        public static bool greaterThan(float x, float y) { return x > y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool4 greaterThanEqual(float4 x, float4 y) { return x >= y; }
@@ -479,7 +479,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 greaterThanEqual(float2 x, float2 y) { return x >= y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 greaterThanEqual(float x, float y) { return x >= y; }
+        public static bool greaterThanEqual(float x, float y) { return x >= y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool4 equal(float4 x, float4 y) { return x == y; }
@@ -488,7 +488,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 equal(float2 x, float2 y) { return x == y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 equal(float x, float y) { return x == y; }
+        public static bool equal(float x, float y) { return x == y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool4 notEqual(float4 x, float4 y) { return x != y; }
@@ -497,7 +497,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool2 notEqual(float2 x, float2 y) { return x != y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static bool1 notEqual(float x, float y) { return x != y; }
+        public static bool notEqual(float x, float y) { return x != y; }
         
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
