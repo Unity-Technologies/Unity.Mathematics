@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections.Generic;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
 
@@ -48,6 +49,8 @@ namespace Unity.Mathematics
             this.z = z;
             this.w = w;
         }
+
+
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public float4(float val) { x = y = z = w = val; }

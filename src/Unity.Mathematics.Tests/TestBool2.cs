@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,8 +15,8 @@ namespace Unity.Mathematics.Tests
             [Values(false, true)] bool originalValue)
         {
             bool2 testValue = new bool2(originalValue);
-            Assert.AreEqual(testValue.x, (bool1)originalValue);
-            Assert.AreEqual(testValue.y, (bool1)originalValue);
+            Assert.AreEqual(testValue.x, originalValue);
+            Assert.AreEqual(testValue.y, originalValue);
         }
 
         [Test]
@@ -25,8 +25,8 @@ namespace Unity.Mathematics.Tests
             [Values(false, true)] bool secondArgument)
         {
             bool2 testValue = new bool2(firstArgument, secondArgument);
-            Assert.AreEqual(testValue.x, (bool1)firstArgument);
-            Assert.AreEqual(testValue.y, (bool1)secondArgument);
+            Assert.AreEqual(testValue.x, firstArgument);
+            Assert.AreEqual(testValue.y, secondArgument);
         }
 
         [Test]

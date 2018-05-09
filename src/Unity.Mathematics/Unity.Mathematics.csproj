@@ -59,7 +59,6 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="bool1.cs" />
     <Compile Include="bool2.cs" />
     <Compile Include="bool2.gen.cs" />
     <Compile Include="bool3.cs" />

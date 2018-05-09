@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,9 +15,9 @@ namespace Unity.Mathematics.Tests
             [Values(false, true)] bool originalValue)
         {
             bool3 testValue = new bool3(originalValue);
-            Assert.AreEqual(testValue.x, (bool1)originalValue);
-            Assert.AreEqual(testValue.y, (bool1)originalValue);
-            Assert.AreEqual(testValue.z, (bool1)originalValue);
+            Assert.AreEqual(testValue.x, originalValue);
+            Assert.AreEqual(testValue.y, originalValue);
+            Assert.AreEqual(testValue.z, originalValue);
         }
 
         [Test]
@@ -28,9 +28,9 @@ namespace Unity.Mathematics.Tests
         {
             bool2 xy = new bool2(firstArgument, secondArgument);
             bool3 testValue = new bool3(xy, thirdArgument);
-            Assert.AreEqual(testValue.x, (bool1)firstArgument);
-            Assert.AreEqual(testValue.y, (bool1)secondArgument);
-            Assert.AreEqual(testValue.z, (bool1)thirdArgument);
+            Assert.AreEqual(testValue.x, firstArgument);
+            Assert.AreEqual(testValue.y, secondArgument);
+            Assert.AreEqual(testValue.z, thirdArgument);
         }
 
         [Test]
@@ -40,9 +40,9 @@ namespace Unity.Mathematics.Tests
             [Values(false, true)] bool thirdArgument)
         {
             bool3 testValue = new bool3(firstArgument, secondArgument, thirdArgument);
-            Assert.AreEqual(testValue.x, (bool1)firstArgument);
-            Assert.AreEqual(testValue.y, (bool1)secondArgument);
-            Assert.AreEqual(testValue.z, (bool1)thirdArgument);
+            Assert.AreEqual(testValue.x, firstArgument);
+            Assert.AreEqual(testValue.y, secondArgument);
+            Assert.AreEqual(testValue.z, thirdArgument);
         }
 
         [Test]

@@ -38,7 +38,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             new GeneratorJob { indexOperatorReturnType = "float", typeNames = floatTypes, features = Features.Arithmetic | Features.UnaryNegation },
             new GeneratorJob { indexOperatorReturnType = "int", typeNames = intTypes, features = Features.All },
             new GeneratorJob { indexOperatorReturnType = "uint", typeNames = uintTypes, features = Features.All & ~Features.UnaryNegation },
-            new GeneratorJob { indexOperatorReturnType = "bool1", typeNames = boolTypes, features = Features.BitwiseLogic },
+            new GeneratorJob { indexOperatorReturnType = "bool", typeNames = boolTypes, features = Features.BitwiseLogic },
         };
 
         private VectorGenerator(GeneratorJob job)
