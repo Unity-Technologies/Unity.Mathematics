@@ -59,6 +59,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="affine.cs" />
     <Compile Include="bool2.cs" />
     <Compile Include="bool2.gen.cs" />
     <Compile Include="bool3.cs" />
@@ -69,6 +70,7 @@
     <Compile Include="float2.gen.cs" />
     <Compile Include="float3.cs" />
     <Compile Include="float3.gen.cs" />
+    <Compile Include="float3x3.cs" />
     <Compile Include="float4.cs" />
     <Compile Include="float4.gen.cs" />
     <Compile Include="half.cs" />
@@ -84,7 +86,7 @@
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="mathquat.cs" />
+    <Compile Include="quaternion.cs" />
     <Compile Include="uint2.cs" />
     <Compile Include="uint2.gen.cs" />
     <Compile Include="uint3.cs" />

@@ -48,6 +48,7 @@
     <Compile Include="TestBool4.cs" />
     <Compile Include="TestBool3.cs" />
     <Compile Include="TestBool2.cs" />
+    <Compile Include="TestQuaternion.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

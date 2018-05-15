@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel;
+using System.Security.Cryptography.X509Certificates;
 using Unity.Mathematics.Experimental;
 
 namespace Unity.Mathematics
@@ -11,54 +13,60 @@ namespace Unity.Mathematics
         public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
         public quaternion(float4 value)                       { this.value = value; }
 
-        public static quaternion identity { get { return new quaternion(0.0F, 0.0F, 0.0F, 1.0F); } }
-
+        // todo:static member or static func
+        public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
     }
 
     public static partial class math
     {
+        public static quaternion conj(quaternion q)
+        {   
+            var mask = new float4(-1.0f, -1.0f, -1.0f, 1.0f); 
+     
+            return new quaternion(chgsign(q.value, mask));
+        }
+
+        // align qa to point same direction than qb
+        public static quaternion align(quaternion qa, quaternion qb)
+        {
+            return new quaternion(chgsign(qa.value, new float4(dot(qa.value, qb.value))));
+        }
+        
         public static quaternion normalize(quaternion q)
         {
-            float4 value = q.value;
-            float len = math.dot(value, value);
-
-            // note we use float4 comparison here because this gives us -1 / 0 which is necessary for select.
-            //return select(quatIdentity(), q*rsqrt(len), len > float4(epsilon_normal()));
-            value = math.select(quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
+            var value = q.value;
+            var lenSquare = math.lengthSquared(value);
+            value = math.select(quaternion.identity.value, value * math.rsqrt(lenSquare), lenSquare > math.epsilon_normal_square);
 
             return new quaternion(value);
         }
 
-        public static quaternion mul(quaternion lhs, quaternion rhs)
+        public static quaternion mul(quaternion q1, quaternion q2)
         {
-            return new quaternion(
-                lhs.value.w* rhs.value.x + lhs.value.x* rhs.value.w + lhs.value.y* rhs.value.z - lhs.value.z* rhs.value.y,
-                lhs.value.w* rhs.value.y + lhs.value.y* rhs.value.w + lhs.value.z* rhs.value.x - lhs.value.x* rhs.value.z,
-                lhs.value.w* rhs.value.z + lhs.value.z* rhs.value.w + lhs.value.x* rhs.value.y - lhs.value.y* rhs.value.x,
-                lhs.value.w* rhs.value.w - lhs.value.x* rhs.value.x - lhs.value.y* rhs.value.y - lhs.value.z* rhs.value.z);
+            var v1 = q1.value;
+            var v2 = q2.value;
+            
+            return conj(new quaternion((v1.ywzx * v2.xwyz - v1.wxyz * v2.zxzx - v1.zzww * v2.wzxy - v1.xyxy * v2.yyww).zwxy));
         }
-
-        public static float3 mul(quaternion rotation, float3 position)
+        
+        public static float3 mul(quaternion q, float3 u)
         {
-            float x = rotation.value.x * 2F;
-            float y = rotation.value.y * 2F;
-            float z = rotation.value.z * 2F;
-            float xx = rotation.value.x * x;
-            float yy = rotation.value.y * y;
-            float zz = rotation.value.z * z;
-            float xy = rotation.value.x * y;
-            float xz = rotation.value.x * z;
-            float yz = rotation.value.y * z;
-            float wx = rotation.value.w * x;
-            float wy = rotation.value.w * y;
-            float wz = rotation.value.w * z;
+            var c0 = new float3(-2, +2, -2);
+            var c1 = new float3(-2, -2, +2);
+            var c2 = new float3(+2, -2, -2);
 
-            float3 res;
-            res.x = (1F - (yy + zz)) * position.x + (xy - wz) * position.y + (xz + wy) * position.z;
-            res.y = (xy + wz) * position.x + (1F - (xx + zz)) * position.y + (yz - wx) * position.z;
-            res.z = (xz - wy) * position.x + (yz + wx) * position.y + (1F - (xx + yy)) * position.z;
-            return res;
-        }
+            var qv = q.value; 
+            
+            var qyxw = qv.yxw;
+            var qzwx = qv.zwx;
+            var qwzy = qv.wzy;
+
+            var m0 = (c0 * qv.y) * qyxw - (c2 * qv.z) * qzwx;
+            var m1 = (c1 * qv.z) * qwzy - (c0 * qv.x) * qyxw;
+            var m2 = (c2 * qv.x) * qzwx - (c1 * qv.y) * qwzy;
+
+            return (u + u.x * m0) + (u.y * m1 + u.z * m2);   
+       }
 
         // get unit quaternion from rotation matrix
         // u, v, w must be ortho-normal.
@@ -83,45 +91,30 @@ namespace Unity.Mathematics
             }
             return normalize(new quaternion(q));
         }
+        
+        public static quaternion matrixToQuat(float3x3 x)
+        {
+            return matrixToQuat(x.m0, x.m1, x.m2);
+        }
 
+        // todo: push on vectorized form amap?
         public static float3x3 quatToMatrix(quaternion q)
         {
             q = math.normalize(q);
+
+            var qv = q.value;
             
-            // Precalculate coordinate products
-            float x = q.value.x * 2.0F;
-            float y = q.value.y * 2.0F;
-            float z = q.value.z * 2.0F;
-            float xx = q.value.x * x;
-            float yy = q.value.y * y;
-            float zz = q.value.z * z;
-            float xy = q.value.x * y;
-            float xz = q.value.x * z;
-            float yz = q.value.y * z;
-            float wx = q.value.w * x;
-            float wy = q.value.w * y;
-            float wz = q.value.w * z;
+            var yxw = qv.yxw;
+            var zwx = qv.zwx;
+            var wzy = qv.wzy;
 
-            // Calculate 3x3 matrix from orthonormal basis
             var m = new float3x3
-            {
-                m0 = new float3(1.0f - (yy + zz), xy + wz, xz - wy),
-                m1 = new float3(xy - wz, 1.0f - (xx + zz), yz + wx),
-                m2 = new float3(xz + wy, yz - wx, 1.0f - (xx + yy))
+            {  
+                m0 = new float3(-2, +2, -2) * qv.y * yxw + new float3(-2, +2, +2) * qv.z * zwx + new float3(1, 0, 0),
+                m1 = new float3(-2, -2, +2) * qv.z * wzy + new float3(+2, -2, +2) * qv.x * yxw + new float3(0, 1, 0),
+                m2 = new float3(+2, -2, -2) * qv.x * zwx + new float3(+2, +2, -2) * qv.y * wzy + new float3(0, 0, 1)
             };
-            return m;
-        }
-
-        public static float4x4 rottrans(quaternion q, float3 t)
-        {
-            var m3x3 = quatToMatrix(q);
-            var m = new float4x4
-            {
-                m0 = new float4(m3x3.m0, 0.0f),
-                m1 = new float4(m3x3.m1, 0.0f),
-                m2 = new float4(m3x3.m2, 0.0f),
-                m3 = new float4(t, 1.0f)
-            };
+            
             return m;
         }
         
@@ -216,6 +209,19 @@ namespace Unity.Mathematics
             q.z = 0.5f * num5;
             q.w = (m01 - m10) * num2;
             return new quaternion(q);
+        }
+        
+        public static float4x4 rottrans(quaternion q, float3 t)
+        {
+            var m3x3 = quatToMatrix(q);
+            var m = new float4x4
+            {
+                m0 = new float4(m3x3.m0, 0.0f),
+                m1 = new float4(m3x3.m1, 0.0f),
+                m2 = new float4(m3x3.m2, 0.0f),
+                m3 = new float4(t, 1.0f)
+            };
+            return m;
         }
     }
 }

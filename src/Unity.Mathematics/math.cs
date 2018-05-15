@@ -300,9 +300,6 @@ namespace Unity.Mathematics
         public static float distance(float3 pt1, float3 pt2) { return length(pt2 - pt1); }
         public static float distance(float4 pt1, float4 pt2) { return length(pt2 - pt1); }
 
-        // cross
-        public static float3 cross(float3 p0, float3 p1) { return (p0 * p1.yzx - p0.yzx * p1).yzx; }
-
         public static float smoothstep(float a, float b, float x)
         {
             var t = saturate((x - a) / (b - a));
@@ -392,7 +389,7 @@ namespace Unity.Mathematics
         public static int3 select(int3 a, int3 b, bool c) { return c ? b : a; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int4 select(int4 a, int4 b, bool c) { return c ? b : a; }
-
+        
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static int2 select(int2 a, int2 b, bool2 c) { return new int2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -409,6 +406,7 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float4 select(float4 a, float4 b, bool c) { return c ? b : a; }
 
+        // todo: should select(s) use msb instead of bool to match native select?
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float2 select(float2 a, float2 b, bool2 c) { return new float2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
@@ -498,8 +496,5 @@ namespace Unity.Mathematics
         public static bool2 notEqual(float2 x, float2 y) { return x != y; }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static bool notEqual(float x, float y) { return x != y; }
-        
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
     }
 }

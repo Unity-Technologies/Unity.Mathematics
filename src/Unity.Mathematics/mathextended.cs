@@ -4,8 +4,9 @@ namespace Unity.Mathematics
 {
     public static partial class math
     {
-        public const float epsilon_normal = 1e-30f;
-
+        public const float epsilon_determinant = 1e-6f;
+        public const float epsilon_normal = 1e-15f;
+        public const float epsilon_normal_square = epsilon_normal * epsilon_normal;
 
         [MethodImpl((MethodImplOptions)0x100)]
         public static int bool_to_int(bool value) { return value ? 1 : 0; }
@@ -156,17 +157,19 @@ namespace Unity.Mathematics
         public static float3 fract(float3 a) { return a - floor(a); }
         [MethodImpl((MethodImplOptions)0x100)]
         public static float4 fract(float4 a) { return a - floor(a); }
-        
-#if false
-
-        //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...
-
+                
         //  changesign: change sign
         //  return value: msb(y) ? -x : x
-        public static float4 chgsign(float4 val, float sign) { return new float4(chgsign(val.x, sign), chgsign(val.y, sign), chgsign(val.z, sign), chgsign(val.w, sign)); }
-        public static float4 chgsign(float4 val, float4 sign) { return new float4(chgsign(val.x, sign.x), chgsign(val.y, sign.y), chgsign(val.z, sign.z), chgsign(val.w, sign.w)); }
         public static float chgsign(float val, float sign) { return sign >= 0.0F ? val : -val; }
 
+        public static float2 chgsign(float2 val, float2 sign) { return new float2(chgsign(val.x, sign.x), chgsign(val.y, sign.y)); }
+        public static float3 chgsign(float3 val, float3 sign) { return new float3(chgsign(val.x, sign.x), chgsign(val.y, sign.y), chgsign(val.z, sign.z)); }
+        public static float4 chgsign(float4 val, float4 sign) { return new float4(chgsign(val.x, sign.x), chgsign(val.y, sign.y), chgsign(val.z, sign.z), chgsign(val.w, sign.w)); }
+
+#if false
+        public static float4 chgsign(float4 val, float sign) { return new float4(chgsign(val.x, sign), chgsign(val.y, sign), chgsign(val.z, sign), chgsign(val.w, sign)); }
+
+        //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...
         //  sign: change sign
         //  return value: Returns -1 if x is less than zero; 0 if x equals zero; and 1 if x is greater than zero.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
