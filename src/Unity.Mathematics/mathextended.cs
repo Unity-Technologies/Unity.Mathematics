@@ -4,6 +4,7 @@ namespace Unity.Mathematics
 {
     public static partial class math
     {
+        public const float epsilon = 1e-6f;
         public const float epsilon_determinant = 1e-6f;
         public const float epsilon_scale = 1e-9f;
         public const float epsilon_normal = 1e-15f;

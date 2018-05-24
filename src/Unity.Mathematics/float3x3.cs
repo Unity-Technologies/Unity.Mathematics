@@ -141,17 +141,7 @@ namespace Unity.Mathematics
 
     // todo:review
     partial class math
-    {   
-        // this is unity specific
-        // Unity left-handed coordinate system
-        // Y up, Z facing and X left
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 left() { return new float3(1.0f,0.0f,0.0f); }
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 forward() { return new float3(0.0f,0.0f,1.0f); }
-        
+    {      
         // is it needed as we have it on struct
         public static float3x3 identity3 => new float3x3(new float3(1, 0, 0), new float3(0, 1, 0), new float3(0, 0, 1));
 

@@ -119,8 +119,6 @@
             return matrix4x4;
         }        
 
-        const float epsilon = 0.000001F;
-
         public static float4x4 identity4
         {
             get { return new float4x4(new float4(1, 0, 0, 0), new float4(0, 1, 0, 0), new float4(0, 0, 1, 0), new float4(0, 0, 0, 1)); }
