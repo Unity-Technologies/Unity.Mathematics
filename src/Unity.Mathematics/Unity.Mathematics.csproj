@@ -66,6 +66,7 @@
     <Compile Include="bool3.gen.cs" />
     <Compile Include="bool4.cs" />
     <Compile Include="bool4.gen.cs" />
+    <Compile Include="euler.cs" />
     <Compile Include="float2.cs" />
     <Compile Include="float2.gen.cs" />
     <Compile Include="float3.cs" />
@@ -87,6 +88,7 @@
     <Compile Include="matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
+    <Compile Include="svd.cs" />
     <Compile Include="uint2.cs" />
     <Compile Include="uint2.gen.cs" />
     <Compile Include="uint3.cs" />

@@ -65,7 +65,7 @@
     }
 
     partial class math
-    {
+    {       
         public static float4 mul(float4x4 x, float4 v)
         {
             return mad(x.m0, v.x, x.m1 * v.y) + mad(x.m2, v.z, x.m3 * v.w);
@@ -75,7 +75,17 @@
         {
             return new float4x4(mul(a, b.m0), mul(a, b.m1), mul(a, b.m2), mul(a, b.m3));
         }
+       
+        public static float4 mul(float4x4 x, float3 v, float w)
+        {
+            return mad(x.m0, v.x, x.m1 * v.y) + mad(x.m2, v.z, x.m3 * w);
+        }
 
+        public static float4x4 mul(float4x4 a, affine b)
+        {
+            return new float4x4(mul(a, b.rs.m0, 0), mul(a, b.rs.m1, 0), mul(a, b.rs.m2, 0), mul(a, b.t, 1));
+        }
+        
         public static float2 mul(float2x2 x, float2 v)
         {
             return mad(x.m0, v.x, x.m1 * v.y);

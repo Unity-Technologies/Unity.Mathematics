@@ -61,10 +61,7 @@ namespace Unity.Mathematics
             var xs = mulScale(x, scaleInv);
             if (!adjInverse(xs, out var i, epsilon_determinant))
             {
-                // todo: impl svdInverse
-                // i = svdInverse(xs);
-                i = mulScale(float3x3.identity, rcp(scaleInv));
-                
+                i = svdInverse(xs);
             }
             i = mulScale(i, scaleInv);
             return i;
@@ -74,6 +71,11 @@ namespace Unity.Mathematics
     // todo:keep this private?
     public static partial class math
     {
+        public static float3 inverseScale(float3 s, float epsilon = epsilon_scale)
+        {
+            return select(rcp(s), new float3(0.0f), abs(s) < new float3(epsilon));
+        }
+
         public static float uniformScaleSquared(float3x3 x)
         {
             return 0.333333f * (dot(x.m0, x.m0) + dot(x.m1, x.m1) + dot(x.m2, x.m2));
