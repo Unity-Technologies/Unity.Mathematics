@@ -418,13 +418,13 @@ namespace Unity.Mathematics
 
         //Step
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float step(float a, float b) { return select(0.0f, 1.0f, a >= b); }
+        public static float step(float a, float b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float2 step(float2 a, float2 b) { return select(0.0f, 1.0f, a >= b); }
+        public static float2 step(float2 a, float2 b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float3 step(float3 a, float3 b) { return select(0.0f, 1.0f, a >= b); }
+        public static float3 step(float3 a, float3 b) { return select(0.0f, 1.0f, b >= a); }
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
-        public static float4 step(float4 a, float4 b) { return select(0.0f, 1.0f, a >= b); }
+        public static float4 step(float4 a, float4 b) { return select(0.0f, 1.0f, b >= a); }
 
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float reflect(float i, float n) { return i - 2f * n * dot(i, n); }
