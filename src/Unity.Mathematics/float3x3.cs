@@ -5,7 +5,6 @@ namespace Unity.Mathematics
 {
     public partial struct float3x3
     {
-        // todo: should we use field offset 0,4,8 to match native 4x4
         public float3 m0;
         public float3 m1;
         public float3 m2;
@@ -52,6 +51,11 @@ namespace Unity.Mathematics
                 new float3(x.m0.z, x.m1.z, x.m2.z));
         }
 
+        private static float uniformScaleSquared(float3x3 x)
+        {
+            return 0.333333f * (dot(x.m0, x.m0) + dot(x.m1, x.m1) + dot(x.m2, x.m2));
+        }
+        
         public static float3x3 inverse(float3x3 x)
         {
             var scaleSquared = uniformScaleSquared(x);
@@ -71,16 +75,9 @@ namespace Unity.Mathematics
     // todo:keep this private?
     public static partial class math
     {
-        public static float3 inverseScale(float3 s, float epsilon = epsilon_scale)
-        {
-            return select(rcp(s), new float3(0.0f), abs(s) < new float3(epsilon));
-        }
-
-        public static float uniformScaleSquared(float3x3 x)
-        {
-            return 0.333333f * (dot(x.m0, x.m0) + dot(x.m1, x.m1) + dot(x.m2, x.m2));
-        }
-
+        
+ 
+  
         // post mul 3x3 with scale vector
         public static float3x3 mulScale(float3x3 x, float3 s)
         {

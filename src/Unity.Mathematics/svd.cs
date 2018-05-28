@@ -144,6 +144,11 @@ namespace Unity.Mathematics
             return new float3(e.m0.x, e.m1.y, e.m2.z);
         }
 
+        private static float3 inverseScale(float3 s, float epsilon)
+        {
+            return select(rcp(s), new float3(0.0f), abs(s) < new float3(epsilon));
+        }
+
         public static float3x3 svdInverse(float3x3 a)
         {
             var u = quaternion.identity;
