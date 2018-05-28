@@ -9,6 +9,14 @@ namespace Unity.Mathematics
         public const float epsilon_scale = 1e-9f;
         public const float epsilon_normal = 1e-15f;
         public const float epsilon_normal_square = epsilon_normal * epsilon_normal;
+                
+        public const float pi = 3.14159265358979323846f; // pi
+        public const float pi_over_two = 1.57079632679489661923f; // pi / 2
+        public const float pi_over_three = 1.0471975511965977461542144610932f; // pi / 3
+        public const float pi_over_four = 0.785398163397448309615660845819875721f; // pi / 4
+        public const float pi_over_six = 0.52359877559829887307710723054658f; // pi / 6
+        public const float one_over_pi = 0.31830988618379067153776752674503f; // 1 / pi
+        public const float one_over_two_pi = 0.159154943091895335768883763372514362f; // 1 / 2*pi
 
         [MethodImpl((MethodImplOptions)0x100)]
         public static int bool_to_int(bool value) { return value ? 1 : 0; }

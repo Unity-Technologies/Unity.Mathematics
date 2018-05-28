@@ -24,10 +24,10 @@ namespace Unity.Mathematics
             new float4(1.0f, -1.0f, 1.0f, 1.0f), new float4(-1.0f, 1.0f, 1.0f, 1.0f), //YZX
             new float4(1.0f, 1.0f, 1.0f, 1.0f), new float4(-1.0f, 1.0f, 1.0f, -1.0f), //YXZ
             new float4(1.0f, -1.0f, 1.0f, 1.0f), new float4(1.0f, 1.0f, -1.0f, 1.0f), //ZXY
-            new float4(1.0f, -1.0f, 1.0f, 1.0f), new float4(1.0f, 1.0f, 1.0f, -1.0f) //ZYX
+            new float4(1.0f, -1.0f, 1.0f, 1.0f), new float4(1.0f, 1.0f, 1.0f, -1.0f) //ZYX 
         };
 
-        private static float3 eulerReorder(float3 euler, EulerOrder order)
+        public static float3 eulerReorder(float3 euler, EulerOrder order)
         {
             switch (order)
             {
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
             }
         }
 
-        private static float3 eulerReorderBack(float3 euler, EulerOrder order)
+        public static float3 eulerReorderBack(float3 euler, EulerOrder order)
         {
             switch (order)
             {
@@ -68,7 +68,32 @@ namespace Unity.Mathematics
                     return euler;
             }
         }    
-           
+        
+        private static float3 alternateEuler(float3 euler, EulerOrder order)
+        {
+            var eulerAlt = eulerReorder(euler, order);
+            eulerAlt += new float3(pi);
+            eulerAlt = chgsign(eulerAlt, new float3(1, -1, 1));
+            return eulerReorderBack(eulerAlt, order);
+        }
+
+        private static float3 syncEuler(float3 euler, float3 eulerHint)
+        {
+            var twopi = new float3(2.0f*pi);
+            return euler + round((eulerHint - euler) / twopi) * twopi;
+        }
+
+        public static float3 closestEuler(float3 euler, float3 eulerHint, EulerOrder order)
+        {
+            var eulerSynced = syncEuler(euler, eulerHint);
+            var altEulerSynced = syncEuler(alternateEuler(euler, order), eulerHint);
+
+            var diff = eulerSynced - eulerHint;
+            var altDiff = altEulerSynced - eulerHint;
+
+            return select(altEulerSynced, eulerSynced, dot(diff, diff) < dot(altDiff, altDiff));
+        }
+        
         public static quaternion eulerToQuat(float3 euler, EulerOrder order = EulerOrder.XYZ)
         {
             var halfEuler = 0.5f * euler;

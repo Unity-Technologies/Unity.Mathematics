@@ -2,6 +2,7 @@
 
 namespace Unity.Mathematics
 {
+    // https://en.wikipedia.org/wiki/Affine_transformation
     [Serializable]
     public partial struct affine
     {

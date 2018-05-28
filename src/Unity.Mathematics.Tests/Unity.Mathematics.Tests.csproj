@@ -48,6 +48,7 @@
     <Compile Include="TestBool4.cs" />
     <Compile Include="TestBool3.cs" />
     <Compile Include="TestBool2.cs" />
+    <Compile Include="TestEuler.cs" />
     <Compile Include="TestQuaternion.cs" />
     <Compile Include="TestSVD.cs" />
   </ItemGroup>

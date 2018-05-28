@@ -125,13 +125,7 @@ namespace Unity.Mathematics
             float cosa = math.cos(0.5f * angle);
             return new quaternion { value = new float4( axisUnit.x * sina, axisUnit.y * sina, axisUnit.z * sina, cosa ) };
         }
-
-        //@TODO: Seperated x, y, z
-        public static quaternion euler(float3 eulerInDegrees)
-        {
-            throw new System.NotImplementedException();
-        }
-
+        
         //@TODO: Decide on saturate for t (old math lib did it...)
 
         public static quaternion slerp(quaternion lhs, quaternion rhs, float t)
