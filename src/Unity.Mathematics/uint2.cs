@@ -24,34 +24,34 @@ namespace Unity.Mathematics
         public uint x;
         public uint y;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint val) { x = y = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
         {
             this.x = x;
             this.y = y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(int2 val)
         {
             x = (uint)val.x;
             y = (uint)val.y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(float2 val)
         {
             x = (uint)val.x;
             y = (uint)val.y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint2(uint d) { return new uint2(d); }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint2(float2 d) { return new uint2(d); }
 
         public override string ToString()

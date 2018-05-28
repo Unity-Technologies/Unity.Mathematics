@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 
 namespace Unity.Mathematics
 {
@@ -7,10 +7,10 @@ namespace Unity.Mathematics
         public const float epsilon_normal = 1e-30f;
 
 
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int bool_to_int(bool value) { return value ? 1 : 0; }
 
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int bool_to_mask(bool value) { return value ? -1 : 0; }
 
         public static int count_bits(int i)
@@ -54,81 +54,81 @@ namespace Unity.Mathematics
         }
 
         // radians (convert from degrees to radians)
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float radians(float degrees) { return degrees * 0.0174532925f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 radians(float2 degrees) { return degrees * 0.0174532925f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 radians(float3 degrees) { return degrees * 0.0174532925f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 radians(float4 degrees) { return degrees * 0.0174532925f; }
 
         // radians (convert from radians to degrees)
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float degrees(float radians) { return radians * 57.295779513f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 degrees(float2 radians) { return radians * 57.295779513f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 degrees(float3 radians) { return radians * 57.295779513f; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 degrees(float4 radians) { return radians * 57.295779513f; }
 
 
         // cmin - returns the smallest component of the vector
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float2 a) { return min(a.x, a.y); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float3 a) { return min(min(a.x, a.y), a.z); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float4 a) { return min(min(min(a.x, a.y), a.z), a.w); }
 
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int2 a) { return min(a.x, a.y); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int3 a) { return min(min(a.x, a.y), a.z); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int4 a) { return min(min(min(a.x, a.y), a.z), a.w); }
 
         // cmax - returns the largest component of the vector
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float2 a) { return max(a.x, a.y); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float3 a) { return max(max(a.x, a.y), a.z); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float4 a) { return max(max(max(a.x, a.y), a.z), a.w); }
 
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int2 a) { return max(a.x, a.y); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int3 a) { return max(max(a.x, a.y), a.z); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int4 a) { return max(max(max(a.x, a.y), a.z), a.w); }
 
         // csum - sums all components of the vector
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float2 a) { return a.x + a.y; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float3 a) { return a.x + a.y + a.z; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float4 a) { return a.x + a.y + a.z + a.w; }
 
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int a) { return a; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int2 a) { return a.x + a.y; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int3 a) { return a.x + a.y + a.z; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int4 a) { return a.x + a.y + a.z + a.w; }
 
         // A numeric optimization fence.
@@ -138,23 +138,23 @@ namespace Unity.Mathematics
         // this gives the programmer a tool to prevent specific optimization.
         // example:
         // var c = math.nfence(a + b) * c;
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float nfence(float value) { return value; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 nfence(float2 value) { return value; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 nfence(float3 value) { return value; }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 nfence(float4 value) { return value; }
 
         // fract
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float fract(float a) { return a - floor(a); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 fract(float2 a) { return a - floor(a); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 fract(float3 a) { return a - floor(a); }
-        [MethodImpl((MethodImplOptions)0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 fract(float4 a) { return a - floor(a); }
         
 #if false

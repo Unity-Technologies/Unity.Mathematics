@@ -34,7 +34,7 @@ namespace Unity.Mathematics
         [MarshalAs(UnmanagedType.U1)]
         public bool w;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool z, bool w)
         {
             this.x = x;
@@ -43,19 +43,19 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool val)
         {
             x = y = z = w = val;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool3 xyz, bool w)
         {
             x = xyz.x; y = xyz.y; z = xyz.z; this.w = w;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool4(bool d)
         {
             return new bool4(d);

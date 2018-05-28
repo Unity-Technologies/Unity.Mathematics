@@ -27,10 +27,10 @@ namespace Unity.Mathematics
         public int y;
         public int z;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int val) { x = y = z = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int y, int z)
         {
             this.x = x;
@@ -38,7 +38,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int2 xy, int z)
         {
             this.x = xy.x;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(float3 val)
         {
             x = (int)val.x;
@@ -54,9 +54,9 @@ namespace Unity.Mathematics
             z = (int)val.z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int3(int d) { return new int3(d); }
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(float3 d) { return new int3((int)d.x, (int)d.y, (int)d.z); }
 
         public override string ToString()

@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         public float y;
         public float z;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float y, float z)
         {
             this.x = x;
@@ -35,10 +35,10 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float val) { x = y = z = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float2 xy, float z)
         {
             this.x = xy.x;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float2 yz)
         {
             this.x = x;
@@ -54,10 +54,10 @@ namespace Unity.Mathematics
             this.z = yz.y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(int val) { x = y = z = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(int3 val)
         {
             x = val.x;
@@ -65,10 +65,10 @@ namespace Unity.Mathematics
             z = val.z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3(float d) { return new float3(d); }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3(int3 d) { return new float3(d.x, d.y, d.z); }
 
         public override string ToString()

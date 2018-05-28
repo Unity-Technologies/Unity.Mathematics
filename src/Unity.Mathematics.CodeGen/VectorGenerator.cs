@@ -181,7 +181,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateBinaryOperator(int lhsTypeIndex, int rhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
         {
-            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", resultType, op, m_Types[lhsTypeIndex], m_Types[rhsTypeIndex]);
             str.Append(" { ");
             str.AppendFormat("return new {0} (", resultType);
@@ -250,7 +250,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateEquals(int resultCount, string resultType, StringBuilder str)
         {
-            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic bool Equals({0} rhs) ", resultType);
             str.Append(" { ");
             str.AppendFormat("return ", resultType);
@@ -268,7 +268,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateShiftOperator(int lhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
         {
-            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, int rhs)", resultType, op, m_Types[lhsTypeIndex - 1]);
             str.Append(" { ");
             str.AppendFormat("return new {0} (", resultType);
@@ -296,7 +296,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateUnaryOperator(int count, string op, StringBuilder str)
         {
-            str.Append("\t\t[MethodImpl(0x100)]\n");
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_Types[count - 1], op);
             str.Append(" { ");
             str.AppendFormat("return new {0} (", m_Types[count - 1]);
@@ -401,7 +401,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t{");
             if (swizzle.Length != 1)
             {
-                str.AppendFormat("\n\t\t\t[MethodImpl(0x100)]");
+                str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
                 str.Append("\n\t\t\tget { return new ");
                 str.Append(m_Types[swizzle.Length - 1]);
                 str.Append('(');
@@ -425,7 +425,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             //Setter
             if (allowSetter)
             {
-                str.AppendFormat("\n\t\t\t[MethodImpl(0x100)]");
+                str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
                 str.Append("\n\t\t\tset { ");
                 for (int i = 0; i < swizzle.Length; i++)
                 {

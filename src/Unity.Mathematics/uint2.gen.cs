@@ -7,91 +7,91 @@ namespace Unity.Mathematics
     {
 
         // mul
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator * (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x * rhs.x, lhs.y * rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator * (uint2 lhs, uint rhs) { return new uint2 (lhs.x * rhs, lhs.y * rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator * (uint lhs, uint2 rhs) { return new uint2 (lhs * rhs.x, lhs * rhs.y); }
 
         // add
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator + (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x + rhs.x, lhs.y + rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator + (uint2 lhs, uint rhs) { return new uint2 (lhs.x + rhs, lhs.y + rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator + (uint lhs, uint2 rhs) { return new uint2 (lhs + rhs.x, lhs + rhs.y); }
 
         // sub
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator - (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x - rhs.x, lhs.y - rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator - (uint2 lhs, uint rhs) { return new uint2 (lhs.x - rhs, lhs.y - rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator - (uint lhs, uint2 rhs) { return new uint2 (lhs - rhs.x, lhs - rhs.y); }
 
         // div
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator / (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x / rhs.x, lhs.y / rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator / (uint2 lhs, uint rhs) { return new uint2 (lhs.x / rhs, lhs.y / rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator / (uint lhs, uint2 rhs) { return new uint2 (lhs / rhs.x, lhs / rhs.y); }
 
         // smaller 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (uint2 lhs, uint rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (uint lhs, uint2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (uint2 lhs, uint rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (uint lhs, uint2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
         // greater 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (uint2 lhs, uint rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (uint lhs, uint2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (uint2 lhs, uint rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (uint lhs, uint2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
         // left shift
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator << (uint2 lhs, int rhs) { return new uint2 (lhs.x << rhs, lhs.y << rhs); }
 
         // right shift
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator >> (uint2 lhs, int rhs) { return new uint2 (lhs.x >> rhs, lhs.y >> rhs); }
 
         // equal 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (uint2 lhs, uint rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (uint lhs, uint2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
         // not equal 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (uint2 lhs, uint rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (uint lhs, uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
         // Equals 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(uint2 rhs)  { return x == rhs.x && y == rhs.y; }
 
         // [int index] 
@@ -116,35 +116,35 @@ namespace Unity.Mathematics
         }
 
         // operator &
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator & (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x & rhs.x, lhs.y & rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator & (uint2 lhs, uint rhs) { return new uint2 (lhs.x & rhs, lhs.y & rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator & (uint lhs, uint2 rhs) { return new uint2 (lhs & rhs.x, lhs & rhs.y); }
 
         // operator |
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator | (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x | rhs.x, lhs.y | rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator | (uint2 lhs, uint rhs) { return new uint2 (lhs.x | rhs, lhs.y | rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator | (uint lhs, uint2 rhs) { return new uint2 (lhs | rhs.x, lhs | rhs.y); }
 
         // operator ^
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ^ (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x ^ rhs.x, lhs.y ^ rhs.y); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ^ (uint2 lhs, uint rhs) { return new uint2 (lhs.x ^ rhs, lhs.y ^ rhs); }
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ^ (uint lhs, uint2 rhs) { return new uint2 (lhs ^ rhs.x, lhs ^ rhs.y); }
 
         // operator ~ 
-        [MethodImpl(0x100)]
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ~ (uint2 val) { return new uint2 (~val.x, ~val.y); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, x, x, x); }
         }
 
@@ -152,7 +152,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, x, x, y); }
         }
 
@@ -160,7 +160,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, x, y, x); }
         }
 
@@ -168,7 +168,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, x, y, y); }
         }
 
@@ -176,7 +176,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xyxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, y, x, x); }
         }
 
@@ -184,7 +184,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xyxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, y, x, y); }
         }
 
@@ -192,7 +192,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xyyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, y, y, x); }
         }
 
@@ -200,7 +200,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xyyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(x, y, y, y); }
         }
 
@@ -208,7 +208,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yxxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, x, x, x); }
         }
 
@@ -216,7 +216,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yxxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, x, x, y); }
         }
 
@@ -224,7 +224,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yxyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, x, y, x); }
         }
 
@@ -232,7 +232,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yxyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, x, y, y); }
         }
 
@@ -240,7 +240,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yyxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, y, x, x); }
         }
 
@@ -248,7 +248,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yyxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, y, x, y); }
         }
 
@@ -256,7 +256,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yyyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, y, y, x); }
         }
 
@@ -264,7 +264,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 yyyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint4(y, y, y, y); }
         }
 
@@ -272,7 +272,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 xxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(x, x, x); }
         }
 
@@ -280,7 +280,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 xxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(x, x, y); }
         }
 
@@ -288,7 +288,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 xyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(x, y, x); }
         }
 
@@ -296,7 +296,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 xyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(x, y, y); }
         }
 
@@ -304,7 +304,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 yxx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(y, x, x); }
         }
 
@@ -312,7 +312,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 yxy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(y, x, y); }
         }
 
@@ -320,7 +320,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 yyx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(y, y, x); }
         }
 
@@ -328,7 +328,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint3 yyy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint3(y, y, y); }
         }
 
@@ -336,7 +336,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint2 xx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint2(x, x); }
         }
 
@@ -344,9 +344,9 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint2 xy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint2(x, y); }
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; }
         }
 
@@ -354,9 +354,9 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint2 yx
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint2(y, x); }
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; }
         }
 
@@ -364,7 +364,7 @@ namespace Unity.Mathematics
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint2 yy
         {
-            [MethodImpl(0x100)]
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new uint2(y, y); }
         }
 

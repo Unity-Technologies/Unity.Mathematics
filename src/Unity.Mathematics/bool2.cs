@@ -26,20 +26,20 @@ namespace Unity.Mathematics
         [MarshalAs(UnmanagedType.U1)]
         public bool y;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool val)
         {
             x = y = val;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool x, bool y)
         {
             this.x = x;
             this.y = y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2(bool d)
         {
             return new bool2(d);

@@ -32,7 +32,7 @@ namespace Unity.Mathematics
         public float z;
         public float w;
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float4 xyzw)
         {
             this.x = xyzw.x;
@@ -41,7 +41,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float z, float w)
         {
             this.x = x;
@@ -52,10 +52,10 @@ namespace Unity.Mathematics
 
 
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float val) { x = y = z = w = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float2 xy, float2 zw)
         {
             this.x = xy.x;
@@ -64,7 +64,7 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float2 xy, float z, float w)
         {
             this.x = xy.x;
@@ -73,7 +73,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float2 yz, float w)
         {
             this.x = x;
@@ -82,7 +82,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float3 yzw)
         {
             this.x = x;
@@ -91,7 +91,7 @@ namespace Unity.Mathematics
             this.w = yzw.z;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float2 zw)
         {
             this.x = x;
@@ -100,7 +100,7 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float3 xyz, float w)
         {
             this.x = xyz.x;
@@ -109,10 +109,10 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(int val) { x = y = z = w = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(int4 val)
         {
             x = val.x;
@@ -121,7 +121,7 @@ namespace Unity.Mathematics
             w = val.w;
         }
         
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(bool4 val)
         {
             x = val.x ? 1.0f : 0.0f;
@@ -130,10 +130,10 @@ namespace Unity.Mathematics
             w = val.w ? 1.0f : 0.0f;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(float d) { return new float4(d); }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(int4 d) { return new float4(d.x, d.y, d.z, d.w); }
 
         public override string ToString()

@@ -1,4 +1,4 @@
-﻿namespace Unity.Mathematics
+namespace Unity.Mathematics
 {
     public partial struct float4x4
     {
@@ -215,11 +215,11 @@
         }
 
         /* @TODO:
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float determinant(float2x2 x) { throw new System.NotImplementedException(); }
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float determinant(float3x3 x) { throw new System.NotImplementedException(); }
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float determinant(float4x4 x) { throw new System.NotImplementedException(); }
         */
     }

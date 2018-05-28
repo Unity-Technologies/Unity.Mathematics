@@ -30,10 +30,10 @@ namespace Unity.Mathematics
         [MarshalAs(UnmanagedType.U1)]
         public bool z;
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool val) { x = y = z = val; }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
         {
             this.x = x;
@@ -41,7 +41,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool2 xy, bool z)
         {
             this.x = xy.x;
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
-        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3(bool d)
         {
             return new bool3(d);
