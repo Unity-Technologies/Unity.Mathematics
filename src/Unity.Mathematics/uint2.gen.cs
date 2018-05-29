@@ -5,6 +5,21 @@ namespace Unity.Mathematics
 {
     public partial struct uint2 : System.IEquatable<uint2>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(uint x, uint y)
+        { 
+            this.x = x;
+            this.y = y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(uint2 xy)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+        }
+
 
         // mul
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -368,6 +383,16 @@ namespace Unity.Mathematics
             get { return new uint2(y, y); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(uint x, uint y) { return uint2(x, y); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(uint2 xy) { return uint2(xy); }
 
     }
 }

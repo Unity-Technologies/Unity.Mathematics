@@ -5,6 +5,39 @@ namespace Unity.Mathematics
 {
     public partial struct bool3 : System.IEquatable<bool3>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool3(bool x, bool y, bool z)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool3(bool x, bool2 yz)
+        { 
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool3(bool2 xy, bool z)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool3(bool3 xyz)
+        { 
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+        }
+
 
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1029,6 +1062,22 @@ namespace Unity.Mathematics
             get { return new bool2(z, z); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 bool3(bool x, bool y, bool z) { return bool3(x, y, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 bool3(bool x, bool2 yz) { return bool3(x, yz); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 bool3(bool2 xy, bool z) { return bool3(xy, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 bool3(bool3 xyz) { return bool3(xyz); }
 
     }
 }

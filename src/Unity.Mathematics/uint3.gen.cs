@@ -5,6 +5,39 @@ namespace Unity.Mathematics
 {
     public partial struct uint3 : System.IEquatable<uint3>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(uint x, uint y, uint z)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(uint x, uint2 yz)
+        { 
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(uint2 xy, uint z)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(uint3 xyz)
+        { 
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+        }
+
 
         // mul
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1100,6 +1133,22 @@ namespace Unity.Mathematics
             get { return new uint2(z, z); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint x, uint y, uint z) { return uint3(x, y, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint x, uint2 yz) { return uint3(x, yz); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint2 xy, uint z) { return uint3(xy, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint3 xyz) { return uint3(xyz); }
 
     }
 }

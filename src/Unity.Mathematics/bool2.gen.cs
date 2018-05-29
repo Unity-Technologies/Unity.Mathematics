@@ -5,6 +5,21 @@ namespace Unity.Mathematics
 {
     public partial struct bool2 : System.IEquatable<bool2>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool2(bool x, bool y)
+        { 
+            this.x = x;
+            this.y = y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool2(bool2 xy)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+        }
+
 
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -297,6 +312,16 @@ namespace Unity.Mathematics
             get { return new bool2(y, y); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 bool2(bool x, bool y) { return bool2(x, y); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 bool2(bool2 xy) { return bool2(xy); }
 
     }
 }

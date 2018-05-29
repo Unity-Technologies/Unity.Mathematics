@@ -5,6 +5,79 @@ namespace Unity.Mathematics
 {
     public partial struct int4 : System.IEquatable<int4>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int x, int y, int z, int w)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int x, int y, int2 zw)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int x, int2 yz, int w)
+        { 
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int x, int3 yzw)
+        { 
+            this.x = x;
+            this.y = yzw.x;
+            this.z = yzw.y;
+            this.w = yzw.z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int2 xy, int z, int w)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int2 xy, int2 zw)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int3 xyz, int w)
+        { 
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4(int4 xyzw)
+        { 
+            this.x = xyzw.x;
+            this.y = xyzw.y;
+            this.z = xyzw.z;
+            this.w = xyzw.w;
+        }
+
 
         // mul
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2954,6 +3027,34 @@ namespace Unity.Mathematics
             get { return new int2(w, w); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int x, int y, int z, int w) { return int4(x, y, z, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int x, int y, int2 zw) { return int4(x, y, zw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int x, int2 yz, int w) { return int4(x, yz, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int x, int3 yzw) { return int4(x, yzw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int2 xy, int z, int w) { return int4(xy, z, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int2 xy, int2 zw) { return int4(xy, zw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int3 xyz, int w) { return int4(xyz, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 int4(int4 xyzw) { return int4(xyzw); }
 
     }
 }

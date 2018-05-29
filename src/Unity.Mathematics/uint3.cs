@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using System.Diagnostics;
 
 #pragma warning disable 0660, 0661
@@ -29,23 +29,7 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint val) { x = y = z = val; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3(uint x, uint y, uint z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3(uint2 xy, uint z)
-        {
-            this.x = xy.x;
-            this.y = xy.y;
-            this.z = z;
-        }
-
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(float3 val)
         {

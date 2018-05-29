@@ -5,6 +5,79 @@ namespace Unity.Mathematics
 {
     public partial struct bool4 : System.IEquatable<bool4>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool x, bool y, bool z, bool w)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool x, bool y, bool2 zw)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool x, bool2 yz, bool w)
+        { 
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool x, bool3 yzw)
+        { 
+            this.x = x;
+            this.y = yzw.x;
+            this.z = yzw.y;
+            this.w = yzw.z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool2 xy, bool z, bool w)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool2 xy, bool2 zw)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = zw.x;
+            this.w = zw.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool3 xyz, bool w)
+        { 
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+            this.w = w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool4 xyzw)
+        { 
+            this.x = xyzw.x;
+            this.y = xyzw.y;
+            this.z = xyzw.z;
+            this.w = xyzw.w;
+        }
+
 
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2877,6 +2950,34 @@ namespace Unity.Mathematics
             get { return new bool2(w, w); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool x, bool y, bool z, bool w) { return bool4(x, y, z, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool x, bool y, bool2 zw) { return bool4(x, y, zw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool x, bool2 yz, bool w) { return bool4(x, yz, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool x, bool3 yzw) { return bool4(x, yzw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool2 xy, bool z, bool w) { return bool4(xy, z, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool2 xy, bool2 zw) { return bool4(xy, zw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool3 xyz, bool w) { return bool4(xyz, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool4 xyzw) { return bool4(xyzw); }
 
     }
 }

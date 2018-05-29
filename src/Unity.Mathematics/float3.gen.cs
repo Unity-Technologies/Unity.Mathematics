@@ -5,6 +5,39 @@ namespace Unity.Mathematics
 {
     public partial struct float3 : System.IEquatable<float3>
     {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(float x, float y, float z)
+        { 
+            this.x = x;
+            this.y = y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(float x, float2 yz)
+        { 
+            this.x = x;
+            this.y = yz.x;
+            this.z = yz.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(float2 xy, float z)
+        { 
+            this.x = xy.x;
+            this.y = xy.y;
+            this.z = z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(float3 xyz)
+        { 
+            this.x = xyz.x;
+            this.y = xyz.y;
+            this.z = xyz.z;
+        }
+
 
         // mul
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1071,6 +1104,22 @@ namespace Unity.Mathematics
             get { return new float2(z, z); }
         }
 
+
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(float x, float y, float z) { return float3(x, y, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(float x, float2 yz) { return float3(x, yz); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(float2 xy, float z) { return float3(xy, z); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(float3 xyz) { return float3(xyz); }
 
     }
 }

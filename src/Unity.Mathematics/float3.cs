@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
 
@@ -26,33 +26,9 @@ namespace Unity.Mathematics
         public float x;
         public float y;
         public float z;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(float x, float y, float z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(float val) { x = y = z = val; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(float2 xy, float z)
-        {
-            this.x = xy.x;
-            this.y = xy.y;
-            this.z = z;
-        }
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(float x, float2 yz)
-        {
-            this.x = x;
-            this.y = yz.x;
-            this.z = yz.y;
-        }
+        public float3(float val) { x = y = z = val; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(int val) { x = y = z = val; }

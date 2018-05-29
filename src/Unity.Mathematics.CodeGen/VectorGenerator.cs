@@ -75,6 +75,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         public void Generate(int count, StringBuilder str)
         {
+            StringBuilder staticConstructorStr = new StringBuilder();
             str.Append("// GENERATED CODE\n");
             str.Append("using System.Runtime.CompilerServices;\n");
             str.Append("#pragma warning disable 0660, 0661\n");
@@ -83,13 +84,128 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_Types[count - 1]);
             str.Append("\t{\n");
 
+            GenerateConstructors(count, str, staticConstructorStr);
             GenerateOperators(count, str);
             GenerateSwizzles(count, str);
 
-            str.Append("\t}\n");
-            str.Append("}\n");
+            str.Append("\t}\n\n");
+
+            str.Append("\tpublic static partial class math\n");
+            str.Append("\t{\n");
+            str.Append(staticConstructorStr);
+            str.Append("\t}\n}\n");
+        }
+        
+        private string GenerateComponentRangeString(int componentIndex, int numComponents)
+        {
+            string result = "";
+            for(int i = 0; i < numComponents; i++)
+            {
+                result += fields[componentIndex + i];
+            }
+            return result;
         }
 
+        // Generate constructor and static constructor with a given component partitioning of input parameters
+        private void GenerateConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            // Generate signatures
+            string typeName = m_Types[numComponents - 1];
+            constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            constructorStr.Append("\t\tpublic ");
+            constructorStr.Append(typeName);
+            constructorStr.Append("(");
+            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            staticConstructorStr.Append("\t\tpublic static ");
+            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append(" ");
+            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append("(");
+
+            int componentIndex = 0;
+            for (int i = 0; i < numParameters; i++)
+            {
+                if (i != 0)
+                {
+                    constructorStr.Append(", ");
+                    staticConstructorStr.Append(", ");
+                }
+
+                
+                int paramComponents = parameterComponents[i];
+                string paramType = m_Types[paramComponents - 1];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+
+                constructorStr.Append(paramType);
+                constructorStr.Append(" ");
+                constructorStr.Append(componentString);
+                staticConstructorStr.Append(paramType);
+                staticConstructorStr.Append(" ");
+                staticConstructorStr.Append(componentString);
+                componentIndex += paramComponents;
+            }
+            constructorStr.Append(")\n");
+            staticConstructorStr.Append(")");
+            
+            // Generate function bodies
+            constructorStr.Append("\t\t{ ");
+            staticConstructorStr.Append(" { return ");
+            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append("(");
+
+            componentIndex = 0;
+            for (int i = 0; i < numParameters; i++)
+            {
+                int paramComponents = parameterComponents[i];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+                for (int j = 0; j < paramComponents; j++)
+                {
+                    constructorStr.Append("\n\t\t\tthis.");
+                    constructorStr.Append(fields[componentIndex]);
+                    constructorStr.Append(" = ");
+                    constructorStr.Append(componentString);
+                    if (paramComponents > 1)
+                    {
+                        constructorStr.Append(".");
+                        constructorStr.Append(fields[j]);
+                    }
+                    constructorStr.Append(";");
+                    componentIndex++;
+                }
+
+                if (i != 0)
+                {
+                    staticConstructorStr.Append(", ");
+                }
+                staticConstructorStr.Append(componentString);
+            }
+
+            constructorStr.Append("\n\t\t}\n\n");
+            staticConstructorStr.Append("); }\n\n");
+        }
+
+        // Recursively generate all constructor variants with every possibly partition or the components
+        private void GenerateConstructors(int numRemainingComponents, int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            if (numRemainingComponents == 0)
+            {
+                GenerateConstructor(numComponents, numParameters, parameterComponents, constructorStr, staticConstructorStr);
+            }
+            
+            for(int i = 1; i <= numRemainingComponents; i++)
+            {
+                parameterComponents[numParameters] = i;
+                GenerateConstructors(numRemainingComponents - i, numComponents, numParameters + 1, parameterComponents, constructorStr, staticConstructorStr);
+            }
+        }
+
+        public void GenerateConstructors(int count, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            constructorStr.Append("\t\t// constructors\n");
+            int[] parameterComponenets = new int[4];
+            GenerateConstructors(count, count, 0, parameterComponenets, constructorStr, staticConstructorStr);
+        }
+        
         public void GenerateOperators(int count, StringBuilder str)
         {
             string resultType = m_Types[count - 1];

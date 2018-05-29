@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using System.Diagnostics;
 
 #pragma warning disable 0660, 0661
@@ -26,13 +26,6 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2(int val) { x = y = val; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int2(int x, int y)
-        {
-            this.x = x;
-            this.y = y;
-        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2(float2 val)

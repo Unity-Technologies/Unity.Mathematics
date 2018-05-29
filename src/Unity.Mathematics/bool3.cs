@@ -34,22 +34,6 @@ namespace Unity.Mathematics
         public bool3(bool val) { x = y = z = val; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool3(bool x, bool y, bool z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool3(bool2 xy, bool z)
-        {
-            this.x = xy.x;
-            this.y = xy.y;
-            this.z = z;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3(bool d)
         {
             return new bool3(d);

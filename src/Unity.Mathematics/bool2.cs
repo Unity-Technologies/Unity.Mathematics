@@ -31,14 +31,7 @@ namespace Unity.Mathematics
         {
             x = y = val;
         }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool2(bool x, bool y)
-        {
-            this.x = x;
-            this.y = y;
-        }
-
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2(bool d)
         {

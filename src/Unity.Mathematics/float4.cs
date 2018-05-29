@@ -33,82 +33,8 @@ namespace Unity.Mathematics
         public float w;
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float4 xyzw)
-        {
-            this.x = xyzw.x;
-            this.y = xyzw.y;
-            this.z = xyzw.z;
-            this.w = xyzw.w;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float x, float y, float z, float w)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
-
-
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float val) { x = y = z = w = val; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float2 xy, float2 zw)
-        {
-            this.x = xy.x;
-            this.y = xy.y;
-            this.z = zw.x;
-            this.w = zw.y;
-        }
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float2 xy, float z, float w)
-        {
-            this.x = xy.x;
-            this.y = xy.y;
-            this.z = z;
-            this.w = w;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float x, float2 yz, float w)
-        {
-            this.x = x;
-            this.y = yz.x;
-            this.z = yz.y;
-            this.w = w;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float x, float3 yzw)
-        {
-            this.x = x;
-            this.y = yzw.x;
-            this.z = yzw.y;
-            this.w = yzw.z;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float x, float y, float2 zw)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = zw.x;
-            this.w = zw.y;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float3 xyz, float w)
-        {
-            this.x = xyz.x;
-            this.y = xyz.y;
-            this.z = xyz.z;
-            this.w = w;
-        }
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(int val) { x = y = z = w = val; }
 

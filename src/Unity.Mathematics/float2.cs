@@ -24,13 +24,7 @@ namespace Unity.Mathematics
 
         public float x;
         public float y;
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(float x, float y)
-        {
-            this.x = x;
-            this.y = y;
-        }
+        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float val) { x = y = val; }
 
