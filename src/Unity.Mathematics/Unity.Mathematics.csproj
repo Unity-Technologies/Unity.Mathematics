@@ -86,6 +86,7 @@
     <Compile Include="mathextended.cs" />
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
+    <Compile Include="obselete.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="rigid.cs" />

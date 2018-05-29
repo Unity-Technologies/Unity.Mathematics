@@ -26,6 +26,21 @@ namespace Unity.Mathematics
             return new float3(0.0f, 0.0f, 1.0f);
         }
         
+        public static float3 left(quaternion q)
+        {
+            return mul(q, left());
+        }
+        
+        public static float3 forward(quaternion q)
+        {
+            return mul(q, forward());
+        }
+        
+        public static float3 up(quaternion q)
+        {
+            return mul(q, up());
+        }        
+        
         public const EulerOrder UnityDefaultEulerOrder = EulerOrder.ZXY;
     }
 }

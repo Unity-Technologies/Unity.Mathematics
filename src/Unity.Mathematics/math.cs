@@ -137,6 +137,10 @@ namespace Unity.Mathematics
         [MethodImpl((MethodImplOptions)0x100)] // agressive inline
         public static float dot(float4 pt1, float4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
 
+        // cross
+        [MethodImpl((MethodImplOptions)0x100)] // agressive inline
+        public static float3 cross(float3 v0, float3 v1) { return (v0 * v1.yzx - v0.yzx * v1).yzx; }
+
         // tan
         public static float tan(float value) { return (float)System.Math.Tan(value); }
         public static float2 tan(float2 value) { return new float2(tan(value.x), tan(value.y)); }

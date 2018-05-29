@@ -3,12 +3,22 @@ using System.Runtime.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    [Serializable]
     public partial struct float3x3
     {
         public float3 m0;
         public float3 m1;
         public float3 m2;
 
+        public float3x3(float m00, float m01, float m02,
+            float m10, float m11, float m12,
+            float m20, float m21, float m22)
+        {
+            this.m0 = new float3(m00, m01, m02);
+            this.m1 = new float3(m10, m11, m12);
+            this.m2 = new float3(m20, m21, m22);
+        }
+        
         public float3x3(float3 m0, float3 m1, float3 m2)
         {
             this.m0 = m0;
@@ -16,18 +26,12 @@ namespace Unity.Mathematics
             this.m2 = m2;
         }
        
-        public static float3x3 zero => new float3x3(new float3(0.0f, 0.0f, 0.0f), new float3(0.0f, 0.0f, 0.0f), new float3(0.0f, 0.0f, 0.0f));
-        public static float3x3 identity => new float3x3(new float3(1.0f, 0.0f, 0.0f), new float3(0.0f, 1.0f, 0.0f), new float3(0.0f, 0.0f, 1.0f));
+        public static readonly float3x3 zero = new float3x3(new float3(0.0f, 0.0f, 0.0f), new float3(0.0f, 0.0f, 0.0f), new float3(0.0f, 0.0f, 0.0f));
+        public static readonly float3x3 identity = new float3x3(new float3(1.0f, 0.0f, 0.0f), new float3(0.0f, 1.0f, 0.0f), new float3(0.0f, 0.0f, 1.0f));
     }
 
     public static partial class math
     {
-        // cross
-        public static float3 cross(float3 v0, float3 v1)
-        {
-            return (v0 * v1.yzx - v0.yzx * v1).yzx;
-        }
-
         public static float det(float3x3 x)
         {
             return dot(cross(x.m0, x.m1), x.m2);
@@ -42,18 +46,31 @@ namespace Unity.Mathematics
         {
             return new float3x3(mul(x0, x1.m0), mul(x0, x1.m1), mul(x0, x1.m2));
         }
+        
+        // mul 3x3 with scalar
+        public static float3x3 mulScale(float3x3 x, float s)
+        {
+            return new float3x3(x.m0 * s, x.m1 * s, x.m2 * s);
+        }
+        
+        // post mul 3x3 with scale vector
+        public static float3x3 mulScale(float3x3 x, float3 s)
+        {
+            return new float3x3(x.m0 * s.x, x.m1 * s.y, x.m2 * s.z);
+        }
 
+        // pre mul 3x3 with scale vector
+        public static float3x3 scaleMul(float3 s, float3x3 x)
+        {
+            return new float3x3(x.m0 * s, x.m1 * s, x.m2 * s);
+        }
+        
         public static float3x3 transpose(float3x3 x)
         {
             return new float3x3(
                 new float3(x.m0.x, x.m1.x, x.m2.x), 
                 new float3(x.m0.y, x.m1.y, x.m2.y),
                 new float3(x.m0.z, x.m1.z, x.m2.z));
-        }
-
-        private static float uniformScaleSquared(float3x3 x)
-        {
-            return 0.333333f * (dot(x.m0, x.m0) + dot(x.m1, x.m1) + dot(x.m2, x.m2));
         }
         
         public static float3x3 inverse(float3x3 x)
@@ -70,28 +87,75 @@ namespace Unity.Mathematics
             i = mulScale(i, scaleInv);
             return i;
         }
+       
+        public static float3x3 quatToMatrix(quaternion q)
+        {
+            q = math.normalize(q);
+
+            var qv = q.value;
+            
+            var yxw = qv.yxw;
+            var zwx = qv.zwx;
+            var wzy = qv.wzy;
+
+            var m = new float3x3
+            {  
+                m0 = new float3(-2, +2, -2) * qv.y * yxw + new float3(-2, +2, +2) * qv.z * zwx + new float3(1, 0, 0),
+                m1 = new float3(-2, -2, +2) * qv.z * wzy + new float3(+2, -2, +2) * qv.x * yxw + new float3(0, 1, 0),
+                m2 = new float3(+2, -2, -2) * qv.x * zwx + new float3(+2, +2, -2) * qv.y * wzy + new float3(0, 0, 1)
+            };
+            
+            return m;
+        }
+
+        // get unit quaternion from rotation matrix
+        // u, v, w must be ortho-normal.
+        public static quaternion matrixToQuat(float3 u, float3 v, float3 w)
+        {
+            float4 q;
+            if (u.x >= 0f)
+            {
+                float t = v.y + w.z;
+                if (t >= 0f)
+                    q = new float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
+                else
+                    q = new float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
+            }
+            else
+            {
+                float t = v.y - w.z;
+                if (t >= 0f)
+                    q = new float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
+                else
+                    q = new float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
+            }
+            return normalize(new quaternion(q));
+        }
+        
+        public static quaternion matrixToQuat(float3x3 x)
+        {
+            return matrixToQuat(x.m0, x.m1, x.m2);
+        }
+
+        public static float3x3 lookAtRotation(float3 forward, float3 up)
+        {
+            var left = cross(up, forward);
+            var leftLen = length(left);
+            return leftLen > epsilon_normal
+                ? new float3x3(left * rcp(leftLen), normalize(cross(forward, left)), normalize(forward))
+                : float3x3.identity;
+        }
     }
 
-    // todo:keep this private?
     public static partial class math
     {
-        
- 
-  
-        // post mul 3x3 with scale vector
-        public static float3x3 mulScale(float3x3 x, float3 s)
+        private static float uniformScaleSquared(float3x3 x)
         {
-            return new float3x3(x.m0 * s.x, x.m1 * s.y, x.m2 * s.z);
+            return 0.333333f * (dot(x.m0, x.m0) + dot(x.m1, x.m1) + dot(x.m2, x.m2));
         }
-
-        // pre mul 3xe3 with scale vector
-        public static float3x3 scaleMul(float3 s, float3x3 x)
-        {
-            return new float3x3(x.m0 * s, x.m1 * s, x.m2 * s);
-        }
-        
+         
         // returns adjoint matrix
-        public static float3x3 adj(float3x3 x, out float det)
+        private static float3x3 adj(float3x3 x, out float det)
         {
             float3x3 adjT;
 
@@ -106,86 +170,13 @@ namespace Unity.Mathematics
 
         // inverts a non singular matrix. returns false if matrix is singular and i is set to adjoint
         // fastest inverse, when you know you deal with a non singular matrix
-        public static bool adjInverse(float3x3 x, out float3x3 i, float epsilonDet)
+        private static bool adjInverse(float3x3 x, out float3x3 i, float epsilonDet)
         {
             i = adj(x, out var det);
             var c = abs(det) > epsilonDet;
             var detInv = select(new float3(rcp(det)), new float3(1.0f), c);
             i = scaleMul(detInv, i);
             return c;
-        }
-    }
-
-    // todo:review
-    public partial struct float3x3
-    {
-        // is it needed?
-        public float3x3(float m00, float m01, float m02,
-            float m10, float m11, float m12,
-            float m20, float m21, float m22)
-        {
-            this.m0 = new float3(m00, m01, m02);
-            this.m1 = new float3(m10, m11, m12);
-            this.m2 = new float3(m20, m21, m22);
-        }
-
-        // do we need/want an operator 
-        public static float3x3 operator *(float3x3 mat, float s)
-        {
-            return new float3x3(mat.m0 * s, mat.m1 * s, mat.m2 * s);
-        }
-    }
-
-    // todo:review
-    partial class math
-    {      
-        // is it needed as we have it on struct
-        public static float3x3 identity3 => new float3x3(new float3(1, 0, 0), new float3(0, 1, 0), new float3(0, 0, 1));
-
-        // this is a relatively week orthogonalize as it ignores z
-        // should use svdOrthogonalize
-        public static float3x3 orthogonalize(float3x3 i)
-        {
-            float3x3 o;
-
-            float3 u = i.m0;
-            float3 v = i.m1 - i.m0 * math.dot(i.m1, i.m0);
-
-            float lenU = math.length(u);
-            float lenV = math.length(v);
-
-            bool c = lenU > epsilon_normal && lenV > epsilon_normal;
-
-            o.m0 = math.select(new float3(1, 0, 0), u / lenU, c);
-            o.m1 = math.select(new float3(0, 1, 0), v / lenV, c);
-            o.m2 = math.cross(o.m0, o.m1);
-
-            return o;
-        }
-
-        // todo: safe stuff? 
-        // bit weird limit check here for yLength
-        public static float3x3 lookRotationToMatrix(float3 forward, float3 up)
-        {
-            float3 z = forward;
-            // compute u0
-            float mag = math.length(z);
-            if (mag < epsilon)
-                return identity3;
-            z /= mag;
-
-            float3 x = math.cross(up, z);
-            mag = math.length(x);
-            if (mag < epsilon)
-                return identity3;
-            x /= mag;
-
-            float3 y = math.cross(z, x);
-            float yLength = math.length(y);
-            if (yLength < 0.9F || yLength > 1.1F)
-                return identity3;
-
-            return new float3x3(x, y, z);
         }
     }
 }
