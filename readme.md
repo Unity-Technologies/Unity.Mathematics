@@ -16,8 +16,8 @@ You can use this library in your Unity game by using the Package Manager and ref
 using Unity.Mathematics;
 using static Unity.Mathematics.math;
 
-var v1 = new float3(1,2,3);
-var v2 = new float3(4,5,6);
+var v1 = float3(1,2,3);
+var v2 = float3(4,5,6);
 v1 = normalize(v1);
 v2 = normalize(v2);
 var v3 = dot(v1, v2);

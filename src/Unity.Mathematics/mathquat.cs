@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Unity.Mathematics.Experimental;
 
 namespace Unity.Mathematics
@@ -105,9 +105,9 @@ namespace Unity.Mathematics
             // Calculate 3x3 matrix from orthonormal basis
             var m = new float3x3
             {
-                m0 = new float3(1.0f - (yy + zz), xy + wz, xz - wy),
-                m1 = new float3(xy - wz, 1.0f - (xx + zz), yz + wx),
-                m2 = new float3(xz + wy, yz - wx, 1.0f - (xx + yy))
+                c0 = new float3(1.0f - (yy + zz), xy + wz, xz - wy),
+                c1 = new float3(xy - wz, 1.0f - (xx + zz), yz + wx),
+                c2 = new float3(xz + wy, yz - wx, 1.0f - (xx + yy))
             };
             return m;
         }
@@ -117,10 +117,10 @@ namespace Unity.Mathematics
             var m3x3 = quatToMatrix(q);
             var m = new float4x4
             {
-                m0 = new float4(m3x3.m0, 0.0f),
-                m1 = new float4(m3x3.m1, 0.0f),
-                m2 = new float4(m3x3.m2, 0.0f),
-                m3 = new float4(t, 1.0f)
+                c0 = new float4(m3x3.c0, 0.0f),
+                c1 = new float4(m3x3.c1, 0.0f),
+                c2 = new float4(m3x3.c2, 0.0f),
+                c3 = new float4(t, 1.0f)
             };
             return m;
         }
