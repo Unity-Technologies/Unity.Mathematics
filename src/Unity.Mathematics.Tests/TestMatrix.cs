@@ -91,5 +91,67 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(c.c2.w, 1702.0f);
             Assert.AreEqual(c.c3.w, 1760.0f);
         }
+
+        [Test]
+        public void float2x2_transpose()
+        {
+            float2x2 a = float2x2(  1.0f, 2.0f,
+                                    3.0f, 4.0f);
+
+            float2x2 b = transpose(a);
+
+            Assert.AreEqual(b.c0.x, 1.0f);
+            Assert.AreEqual(b.c1.x, 3.0f);
+            Assert.AreEqual(b.c0.y, 2.0f);
+            Assert.AreEqual(b.c1.y, 4.0f);
+        }
+
+        [Test]
+        public void float3x3_transpose()
+        {
+            float3x3 a = float3x3(  1.0f, 2.0f, 3.0f,
+                                    4.0f, 5.0f, 6.0f,
+                                    7.0f, 8.0f, 9.0f);
+
+            float3x3 b = transpose(a);
+
+            Assert.AreEqual(b.c0.x, 1.0f);
+            Assert.AreEqual(b.c1.x, 4.0f);
+            Assert.AreEqual(b.c2.x, 7.0f);
+            Assert.AreEqual(b.c0.y, 2.0f);
+            Assert.AreEqual(b.c1.y, 5.0f);
+            Assert.AreEqual(b.c2.y, 8.0f);
+            Assert.AreEqual(b.c0.z, 3.0f);
+            Assert.AreEqual(b.c1.z, 6.0f);
+            Assert.AreEqual(b.c2.z, 9.0f);
+        }
+
+        [Test]
+        public void float4x4_transpose()
+        {
+            float4x4 a = float4x4(   1.0f,  2.0f,  3.0f,  4.0f,
+                                     5.0f,  6.0f,  7.0f,  8.0f,
+                                     9.0f, 10.0f, 11.0f, 12.0f,
+                                    13.0f, 14.0f, 15.0f, 16.0f);
+
+            float4x4 b = transpose(a);
+
+            Assert.AreEqual(b.c0.x, 1.0f);
+            Assert.AreEqual(b.c1.x, 5.0f);
+            Assert.AreEqual(b.c2.x, 9.0f);
+            Assert.AreEqual(b.c3.x, 13.0f);
+            Assert.AreEqual(b.c0.y, 2.0f);
+            Assert.AreEqual(b.c1.y, 6.0f);
+            Assert.AreEqual(b.c2.y, 10.0f);
+            Assert.AreEqual(b.c3.y, 14.0f);
+            Assert.AreEqual(b.c0.z, 3.0f);
+            Assert.AreEqual(b.c1.z, 7.0f);
+            Assert.AreEqual(b.c2.z, 11.0f);
+            Assert.AreEqual(b.c3.z, 15.0f);
+            Assert.AreEqual(b.c0.w, 4.0f);
+            Assert.AreEqual(b.c1.w, 8.0f);
+            Assert.AreEqual(b.c2.w, 12.0f);
+            Assert.AreEqual(b.c3.w, 16.0f);
+        }
     }
 }

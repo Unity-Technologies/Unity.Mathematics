@@ -185,9 +185,9 @@ namespace Unity.Mathematics
             return o;
         }
 
-        public static float2x2 transpose(float2x2 i) { return new float2x2(i.c0.x, i.c1.x, i.c0.y, i.c1.y); }
-        public static float3x3 transpose(float3x3 i) { return new float3x3(i.c0.x, i.c1.x, i.c2.x, i.c0.y, i.c1.y, i.c2.y, i.c0.z, i.c1.z, i.c2.z); }
-        public static float4x4 transpose(float4x4 i) { return new float4x4(i.c0.x, i.c1.x, i.c2.x, i.c3.x, i.c0.y, i.c1.y, i.c2.y, i.c3.y, i.c0.z, i.c1.z, i.c2.z, i.c3.z, i.c0.w, i.c1.w, i.c2.w, i.c3.w); }
+        public static float2x2 transpose(float2x2 i) { return new float2x2(i.c0.x, i.c0.y, i.c1.x, i.c1.y); }
+        public static float3x3 transpose(float3x3 i) { return new float3x3(i.c0.x, i.c0.y, i.c0.z, i.c1.x, i.c1.y, i.c1.z, i.c2.x, i.c2.y, i.c2.z); }
+        public static float4x4 transpose(float4x4 i) { return new float4x4(i.c0.x, i.c0.y, i.c0.z, i.c0.w, i.c1.x, i.c1.y, i.c1.z, i.c1.w, i.c2.x, i.c2.y, i.c2.z, i.c2.w, i.c3.x, i.c3.y, i.c3.z, i.c3.w); }
         
         public static float4x4 scale(float3 vector)
         {
