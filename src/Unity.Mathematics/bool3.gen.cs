@@ -1068,16 +1068,16 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 bool3(bool x, bool y, bool z) { return bool3(x, y, z); }
+        public static bool3 bool3(bool x, bool y, bool z) { return new bool3(x, y, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 bool3(bool x, bool2 yz) { return bool3(x, yz); }
+        public static bool3 bool3(bool x, bool2 yz) { return new bool3(x, yz); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 bool3(bool2 xy, bool z) { return bool3(xy, z); }
+        public static bool3 bool3(bool2 xy, bool z) { return new bool3(xy, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 bool3(bool3 xyz) { return bool3(xyz); }
+        public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
     }
 }

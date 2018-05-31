@@ -3027,28 +3027,28 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint y, uint z, uint w) { return uint4(x, y, z, w); }
+        public static uint4 uint4(uint x, uint y, uint z, uint w) { return new uint4(x, y, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint y, uint2 zw) { return uint4(x, y, zw); }
+        public static uint4 uint4(uint x, uint y, uint2 zw) { return new uint4(x, y, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint2 yz, uint w) { return uint4(x, yz, w); }
+        public static uint4 uint4(uint x, uint2 yz, uint w) { return new uint4(x, yz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint3 yzw) { return uint4(x, yzw); }
+        public static uint4 uint4(uint x, uint3 yzw) { return new uint4(x, yzw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint2 xy, uint z, uint w) { return uint4(xy, z, w); }
+        public static uint4 uint4(uint2 xy, uint z, uint w) { return new uint4(xy, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint2 xy, uint2 zw) { return uint4(xy, zw); }
+        public static uint4 uint4(uint2 xy, uint2 zw) { return new uint4(xy, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint3 xyz, uint w) { return uint4(xyz, w); }
+        public static uint4 uint4(uint3 xyz, uint w) { return new uint4(xyz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint4 xyzw) { return uint4(xyzw); }
+        public static uint4 uint4(uint4 xyzw) { return new uint4(xyzw); }
 
     }
 }

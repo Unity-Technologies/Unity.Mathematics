@@ -2998,28 +2998,28 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float x, float y, float z, float w) { return float4(x, y, z, w); }
+        public static float4 float4(float x, float y, float z, float w) { return new float4(x, y, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float x, float y, float2 zw) { return float4(x, y, zw); }
+        public static float4 float4(float x, float y, float2 zw) { return new float4(x, y, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float x, float2 yz, float w) { return float4(x, yz, w); }
+        public static float4 float4(float x, float2 yz, float w) { return new float4(x, yz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float x, float3 yzw) { return float4(x, yzw); }
+        public static float4 float4(float x, float3 yzw) { return new float4(x, yzw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float2 xy, float z, float w) { return float4(xy, z, w); }
+        public static float4 float4(float2 xy, float z, float w) { return new float4(xy, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float2 xy, float2 zw) { return float4(xy, zw); }
+        public static float4 float4(float2 xy, float2 zw) { return new float4(xy, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float3 xyz, float w) { return float4(xyz, w); }
+        public static float4 float4(float3 xyz, float w) { return new float4(xyz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float4 xyzw) { return float4(xyzw); }
+        public static float4 float4(float4 xyzw) { return new float4(xyzw); }
 
     }
 }

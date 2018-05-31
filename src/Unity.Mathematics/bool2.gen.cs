@@ -318,10 +318,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 bool2(bool x, bool y) { return bool2(x, y); }
+        public static bool2 bool2(bool x, bool y) { return new bool2(x, y); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 bool2(bool2 xy) { return bool2(xy); }
+        public static bool2 bool2(bool2 xy) { return new bool2(xy); }
 
     }
 }

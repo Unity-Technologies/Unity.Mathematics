@@ -395,10 +395,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 int2(int x, int y) { return int2(x, y); }
+        public static int2 int2(int x, int y) { return new int2(x, y); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 int2(int2 xy) { return int2(xy); }
+        public static int2 int2(int2 xy) { return new int2(xy); }
 
     }
 }

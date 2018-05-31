@@ -360,10 +360,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(float x, float y) { return float2(x, y); }
+        public static float2 float2(float x, float y) { return new float2(x, y); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(float2 xy) { return float2(xy); }
+        public static float2 float2(float2 xy) { return new float2(xy); }
 
     }
 }

@@ -1139,16 +1139,16 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 uint3(uint x, uint y, uint z) { return uint3(x, y, z); }
+        public static uint3 uint3(uint x, uint y, uint z) { return new uint3(x, y, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 uint3(uint x, uint2 yz) { return uint3(x, yz); }
+        public static uint3 uint3(uint x, uint2 yz) { return new uint3(x, yz); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 uint3(uint2 xy, uint z) { return uint3(xy, z); }
+        public static uint3 uint3(uint2 xy, uint z) { return new uint3(xy, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 uint3(uint3 xyz) { return uint3(xyz); }
+        public static uint3 uint3(uint3 xyz) { return new uint3(xyz); }
 
     }
 }

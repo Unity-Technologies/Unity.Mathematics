@@ -2956,28 +2956,28 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool x, bool y, bool z, bool w) { return bool4(x, y, z, w); }
+        public static bool4 bool4(bool x, bool y, bool z, bool w) { return new bool4(x, y, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool x, bool y, bool2 zw) { return bool4(x, y, zw); }
+        public static bool4 bool4(bool x, bool y, bool2 zw) { return new bool4(x, y, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool x, bool2 yz, bool w) { return bool4(x, yz, w); }
+        public static bool4 bool4(bool x, bool2 yz, bool w) { return new bool4(x, yz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool x, bool3 yzw) { return bool4(x, yzw); }
+        public static bool4 bool4(bool x, bool3 yzw) { return new bool4(x, yzw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool2 xy, bool z, bool w) { return bool4(xy, z, w); }
+        public static bool4 bool4(bool2 xy, bool z, bool w) { return new bool4(xy, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool2 xy, bool2 zw) { return bool4(xy, zw); }
+        public static bool4 bool4(bool2 xy, bool2 zw) { return new bool4(xy, zw); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool3 xyz, bool w) { return bool4(xyz, w); }
+        public static bool4 bool4(bool3 xyz, bool w) { return new bool4(xyz, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(bool4 xyzw) { return bool4(xyzw); }
+        public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
 
     }
 }

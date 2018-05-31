@@ -1110,16 +1110,16 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(float x, float y, float z) { return float3(x, y, z); }
+        public static float3 float3(float x, float y, float z) { return new float3(x, y, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(float x, float2 yz) { return float3(x, yz); }
+        public static float3 float3(float x, float2 yz) { return new float3(x, yz); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(float2 xy, float z) { return float3(xy, z); }
+        public static float3 float3(float2 xy, float z) { return new float3(xy, z); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(float3 xyz) { return float3(xyz); }
+        public static float3 float3(float3 xyz) { return new float3(xyz); }
 
     }
 }

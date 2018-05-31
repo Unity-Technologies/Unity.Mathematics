@@ -149,7 +149,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             
             // Generate function bodies
             constructorStr.Append("\t\t{ ");
-            staticConstructorStr.Append(" { return ");
+            staticConstructorStr.Append(" { return new ");
             staticConstructorStr.Append(typeName);
             staticConstructorStr.Append("(");
 
