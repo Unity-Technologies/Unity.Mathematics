@@ -182,6 +182,83 @@ namespace Unity.Mathematics
         public static float2x2 transpose(float2x2 m) { return float2x2(m.c0.x, m.c0.y, m.c1.x, m.c1.y); }
         public static float3x3 transpose(float3x3 m) { return float3x3(m.c0.x, m.c0.y, m.c0.z, m.c1.x, m.c1.y, m.c1.z, m.c2.x, m.c2.y, m.c2.z); }
         public static float4x4 transpose(float4x4 m) { return float4x4(m.c0.x, m.c0.y, m.c0.z, m.c0.w, m.c1.x, m.c1.y, m.c1.z, m.c1.w, m.c2.x, m.c2.y, m.c2.z, m.c2.w, m.c3.x, m.c3.y, m.c3.z, m.c3.w); }
+
+        public static float2x2 inverse(float2x2 m)
+        {
+            float a = m.c0.x;
+            float b = m.c1.x;
+            float c = m.c0.y;
+            float d = m.c1.y;
+
+            float det = a * d - b * c;
+
+            return float2x2( d, -b,
+                            -c,  a) * (1.0f / det);
+        }
+
+        public static float3x3 inverse(float3x3 m)
+        {
+            // naive scalar implementation using direct calculation by cofactors
+            float3 c0 = m.c0;
+            float3 c1 = m.c1;
+            float3 c2 = m.c2;
+            
+            // calculate minors
+            float m00 = c1.y * c2.z - c1.z * c2.y;
+            float m01 = c0.y * c2.z - c0.z * c2.y;
+            float m02 = c0.y * c1.z - c0.z * c1.y;
+
+            float m10 = c1.x * c2.z - c1.z * c2.x;
+            float m11 = c0.x * c2.z - c0.z * c2.x;
+            float m12 = c0.x * c1.z - c0.z * c1.x;
+
+            float m20 = c1.x * c2.y - c1.y * c2.x;
+            float m21 = c0.x * c2.y - c0.y * c2.x;
+            float m22 = c0.x * c1.y - c0.y * c1.x;
+            
+            float det = c0.x * m00 - c1.x * m01 + c2.x * m02;
+            
+            return float3x3( m00, -m10,  m20,
+                            -m01,  m11, -m21,
+                             m02, -m12,  m22) * (1.0f / det);
+        }
+
+        public static float4x4 inverse(float4x4 m)
+        {
+            // naive scalar implementation using direct calculation by cofactors
+            float4 c0 = m.c0;
+            float4 c1 = m.c1;
+            float4 c2 = m.c2;
+            float4 c3 = m.c3;
+
+            // calculate minors
+            float m00 = c1.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c1.z * c3.w - c1.w * c3.z) + c3.y * (c1.z * c2.w - c1.w * c2.z);
+            float m01 = c0.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c2.w - c0.w * c2.z);
+            float m02 = c0.y * (c1.z * c3.w - c1.w * c3.z) - c1.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c1.w - c0.w * c1.z);
+            float m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
+
+            float m10 = c1.x * (c2.z * c3.w - c2.w * c3.z) - c2.x * (c1.z * c3.w - c1.w * c3.z) + c3.x * (c1.z * c2.w - c1.w * c2.z);
+            float m11 = c0.x * (c2.z * c3.w - c2.w * c3.z) - c2.x * (c0.z * c3.w - c0.w * c3.z) + c3.x * (c0.z * c2.w - c0.w * c2.z);
+            float m12 = c0.x * (c1.z * c3.w - c1.w * c3.z) - c1.x * (c0.z * c3.w - c0.w * c3.z) + c3.x * (c0.z * c1.w - c0.w * c1.z);
+            float m13 = c0.x * (c1.z * c2.w - c1.w * c2.z) - c1.x * (c0.z * c2.w - c0.w * c2.z) + c2.x * (c0.z * c1.w - c0.w * c1.z);
+
+            float m20 = c1.x * (c2.y * c3.w - c2.w * c3.y) - c2.x * (c1.y * c3.w - c1.w * c3.y) + c3.x * (c1.y * c2.w - c1.w * c2.y);
+            float m21 = c0.x * (c2.y * c3.w - c2.w * c3.y) - c2.x * (c0.y * c3.w - c0.w * c3.y) + c3.x * (c0.y * c2.w - c0.w * c2.y);
+            float m22 = c0.x * (c1.y * c3.w - c1.w * c3.y) - c1.x * (c0.y * c3.w - c0.w * c3.y) + c3.x * (c0.y * c1.w - c0.w * c1.y);
+            float m23 = c0.x * (c1.y * c2.w - c1.w * c2.y) - c1.x * (c0.y * c2.w - c0.w * c2.y) + c2.x * (c0.y * c1.w - c0.w * c1.y);
+
+            float m30 = c1.x * (c2.y * c3.z - c2.z * c3.y) - c2.x * (c1.y * c3.z - c1.z * c3.y) + c3.x * (c1.y * c2.z - c1.z * c2.y);
+            float m31 = c0.x * (c2.y * c3.z - c2.z * c3.y) - c2.x * (c0.y * c3.z - c0.z * c3.y) + c3.x * (c0.y * c2.z - c0.z * c2.y);
+            float m32 = c0.x * (c1.y * c3.z - c1.z * c3.y) - c1.x * (c0.y * c3.z - c0.z * c3.y) + c3.x * (c0.y * c1.z - c0.z * c1.y);
+            float m33 = c0.x * (c1.y * c2.z - c1.z * c2.y) - c1.x * (c0.y * c2.z - c0.z * c2.y) + c2.x * (c0.y * c1.z - c0.z * c1.y);
+            
+            float det = c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
+            
+            return float4x4( m00, -m10,  m20, -m30,
+                            -m01,  m11, -m21,  m31,
+                             m02, -m12,  m22, -m32,
+                            -m03,  m13, -m23,  m33) * (1.0f / det);
+        }
         
         public static float4x4 scale(float3 vector)
         {

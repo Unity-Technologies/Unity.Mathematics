@@ -313,5 +313,88 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(b.c2.w, 12.0f);
             Assert.AreEqual(b.c3.w, 16.0f);
         }
+
+        [Test]
+        public void float2x2_inverse()
+        {
+            float2x2 a = float2x2( 0.542968f,  0.867379f,
+                                  -0.270153f, -0.912324f);
+
+            float2x2 invA = float2x2( 3.49499f,  3.32281f,
+                                     -1.03492f, -2.08004f);
+            
+            float2x2 r = inverse(a);
+
+            float epsilon = 0.0001f;
+            Assert.AreEqual(invA.c0.x, r.c0.x, epsilon);
+            Assert.AreEqual(invA.c1.x, r.c1.x, epsilon);
+            
+            Assert.AreEqual(invA.c0.y, r.c0.y, epsilon);
+            Assert.AreEqual(invA.c1.y, r.c1.y, epsilon);
+        }
+
+        [Test]
+        public void float3x3_inverse()
+        {
+            float3x3 a = float3x3( 0.542968f, 0.867379f, 0.526616f,
+                                  -0.270153f,-0.912324f, 0.148933f,
+                                   0.816727f, 0.905933f, 0.902392f);
+
+            float3x3 invA = float3x3(-15.91790f,-5.077350f,10.1273f,
+                                       6.07051f, 0.994556f,-3.70676f,
+                                       8.31247f, 3.596890f,-4.33645f);
+
+            float3x3 r = inverse(a);
+
+            float epsilon = 0.0001f;
+            Assert.AreEqual(invA.c0.x, r.c0.x, epsilon);
+            Assert.AreEqual(invA.c1.x, r.c1.x, epsilon);
+            Assert.AreEqual(invA.c2.x, r.c2.x, epsilon);
+            
+            Assert.AreEqual(invA.c0.y, r.c0.y, epsilon);
+            Assert.AreEqual(invA.c1.y, r.c1.y, epsilon);
+            Assert.AreEqual(invA.c2.y, r.c2.y, epsilon);
+            
+            Assert.AreEqual(invA.c0.z, r.c0.z, epsilon);
+            Assert.AreEqual(invA.c1.z, r.c1.z, epsilon);
+            Assert.AreEqual(invA.c2.z, r.c2.z, epsilon);
+        }
+
+        [Test]
+        public void float4x4_inverse()
+        {
+            float4x4 a = float4x4( 0.542968f, 0.867379f, 0.526616f,-0.943083f,
+                                  -0.270153f,-0.912324f, 0.148933f, 0.299995f,
+                                   0.816727f, 0.905933f, 0.902392f,-0.060931f,
+                                  -0.254780f, 0.604543f, 0.563340f,-0.383911f);
+
+            float4x4 invA = float4x4( 0.548951f, 0.126367f, 0.487260f,-1.327100f,
+                                     -0.582901f,-1.108000f, 0.188292f, 0.536211f,
+                                      0.001968f, 0.970678f, 0.528701f, 0.669759f,
+                                     -1.279310f,-0.404277f, 0.748937f, 0.103102f);
+
+            float4x4 r = inverse(a);
+
+            float epsilon = 0.0001f;
+            Assert.AreEqual(invA.c0.x, r.c0.x, epsilon);
+            Assert.AreEqual(invA.c1.x, r.c1.x, epsilon);
+            Assert.AreEqual(invA.c2.x, r.c2.x, epsilon);
+            Assert.AreEqual(invA.c3.x, r.c3.x, epsilon);
+
+            Assert.AreEqual(invA.c0.y, r.c0.y, epsilon);
+            Assert.AreEqual(invA.c1.y, r.c1.y, epsilon);
+            Assert.AreEqual(invA.c2.y, r.c2.y, epsilon);
+            Assert.AreEqual(invA.c3.y, r.c3.y, epsilon);
+
+            Assert.AreEqual(invA.c0.z, r.c0.z, epsilon);
+            Assert.AreEqual(invA.c1.z, r.c1.z, epsilon);
+            Assert.AreEqual(invA.c2.z, r.c2.z, epsilon);
+            Assert.AreEqual(invA.c3.z, r.c3.z, epsilon);
+
+            Assert.AreEqual(invA.c0.w, r.c0.w, epsilon);
+            Assert.AreEqual(invA.c1.w, r.c1.w, epsilon);
+            Assert.AreEqual(invA.c2.w, r.c2.w, epsilon);
+            Assert.AreEqual(invA.c3.w, r.c3.w, epsilon);
+        }
     }
 }
