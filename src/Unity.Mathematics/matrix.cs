@@ -84,14 +84,6 @@ namespace Unity.Mathematics
         {
             return float4x4(mat.c0 * s, mat.c1 * s, mat.c2 * s, mat.c3 * s);
         }
-
-        public static float4x4 identity => float4x4
-        (
-            1.0f, 0.0f, 0.0f, 0.0f,
-            0.0f, 1.0f, 0.0f, 0.0f,
-            0.0f, 0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 0.0f, 1.0f
-        );
     }
 
     partial class math
@@ -209,13 +201,25 @@ namespace Unity.Mathematics
 
         const float epsilon = 0.000001F;
 
-        public static float3x3 identity3
+        public static float2x2 identity2()
         {
-            get { return float3x3(float3(1, 0, 0), float3(0, 1, 0), float3(0, 0, 1)); }
+            return float2x2(1.0f, 0.0f,
+                            0.0f, 1.0f);
         }
-        public static float4x4 identity4
+
+        public static float3x3 identity3()
         {
-            get { return float4x4(float4(1, 0, 0, 0), float4(0, 1, 0, 0), float4(0, 0, 1, 0), float4(0, 0, 0, 1)); }
+            return float3x3(1.0f, 0.0f, 0.0f,
+                            0.0f, 1.0f, 0.0f,
+                            0.0f, 0.0f, 1.0f);
+        }
+
+        public static float4x4 identity4()
+        {
+            return float4x4(1.0f, 0.0f, 0.0f, 0.0f,
+                            0.0f, 1.0f, 0.0f, 0.0f,
+                            0.0f, 0.0f, 1.0f, 0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
         }
 
         public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
@@ -236,19 +240,19 @@ namespace Unity.Mathematics
             // compute u0
             float mag = math.length(z);
             if (mag < epsilon)
-                return identity3;
+                return identity3();
             z /= mag;
 
             float3 x = math.cross(up, z);
             mag = math.length(x);
             if (mag < epsilon)
-                return identity3;
+                return identity3();
             x /= mag;
 
             float3 y = math.cross(z, x);
             float yLength = math.length(y);
             if (yLength < 0.9F || yLength > 1.1F)
-                return identity3;
+                return identity3();
 
             return float3x3(x, y, z);
         }
