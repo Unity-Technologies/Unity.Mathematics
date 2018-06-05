@@ -20,6 +20,8 @@ namespace Unity.Mathematics
             this.c1 = float2(m01, m11);
         }
 
+        public static readonly float2x2 identity = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
+
         public static float2x2 operator *(float2x2 mat, float s)
         {
             return float2x2(mat.c0 * s, mat.c1 * s);
@@ -47,6 +49,10 @@ namespace Unity.Mathematics
             this.c1 = float3(m01, m11, m21);
             this.c2 = float3(m02, m12, m22);
         }
+
+        public static readonly float3x3 identity = new float3x3(1.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 1.0f);
 
         public static float3x3 operator *(float3x3 mat, float s)
         {
@@ -79,6 +85,12 @@ namespace Unity.Mathematics
             this.c2 = float4(m02, m12, m22, m32);
             this.c3 = float4(m03, m13, m23, m33);
         }
+
+        public static readonly float4x4 identity = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,
+            0.0f, 1.0f, 0.0f, 0.0f,
+            0.0f, 0.0f, 1.0f, 0.0f,
+            0.0f, 0.0f, 0.0f, 1.0f);
+
 
         public static float4x4 operator *(float4x4 mat, float s)
         {
@@ -277,17 +289,6 @@ namespace Unity.Mathematics
         }        
 
         const float epsilon = 0.000001F;
-
-        public static readonly float2x2 identity2 = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
-
-        public static readonly float3x3 identity3= new float3x3(1.0f, 0.0f, 0.0f,
-                            0.0f, 1.0f, 0.0f,
-                            0.0f, 0.0f, 1.0f);
-
-        public static readonly float4x4 identity4 = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,
-                            0.0f, 1.0f, 0.0f, 0.0f,
-                            0.0f, 0.0f, 1.0f, 0.0f,
-                            0.0f, 0.0f, 0.0f, 1.0f);
         
         public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
         {
@@ -307,19 +308,19 @@ namespace Unity.Mathematics
             // compute u0
             float mag = math.length(z);
             if (mag < epsilon)
-                return identity3;
+                return Mathematics.float3x3.identity;
             z /= mag;
 
             float3 x = math.cross(up, z);
             mag = math.length(x);
             if (mag < epsilon)
-                return identity3;
+                return Mathematics.float3x3.identity;
             x /= mag;
 
             float3 y = math.cross(z, x);
             float yLength = math.length(y);
             if (yLength < 0.9F || yLength > 1.1F)
-                return identity3;
+                return Mathematics.float3x3.identity;
 
             return float3x3(x, y, z);
         }
