@@ -126,7 +126,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float2x2_identity()
         {
-            float2x2 a = identity2();
+            float2x2 a = identity2;
             Assert.AreEqual(a.c0.x, 1.0f);
             Assert.AreEqual(a.c1.x, 0.0f);
             Assert.AreEqual(a.c0.y, 0.0f);
@@ -136,7 +136,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float3x3_identity()
         {
-            float3x3 a = identity3();
+            float3x3 a = identity3;
             Assert.AreEqual(a.c0.x, 1.0f);
             Assert.AreEqual(a.c1.x, 0.0f);
             Assert.AreEqual(a.c2.x, 0.0f);
@@ -151,7 +151,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_identity()
         {
-            float4x4 a = identity4();
+            float4x4 a = identity4;
             Assert.AreEqual(a.c0.x, 1.0f);
             Assert.AreEqual(a.c1.x, 0.0f);
             Assert.AreEqual(a.c2.x, 0.0f);
