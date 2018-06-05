@@ -16,7 +16,7 @@ namespace Unity.Mathematics.Tests
         {
             float2x2 a = float2x2(float2(1.0f, 2.0f),
                                   float2(3.0f, 4.0f));
-            
+
             Assert.AreEqual(a.c0.x, 1.0f);
             Assert.AreEqual(a.c0.y, 2.0f);
             Assert.AreEqual(a.c1.x, 3.0f);
@@ -205,11 +205,11 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(c.c0.x, 150.0f);
             Assert.AreEqual(c.c1.x, 156.0f);
             Assert.AreEqual(c.c2.x, 162.0f);
-            
+
             Assert.AreEqual(c.c0.y, 366.0f);
             Assert.AreEqual(c.c1.y, 381.0f);
             Assert.AreEqual(c.c2.y, 396.0f);
-            
+
             Assert.AreEqual(c.c0.z, 582.0f);
             Assert.AreEqual(c.c1.z, 606.0f);
             Assert.AreEqual(c.c2.z, 630.0f);
@@ -322,13 +322,13 @@ namespace Unity.Mathematics.Tests
 
             float2x2 invA = float2x2( 3.49499f,  3.32281f,
                                      -1.03492f, -2.08004f);
-            
+
             float2x2 r = inverse(a);
 
             float epsilon = 0.0001f;
             Assert.AreEqual(invA.c0.x, r.c0.x, epsilon);
             Assert.AreEqual(invA.c1.x, r.c1.x, epsilon);
-            
+
             Assert.AreEqual(invA.c0.y, r.c0.y, epsilon);
             Assert.AreEqual(invA.c1.y, r.c1.y, epsilon);
         }
@@ -350,11 +350,11 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(invA.c0.x, r.c0.x, epsilon);
             Assert.AreEqual(invA.c1.x, r.c1.x, epsilon);
             Assert.AreEqual(invA.c2.x, r.c2.x, epsilon);
-            
+
             Assert.AreEqual(invA.c0.y, r.c0.y, epsilon);
             Assert.AreEqual(invA.c1.y, r.c1.y, epsilon);
             Assert.AreEqual(invA.c2.y, r.c2.y, epsilon);
-            
+
             Assert.AreEqual(invA.c0.z, r.c0.z, epsilon);
             Assert.AreEqual(invA.c1.z, r.c1.z, epsilon);
             Assert.AreEqual(invA.c2.z, r.c2.z, epsilon);
