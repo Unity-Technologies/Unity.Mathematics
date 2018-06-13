@@ -605,5 +605,38 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(invA.c2.w, r.c2.w, epsilon);
             Assert.AreEqual(invA.c3.w, r.c3.w, epsilon);
         }
+
+        [Test]
+        public void float2x2_determinant()
+        {
+            float2x2 a = float2x2(0.542968f, 0.867379f,
+                                  -0.270153f, -0.912324f);
+
+            float det = determinant(a);
+            Assert.AreEqual(det, -0.2610378f, 0.0001f);
+        }
+
+        [Test]
+        public void float3x3_determinant()
+        {
+            float3x3 a = float3x3( 0.542968f,  0.867379f, 0.526616f,
+                                  -0.270153f, -0.912324f, 0.148933f,
+                                   0.816727f,  0.905933f, 0.902392f);
+
+            float det = determinant(a);
+            Assert.AreEqual(det, 0.06019618f, 0.0001f);
+        }
+
+        [Test]
+        public void float4x4_determinant()
+        {
+            float4x4 a = float4x4( 0.542968f,  0.867379f, 0.526616f, -0.943083f,
+                                  -0.270153f, -0.912324f, 0.148933f,  0.299995f,
+                                   0.816727f,  0.905933f, 0.902392f, -0.060931f,
+                                  -0.254780f,  0.604543f, 0.563340f, -0.383911f);
+
+            float det = determinant(a);
+            Assert.AreEqual(det, 0.5838502f, 0.0001f);
+        }
     }
 }

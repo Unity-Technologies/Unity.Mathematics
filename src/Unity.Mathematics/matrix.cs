@@ -423,7 +423,45 @@ namespace Unity.Mathematics
                              m02, -m12,  m22, -m32,
                             -m03,  m13, -m23,  m33) * (1.0f / det);
         }
-        
+
+        public static float determinant(float2x2 m)
+        {
+            float a = m.c0.x;
+            float b = m.c1.x;
+            float c = m.c0.y;
+            float d = m.c1.y;
+
+            return a * d - b * c;
+        }
+
+        public static float determinant(float3x3 m)
+        {
+            float3 c0 = m.c0;
+            float3 c1 = m.c1;
+            float3 c2 = m.c2;
+
+            float m00 = c1.y * c2.z - c1.z * c2.y;
+            float m01 = c0.y * c2.z - c0.z * c2.y;
+            float m02 = c0.y * c1.z - c0.z * c1.y;
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02;
+        }
+
+        public static float determinant(float4x4 m)
+        {
+            float4 c0 = m.c0;
+            float4 c1 = m.c1;
+            float4 c2 = m.c2;
+            float4 c3 = m.c3;
+
+            float m00 = c1.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c1.z * c3.w - c1.w * c3.z) + c3.y * (c1.z * c2.w - c1.w * c2.z);
+            float m01 = c0.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c2.w - c0.w * c2.z);
+            float m02 = c0.y * (c1.z * c3.w - c1.w * c3.z) - c1.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c1.w - c0.w * c1.z);
+            float m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
+        }
+
         const float epsilon = 0.000001F;
         
         public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
