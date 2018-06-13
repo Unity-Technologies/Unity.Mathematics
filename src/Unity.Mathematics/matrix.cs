@@ -193,7 +193,26 @@ namespace Unity.Mathematics
 
         public static float2x2 transpose(float2x2 m) { return float2x2(m.c0.x, m.c0.y, m.c1.x, m.c1.y); }
         public static float3x3 transpose(float3x3 m) { return float3x3(m.c0.x, m.c0.y, m.c0.z, m.c1.x, m.c1.y, m.c1.z, m.c2.x, m.c2.y, m.c2.z); }
-        public static float4x4 transpose(float4x4 m) { return float4x4(m.c0.x, m.c0.y, m.c0.z, m.c0.w, m.c1.x, m.c1.y, m.c1.z, m.c1.w, m.c2.x, m.c2.y, m.c2.z, m.c2.w, m.c3.x, m.c3.y, m.c3.z, m.c3.w); }
+        // public static float4x4 transpose(float4x4 m) { return float4x4(m.c0.x, m.c0.y, m.c0.z, m.c0.w, m.c1.x, m.c1.y, m.c1.z, m.c1.w, m.c2.x, m.c2.y, m.c2.z, m.c2.w, m.c3.x, m.c3.y, m.c3.z, m.c3.w); }
+
+        public static float4 unpacklo(float4 a, float4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
+        }
+
+        public static float4 unpackhi(float4 a, float4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
+        }
+
+        public static float4x4 transpose(float4x4 m)
+        {
+            float4 t0 = unpacklo(m.c0, m.c2);
+            float4 t1 = unpacklo(m.c1, m.c3);
+            float4 t2 = unpackhi(m.c0, m.c2);
+            float4 t3 = unpackhi(m.c1, m.c3);
+            return float4x4(unpacklo(t0, t1), unpackhi(t0, t1), unpacklo(t2, t3), unpackhi(t2, t3));
+        }
 
         public static float2x2 inverse(float2x2 m)
         {

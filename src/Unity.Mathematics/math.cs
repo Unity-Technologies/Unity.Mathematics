@@ -10,6 +10,18 @@ namespace Unity.Mathematics
 {
     public static partial class math
     {
+        public enum ShuffleComponent
+        {
+            LeftX,
+            LeftY,
+            LeftZ,
+            LeftW,
+            RightX,
+            RightY,
+            RightZ,
+            RightW
+        };
+
         // min
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float min(float a, float b) { return float.IsNaN(b) || a < b ? a : b; }
@@ -415,6 +427,42 @@ namespace Unity.Mathematics
         public static float3 select(float3 a, float3 b, bool3 c) { return new float3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 select(float4 a, float4 b, bool4 c) { return new float4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static float pickShuffleComponent(float4 a, float4 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.LeftZ:
+                    return a.z;
+                case ShuffleComponent.LeftW:
+                    return a.w;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                case ShuffleComponent.RightZ:
+                    return b.z;
+                case ShuffleComponent.RightW:
+                    return b.w;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + (int)component);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 shuffle(float4 a, float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        {
+            // Naive implementation for non-burst
+            return float4(  pickShuffleComponent(a, b, x),
+                            pickShuffleComponent(a, b, y),
+                            pickShuffleComponent(a, b, z),
+                            pickShuffleComponent(a, b, w));
+        }
 
         //Step
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
