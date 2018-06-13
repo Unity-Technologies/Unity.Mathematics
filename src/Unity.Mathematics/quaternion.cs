@@ -1,5 +1,7 @@
 using System;
 using Unity.Mathematics.Experimental;
+using System.Runtime.CompilerServices;
+using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
@@ -11,12 +13,31 @@ namespace Unity.Mathematics
         public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
         public quaternion(float4 value)                       { this.value = value; }
 
-        public static quaternion identity { get { return new quaternion(0.0F, 0.0F, 0.0F, 1.0F); } }
+        public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
+        public static quaternion axisAngle(float3 axis, float angle)
+        {
+            float sina, cosa;
+            math.sincos(0.5f * angle, out sina, out cosa);
+
+            float3 axisUnit = math.normalize(axis);
+            return new quaternion(float4(axisUnit * sina, cosa));
+        }
+
+        public static quaternion euler(float3 eulerInDegrees)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 
     public static partial class math
     {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion quaternion(float x, float y, float z, float w) { return new quaternion(x, y, z, w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion quaternion(float4 value) { return new quaternion(value); }
+
         public static quaternion normalize(quaternion q)
         {
             float4 value = q.value;
@@ -24,14 +45,14 @@ namespace Unity.Mathematics
 
             // note we use float4 comparison here because this gives us -1 / 0 which is necessary for select.
             //return select(quatIdentity(), q*rsqrt(len), len > float4(epsilon_normal()));
-            value = math.select(quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
+            value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
 
-            return new quaternion(value);
+            return quaternion(value);
         }
 
         public static quaternion mul(quaternion lhs, quaternion rhs)
         {
-            return new quaternion(
+            return quaternion(
                 lhs.value.w* rhs.value.x + lhs.value.x* rhs.value.w + lhs.value.y* rhs.value.z - lhs.value.z* rhs.value.y,
                 lhs.value.w* rhs.value.y + lhs.value.y* rhs.value.w + lhs.value.z* rhs.value.x - lhs.value.x* rhs.value.z,
                 lhs.value.w* rhs.value.z + lhs.value.z* rhs.value.w + lhs.value.x* rhs.value.y - lhs.value.y* rhs.value.x,
@@ -69,19 +90,19 @@ namespace Unity.Mathematics
             {
                 float t = v.y + w.z;
                 if (t >= 0f)
-                    q = new float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
+                    q = float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
                 else
-                    q = new float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
+                    q = float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
             }
             else
             {
                 float t = v.y - w.z;
                 if (t >= 0f)
-                    q = new float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
+                    q = float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
                 else
-                    q = new float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
+                    q = float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
             }
-            return normalize(new quaternion(q));
+            return normalize(quaternion(q));
         }
 
         public static float3x3 quatToMatrix(quaternion q)
@@ -103,40 +124,26 @@ namespace Unity.Mathematics
             float wz = q.value.w * z;
 
             // Calculate 3x3 matrix from orthonormal basis
-            var m = new float3x3
-            {
-                c0 = new float3(1.0f - (yy + zz), xy + wz, xz - wy),
-                c1 = new float3(xy - wz, 1.0f - (xx + zz), yz + wx),
-                c2 = new float3(xz + wy, yz - wx, 1.0f - (xx + yy))
-            };
+            var m = float3x3
+            (
+                float3(1.0f - (yy + zz), xy + wz, xz - wy),
+                float3(xy - wz, 1.0f - (xx + zz), yz + wx),
+                float3(xz + wy, yz - wx, 1.0f - (xx + yy))
+            );
             return m;
         }
 
         public static float4x4 rottrans(quaternion q, float3 t)
         {
             var m3x3 = quatToMatrix(q);
-            var m = new float4x4
-            {
-                c0 = new float4(m3x3.c0, 0.0f),
-                c1 = new float4(m3x3.c1, 0.0f),
-                c2 = new float4(m3x3.c2, 0.0f),
-                c3 = new float4(t, 1.0f)
-            };
+            var m = float4x4
+            (
+                float4(m3x3.c0, 0.0f),
+                float4(m3x3.c1, 0.0f),
+                float4(m3x3.c2, 0.0f),
+                float4(t, 1.0f)
+            );
             return m;
-        }
-        
-        public static quaternion axisAngle(float3 axis, float angle)
-        {
-            float3 axisUnit  = math.normalize(axis);
-            float sina = math.sin(0.5f * angle);
-            float cosa = math.cos(0.5f * angle);
-            return new quaternion { value = new float4( axisUnit.x * sina, axisUnit.y * sina, axisUnit.z * sina, cosa ) };
-        }
-
-        //@TODO: Seperated x, y, z
-        public static quaternion euler(float3 eulerInDegrees)
-        {
-            throw new System.NotImplementedException();
         }
 
         //@TODO: Decide on saturate for t (old math lib did it...)
@@ -155,12 +162,12 @@ namespace Unity.Mathematics
 
         public static float3 forward(quaternion q)
         {
-            return mul(q, new float3(0, 0, 1));
+            return mul(q, float3(0, 0, 1));
         }
         
         public static float3 up(quaternion q)
         {
-            return mul(q, new float3(0, 1, 0));
+            return mul(q, float3(0, 1, 0));
         }
 
         public static quaternion lookRotationToQuaternion(float3 direction, float3 up)
@@ -187,7 +194,7 @@ namespace Unity.Mathematics
                 q.x = (m12 - m21) * num;
                 q.y = (m20 - m02) * num;
                 q.z = (m01 - m10) * num;
-                return new quaternion(q);
+                return quaternion(q);
             }
             if ((m00 >= m11) && (m00 >= m22))
             {
@@ -197,7 +204,7 @@ namespace Unity.Mathematics
                 q.y = (m01 + m10) * num4;
                 q.z = (m02 + m20) * num4;
                 q.w = (m12 - m21) * num4;
-                return new quaternion(q);
+                return quaternion(q);
             }
             if (m11 > m22)
             {
@@ -207,7 +214,7 @@ namespace Unity.Mathematics
                 q.y = 0.5f * num6;
                 q.z = (m21 + m12) * num3;
                 q.w = (m20 - m02) * num3;
-                return new quaternion(q);
+                return quaternion(q);
             }
             var num5 = sqrt(((1.0f + m22) - m00) - m11);
             var num2 = 0.5f / num5;
@@ -215,7 +222,7 @@ namespace Unity.Mathematics
             q.y = (m21 + m12) * num2;
             q.z = 0.5f * num5;
             q.w = (m01 - m10) * num2;
-            return new quaternion(q);
+            return quaternion(q);
         }
     }
 }

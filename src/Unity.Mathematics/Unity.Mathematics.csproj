@@ -84,7 +84,7 @@
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="mathquat.cs" />
+    <Compile Include="quaternion.cs" />
     <Compile Include="uint2.cs" />
     <Compile Include="uint2.gen.cs" />
     <Compile Include="uint3.cs" />
