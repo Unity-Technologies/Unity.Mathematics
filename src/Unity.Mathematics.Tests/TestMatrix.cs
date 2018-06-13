@@ -170,6 +170,215 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(a.c3.w, 1.0f);
         }
 
+        [Test]
+        public void float2x2_rotate()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float2x2 m = float2x2.rotate(angle);
+            Assert.AreEqual(m.c0.x, cos(angle), epsilon);
+            Assert.AreEqual(m.c0.y, sin(angle), epsilon);
+            Assert.AreEqual(m.c1.x, -sin(angle), epsilon);
+            Assert.AreEqual(m.c1.y, cos(angle), epsilon);
+        }
+
+        [Test]
+        public void float3x3_rotate_x()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float3x3 m = float3x3.rotateX(angle);
+            Assert.AreEqual(m.c0.x, 1.0f, epsilon);
+            Assert.AreEqual(m.c0.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.y, cos(angle), epsilon);
+            Assert.AreEqual(m.c1.z, sin(angle), epsilon);
+            Assert.AreEqual(m.c2.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.y, -sin(angle), epsilon);
+            Assert.AreEqual(m.c2.z, cos(angle), epsilon);
+        }
+
+        [Test]
+        public void float3x3_rotate_y()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float3x3 m = float3x3.rotateY(angle);
+            Assert.AreEqual(m.c0.x, cos(angle), epsilon);
+            Assert.AreEqual(m.c0.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.z, -sin(angle), epsilon);
+            Assert.AreEqual(m.c1.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.y, 1.0f, epsilon);
+            Assert.AreEqual(m.c1.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.x, sin(angle), epsilon);
+            Assert.AreEqual(m.c2.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.z, cos(angle), epsilon);
+        }
+
+        [Test]
+        public void float3x3_rotate_z()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float3x3 m = float3x3.rotateZ(angle);
+            Assert.AreEqual(m.c0.x, cos(angle), epsilon);
+            Assert.AreEqual(m.c0.y, sin(angle), epsilon);
+            Assert.AreEqual(m.c0.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.x, -sin(angle), epsilon);
+            Assert.AreEqual(m.c1.y, cos(angle), epsilon);
+            Assert.AreEqual(m.c1.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.z, 1.0f, epsilon);
+        }
+
+        [Test]
+        public void float4x4_rotate_x()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float4x4 m = float4x4.rotateX(angle);
+            Assert.AreEqual(m.c0.x, 1.0f, epsilon);
+            Assert.AreEqual(m.c0.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.y, cos(angle), epsilon);
+            Assert.AreEqual(m.c1.z, sin(angle), epsilon);
+            Assert.AreEqual(m.c1.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.y, -sin(angle), epsilon);
+            Assert.AreEqual(m.c2.z, cos(angle), epsilon);
+            Assert.AreEqual(m.c2.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.w, 1.0f, epsilon);
+        }
+
+        [Test]
+        public void float4x4_rotate_y()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float4x4 m = float4x4.rotateY(angle);
+            Assert.AreEqual(m.c0.x, cos(angle), epsilon);
+            Assert.AreEqual(m.c0.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.z, -sin(angle), epsilon);
+            Assert.AreEqual(m.c0.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.y, 1.0f, epsilon);
+            Assert.AreEqual(m.c1.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.x, sin(angle), epsilon);
+            Assert.AreEqual(m.c2.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.z, cos(angle), epsilon);
+            Assert.AreEqual(m.c2.w, 0.0f);
+            Assert.AreEqual(m.c3.x, 0.0f);
+            Assert.AreEqual(m.c3.y, 0.0f);
+            Assert.AreEqual(m.c3.z, 0.0f);
+            Assert.AreEqual(m.c3.w, 1.0f);
+        }
+
+        [Test]
+        public void float4x4_rotate_z()
+        {
+            float epsilon = 0.0001f;
+            float angle = 10.3f;
+            float4x4 m = float4x4.rotateZ(angle);
+            Assert.AreEqual(m.c0.x, cos(angle), epsilon);
+            Assert.AreEqual(m.c0.y, sin(angle), epsilon);
+            Assert.AreEqual(m.c0.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c0.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.x, -sin(angle), epsilon);
+            Assert.AreEqual(m.c1.y, cos(angle), epsilon);
+            Assert.AreEqual(m.c1.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c1.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c2.z, 1.0f, epsilon);
+            Assert.AreEqual(m.c2.w, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.x, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.y, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.z, 0.0f, epsilon);
+            Assert.AreEqual(m.c3.w, 1.0f, epsilon);
+        }
+
+
+        [Test]
+        public void float2x2_scale()
+        {
+            float2x2 m = float2x2(1.0f, 2.0f,
+                                  3.0f, 4.0f);
+
+            float2x2 r0 = float2x2(2.0f, 4.0f,
+                                   6.0f, 8.0f);
+
+            float2x2 r1 = float2x2(2.0f,  4.0f,
+                                   9.0f, 12.0f);
+
+            float2x2 a = mul(float2x2.scale(2.0f), m);
+            float2x2 b = mul(float2x2.scale(2.0f, 3.0f), m);
+            float2x2 c = mul(float2x2.scale(2.0f, 3.0f), m);
+
+            TestUtils.AreEqual(a, r0);
+            TestUtils.AreEqual(b, r1);
+            TestUtils.AreEqual(c, r1);
+        }
+
+        [Test]
+        public void float3x3_scale()
+        {
+            float3x3 m = float3x3(1.0f, 2.0f, 3.0f,
+                                  4.0f, 5.0f, 6.0f,
+                                  7.0f, 8.0f, 9.0f);
+
+
+            float3x3 r0 = float3x3( 2.0f,  4.0f,  6.0f,
+                                    8.0f, 10.0f, 12.0f,
+                                   14.0f, 16.0f, 18.0f);
+
+            float3x3 r1 = float3x3( 2.0f,  4.0f,  6.0f,
+                                   12.0f, 15.0f, 18.0f,
+                                   28.0f, 32.0f, 36.0f);
+
+
+            float3x3 a = mul(float3x3.scale(2.0f), m);
+            float3x3 b = mul(float3x3.scale(2.0f, 3.0f, 4.0f), m);
+            float3x3 c = mul(float3x3.scale(2.0f, 3.0f, 4.0f), m);
+
+            TestUtils.AreEqual(a, r0);
+            TestUtils.AreEqual(b, r1);
+            TestUtils.AreEqual(c, r1);
+        }
+
+        [Test]
+        public void float4x4_scale()
+        {
+            float4x4 m = float4x4( 1.0f,  2.0f,  3.0f,  4.0f,
+                                   5.0f,  6.0f,  7.0f,  8.0f,
+                                   9.0f, 10.0f, 11.0f, 12.0f,
+                                  13.0f, 14.0f, 15.0f, 16.0f);
+
+            float4x4 r0 = float4x4( 2.0f,  4.0f,  6.0f,  8.0f,
+                                   10.0f, 12.0f, 14.0f, 16.0f,
+                                   18.0f, 20.0f, 22.0f, 24.0f,
+                                   13.0f, 14.0f, 15.0f, 16.0f);
+
+            float4x4 r1 = float4x4( 2.0f,  4.0f,  6.0f,  8.0f,
+                                   15.0f, 18.0f, 21.0f, 24.0f,
+                                   36.0f, 40.0f, 44.0f, 48.0f,
+                                   13.0f, 14.0f, 15.0f, 16.0f);
+
+            float4x4 a = mul(float4x4.scale(2.0f), m);
+            float4x4 b = mul(float4x4.scale(2.0f, 3.0f, 4.0f), m);
+            float4x4 c = mul(float4x4.scale(2.0f, 3.0f, 4.0f), m);
+
+            TestUtils.AreEqual(a, r0);
+            TestUtils.AreEqual(b, r1);
+            TestUtils.AreEqual(c, r1);
+        }
 
         [Test]
         public void float2x2_matrix_mul()

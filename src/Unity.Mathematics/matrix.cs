@@ -22,6 +22,32 @@ namespace Unity.Mathematics
 
         public static readonly float2x2 identity = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
 
+        public static float2x2 rotate(float angle)  // counter-clockwise rotation
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float2x2(c, -s, 
+                            s,  c);
+        }
+
+        public static float2x2 scale(float s)
+        {
+            return float2x2(s,    0.0f,
+                            0.0f, s);
+        }
+
+        public static float2x2 scale(float x, float y)
+        {
+            return float2x2(x,    0.0f,
+                            0.0f, y);
+        }
+
+        public static float2x2 scale(float2 v)
+        {
+            return scale(v.x, v.y);
+        }
+
+
         public static float2x2 operator *(float2x2 mat, float s)
         {
             return float2x2(mat.c0 * s, mat.c1 * s);
@@ -53,6 +79,52 @@ namespace Unity.Mathematics
         public static readonly float3x3 identity = new float3x3(1.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
+
+        public static float3x3 rotateX(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float3x3(1.0f, 0.0f, 0.0f,
+                            0.0f, c,    -s,
+                            0.0f, s,    c);
+        }
+
+        public static float3x3 rotateY(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float3x3(c,    0.0f, s,
+                            0.0f, 1.0f, 0.0f,
+                            -s,   0.0f, c);
+        }
+
+        public static float3x3 rotateZ(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float3x3(c,    -s,   0.0f,
+                            s,    c,    0.0f,
+                            0.0f, 0.0f, 1.0f);
+        }
+
+        public static float3x3 scale(float s)
+        {
+            return float3x3(s,    0.0f, 0.0f,
+                            0.0f, s,    0.0f,
+                            0.0f, 0.0f, s);
+        }
+
+        public static float3x3 scale(float x, float y, float z)
+        {
+            return float3x3(x,    0.0f, 0.0f,
+                            0.0f, y,    0.0f,
+                            0.0f, 0.0f, z);
+        }
+
+        public static float3x3 scale(float3 v)
+        {
+            return scale(v.x, v.y, v.z);
+        }
 
         public static float3x3 operator *(float3x3 mat, float s)
         {
@@ -91,6 +163,67 @@ namespace Unity.Mathematics
             0.0f, 0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 0.0f, 1.0f);
 
+        public static float4x4 rotateX(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float4x4(1.0f, 0.0f, 0.0f, 0.0f,
+                            0.0f, c,    -s,   0.0f,
+                            0.0f, s,    c,    0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
+
+        }
+
+        public static float4x4 rotateY(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float4x4(c,    0.0f, s,    0.0f,
+                            0.0f, 1.0f, 0.0f, 0.0f,
+                            -s,   0.0f, c,    0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
+
+        }
+
+        public static float4x4 rotateZ(float angle)
+        {
+            float s, c;
+            sincos(angle, out s, out c);
+            return float4x4(c,    -s,   0.0f, 0.0f,
+                            s,    c,    0.0f, 0.0f,
+                            0.0f, 0.0f, 1.0f, 0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
+
+        }
+
+        public static float4x4 scale(float s)
+        {
+            return float4x4(s,    0.0f, 0.0f, 0.0f,
+                            0.0f, s,    0.0f, 0.0f,
+                            0.0f, 0.0f, s,    0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
+        }
+
+        public static float4x4 scale(float x, float y, float z)
+        {
+            return float4x4(x,    0.0f, 0.0f, 0.0f,
+                            0.0f, y,    0.0f, 0.0f,
+                            0.0f, 0.0f, z,    0.0f,
+                            0.0f, 0.0f, 0.0f, 1.0f);
+        }
+
+        public static float4x4 scale(float3 v)
+        {
+            return scale(v.x, v.y, v.z);
+        }
+
+        public static float4x4 translate(float3 vector)
+        {
+            return float4x4(float4(1.0f, 0.0f, 0.0f, 0.0f),
+                            float4(0.0f, 1.0f, 0.0f, 0.0f),
+                            float4(0.0f, 0.0f, 1.0f, 0.0f),
+                            float4(vector.x, vector.y, vector.z, 1.0f));
+        }
 
         public static float4x4 operator *(float4x4 mat, float s)
         {
@@ -291,22 +424,6 @@ namespace Unity.Mathematics
                             -m03,  m13, -m23,  m33) * (1.0f / det);
         }
         
-        public static float4x4 scale(float3 vector)
-        {
-            return float4x4(float4(vector.x, 0.0f, 0.0f, 0.0f),
-                            float4(0.0f, vector.y, 0.0f, 0.0f),
-                            float4(0.0f, 0.0f, vector.z, 0.0f),
-                            float4(0.0f, 0.0f, 0.0f, 1.0f));
-        }
-
-        public static float4x4 translate(float3 vector)
-        {
-            return float4x4(float4(1.0f, 0.0f, 0.0f, 0.0f),
-                            float4(0.0f, 1.0f, 0.0f, 0.0f),
-                            float4(0.0f, 0.0f, 1.0f, 0.0f),
-                            float4(vector.x, vector.y, vector.z, 1.0f));
-        }        
-
         const float epsilon = 0.000001F;
         
         public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
