@@ -62,16 +62,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     var text = builder.ToString();
                     // Convert all tabs to spaces
                     text = text.Replace("\t", "    ");
-                    // Convert all EOL to platform EOL
+                    // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
+                    text = text.Replace("\r\n", "\n");
                     text = text.Replace("\n", Environment.NewLine);
 
                     System.IO.File.WriteAllText(dir + "/" + typeNames[i] + ".gen.cs", text);
-
                 }
             }
         }
-
-
 
         public void Generate(int count, StringBuilder str)
         {
