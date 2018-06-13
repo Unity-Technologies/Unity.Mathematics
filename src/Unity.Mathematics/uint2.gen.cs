@@ -111,24 +111,24 @@ namespace Unity.Mathematics
 
         // [int index] 
         unsafe public uint this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
+#endif
                 fixed (uint2* array = &this) { return ((uint*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
-#endif
+#endif
                 fixed (uint* array = &x) { array[index] = value; }
-            }
-        }
+            }
+        }
 
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

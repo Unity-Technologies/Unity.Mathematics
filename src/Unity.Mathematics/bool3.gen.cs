@@ -61,24 +61,24 @@ namespace Unity.Mathematics
 
         // [int index] 
         unsafe public bool this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 3)
                     throw new System.ArgumentException("index must be between[0...2]");
-#endif
+#endif
                 fixed (bool3* array = &this) { return ((bool*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
                 if ((uint)index >= 3)
                     throw new System.ArgumentException("index must be between[0...2]");
-#endif
+#endif
                 fixed (bool* array = &x) { array[index] = value; }
-            }
-        }
+            }
+        }
 
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
