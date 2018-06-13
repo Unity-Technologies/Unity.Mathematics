@@ -7,4 +7,4 @@
 # Unity files
 *.asset text eol=lf
 *.meta text eol=lf
-
+*.asmdef text eol=lf
