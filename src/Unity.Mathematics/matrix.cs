@@ -80,6 +80,12 @@ namespace Unity.Mathematics
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
 
+        // Unity rotation order: z, x, y
+        public static float3x3 euler(float x, float y, float z)
+        {
+            return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+        }
+
         public static float3x3 rotateX(float angle)
         {
             float s, c;
@@ -162,6 +168,12 @@ namespace Unity.Mathematics
             0.0f, 1.0f, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 0.0f, 1.0f);
+
+        // Unity rotation order: z, x, y
+        public static float4x4 euler(float x, float y, float z)
+        {
+            return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+        }
 
         public static float4x4 rotateX(float angle)
         {

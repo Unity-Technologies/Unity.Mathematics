@@ -305,6 +305,31 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(m.c3.w, 1.0f, epsilon);
         }
 
+        [Test]
+        public void float3x3_euler()
+        {
+            float3x3 m = float3x3.euler(10.0f, 20.0f, 30.0f);
+
+            float3x3 r = float3x3(0.55366f,  0.32659f, -0.76603f, 
+                                  0.82903f, -0.12943f,  0.54402f,
+                                  0.07853f, -0.93626f, -0.34241f);
+
+            TestUtils.AreEqual(m, r, 0.0001f);
+        }
+
+        [Test]
+        public void float4x4_euler()
+        {
+            float4x4 m = float4x4.euler(10.0f, 20.0f, 30.0f);
+
+            float4x4 r = float4x4(0.55366f,  0.32659f, -0.76603f, 0.0f,
+                                  0.82903f, -0.12943f,  0.54402f, 0.0f,
+                                  0.07853f, -0.93626f, -0.34241f, 0.0f,
+                                  0.0f,      0.0f,      0.0f,     1.0f);
+
+            TestUtils.AreEqual(m, r, 0.0001f);
+        }
+
 
         [Test]
         public void float2x2_scale()
