@@ -72,6 +72,61 @@ namespace Unity.Mathematics
             math.sincos(0.5f * angle, out sina, out cosa);
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
+
+        public static quaternion lookRotation(float3 direction, float3 up)
+        {
+            var vector = math_experimental.normalizeSafe(direction);
+            var vector2 = cross(up, vector);
+            var vector3 = cross(vector, vector2);
+            var m00 = vector2.x;
+            var m01 = vector2.y;
+            var m02 = vector2.z;
+            var m10 = vector3.x;
+            var m11 = vector3.y;
+            var m12 = vector3.z;
+            var m20 = vector.x;
+            var m21 = vector.y;
+            var m22 = vector.z;
+            var num8 = (m00 + m11) + m22;
+            float4 q;
+            if (num8 > 0.0)
+            {
+                var num = sqrt(num8 + 1.0f);
+                q.w = num * 0.5f;
+                num = 0.5f / num;
+                q.x = (m12 - m21) * num;
+                q.y = (m20 - m02) * num;
+                q.z = (m01 - m10) * num;
+                return quaternion(q);
+            }
+            if ((m00 >= m11) && (m00 >= m22))
+            {
+                var num7 = sqrt(((1.0f + m00) - m11) - m22);
+                var num4 = 0.5f / num7;
+                q.x = 0.5f * num7;
+                q.y = (m01 + m10) * num4;
+                q.z = (m02 + m20) * num4;
+                q.w = (m12 - m21) * num4;
+                return quaternion(q);
+            }
+            if (m11 > m22)
+            {
+                var num6 = sqrt(((1.0f + m11) - m00) - m22);
+                var num3 = 0.5f / num6;
+                q.x = (m10 + m01) * num3;
+                q.y = 0.5f * num6;
+                q.z = (m21 + m12) * num3;
+                q.w = (m20 - m02) * num3;
+                return quaternion(q);
+            }
+            var num5 = sqrt(((1.0f + m22) - m00) - m11);
+            var num2 = 0.5f / num5;
+            q.x = (m20 + m02) * num2;
+            q.y = (m21 + m12) * num2;
+            q.z = 0.5f * num5;
+            q.w = (m01 - m10) * num2;
+            return quaternion(q);
+        }
     }
 
     public static partial class math
@@ -155,47 +210,6 @@ namespace Unity.Mathematics
             return normalize(quaternion(q));
         }
 
-        public static float3x3 quatToMatrix(quaternion q)
-        {
-            q = math.normalize(q);
-            
-            // Precalculate coordinate products
-            float x = q.value.x * 2.0F;
-            float y = q.value.y * 2.0F;
-            float z = q.value.z * 2.0F;
-            float xx = q.value.x * x;
-            float yy = q.value.y * y;
-            float zz = q.value.z * z;
-            float xy = q.value.x * y;
-            float xz = q.value.x * z;
-            float yz = q.value.y * z;
-            float wx = q.value.w * x;
-            float wy = q.value.w * y;
-            float wz = q.value.w * z;
-
-            // Calculate 3x3 matrix from orthonormal basis
-            var m = float3x3
-            (
-                float3(1.0f - (yy + zz), xy + wz, xz - wy),
-                float3(xy - wz, 1.0f - (xx + zz), yz + wx),
-                float3(xz + wy, yz - wx, 1.0f - (xx + yy))
-            );
-            return m;
-        }
-
-        public static float4x4 rottrans(quaternion q, float3 t)
-        {
-            var m3x3 = quatToMatrix(q);
-            var m = float4x4
-            (
-                float4(m3x3.c0, 0.0f),
-                float4(m3x3.c1, 0.0f),
-                float4(m3x3.c2, 0.0f),
-                float4(t, 1.0f)
-            );
-            return m;
-        }
-
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
         {
             float dt = dot(q1, q2);
@@ -239,61 +253,6 @@ namespace Unity.Mathematics
         public static float3 up(quaternion q)
         {
             return mul(q, float3(0, 1, 0));
-        }
-
-        public static quaternion lookRotationToQuaternion(float3 direction, float3 up)
-        {
-            var vector = math_experimental.normalizeSafe(direction);
-            var vector2 = cross(up, vector);
-            var vector3 = cross(vector,vector2);
-            var m00 = vector2.x;
-            var m01 = vector2.y;
-            var m02 = vector2.z;
-            var m10 = vector3.x;
-            var m11 = vector3.y;
-            var m12 = vector3.z;
-            var m20 = vector.x;
-            var m21 = vector.y;
-            var m22 = vector.z;
-            var num8 = (m00 + m11) + m22;
-            float4 q;
-            if (num8 > 0.0)
-            {
-                var num = sqrt(num8 + 1.0f);
-                q.w = num * 0.5f;
-                num = 0.5f / num;
-                q.x = (m12 - m21) * num;
-                q.y = (m20 - m02) * num;
-                q.z = (m01 - m10) * num;
-                return quaternion(q);
-            }
-            if ((m00 >= m11) && (m00 >= m22))
-            {
-                var num7 = sqrt(((1.0f + m00) - m11) - m22);
-                var num4 = 0.5f / num7;
-                q.x = 0.5f * num7;
-                q.y = (m01 + m10) * num4;
-                q.z = (m02 + m20) * num4;
-                q.w = (m12 - m21) * num4;
-                return quaternion(q);
-            }
-            if (m11 > m22)
-            {
-                var num6 = sqrt(((1.0f + m11) - m00) - m22);
-                var num3 = 0.5f / num6;
-                q.x = (m10 + m01) * num3;
-                q.y = 0.5f * num6;
-                q.z = (m21 + m12) * num3;
-                q.w = (m20 - m02) * num3;
-                return quaternion(q);
-            }
-            var num5 = sqrt(((1.0f + m22) - m00) - m11);
-            var num2 = 0.5f / num5;
-            q.x = (m20 + m02) * num2;
-            q.y = (m21 + m12) * num2;
-            q.z = 0.5f * num5;
-            q.w = (m01 - m10) * num2;
-            return quaternion(q);
         }
     }
 }
