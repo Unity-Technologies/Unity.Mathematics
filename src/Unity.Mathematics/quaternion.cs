@@ -19,9 +19,7 @@ namespace Unity.Mathematics
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-
-            float3 axisUnit = math.normalize(axis);
-            return new quaternion(float4(axisUnit * sina, cosa));
+            return quaternion(float4(math.normalize(axis) * sina, cosa));
         }
 
         public static quaternion euler(float3 eulerInDegrees)

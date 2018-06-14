@@ -76,6 +76,28 @@ namespace Unity.Mathematics
             this.c2 = float3(m02, m12, m22);
         }
 
+        public float3x3(quaternion rotation)
+        {
+            rotation = math.normalize(rotation);
+
+            float x = rotation.value.x * 2.0F;
+            float y = rotation.value.y * 2.0F;
+            float z = rotation.value.z * 2.0F;
+            float xx = rotation.value.x * x;
+            float yy = rotation.value.y * y;
+            float zz = rotation.value.z * z;
+            float xy = rotation.value.x * y;
+            float xz = rotation.value.x * z;
+            float yz = rotation.value.y * z;
+            float wx = rotation.value.w * x;
+            float wy = rotation.value.w * y;
+            float wz = rotation.value.w * z;
+
+            c0 = float3(1.0f - (yy + zz), xy + wz, xz - wy);
+            c1 = float3(xy - wz, 1.0f - (xx + zz), yz + wx);
+            c2 = float3(xz + wy, yz - wx, 1.0f - (xx + yy));
+        }
+
         public static readonly float3x3 identity = new float3x3(1.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
@@ -189,6 +211,15 @@ namespace Unity.Mathematics
             c0 = float4(rotation.c0, 0.0f);
             c1 = float4(rotation.c1, 0.0f);
             c2 = float4(rotation.c2, 0.0f);
+            c3 = float4(translation, 1.0f);
+        }
+
+        public float4x4(quaternion rotation, float3 translation)
+        {
+            float3x3 rot = float3x3(rotation);
+            c0 = float4(rot.c0, 0.0f);
+            c1 = float4(rot.c1, 0.0f);
+            c2 = float4(rot.c2, 0.0f);
             c3 = float4(translation, 1.0f);
         }
 
@@ -320,6 +351,11 @@ namespace Unity.Mathematics
                                 m20, m21, m22);
         }
 
+        public static float3x3 float3x3(quaternion rotation)
+        {
+            return new float3x3(rotation);
+        }
+
         public static float4x4 float4x4(float4 c0, float4 c1, float4 c2, float4 c3)
         {
             return new float4x4(c0, c1, c2, c3);
@@ -337,6 +373,11 @@ namespace Unity.Mathematics
         }
 
         public static float4x4 float4x4(float3x3 rotation, float3 translation)
+        {
+            return new float4x4(rotation, translation);
+        }
+
+        public static float4x4 float4x4(quaternion rotation, float3 translation)
         {
             return new float4x4(rotation, translation);
         }

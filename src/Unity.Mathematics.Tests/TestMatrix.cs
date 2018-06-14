@@ -124,6 +124,48 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float4x4_constructor_float3x3()
+        {
+            float3x3 rot = float3x3(1.0f, 2.0f, 3.0f,
+                                    4.0f, 5.0f, 6.0f,
+                                    7.0f, 8.0f, 9.0f);
+            float3 pos = float3(10.0f, 11.0f, 12.0f);
+            float4x4 m = float4x4(rot, pos);
+
+            float4x4 r = float4x4(1.0f, 2.0f, 3.0f, 10.0f,
+                                  4.0f, 5.0f, 6.0f, 11.0f,
+                                  7.0f, 8.0f, 9.0f, 12.0f,
+                                  0.0f, 0.0f, 0.0f, 1.0f);
+            TestUtils.AreEqual(m, r);
+        }
+
+
+        [Test]
+        public void float3x3_constructor_quaternion()
+        {
+            float3x3 m = float3x3(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)));
+
+            float3x3 r = float3x3( 0.12774f, -0.64529f, 0.75318f,
+                                   0.89975f,  0.39491f, 0.18575f,
+                                  -0.41730f,  0.65394f, 0.63104f);
+
+            TestUtils.AreEqual(m, r, 0.0001f);
+        }
+
+        [Test]
+        public void float4x4_constructor_quaternion_position()
+        {
+            float4x4 m = float4x4(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)), float3(1.0f, 2.0f, 3.0f));
+
+            float4x4 r = float4x4( 0.12774f, -0.64529f, 0.75318f, 1.0f,
+                                   0.89975f,  0.39491f, 0.18575f, 2.0f,
+                                  -0.41730f,  0.65394f, 0.63104f, 3.0f,
+                                   0.0f,      0.0f,     0.0f,     1.0f);
+
+            TestUtils.AreEqual(m, r, 0.0001f);
+        }
+
+        [Test]
         public void float2x2_identity()
         {
             float2x2 a = float2x2.identity;
