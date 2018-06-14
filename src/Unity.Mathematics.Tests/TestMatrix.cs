@@ -349,29 +349,29 @@ namespace Unity.Mathematics.Tests
 
 
         // rotation by (-50, 28, 39) degrees from Max
-        static float3 test_angles = math.radians(float3(-50.0f, 28.0f, 39.0f));
+        static internal float3 test_angles = math.radians(float3(-50.0f, 28.0f, 39.0f));
 
-        static float3x3 test3x3_xyz = float3x3( 0.686179155968f, -0.684009078513f, -0.247567660300f,
+        static internal float3x3 test3x3_xyz = float3x3( 0.686179155968f, -0.684009078513f, -0.247567660300f,
                                                 0.555656924414f,  0.273213475262f,  0.785238676636f,
                                                -0.469471562786f, -0.676377097075f,  0.567547772692f);
 
-        static float3x3 test3x3_xzy = float3x3( 0.686179155968f, -0.716805468125f, -0.123887395569f,
+        static internal float3x3 test3x3_xzy = float3x3( 0.686179155968f, -0.716805468125f, -0.123887395569f,
                                                 0.629320391050f,  0.499539794942f,  0.595328345266f,
                                                -0.364847929038f, -0.486466765705f,  0.793874092373f);
 
-        static float3x3 test3x3_yxz = float3x3( 0.912505475649f, -0.404519349890f, -0.0608099701904f,
+        static internal float3x3 test3x3_yxz = float3x3( 0.912505475649f, -0.404519349890f, -0.0608099701904f,
                                                 0.276167195792f,  0.499539794942f,  0.8210917568930f,
                                                -0.301770503659f, -0.766044443119f,  0.5675477726920f);
 
-        static float3x3 test3x3_yzx = float3x3( 0.68617915596800f, -0.629320391050f, 0.364847929038f,
+        static internal float3x3 test3x3_yzx = float3x3( 0.68617915596800f, -0.629320391050f, 0.364847929038f,
                                                -0.00246669562435f,  0.499539794942f, 0.866287428445f,
                                                -0.72742840288700f, -0.595328345266f, 0.341221453011f);
 
-        static float3x3 test3x3_zxy = float3x3( 0.459852836288f, -0.835146653037f, 0.301770503659f,
+        static internal float3x3 test3x3_zxy = float3x3( 0.459852836288f, -0.835146653037f, 0.301770503659f,
                                                 0.404519349890f,  0.499539794942f, 0.766044443119f,
                                                -0.790505828266f, -0.230195701935f, 0.567547772692f);
 
-        static float3x3 test3x3_zyx = float3x3( 0.686179155968f, -0.555656924414f, 0.469471562786f,
+        static internal float3x3 test3x3_zyx = float3x3( 0.686179155968f, -0.555656924414f, 0.469471562786f,
                                                 0.125029621267f,  0.725866114623f, 0.676377097075f,
                                                -0.716607116711f, -0.405418013897f, 0.567547772692f);
 

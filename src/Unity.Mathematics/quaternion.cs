@@ -15,6 +15,7 @@ namespace Unity.Mathematics
 
         public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion axisAngle(float3 axis, float angle)
         {
             float sina, cosa;
@@ -22,9 +23,54 @@ namespace Unity.Mathematics
             return quaternion(float4(math.normalize(axis) * sina, cosa));
         }
 
-        public static quaternion euler(float3 eulerInDegrees)
+        public static quaternion euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            throw new System.NotImplementedException();
+            switch (order)
+            {
+                case RotationOrder.XYZ:
+                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                case RotationOrder.XZY:
+                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                case RotationOrder.YXZ:
+                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                case RotationOrder.YZX:
+                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                case RotationOrder.ZXY:
+                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                case RotationOrder.ZYX:
+                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                default:
+                    return quaternion.identity;
+            }
+        }
+
+        public static quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        {
+            return euler(xyz.x, xyz.y, xyz.z, order);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion rotateX(float angle)
+        {
+            float sina, cosa;
+            math.sincos(0.5f * angle, out sina, out cosa);
+            return quaternion(sina, 0.0f, 0.0f, cosa);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion rotateY(float angle)
+        {
+            float sina, cosa;
+            math.sincos(0.5f * angle, out sina, out cosa);
+            return quaternion(0.0f, sina, 0.0f, cosa);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion rotateZ(float angle)
+        {
+            float sina, cosa;
+            math.sincos(0.5f * angle, out sina, out cosa);
+            return quaternion(0.0f, 0.0f, sina, cosa);
         }
     }
 
