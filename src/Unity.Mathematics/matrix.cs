@@ -80,10 +80,30 @@ namespace Unity.Mathematics
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
 
-        // Unity rotation order: z, x, y
-        public static float3x3 euler(float x, float y, float z)
+        public static float3x3 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+            switch (order)
+            {
+                case RotationOrder.XYZ:
+                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                case RotationOrder.XZY:
+                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                case RotationOrder.YXZ:
+                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                case RotationOrder.YZX:
+                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                case RotationOrder.ZXY:
+                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                case RotationOrder.ZYX:
+                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                default:
+                    return float3x3.identity;
+            }
+        }
+
+        public static float3x3 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        {
+            return euler(xyz.x, xyz.y, xyz.z, order);
         }
 
         public static float3x3 rotateX(float angle)
@@ -164,15 +184,44 @@ namespace Unity.Mathematics
             this.c3 = float4(m03, m13, m23, m33);
         }
 
+        public float4x4(float3x3 rotation, float3 translation)
+        {
+            c0 = float4(rotation.c0, 0.0f);
+            c1 = float4(rotation.c1, 0.0f);
+            c2 = float4(rotation.c2, 0.0f);
+            c3 = float4(translation, 1.0f);
+        }
+
         public static readonly float4x4 identity = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,
             0.0f, 1.0f, 0.0f, 0.0f,
             0.0f, 0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 0.0f, 1.0f);
 
-        // Unity rotation order: z, x, y
-        public static float4x4 euler(float x, float y, float z)
+        
+        public static float4x4 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+            switch(order)
+            {
+                case RotationOrder.XYZ:
+                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                case RotationOrder.XZY:
+                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                case RotationOrder.YXZ:
+                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                case RotationOrder.YZX:
+                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                case RotationOrder.ZXY:
+                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                case RotationOrder.ZYX:
+                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                default:
+                    return float4x4.identity;
+            }
+        }
+
+        public static float4x4 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        {
+            return euler(xyz.x, xyz.y, xyz.z, order);
         }
 
         public static float4x4 rotateX(float angle)
@@ -285,6 +334,11 @@ namespace Unity.Mathematics
                                 m10, m11, m12, m13,
                                 m20, m21, m22, m23,
                                 m30, m31, m32, m33);
+        }
+
+        public static float4x4 float4x4(float3x3 rotation, float3 translation)
+        {
+            return new float4x4(rotation, translation);
         }
 
         public static float2 mul(float2x2 x, float2 v)

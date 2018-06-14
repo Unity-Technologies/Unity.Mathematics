@@ -305,31 +305,114 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(m.c3.w, 1.0f, epsilon);
         }
 
+
+        // rotation by (-50, 28, 39) degrees from Max
+        static float3 test_angles = math.radians(float3(-50.0f, 28.0f, 39.0f));
+
+        static float3x3 test3x3_xyz = float3x3( 0.686179155968f, -0.684009078513f, -0.247567660300f,
+                                                0.555656924414f,  0.273213475262f,  0.785238676636f,
+                                               -0.469471562786f, -0.676377097075f,  0.567547772692f);
+
+        static float3x3 test3x3_xzy = float3x3( 0.686179155968f, -0.716805468125f, -0.123887395569f,
+                                                0.629320391050f,  0.499539794942f,  0.595328345266f,
+                                               -0.364847929038f, -0.486466765705f,  0.793874092373f);
+
+        static float3x3 test3x3_yxz = float3x3( 0.912505475649f, -0.404519349890f, -0.0608099701904f,
+                                                0.276167195792f,  0.499539794942f,  0.8210917568930f,
+                                               -0.301770503659f, -0.766044443119f,  0.5675477726920f);
+
+        static float3x3 test3x3_yzx = float3x3( 0.68617915596800f, -0.629320391050f, 0.364847929038f,
+                                               -0.00246669562435f,  0.499539794942f, 0.866287428445f,
+                                               -0.72742840288700f, -0.595328345266f, 0.341221453011f);
+
+        static float3x3 test3x3_zxy = float3x3( 0.459852836288f, -0.835146653037f, 0.301770503659f,
+                                                0.404519349890f,  0.499539794942f, 0.766044443119f,
+                                               -0.790505828266f, -0.230195701935f, 0.567547772692f);
+
+        static float3x3 test3x3_zyx = float3x3( 0.686179155968f, -0.555656924414f, 0.469471562786f,
+                                                0.125029621267f,  0.725866114623f, 0.676377097075f,
+                                               -0.716607116711f, -0.405418013897f, 0.567547772692f);
+
+
+        static float4x4 test4x4_xyz = float4x4(test3x3_xyz, float3(0, 0, 0));
+        static float4x4 test4x4_xzy = float4x4(test3x3_xzy, float3(0, 0, 0));
+        static float4x4 test4x4_yxz = float4x4(test3x3_yxz, float3(0, 0, 0));
+        static float4x4 test4x4_yzx = float4x4(test3x3_yzx, float3(0, 0, 0));
+        static float4x4 test4x4_zxy = float4x4(test3x3_zxy, float3(0, 0, 0));
+        static float4x4 test4x4_zyx = float4x4(test3x3_zyx, float3(0, 0, 0));
+
+
         [Test]
         public void float3x3_euler()
         {
-            float3x3 m = float3x3.euler(10.0f, 20.0f, 30.0f);
+            float3x3 m0 = float3x3.euler(test_angles);
+            float3x3 m0_xyz = float3x3.euler(test_angles, RotationOrder.XYZ);
+            float3x3 m0_xzy = float3x3.euler(test_angles, RotationOrder.XZY);
+            float3x3 m0_yxz = float3x3.euler(test_angles, RotationOrder.YXZ);
+            float3x3 m0_yzx = float3x3.euler(test_angles, RotationOrder.YZX);
+            float3x3 m0_zxy = float3x3.euler(test_angles, RotationOrder.ZXY);
+            float3x3 m0_zyx = float3x3.euler(test_angles, RotationOrder.ZYX);
 
-            float3x3 r = float3x3(0.55366f,  0.32659f, -0.76603f, 
-                                  0.82903f, -0.12943f,  0.54402f,
-                                  0.07853f, -0.93626f, -0.34241f);
+            float3x3 m1 = float3x3.euler(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m1_xyz = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            float3x3 m1_xzy = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            float3x3 m1_yxz = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            float3x3 m1_yzx = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            float3x3 m1_zxy = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            float3x3 m1_zyx = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
-            TestUtils.AreEqual(m, r, 0.0001f);
+            TestUtils.AreEqual(m0, test3x3_zxy, 0.0001f);
+            TestUtils.AreEqual(m0_xyz, test3x3_xyz, 0.0001f);
+            TestUtils.AreEqual(m0_yzx, test3x3_yzx, 0.0001f);
+            TestUtils.AreEqual(m0_zxy, test3x3_zxy, 0.0001f);
+            TestUtils.AreEqual(m0_xzy, test3x3_xzy, 0.0001f);
+            TestUtils.AreEqual(m0_yxz, test3x3_yxz, 0.0001f);
+            TestUtils.AreEqual(m0_zyx, test3x3_zyx, 0.0001f);
+
+            TestUtils.AreEqual(m1, test3x3_zxy, 0.0001f);
+            TestUtils.AreEqual(m1_xyz, test3x3_xyz, 0.0001f);
+            TestUtils.AreEqual(m1_yzx, test3x3_yzx, 0.0001f);
+            TestUtils.AreEqual(m1_zxy, test3x3_zxy, 0.0001f);
+            TestUtils.AreEqual(m1_xzy, test3x3_xzy, 0.0001f);
+            TestUtils.AreEqual(m1_yxz, test3x3_yxz, 0.0001f);
+            TestUtils.AreEqual(m1_zyx, test3x3_zyx, 0.0001f);
         }
 
         [Test]
         public void float4x4_euler()
         {
-            float4x4 m = float4x4.euler(10.0f, 20.0f, 30.0f);
+            float4x4 m0 = float4x4.euler(test_angles);
+            float4x4 m0_xyz = float4x4.euler(test_angles, RotationOrder.XYZ);
+            float4x4 m0_xzy = float4x4.euler(test_angles, RotationOrder.XZY);
+            float4x4 m0_yxz = float4x4.euler(test_angles, RotationOrder.YXZ);
+            float4x4 m0_yzx = float4x4.euler(test_angles, RotationOrder.YZX);
+            float4x4 m0_zxy = float4x4.euler(test_angles, RotationOrder.ZXY);
+            float4x4 m0_zyx = float4x4.euler(test_angles, RotationOrder.ZYX);
 
-            float4x4 r = float4x4(0.55366f,  0.32659f, -0.76603f, 0.0f,
-                                  0.82903f, -0.12943f,  0.54402f, 0.0f,
-                                  0.07853f, -0.93626f, -0.34241f, 0.0f,
-                                  0.0f,      0.0f,      0.0f,     1.0f);
+            float4x4 m1 = float4x4.euler(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m1_xyz = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            float4x4 m1_xzy = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            float4x4 m1_yxz = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            float4x4 m1_yzx = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            float4x4 m1_zxy = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            float4x4 m1_zyx = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
-            TestUtils.AreEqual(m, r, 0.0001f);
+            TestUtils.AreEqual(m0, test4x4_zxy, 0.0001f);
+            TestUtils.AreEqual(m0_xyz, test4x4_xyz, 0.0001f);
+            TestUtils.AreEqual(m0_yzx, test4x4_yzx, 0.0001f);
+            TestUtils.AreEqual(m0_zxy, test4x4_zxy, 0.0001f);
+            TestUtils.AreEqual(m0_xzy, test4x4_xzy, 0.0001f);
+            TestUtils.AreEqual(m0_yxz, test4x4_yxz, 0.0001f);
+            TestUtils.AreEqual(m0_zyx, test4x4_zyx, 0.0001f);
+
+            TestUtils.AreEqual(m1, test4x4_zxy, 0.0001f);
+            TestUtils.AreEqual(m1_xyz, test4x4_xyz, 0.0001f);
+            TestUtils.AreEqual(m1_yzx, test4x4_yzx, 0.0001f);
+            TestUtils.AreEqual(m1_zxy, test4x4_zxy, 0.0001f);
+            TestUtils.AreEqual(m1_xzy, test4x4_xzy, 0.0001f);
+            TestUtils.AreEqual(m1_yxz, test4x4_yxz, 0.0001f);
+            TestUtils.AreEqual(m1_zyx, test4x4_zyx, 0.0001f);
         }
-
 
         [Test]
         public void float2x2_scale()

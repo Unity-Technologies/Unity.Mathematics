@@ -10,6 +10,16 @@ namespace Unity.Mathematics
 {
     public static partial class math
     {
+        public enum RotationOrder
+        {
+            XYZ,
+            XZY,
+            YXZ,
+            YZX,
+            ZXY,    // Unity Default
+            ZYX,
+        };
+
         public enum ShuffleComponent
         {
             LeftX,
