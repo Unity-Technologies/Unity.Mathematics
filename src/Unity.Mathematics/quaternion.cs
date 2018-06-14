@@ -82,10 +82,16 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4 value) { return new quaternion(value); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float dot(quaternion a, quaternion b)
+        {
+            return dot(a.value, b.value);
+        }
+
         public static quaternion normalize(quaternion q)
         {
             float4 value = q.value;
-            float len = math.dot(value, value);
+            float len = dot(value, value);
 
             // note we use float4 comparison here because this gives us -1 / 0 which is necessary for select.
             //return select(quatIdentity(), q*rsqrt(len), len > float4(epsilon_normal()));
@@ -190,18 +196,39 @@ namespace Unity.Mathematics
             return m;
         }
 
-        //@TODO: Decide on saturate for t (old math lib did it...)
-
-        public static quaternion slerp(quaternion lhs, quaternion rhs, float t)
+        public static quaternion nlerp(quaternion q1, quaternion q2, float t)
         {
-            throw new System.NotImplementedException();
+            float dt = dot(q1, q2);
+            if(dt < 0.0f)
+            {
+                q2.value = -q2.value;
+            }
+
+            return normalize(quaternion(lerp(q1.value, q2.value, t)));
         }
 
-        public static quaternion lerp(quaternion lhs, quaternion rhs, float t)
+        public static quaternion slerp(quaternion q1, quaternion q2, float t)
         {
-            throw new System.NotImplementedException();
-            // var res = math.normalize(lhs.value + t * (math.chgsign(rhs.value, math.dot(lhs.value, rhs.value)) - rhs.value));
-            // return new quaternion(res);
+            float dt = dot(q1, q2);
+            if (dt < 0.0f)
+            {
+                dt = -dt;
+                q2.value = -q2.value;
+            }
+
+            if (dt < 0.9995f)
+            {
+                float angle = acos(dt);
+                float s = rsqrt(1.0f - dt * dt);    // 1.0f / sin(angle)
+                float w1 = sin(angle * (1.0f - t)) * s;
+                float w2 = sin(angle * t) * s;
+                return quaternion(q1.value * w1 + q2.value * w2);
+            }
+            else
+            {
+                // if the angle is small, use linear interpolation
+                return nlerp(q1, q2, t);
+            }
         }
 
         public static float3 forward(quaternion q)
