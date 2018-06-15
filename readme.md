@@ -13,14 +13,19 @@ In addition to this, the `burst` compiler is able to recognize these types and p
 You can use this library in your Unity game by using the Package Manager and referencing the package `com.unity.mathematics`. See the forum [Welcome](https://forum.unity.com/threads/welcome.522627) page for more details.
 
 ```C#
-using Unity.Mathematics;
 using static Unity.Mathematics.math;
-
-var v1 = float3(1,2,3);
-var v2 = float3(4,5,6);
-v1 = normalize(v1);
-v2 = normalize(v2);
-var v3 = dot(v1, v2);
+namespace MyNamespace
+{
+    using Unity.Mathematics;
+    
+    ...
+    var v1 = float3(1,2,3);
+    var v2 = float3(4,5,6);
+    v1 = normalize(v1);
+    v2 = normalize(v2);
+    var v3 = dot(v1, v2);
+    ...
+}
 ```
 
 ## Building
