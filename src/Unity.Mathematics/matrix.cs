@@ -47,7 +47,6 @@ namespace Unity.Mathematics
             return scale(v.x, v.y);
         }
 
-
         public static float2x2 operator *(float2x2 mat, float s)
         {
             return float2x2(mat.c0 * s, mat.c1 * s);
@@ -174,6 +173,30 @@ namespace Unity.Mathematics
             return scale(v.x, v.y, v.z);
         }
 
+        public static float3x3 lookRotation(float3 forward, float3 up)
+        {
+            const float epsilon = 0.000001F;
+            float3 z = forward;
+            // compute u0
+            float mag = math.length(z);
+            if (mag < epsilon)
+                return Mathematics.float3x3.identity;
+            z /= mag;
+
+            float3 x = math.cross(up, z);
+            mag = math.length(x);
+            if (mag < epsilon)
+                return Mathematics.float3x3.identity;
+            x /= mag;
+
+            float3 y = math.cross(z, x);
+            float yLength = math.length(y);
+            if (yLength < 0.9F || yLength > 1.1F)
+                return Mathematics.float3x3.identity;
+
+            return float3x3(x, y, z);
+        }
+
         public static float3x3 operator *(float3x3 mat, float s)
         {
             return float3x3(mat.c0 * s, mat.c1 * s, mat.c2 * s);
@@ -224,9 +247,9 @@ namespace Unity.Mathematics
         }
 
         public static readonly float4x4 identity = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,
-            0.0f, 1.0f, 0.0f, 0.0f,
-            0.0f, 0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 0.0f, 1.0f);
+                                                                0.0f, 1.0f, 0.0f, 0.0f,
+                                                                0.0f, 0.0f, 1.0f, 0.0f,
+                                                                0.0f, 0.0f, 0.0f, 1.0f);
 
         
         public static float4x4 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
@@ -315,6 +338,18 @@ namespace Unity.Mathematics
                             float4(0.0f, 1.0f, 0.0f, 0.0f),
                             float4(0.0f, 0.0f, 1.0f, 0.0f),
                             float4(vector.x, vector.y, vector.z, 1.0f));
+        }
+
+        public static float4x4 lookAt(float3 position, float3 forward, float3 up)
+        {
+            float3x3 rot = float3x3.lookRotation(forward, up);
+
+            float4x4 matrix;
+            matrix.c0 = float4(rot.c0, 0.0F);
+            matrix.c1 = float4(rot.c1, 0.0F);
+            matrix.c2 = float4(rot.c2, 0.0F);
+            matrix.c3 = float4(position, 1.0F);
+            return matrix;
         }
 
         public static float4x4 operator *(float4x4 mat, float s)
@@ -567,43 +602,6 @@ namespace Unity.Mathematics
             float m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
 
             return c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
-        }
-
-        const float epsilon = 0.000001F;
-        
-        public static float4x4 lookRotationToMatrix(float3 position, float3 forward, float3 up)
-        {
-            float3x3 rot = lookRotationToMatrix(forward, up);
-
-            float4x4 matrix;
-            matrix.c0 = float4(rot.c0, 0.0F);
-            matrix.c1 = float4(rot.c1, 0.0F);
-            matrix.c2 = float4(rot.c2, 0.0F);
-            matrix.c3 = float4(position, 1.0F);
-            return matrix;
-        }
-
-        public static float3x3 lookRotationToMatrix(float3 forward, float3 up)
-        {
-            float3 z = forward;
-            // compute u0
-            float mag = math.length(z);
-            if (mag < epsilon)
-                return Mathematics.float3x3.identity;
-            z /= mag;
-
-            float3 x = math.cross(up, z);
-            mag = math.length(x);
-            if (mag < epsilon)
-                return Mathematics.float3x3.identity;
-            x /= mag;
-
-            float3 y = math.cross(z, x);
-            float yLength = math.length(y);
-            if (yLength < 0.9F || yLength > 1.1F)
-                return Mathematics.float3x3.identity;
-
-            return float3x3(x, y, z);
         }
     }
 }
