@@ -137,6 +137,26 @@ namespace Unity.Mathematics.Tests
         static internal quaternion test_q3 = quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
 
         [Test]
+        public void quaternion_conjugate()
+        {
+            quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
+            quaternion cq = conjugate(q);
+            quaternion r = quaternion(-1.0f, 2.0f, -3.0f, -4.0f);
+
+            TestUtils.AreEqual(cq, r);
+        }
+
+        [Test]
+        public void quaternion_inverse()
+        {
+            quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
+            quaternion iq = inverse(q);
+            quaternion r = quaternion(-0.1825742f, 0.3651484f, -0.5477226f, -0.7302967f);
+
+            TestUtils.AreEqual(iq, r, 0.00001f);
+        }
+
+        [Test]
         public void quaternion_dot()
         {
             float dot01 = dot(test_q0, test_q1);

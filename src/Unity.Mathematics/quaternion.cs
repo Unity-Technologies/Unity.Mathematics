@@ -138,6 +138,18 @@ namespace Unity.Mathematics
         public static quaternion quaternion(float4 value) { return new quaternion(value); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion conjugate(quaternion q)
+        {
+            return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f)); // TODO: should only be one xorps
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion inverse(quaternion q)
+        {
+            return conjugate(normalize(q));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(quaternion a, quaternion b)
         {
             return dot(a.value, b.value);
