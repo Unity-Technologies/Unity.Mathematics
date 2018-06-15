@@ -4,6 +4,7 @@
 // * Should we allow float4 value = 5; it is convenient and how it is in hlsl but maybe not the right fit in C#?
 
 using System;
+using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
 
 namespace Unity.Mathematics
@@ -31,6 +32,83 @@ namespace Unity.Mathematics
             RightZ,
             RightW
         };
+
+        // asint
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int asint(float v) {
+            IntFloatUnion u;
+            u.intValue = 0;
+            u.floatValue = v;
+            return u.intValue;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 asint(float2 v) { return int2(asint(v.x), asint(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 asint(float3 v) { return int3(asint(v.x), asint(v.y), asint(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 asint(float4 v) { return int4(asint(v.x), asint(v.y), asint(v.z), asint(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int  asint(uint v) { return (int)v; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 asint(uint2 v) { return int2((int)v.x, (int)v.y); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 asint(uint3 v) { return int3((int)v.x, (int)v.y, (int)v.z); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 asint(uint4 v) { return int4((int)v.x, (int)v.y, (int)v.z, (int)v.w); }
+
+        // asuint
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint asuint(float v)
+        {
+            return (uint)asint(v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 asuint(float2 v) { return uint2(asuint(v.x), asuint(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 asuint(float3 v) { return uint3(asuint(v.x), asuint(v.y), asuint(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 asuint(float4 v) { return uint4(asuint(v.x), asuint(v.y), asuint(v.z), asuint(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint  asuint(int v) { return (uint)v; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 asuint(int2 v) { return uint2((uint)v.x, (uint)v.y); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 asuint(int3 v) { return uint3((uint)v.x, (uint)v.y, (uint)v.z); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 asuint(int4 v) { return uint4((uint)v.x, (uint)v.y, (uint)v.z, (uint)v.w); }
+
+
+        // asfloat
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float asfloat(int v)
+        {
+            IntFloatUnion u;
+            u.floatValue = 0;
+            u.intValue = v;
+
+            return u.floatValue;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 asfloat(int2 v) { return float2(asfloat(v.x), asfloat(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 asfloat(int3 v) { return float3(asfloat(v.x), asfloat(v.y), asfloat(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 asfloat(int4 v) { return float4(asfloat(v.x), asfloat(v.y), asfloat(v.z), asfloat(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float  asfloat(uint v) { return asfloat((int)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 asfloat(uint2 v) { return float2(asfloat(v.x), asfloat(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 asfloat(uint3 v) { return float3(asfloat(v.x), asfloat(v.y), asfloat(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 asfloat(uint4 v) { return float4(asfloat(v.x), asfloat(v.y), asfloat(v.z), asfloat(v.w)); }
+
 
         // min
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -559,5 +637,15 @@ namespace Unity.Mathematics
         
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
+
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct IntFloatUnion
+        {
+            [FieldOffset(0)]
+            public int intValue;
+            [FieldOffset(0)]
+            public float floatValue;
+        }
     }
 }

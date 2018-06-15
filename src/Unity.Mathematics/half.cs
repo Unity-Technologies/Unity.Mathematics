@@ -1,4 +1,4 @@
-﻿namespace Unity.Mathematics
+namespace Unity.Mathematics
 {
     public struct half
     {
@@ -12,7 +12,7 @@
             unchecked
             {
                 v = math.clamp(v, -65536.0f, 65536.0f) * 1.925930e-34f;
-                int i = IntFloatUnion.ToInt(v);
+                int i = math.asint(v);
                 uint ui = (uint)i;
                 int h = ((i >> 16) & (int)0xffff8000) | ((int)(ui >> 13));
                 half value;
@@ -25,7 +25,7 @@
         {
             int iv = d.value;
             int i = (iv & 0x47fff) << 13;
-            return IntFloatUnion.ToFloat(i) * 5.192297e+33f;
+            return math.asfloat(i) * 5.192297e+33f;
         }
     }
 
