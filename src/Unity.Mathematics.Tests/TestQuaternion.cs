@@ -210,5 +210,19 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r1, quaternion(-0.4676181f, -0.5321988f, -0.3789966f, -0.5953646f), 0.0001f);
             TestUtils.AreEqual(r2, quaternion(0.2596942f, -0.4369303f, 0.7902023f, 0.34239f), 0.0001f);
         }
+
+        [Test]
+        public void quaternion_mul_vector()
+        {
+            float3x3 m = TestMatrix.test3x3_xyz;
+            quaternion q = quaternion(m);
+
+            float3 vector = float3(1.1f, -2.2f, 3.5f);
+
+            float3 mvector = mul(m, vector);
+            float3 qvector = mul(q, vector);
+
+            TestUtils.AreEqual(qvector, mvector, 0.0001f);
+        }
     }
 }

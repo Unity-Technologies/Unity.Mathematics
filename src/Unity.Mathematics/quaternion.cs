@@ -232,26 +232,10 @@ namespace Unity.Mathematics
             return quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
-        public static float3 mul(quaternion rotation, float3 position)
+        public static float3 mul(quaternion rotation, float3 vector)
         {
-            float x = rotation.value.x * 2F;
-            float y = rotation.value.y * 2F;
-            float z = rotation.value.z * 2F;
-            float xx = rotation.value.x * x;
-            float yy = rotation.value.y * y;
-            float zz = rotation.value.z * z;
-            float xy = rotation.value.x * y;
-            float xz = rotation.value.x * z;
-            float yz = rotation.value.y * z;
-            float wx = rotation.value.w * x;
-            float wy = rotation.value.w * y;
-            float wz = rotation.value.w * z;
-
-            float3 res;
-            res.x = (1F - (yy + zz)) * position.x + (xy - wz) * position.y + (xz + wy) * position.z;
-            res.y = (xy + wz) * position.x + (1F - (xx + zz)) * position.y + (yz - wx) * position.z;
-            res.z = (xz - wy) * position.x + (yz + wx) * position.y + (1F - (xx + yy)) * position.z;
-            return res;
+            float3 t = 2 * cross(rotation.value.xyz, vector);
+            return vector + rotation.value.w * t + cross(rotation.value.xyz, t);
         }
 
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
