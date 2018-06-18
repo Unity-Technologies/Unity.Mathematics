@@ -13,6 +13,59 @@ namespace Unity.Mathematics
         public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
         public quaternion(float4 value)                       { this.value = value; }
 
+
+        // Construct unit quaternion from rotation matrix. The matrix must be orthonormal.
+        public quaternion(float3x3 m)
+        {
+            float3 u = m.c0;
+            float3 v = m.c1;
+            float3 w = m.c2;
+
+            if (u.x >= 0f)
+            {
+                float t = v.y + w.z;
+                if (t >= 0f)
+                    value = float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
+                else
+                    value = float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
+            }
+            else
+            {
+                float t = v.y - w.z;
+                if (t >= 0f)
+                    value = float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
+                else
+                    value = float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
+            }
+            value = normalize(value);
+        }
+
+        // Construct unit quaternion from rigid-transformation matrix. The matrix must be orthonormal.
+        public quaternion(float4x4 m)
+        {
+            float4 u = m.c0;
+            float4 v = m.c1;
+            float4 w = m.c2;
+
+            if (u.x >= 0f)
+            {
+                float t = v.y + w.z;
+                if (t >= 0f)
+                    value = float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
+                else
+                    value = float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
+            }
+            else
+            {
+                float t = v.y - w.z;
+                if (t >= 0f)
+                    value = float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
+                else
+                    value = float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
+            }
+            value = normalize(value);
+        }
+
         public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -44,6 +97,7 @@ namespace Unity.Mathematics
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             return euler(xyz.x, xyz.y, xyz.z, order);
@@ -138,6 +192,12 @@ namespace Unity.Mathematics
         public static quaternion quaternion(float4 value) { return new quaternion(value); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion quaternion(float3x3 m) { return new quaternion(m); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion quaternion(float4x4 m) { return new quaternion(m); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion conjugate(quaternion q)
         {
             return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f)); // TODO: should only be one xorps
@@ -196,30 +256,6 @@ namespace Unity.Mathematics
             res.y = (xy + wz) * position.x + (1F - (xx + zz)) * position.y + (yz - wx) * position.z;
             res.z = (xz - wy) * position.x + (yz + wx) * position.y + (1F - (xx + yy)) * position.z;
             return res;
-        }
-
-        // get unit quaternion from rotation matrix
-        // u, v, w must be ortho-normal.
-        public static quaternion matrixToQuat(float3 u, float3 v, float3 w)
-        {
-            float4 q;
-            if (u.x >= 0f)
-            {
-                float t = v.y + w.z;
-                if (t >= 0f)
-                    q = float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
-                else
-                    q = float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
-            }
-            else
-            {
-                float t = v.y - w.z;
-                if (t >= 0f)
-                    q = float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
-                else
-                    q = float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
-            }
-            return normalize(quaternion(q));
         }
 
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)

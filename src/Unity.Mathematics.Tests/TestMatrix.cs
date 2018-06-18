@@ -376,12 +376,12 @@ namespace Unity.Mathematics.Tests
                                                -0.716607116711f, -0.405418013897f, 0.567547772692f);
 
 
-        static float4x4 test4x4_xyz = float4x4(test3x3_xyz, float3(0, 0, 0));
-        static float4x4 test4x4_xzy = float4x4(test3x3_xzy, float3(0, 0, 0));
-        static float4x4 test4x4_yxz = float4x4(test3x3_yxz, float3(0, 0, 0));
-        static float4x4 test4x4_yzx = float4x4(test3x3_yzx, float3(0, 0, 0));
-        static float4x4 test4x4_zxy = float4x4(test3x3_zxy, float3(0, 0, 0));
-        static float4x4 test4x4_zyx = float4x4(test3x3_zyx, float3(0, 0, 0));
+        static internal float4x4 test4x4_xyz = float4x4(test3x3_xyz, float3(0, 0, 0));
+        static internal float4x4 test4x4_xzy = float4x4(test3x3_xzy, float3(0, 0, 0));
+        static internal float4x4 test4x4_yxz = float4x4(test3x3_yxz, float3(0, 0, 0));
+        static internal float4x4 test4x4_yzx = float4x4(test3x3_yzx, float3(0, 0, 0));
+        static internal float4x4 test4x4_zxy = float4x4(test3x3_zxy, float3(0, 0, 0));
+        static internal float4x4 test4x4_zyx = float4x4(test3x3_zyx, float3(0, 0, 0));
 
 
         [Test]

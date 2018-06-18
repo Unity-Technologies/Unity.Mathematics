@@ -12,14 +12,35 @@ namespace Unity.Mathematics.Tests
     class TestQuaternion
     {
         [Test]
-        public void quaternion_constructor()
+        public void quaternion_basic_constructors()
         {
             quaternion q = quaternion(1.0f, 2.0f, 3.0f, 4.0f);
+            quaternion q2 = quaternion(float4(1.0f, 2.0f, 3.0f, 4.0f));
 
             Assert.AreEqual(q.value.x, 1.0f);
             Assert.AreEqual(q.value.y, 2.0f);
             Assert.AreEqual(q.value.z, 3.0f);
             Assert.AreEqual(q.value.w, 4.0f);
+            Assert.AreEqual(q2.value.x, 1.0f);
+            Assert.AreEqual(q2.value.y, 2.0f);
+            Assert.AreEqual(q2.value.z, 3.0f);
+            Assert.AreEqual(q2.value.w, 4.0f);
+        }
+
+        [Test]
+        public void quaternion_construct_from_matrix()
+        {
+            float3x3 m3x3 = TestMatrix.test3x3_xyz;
+            float4x4 m4x4 = TestMatrix.test4x4_zyx;
+
+            quaternion q3x3 = quaternion(m3x3);
+            quaternion q4x4 = quaternion(m4x4);
+
+            float3x3 mq3x3 = float3x3(q3x3);
+            float4x4 mq4x4 = float4x4(q4x4, float3(0.0f));
+
+            TestUtils.AreEqual(mq3x3, m3x3, 0.0001f);
+            TestUtils.AreEqual(mq4x4, m4x4, 0.0001f);
         }
 
         [Test]
