@@ -79,7 +79,6 @@
     <Compile Include="int3.gen.cs" />
     <Compile Include="int4.cs" />
     <Compile Include="int4.gen.cs" />
-    <Compile Include="IntFloatUnion.cs" />
     <Compile Include="mathextended.cs" />
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
