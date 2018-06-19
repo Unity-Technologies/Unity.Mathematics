@@ -4,6 +4,8 @@
 // See LICENSE file for details.
 // https://github.com/stegu/webgl-noise
 
+using static Unity.Mathematics.math;
+
 namespace Unity.Mathematics
 {
     public static partial class noise
@@ -20,14 +22,14 @@ namespace Unity.Mathematics
             const float K2 = 0.0714285714285f; // K/2
             const float jitter = 0.8f; // jitter 1.0 makes F1 wrong more often
             
-            float2 Pi = mod289(math.floor(P));
-            float2 Pf = math.fract(P);
-            float4 Pfx = Pf.x + new float4(-0.5f, -1.5f, -0.5f, -1.5f);
-            float4 Pfy = Pf.y + new float4(-0.5f, -0.5f, -1.5f, -1.5f);
-            float4 p = permute(Pi.x + new float4(0.0f, 1.0f, 0.0f, 1.0f));
-            p = permute(p + Pi.y + new float4(0.0f, 0.0f, 1.0f, 1.0f));
+            float2 Pi = mod289(floor(P));
+            float2 Pf = fract(P);
+            float4 Pfx = Pf.x + float4(-0.5f, -1.5f, -0.5f, -1.5f);
+            float4 Pfy = Pf.y + float4(-0.5f, -0.5f, -1.5f, -1.5f);
+            float4 p = permute(Pi.x + float4(0.0f, 1.0f, 0.0f, 1.0f));
+            p = permute(p + Pi.y + float4(0.0f, 0.0f, 1.0f, 1.0f));
             float4 ox = mod7(p) * K + K2;
-            float4 oy = mod7(math.floor(p * K)) * K + K2;
+            float4 oy = mod7(floor(p * K)) * K + K2;
             float4 dx = Pfx + jitter * ox;
             float4 dy = Pfy + jitter * oy;
             float4 d = dx * dx + dy * dy; // d11, d12, d21 and d22, squared
@@ -36,9 +38,9 @@ namespace Unity.Mathematics
             d.xy = (d.x < d.y) ? d.xy : d.yx; // Swap if smaller
             d.xz = (d.x < d.z) ? d.xz : d.zx;
             d.xw = (d.x < d.w) ? d.xw : d.wx;
-            d.y = math.min(d.y, d.z);
-            d.y = math.min(d.y, d.w);
-            return math.sqrt(d.xy);
+            d.y = min(d.y, d.z);
+            d.y = min(d.y, d.w);
+            return sqrt(d.xy);
         }
     }
 }
