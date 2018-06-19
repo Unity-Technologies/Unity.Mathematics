@@ -47,6 +47,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3(int3 d) { return new float3(d.x, d.y, d.z); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float3(bool3 d) { return new float3(d.x ? 1.0f : 0.0f, d.y ? 1.0f : 0.0f, d.z ? 1.0f : 0.0f); }
+
         public override string ToString()
         {
             return string.Format("float3({0}f, {1}f, {2}f)", x, y, z);

@@ -40,8 +40,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(float d) { return new float2(d); }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(int2 d) { return new float2(d.x, d.y); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(bool2 d) { return new float2(d.x ? 1.0f : 0.0f, d.y ? 1.0f : 0.0f); }
 
         public override string ToString()
         {
