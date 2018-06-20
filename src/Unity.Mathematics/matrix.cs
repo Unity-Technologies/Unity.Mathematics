@@ -1,3 +1,4 @@
+using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
@@ -101,34 +102,117 @@ namespace Unity.Mathematics
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
 
-        public static float3x3 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+         public static float3x3 eulerXYZ(float3 xyz)
+        {
+            // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z,  c.z * s.x * s.y - c.x * s.z,    c.x * c.z * s.y + s.x * s.z,
+                c.y * s.z,  c.x * c.z + s.x * s.y * s.z,    c.x * s.y * s.z - c.z * s.x,
+                -s.y,       c.y * s.x,                      c.x * c.y
+                );
+        }
+
+        public static float3x3 eulerXZY(float3 xyz)
+        {
+            // return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x))); }
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z,  s.x * s.y - c.x * c.y * s.z,    c.x * s.y + c.y * s.x * s.z,
+                s.z,        c.x * c.z,                      -c.z * s.x,
+                -c.z * s.y, c.y * s.x + c.x * s.y * s.z,    c.x * c.y - s.x * s.y * s.z
+                );
+        }
+        public static float3x3 eulerYXZ(float3 xyz)
+        {
+            // return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z - s.x * s.y * s.z,    -c.x * s.z, c.z * s.y + c.y * s.x * s.z,
+                c.z * s.x * s.y + c.y * s.z,    c.x * c.z,  s.y * s.z - c.y * c.z * s.x,
+                -c.x * s.y,                     s.x,        c.x * c.y
+                );
+        }
+        public static float3x3 eulerYZX(float3 xyz)
+        {
+            // return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z,                      -s.z,       c.z * s.y,
+                s.x * s.y + c.x * c.y * s.z,    c.x * c.z,  c.x * s.y * s.z - c.y * s.x,
+                c.y * s.x * s.z - c.x * s.y,    c.z * s.x,  c.x * c.y + s.x * s.y * s.z
+                );
+        }
+        public static float3x3 eulerZXY(float3 xyz)
+        {
+            // return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z + s.x * s.y * s.z,    c.z * s.x * s.y - c.y * s.z,    c.x * s.y,
+                c.x * s.z,                      c.x * c.z,                      -s.x,
+                c.y * s.x * s.z - c.z * s.y,    c.y * c.z * s.x + s.y * s.z,    c.x * c.y
+                );
+        }
+        public static float3x3 eulerZYX(float3 xyz)
+        {
+            // return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float3x3(
+                c.y * c.z,                      -c.y * s.z,                     s.y,
+                c.z * s.x * s.y + c.x * s.z,    c.x * c.z - s.x * s.y * s.z,    -c.y * s.x,
+                s.x * s.z - c.x * c.z * s.y,    c.z * s.x + c.x * s.y * s.z,    c.x * c.y
+                );
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
+
+        public static float3x3 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             switch (order)
             {
                 case RotationOrder.XYZ:
-                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                    return eulerXYZ(xyz);
                 case RotationOrder.XZY:
-                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                    return eulerXZY(xyz);
                 case RotationOrder.YXZ:
-                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                    return eulerYXZ(xyz);
                 case RotationOrder.YZX:
-                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                    return eulerYZX(xyz);
                 case RotationOrder.ZXY:
-                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                    return eulerZXY(xyz);
                 case RotationOrder.ZYX:
-                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                    return eulerZYX(xyz);
                 default:
                     return float3x3.identity;
             }
         }
 
-        public static float3x3 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return euler(xyz.x, xyz.y, xyz.z, order);
+            return euler(float3(x, y, z), order);
         }
 
         public static float3x3 rotateX(float angle)
         {
+            // {{1, 0, 0}, {0, c_0, -s_0}, {0, s_0, c_0}}
             float s, c;
             sincos(angle, out s, out c);
             return float3x3(1.0f, 0.0f, 0.0f,
@@ -138,6 +222,7 @@ namespace Unity.Mathematics
 
         public static float3x3 rotateY(float angle)
         {
+            // {{c_1, 0, s_1}, {0, 1, 0}, {-s_1, 0, c_1}}
             float s, c;
             sincos(angle, out s, out c);
             return float3x3(c,    0.0f, s,
@@ -147,6 +232,7 @@ namespace Unity.Mathematics
 
         public static float3x3 rotateZ(float angle)
         {
+            // {{c_2, -s_2, 0}, {s_2, c_2, 0}, {0, 0, 1}}
             float s, c;
             sincos(angle, out s, out c);
             return float3x3(c,    -s,   0.0f,
@@ -251,35 +337,123 @@ namespace Unity.Mathematics
                                                                 0.0f, 0.0f, 1.0f, 0.0f,
                                                                 0.0f, 0.0f, 0.0f, 1.0f);
 
-        
-        public static float4x4 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static float4x4 eulerXYZ(float3 xyz)
         {
-            switch(order)
+            // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z,  c.z * s.x * s.y - c.x * s.z,    c.x * c.z * s.y + s.x * s.z,    0.0f,
+                c.y * s.z,  c.x * c.z + s.x * s.y * s.z,    c.x * s.y * s.z - c.z * s.x,    0.0f,
+                -s.y,       c.y * s.x,                      c.x * c.y,                      0.0f,
+                0.0f,       0.0f,                           0.0f,                           1.0f
+                );
+        }
+
+        public static float4x4 eulerXZY(float3 xyz)
+        {
+            // return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x))); }
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z,  s.x * s.y - c.x * c.y * s.z,    c.x * s.y + c.y * s.x * s.z,    0.0f,
+                s.z,        c.x * c.z,                      -c.z * s.x,                     0.0f,
+                -c.z * s.y, c.y * s.x + c.x * s.y * s.z,    c.x * c.y - s.x * s.y * s.z,    0.0f,
+                0.0f,       0.0f,                           0.0f,                           1.0f
+                );
+        }
+        public static float4x4 eulerYXZ(float3 xyz)
+        {
+            // return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z - s.x * s.y * s.z,    -c.x * s.z, c.z * s.y + c.y * s.x * s.z,    0.0f,
+                c.z * s.x * s.y + c.y * s.z,    c.x * c.z,  s.y * s.z - c.y * c.z * s.x,    0.0f,
+                -c.x * s.y,                     s.x,        c.x * c.y,                      0.0f,
+                0.0f,                           0.0f,       0.0f,                           1.0f
+                );
+        }
+        public static float4x4 eulerYZX(float3 xyz)
+        {
+            // return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z,                      -s.z,       c.z * s.y,                      0.0f,
+                s.x * s.y + c.x * c.y * s.z,    c.x * c.z,  c.x * s.y * s.z - c.y * s.x,    0.0f,
+                c.y * s.x * s.z - c.x * s.y,    c.z * s.x,  c.x * c.y + s.x * s.y * s.z,    0.0f,
+                0.0f,                           0.0f,       0.0f,                           1.0f
+                );
+        }
+        public static float4x4 eulerZXY(float3 xyz)
+        {
+            // return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z + s.x * s.y * s.z,    c.z * s.x * s.y - c.y * s.z,    c.x * s.y,  0.0f,
+                c.x * s.z,                      c.x * c.z,                      -s.x,       0.0f,
+                c.y * s.x * s.z - c.z * s.y,    c.y * c.z * s.x + s.y * s.z,    c.x * c.y,  0.0f,
+                0.0f,                           0.0f,                           0.0f,       1.0f
+                );
+        }
+        public static float4x4 eulerZYX(float3 xyz)
+        {
+            // return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(xyz, out s, out c);
+            return float4x4(
+                c.y * c.z,                      -c.y * s.z,                     s.y,        0.0f,
+                c.z * s.x * s.y + c.x * s.z,    c.x * c.z - s.x * s.y * s.z,    -c.y * s.x, 0.0f,
+                s.x * s.z - c.x * c.z * s.y,    c.z * s.x + c.x * s.y * s.z,    c.x * c.y,  0.0f,
+                0.0f,                           0.0f,                           0.0f,       1.0f
+                );
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
+
+        public static float4x4 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        {
+            switch (order)
             {
                 case RotationOrder.XYZ:
-                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                    return eulerXYZ(xyz);
                 case RotationOrder.XZY:
-                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                    return eulerXZY(xyz);
                 case RotationOrder.YXZ:
-                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                    return eulerYXZ(xyz);
                 case RotationOrder.YZX:
-                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                    return eulerYZX(xyz);
                 case RotationOrder.ZXY:
-                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                    return eulerZXY(xyz);
                 case RotationOrder.ZYX:
-                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                    return eulerZYX(xyz);
                 default:
                     return float4x4.identity;
             }
         }
 
-        public static float4x4 euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return euler(xyz.x, xyz.y, xyz.z, order);
+            return euler(float3(x, y, z), order);
         }
 
         public static float4x4 rotateX(float angle)
         {
+            // {{1, 0, 0}, {0, c_0, -s_0}, {0, s_0, c_0}}
             float s, c;
             sincos(angle, out s, out c);
             return float4x4(1.0f, 0.0f, 0.0f, 0.0f,
@@ -291,6 +465,7 @@ namespace Unity.Mathematics
 
         public static float4x4 rotateY(float angle)
         {
+            // {{c_1, 0, s_1}, {0, 1, 0}, {-s_1, 0, c_1}}
             float s, c;
             sincos(angle, out s, out c);
             return float4x4(c,    0.0f, s,    0.0f,
@@ -302,6 +477,7 @@ namespace Unity.Mathematics
 
         public static float4x4 rotateZ(float angle)
         {
+            // {{c_2, -s_2, 0}, {s_2, c_2, 0}, {0, 0, 1}}
             float s, c;
             sincos(angle, out s, out c);
             return float4x4(c,    -s,   0.0f, 0.0f,
