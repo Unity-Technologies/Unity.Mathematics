@@ -646,16 +646,6 @@ namespace Unity.Mathematics
         public static float3x3 transpose(float3x3 m) { return float3x3(m.c0.x, m.c0.y, m.c0.z, m.c1.x, m.c1.y, m.c1.z, m.c2.x, m.c2.y, m.c2.z); }
         // public static float4x4 transpose(float4x4 m) { return float4x4(m.c0.x, m.c0.y, m.c0.z, m.c0.w, m.c1.x, m.c1.y, m.c1.z, m.c1.w, m.c2.x, m.c2.y, m.c2.z, m.c2.w, m.c3.x, m.c3.y, m.c3.z, m.c3.w); }
 
-        public static float4 unpacklo(float4 a, float4 b)
-        {
-            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
-        }
-
-        public static float4 unpackhi(float4 a, float4 b)
-        {
-            return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
-        }
-
         public static float4x4 transpose(float4x4 m)
         {
             float4 t0 = unpacklo(m.c0, m.c2);
@@ -707,39 +697,64 @@ namespace Unity.Mathematics
 
         public static float4x4 inverse(float4x4 m)
         {
-            // naive scalar implementation using direct calculation by cofactors
             float4 c0 = m.c0;
             float4 c1 = m.c1;
             float4 c2 = m.c2;
             float4 c3 = m.c3;
 
-            // calculate minors
-            float m00 = c1.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c1.z * c3.w - c1.w * c3.z) + c3.y * (c1.z * c2.w - c1.w * c2.z);
-            float m01 = c0.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c2.w - c0.w * c2.z);
-            float m02 = c0.y * (c1.z * c3.w - c1.w * c3.z) - c1.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c1.w - c0.w * c1.z);
-            float m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
+            float4 r0y_r1y_r0x_r1x = movelh(c1, c0);
+            float4 r0z_r1z_r0w_r1w = movelh(c2, c3);
+            float4 r2y_r3y_r2x_r3x = movehl(c0, c1);
+            float4 r2z_r3z_r2w_r3w = movehl(c3, c2);
 
-            float m10 = c1.x * (c2.z * c3.w - c2.w * c3.z) - c2.x * (c1.z * c3.w - c1.w * c3.z) + c3.x * (c1.z * c2.w - c1.w * c2.z);
-            float m11 = c0.x * (c2.z * c3.w - c2.w * c3.z) - c2.x * (c0.z * c3.w - c0.w * c3.z) + c3.x * (c0.z * c2.w - c0.w * c2.z);
-            float m12 = c0.x * (c1.z * c3.w - c1.w * c3.z) - c1.x * (c0.z * c3.w - c0.w * c3.z) + c3.x * (c0.z * c1.w - c0.w * c1.z);
-            float m13 = c0.x * (c1.z * c2.w - c1.w * c2.z) - c1.x * (c0.z * c2.w - c0.w * c2.z) + c2.x * (c0.z * c1.w - c0.w * c1.z);
+            float4 r1y_r2y_r1x_r2x = shuffle(c1, c0, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightZ);
+            float4 r1z_r2z_r1w_r2w = shuffle(c2, c3, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightZ);
+            float4 r3y_r0y_r3x_r0x = shuffle(c1, c0, ShuffleComponent.LeftW, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightX);
+            float4 r3z_r0z_r3w_r0w = shuffle(c2, c3, ShuffleComponent.LeftW, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightX);
 
-            float m20 = c1.x * (c2.y * c3.w - c2.w * c3.y) - c2.x * (c1.y * c3.w - c1.w * c3.y) + c3.x * (c1.y * c2.w - c1.w * c2.y);
-            float m21 = c0.x * (c2.y * c3.w - c2.w * c3.y) - c2.x * (c0.y * c3.w - c0.w * c3.y) + c3.x * (c0.y * c2.w - c0.w * c2.y);
-            float m22 = c0.x * (c1.y * c3.w - c1.w * c3.y) - c1.x * (c0.y * c3.w - c0.w * c3.y) + c3.x * (c0.y * c1.w - c0.w * c1.y);
-            float m23 = c0.x * (c1.y * c2.w - c1.w * c2.y) - c1.x * (c0.y * c2.w - c0.w * c2.y) + c2.x * (c0.y * c1.w - c0.w * c1.y);
+            float4 r0_wzyx = shuffle(r0z_r1z_r0w_r1w, r0y_r1y_r0x_r1x, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
+            float4 r1_wzyx = shuffle(r0z_r1z_r0w_r1w, r0y_r1y_r0x_r1x, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightW);
+            float4 r2_wzyx = shuffle(r2z_r3z_r2w_r3w, r2y_r3y_r2x_r3x, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
+            float4 r3_wzyx = shuffle(r2z_r3z_r2w_r3w, r2y_r3y_r2x_r3x, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightW);
+            float4 r0_xyzw = shuffle(r0y_r1y_r0x_r1x, r0z_r1z_r0w_r1w, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
 
-            float m30 = c1.x * (c2.y * c3.z - c2.z * c3.y) - c2.x * (c1.y * c3.z - c1.z * c3.y) + c3.x * (c1.y * c2.z - c1.z * c2.y);
-            float m31 = c0.x * (c2.y * c3.z - c2.z * c3.y) - c2.x * (c0.y * c3.z - c0.z * c3.y) + c3.x * (c0.y * c2.z - c0.z * c2.y);
-            float m32 = c0.x * (c1.y * c3.z - c1.z * c3.y) - c1.x * (c0.y * c3.z - c0.z * c3.y) + c3.x * (c0.y * c1.z - c0.z * c1.y);
-            float m33 = c0.x * (c1.y * c2.z - c1.z * c2.y) - c1.x * (c0.y * c2.z - c0.z * c2.y) + c2.x * (c0.y * c1.z - c0.z * c1.y);
-            
-            float det = c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
-            
-            return float4x4( m00, -m10,  m20, -m30,
-                            -m01,  m11, -m21,  m31,
-                             m02, -m12,  m22, -m32,
-                            -m03,  m13, -m23,  m33) * (1.0f / det);
+            // Calculate remaining inner term pairs. inner terms have zw=-xy, so we only have to calculate xy and can pack two pairs per vector.
+            float4 inner12_23 = r1y_r2y_r1x_r2x * r2z_r3z_r2w_r3w - r1z_r2z_r1w_r2w * r2y_r3y_r2x_r3x;
+            float4 inner02_13 = r0y_r1y_r0x_r1x * r2z_r3z_r2w_r3w - r0z_r1z_r0w_r1w * r2y_r3y_r2x_r3x;
+            float4 inner30_01 = r3z_r0z_r3w_r0w * r0y_r1y_r0x_r1x - r3y_r0y_r3x_r0x * r0z_r1z_r0w_r1w;
+
+            // Expand inner terms back to 4 components. zw signs still need to be flipped
+            float4 inner12 = shuffle(inner12_23, inner12_23, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            float4 inner23 = shuffle(inner12_23, inner12_23, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            float4 inner02 = shuffle(inner02_13, inner02_13, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            float4 inner13 = shuffle(inner02_13, inner02_13, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            // Calculate minors
+            float4 minors0 = r3_wzyx * inner12 - r2_wzyx * inner13 + r1_wzyx * inner23;
+
+            float4 denom = r0_xyzw * minors0;
+
+            // Horizontal sum of denominator. Free sign flip of z and w compensates for missing flip in inner terms.
+            denom = denom + shuffle(denom, denom, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightZ);   // x+y		x+y			z+w			z+w
+            denom = denom - shuffle(denom, denom, ShuffleComponent.LeftZ, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.RightX);   // x+y-z-w  x+y-z-w		z+w-x-y		z+w-x-y
+
+            float4 rcp_denom_ppnn = float4(1.0f) / denom;
+            float4x4 res;
+            res.c0 = minors0 * rcp_denom_ppnn;
+
+            float4 inner30 = shuffle(inner30_01, inner30_01, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            float4 inner01 = shuffle(inner30_01, inner30_01, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            float4 minors1 = r2_wzyx * inner30 - r0_wzyx * inner23 - r3_wzyx * inner02;
+            res.c1 = minors1 * rcp_denom_ppnn;
+
+            float4 minors2 = r0_wzyx * inner13 - r1_wzyx * inner30 - r3_wzyx * inner01;
+            res.c2 = minors2 * rcp_denom_ppnn;
+
+            float4 minors3 = r1_wzyx * inner02 - r0_wzyx * inner12 + r2_wzyx * inner01;
+            res.c3 = minors3 * rcp_denom_ppnn;
+            return res;
         }
 
         public static float determinant(float2x2 m)

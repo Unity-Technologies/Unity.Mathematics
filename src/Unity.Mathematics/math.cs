@@ -638,6 +638,27 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
 
+        // SSE shuffles
+        public static float4 unpacklo(float4 a, float4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
+        }
+
+        public static float4 unpackhi(float4 a, float4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
+        }
+
+        public static float4 movelh(float4 a, float4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.RightY);
+        }
+
+        public static float4 movehl(float4 a, float4 b)
+        {
+            return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
+        }
+
 
         [StructLayout(LayoutKind.Explicit)]
         internal struct IntFloatUnion
