@@ -76,31 +76,70 @@ namespace Unity.Mathematics
             return quaternion(float4(math.normalize(axis) * sina, cosa));
         }
 
-        public static quaternion euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static quaternion eulerXYZ(float3 xyz)
+        {
+            return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
+        }
+
+        public static quaternion eulerXZY(float3 xyz)
+        {
+            return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x)));
+        }
+        public static quaternion eulerYXZ(float3 xyz)
+        {
+            return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
+        }
+        public static quaternion eulerYZX(float3 xyz)
+        {
+            return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
+        }
+        public static quaternion eulerZXY(float3 xyz)
+        {
+            return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
+        }
+        public static quaternion eulerZYX(float3 xyz)
+        {
+            return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
+
+        public static quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             switch (order)
             {
                 case RotationOrder.XYZ:
-                    return mul(rotateZ(z), mul(rotateY(y), rotateX(x)));
+                    return eulerXYZ(xyz);
                 case RotationOrder.XZY:
-                    return mul(rotateY(y), mul(rotateZ(z), rotateX(x)));
+                    return eulerXZY(xyz);
                 case RotationOrder.YXZ:
-                    return mul(rotateZ(z), mul(rotateX(x), rotateY(y)));
+                    return eulerYXZ(xyz);
                 case RotationOrder.YZX:
-                    return mul(rotateX(x), mul(rotateZ(z), rotateY(y)));
+                    return eulerYZX(xyz);
                 case RotationOrder.ZXY:
-                    return mul(rotateY(y), mul(rotateX(x), rotateZ(z)));
+                    return eulerZXY(xyz);
                 case RotationOrder.ZYX:
-                    return mul(rotateX(x), mul(rotateY(y), rotateZ(z)));
+                    return eulerZYX(xyz);
                 default:
                     return quaternion.identity;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        public static quaternion euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return euler(xyz.x, xyz.y, xyz.z, order);
+            return euler(float3(x, y, z), order);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

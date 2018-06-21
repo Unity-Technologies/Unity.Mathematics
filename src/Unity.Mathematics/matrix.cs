@@ -102,7 +102,7 @@ namespace Unity.Mathematics
             0.0f, 1.0f, 0.0f,
             0.0f, 0.0f, 1.0f);
 
-         public static float3x3 eulerXYZ(float3 xyz)
+        public static float3x3 eulerXYZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
             float3 s, c;
