@@ -78,28 +78,76 @@ namespace Unity.Mathematics
 
         public static quaternion eulerXYZ(float3 xyz)
         {
-            return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
+            // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                s.x * c.y * c.z - s.y * s.z * c.x,
+                s.y * c.x * c.z + s.x * s.z * c.y,
+                s.z * c.x * c.y - s.x * s.y * c.z,
+                s.x * s.y * s.z + c.x * c.y * c.z
+                );
         }
 
         public static quaternion eulerXZY(float3 xyz)
         {
-            return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x)));
+            // return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                c.y * c.z * s.x + s.y * s.z * c.x,
+                c.y * s.z * s.x + s.y * c.z * c.x,
+                c.y * s.z * c.x - s.y * c.z * s.x,
+                c.y * c.z * c.x - s.y * s.z * s.x
+                );
         }
         public static quaternion eulerYXZ(float3 xyz)
         {
-            return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
+            // return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                c.z * s.x * c.y - s.z * c.x * s.y,
+                c.z * c.x * s.y + s.z * s.x * c.y,
+                c.z * s.x * s.y + s.z * c.x * c.y,
+                c.z * c.x * c.y - s.z * s.x * s.y
+                );
         }
         public static quaternion eulerYZX(float3 xyz)
         {
-            return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
+            // return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                s.x * c.z * c.y - c.x * s.z * s.y,
+                c.x * c.z * s.y - s.x * s.z * c.y,
+                c.x * s.z * c.y + s.x * c.z * s.y,
+                c.x * c.z * c.y + s.x * s.z * s.y
+                );
         }
         public static quaternion eulerZXY(float3 xyz)
         {
-            return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
+            // return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                c.y * s.x * c.z + s.y * c.x * s.z,
+                s.y * c.x * c.z - c.y * s.x * s.z,
+                c.y * c.x * s.z - s.y * s.x * c.z,
+                c.y * c.x * c.z + s.y * s.x * s.z
+                );
         }
         public static quaternion eulerZYX(float3 xyz)
         {
-            return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
+            // return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
+            float3 s, c;
+            sincos(0.5f * xyz, out s, out c);
+            return quaternion(
+                c.x * s.y * s.z + s.x * c.y * c.z,
+                c.x * s.y * c.z - s.x * c.y * s.z,
+                c.x * c.y * s.z + s.x * s.y * c.z,
+                c.x * c.y * c.z - s.x * s.y * s.z
+                );
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
