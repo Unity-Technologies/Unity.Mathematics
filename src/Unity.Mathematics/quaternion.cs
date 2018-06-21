@@ -82,10 +82,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                s.x * c.y * c.z - s.y * s.z * c.x,
-                s.y * c.x * c.z + s.x * s.z * c.y,
-                s.z * c.x * c.y - s.x * s.y * c.z,
-                s.x * s.y * s.z + c.x * c.y * c.z
+                // s.x * c.y * c.z - s.y * s.z * c.x,
+                // s.y * c.x * c.z + s.x * s.z * c.y,
+                // s.z * c.x * c.y - s.x * s.y * c.z,
+                // c.x * c.y * c.z + s.y * s.z * s.x
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, 1.0f, -1.0f, 1.0f)
                 );
         }
 
@@ -95,10 +96,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                c.y * c.z * s.x + s.y * s.z * c.x,
-                c.y * s.z * s.x + s.y * c.z * c.x,
-                c.y * s.z * c.x - s.y * c.z * s.x,
-                c.y * c.z * c.x - s.y * s.z * s.x
+                // s.x * c.y * c.z + s.y * s.z * c.x,
+                // s.y * c.x * c.z + s.x * s.z * c.y,
+                // s.z * c.x * c.y - s.x * s.y * c.z,
+                // c.x * c.y * c.z - s.y * s.z * s.x
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, 1.0f, -1.0f, -1.0f)
                 );
         }
         public static quaternion eulerYXZ(float3 xyz)
@@ -107,10 +109,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                c.z * s.x * c.y - s.z * c.x * s.y,
-                c.z * c.x * s.y + s.z * s.x * c.y,
-                c.z * s.x * s.y + s.z * c.x * c.y,
-                c.z * c.x * c.y - s.z * s.x * s.y
+                // s.x * c.y * c.z - s.y * s.z * c.x,
+                // s.y * c.x * c.z + s.x * s.z * c.y,
+                // s.z * c.x * c.y + s.x * s.y * c.z,
+                // c.x * c.y * c.z - s.y * s.z * s.x
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, 1.0f, 1.0f, -1.0f)
                 );
         }
         public static quaternion eulerYZX(float3 xyz)
@@ -119,10 +122,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                s.x * c.z * c.y - c.x * s.z * s.y,
-                c.x * c.z * s.y - s.x * s.z * c.y,
-                c.x * s.z * c.y + s.x * c.z * s.y,
-                c.x * c.z * c.y + s.x * s.z * s.y
+                // s.x * c.y * c.z - s.y * s.z * c.x,
+                // s.y * c.x * c.z - s.x * s.z * c.y,
+                // s.z * c.x * c.y + s.x * s.y * c.z,
+                // c.x * c.y * c.z + s.y * s.z * s.x
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, -1.0f, 1.0f, 1.0f)
                 );
         }
         public static quaternion eulerZXY(float3 xyz)
@@ -131,10 +135,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                c.y * s.x * c.z + s.y * c.x * s.z,
-                s.y * c.x * c.z - c.y * s.x * s.z,
-                c.y * c.x * s.z - s.y * s.x * c.z,
-                c.y * c.x * c.z + s.y * s.x * s.z
+                // s.x * c.y * c.z + s.y * s.z * c.x,
+                // s.y * c.x * c.z - s.x * s.z * c.y,
+                // s.z * c.x * c.y - s.x * s.y * c.z,
+                // c.x * c.y * c.z + s.y * s.z * s.x
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, -1.0f, -1.0f, 1.0f)
                 );
         }
         public static quaternion eulerZYX(float3 xyz)
@@ -143,10 +148,11 @@ namespace Unity.Mathematics
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
             return quaternion(
-                c.x * s.y * s.z + s.x * c.y * c.z,
-                c.x * s.y * c.z - s.x * c.y * s.z,
-                c.x * c.y * s.z + s.x * s.y * c.z,
-                c.x * c.y * c.z - s.x * s.y * s.z
+                // s.x * c.y * c.z + s.y * s.z * c.x,
+                // s.y * c.x * c.z - s.x * s.z * c.y,
+                // s.z * c.x * c.y + s.x * s.y * c.z,
+                // c.x * c.y * c.z - s.y * s.x * s.z
+                float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, -1.0f, 1.0f, -1.0f)
                 );
         }
 
