@@ -19,19 +19,23 @@ def should_ignore(path):
 
 def check_metafiles_in_package(package_folder):
     root_files = list_files_and_directories_in_folder(package_folder)
+    success = True
     for file in root_files:
         if should_ignore(file):
             continue
 
-        if os.path.isdir(file):
-            check_metafiles_in_package(file)
-
+        combined_path = os.path.join(package_folder, file)
+        if os.path.isdir(combined_path):
+            success = check_metafiles_in_package(combined_path) & success
+        if file.endswith("meta") and file[:-5] not in root_files:
+            print '{0} is a dangling meta file. Please remove it'.format(
+                combined_path, package_folder)
+            success = False
         if not file.endswith("meta") and not file + ".meta" in root_files:
-            raise Exception(
-                'Missing {0}.meta in package {1}. Packages require every file and directory to have a meta file associated.'.format(
-                    file, package_folder))
-
-    return True
+            print "{0} doesn't have a meta file. Please add one".format(
+                combined_path, package_folder)
+            success = False
+    return success
 
 
 def main():
