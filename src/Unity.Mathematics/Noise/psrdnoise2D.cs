@@ -95,17 +95,13 @@ namespace Unity.Mathematics
             float2 p1 = float2(p0.x + i1.x - i1.y * 0.5f, p0.y + i1.y);
             float2 p2 = float2(p0.x + 0.5f, p0.y + 1.0f);
 
-            // Integer grid point indices in (u,v) space
-            i1 = i0 + i1;
-            float2 i2 = i0 + float2(1.0f, 1.0f);
-
             // Vectors in unskewed (x,y) coordinates from
             // each of the simplex corners to the evaluation point
             float2 d0 = pos - p0;
             float2 d1 = pos - p1;
             float2 d2 = pos - p2;
 
-            // Wrap i0, i1 and i2 to the desired period before gradient hashing:
+            // Wrap p0, p1 and p2 to the desired period before gradient hashing:
             // wrap points in (x,y), map to (u,v)
             float3 xw = mod(float3(p0.x, p1.x, p2.x), per.x);
             float3 yw = mod(float3(p0.y, p1.y, p2.y), per.y);
@@ -202,17 +198,13 @@ namespace Unity.Mathematics
             float2 p1 = float2(p0.x + i1.x - i1.y * 0.5f, p0.y + i1.y);
             float2 p2 = float2(p0.x + 0.5f, p0.y + 1.0f);
 
-            // Integer grid point indices in (u,v) space
-            i1 = i0 + i1;
-            float2 i2 = i0 + float2(1.0f, 1.0f);
-
             // Vectors in unskewed (x,y) coordinates from
             // each of the simplex corners to the evaluation point
             float2 d0 = pos - p0;
             float2 d1 = pos - p1;
             float2 d2 = pos - p2;
 
-            // Wrap i0, i1 and i2 to the desired period before gradient hashing:
+            // Wrap p0, p1 and p2 to the desired period before gradient hashing:
             // wrap points in (x,y), map to (u,v)
             float3 xw = mod(float3(p0.x, p1.x, p2.x), per.x);
             float3 yw = mod(float3(p0.y, p1.y, p2.y), per.y);
@@ -280,10 +272,6 @@ namespace Unity.Mathematics
             float2 p0 = float2(i0.x - i0.y * 0.5f, i0.y);
             float2 p1 = float2(p0.x + i1.x - i1.y * 0.5f, p0.y + i1.y);
             float2 p2 = float2(p0.x + 0.5f, p0.y + 1.0f);
-
-            // Integer grid point indices in (u,v) space
-            i1 = i0 + i1;
-            float2 i2 = i0 + float2(1.0f, 1.0f);
 
             // Vectors in unskewed (x,y) coordinates from
             // each of the simplex corners to the evaluation point
@@ -389,18 +377,12 @@ namespace Unity.Mathematics
             float2 p1 = float2(p0.x + i1.x - i1.y * 0.5f, p0.y + i1.y);
             float2 p2 = float2(p0.x + 0.5f, p0.y + 1.0f);
 
-            // Integer grid point indices in (u,v) space
-            i1 = i0 + i1;
-            float2 i2 = i0 + float2(1.0f, 1.0f);
-
             // Vectors in unskewed (x,y) coordinates from
             // each of the simplex corners to the evaluation point
             float2 d0 = pos - p0;
             float2 d1 = pos - p1;
             float2 d2 = pos - p2;
 
-            // Wrap i0, i1 and i2 to the desired period before gradient hashing:
-            // wrap points in (x,y), map to (u,v)
             float3 x = float3(p0.x, p1.x, p2.x);
             float3 y = float3(p0.y, p1.y, p2.y);
             float3 iuw = x + 0.5f * y;
