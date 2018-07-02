@@ -65,6 +65,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(bool4 d) { return new float4(d.x ? 1.0f : 0.0f, d.y ? 1.0f : 0.0f, d.z ? 1.0f : 0.0f, d.w ? 1.0f : 0.0f); }
 
+        public static readonly float4 zero = new float4(0.0f, 0.0f, 0.0f, 0.0f);
+
         public override string ToString()
         {
             return string.Format("float4({0}f, {1}f, {2}f, {3}f)", x, y, z, w);

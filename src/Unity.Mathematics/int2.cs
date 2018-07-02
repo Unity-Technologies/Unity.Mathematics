@@ -39,6 +39,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2(float2 d) { return new int2((int)d.x, (int)d.y); }
 
+        public static readonly int2 zero = new int2(0, 0);
+
         public override string ToString()
         {
             return string.Format("int2({0}, {1})", x, y);
