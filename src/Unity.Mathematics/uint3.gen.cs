@@ -99,6 +99,12 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator >= (uint lhs, uint3 rhs) { return new bool3 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z); }
 
+        // neg 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 operator - (uint3 val) { return new uint3 ((uint)-val.x, (uint)-val.y, (uint)-val.z); }
+        // plus 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 operator + (uint3 val) { return new uint3 (+val.x, +val.y, +val.z); }
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator << (uint3 lhs, int rhs) { return new uint3 (lhs.x << rhs, lhs.y << rhs, lhs.z << rhs); }

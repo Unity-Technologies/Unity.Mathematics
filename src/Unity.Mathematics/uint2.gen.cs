@@ -81,6 +81,12 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (uint lhs, uint2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
+        // neg 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 operator - (uint2 val) { return new uint2 ((uint)-val.x, (uint)-val.y); }
+        // plus 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 operator + (uint2 val) { return new uint2 (+val.x, +val.y); }
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator << (uint2 lhs, int rhs) { return new uint2 (lhs.x << rhs, lhs.y << rhs); }

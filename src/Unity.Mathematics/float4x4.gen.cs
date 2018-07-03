@@ -1,0 +1,157 @@
+// GENERATED CODE
+using System.Runtime.CompilerServices;
+#pragma warning disable 0660, 0661
+namespace Unity.Mathematics
+{
+    public partial struct float4x4 : System.IEquatable<float4x4>
+    {
+        // constructors
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4x4(float4 c0, float4 c1, float4 c2, float4 c3)
+        { 
+            this.c0 = c0;
+            this.c1 = c1;
+            this.c2 = c2;
+            this.c3 = c3;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4x4(float m00, float m01, float m02, float m03,
+                        float m10, float m11, float m12, float m13,
+                        float m20, float m21, float m22, float m23,
+                        float m30, float m31, float m32, float m33)
+        { 
+            this.c0 = new float4(m00, m10, m20, m30);
+            this.c1 = new float4(m01, m11, m21, m31);
+            this.c2 = new float4(m02, m12, m22, m32);
+            this.c3 = new float4(m03, m13, m23, m33);
+        }
+
+
+        // mul
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator * (float4x4 lhs, float4x4 rhs) { return new float4x4 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2, lhs.c3 * rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator * (float4x4 lhs, float rhs) { return new float4x4 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs, lhs.c3 * rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator * (float lhs, float4x4 rhs) { return new float4x4 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2, lhs * rhs.c3); }
+
+        // add
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator + (float4x4 lhs, float4x4 rhs) { return new float4x4 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2, lhs.c3 + rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator + (float4x4 lhs, float rhs) { return new float4x4 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs, lhs.c3 + rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator + (float lhs, float4x4 rhs) { return new float4x4 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2, lhs + rhs.c3); }
+
+        // sub
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator - (float4x4 lhs, float4x4 rhs) { return new float4x4 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2, lhs.c3 - rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator - (float4x4 lhs, float rhs) { return new float4x4 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs, lhs.c3 - rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator - (float lhs, float4x4 rhs) { return new float4x4 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2, lhs - rhs.c3); }
+
+        // div
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator / (float4x4 lhs, float4x4 rhs) { return new float4x4 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2, lhs.c3 / rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator / (float4x4 lhs, float rhs) { return new float4x4 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs, lhs.c3 / rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator / (float lhs, float4x4 rhs) { return new float4x4 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2, lhs / rhs.c3); }
+
+        // smaller 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator < (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2, lhs.c3 < rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator < (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs, lhs.c3 < rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator < (float lhs, float4x4 rhs) { return new bool4x4 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2, lhs < rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator <= (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2, lhs.c3 <= rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator <= (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs, lhs.c3 <= rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator <= (float lhs, float4x4 rhs) { return new bool4x4 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2, lhs <= rhs.c3); }
+
+        // greater 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator > (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2, lhs.c3 > rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator > (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs, lhs.c3 > rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator > (float lhs, float4x4 rhs) { return new bool4x4 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2, lhs > rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator >= (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2, lhs.c3 >= rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator >= (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs, lhs.c3 >= rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator >= (float lhs, float4x4 rhs) { return new bool4x4 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2, lhs >= rhs.c3); }
+
+        // neg 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator - (float4x4 val) { return new float4x4 (-val.c0, -val.c1, -val.c2, -val.c3); }
+        // plus 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 operator + (float4x4 val) { return new float4x4 (+val.c0, +val.c1, +val.c2, +val.c3); }
+        // equal 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator == (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2, lhs.c3 == rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator == (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs, lhs.c3 == rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator == (float lhs, float4x4 rhs) { return new bool4x4 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2, lhs == rhs.c3); }
+
+        // not equal 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator != (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2, lhs.c3 != rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator != (float4x4 lhs, float rhs) { return new bool4x4 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs, lhs.c3 != rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 operator != (float lhs, float4x4 rhs) { return new bool4x4 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2, lhs != rhs.c3); }
+
+        // Equals 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(float4x4 rhs)  { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2) && c3.Equals(rhs.c3); }
+
+        // [int index] 
+        unsafe public float4 this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 4)
+                    throw new System.ArgumentException("index must be between[0...3]");
+#endif
+                fixed (float4x4* array = &this) { return ((float4*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 4)
+                    throw new System.ArgumentException("index must be between[0...3]");
+#endif
+                fixed (float4* array = &c0) { array[index] = value; }
+            }
+        }
+    }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 float4x4(float4 c0, float4 c1, float4 c2, float4 c3) { return new float4x4(c0, c1, c2, c3); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4x4 float4x4(float m00, float m01, float m02, float m03,
+                                        float m10, float m11, float m12, float m13,
+                                        float m20, float m21, float m22, float m23,
+                                        float m30, float m31, float m32, float m33)
+        {
+            return new float4x4(m00, m01, m02, m03,
+                                m10, m11, m12, m13,
+                                m20, m21, m22, m23,
+                                m30, m31, m32, m33);
+        }
+
+    }
+}

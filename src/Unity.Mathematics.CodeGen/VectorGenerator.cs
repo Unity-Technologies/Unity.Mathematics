@@ -5,8 +5,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 {
     class VectorGenerator
     {
-        string[] m_Types;
-        private GeneratorJob m_Job;
+        private string m_BaseType;
+        private string m_TypeName;
+        private int m_Rows;
+        private int m_Columns;
+        private Features m_Features;
 
         [Flags]
         private enum Features
@@ -19,72 +22,97 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             All = Arithmetic | Shifts | BitwiseLogic | BitwiseComplement | UnaryNegation
         }
 
-        static readonly string[] floatTypes = { "float", "float2", "float3", "float4" };
-        static readonly string[] intTypes = { "int", "int2", "int3", "int4" };
-        static readonly string[] uintTypes = { "uint", "uint2", "uint3", "uint4" };
-        static readonly string[] boolTypes = { "bool", "bool2", "bool3", "bool4" };
         static readonly string[] components = { "x", "y", "z", "w" };
-        static readonly string[] fields = { "x", "y", "z", "w" };
+        static readonly string[] vectorFields = { "x", "y", "z", "w" };
+        static readonly string[] matrixFields = { "c0", "c1", "c2", "c3" };
 
-        private struct GeneratorJob
+        public static string ToTypeName(string baseType, int rows, int columns)
         {
-            public Features features;
-            public string[] typeNames;
-            public string indexOperatorReturnType;
+            string name = baseType;
+            if (rows > 1)
+                name += rows;
+            if (columns > 1)
+                name += "x" + columns;
+            return name;
         }
 
-        private static readonly GeneratorJob[] s_Jobs = new[]
+        private void Write(string dir, string baseType, int rows, int columns, Features features)
         {
-            new GeneratorJob { indexOperatorReturnType = "float", typeNames = floatTypes, features = Features.Arithmetic | Features.UnaryNegation },
-            new GeneratorJob { indexOperatorReturnType = "int", typeNames = intTypes, features = Features.All },
-            new GeneratorJob { indexOperatorReturnType = "uint", typeNames = uintTypes, features = Features.All & ~Features.UnaryNegation },
-            new GeneratorJob { indexOperatorReturnType = "bool", typeNames = boolTypes, features = Features.BitwiseLogic },
-        };
+            m_BaseType = baseType;
+            m_TypeName = ToTypeName(baseType, rows, columns);
+            m_Rows = rows;
+            m_Columns = columns;
+            m_Features = features;
 
-        private VectorGenerator(GeneratorJob job)
-        {
-            m_Job = job;
-            m_Types = m_Job.typeNames;
+            StringBuilder str = new StringBuilder();
+            
+            Generate(str);
+
+            var text = str.ToString();
+            // Convert all tabs to spaces
+            text = text.Replace("\t", "    ");
+            // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
+            text = text.Replace("\r\n", "\n");
+            text = text.Replace("\n", Environment.NewLine);
+
+            System.IO.File.WriteAllText(dir + "/" + m_TypeName + ".gen.cs", text);
         }
+
 
         public static void Write(string dir)
         {
-            foreach (GeneratorJob job in s_Jobs)
-            {
-                var typeNames = job.typeNames;
-                for (int i = 1; i < typeNames.Length; i++)
-                {
-                    StringBuilder builder = new StringBuilder();
-                    VectorGenerator gen = new VectorGenerator(job);
+            VectorGenerator vectorGenerator = new VectorGenerator();
+            vectorGenerator.Write(dir, "float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write(dir, "float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write(dir, "float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write(dir, "float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
 
-                    gen.Generate(i + 1, builder);
+            vectorGenerator.Write(dir, "float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write(dir, "float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write(dir, "float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
 
-                    var text = builder.ToString();
-                    // Convert all tabs to spaces
-                    text = text.Replace("\t", "    ");
-                    // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
-                    text = text.Replace("\r\n", "\n");
-                    text = text.Replace("\n", Environment.NewLine);
+            vectorGenerator.Write(dir, "int", 2, 1, Features.All);
+            vectorGenerator.Write(dir, "int", 3, 1, Features.All);
+            vectorGenerator.Write(dir, "int", 4, 1, Features.All);
 
-                    System.IO.File.WriteAllText(dir + "/" + typeNames[i] + ".gen.cs", text);
-                }
-            }
+            vectorGenerator.Write(dir, "int", 2, 2, Features.All);
+            vectorGenerator.Write(dir, "int", 3, 3, Features.All);
+            vectorGenerator.Write(dir, "int", 4, 4, Features.All);
+
+            vectorGenerator.Write(dir, "uint", 2, 1, Features.All);
+            vectorGenerator.Write(dir, "uint", 3, 1, Features.All);
+            vectorGenerator.Write(dir, "uint", 4, 1, Features.All);
+
+            vectorGenerator.Write(dir, "uint", 2, 2, Features.All);
+            vectorGenerator.Write(dir, "uint", 3, 3, Features.All);
+            vectorGenerator.Write(dir, "uint", 4, 4, Features.All);
+
+            vectorGenerator.Write(dir, "bool", 2, 1, Features.BitwiseLogic);
+            vectorGenerator.Write(dir, "bool", 3, 1, Features.BitwiseLogic);
+            vectorGenerator.Write(dir, "bool", 4, 1, Features.BitwiseLogic);
+
+            vectorGenerator.Write(dir, "bool", 2, 2, Features.BitwiseLogic);
+            vectorGenerator.Write(dir, "bool", 3, 3, Features.BitwiseLogic);
+            vectorGenerator.Write(dir, "bool", 4, 4, Features.BitwiseLogic);
         }
 
-        public void Generate(int count, StringBuilder str)
+
+        private void Generate(StringBuilder str)
         {
             StringBuilder staticConstructorStr = new StringBuilder();
+
             str.Append("// GENERATED CODE\n");
             str.Append("using System.Runtime.CompilerServices;\n");
             str.Append("#pragma warning disable 0660, 0661\n");
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
-            str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_Types[count - 1]);
+            str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_TypeName);
             str.Append("\t{\n");
 
-            GenerateConstructors(count, str, staticConstructorStr);
-            GenerateOperators(count, str);
-            GenerateSwizzles(count, str);
+            GenerateConstructors(str, staticConstructorStr);
+            GenerateOperators(str);
+            if(m_Columns == 1)
+                GenerateSwizzles(str);
 
             str.Append("\t}\n\n");
 
@@ -93,31 +121,31 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append(staticConstructorStr);
             str.Append("\t}\n}\n");
         }
-        
+
+
         private string GenerateComponentRangeString(int componentIndex, int numComponents)
         {
             string result = "";
             for(int i = 0; i < numComponents; i++)
             {
-                result += fields[componentIndex + i];
+                result += components[componentIndex + i];
             }
             return result;
         }
 
         // Generate constructor and static constructor with a given component partitioning of input parameters
-        private void GenerateConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        private void GenerateVectorConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
         {
             // Generate signatures
-            string typeName = m_Types[numComponents - 1];
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
-            constructorStr.Append(typeName);
+            constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
             staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             staticConstructorStr.Append("\t\tpublic static ");
-            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append(m_TypeName);
             staticConstructorStr.Append(" ");
-            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append(m_TypeName);
             staticConstructorStr.Append("(");
 
             int componentIndex = 0;
@@ -131,7 +159,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 
                 int paramComponents = parameterComponents[i];
-                string paramType = m_Types[paramComponents - 1];
+                string paramType = ToTypeName(m_BaseType, paramComponents, 1);
                 string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
 
                 constructorStr.Append(paramType);
@@ -148,7 +176,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Generate function bodies
             constructorStr.Append("\t\t{ ");
             staticConstructorStr.Append(" { return new ");
-            staticConstructorStr.Append(typeName);
+            staticConstructorStr.Append(m_TypeName);
             staticConstructorStr.Append("(");
 
             componentIndex = 0;
@@ -159,13 +187,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 for (int j = 0; j < paramComponents; j++)
                 {
                     constructorStr.Append("\n\t\t\tthis.");
-                    constructorStr.Append(fields[componentIndex]);
+                    constructorStr.Append(components[componentIndex]);
                     constructorStr.Append(" = ");
                     constructorStr.Append(componentString);
                     if (paramComponents > 1)
                     {
                         constructorStr.Append(".");
-                        constructorStr.Append(fields[j]);
+                        constructorStr.Append(components[j]);
                     }
                     constructorStr.Append(";");
                     componentIndex++;
@@ -183,133 +211,287 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
         // Recursively generate all constructor variants with every possibly partition or the components
-        private void GenerateConstructors(int numRemainingComponents, int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        private void GenerateVectorConstructors(int numRemainingComponents, int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
         {
             if (numRemainingComponents == 0)
             {
-                GenerateConstructor(numComponents, numParameters, parameterComponents, constructorStr, staticConstructorStr);
+                GenerateVectorConstructor(numComponents, numParameters, parameterComponents, constructorStr, staticConstructorStr);
             }
             
             for(int i = 1; i <= numRemainingComponents; i++)
             {
                 parameterComponents[numParameters] = i;
-                GenerateConstructors(numRemainingComponents - i, numComponents, numParameters + 1, parameterComponents, constructorStr, staticConstructorStr);
+                GenerateVectorConstructors(numRemainingComponents - i, numComponents, numParameters + 1, parameterComponents, constructorStr, staticConstructorStr);
             }
         }
 
-        public void GenerateConstructors(int count, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        public void GenerateMatrixColumnConstructor(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            // Generate signatures
+            constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            constructorStr.Append("\t\tpublic ");
+            constructorStr.Append(m_TypeName);
+            constructorStr.Append("(");
+            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            staticConstructorStr.Append("\t\tpublic static ");
+            staticConstructorStr.Append(m_TypeName);
+            staticConstructorStr.Append(" ");
+            staticConstructorStr.Append(m_TypeName);
+            staticConstructorStr.Append("(");
+
+            string columnType = ToTypeName(m_BaseType, m_Rows, 1);
+            for (int column = 0; column < m_Columns; column++)
+            {
+                if (column != 0)
+                {
+                    constructorStr.Append(", ");
+                    staticConstructorStr.Append(", ");
+                }
+
+                constructorStr.Append(columnType);
+                constructorStr.Append(" ");
+                constructorStr.Append(matrixFields[column]);
+                staticConstructorStr.Append(columnType);
+                staticConstructorStr.Append(" ");
+                staticConstructorStr.Append(matrixFields[column]);
+            }
+            constructorStr.Append(")\n");
+            staticConstructorStr.Append(")");
+
+            // Generate function bodies
+            constructorStr.Append("\t\t{ ");
+            staticConstructorStr.Append(" { return new ");
+            staticConstructorStr.Append(m_TypeName);
+            staticConstructorStr.Append("(");
+
+            for (int column = 0; column < m_Columns; column++)
+            {
+                constructorStr.Append("\n\t\t\tthis.");
+                constructorStr.Append(matrixFields[column]);
+                constructorStr.Append(" = ");
+                constructorStr.Append(matrixFields[column]);
+                constructorStr.Append(";");
+
+                if (column != 0)
+                {
+                    staticConstructorStr.Append(", ");
+                }
+                staticConstructorStr.Append(matrixFields[column]);
+            }
+
+            constructorStr.Append("\n\t\t}\n\n");
+            staticConstructorStr.Append("); }\n\n");
+        }
+
+        public void GenerateMatrixRowConstructor(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            // Generate signatures
+            constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            constructorStr.Append("\t\tpublic ");
+            constructorStr.Append(m_TypeName);
+            constructorStr.Append("(");
+            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            staticConstructorStr.Append("\t\tpublic static ");
+            staticConstructorStr.Append(m_TypeName);
+            staticConstructorStr.Append(" ");
+            staticConstructorStr.Append(m_TypeName);
+            staticConstructorStr.Append("(");
+            string indent0 = new string(' ', m_TypeName.Length + 16);
+            string indent1 = new string(' ', m_TypeName.Length*2 + 24);
+            string indent2 = new string(' ', m_TypeName.Length + 24);
+
+            for (int row = 0; row < m_Rows; row++)
+            {
+                if(row != 0)
+                {
+                    constructorStr.Append(indent0);
+                    staticConstructorStr.Append(indent1);
+                }
+                for (int column = 0; column < m_Columns; column++)
+                {
+                    string paramName = "m" + row + column;
+                    constructorStr.Append(m_BaseType);
+                    constructorStr.Append(" ");
+                    constructorStr.Append(paramName);
+                    staticConstructorStr.Append(m_BaseType);
+                    staticConstructorStr.Append(" ");
+                    staticConstructorStr.Append(paramName);
+
+                    //string separator = (row == m_Rows - 1) ? (column == m_Columns - 1) ? "," : ", " : ", ";
+                    string separator = (column == m_Columns - 1) ? (row == m_Rows - 1) ? ")\n" : ",\n" : ", ";
+                    constructorStr.Append(separator);
+                    staticConstructorStr.Append(separator);
+                }
+            }
+            
+            string columnType = ToTypeName(m_BaseType, m_Rows, 1);
+
+            // constructor body
+            constructorStr.Append("\t\t{ ");
+            for (int column = 0; column < m_Columns; column++)
+            {
+                constructorStr.AppendFormat("\n\t\t\tthis.{0} = new {1}(", matrixFields[column], columnType);
+                
+                for (int row = 0; row < m_Rows; row++)
+                {
+                    constructorStr.Append("m" + row + column);
+                    
+                    if (row != m_Rows - 1)
+                    {
+                        constructorStr.Append(", ");
+                    }
+                }
+
+                constructorStr.Append(");");
+            }
+            constructorStr.Append("\n\t\t}\n\n");
+
+            // static constructor body
+            staticConstructorStr.AppendFormat("\t\t{{\n\t\t\treturn new {0}(", m_TypeName);
+            for (int row = 0; row < m_Rows; row++)
+            {
+                if (row != 0)
+                {
+                    staticConstructorStr.Append(indent2);
+                }
+                for (int column = 0; column < m_Columns; column++)
+                {
+                    string paramName = "m" + row + column;
+                    staticConstructorStr.Append(paramName);
+
+                    //string separator = (row == m_Rows - 1) ? (column == m_Columns - 1) ? "," : ", " : ", ";
+                    string separator = (column == m_Columns - 1) ? (row == m_Rows - 1) ? ");" : ",\n" : ", ";
+                    staticConstructorStr.Append(separator);
+                }
+            }
+            staticConstructorStr.Append("\n\t\t}\n\n");
+        }
+
+        public void GenerateMatrixConstructors(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        {
+            GenerateMatrixColumnConstructor(constructorStr, staticConstructorStr);
+            GenerateMatrixRowConstructor(constructorStr, staticConstructorStr);
+        }
+
+        public void GenerateConstructors(StringBuilder constructorStr, StringBuilder staticConstructorStr)
         {
             constructorStr.Append("\t\t// constructors\n");
-            int[] parameterComponenets = new int[4];
-            GenerateConstructors(count, count, 0, parameterComponenets, constructorStr, staticConstructorStr);
+            
+            if(m_Columns == 1)
+            {
+                int[] parameterComponenets = new int[4];
+                GenerateVectorConstructors(m_Rows, m_Rows, 0, parameterComponenets, constructorStr, staticConstructorStr);
+            }
+            else
+            {
+                GenerateMatrixConstructors(constructorStr, staticConstructorStr);
+            }
         }
         
-        public void GenerateOperators(int count, StringBuilder str)
+        public void GenerateOperators(StringBuilder str)
         {
-            string resultType = m_Types[count - 1];
-            string resultBoolType = boolTypes[count - 1];
-
-            if (0 != (m_Job.features & Features.Arithmetic))
+            string resultType = m_BaseType;
+            string resultBoolType = "bool";
+            
+            if (0 != (m_Features & Features.Arithmetic))
             {
                 str.Append("\n\t\t// mul\n");
-                GenerateBinaryOperator(count, "*", count, resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "*", resultType, str);
 
                 str.Append("\n\t\t// add\n");
-                GenerateBinaryOperator(count, "+", count, resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "+", resultType, str);
 
                 str.Append("\n\t\t// sub\n");
-                GenerateBinaryOperator(count, "-", count, resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "-", resultType, str);
 
                 str.Append("\n\t\t// div\n");
-                GenerateBinaryOperator(count, "/", count, resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "/", resultType, str);
 
                 str.Append("\n\t\t// smaller \n");
-                GenerateBinaryOperator(count, "<", count, resultBoolType, str);
-                GenerateBinaryOperator(count, "<=", count, resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "<", resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "<=", resultBoolType, str);
 
                 str.Append("\n\t\t// greater \n");
-                GenerateBinaryOperator(count, ">", count, resultBoolType, str);
-                GenerateBinaryOperator(count, ">=", count, resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, ">", resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, ">=", resultBoolType, str);
             }
 
-            if (0 != (m_Job.features & Features.UnaryNegation))
+            if (0 != (m_Features & Features.UnaryNegation))
             {
                 str.Append("\n\t\t// neg \n");
-                GenerateUnaryOperator(count, "-", str);
+                GenerateUnaryOperator("-", str);
 
                 str.Append("\n\t\t// plus \n");
-                GenerateUnaryOperator(count, "+", str);
+                GenerateUnaryOperator("+", str);
             }
 
-            if (0 != (m_Job.features & Features.Shifts))
+            if (0 != (m_Features & Features.Shifts))
             {
                 str.Append("\n\t\t// left shift\n");
-                GenerateShiftOperator(count, "<<", count, resultType, str);
+                GenerateShiftOperator(m_Rows, "<<", resultType, str);
 
                 str.Append("\n\t\t// right shift\n");
-                GenerateShiftOperator(count, ">>", count, resultType, str);
+                GenerateShiftOperator(m_Rows, ">>", resultType, str);
             }
 
             str.Append("\n\t\t// equal \n");
-            GenerateBinaryOperator(count, "==", count, resultBoolType, str);
+            GenerateBinaryOperator(m_Rows, m_Columns, "==", resultBoolType, str);
 
 
             str.Append("\n\t\t// not equal \n");
-            GenerateBinaryOperator(count, "!=", count, resultBoolType, str);
+            GenerateBinaryOperator(m_Rows, m_Columns, "!=", resultBoolType, str);
 
             str.Append("\n\t\t// Equals \n");
-            GenerateEquals(count, resultType, str);
+            GenerateEquals(str);
 
             str.Append("\n\t\t// [int index] \n");
-            GenerateIndexOperator(count, resultType, m_Job.indexOperatorReturnType, str);
+            GenerateIndexOperator(str);
 
-            if (0 != (m_Job.features & Features.BitwiseLogic))
+            if (0 != (m_Features & Features.BitwiseLogic))
             {
                 string[] binaryOps = { "&", "|", "^" };
                 foreach (string binOp in binaryOps)
                 {
                     str.AppendFormat("\n\t\t// operator {0}\n", binOp);
-                    GenerateBinaryOperator(count, binOp, count, resultType, str);
+                    GenerateBinaryOperator(m_Rows, m_Columns, binOp, resultType, str);
                 }
 
             }
 
-            if (0 != (m_Job.features & Features.BitwiseComplement))
+            if (0 != (m_Features & Features.BitwiseComplement))
             {
                 str.Append("\n\t\t// operator ~ \n");
-                GenerateUnaryOperator(count, "~", str);
+                GenerateUnaryOperator("~", str);
             }
         }
 
-        void GenerateBinaryOperator(int count, string op, int resultCount, string resultType, StringBuilder str)
+        void GenerateBinaryOperator(int rows, int columns, string op, string resultType, StringBuilder str)
         {
-            GenerateBinaryOperator(count - 1, count - 1, op, resultCount, resultType, str);
-            GenerateBinaryOperatorScalarRhs(count, op, resultCount, resultType, str);
-            GenerateBinaryOperator(0, count - 1, op, resultCount, resultType, str);
+            GenerateBinaryOperator(rows, columns, rows, columns, op, resultType, rows, columns, str);
+            GenerateBinaryOperator(rows, columns, 1, 1, op, resultType, rows, columns, str);
+            GenerateBinaryOperator(1, 1, rows, columns, op, resultType, rows, columns, str);
         }
 
-        void GenerateBinaryOperatorScalarRhs(int count, string op, int resultCount, string resultType, StringBuilder str)
-        {
-            GenerateBinaryOperator(count - 1, 0, op, resultCount, resultType, str);
-        }
-
-        void GenerateBinaryOperator(int lhsTypeIndex, int rhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
+        void GenerateBinaryOperator(int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, string op, string resultType, int resultRows, int resultColumns, StringBuilder str)
         {
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", resultType, op, m_Types[lhsTypeIndex], m_Types[rhsTypeIndex]);
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
             str.Append(" { ");
-            str.AppendFormat("return new {0} (", resultType);
+            str.AppendFormat("return new {0} (", ToTypeName(resultType, resultRows, resultColumns));
+
+            string[] fields = (resultColumns > 1) ? matrixFields : vectorFields;
+            int resultCount = (resultColumns > 1) ? resultColumns : resultRows;
 
             for (int i = 0; i < resultCount; i++)
             {
-                if (lhsTypeIndex == 0)
+                if (lhsRows == 1)
                 {
                     int rhsIndex = i;
                     str.AppendFormat("lhs {1} rhs.{0}", fields[rhsIndex], op);
                     if (i != resultCount - 1)
                         str.Append(", ");
                 }
-                else if (rhsTypeIndex == 0)
+                else if (rhsRows == 1)
                 {
                     int lhsIndex = i;
                     str.AppendFormat("lhs.{0} {1} rhs", fields[lhsIndex], op);
@@ -331,9 +513,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("); }\n");
         }
 
-        void GenerateIndexOperator(int count, string vectorType, string indexOperatorReturnType, StringBuilder str)
+        void GenerateIndexOperator(StringBuilder str)
         {
-            str.AppendFormat("\t\tunsafe public {0} this[int index]\n", indexOperatorReturnType);
+            int count = m_Columns > 1 ? m_Columns : m_Rows;
+            string returnType = ToTypeName(m_BaseType, m_Columns > 1 ? m_Rows : 1, 1);
+            
+            str.AppendFormat("\t\tunsafe public {0} this[int index]\n", returnType);
             str.AppendLine("\t\t{");
             str.AppendLine("\t\t\tget");
             str.AppendLine("\t\t\t{");
@@ -345,8 +530,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // we are fixing this instead of a field
             // See issue https://github.com/dotnet/coreclr/issues/16210
             str.Append("\t\t\t\tfixed (");
-            str.Append(vectorType);
-            str.Append("* array = &this) { return ((").Append(indexOperatorReturnType).Append("*)array)[index]; }\n");
+            str.Append(m_TypeName);
+            str.Append("* array = &this) { return ((");
+            str.Append(returnType);
+            str.Append("*)array)[index]; }\n");
             str.AppendLine("\t\t\t}");
             str.AppendLine("\t\t\tset");
             str.AppendLine("\t\t\t{");
@@ -355,23 +542,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
             str.AppendLine("#endif");
             str.Append("\t\t\t\tfixed (");
-            str.Append(indexOperatorReturnType);
-            str.Append("* array = &x) { array[index] = value; }\n");
+            str.Append(returnType);
+            str.Append("* array = &");
+            str.Append(m_Columns > 1 ? "c0" : "x");
+            str.Append(") { array[index] = value; }\n");
             str.AppendLine("\t\t\t}");
             str.AppendLine("\t\t}");
 
         }
 
-        void GenerateEquals(int resultCount, string resultType, StringBuilder str)
+        void GenerateEquals(StringBuilder str)
         {
+            string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
+            int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic bool Equals({0} rhs) ", resultType);
-            str.Append(" { ");
-            str.AppendFormat("return ", resultType);
+            str.AppendFormat("\t\tpublic bool Equals({0} rhs) ", m_TypeName);
+            str.Append(" { return ");
 
             for (int i = 0; i < resultCount; i++)
             {
-                str.Append(fields[i] + " == rhs." + fields[i]);
+                if (m_Columns == 1)
+                    str.AppendFormat("{0} == rhs.{0}", fields[i]);
+                else
+                    str.AppendFormat("{0}.Equals(rhs.{0})", fields[i]);
                 if (i != resultCount-1)
                     str.Append(" && ");
             }
@@ -380,16 +574,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
 
-        void GenerateShiftOperator(int lhsTypeIndex, string op, int resultCount, string resultType, StringBuilder str)
+        void GenerateShiftOperator(int lhsRows, string op, string resultBaseType, StringBuilder str)
         {
+            string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
+            int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
+
+            string resultType = ToTypeName(resultBaseType, resultCount, 1);
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, int rhs)", resultType, op, m_Types[lhsTypeIndex - 1]);
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({0} lhs, int rhs)", m_TypeName, op);
             str.Append(" { ");
-            str.AppendFormat("return new {0} (", resultType);
+            str.AppendFormat("return new {0} (", m_TypeName);
 
             for (int i = 0; i < resultCount; i++)
             {
-                if (lhsTypeIndex == 0)
+                if (lhsRows == 1)
                 {
                     str.AppendFormat("lhs {0} rhs", op);
                     if (i != resultCount - 1)
@@ -404,29 +602,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
             }
 
-
             str.Append("); }\n");
         }
 
-        void GenerateUnaryOperator(int count, string op, StringBuilder str)
+        void GenerateUnaryOperator(string op, StringBuilder str)
         {
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_Types[count - 1], op);
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_TypeName, op);
             str.Append(" { ");
-            str.AppendFormat("return new {0} (", m_Types[count - 1]);
+            str.AppendFormat("return new {0} (", m_TypeName);
 
-            for (int i = 0; i < count; i++)
+            string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
+            int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
+
+            for (int i = 0; i < resultCount; i++)
             {
-                str.AppendFormat("{0}val.{1}", op, fields[i]);
-                if (i != count - 1)
+                if(op == "-" && m_BaseType == "uint" && m_Columns == 1)
+                    str.AppendFormat("(uint){0}val.{1}", op, fields[i]);
+                else
+                    str.AppendFormat("{0}val.{1}", op, fields[i]);
+                if (i != m_Rows - 1)
                     str.Append(", ");
             }
 
             str.Append("); }");
         }
 
-        void GenerateSwizzles(int count, StringBuilder str)
+        void GenerateSwizzles(StringBuilder str)
         {
+            int count = m_Rows;
             // float4 swizzles
             {
                 int[] swizzles = new int[4];
@@ -504,7 +708,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append("\t\t[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n");
 
             str.Append("\t\tpublic ");
-            str.Append(m_Types[swizzle.Length - 1]);
+            str.Append(ToTypeName(m_BaseType, swizzle.Length, 1));
             str.Append(' ');
 
             for (int i = 0; i < swizzle.Length; i++)
@@ -517,7 +721,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
                 str.Append("\n\t\t\tget { return new ");
-                str.Append(m_Types[swizzle.Length - 1]);
+                str.Append(ToTypeName(m_BaseType, swizzle.Length, 1));
                 str.Append('(');
             }
             else
@@ -525,7 +729,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             for (int i = 0; i < swizzle.Length; i++)
             {
-                str.Append(fields[swizzle[i]]);
+                str.Append(components[swizzle[i]]);
 
                 if (i != swizzle.Length - 1)
                     str.Append(", ");
@@ -543,11 +747,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append("\n\t\t\tset { ");
                 for (int i = 0; i < swizzle.Length; i++)
                 {
-                    str.Append(fields[swizzle[i]]);
+                    str.Append(components[swizzle[i]]);
                     if (swizzle.Length != 1)
                     {
                         str.Append(" = value.");
-                        str.Append(fields[i]);
+                        str.Append(components[i]);
                     }
                     else
                     {
@@ -565,6 +769,5 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t}\n\n");
             str.Append("\n");
         }
-
     }
 }

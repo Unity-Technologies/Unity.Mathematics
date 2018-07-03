@@ -8,19 +8,6 @@ namespace Unity.Mathematics
         public float2 c0;
         public float2 c1;
 
-        public float2x2(float2 c0, float2 c1)
-        {
-            this.c0 = c0;
-            this.c1 = c1;
-        }
-
-        public float2x2(float m00, float m01,
-                        float m10, float m11)
-        {
-            this.c0 = float2(m00, m10);
-            this.c1 = float2(m01, m11);
-        }
-
         public static readonly float2x2 identity = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
 
         public static float2x2 rotate(float angle)  // counter-clockwise rotation
@@ -47,11 +34,6 @@ namespace Unity.Mathematics
         {
             return scale(v.x, v.y);
         }
-
-        public static float2x2 operator *(float2x2 mat, float s)
-        {
-            return float2x2(mat.c0 * s, mat.c1 * s);
-        }
     }
 
     public partial struct float3x3
@@ -59,22 +41,6 @@ namespace Unity.Mathematics
         public float3 c0;
         public float3 c1;
         public float3 c2;
-
-        public float3x3(float3 c0, float3 c1, float3 c2)
-        {
-            this.c0 = c0;
-            this.c1 = c1;
-            this.c2 = c2;
-        }
-
-        public float3x3(float m00, float m01, float m02,
-                        float m10, float m11, float m12,
-                        float m20, float m21, float m22)
-        {
-            this.c0 = float3(m00, m10, m20);
-            this.c1 = float3(m01, m11, m21);
-            this.c2 = float3(m02, m12, m22);
-        }
 
         public float3x3(quaternion rotation)
         {
@@ -282,11 +248,6 @@ namespace Unity.Mathematics
 
             return float3x3(x, y, z);
         }
-
-        public static float3x3 operator *(float3x3 mat, float s)
-        {
-            return float3x3(mat.c0 * s, mat.c1 * s, mat.c2 * s);
-        }
     }
 
     public partial struct float4x4
@@ -295,25 +256,6 @@ namespace Unity.Mathematics
         public float4 c1;
         public float4 c2;
         public float4 c3;
-
-        public float4x4(float4 c0, float4 c1, float4 c2, float4 c3)
-        {
-            this.c0 = c0;
-            this.c1 = c1;
-            this.c2 = c2;
-            this.c3 = c3;
-        }
-
-        public float4x4(float m00, float m01, float m02, float m03,
-                        float m10, float m11, float m12, float m13,
-                        float m20, float m21, float m22, float m23,
-                        float m30, float m31, float m32, float m33)
-        {
-            this.c0 = float4(m00, m10, m20, m30);
-            this.c1 = float4(m01, m11, m21, m31);
-            this.c2 = float4(m02, m12, m22, m32);
-            this.c3 = float4(m03, m13, m23, m33);
-        }
 
         public float4x4(float3x3 rotation, float3 translation)
         {
@@ -527,60 +469,77 @@ namespace Unity.Mathematics
             matrix.c3 = float4(position, 1.0F);
             return matrix;
         }
+    }
 
-        public static float4x4 operator *(float4x4 mat, float s)
-        {
-            return float4x4(mat.c0 * s, mat.c1 * s, mat.c2 * s, mat.c3 * s);
-        }
+
+    public partial struct bool2x2
+    {
+        public bool2 c0;
+        public bool2 c1;
+    }
+
+    public partial struct bool3x3
+    {
+        public bool3 c0;
+        public bool3 c1;
+        public bool3 c2;
+    }
+
+    public partial struct bool4x4
+    {
+        public bool4 c0;
+        public bool4 c1;
+        public bool4 c2;
+        public bool4 c3;
+    }
+
+    public partial struct int2x2
+    {
+        public int2 c0;
+        public int2 c1;
+    }
+
+    public partial struct int3x3
+    {
+        public int3 c0;
+        public int3 c1;
+        public int3 c2;
+    }
+
+    public partial struct int4x4
+    {
+        public int4 c0;
+        public int4 c1;
+        public int4 c2;
+        public int4 c3;
+    }
+
+    public partial struct uint2x2
+    {
+        public uint2 c0;
+        public uint2 c1;
+    }
+
+    public partial struct uint3x3
+    {
+        public uint3 c0;
+        public uint3 c1;
+        public uint3 c2;
+    }
+
+    public partial struct uint4x4
+    {
+        public uint4 c0;
+        public uint4 c1;
+        public uint4 c2;
+        public uint4 c3;
     }
 
     partial class math
     {
-        public static float2x2 float2x2(float2 c0, float2 c1)
-        {
-            return new float2x2(c0, c1);
-        }
-
-        public static float2x2 float2x2(float m00, float m01,
-                                        float m10, float m11)
-        {
-            return new float2x2(m00, m01,
-                                m10, m11);
-        }
-
-        public static float3x3 float3x3(float3 c0, float3 c1, float3 c2)
-        {
-            return new float3x3(c0, c1, c2);
-        }
-
-        public static float3x3 float3x3(float m00, float m01, float m02,
-                                        float m10, float m11, float m12,
-                                        float m20, float m21, float m22)
-        {
-            return new float3x3(m00, m01, m02,
-                                m10, m11, m12,
-                                m20, m21, m22);
-        }
-
         public static float3x3 float3x3(quaternion rotation)
         {
             return new float3x3(rotation);
-        }
-
-        public static float4x4 float4x4(float4 c0, float4 c1, float4 c2, float4 c3)
-        {
-            return new float4x4(c0, c1, c2, c3);
-        }
-
-        public static float4x4 float4x4(float m00, float m01, float m02, float m03,
-                                        float m10, float m11, float m12, float m13,
-                                        float m20, float m21, float m22, float m23,
-                                        float m30, float m31, float m32, float m33)
-        {
-            return new float4x4(m00, m01, m02, m03,
-                                m10, m11, m12, m13,
-                                m20, m21, m22, m23,
-                                m30, m31, m32, m33);
         }
 
         public static float4x4 float4x4(float3x3 rotation, float3 translation)

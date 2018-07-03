@@ -312,9 +312,6 @@ namespace Unity.Mathematics
         {
             float4 value = q.value;
             float len = dot(value, value);
-
-            // note we use float4 comparison here because this gives us -1 / 0 which is necessary for select.
-            //return select(quatIdentity(), q*rsqrt(len), len > float4(epsilon_normal()));
             value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
 
             return quaternion(value);
@@ -325,10 +322,10 @@ namespace Unity.Mathematics
             return quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
-        public static float3 mul(quaternion rotation, float3 vector)
+        public static float3 mul(quaternion q, float3 vector)
         {
-            float3 t = 2 * cross(rotation.value.xyz, vector);
-            return vector + rotation.value.w * t + cross(rotation.value.xyz, t);
+            float3 t = 2 * cross(q.value.xyz, vector);
+            return vector + q.value.w * t + cross(q.value.xyz, t);
         }
 
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
