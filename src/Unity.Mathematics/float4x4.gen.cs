@@ -134,6 +134,7 @@ namespace Unity.Mathematics
                 fixed (float4* array = &c0) { array[index] = value; }
             }
         }
+
     }
 
     public static partial class math

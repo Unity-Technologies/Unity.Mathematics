@@ -43,7 +43,6 @@ namespace Unity.Mathematics
         {
             return string.Format("bool3({0}, {1}, {2})", x, y, z);
         }
-
     }
 }
 

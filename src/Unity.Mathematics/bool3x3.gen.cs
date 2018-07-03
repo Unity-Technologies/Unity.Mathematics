@@ -89,6 +89,7 @@ namespace Unity.Mathematics
         public static bool3x3 operator ^ (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ^ (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
+
     }
 
     public static partial class math

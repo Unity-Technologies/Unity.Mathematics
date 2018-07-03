@@ -114,7 +114,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_Columns == 1)
                 GenerateSwizzles(str);
 
-            str.Append("\t}\n\n");
+            str.Append("\n\t}\n\n");
 
             str.Append("\tpublic static partial class math\n");
             str.Append("\t{\n");
