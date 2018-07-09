@@ -237,6 +237,24 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(float4 pt1, float4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int dot(int pt1, int pt2) { return pt1 * pt2; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int dot(int2 pt1, int2 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int dot(int3 pt1, int3 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int dot(int4 pt1, int4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint dot(uint pt1, uint pt2) { return pt1 * pt2; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint dot(uint2 pt1, uint2 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint dot(uint3 pt1, uint3 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint dot(uint4 pt1, uint4 pt2) { return pt1.x * pt2.x + pt1.y * pt2.y + pt1.z * pt2.z + pt1.w * pt2.w; }
+
         // tan
         public static float tan(float value) { return (float)System.Math.Tan(value); }
         public static float2 tan(float2 value) { return new float2(tan(value.x), tan(value.y)); }
@@ -639,26 +657,29 @@ namespace Unity.Mathematics
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
 
         // SSE shuffles
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unpacklo(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unpackhi(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 movelh(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.RightY);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 movehl(float4 a, float4 b)
         {
             return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
         }
-
 
         [StructLayout(LayoutKind.Explicit)]
         internal struct IntFloatUnion
