@@ -366,5 +366,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float2 xy) { return new float2(xy); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(float2 v)
+        {
+            return csum(asuint(v) * uint2(0xEBD0D005u, 0x91475DF7u)) + 0x55E84827u;
+        }
     }
 }

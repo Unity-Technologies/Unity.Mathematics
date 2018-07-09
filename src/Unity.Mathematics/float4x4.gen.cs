@@ -154,5 +154,13 @@ namespace Unity.Mathematics
                                 m30, m31, m32, m33);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(float4x4 v)
+        {
+            return csum(asuint(v.c0) * uint4(0xA1E92D39u, 0x4583C801u, 0x9536A0F5u, 0xAF816615u) + 
+                        asuint(v.c1) * uint4(0x9AF8D62Du, 0xE3600729u, 0x5F17300Du, 0x670D6809u) + 
+                        asuint(v.c2) * uint4(0x7AF32C49u, 0xAE131389u, 0x5D1B165Bu, 0x87096CD7u) + 
+                        asuint(v.c3) * uint4(0x4C7F6DD1u, 0x4822A3E9u, 0xAAC3C25Du, 0xD21D0945u)) + 0x88FCAB2Du;
+        }
     }
 }

@@ -3022,5 +3022,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(float4 xyzw) { return new float4(xyzw); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(float4 v)
+        {
+            return csum(asuint(v) * uint4(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u, 0xCC74B3B7u)) + 0x83B58237u;
+        }
     }
 }

@@ -1080,5 +1080,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(bool3 v)
+        {
+            return csum(select(uint3(0xD6258E5Bu, 0xEE390C97u, 0x9C8A2F05u), uint3(0x4DDC6509u, 0x7CF083CBu, 0x5C4D6CEDu), v));
+        }
     }
 }

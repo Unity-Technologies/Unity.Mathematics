@@ -102,5 +102,11 @@ namespace Unity.Mathematics
                                m10, m11);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(bool2x2 v)
+        {
+            return csum(select(uint2(0xB139D651u, 0xE7579997u), uint2(0xEF7D56C7u, 0x66F38F0Bu), v.c0) + 
+                        select(uint2(0x624256A3u, 0x5292ADE1u), uint2(0xD2E590E5u, 0xF25BE857u), v.c1));
+        }
     }
 }

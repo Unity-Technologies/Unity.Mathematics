@@ -2980,5 +2980,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(bool4 v)
+        {
+            return csum(select(uint4(0xF9137117u, 0xE857DCE1u, 0xF62213C5u, 0x9CDAA959u), uint4(0xAA269ABFu, 0xD54BA36Fu, 0xFD0847B9u, 0x8189A683u), v));
+        }
     }
 }

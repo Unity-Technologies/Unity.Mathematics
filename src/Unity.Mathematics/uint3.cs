@@ -49,7 +49,15 @@ namespace Unity.Mathematics
         {
             return string.Format("uint3({0}, {1}, {2})", x, y, z);
         }
+    }
 
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(int3 val) { return new uint3(val); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(float3 val) { return new uint3(val); }
     }
 }
 

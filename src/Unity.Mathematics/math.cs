@@ -519,6 +519,22 @@ namespace Unity.Mathematics
         public static int4 select(int4 a, int4 b, bool4 c) { return new int4(c.x ? b.x : a.x, c.y ? a.y : b.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint select(uint a, uint b, bool c) { return c ? b : a; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 select(uint2 a, uint2 b, bool c) { return c ? b : a; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 select(uint3 a, uint3 b, bool c) { return c ? b : a; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 select(uint4 a, uint4 b, bool c) { return c ? b : a; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 select(uint2 a, uint2 b, bool2 c) { return new uint2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 select(uint3 a, uint3 b, bool3 c) { return new uint3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 select(uint4 a, uint4 b, bool4 c) { return new uint4(c.x ? b.x : a.x, c.y ? a.y : b.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float select(float a, float b, bool c)    { return c ? b : a; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 select(float2 a, float2 b, bool c) { return c ? b : a; }

@@ -144,5 +144,11 @@ namespace Unity.Mathematics
                                 m10, m11);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(float2x2 v)
+        {
+            return csum(asuint(v.c0) * uint2(0x833E3E29u, 0xA9D919BFu) + 
+                        asuint(v.c1) * uint2(0xC3EC1D97u, 0xB8B208C7u)) + 0x5D3ED947u;
+        }
     }
 }

@@ -131,6 +131,15 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int4 a) { return a.x + a.y + a.z + a.w; }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint csum(uint a) { return a; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint csum(uint2 a) { return a.x + a.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint csum(uint3 a) { return a.x + a.y + a.z; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint csum(uint4 a) { return a.x + a.y + a.z + a.w; }
+
         // A numeric optimization fence.
         // prevents the compiler from optimizing operators.
         // Some algorithms are written in specific ways to get more precision.

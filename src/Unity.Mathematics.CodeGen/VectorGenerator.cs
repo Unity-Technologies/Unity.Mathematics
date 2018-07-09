@@ -10,6 +10,41 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private int m_Rows;
         private int m_Columns;
         private Features m_Features;
+        private uint[] m_primes = new uint[] {  0x6E624EB7u,    0x7383ED49u,    0xDD49C23Bu,    0xEBD0D005u,            0x91475DF7u,    0x55E84827u,    0x90A285BBu,    0x5D19E1D5u,
+                                                0xFAAF07DDu,    0x625C45BDu,    0xC9F27FCBu,    0x6D2523B1u,            0x6E2BF6A9u,    0xCC74B3B7u,    0x83B58237u,    0x833E3E29u,
+                                                0xA9D919BFu,    0xC3EC1D97u,    0xB8B208C7u,    0x5D3ED947u,            0x4473BBB1u,    0xCBA11D5Fu,    0x685835CFu,    0xC3D32AE1u,
+                                                0xB966942Fu,    0xFE9856B3u,    0xFA3A3285u,    0xAD55999Du,            0xDCDD5341u,    0x94DDD769u,    0xA1E92D39u,    0x4583C801u,
+                                                0x9536A0F5u,    0xAF816615u,    0x9AF8D62Du,    0xE3600729u,            0x5F17300Du,    0x670D6809u,    0x7AF32C49u,    0xAE131389u,
+                                                0x5D1B165Bu,    0x87096CD7u,    0x4C7F6DD1u,    0x4822A3E9u,            0xAAC3C25Du,    0xD21D0945u,    0x88FCAB2Du,    0x614DA60Du,
+                                                0x5BA2C50Bu,    0x8C455ACBu,    0xCD266C89u,    0xF1852A33u,            0x77E35E77u,    0x863E3729u,    0xE191B035u,    0x68586FAFu,
+                                                0xD4DFF6D3u,    0xCB634F4Du,    0x9B13B92Du,    0x4ABF0813u,            0x86068063u,    0xD75513F9u,    0x5AB3E8CDu,    0x676E8407u,
+                                                0xB36DE767u,    0x6FCA387Du,    0xAF0F3103u,    0xE4A056C7u,            0x841D8225u,    0xC9393C7Du,    0xD42EAFA3u,    0xD9AFD06Du,
+                                                0x97A65421u,    0x7809205Fu,    0x9C9F0823u,    0x5A9CA13Bu,            0xAFCDD5EFu,    0xA88D187Du,    0xCF6EBA1Du,    0x9D88E5A1u,
+                                                0xEADF0775u,    0x747A9D7Bu,    0x4111F799u,    0xB5F05AF1u,            0xFD80290Bu,    0x8B65ADB7u,    0xDFF4F563u,    0x7069770Du,
+                                                0xD1224537u,    0xE99ED6F3u,    0x48125549u,    0xEEE2123Bu,            0xE3AD9FE5u,    0xCE1CF8BFu,    0x7BE39F3Bu,    0xFAB9913Fu,
+                                                0xB4501269u,    0xE04B89FDu,    0xDB3DE101u,    0x7B6D1B4Bu,            0x58399E77u,    0x5EAC29C9u,    0xFC6014F9u,    0x6BF6693Fu,
+                                                0x9D1B1D9Bu,    0xF842F5C1u,    0xA47EC335u,    0xA477DF57u,            0xC4B1493Fu,    0xBA0966D3u,    0xAFBEE253u,    0x5B419C01u,
+                                                0x515D90F5u,    0xEC9F68F3u,    0xF9EA92D5u,    0xC2FAFCB9u,            0x616E9CA1u,    0xC5C5394Bu,    0xCAE78587u,    0x7A1541C9u,
+                                                0xF83BD927u,    0x6A243BCBu,    0x509B84C9u,    0x91D13847u,            0x52F7230Fu,    0xCF286E83u,    0xE121E6ADu,    0xC9CA1249u,
+                                                0x69B60C81u,    0xE0EB6C25u,    0xF648BEABu,    0x6BDB2B07u,            0xEF63C699u,    0x9001903Fu,    0xA895B9CDu,    0x9D23B201u,
+                                                0x4B01D3E1u,    0x7461CA0Du,    0x79725379u,    0xD6258E5Bu,            0xEE390C97u,    0x9C8A2F05u,    0x4DDC6509u,    0x7CF083CBu,
+                                                0x5C4D6CEDu,    0xF9137117u,    0xE857DCE1u,    0xF62213C5u,            0x9CDAA959u,    0xAA269ABFu,    0xD54BA36Fu,    0xFD0847B9u,
+                                                0x8189A683u,    0xB139D651u,    0xE7579997u,    0xEF7D56C7u,            0x66F38F0Bu,    0x624256A3u,    0x5292ADE1u,    0xD2E590E5u,
+                                                0xF25BE857u,    0x9BC17CE7u,    0xC8B86851u,    0x64095221u,            0xADF428FFu,    0xA3977109u,    0x745ED837u,    0x9CDC88F5u,
+                                                0xFA62D721u,    0x7E4DB1CFu,    0x68EEE0F5u,    0xBC3B0A59u,            0x816EFB5Du,    0xA24E82B7u,    0x45A22087u,    0xFC104C3Bu,
+                                                0x5FFF6B19u,    0x5E6CBF3Bu,    0xB546F2A5u,    0xBBCF63E7u,            0xC53F4755u,    0x6985C229u,    0xE133B0B3u,    0xC3E0A3B9u,
+                                                0xFE31134Fu,    0x712A34D7u,    0x9D77A59Bu,    0x4942CA39u,            0xB40EC62Du,    0x565ED63Fu,    0x93C30C2Bu,    0xDCAF0351u,
+                                                0x6E050B01u,    0x750FDBF5u,    0x7F3DD499u,    0x52EAAEBBu,            0x4599C793u,    0x83B5E729u,    0xC267163Fu,    0x67BC9149u,
+                                                0xAD7C5EC1u,    0x822A7D6Du,    0xB492BF15u,    0xD37220E3u,            0x7AA2C2BDu,    0xE16BC89Du,    0x7AA07CD3u,    0xAF642BA9u,
+                                                0xA8F2213Bu,    0x9F3FDC37u,    0xAC60D0C3u,    0x9263662Fu,            0xE69626FFu,    0xBD010EEBu,    0x9CEDE1D1u,    0x43BE0B51u,
+                                                0xAF836EE1u,    0xB130C137u,    0x54834775u,    0x7C022221u,            0xA2D00EDFu,    0xA8977779u,    0x9F1C739Bu,    0x4B1BD187u,
+                                                0x9DF50593u,    0xF18EEB85u,    0x9E19BFC3u,    0x8196B06Fu,            0xD24EFA19u,    0x7D8048BBu,    0x713BD06Fu,    0x753AD6ADu,
+                                                0xD19764C7u,    0xB5D0BF63u,    0xF9102C5Fu,    0x9881FB9Fu,            0x56A1530Du,    0x804B722Du,    0x738E50E5u,    0x4FC93C25u,
+                                                0xCD0445A5u,    0xD2B90D9Bu,    0xD35C9B2Du,    0xA10D9E27u,            0x568DAAA9u,    0x7530254Fu,    0x9F090439u,    0x5E9F85C9u,
+                                                0x8C4CA03Fu,    0xB8D969EDu,    0xAC5DB57Bu,    0xA91A02EDu,            0xB3C49313u,    0xF43A9ABBu,    0x84E7E01Bu,    0x8E055BE5u
+        };
+
+        private uint nextPrime = 0;
 
         [Flags]
         private enum Features
@@ -99,7 +134,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void Generate(StringBuilder str)
         {
-            StringBuilder staticConstructorStr = new StringBuilder();
+            StringBuilder mathStr = new StringBuilder();
 
             str.Append("// GENERATED CODE\n");
             str.Append("using System.Runtime.CompilerServices;\n");
@@ -109,8 +144,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_TypeName);
             str.Append("\t{\n");
 
-            GenerateConstructors(str, staticConstructorStr);
+            GenerateConstructors(str, mathStr);
             GenerateOperators(str);
+            GenerateHashFunction(mathStr);
             if(m_Columns == 1)
                 GenerateSwizzles(str);
 
@@ -118,7 +154,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.Append("\tpublic static partial class math\n");
             str.Append("\t{\n");
-            str.Append(staticConstructorStr);
+            str.Append(mathStr);
             str.Append("\t}\n}\n");
         }
 
@@ -134,19 +170,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
         // Generate constructor and static constructor with a given component partitioning of input parameters
-        private void GenerateVectorConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        private void GenerateVectorConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
-            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            staticConstructorStr.Append("\t\tpublic static ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append(" ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append("(");
+            mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            mathStr.Append("\t\tpublic static ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append(" ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append("(");
 
             int componentIndex = 0;
             for (int i = 0; i < numParameters; i++)
@@ -154,7 +190,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (i != 0)
                 {
                     constructorStr.Append(", ");
-                    staticConstructorStr.Append(", ");
+                    mathStr.Append(", ");
                 }
 
                 
@@ -165,19 +201,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 constructorStr.Append(paramType);
                 constructorStr.Append(" ");
                 constructorStr.Append(componentString);
-                staticConstructorStr.Append(paramType);
-                staticConstructorStr.Append(" ");
-                staticConstructorStr.Append(componentString);
+                mathStr.Append(paramType);
+                mathStr.Append(" ");
+                mathStr.Append(componentString);
                 componentIndex += paramComponents;
             }
             constructorStr.Append(")\n");
-            staticConstructorStr.Append(")");
+            mathStr.Append(")");
             
             // Generate function bodies
             constructorStr.Append("\t\t{ ");
-            staticConstructorStr.Append(" { return new ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append("(");
+            mathStr.Append(" { return new ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append("(");
 
             componentIndex = 0;
             for (int i = 0; i < numParameters; i++)
@@ -201,43 +237,43 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if (i != 0)
                 {
-                    staticConstructorStr.Append(", ");
+                    mathStr.Append(", ");
                 }
-                staticConstructorStr.Append(componentString);
+                mathStr.Append(componentString);
             }
 
             constructorStr.Append("\n\t\t}\n\n");
-            staticConstructorStr.Append("); }\n\n");
+            mathStr.Append("); }\n\n");
         }
 
         // Recursively generate all constructor variants with every possibly partition or the components
-        private void GenerateVectorConstructors(int numRemainingComponents, int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        private void GenerateVectorConstructors(int numRemainingComponents, int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder mathStr)
         {
             if (numRemainingComponents == 0)
             {
-                GenerateVectorConstructor(numComponents, numParameters, parameterComponents, constructorStr, staticConstructorStr);
+                GenerateVectorConstructor(numComponents, numParameters, parameterComponents, constructorStr, mathStr);
             }
             
             for(int i = 1; i <= numRemainingComponents; i++)
             {
                 parameterComponents[numParameters] = i;
-                GenerateVectorConstructors(numRemainingComponents - i, numComponents, numParameters + 1, parameterComponents, constructorStr, staticConstructorStr);
+                GenerateVectorConstructors(numRemainingComponents - i, numComponents, numParameters + 1, parameterComponents, constructorStr, mathStr);
             }
         }
 
-        public void GenerateMatrixColumnConstructor(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        public void GenerateMatrixColumnConstructor(StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
-            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            staticConstructorStr.Append("\t\tpublic static ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append(" ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append("(");
+            mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            mathStr.Append("\t\tpublic static ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append(" ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append("(");
 
             string columnType = ToTypeName(m_BaseType, m_Rows, 1);
             for (int column = 0; column < m_Columns; column++)
@@ -245,24 +281,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (column != 0)
                 {
                     constructorStr.Append(", ");
-                    staticConstructorStr.Append(", ");
+                    mathStr.Append(", ");
                 }
 
                 constructorStr.Append(columnType);
                 constructorStr.Append(" ");
                 constructorStr.Append(matrixFields[column]);
-                staticConstructorStr.Append(columnType);
-                staticConstructorStr.Append(" ");
-                staticConstructorStr.Append(matrixFields[column]);
+                mathStr.Append(columnType);
+                mathStr.Append(" ");
+                mathStr.Append(matrixFields[column]);
             }
             constructorStr.Append(")\n");
-            staticConstructorStr.Append(")");
+            mathStr.Append(")");
 
             // Generate function bodies
             constructorStr.Append("\t\t{ ");
-            staticConstructorStr.Append(" { return new ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append("(");
+            mathStr.Append(" { return new ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append("(");
 
             for (int column = 0; column < m_Columns; column++)
             {
@@ -274,28 +310,28 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if (column != 0)
                 {
-                    staticConstructorStr.Append(", ");
+                    mathStr.Append(", ");
                 }
-                staticConstructorStr.Append(matrixFields[column]);
+                mathStr.Append(matrixFields[column]);
             }
 
             constructorStr.Append("\n\t\t}\n\n");
-            staticConstructorStr.Append("); }\n\n");
+            mathStr.Append("); }\n\n");
         }
 
-        public void GenerateMatrixRowConstructor(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        public void GenerateMatrixRowConstructor(StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
-            staticConstructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            staticConstructorStr.Append("\t\tpublic static ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append(" ");
-            staticConstructorStr.Append(m_TypeName);
-            staticConstructorStr.Append("(");
+            mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            mathStr.Append("\t\tpublic static ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append(" ");
+            mathStr.Append(m_TypeName);
+            mathStr.Append("(");
             string indent0 = new string(' ', m_TypeName.Length + 16);
             string indent1 = new string(' ', m_TypeName.Length*2 + 24);
             string indent2 = new string(' ', m_TypeName.Length + 24);
@@ -305,7 +341,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if(row != 0)
                 {
                     constructorStr.Append(indent0);
-                    staticConstructorStr.Append(indent1);
+                    mathStr.Append(indent1);
                 }
                 for (int column = 0; column < m_Columns; column++)
                 {
@@ -313,14 +349,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     constructorStr.Append(m_BaseType);
                     constructorStr.Append(" ");
                     constructorStr.Append(paramName);
-                    staticConstructorStr.Append(m_BaseType);
-                    staticConstructorStr.Append(" ");
-                    staticConstructorStr.Append(paramName);
+                    mathStr.Append(m_BaseType);
+                    mathStr.Append(" ");
+                    mathStr.Append(paramName);
 
                     //string separator = (row == m_Rows - 1) ? (column == m_Columns - 1) ? "," : ", " : ", ";
                     string separator = (column == m_Columns - 1) ? (row == m_Rows - 1) ? ")\n" : ",\n" : ", ";
                     constructorStr.Append(separator);
-                    staticConstructorStr.Append(separator);
+                    mathStr.Append(separator);
                 }
             }
             
@@ -347,44 +383,44 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             constructorStr.Append("\n\t\t}\n\n");
 
             // static constructor body
-            staticConstructorStr.AppendFormat("\t\t{{\n\t\t\treturn new {0}(", m_TypeName);
+            mathStr.AppendFormat("\t\t{{\n\t\t\treturn new {0}(", m_TypeName);
             for (int row = 0; row < m_Rows; row++)
             {
                 if (row != 0)
                 {
-                    staticConstructorStr.Append(indent2);
+                    mathStr.Append(indent2);
                 }
                 for (int column = 0; column < m_Columns; column++)
                 {
                     string paramName = "m" + row + column;
-                    staticConstructorStr.Append(paramName);
+                    mathStr.Append(paramName);
 
                     //string separator = (row == m_Rows - 1) ? (column == m_Columns - 1) ? "," : ", " : ", ";
                     string separator = (column == m_Columns - 1) ? (row == m_Rows - 1) ? ");" : ",\n" : ", ";
-                    staticConstructorStr.Append(separator);
+                    mathStr.Append(separator);
                 }
             }
-            staticConstructorStr.Append("\n\t\t}\n\n");
+            mathStr.Append("\n\t\t}\n\n");
         }
 
-        public void GenerateMatrixConstructors(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        public void GenerateMatrixConstructors(StringBuilder constructorStr, StringBuilder mathStr)
         {
-            GenerateMatrixColumnConstructor(constructorStr, staticConstructorStr);
-            GenerateMatrixRowConstructor(constructorStr, staticConstructorStr);
+            GenerateMatrixColumnConstructor(constructorStr, mathStr);
+            GenerateMatrixRowConstructor(constructorStr, mathStr);
         }
 
-        public void GenerateConstructors(StringBuilder constructorStr, StringBuilder staticConstructorStr)
+        public void GenerateConstructors(StringBuilder constructorStr, StringBuilder mathStr)
         {
             constructorStr.Append("\t\t// constructors\n");
             
             if(m_Columns == 1)
             {
                 int[] parameterComponenets = new int[4];
-                GenerateVectorConstructors(m_Rows, m_Rows, 0, parameterComponenets, constructorStr, staticConstructorStr);
+                GenerateVectorConstructors(m_Rows, m_Rows, 0, parameterComponenets, constructorStr, mathStr);
             }
             else
             {
-                GenerateMatrixConstructors(constructorStr, staticConstructorStr);
+                GenerateMatrixConstructors(constructorStr, mathStr);
             }
         }
         
@@ -463,6 +499,61 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append("\n\t\t// operator ~ \n");
                 GenerateUnaryOperator("~", str);
             }
+        }
+
+        private void GeneratePrimeUIntVector(StringBuilder str, int n)
+        {
+            str.AppendFormat("uint{0}(", n);
+            for (int row = 0; row < n; row++)
+            {
+                if (row != 0)
+                    str.Append(", ");
+                str.AppendFormat("0x{0:X}u", m_primes[nextPrime++]);
+            }
+            str.Append(")");
+        }
+
+        public void GenerateHashFunction(StringBuilder str)
+        {
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\tpublic static uint hash({0} v)\n", m_TypeName);
+            str.Append("\t\t{\n");
+
+            str.AppendFormat("\t\t\treturn csum(");
+            if (m_BaseType == "bool")
+            {
+                for (int column = 0; column < m_Columns; column++)
+                {
+                    if (column > 0)
+                        str.Append(" + \n\t\t\t\t\t\t");
+
+                    str.Append("select(");
+                    GeneratePrimeUIntVector(str, m_Rows);
+                    str.Append(", ");
+                    GeneratePrimeUIntVector(str, m_Rows);
+                    str.Append(", ");
+                    str.Append(m_Columns > 1 ? "v.c" + column : "v");
+                    str.Append(")");
+                }
+                str.AppendFormat(");\n");
+            }
+            else
+            {
+                for(int column = 0; column < m_Columns; column++)
+                {
+                    if(column > 0)
+                        str.Append(" + \n\t\t\t\t\t\t");
+                    string columnName = m_Columns > 1 ? "v.c" + column : "v";
+                    if (m_BaseType != "uint")
+                        columnName = "asuint(" + columnName + ")";
+                    str.Append(columnName);
+                    str.Append(" * ");
+                    GeneratePrimeUIntVector(str, m_Rows);
+                }
+                str.AppendFormat(") + 0x{0:X}u;\n", m_primes[nextPrime++]);
+            }
+            
+            str.Append("\t\t}\n");
         }
 
         void GenerateBinaryOperator(int rows, int columns, string op, string resultType, StringBuilder str)

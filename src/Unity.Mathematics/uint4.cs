@@ -51,5 +51,14 @@ namespace Unity.Mathematics
             return string.Format("uint4({0}, {1}, {2}, {3})", x, y, z, w);
         }
     }
+
+    public static partial class math
+    {
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 uint4(int4 val) { return new uint4(val); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 uint4(float4 val) { return new uint4(val); }
+    }
 }
 
