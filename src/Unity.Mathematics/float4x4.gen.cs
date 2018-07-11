@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct float4x4 : System.IEquatable<float4x4>
+    public partial struct float4x4 : System.IEquatable<float4x4>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -71,9 +72,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 operator ++ (float4x4 val) { return new float4x4 (++val.c0, ++val.c1, ++val.c2, ++val.c3); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 operator -- (float4x4 val) { return new float4x4 (--val.c0, --val.c1, --val.c2, --val.c3); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2, lhs.c3 < rhs.c3); }
@@ -105,9 +110,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 operator - (float4x4 val) { return new float4x4 (-val.c0, -val.c1, -val.c2, -val.c3); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 operator + (float4x4 val) { return new float4x4 (+val.c0, +val.c1, +val.c2, +val.c3); }
+
+
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator == (float4x4 lhs, float4x4 rhs) { return new bool4x4 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2, lhs.c3 == rhs.c3); }
@@ -148,6 +157,18 @@ namespace Unity.Mathematics
                 fixed (float4* array = &c0) { array[index] = value; }
             }
         }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("float4x4({0}f, {1}f, {2}f, {3}f,  {4}f, {5}f, {6}f, {7}f,  {8}f, {9}f, {10}f, {11}f,  {12}f, {13}f, {14}f, {15}f)", c0.x, c1.x, c2.x, c3.x, c0.y, c1.y, c2.y, c3.y, c0.z, c1.z, c2.z, c3.z, c0.w, c1.w, c2.w, c3.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("float4x4({0}f, {1}f, {2}f, {3}f,  {4}f, {5}f, {6}f, {7}f,  {8}f, {9}f, {10}f, {11}f,  {12}f, {13}f, {14}f, {15}f)", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c2.x.ToString(format, formatProvider), c3.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider), c2.y.ToString(format, formatProvider), c3.y.ToString(format, formatProvider), c0.z.ToString(format, formatProvider), c1.z.ToString(format, formatProvider), c2.z.ToString(format, formatProvider), c3.z.ToString(format, formatProvider), c0.w.ToString(format, formatProvider), c1.w.ToString(format, formatProvider), c2.w.ToString(format, formatProvider), c3.w.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -176,5 +197,6 @@ namespace Unity.Mathematics
                         asuint(v.c2) * uint4(0x7AF32C49u, 0xAE131389u, 0x5D1B165Bu, 0x87096CD7u) + 
                         asuint(v.c3) * uint4(0x4C7F6DD1u, 0x4822A3E9u, 0xAAC3C25Du, 0xD21D0945u)) + 0x88FCAB2Du;
         }
+
     }
 }

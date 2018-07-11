@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct float2 : System.IEquatable<float2>
+    public partial struct float2 : System.IEquatable<float2>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -64,9 +65,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator ++ (float2 val) { return new float2 (++val.x, ++val.y); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator -- (float2 val) { return new float2 (--val.x, --val.y); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (float2 lhs, float2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
@@ -98,9 +103,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator - (float2 val) { return new float2 (-val.x, -val.y); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator + (float2 val) { return new float2 (+val.x, +val.y); }
+
+
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (float2 lhs, float2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
@@ -369,6 +378,18 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("float2({0}f, {1}f)", x, y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("float2({0}f, {1}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -385,5 +406,6 @@ namespace Unity.Mathematics
         {
             return csum(asuint(v) * uint2(0xEBD0D005u, 0x91475DF7u)) + 0x55E84827u;
         }
+
     }
 }

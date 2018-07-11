@@ -48,16 +48,6 @@ namespace Unity.Mathematics
         public static implicit operator float2(bool2 d) { return new float2(d.x ? 1.0f : 0.0f, d.y ? 1.0f : 0.0f); }
 
         public static readonly float2 zero = new float2(0.0f, 0.0f);
-
-        public override string ToString()
-        {
-            return string.Format("float2({0:R}f, {1:R}f)", x, y);
-        }
-
-        public string ToString(string format, IFormatProvider formatProvider)
-        {
-            return string.Format("float2({0}f, {1}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
-        }
     }
 }
 

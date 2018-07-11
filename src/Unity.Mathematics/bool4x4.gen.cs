@@ -1,4 +1,5 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
@@ -92,6 +93,12 @@ namespace Unity.Mathematics
         public static bool4x4 operator ^ (bool4x4 lhs, bool rhs) { return new bool4x4 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs, lhs.c3 ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator ^ (bool lhs, bool4x4 rhs) { return new bool4x4 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2, lhs ^ rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("bool4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x, c1.x, c2.x, c3.x, c0.y, c1.y, c2.y, c3.y, c0.z, c1.z, c2.z, c3.z, c0.w, c1.w, c2.w, c3.w);
+        }
+
 
     }
 
@@ -120,5 +127,6 @@ namespace Unity.Mathematics
                         select(uint4(0x52EAAEBBu, 0x4599C793u, 0x83B5E729u, 0xC267163Fu), uint4(0x67BC9149u, 0xAD7C5EC1u, 0x822A7D6Du, 0xB492BF15u), v.c2) + 
                         select(uint4(0xD37220E3u, 0x7AA2C2BDu, 0xE16BC89Du, 0x7AA07CD3u), uint4(0xAF642BA9u, 0xA8F2213Bu, 0x9F3FDC37u, 0xAC60D0C3u), v.c3));
         }
+
     }
 }

@@ -1,4 +1,5 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
@@ -89,6 +90,12 @@ namespace Unity.Mathematics
         public static bool3x3 operator ^ (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ^ (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("bool3x3({0}, {1}, {2},  {3}, {4}, {5},  {6}, {7}, {8})", c0.x, c1.x, c2.x, c0.y, c1.y, c2.y, c0.z, c1.z, c2.z);
+        }
+
 
     }
 
@@ -114,5 +121,6 @@ namespace Unity.Mathematics
                         select(uint3(0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu), uint3(0x68EEE0F5u, 0xBC3B0A59u, 0x816EFB5Du), v.c1) + 
                         select(uint3(0xA24E82B7u, 0x45A22087u, 0xFC104C3Bu), uint3(0x5FFF6B19u, 0x5E6CBF3Bu, 0xB546F2A5u), v.c2));
         }
+
     }
 }

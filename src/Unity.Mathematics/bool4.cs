@@ -45,11 +45,6 @@ namespace Unity.Mathematics
         {
             return new bool4(d);
         }
-
-        public override string ToString()
-        {
-            return string.Format("bool4({0}, {1}, {2}, {3})", x, y, z, w);
-        }
     }
 }
 

@@ -38,11 +38,6 @@ namespace Unity.Mathematics
         {
             return new bool3(d);
         }
-
-        public override string ToString()
-        {
-            return string.Format("bool3({0}, {1}, {2})", x, y, z);
-        }
     }
 }
 

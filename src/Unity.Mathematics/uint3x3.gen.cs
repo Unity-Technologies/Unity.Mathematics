@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct uint3x3 : System.IEquatable<uint3x3>
+    public partial struct uint3x3 : System.IEquatable<uint3x3>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -68,9 +69,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator ++ (uint3x3 val) { return new uint3x3 (++val.c0, ++val.c1, ++val.c2); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator -- (uint3x3 val) { return new uint3x3 (--val.c0, --val.c1, --val.c2); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator < (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2); }
@@ -102,9 +107,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator - (uint3x3 val) { return new uint3x3 (-val.c0, -val.c1, -val.c2); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator + (uint3x3 val) { return new uint3x3 (+val.c0, +val.c1, +val.c2); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator << (uint3x3 lhs, int rhs) { return new uint3x3 (lhs.c0 << rhs, lhs.c1 << rhs, lhs.c2 << rhs); }
@@ -181,6 +190,20 @@ namespace Unity.Mathematics
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 operator ~ (uint3x3 val) { return new uint3x3 (~val.c0, ~val.c1, ~val.c2); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("uint3x3({0}, {1}, {2},  {3}, {4}, {5},  {6}, {7}, {8})", c0.x, c1.x, c2.x, c0.y, c1.y, c2.y, c0.z, c1.z, c2.z);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("uint3x3({0}, {1}, {2},  {3}, {4}, {5},  {6}, {7}, {8})", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c2.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider), c2.y.ToString(format, formatProvider), c0.z.ToString(format, formatProvider), c1.z.ToString(format, formatProvider), c2.z.ToString(format, formatProvider));
+        }
+
+
     }
 
     public static partial class math
@@ -205,5 +228,6 @@ namespace Unity.Mathematics
                         v.c1 * uint3(0x5B419C01u, 0x515D90F5u, 0xEC9F68F3u) + 
                         v.c2 * uint3(0xF9EA92D5u, 0xC2FAFCB9u, 0x616E9CA1u)) + 0xC5C5394Bu;
         }
+
     }
 }

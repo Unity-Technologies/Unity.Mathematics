@@ -1,4 +1,5 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
@@ -313,6 +314,12 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("bool2({0}, {1})", x, y);
+        }
+
 
     }
 
@@ -329,5 +336,6 @@ namespace Unity.Mathematics
         {
             return csum(select(uint2(0x9D23B201u, 0x4B01D3E1u), uint2(0x7461CA0Du, 0x79725379u), v));
         }
+
     }
 }

@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct float4 : System.IEquatable<float4>
+    public partial struct float4 : System.IEquatable<float4>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -122,9 +123,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 operator ++ (float4 val) { return new float4 (++val.x, ++val.y, ++val.z, ++val.w); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 operator -- (float4 val) { return new float4 (--val.x, --val.y, --val.z, --val.w); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (float4 lhs, float4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
@@ -156,9 +161,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 operator - (float4 val) { return new float4 (-val.x, -val.y, -val.z, -val.w); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 operator + (float4 val) { return new float4 (+val.x, +val.y, +val.z, +val.w); }
+
+
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (float4 lhs, float4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
@@ -3007,6 +3016,18 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("float4({0}f, {1}f, {2}f, {3}f)", x, y, z, w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("float4({0}f, {1}f, {2}f, {3}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -3041,5 +3062,6 @@ namespace Unity.Mathematics
         {
             return csum(asuint(v) * uint4(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u, 0xCC74B3B7u)) + 0x83B58237u;
         }
+
     }
 }

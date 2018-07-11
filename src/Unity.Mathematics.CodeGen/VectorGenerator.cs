@@ -161,18 +161,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder mathStr = new StringBuilder();
 
             str.Append("// GENERATED CODE\n");
+            str.Append("using System;\n");
             str.Append("using System.Runtime.CompilerServices;\n");
             str.Append("#pragma warning disable 0660, 0661\n");
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
-            str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>\n", m_TypeName);
-            str.Append("\t{\n");
+            str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>", m_TypeName);
+            if (m_BaseType != "bool")
+                str.Append(", IFormattable");
+            str.Append("\n\t{\n");
 
             GenerateConstructors(str, mathStr);
             GenerateOperators(str);
             GenerateHashFunction(mathStr);
             if(m_Columns == 1)
                 GenerateSwizzles(str);
+
+            GenerateToStringFunction(str, false);
+            if(m_BaseType != "bool")
+                GenerateToStringFunction(str, true);
 
             str.Append("\n\t}\n\n");
 
@@ -586,7 +593,54 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.AppendFormat(") + 0x{0:X}u;\n", m_primes[nextPrime++]);
             }
             
-            str.Append("\t\t}\n");
+            str.Append("\t\t}\n\n");
+        }
+
+        public void GenerateToStringFunction(StringBuilder str, bool useFormat)
+        {
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            if(useFormat)
+                str.Append("\t\tpublic string ToString(string format, IFormatProvider formatProvider)\n\t\t{\n");
+            else
+                str.Append("\t\tpublic override string ToString()\n\t\t{\n");
+
+            str.AppendFormat("\t\t\treturn string.Format(\"{0}(", m_TypeName);
+            for (int row = 0; row < m_Rows; row++)
+            {
+                for (int column = 0; column < m_Columns; column++)
+                {
+                    int idx = row * m_Columns + column;
+                    if (idx > 0)
+                    {
+                        str.Append(", ");
+                        if (m_Columns > 1 && column == 0)
+                            str.Append(" ");
+                    }
+                    str.AppendFormat("{{{0}}}", idx);
+                    if (m_BaseType == "float")
+                        str.Append("f");
+                }
+            }
+            str.Append(")\", ");
+            
+            for (int row = 0; row < m_Rows; row++)
+            {
+                for (int column = 0; column < m_Columns; column++)
+                {
+                    int idx = row * m_Columns + column;
+                    if (idx > 0)
+                        str.Append(", ");
+                    if(m_Columns > 1)
+                        str.Append(matrixFields[column] + "." + vectorFields[row]);
+                    else
+                        str.Append(vectorFields[row]);
+                    if (useFormat)
+                        str.Append(".ToString(format, formatProvider)");
+                }
+            }
+
+            str.Append(");\n");
+            str.Append("\t\t}\n\n");
         }
 
         void GenerateBinaryOperator(int rows, int columns, string op, string resultType, StringBuilder str)
@@ -749,7 +803,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(", ");
             }
 
-            str.Append("); }");
+            str.Append("); }\n");
         }
 
         void GenerateSwizzles(StringBuilder str)
@@ -970,7 +1024,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void TestOperator(StringBuilder str, bool lhsWide, bool rhsWide, string lhsType, string rhsType, string returnType, string op, string opName, bool isBinary, bool isPrefix)
         {
-            var rnd = new Random();
+            var rnd = new Random(opName.GetHashCode());
 
             //if (m_Columns == 1)
             {
@@ -1237,3 +1291,5 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 //TODO: what about operator '?', '&&', '||'. cannot be overloaded in C#!
 //TODO: +=? yes: this should work automatically
 //TODO: prefix/postfix ++/-- 
+                             
+                             

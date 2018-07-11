@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct int4x4 : System.IEquatable<int4x4>
+    public partial struct int4x4 : System.IEquatable<int4x4>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -71,9 +72,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator ++ (int4x4 val) { return new int4x4 (++val.c0, ++val.c1, ++val.c2, ++val.c3); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator -- (int4x4 val) { return new int4x4 (--val.c0, --val.c1, --val.c2, --val.c3); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (int4x4 lhs, int4x4 rhs) { return new bool4x4 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2, lhs.c3 < rhs.c3); }
@@ -105,9 +110,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator - (int4x4 val) { return new int4x4 (-val.c0, -val.c1, -val.c2, -val.c3); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator + (int4x4 val) { return new int4x4 (+val.c0, +val.c1, +val.c2, +val.c3); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator << (int4x4 lhs, int rhs) { return new int4x4 (lhs.c0 << rhs, lhs.c1 << rhs, lhs.c2 << rhs, lhs.c3 << rhs); }
@@ -184,6 +193,20 @@ namespace Unity.Mathematics
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 operator ~ (int4x4 val) { return new int4x4 (~val.c0, ~val.c1, ~val.c2, ~val.c3); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("int4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x, c1.x, c2.x, c3.x, c0.y, c1.y, c2.y, c3.y, c0.z, c1.z, c2.z, c3.z, c0.w, c1.w, c2.w, c3.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("int4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c2.x.ToString(format, formatProvider), c3.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider), c2.y.ToString(format, formatProvider), c3.y.ToString(format, formatProvider), c0.z.ToString(format, formatProvider), c1.z.ToString(format, formatProvider), c2.z.ToString(format, formatProvider), c3.z.ToString(format, formatProvider), c0.w.ToString(format, formatProvider), c1.w.ToString(format, formatProvider), c2.w.ToString(format, formatProvider), c3.w.ToString(format, formatProvider));
+        }
+
+
     }
 
     public static partial class math
@@ -211,5 +234,6 @@ namespace Unity.Mathematics
                         asuint(v.c2) * uint4(0x4111F799u, 0xB5F05AF1u, 0xFD80290Bu, 0x8B65ADB7u) + 
                         asuint(v.c3) * uint4(0xDFF4F563u, 0x7069770Du, 0xD1224537u, 0xE99ED6F3u)) + 0x48125549u;
         }
+
     }
 }

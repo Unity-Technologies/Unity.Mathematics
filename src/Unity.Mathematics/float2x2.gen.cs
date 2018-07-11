@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct float2x2 : System.IEquatable<float2x2>
+    public partial struct float2x2 : System.IEquatable<float2x2>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -65,9 +66,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 operator ++ (float2x2 val) { return new float2x2 (++val.c0, ++val.c1); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 operator -- (float2x2 val) { return new float2x2 (--val.c0, --val.c1); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }
@@ -99,9 +104,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 operator - (float2x2 val) { return new float2x2 (-val.c0, -val.c1); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 operator + (float2x2 val) { return new float2x2 (+val.c0, +val.c1); }
+
+
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator == (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
@@ -142,6 +151,18 @@ namespace Unity.Mathematics
                 fixed (float2* array = &c0) { array[index] = value; }
             }
         }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("float2x2({0}f, {1}f,  {2}f, {3}f)", c0.x, c1.x, c0.y, c1.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("float2x2({0}f, {1}f,  {2}f, {3}f)", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -164,5 +185,6 @@ namespace Unity.Mathematics
             return csum(asuint(v.c0) * uint2(0x833E3E29u, 0xA9D919BFu) + 
                         asuint(v.c1) * uint2(0xC3EC1D97u, 0xB8B208C7u)) + 0x5D3ED947u;
         }
+
     }
 }

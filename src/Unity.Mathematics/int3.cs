@@ -44,12 +44,6 @@ namespace Unity.Mathematics
         public static explicit operator int3(float3 d) { return new int3((int)d.x, (int)d.y, (int)d.z); }
 
         public static readonly int3 zero = new int3(0, 0, 0);
-
-        public override string ToString()
-        {
-            return string.Format("int3({0}, {1}, {2})", x, y, z);
-        }
-
     }
 }
 

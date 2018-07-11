@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct int2 : System.IEquatable<int2>
+    public partial struct int2 : System.IEquatable<int2>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -64,9 +65,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator ++ (int2 val) { return new int2 (++val.x, ++val.y); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator -- (int2 val) { return new int2 (--val.x, --val.y); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (int2 lhs, int2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
@@ -98,9 +103,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator - (int2 val) { return new int2 (-val.x, -val.y); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator + (int2 val) { return new int2 (+val.x, +val.y); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator << (int2 lhs, int rhs) { return new int2 (lhs.x << rhs, lhs.y << rhs); }
@@ -176,7 +185,9 @@ namespace Unity.Mathematics
 
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 operator ~ (int2 val) { return new int2 (~val.x, ~val.y); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public static int2 operator ~ (int2 val) { return new int2 (~val.x, ~val.y); }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public int4 xxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -404,6 +415,18 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("int2({0}, {1})", x, y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("int2({0}, {1})", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -420,5 +443,6 @@ namespace Unity.Mathematics
         {
             return csum(asuint(v) * uint2(0x614DA60Du, 0x5BA2C50Bu)) + 0x8C455ACBu;
         }
+
     }
 }

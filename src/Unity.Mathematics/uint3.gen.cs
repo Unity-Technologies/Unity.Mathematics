@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct uint3 : System.IEquatable<uint3>
+    public partial struct uint3 : System.IEquatable<uint3>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -82,9 +83,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator ++ (uint3 val) { return new uint3 (++val.x, ++val.y, ++val.z); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator -- (uint3 val) { return new uint3 (--val.x, --val.y, --val.z); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator < (uint3 lhs, uint3 rhs) { return new bool3 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z); }
@@ -116,9 +121,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator - (uint3 val) { return new uint3 ((uint)-val.x, (uint)-val.y, (uint)-val.z); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator + (uint3 val) { return new uint3 (+val.x, +val.y, +val.z); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 operator << (uint3 lhs, int rhs) { return new uint3 (lhs.x << rhs, lhs.y << rhs, lhs.z << rhs); }
@@ -194,7 +203,9 @@ namespace Unity.Mathematics
 
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 operator ~ (uint3 val) { return new uint3 (~val.x, ~val.y, ~val.z); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public static uint3 operator ~ (uint3 val) { return new uint3 (~val.x, ~val.y, ~val.z); }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1154,6 +1165,18 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("uint3({0}, {1}, {2})", x, y, z);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("uint3({0}, {1}, {2})", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -1176,5 +1199,6 @@ namespace Unity.Mathematics
         {
             return csum(v * uint3(0x7BE39F3Bu, 0xFAB9913Fu, 0xB4501269u)) + 0xE04B89FDu;
         }
+
     }
 }

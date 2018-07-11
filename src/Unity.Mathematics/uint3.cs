@@ -44,11 +44,6 @@ namespace Unity.Mathematics
         public static explicit operator uint3(float3 d) { return new uint3(d); }
 
         public static readonly uint3 zero = new uint3(0, 0, 0);
-
-        public override string ToString()
-        {
-            return string.Format("uint3({0}, {1}, {2})", x, y, z);
-        }
     }
 
     public static partial class math

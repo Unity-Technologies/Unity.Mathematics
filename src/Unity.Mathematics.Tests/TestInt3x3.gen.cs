@@ -9,23 +9,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_equal_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
+            int3x3 a0 = int3x3(2105871082, 35218899, 1550755093);
+            int3x3 b0 = int3x3(1477587886, 579629692, 540974792);
             bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
+            int3x3 a1 = int3x3(764676020, 606743782, 1208156098);
+            int3x3 b1 = int3x3(208405066, 2063397938, 1060167409);
             bool3x3 r1 = bool3x3(false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
+            int3x3 a2 = int3x3(1023640014, 1038468316, 1416064367);
+            int3x3 b2 = int3x3(362592601, 2097545362, 277670088);
             bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
+            int3x3 a3 = int3x3(727143393, 2061243891, 184669837);
+            int3x3 b3 = int3x3(426944490, 901076223, 857900673);
             bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -33,23 +33,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_equal_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
+            int3x3 a0 = int3x3(437822262, 2020661134, 541786900);
+            int b0 = (1332833578);
             bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
+            int3x3 a1 = int3x3(853113810, 179951405, 1409026299);
+            int b1 = (23716499);
             bool3x3 r1 = bool3x3(false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
+            int3x3 a2 = int3x3(948838849, 691955848, 1926262965);
+            int b2 = (953202998);
             bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
+            int3x3 a3 = int3x3(1851546137, 2028784869, 1049962241);
+            int b3 = (712957637);
             bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -57,23 +57,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_equal_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
+            int a0 = (542329200);
+            int3x3 b0 = int3x3(1115584594, 684107773, 1928988941);
             bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
+            int a1 = (890709324);
+            int3x3 b1 = int3x3(641152437, 1410341302, 497505660);
             bool3x3 r1 = bool3x3(false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
+            int a2 = (1068223109);
+            int3x3 b2 = int3x3(2014009435, 213835595, 1592428361);
             bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
+            int a3 = (1819361470);
+            int3x3 b3 = int3x3(448650623, 1942175642, 64377057);
             bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -81,23 +81,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_not_equal_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
+            int3x3 a0 = int3x3(1977284100, 1293292704, 1547283851);
+            int3x3 b0 = int3x3(1514195556, 957972049, 507667364);
             bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
+            int3x3 a1 = int3x3(422428953, 195833190, 1711544892);
+            int3x3 b1 = int3x3(581861672, 1128094576, 940096636);
             bool3x3 r1 = bool3x3(true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
+            int3x3 a2 = int3x3(5606053, 737069074, 647386678);
+            int3x3 b2 = int3x3(57559040, 181752616, 962017320);
             bool3x3 r2 = bool3x3(true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
+            int3x3 a3 = int3x3(13079405, 1413841590, 1076166545);
+            int3x3 b3 = int3x3(1762015406, 1107218953, 2042026522);
             bool3x3 r3 = bool3x3(true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -105,23 +105,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_not_equal_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
+            int3x3 a0 = int3x3(1038269360, 1427812625, 103361237);
+            int b0 = (768873026);
             bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
+            int3x3 a1 = int3x3(1347017023, 150442802, 660334527);
+            int b1 = (1523584313);
             bool3x3 r1 = bool3x3(true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
+            int3x3 a2 = int3x3(719113717, 484398043, 506946952);
+            int b2 = (262959423);
             bool3x3 r2 = bool3x3(true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
+            int3x3 a3 = int3x3(226568494, 1702162286, 923269270);
+            int b3 = (507918242);
             bool3x3 r3 = bool3x3(true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -129,23 +129,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_not_equal_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
+            int a0 = (1652127596);
+            int3x3 b0 = int3x3(953791238, 271722683, 1278885987);
             bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
+            int a1 = (735128017);
+            int3x3 b1 = int3x3(112416504, 25967222, 1761444475);
             bool3x3 r1 = bool3x3(true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
+            int a2 = (1844594536);
+            int3x3 b2 = int3x3(1199122922, 634219279, 942501101);
             bool3x3 r2 = bool3x3(true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
+            int a3 = (67161343);
+            int3x3 b3 = int3x3(969944293, 833229499, 1304301133);
             bool3x3 r3 = bool3x3(true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -153,23 +153,23 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_less_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            bool3x3 r0 = bool3x3(true, false, true);
+            int3x3 a0 = int3x3(1486550609, 1779244308, 1602148045);
+            int3x3 b0 = int3x3(97842578, 536551311, 413528975);
+            bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            bool3x3 r1 = bool3x3(true, true, true);
+            int3x3 a1 = int3x3(1614085440, 1975613414, 942838342);
+            int3x3 b1 = int3x3(1838293684, 1283898480, 1456599961);
+            bool3x3 r1 = bool3x3(true, false, true);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            bool3x3 r2 = bool3x3(true, false, true);
+            int3x3 a2 = int3x3(1092279031, 373677431, 1419098312);
+            int3x3 b2 = int3x3(1080278602, 529676676, 156584048);
+            bool3x3 r2 = bool3x3(false, true, false);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
+            int3x3 a3 = int3x3(337757077, 1081797900, 1336745069);
+            int3x3 b3 = int3x3(117348799, 246927124, 1916615924);
             bool3x3 r3 = bool3x3(false, false, true);
             TestUtils.AreEqual(a3 < b3, r3);
         }
@@ -177,95 +177,95 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_less_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            bool3x3 r0 = bool3x3(true, true, true);
+            int3x3 a0 = int3x3(796797557, 670113454, 933579492);
+            int b0 = (746564682);
+            bool3x3 r0 = bool3x3(false, true, false);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            bool3x3 r1 = bool3x3(true, true, false);
+            int3x3 a1 = int3x3(278884514, 1117630673, 741886928);
+            int b1 = (318174822);
+            bool3x3 r1 = bool3x3(true, false, false);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            bool3x3 r2 = bool3x3(true, true, true);
+            int3x3 a2 = int3x3(1990922600, 1546212312, 1718582899);
+            int b2 = (1030849597);
+            bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            bool3x3 r3 = bool3x3(true, true, true);
+            int3x3 a3 = int3x3(1648393417, 1909506562, 1294006045);
+            int b3 = (1857132231);
+            bool3x3 r3 = bool3x3(true, false, true);
             TestUtils.AreEqual(a3 < b3, r3);
         }
 
         [Test]
         public void int3x3_operator_less_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
+            int a0 = (186400299);
+            int3x3 b0 = int3x3(1881344229, 813834467, 1254886626);
             bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            bool3x3 r1 = bool3x3(true, false, true);
+            int a1 = (1353590345);
+            int3x3 b1 = int3x3(1412343685, 1555571443, 1540508298);
+            bool3x3 r1 = bool3x3(true, true, true);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            bool3x3 r2 = bool3x3(true, false, false);
+            int a2 = (1735458634);
+            int3x3 b2 = int3x3(135888070, 1643818742, 248291654);
+            bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            bool3x3 r3 = bool3x3(true, false, false);
+            int a3 = (1739560105);
+            int3x3 b3 = int3x3(728539891, 480507742, 1696553040);
+            bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 < b3, r3);
         }
 
         [Test]
         public void int3x3_operator_greater_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            bool3x3 r0 = bool3x3(false, true, false);
+            int3x3 a0 = int3x3(2087717754, 1725569452, 1298066182);
+            int3x3 b0 = int3x3(85148514, 293632137, 1151128249);
+            bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            bool3x3 r1 = bool3x3(false, false, false);
+            int3x3 a1 = int3x3(1693943616, 1319019629, 70674491);
+            int3x3 b1 = int3x3(409440398, 1115020183, 1508500597);
+            bool3x3 r1 = bool3x3(true, true, false);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            bool3x3 r2 = bool3x3(false, true, false);
+            int3x3 a2 = int3x3(1042499725, 1002821508, 1021857133);
+            int3x3 b2 = int3x3(1834583302, 1755218534, 1788761753);
+            bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            bool3x3 r3 = bool3x3(true, true, false);
+            int3x3 a3 = int3x3(1744374599, 821751047, 467646903);
+            int3x3 b3 = int3x3(1128238489, 834223713, 1578743290);
+            bool3x3 r3 = bool3x3(true, false, false);
             TestUtils.AreEqual(a3 > b3, r3);
         }
 
         [Test]
         public void int3x3_operator_greater_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            bool3x3 r0 = bool3x3(false, false, false);
+            int3x3 a0 = int3x3(1208626274, 239697208, 1979453345);
+            int b0 = (1715176566);
+            bool3x3 r0 = bool3x3(false, false, true);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
+            int3x3 a1 = int3x3(1253474001, 1487911635, 1673945595);
+            int b1 = (1590192876);
             bool3x3 r1 = bool3x3(false, false, true);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            bool3x3 r2 = bool3x3(false, false, false);
+            int3x3 a2 = int3x3(1662650098, 1433540517, 566635217);
+            int b2 = (222749855);
+            bool3x3 r2 = bool3x3(true, true, true);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
+            int3x3 a3 = int3x3(1773305960, 206147145, 325913453);
+            int b3 = (1850273578);
             bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 > b3, r3);
         }
@@ -273,932 +273,932 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void int3x3_operator_greater_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
+            int a0 = (480938827);
+            int3x3 b0 = int3x3(1824731899, 921496110, 586859044);
             bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            bool3x3 r1 = bool3x3(false, true, false);
+            int a1 = (946430596);
+            int3x3 b1 = int3x3(1231356727, 1390167458, 1785807092);
+            bool3x3 r1 = bool3x3(false, false, false);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            bool3x3 r2 = bool3x3(false, true, true);
+            int a2 = (28949024);
+            int3x3 b2 = int3x3(2037899283, 595656760, 1778095771);
+            bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            bool3x3 r3 = bool3x3(false, true, true);
+            int a3 = (1233500439);
+            int3x3 b3 = int3x3(1696302238, 1445965340, 484020151);
+            bool3x3 r3 = bool3x3(false, false, true);
             TestUtils.AreEqual(a3 > b3, r3);
         }
 
         [Test]
         public void int3x3_operator_less_equal_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            bool3x3 r0 = bool3x3(true, false, true);
+            int3x3 a0 = int3x3(154092149, 1515170149, 1083970332);
+            int3x3 b0 = int3x3(77984380, 1712054191, 1566203809);
+            bool3x3 r0 = bool3x3(false, true, true);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            bool3x3 r1 = bool3x3(true, true, true);
+            int3x3 a1 = int3x3(785807178, 1401094881, 310537627);
+            int3x3 b1 = int3x3(254834519, 450519938, 389457083);
+            bool3x3 r1 = bool3x3(false, false, true);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            bool3x3 r2 = bool3x3(true, false, true);
+            int3x3 a2 = int3x3(868328962, 1990816725, 2035349541);
+            int3x3 b2 = int3x3(1298669505, 207343167, 1214449047);
+            bool3x3 r2 = bool3x3(true, false, false);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            bool3x3 r3 = bool3x3(false, false, true);
+            int3x3 a3 = int3x3(457043352, 1123282035, 1001842946);
+            int3x3 b3 = int3x3(2059561026, 896534357, 1897470050);
+            bool3x3 r3 = bool3x3(true, false, true);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_less_equal_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
+            int3x3 a0 = int3x3(1479531977, 1427983411, 415250630);
+            int b0 = (2004563877);
             bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            bool3x3 r1 = bool3x3(true, true, false);
+            int3x3 a1 = int3x3(1245345407, 1072990632, 1579912858);
+            int b1 = (1112546666);
+            bool3x3 r1 = bool3x3(false, true, false);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            bool3x3 r2 = bool3x3(true, true, true);
+            int3x3 a2 = int3x3(101048307, 509818792, 1910488590);
+            int b2 = (1070894375);
+            bool3x3 r2 = bool3x3(true, true, false);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            bool3x3 r3 = bool3x3(true, true, true);
+            int3x3 a3 = int3x3(85452501, 1246249980, 1097326500);
+            int b3 = (518127023);
+            bool3x3 r3 = bool3x3(true, false, false);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_less_equal_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            bool3x3 r0 = bool3x3(true, true, true);
+            int a0 = (1899193992);
+            int3x3 b0 = int3x3(915011820, 980913757, 1337699683);
+            bool3x3 r0 = bool3x3(false, false, false);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            bool3x3 r1 = bool3x3(true, false, true);
+            int a1 = (1476321359);
+            int3x3 b1 = int3x3(1102143668, 660493983, 184664508);
+            bool3x3 r1 = bool3x3(false, false, false);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            bool3x3 r2 = bool3x3(true, false, false);
+            int a2 = (381579707);
+            int3x3 b2 = int3x3(1954892821, 1295090571, 1440368586);
+            bool3x3 r2 = bool3x3(true, true, true);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            bool3x3 r3 = bool3x3(true, false, false);
+            int a3 = (1696003686);
+            int3x3 b3 = int3x3(88708652, 1332251857, 1310713644);
+            bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_greater_equal_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
+            int3x3 a0 = int3x3(8538378, 2131749726, 265427108);
+            int3x3 b0 = int3x3(903145828, 1697992986, 1432491982);
             bool3x3 r0 = bool3x3(false, true, false);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            bool3x3 r1 = bool3x3(false, false, false);
+            int3x3 a1 = int3x3(523609761, 994991818, 839709564);
+            int3x3 b1 = int3x3(169789504, 1059357300, 1744255222);
+            bool3x3 r1 = bool3x3(true, false, false);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            bool3x3 r2 = bool3x3(false, true, false);
+            int3x3 a2 = int3x3(101288202, 1886280970, 2032074826);
+            int3x3 b2 = int3x3(1606584463, 1905414425, 1448794969);
+            bool3x3 r2 = bool3x3(false, false, true);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            bool3x3 r3 = bool3x3(true, true, false);
+            int3x3 a3 = int3x3(631221455, 1456286159, 961342752);
+            int3x3 b3 = int3x3(136181998, 1678754836, 2069656857);
+            bool3x3 r3 = bool3x3(true, false, false);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_greater_equal_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            bool3x3 r0 = bool3x3(false, false, false);
+            int3x3 a0 = int3x3(2049236663, 182691143, 634973382);
+            int b0 = (1061998015);
+            bool3x3 r0 = bool3x3(true, false, false);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            bool3x3 r1 = bool3x3(false, false, true);
+            int3x3 a1 = int3x3(1197012109, 1367606469, 1108037359);
+            int b1 = (439837565);
+            bool3x3 r1 = bool3x3(true, true, true);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            bool3x3 r2 = bool3x3(false, false, false);
+            int3x3 a2 = int3x3(351147187, 411667685, 1998610091);
+            int b2 = (1898505669);
+            bool3x3 r2 = bool3x3(false, false, true);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            bool3x3 r3 = bool3x3(false, false, false);
+            int3x3 a3 = int3x3(4652390, 2111455181, 727766399);
+            int b3 = (996159180);
+            bool3x3 r3 = bool3x3(false, true, false);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_greater_equal_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            bool3x3 r0 = bool3x3(false, false, false);
+            int a0 = (1859811087);
+            int3x3 b0 = int3x3(1070365918, 1783869452, 830091760);
+            bool3x3 r0 = bool3x3(true, true, true);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            bool3x3 r1 = bool3x3(false, true, false);
+            int a1 = (377157428);
+            int3x3 b1 = int3x3(327199016, 90384229, 1154649706);
+            bool3x3 r1 = bool3x3(true, true, false);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            bool3x3 r2 = bool3x3(false, true, true);
+            int a2 = (376758501);
+            int3x3 b2 = int3x3(1079802834, 2054742898, 1328349472);
+            bool3x3 r2 = bool3x3(false, false, false);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            bool3x3 r3 = bool3x3(false, true, true);
+            int a3 = (434061447);
+            int3x3 b3 = int3x3(951207723, 598695892, 975131651);
+            bool3x3 r3 = bool3x3(false, false, false);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [Test]
         public void int3x3_operator_add_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(1638549167, 1437503237, 1953846612);
+            int3x3 a0 = int3x3(2135171378, 21433296, 1954723494);
+            int3x3 b0 = int3x3(1013431952, 366718162, 359290756);
+            int3x3 r0 = int3x3(-1146363966, 388151458, -1980953046);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(1753603824, -1862196613, 173924783);
+            int3x3 a1 = int3x3(683604307, 1054212315, 1762680995);
+            int3x3 b1 = int3x3(1393163294, 1962236872, 1263270041);
+            int3x3 r1 = int3x3(2076767601, -1278518109, -1269016260);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(-110147541, 1395204592, 1675334536);
+            int3x3 a2 = int3x3(1963655852, 1257853062, 2043493600);
+            int3x3 b2 = int3x3(1862666629, 1077447887, 821693806);
+            int3x3 r2 = int3x3(-468644815, -1959666347, -1429779890);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(1767128423, 1517997481, -2105654402);
+            int3x3 a3 = int3x3(976898058, 1915056423, 121374462);
+            int3x3 b3 = int3x3(487316539, 350922520, 1583012528);
+            int3x3 r3 = int3x3(1464214597, -2028988353, 1704386990);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [Test]
         public void int3x3_operator_add_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(1638549167, -1886437556, 1751554611);
+            int3x3 a0 = int3x3(665815972, 1783729250, 1591678394);
+            int b0 = (1334043849);
+            int3x3 r0 = int3x3(1999859821, -1177194197, -1369245053);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(1953846612, 1679437663, -1066416913);
+            int3x3 a1 = int3x3(1284528538, 71069732, 1138577680);
+            int b1 = (977850224);
+            int3x3 r1 = int3x3(-2032588534, 1048919956, 2116427904);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(-1862196613, 1410241135, 1505374452);
+            int3x3 a2 = int3x3(1200356017, 1246759684, 1088001167);
+            int b2 = (565982008);
+            int3x3 r2 = int3x3(1766338025, 1812741692, 1653983175);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(-110147541, -1167652157, -1752305583);
+            int3x3 a3 = int3x3(57252642, 625943813, 512157429);
+            int b3 = (678921480);
+            int3x3 r3 = int3x3(736174122, 1304865293, 1191078909);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [Test]
         public void int3x3_operator_add_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(1638549167, 1324497793, 667522664);
+            int a0 = (359966320);
+            int3x3 b0 = int3x3(2146146202, 767103309, 851002415);
+            int3x3 r0 = int3x3(-1788854774, 1127069629, 1210968735);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(1953846612, 478900053, 2028012773);
+            int a1 = (311531406);
+            int3x3 b1 = int3x3(1491262941, 1016891373, 1954228994);
+            int3x3 r1 = int3x3(1802794347, 1328422779, -2029206896);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(-1862196613, 1101321014, 1196454331);
+            int a2 = (1671335850);
+            int3x3 b2 = int3x3(727870747, 551151834, 1390261152);
+            int3x3 r2 = int3x3(-1895760699, -2072479612, -1233370294);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(-110147541, -1257604662, -1842258088);
+            int a3 = (1699060326);
+            int3x3 b3 = int3x3(115021619, 1964440175, 440700758);
+            int3x3 r3 = int3x3(1814081945, -631466795, 2139761084);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [Test]
         public void int3x3_operator_sub_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(-1084031947, 656975129, -1200537610);
+            int3x3 a0 = int3x3(1410318491, 1097280168, 1827039044);
+            int3x3 b0 = int3x3(1315897366, 799052018, 1580289673);
+            int3x3 r0 = int3x3(94421125, 298228150, 246749371);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(-1549112720, -308920121, -95133317);
+            int3x3 a1 = int3x3(28881338, 328720965, 875487868);
+            int3x3 b1 = int3x3(1094686261, 1954325726, 1197734816);
+            int3x3 r1 = int3x3(-1065804923, -1625604761, -322246948);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(-89952505, 584653426, -865247740);
+            int3x3 a2 = int3x3(212936325, 231977215, 1740021315);
+            int3x3 b2 = int3x3(229886366, 915679176, 1746884850);
+            int3x3 r2 = int3x3(-16950041, -683701961, -6863535);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(1388036865, 110190991, -1366250370);
+            int3x3 a3 = int3x3(2011295463, 48079003, 591379285);
+            int3x3 b3 = int3x3(918743925, 1007797419, 257421324);
+            int3x3 r3 = int3x3(1092551538, -959718416, 333957961);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [Test]
         public void int3x3_operator_sub_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(-1084031947, -314051374, -971026503);
+            int3x3 a0 = int3x3(1508669340, 1594795463, 266707545);
+            int b0 = (998008471);
+            int3x3 r0 = int3x3(510660869, 596786992, -731300926);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(-1200537610, -1474946559, 74166161);
+            int3x3 a1 = int3x3(643102647, 1475644328, 1113286221);
+            int b1 = (287705008);
+            int3x3 r1 = int3x3(355397639, 1187939320, 825581213);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(-308920121, -1331449669, -1236316352);
+            int3x3 a2 = int3x3(979450511, 1108005498, 304369206);
+            int b2 = (2082174113);
+            int3x3 r2 = int3x3(-1102723602, -974168615, -1777804907);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(-89952505, -1147457121, -1732110547);
+            int3x3 a3 = int3x3(999244508, 1994553647, 2101812429);
+            int b3 = (1806482044);
+            int3x3 r3 = int3x3(-807237536, 188071603, 295330385);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [Test]
         public void int3x3_operator_sub_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(-1084031947, -769980573, -113005444);
+            int a0 = (893369501);
+            int3x3 b0 = int3x3(2051906184, 1699714311, 442603706);
+            int3x3 r0 = int3x3(-1158536683, -806344810, 450765795);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(-1200537610, 274408949, -1274703771);
+            int a1 = (1735141684);
+            int3x3 b1 = int3x3(274533585, 811580259, 1196354320);
+            int3x3 r1 = int3x3(1460608099, 923561425, 538787364);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(-308920121, 1022529548, 927396231);
+            int a2 = (1524097023);
+            int3x3 b2 = int3x3(533621527, 2080845793, 143958837);
+            int3x3 r2 = int3x3(990475496, -556748770, 1380138186);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(-89952505, 1057504616, 1642158042);
+            int a3 = (1620668660);
+            int3x3 b3 = int3x3(1135989346, 1367044745, 554088609);
+            int3x3 r3 = int3x3(484679314, 253623915, 1066580051);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mul_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(-625413590, -1692772758, 84179147);
+            int3x3 a0 = int3x3(61417577, 219585476, 1362520891);
+            int3x3 b0 = int3x3(578042444, 1620527213, 200516468);
+            int3x3 r0 = int3x3(-1426863828, 1326150260, -990894148);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(262212608, -1946111206, 1150363938);
+            int3x3 a1 = int3x3(1511084277, 1481211272, 58211871);
+            int3x3 b1 = int3x3(309339115, 542853019, 299467282);
+            int3x3 r1 = int3x3(-1322856473, 1973926232, 88546350);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(1143228738, 1490557327, 1467064844);
+            int3x3 a2 = int3x3(1459591173, 567624644, 1169935583);
+            int3x3 b2 = int3x3(1479641221, 1428338601, 1497302909);
+            int3x3 r2 = int3x3(-863919463, -582821788, 556671459);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(-283873700, 1212685036, 737569024);
+            int3x3 a3 = int3x3(1835691886, 385626539, 85934842);
+            int3x3 b3 = int3x3(1596889147, 427413842, 265122693);
+            int3x3 r3 = int3x3(1098186330, 1848083398, -58320414);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mul_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(-625413590, 150757523, 108588190);
+            int3x3 a0 = int3x3(871746615, 492532311, 570557670);
+            int b0 = (442064533);
+            int3x3 r0 = int3x3(338365955, 1081376419, -1729147426);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(84179147, 89125968, -2033659456);
+            int3x3 a1 = int3x3(2142306629, 1526163563, 118471734);
+            int b1 = (1610315153);
+            int3x3 r1 = int3x3(310198549, -1362883685, -1008711530);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(-1946111206, -504313630, -193399260);
+            int3x3 a2 = int3x3(257439514, 1186560810, 1584938026);
+            int b2 = (364291059);
+            int3x3 r2 = int3x3(172874670, 1029154526, 1917573598);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(1143228738, -422747150, -442419474);
+            int3x3 a3 = int3x3(1357601203, 268562104, 1007838321);
+            int b3 = (638897141);
+            int3x3 r3 = int3x3(-1520842417, -796565992, -1307329755);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mul_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(-625413590, 195561902, 279169932);
+            int a0 = (1152242766);
+            int3x3 b0 = int3x3(1276636134, 2105929407, 499007702);
+            int3x3 r0 = int3x3(-2129504236, 999811634, 1179056436);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(84179147, -2093316752, 1397721920);
+            int a1 = (124002565);
+            int3x3 b1 = int3x3(1956335172, 1288034953, 832676555);
+            int3x3 r1 = int3x3(-1162917036, 495775149, -227518217);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(-1946111206, -1678957643, 23906906);
+            int a2 = (337389733);
+            int3x3 b2 = int3x3(99268757, 2005055247, 2011389505);
+            int3x3 r2 = int3x3(1366048777, -1518447445, 794945509);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(1143228738, 320829001, -789175769);
+            int a3 = (1348110859);
+            int3x3 b3 = int3x3(399689191, 2007606374, 2076691289);
+            int3x3 r3 = int3x3(1743980269, 1120210018, 1383970515);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [Test]
         public void int3x3_operator_div_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(0, 2, 0);
+            int3x3 a0 = int3x3(333171510, 858154903, 1181365836);
+            int3x3 b0 = int3x3(698897823, 440199998, 655557473);
+            int3x3 r0 = int3x3(0, 1, 1);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(0, 0, 0);
+            int3x3 a1 = int3x3(671357749, 1090606752, 803759420);
+            int3x3 b1 = int3x3(1658534285, 2127220100, 315653188);
+            int3x3 r1 = int3x3(0, 0, 2);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(0, 2, 0);
+            int3x3 a2 = int3x3(788404166, 296807814, 575260195);
+            int3x3 b2 = int3x3(1814290360, 992173243, 914851653);
+            int3x3 r2 = int3x3(0, 0, 0);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(8, 1, 0);
+            int3x3 a3 = int3x3(166625280, 1493729000, 1831739736);
+            int3x3 b3 = int3x3(664340325, 224323977, 246981573);
+            int3x3 r3 = int3x3(0, 6, 7);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [Test]
         public void int3x3_operator_div_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
+            int3x3 a0 = int3x3(1433072926, 1073958635, 1195142312);
+            int b0 = (1434025872);
             int3x3 r0 = int3x3(0, 0, 0);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(0, 0, 1);
+            int3x3 a1 = int3x3(536596719, 464756346, 806462546);
+            int b1 = (1274375693);
+            int3x3 r1 = int3x3(0, 0, 0);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
+            int3x3 a2 = int3x3(906504670, 25493909, 1196815948);
+            int b2 = (1380905136);
             int3x3 r2 = int3x3(0, 0, 0);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(0, 0, 0);
+            int3x3 a3 = int3x3(123300377, 2084019932, 2047825037);
+            int b3 = (643754735);
+            int3x3 r3 = int3x3(0, 3, 3);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [Test]
         public void int3x3_operator_div_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(0, 0, 0);
+            int a0 = (519165704);
+            int3x3 b0 = int3x3(1295178177, 775214121, 467772046);
+            int3x3 r0 = int3x3(0, 0, 1);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(0, 3, 0);
+            int a1 = (1156881598);
+            int3x3 b1 = int3x3(310396565, 759759959, 243837702);
+            int3x3 r1 = int3x3(3, 1, 4);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(0, 26, 7);
+            int a2 = (1616314235);
+            int3x3 b2 = int3x3(1053470225, 1320630160, 378773841);
+            int3x3 r2 = int3x3(1, 1, 4);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(0, 2, 5);
+            int a3 = (4223608);
+            int3x3 b3 = int3x3(1971105754, 2054406020, 219939614);
+            int3x3 r3 = int3x3(0, 0, 0);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mod_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(277258610, 266711075, 376654501);
+            int3x3 a0 = int3x3(258342924, 1454754891, 723352342);
+            int3x3 b0 = int3x3(1990080167, 1197348066, 651970512);
+            int3x3 r0 = int3x3(258342924, 257406825, 71381830);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(102245552, 1061925281, 39395733);
+            int3x3 a1 = int3x3(1981431473, 531756042, 716993627);
+            int3x3 b1 = int3x3(1659454050, 241005212, 1866255454);
+            int3x3 r1 = int3x3(321977423, 49745618, 716993627);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(2047433625, 179377843, 405043398);
+            int3x3 a2 = int3x3(1667903349, 1331097004, 1776856101);
+            int3x3 b2 = int3x3(1440101415, 595220963, 408818410);
+            int3x3 r2 = int3x3(227801934, 140655078, 141582461);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(61216412, 110190991, 411531262);
+            int3x3 a3 = int3x3(17598216, 1474345080, 1681376293);
+            int3x3 b3 = int3x3(198222574, 549504274, 239973807);
+            int3x3 r3 = int3x3(17598216, 375336532, 1559644);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mod_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(277258610, 1047239183, 390264054);
+            int3x3 a0 = int3x3(560988938, 629524514, 767711194);
+            int b0 = (1156862367);
+            int3x3 r0 = int3x3(560988938, 629524514, 767711194);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(376654501, 102245552, 74166161);
+            int3x3 a1 = int3x3(434281967, 792916846, 1663690927);
+            int b1 = (1399805893);
+            int3x3 r1 = int3x3(434281967, 792916846, 263885034);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(1061925281, 39395733, 134529050);
+            int3x3 a2 = int3x3(598661916, 1287035793, 1743722161);
+            int b2 = (1776636144);
+            int3x3 r2 = int3x3(598661916, 1287035793, 1743722161);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(2047433625, 989929009, 405275583);
+            int3x3 a3 = int3x3(475209785, 1617696916, 379853074);
+            int b3 = (327476870);
+            int3x3 r3 = int3x3(147732915, 307789436, 52376204);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [Test]
         public void int3x3_operator_mod_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258610, 277258610, 277258610);
+            int a0 = (933347930);
+            int3x3 b0 = int3x3(549923387, 243114953, 1884274390);
+            int3x3 r0 = int3x3(383424543, 204003071, 933347930);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654501, 69917845, 376654501);
+            int a1 = (1428033594);
+            int3x3 b1 = int3x3(655531454, 1622674954, 1107563514);
+            int3x3 r1 = int3x3(116970686, 1428033594, 320470080);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925281, 37636223, 120221931);
+            int a2 = (1614111094);
+            int3x3 b2 = int3x3(914801920, 1432263179, 564431096);
+            int3x3 r2 = int3x3(699309174, 181847915, 485248902);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433625, 67575607, 21055710);
+            int a3 = (1967013901);
+            int3x3 b3 = int3x3(1709750152, 1080102613, 13120773);
+            int3x3 r3 = int3x3(257263749, 886911288, 12018724);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [Test]
         public void int3x3_operator_plus()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258610, 1047239183, 390264054);
+            int3x3 a0 = int3x3(195392567, 222719748, 1002351013);
+            int3x3 r0 = int3x3(195392567, 222719748, 1002351013);
             TestUtils.AreEqual(+a0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654501, 102245552, 1651358272);
+            int3x3 a1 = int3x3(1570765263, 1515950277, 1689763402);
+            int3x3 r1 = int3x3(1570765263, 1515950277, 1689763402);
             TestUtils.AreEqual(+a1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925281, 39395733, 134529050);
+            int3x3 a2 = int3x3(291471785, 1084131995, 195779102);
+            int3x3 r2 = int3x3(291471785, 1084131995, 195779102);
             TestUtils.AreEqual(+a2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433625, 989929009, 405275583);
+            int3x3 a3 = int3x3(2131702223, 1995564647, 69731564);
+            int3x3 r3 = int3x3(2131702223, 1995564647, 69731564);
             TestUtils.AreEqual(+a3, r3);
         }
 
         [Test]
         public void int3x3_operator_neg()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(-277258610, -1047239183, -390264054);
+            int3x3 a0 = int3x3(1385088677, 94114564, 1350664872);
+            int3x3 r0 = int3x3(-1385088677, -94114564, -1350664872);
             TestUtils.AreEqual(-a0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(-376654501, -102245552, -1651358272);
+            int3x3 a1 = int3x3(1458616659, 218122493, 958484951);
+            int3x3 r1 = int3x3(-1458616659, -218122493, -958484951);
             TestUtils.AreEqual(-a1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(-1061925281, -39395733, -134529050);
+            int3x3 a2 = int3x3(270553961, 270503114, 1928771252);
+            int3x3 r2 = int3x3(-270553961, -270503114, -1928771252);
             TestUtils.AreEqual(-a2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(-2047433625, -989929009, -405275583);
+            int3x3 a3 = int3x3(1427605822, 1434247484, 485368391);
+            int3x3 r3 = int3x3(-1427605822, -1434247484, -485368391);
             TestUtils.AreEqual(-a3, r3);
         }
 
         [Test]
         public void int3x3_operator_prefix_inc()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258611, 1047239184, 390264055);
+            int3x3 a0 = int3x3(780471723, 954741756, 272723451);
+            int3x3 r0 = int3x3(780471724, 954741757, 272723452);
             TestUtils.AreEqual(++a0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654502, 102245553, 1651358273);
+            int3x3 a1 = int3x3(2142862245, 1514814550, 250124151);
+            int3x3 r1 = int3x3(2142862246, 1514814551, 250124152);
             TestUtils.AreEqual(++a1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925282, 39395734, 134529051);
+            int3x3 a2 = int3x3(444189162, 1915989169, 1348278302);
+            int3x3 r2 = int3x3(444189163, 1915989170, 1348278303);
             TestUtils.AreEqual(++a2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433626, 989929010, 405275584);
+            int3x3 a3 = int3x3(129540735, 1170613526, 986715680);
+            int3x3 r3 = int3x3(129540736, 1170613527, 986715681);
             TestUtils.AreEqual(++a3, r3);
         }
 
         [Test]
         public void int3x3_operator_postfix_inc()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258610, 1047239183, 390264054);
+            int3x3 a0 = int3x3(241865086, 2145821641, 1596166022);
+            int3x3 r0 = int3x3(241865086, 2145821641, 1596166022);
             TestUtils.AreEqual(a0++, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654501, 102245552, 1651358272);
+            int3x3 a1 = int3x3(803592338, 1656767229, 903047443);
+            int3x3 r1 = int3x3(803592338, 1656767229, 903047443);
             TestUtils.AreEqual(a1++, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925281, 39395733, 134529050);
+            int3x3 a2 = int3x3(1213663244, 1384002775, 389844650);
+            int3x3 r2 = int3x3(1213663244, 1384002775, 389844650);
             TestUtils.AreEqual(a2++, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433625, 989929009, 405275583);
+            int3x3 a3 = int3x3(1159795446, 1227160199, 947635082);
+            int3x3 r3 = int3x3(1159795446, 1227160199, 947635082);
             TestUtils.AreEqual(a3++, r3);
         }
 
         [Test]
         public void int3x3_operator_prefix_dec()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258609, 1047239182, 390264053);
+            int3x3 a0 = int3x3(1331961415, 1612382200, 1401591249);
+            int3x3 r0 = int3x3(1331961414, 1612382199, 1401591248);
             TestUtils.AreEqual(--a0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654500, 102245551, 1651358271);
+            int3x3 a1 = int3x3(2042075388, 1895858159, 1467742422);
+            int3x3 r1 = int3x3(2042075387, 1895858158, 1467742421);
             TestUtils.AreEqual(--a1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925280, 39395732, 134529049);
+            int3x3 a2 = int3x3(578341664, 2059077641, 1169239112);
+            int3x3 r2 = int3x3(578341663, 2059077640, 1169239111);
             TestUtils.AreEqual(--a2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433624, 989929008, 405275582);
+            int3x3 a3 = int3x3(1862369220, 1027543764, 1595492535);
+            int3x3 r3 = int3x3(1862369219, 1027543763, 1595492534);
             TestUtils.AreEqual(--a3, r3);
         }
 
         [Test]
         public void int3x3_operator_postfix_dec()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(277258610, 1047239183, 390264054);
+            int3x3 a0 = int3x3(1870005937, 1708534798, 704493460);
+            int3x3 r0 = int3x3(1870005937, 1708534798, 704493460);
             TestUtils.AreEqual(a0--, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(376654501, 102245552, 1651358272);
+            int3x3 a1 = int3x3(462940703, 228744869, 940247280);
+            int3x3 r1 = int3x3(462940703, 228744869, 940247280);
             TestUtils.AreEqual(a1--, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(1061925281, 39395733, 134529050);
+            int3x3 a2 = int3x3(1818778351, 862428933, 1401191870);
+            int3x3 r2 = int3x3(1818778351, 862428933, 1401191870);
             TestUtils.AreEqual(a2--, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(2047433625, 989929009, 405275583);
+            int3x3 a3 = int3x3(2080259851, 140452688, 1928164223);
+            int3x3 r3 = int3x3(2080259851, 140452688, 1928164223);
             TestUtils.AreEqual(a3--, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_and_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(268607792, 373460998, 369232549);
+            int3x3 a0 = int3x3(1055241304, 859321394, 1088358961);
+            int3x3 b0 = int3x3(749698416, 748105424, 1842764797);
+            int3x3 r0 = int3x3(749024336, 537928720, 1087769137);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(34086912, 285290624, 16);
+            int3x3 a1 = int3x3(2090949513, 300561740, 651904515);
+            int3x3 b1 = int3x3(9990577, 1989102105, 1666634755);
+            int3x3 r1 = int3x3(8409473, 277479432, 575816707);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(2046904464, 402653745, 136583362);
+            int3x3 a2 = int3x3(1331035868, 2012752753, 1298126656);
+            int3x3 b2 = int3x3(58116798, 868036607, 1420638875);
+            int3x3 r2 = int3x3(55888540, 867707761, 1141707264);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(168296496, 545527308, 143016832);
+            int3x3 a3 = int3x3(53199569, 1752363533, 1303061302);
+            int3x3 b3 = int3x3(1308767169, 564040763, 478617502);
+            int3x3 r3 = int3x3(33686209, 538087433, 209912598);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_and_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(268607792, 270761997, 285385780);
+            int3x3 a0 = int3x3(1513158868, 284695609, 734595037);
+            int b0 = (1173647397);
+            int3x3 r0 = int3x3(1076916228, 15732769, 29360133);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(369232549, 100663456, 1107298816);
+            int3x3 a1 = int3x3(1566510707, 84213838, 314333543);
+            int b1 = (1601252476);
+            int3x3 r1 = int3x3(1565592688, 83951692, 305137764);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(285290624, 1122448, 278554);
+            int3x3 a2 = int3x3(430856908, 327392481, 1619794917);
+            int b2 = (753481263);
+            int3x3 r2 = int3x3(145232396, 8459297, 545788453);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(2046904464, 989924368, 404750482);
+            int3x3 a3 = int3x3(2143619546, 126982769, 651482651);
+            int b3 = (1873208293);
+            int3x3 r3 = int3x3(1870922176, 125862497, 646234625);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_and_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(268607792, 268599298, 268607602);
+            int a0 = (477163326);
+            int3x3 b0 = int3x3(110453385, 703240362, 2075630560);
+            int3x3 r0 = int3x3(68182536, 140544042, 405834528);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(369232549, 101712032, 39913984);
+            int a1 = (1884904031);
+            int3x3 b1 = int3x3(1734899436, 947945203, 1664399051);
+            int3x3 r1 = int3x3(1615352396, 805329491, 1611665995);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(285290624, 38347137, 134250496);
+            int a2 = (458879298);
+            int3x3 b2 = int3x3(158491426, 79772356, 2054527944);
+            int3x3 r2 = int3x3(156262658, 4272192, 441553216);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(2046904464, 973150737, 403178393);
+            int a3 = (202228212);
+            int3x3 b3 = int3x3(359225061, 639811396, 1821945318);
+            int3x3 r3 = int3x3(67715300, 67141956, 201884132);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_or_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(1369941375, 1064042239, 1584614063);
+            int3x3 a0 = int3x3(1920951869, 1750772852, 1420019191);
+            int3x3 b0 = int3x3(214585254, 275414367, 858759675);
+            int3x3 r0 = int3x3(2130669503, 2021326207, 2008016383);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(1719516912, 2147480059, 173924767);
+            int3x3 a1 = int3x3(732977093, 1169579447, 229437930);
+            int3x3 b1 = int3x3(190211455, 1218691723, 2129565457);
+            int3x3 r1 = int3x3(737572863, 1303895999, 2146367483);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(2137915291, 992550847, 1538751174);
+            int3x3 a2 = int3x3(1966721348, 2039812323, 113550869);
+            int3x3 b2 = int3x3(1862809466, 495728846, 868064152);
+            int3x3 r2 = int3x3(2134507390, 2107455727, 939376541);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(1598831927, 972470173, 2046296062);
+            int3x3 a3 = int3x3(1912038362, 1569990624, 1490718227);
+            int3x3 b3 = int3x3(1756913766, 933656055, 247722084);
+            int3x3 r3 = int3x3(2046780414, 2142664695, 1591475831);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_or_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(1369941375, 2137767743, 1466168831);
+            int3x3 a0 = int3x3(1295304853, 1307252624, 350194630);
+            int b0 = (1305527136);
+            int3x3 r0 = int3x3(1307888629, 1308350448, 1574947814);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(1584614063, 1578774207, 2121251567);
+            int3x3 a1 = int3x3(1128063578, 2085245467, 1988423804);
+            int b1 = (1774824542);
+            int3x3 r1 = int3x3(1811803742, 2110520927, 2144205950);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(2147480059, 1409118687, 1505095898);
+            int3x3 a2 = int3x3(999162350, 1050875188, 341855232);
+            int b2 = (2110327307);
+            int3x3 r2 = int3x3(2144275439, 2146115391, 2112441867);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(2137915291, 2137390771, 2137911231);
+            int3x3 a3 = int3x3(1317039676, 41280811, 1536908787);
+            int b3 = (228656898);
+            int3x3 r3 = int3x3(1335979838, 267773739, 1606115315);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_or_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(1369941375, 1055898495, 398915062);
+            int a0 = (1768627592);
+            int3x3 b0 = int3x3(1849658052, 1759912154, 729979455);
+            int3x3 r0 = int3x3(1870634956, 1777286618, 1810603967);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(1584614063, 377188021, 1988098789);
+            int a1 = (975926310);
+            int3x3 b1 = int3x3(1987690876, 1809506714, 1160695341);
+            int3x3 r1 = int3x3(2122052990, 2080110014, 2133851695);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(2147480059, 1062973877, 1062203835);
+            int a2 = (408963395);
+            int3x3 b2 = int3x3(314072711, 1560007537, 1709003416);
+            int3x3 r2 = int3x3(452485063, 1560009587, 2113756123);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(2137915291, 2064211897, 2049530815);
+            int a3 = (977086639);
+            int3x3 b3 = int3x3(1448375596, 1689568808, 595543345);
+            int3x3 r3 = int3x3(2122153391, 2126376623, 998206911);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_xor_wide_wide()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 376654501);
-            int3x3 b0 = int3x3(1361290557, 390264054, 1577192111);
-            int3x3 r0 = int3x3(1101333583, 690581241, 1215381514);
+            int3x3 a0 = int3x3(1843655608, 362425681, 640805534);
+            int3x3 b0 = int3x3(1422803441, 1234691140, 119589253);
+            int3x3 r0 = int3x3(959296073, 1544407317, 554771227);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            int3x3 a1 = int3x3(102245552, 1061925281, 39395733);
-            int3x3 b1 = int3x3(1651358272, 1370845402, 134529050);
-            int3x3 r1 = int3x3(1685430000, 1862189435, 173924751);
+            int3x3 a1 = int3x3(1342040268, 945678755, 980321850);
+            int3x3 b1 = int3x3(1101464929, 121896337, 1880109018);
+            int3x3 r1 = int3x3(240840109, 1058935858, 1249815008);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            int3x3 a2 = int3x3(2047433625, 989929009, 405043398);
-            int3x3 b2 = int3x3(2137386130, 405275583, 1270291138);
-            int3x3 r2 = int3x3(91010827, 589897102, 1402167812);
+            int3x3 a2 = int3x3(390165019, 1682422658, 303897251);
+            int3x3 b2 = int3x3(1000210266, 1718938232, 464406940);
+            int3x3 r2 = int3x3(752651585, 36917754, 162747199);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            int3x3 a3 = int3x3(1577582644, 814094236, 411531262);
-            int3x3 b3 = int3x3(189545779, 703903245, 1777781632);
-            int3x3 r3 = int3x3(1430535431, 426942865, 1903279230);
+            int3x3 a3 = int3x3(230477768, 1103646442, 1503102919);
+            int3x3 b3 = int3x3(884337881, 34199854, 1430659227);
+            int3x3 r3 = int3x3(956900113, 1136760772, 215066460);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_xor_wide_scalar()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(1101333583, 1867005746, 1180783051);
+            int3x3 a0 = int3x3(169345668, 176087064, 2084362901);
+            int b0 = (354464228);
+            int3x3 r0 = int3x3(523809632, 526275068, 1763470193);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(1215381514, 1478110751, 1013952751);
+            int3x3 a1 = int3x3(1663924004, 517476661, 905336222);
+            int b1 = (193851255);
+            int3x3 r1 = int3x3(1755355219, 357957186, 1048296169);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(1862189435, 1407996239, 1504817344);
+            int3x3 a2 = int3x3(863800783, 835837496, 954341348);
+            int b2 = (365003873);
+            int3x3 r2 = int3x3(649922990, 605051481, 757306245);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(91010827, 1147466403, 1733160749);
+            int3x3 a3 = int3x3(1464576786, 1700827127, 2003392824);
+            int b3 = (625604047);
+            int3x3 r3 = int3x3(1912757981, 1076460088, 1377873143);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_xor_scalar_wide()
         {
-            int a0 = (277258610);
-            int3x3 b0 = int3x3(1361290557, 1047239183, 390264054);
-            int3x3 r0 = int3x3(1101333583, 787299197, 130307460);
+            int a0 = (1361775641);
+            int3x3 b0 = int3x3(1452773578, 459050892, 1986218254);
+            int3x3 r0 = int3x3(129801427, 1249346453, 659047703);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            int a1 = (376654501);
-            int3x3 b1 = int3x3(1577192111, 102245552, 1651358272);
-            int3x3 r1 = int3x3(1215381514, 275475989, 1948184805);
+            int a1 = (1689037698);
+            int3x3 b1 = int3x3(999278344, 1229114508, 1087843538);
+            int3x3 r1 = int3x3(1596157066, 770598670, 612075344);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            int a2 = (1061925281);
-            int3x3 b2 = int3x3(1370845402, 39395733, 134529050);
-            int3x3 r2 = int3x3(1862189435, 1024626740, 927953339);
+            int a2 = (733699740);
+            int3x3 b2 = int3x3(106187872, 1533632738, 1107817672);
+            int3x3 r2 = int3x3(770642684, 1892826750, 1773972052);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            int a3 = (2047433625);
-            int3x3 b3 = int3x3(2137386130, 989929009, 405275583);
-            int3x3 r3 = int3x3(91010827, 1091061160, 1646352422);
+            int a3 = (492506236);
+            int3x3 b3 = int3x3(597602329, 1439603382, 1001169118);
+            int3x3 r3 = int3x3(1053146213, 1217763018, 653765794);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [Test]
         public void int3x3_operator_left_shift()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(1073741824, -536870912, -1073741824);
+            int3x3 a0 = int3x3(1129100049, 829482269, 1571297368);
+            int b0 = (218351941);
+            int3x3 r0 = int3x3(1771463200, 773628832, -1258091776);
             TestUtils.AreEqual(a0 << b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(-1521319936, 307757056, -585105408);
+            int3x3 a1 = int3x3(443753193, 249554593, 892627436);
+            int b1 = (1872142968);
+            int3x3 r1 = int3x3(-385875968, -1593835520, -335544320);
             TestUtils.AreEqual(a1 << b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(-2080374784, 1409286144, 1744830464);
+            int3x3 a2 = int3x3(980302862, 849916599, 1271350845);
+            int b2 = (62369727);
+            int3x3 r2 = int3x3(0, -2147483648, -2147483648);
             TestUtils.AreEqual(a2 << b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(1852047360, 2026110976, 251396096);
+            int3x3 a3 = int3x3(108441902, 1779118882, 1451674188);
+            int b3 = (1959056531);
+            int3x3 r3 = int3x3(-1989148672, -1727004672, 1382023168);
             TestUtils.AreEqual(a3 << b3, r3);
         }
 
         [Test]
         public void int3x3_operator_right_shift()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int b0 = (1361290557);
-            int3x3 r0 = int3x3(0, 1, 0);
+            int3x3 a0 = int3x3(809126085, 908563670, 763568837);
+            int b0 = (994800051);
+            int3x3 r0 = int3x3(1543, 1732, 1456);
             TestUtils.AreEqual(a0 >> b0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int b1 = (1577192111);
-            int3x3 r1 = int3x3(11494, 3120, 50395);
+            int3x3 a1 = int3x3(1986717290, 646821842, 1242726074);
+            int b1 = (1174507510);
+            int3x3 r1 = int3x3(473, 154, 296);
             TestUtils.AreEqual(a1 >> b1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int b2 = (1370845402);
-            int3x3 r2 = int3x3(15, 0, 2);
+            int3x3 a2 = int3x3(390811632, 1923166649, 102096936);
+            int b2 = (1521420393);
+            int3x3 r2 = int3x3(763303, 3756184, 199408);
             TestUtils.AreEqual(a2 >> b2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int b3 = (2137386130);
-            int3x3 r3 = int3x3(7810, 3776, 1546);
+            int3x3 a3 = int3x3(400863878, 1611921244, 307750782);
+            int b3 = (667378673);
+            int3x3 r3 = int3x3(3058, 12297, 2347);
             TestUtils.AreEqual(a3 >> b3, r3);
         }
 
         [Test]
         public void int3x3_operator_bitwise_not()
         {
-            int3x3 a0 = int3x3(277258610, 1047239183, 390264054);
-            int3x3 r0 = int3x3(-277258611, -1047239184, -390264055);
+            int3x3 a0 = int3x3(111796841, 603562399, 745091931);
+            int3x3 r0 = int3x3(-111796842, -603562400, -745091932);
             TestUtils.AreEqual(~a0, r0);
 
-            int3x3 a1 = int3x3(376654501, 102245552, 1651358272);
-            int3x3 r1 = int3x3(-376654502, -102245553, -1651358273);
+            int3x3 a1 = int3x3(853183268, 381888399, 1891338755);
+            int3x3 r1 = int3x3(-853183269, -381888400, -1891338756);
             TestUtils.AreEqual(~a1, r1);
 
-            int3x3 a2 = int3x3(1061925281, 39395733, 134529050);
-            int3x3 r2 = int3x3(-1061925282, -39395734, -134529051);
+            int3x3 a2 = int3x3(1506860135, 787710759, 875964607);
+            int3x3 r2 = int3x3(-1506860136, -787710760, -875964608);
             TestUtils.AreEqual(~a2, r2);
 
-            int3x3 a3 = int3x3(2047433625, 989929009, 405275583);
-            int3x3 r3 = int3x3(-2047433626, -989929010, -405275584);
+            int3x3 a3 = int3x3(96456785, 203444882, 1172294211);
+            int3x3 r3 = int3x3(-96456786, -203444883, -1172294212);
             TestUtils.AreEqual(~a3, r3);
         }
 

@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct int2x2 : System.IEquatable<int2x2>
+    public partial struct int2x2 : System.IEquatable<int2x2>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -65,9 +66,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ++ (int2x2 val) { return new int2x2 (++val.c0, ++val.c1); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator -- (int2x2 val) { return new int2x2 (--val.c0, --val.c1); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }
@@ -99,9 +104,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator - (int2x2 val) { return new int2x2 (-val.c0, -val.c1); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator + (int2x2 val) { return new int2x2 (+val.c0, +val.c1); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator << (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 << rhs, lhs.c1 << rhs); }
@@ -178,6 +187,20 @@ namespace Unity.Mathematics
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ~ (int2x2 val) { return new int2x2 (~val.c0, ~val.c1); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("int2x2({0}, {1},  {2}, {3})", c0.x, c1.x, c0.y, c1.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("int2x2({0}, {1},  {2}, {3})", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider));
+        }
+
+
     }
 
     public static partial class math
@@ -199,5 +222,6 @@ namespace Unity.Mathematics
             return csum(asuint(v.c0) * uint2(0x4ABF0813u, 0x86068063u) + 
                         asuint(v.c1) * uint2(0xD75513F9u, 0x5AB3E8CDu)) + 0x676E8407u;
         }
+
     }
 }

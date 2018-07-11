@@ -1,4 +1,5 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
@@ -86,6 +87,12 @@ namespace Unity.Mathematics
         public static bool2x2 operator ^ (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 ^ rhs, lhs.c1 ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator ^ (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("bool2x2({0}, {1},  {2}, {3})", c0.x, c1.x, c0.y, c1.y);
+        }
+
 
     }
 
@@ -108,5 +115,6 @@ namespace Unity.Mathematics
             return csum(select(uint2(0xB139D651u, 0xE7579997u), uint2(0xEF7D56C7u, 0x66F38F0Bu), v.c0) + 
                         select(uint2(0x624256A3u, 0x5292ADE1u), uint2(0xD2E590E5u, 0xF25BE857u), v.c1));
         }
+
     }
 }

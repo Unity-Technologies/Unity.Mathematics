@@ -1,9 +1,10 @@
 // GENERATED CODE
+using System;
 using System.Runtime.CompilerServices;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    public partial struct int4 : System.IEquatable<int4>
+    public partial struct int4 : System.IEquatable<int4>, IFormattable
     {
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -122,9 +123,13 @@ namespace Unity.Mathematics
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator ++ (int4 val) { return new int4 (++val.x, ++val.y, ++val.z, ++val.w); }
+
+
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator -- (int4 val) { return new int4 (--val.x, --val.y, --val.z, --val.w); }
+
+
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (int4 lhs, int4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
@@ -156,9 +161,13 @@ namespace Unity.Mathematics
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator - (int4 val) { return new int4 (-val.x, -val.y, -val.z, -val.w); }
+
+
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator + (int4 val) { return new int4 (+val.x, +val.y, +val.z, +val.w); }
+
+
         // left shift
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator << (int4 lhs, int rhs) { return new int4 (lhs.x << rhs, lhs.y << rhs, lhs.z << rhs, lhs.w << rhs); }
@@ -234,7 +243,9 @@ namespace Unity.Mathematics
 
         // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 operator ~ (int4 val) { return new int4 (~val.x, ~val.y, ~val.z, ~val.w); }        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public static int4 operator ~ (int4 val) { return new int4 (~val.x, ~val.y, ~val.z, ~val.w); }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public int4 xxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3042,6 +3053,18 @@ namespace Unity.Mathematics
         }
 
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("int4({0}, {1}, {2}, {3})", x, y, z, w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("int4({0}, {1}, {2}, {3})", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
+        }
+
 
     }
 
@@ -3076,5 +3099,6 @@ namespace Unity.Mathematics
         {
             return csum(asuint(v) * uint4(0xE191B035u, 0x68586FAFu, 0xD4DFF6D3u, 0xCB634F4Du)) + 0x9B13B92Du;
         }
+
     }
 }
