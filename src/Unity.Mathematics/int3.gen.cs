@@ -152,37 +152,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (int lhs, int3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
-        // Equals 
+        // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { int3 rhs = (int3)o; return x == rhs.x && y == rhs.y && z == rhs.z; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(int3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
+        public static int3 operator ~ (int3 val) { return new int3 (~val.x, ~val.y, ~val.z); }
 
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public int this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 3)
-                    throw new System.ArgumentException("index must be between[0...2]");
-#endif
-                fixed (int3* array = &this) { return ((int*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 3)
-                    throw new System.ArgumentException("index must be between[0...2]");
-#endif
-                fixed (int* array = &x) { array[index] = value; }
-            }
-        }
 
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -207,11 +180,6 @@ namespace Unity.Mathematics
         public static int3 operator ^ (int3 lhs, int rhs) { return new int3 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 operator ^ (int lhs, int3 rhs) { return new int3 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z); }
-
-        // operator ~ 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 operator ~ (int3 val) { return new int3 (~val.x, ~val.y, ~val.z); }
-
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public int4 xxxx
         {
@@ -1172,6 +1140,40 @@ namespace Unity.Mathematics
         }
 
 
+
+        // [int index] 
+        unsafe public int this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 3)
+                    throw new System.ArgumentException("index must be between[0...2]");
+#endif
+                fixed (int3* array = &this) { return ((int*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 3)
+                    throw new System.ArgumentException("index must be between[0...2]");
+#endif
+                fixed (int* array = &x) { array[index] = value; }
+            }
+        }
+
+        // Equals 
+        public bool Equals(int3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((int3)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

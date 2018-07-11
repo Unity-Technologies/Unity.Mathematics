@@ -134,37 +134,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (uint lhs, uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
-        // Equals 
+        // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { uint2 rhs = (uint2)o; return x == rhs.x && y == rhs.y; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(uint2 rhs) { return x == rhs.x && y == rhs.y; }
+        public static uint2 operator ~ (uint2 val) { return new uint2 (~val.x, ~val.y); }
 
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public uint this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (uint2* array = &this) { return ((uint*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (uint* array = &x) { array[index] = value; }
-            }
-        }
 
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -189,11 +162,6 @@ namespace Unity.Mathematics
         public static uint2 operator ^ (uint2 lhs, uint rhs) { return new uint2 (lhs.x ^ rhs, lhs.y ^ rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ^ (uint lhs, uint2 rhs) { return new uint2 (lhs ^ rhs.x, lhs ^ rhs.y); }
-
-        // operator ~ 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator ~ (uint2 val) { return new uint2 (~val.x, ~val.y); }
-
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public uint4 xxxx
         {
@@ -422,6 +390,40 @@ namespace Unity.Mathematics
         }
 
 
+
+        // [int index] 
+        unsafe public uint this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (uint2* array = &this) { return ((uint*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (uint* array = &x) { array[index] = value; }
+            }
+        }
+
+        // Equals 
+        public bool Equals(uint2 rhs) { return x == rhs.x && y == rhs.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((uint2)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

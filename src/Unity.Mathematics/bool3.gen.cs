@@ -56,38 +56,6 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (bool lhs, bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
-        // Equals 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { bool3 rhs = (bool3)o; return x == rhs.x && y == rhs.y && z == rhs.z; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(bool3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
-
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public bool this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 3)
-                    throw new System.ArgumentException("index must be between[0...2]");
-#endif
-                fixed (bool3* array = &this) { return ((bool*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 3)
-                    throw new System.ArgumentException("index must be between[0...2]");
-#endif
-                fixed (bool* array = &x) { array[index] = value; }
-            }
-        }
-
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator & (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z); }
@@ -1071,6 +1039,40 @@ namespace Unity.Mathematics
         }
 
 
+
+        // [int index] 
+        unsafe public bool this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 3)
+                    throw new System.ArgumentException("index must be between[0...2]");
+#endif
+                fixed (bool3* array = &this) { return ((bool*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 3)
+                    throw new System.ArgumentException("index must be between[0...2]");
+#endif
+                fixed (bool* array = &x) { array[index] = value; }
+            }
+        }
+
+        // Equals 
+        public bool Equals(bool3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((bool3)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

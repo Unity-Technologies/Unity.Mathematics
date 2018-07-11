@@ -127,17 +127,6 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (float lhs, float2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
-        // Equals 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { float2x2 rhs = (float2x2)o; return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(float2x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
-
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
         // [int index] 
         unsafe public float2 this[int index]
         {
@@ -158,6 +147,19 @@ namespace Unity.Mathematics
                 fixed (float2* array = &c0) { array[index] = value; }
             }
         }
+
+        // Equals 
+        public bool Equals(float2x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((float2x2)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

@@ -183,38 +183,6 @@ namespace Unity.Mathematics
         public static bool4 operator != (float4 lhs, float rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (float lhs, float4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
-
-        // Equals 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { float4 rhs = (float4)o; return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(float4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
-
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public float this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 4)
-                    throw new System.ArgumentException("index must be between[0...3]");
-#endif
-                fixed (float4* array = &this) { return ((float*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 4)
-                    throw new System.ArgumentException("index must be between[0...3]");
-#endif
-                fixed (float* array = &x) { array[index] = value; }
-            }
-        }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxx
         {
@@ -3023,6 +2991,40 @@ namespace Unity.Mathematics
         }
 
 
+
+        // [int index] 
+        unsafe public float this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 4)
+                    throw new System.ArgumentException("index must be between[0...3]");
+#endif
+                fixed (float4* array = &this) { return ((float*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 4)
+                    throw new System.ArgumentException("index must be between[0...3]");
+#endif
+                fixed (float* array = &x) { array[index] = value; }
+            }
+        }
+
+        // Equals 
+        public bool Equals(float4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((float4)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

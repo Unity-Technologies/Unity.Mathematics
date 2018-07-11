@@ -177,6 +177,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_Columns == 1)
                 GenerateSwizzles(str);
 
+            str.Append("\n\t\t// [int index] \n");
+            GenerateIndexOperator(str);
+
+            str.Append("\n\t\t// Equals \n");
+            GenerateEquals(str);
+
+            str.Append("\n\t\t// GetHashCode \n");
+            GenerateGetHashCode(str);
+
+            str.Append("\n\t\t// ToString \n");
             GenerateToStringFunction(str, false);
             if(m_BaseType != "bool")
                 GenerateToStringFunction(str, true);
@@ -513,19 +523,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t// equal \n");
             GenerateBinaryOperator(m_Rows, m_Columns, "==", resultBoolType, str);
 
-
             str.Append("\n\t\t// not equal \n");
             GenerateBinaryOperator(m_Rows, m_Columns, "!=", resultBoolType, str);
 
-            str.Append("\n\t\t// Equals \n");
-            GenerateEquals(str, true);
-            GenerateEquals(str, false);
-
-            str.Append("\n\t\t// GetHashCode \n");
-            GenerateGetHashCode(str);
-
-            str.Append("\n\t\t// [int index] \n");
-            GenerateIndexOperator(str);
+            if (0 != (m_Features & Features.BitwiseComplement))
+            {
+                str.Append("\n\t\t// operator ~ \n");
+                GenerateUnaryOperator("~", str);
+            }
 
             if (0 != (m_Features & Features.BitwiseLogic))
             {
@@ -536,12 +541,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     GenerateBinaryOperator(m_Rows, m_Columns, binOp, resultType, str);
                 }
 
-            }
-
-            if (0 != (m_Features & Features.BitwiseComplement))
-            {
-                str.Append("\n\t\t// operator ~ \n");
-                GenerateUnaryOperator("~", str);
             }
         }
 
@@ -733,16 +732,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         }
 
-        void GenerateEquals(StringBuilder str, bool useObject)
+        void GenerateEquals(StringBuilder str)
         {
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
-            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            if(useObject)
-                str.AppendFormat("\t\tpublic override bool Equals(object o) {{ {0} rhs = ({0})o; return ", m_TypeName);
-            else
-                str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
+            str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
             
             for (int i = 0; i < resultCount; i++)
             {
@@ -755,6 +750,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             str.Append("; }\n");
+
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return Equals(({0})o); }}\n\n", m_TypeName);
         }
 
         void GenerateGetHashCode(StringBuilder str)

@@ -135,37 +135,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (int lhs, int2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
-        // Equals 
+        // operator ~ 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { int2x2 rhs = (int2x2)o; return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(int2x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
+        public static int2x2 operator ~ (int2x2 val) { return new int2x2 (~val.c0, ~val.c1); }
 
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public int2 this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (int2x2* array = &this) { return ((int2*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (int2* array = &c0) { array[index] = value; }
-            }
-        }
 
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -191,10 +164,39 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ^ (int lhs, int2x2 rhs) { return new int2x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
 
-        // operator ~ 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2x2 operator ~ (int2x2 val) { return new int2x2 (~val.c0, ~val.c1); }
+        // [int index] 
+        unsafe public int2 this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (int2x2* array = &this) { return ((int2*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (int2* array = &c0) { array[index] = value; }
+            }
+        }
 
+        // Equals 
+        public bool Equals(int2x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((int2x2)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

@@ -125,38 +125,6 @@ namespace Unity.Mathematics
         public static bool2 operator != (float2 lhs, float rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (float lhs, float2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
-
-        // Equals 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { float2 rhs = (float2)o; return x == rhs.x && y == rhs.y; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(float2 rhs) { return x == rhs.x && y == rhs.y; }
-
-        // GetHashCode 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
-
-
-        // [int index] 
-        unsafe public float this[int index]
-        {
-            get
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (float2* array = &this) { return ((float*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (float* array = &x) { array[index] = value; }
-            }
-        }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxx
         {
@@ -385,6 +353,40 @@ namespace Unity.Mathematics
         }
 
 
+
+        // [int index] 
+        unsafe public float this[int index]
+        {
+            get
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (float2* array = &this) { return ((float*)array)[index]; }
+            }
+            set
+            {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+                if ((uint)index >= 2)
+                    throw new System.ArgumentException("index must be between[0...1]");
+#endif
+                fixed (float* array = &x) { array[index] = value; }
+            }
+        }
+
+        // Equals 
+        public bool Equals(float2 rhs) { return x == rhs.x && y == rhs.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((float2)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+
+        // ToString 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
