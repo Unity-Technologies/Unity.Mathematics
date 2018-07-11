@@ -54,6 +54,20 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x2 operator / (uint lhs, uint2x2 rhs) { return new uint2x2 (lhs / rhs.c0, lhs / rhs.c1); }
 
+        // mod
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 operator % (uint2x2 lhs, uint2x2 rhs) { return new uint2x2 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 operator % (uint2x2 lhs, uint rhs) { return new uint2x2 (lhs.c0 % rhs, lhs.c1 % rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 operator % (uint lhs, uint2x2 rhs) { return new uint2x2 (lhs % rhs.c0, lhs % rhs.c1); }
+
+        // increment
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 operator ++ (uint2x2 val) { return new uint2x2 (++val.c0, ++val.c1); }
+        // decrement
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 operator -- (uint2x2 val) { return new uint2x2 (--val.c0, --val.c1); }
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (uint2x2 lhs, uint2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }

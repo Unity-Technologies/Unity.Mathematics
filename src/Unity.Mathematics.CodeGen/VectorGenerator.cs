@@ -1,10 +1,13 @@
 using System;
+using System.Linq;
 using System.Text;
 
 namespace Unity.Mathematics.Mathematics.CodeGen
 {
     class VectorGenerator
     {
+        private string m_ImplementationDirectory;
+        private string m_TestDirectory;
         private string m_BaseType;
         private string m_TypeName;
         private int m_Rows;
@@ -71,7 +74,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             return name;
         }
 
-        private void Write(string dir, string baseType, int rows, int columns, Features features)
+        private static string UpperCaseFirstLetter(string s)
+        {
+            return char.ToUpper(s[0]) + s.Substring(1);
+        }
+
+        private void Write(string baseType, int rows, int columns, Features features)
         {
             m_BaseType = baseType;
             m_TypeName = ToTypeName(baseType, rows, columns);
@@ -79,9 +87,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             m_Columns = columns;
             m_Features = features;
 
+            // implementation
             StringBuilder str = new StringBuilder();
-            
-            Generate(str);
+            GenerateImplementation(str);
 
             var text = str.ToString();
             // Convert all tabs to spaces
@@ -90,49 +98,65 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             text = text.Replace("\r\n", "\n");
             text = text.Replace("\n", Environment.NewLine);
 
-            System.IO.File.WriteAllText(dir + "/" + m_TypeName + ".gen.cs", text);
+            System.IO.File.WriteAllText(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", text);
+
+            // test
+            str = new StringBuilder();
+            GenerateTests(str);
+
+            text = str.ToString();
+            // Convert all tabs to spaces
+            text = text.Replace("\t", "    ");
+            // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
+            text = text.Replace("\r\n", "\n");
+            text = text.Replace("\n", Environment.NewLine);
+
+            System.IO.File.WriteAllText(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", text);
         }
 
 
-        public static void Write(string dir)
+        public static void Write(string implementationDirectory, string testDirectory)
         {
             VectorGenerator vectorGenerator = new VectorGenerator();
-            vectorGenerator.Write(dir, "float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write(dir, "float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write(dir, "float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write(dir, "float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.m_ImplementationDirectory = implementationDirectory;
+            vectorGenerator.m_TestDirectory = testDirectory;
 
-            vectorGenerator.Write(dir, "float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write(dir, "float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write(dir, "float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
 
-            vectorGenerator.Write(dir, "int", 2, 1, Features.All);
-            vectorGenerator.Write(dir, "int", 3, 1, Features.All);
-            vectorGenerator.Write(dir, "int", 4, 1, Features.All);
+            vectorGenerator.Write("float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
 
-            vectorGenerator.Write(dir, "int", 2, 2, Features.All);
-            vectorGenerator.Write(dir, "int", 3, 3, Features.All);
-            vectorGenerator.Write(dir, "int", 4, 4, Features.All);
+            vectorGenerator.Write("int", 2, 1, Features.All);
+            vectorGenerator.Write("int", 3, 1, Features.All);
+            vectorGenerator.Write("int", 4, 1, Features.All);
 
-            vectorGenerator.Write(dir, "uint", 2, 1, Features.All);
-            vectorGenerator.Write(dir, "uint", 3, 1, Features.All);
-            vectorGenerator.Write(dir, "uint", 4, 1, Features.All);
+            vectorGenerator.Write("int", 2, 2, Features.All);
+            vectorGenerator.Write("int", 3, 3, Features.All);
+            vectorGenerator.Write("int", 4, 4, Features.All);
 
-            vectorGenerator.Write(dir, "uint", 2, 2, Features.All);
-            vectorGenerator.Write(dir, "uint", 3, 3, Features.All);
-            vectorGenerator.Write(dir, "uint", 4, 4, Features.All);
+            vectorGenerator.Write("uint", 2, 1, Features.All);
+            vectorGenerator.Write("uint", 3, 1, Features.All);
+            vectorGenerator.Write("uint", 4, 1, Features.All);
 
-            vectorGenerator.Write(dir, "bool", 2, 1, Features.BitwiseLogic);
-            vectorGenerator.Write(dir, "bool", 3, 1, Features.BitwiseLogic);
-            vectorGenerator.Write(dir, "bool", 4, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("uint", 2, 2, Features.All);
+            vectorGenerator.Write("uint", 3, 3, Features.All);
+            vectorGenerator.Write("uint", 4, 4, Features.All);
 
-            vectorGenerator.Write(dir, "bool", 2, 2, Features.BitwiseLogic);
-            vectorGenerator.Write(dir, "bool", 3, 3, Features.BitwiseLogic);
-            vectorGenerator.Write(dir, "bool", 4, 4, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 2, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 3, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 4, 1, Features.BitwiseLogic);
+
+            vectorGenerator.Write("bool", 2, 2, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 3, 3, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 4, 4, Features.BitwiseLogic);
         }
 
 
-        private void Generate(StringBuilder str)
+        private void GenerateImplementation(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
 
@@ -442,6 +466,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 str.Append("\n\t\t// div\n");
                 GenerateBinaryOperator(m_Rows, m_Columns, "/", resultType, str);
+
+                str.Append("\n\t\t// mod\n");
+                GenerateBinaryOperator(m_Rows, m_Columns, "%", resultType, str);
+
+                str.Append("\n\t\t// increment\n");
+                GenerateUnaryOperator("++", str);
+
+                str.Append("\n\t\t// decrement\n");
+                GenerateUnaryOperator("--", str);
 
                 str.Append("\n\t\t// smaller \n");
                 GenerateBinaryOperator(m_Rows, m_Columns, "<", resultBoolType, str);
@@ -860,5 +893,347 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n\t\t}\n\n");
             str.Append("\n");
         }
+
+        private void BeginTest(StringBuilder str, string name)
+        {
+            str.Append("\t\t[Test]\n");
+            str.AppendFormat("\t\tpublic void {0}_{1}()\n", m_TypeName, name);
+            str.Append("\t\t{\n");
+        }
+
+        private void EndTest(StringBuilder str)
+        {
+            str.Append("\t\t}\n\n");
+        }
+
+        private void AddParenthesized(StringBuilder str, string[] strings)
+        {
+            str.Append("(");
+            str.Append(string.Join(", ", strings));
+            str.Append(")");
+        }
+
+        private void TestConstructor(StringBuilder str, bool isStatic, bool isScalar)
+        {
+            if(m_Columns == 1)
+            {
+                string name = "constructor";
+                if (isScalar)
+                    name = "scalar_" + name;
+                if (isStatic)
+                    name = "static_" + name;
+
+                BeginTest(str, name);
+                str.AppendFormat("\t\t\t{0} a = ", m_TypeName);
+                if (!isStatic)
+                    str.Append("new ");
+                str.Append(m_TypeName);
+
+                if(isScalar)
+                {
+                    string value = m_BaseType == "bool" ? "true" : m_BaseType == "uint" ? "17u" : m_BaseType == "int" ? "17" : m_BaseType == "float" ? "17.0f" : "";
+                    str.Append("(" + value + ");\n");
+
+                    for (int row = 0; row < m_Rows; row++)
+                    {
+                        str.AppendFormat("\t\t\tAssert.AreEqual(a.{0}, {1});\n", components[row], value);
+                    }
+                }
+                else
+                {
+                    string[] values = (from row in Enumerable.Range(0, m_Rows) select m_BaseType == "bool" ? ((row & 1) != 0 ? "true" : "false") : "" + (row + 1)).ToArray();
+                    AddParenthesized(str, values);
+                    str.Append(";\n");
+
+                    for (int row = 0; row < m_Rows; row++)
+                    {
+                        str.AppendFormat("\t\t\tAssert.AreEqual(a.{0}, {1});\n", components[row], values[row]);
+                    }
+                }
+                
+
+                EndTest(str);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void TestConstructors(StringBuilder str)
+        {
+            TestConstructor(str, false, false);
+            TestConstructor(str, false, true);
+            TestConstructor(str, true, false);
+            TestConstructor(str, true, true);
+        }
+
+        private void TestOperator(StringBuilder str, bool lhsWide, bool rhsWide, string lhsType, string rhsType, string returnType, string op, string opName, bool isBinary, bool isPrefix)
+        {
+            var rnd = new Random();
+
+            //if (m_Columns == 1)
+            {
+                BeginTest(str, "operator_" + opName);
+
+                int numValues = m_Rows;
+                int numPasses = 4;
+
+                string[] lhsValues = new string[lhsWide ? numValues : 1];
+                string[] rhsValues = new string[rhsWide ? numValues : 1];
+                string[] resultValues = new string[numValues];
+
+                for (int pass = 0; pass < numPasses; pass++)
+                {
+                    bool bool_a = false;
+                    bool bool_b = false;
+                    int int_a = 0;
+                    int int_b = 0;
+                    uint uint_a = 0;
+                    uint uint_b = 0;
+                    float float_a = 0.0f;
+                    float float_b = 0.0f;
+
+                    for (int i = 0; i < numValues; i++)
+                    {
+                        string lhsValue = "";
+                        string rhsValue = "";
+                        string resultValue = "";
+                        
+                        if (m_BaseType == "bool")
+                        {
+                            if (i == 0 || lhsWide) bool_a = (rnd.Next(2) == 1);
+                            if (i == 0 || rhsWide) bool_b = (rnd.Next(2) == 1);
+
+                            lhsValue = bool_a ? "true" : "false";
+                            rhsValue = bool_b ? "true" : "false";
+                            switch (op)
+                            {
+                                case "==": resultValue = (bool_a == bool_b) ? "true" : "false"; break;
+                                case "!=": resultValue = (bool_a != bool_b) ? "true" : "false"; break;
+
+                                case "&": resultValue = (bool_a & bool_b) ? "true" : "false"; break;
+                                case "|": resultValue = (bool_a | bool_b) ? "true" : "false"; break;
+                                case "^": resultValue = (bool_a ^ bool_b) ? "true" : "false"; break;
+                            }
+                        }
+                        else if (m_BaseType == "int")
+                        {
+                            if (i == 0 || lhsWide) int_a = rnd.Next();
+                            if (i == 0 || rhsWide) int_b = rnd.Next();
+                            
+
+                            lhsValue = "" + int_a;
+                            rhsValue = "" + int_b;
+                            switch (op)
+                            {
+                                case "+": resultValue = "" + (isBinary ? (int_a + int_b) : +int_a); break;
+                                case "-": resultValue = "" + (isBinary ? (int_a - int_b) : -int_a); break;
+                                case "*": resultValue = "" + (int_a * int_b); break;
+                                case "/": resultValue = "" + (int_a / int_b); break;
+                                case "%": resultValue = "" + (int_a % int_b); break;
+
+                                case "<": resultValue = (int_a < int_b) ? "true" : "false"; break;
+                                case ">": resultValue = (int_a > int_b) ? "true" : "false"; break;
+                                case "==": resultValue = (int_a == int_b) ? "true" : "false"; break;
+                                case "!=": resultValue = (int_a != int_b) ? "true" : "false"; break;
+                                case "<=": resultValue = (int_a <= int_b) ? "true" : "false"; break;
+                                case ">=": resultValue = (int_a >= int_b) ? "true" : "false"; break;
+
+                                case "&": resultValue = "" + (int_a & int_b); break;
+                                case "|": resultValue = "" + (int_a | int_b); break;
+                                case "^": resultValue = "" + (int_a ^ int_b); break;
+                                case "<<": resultValue = "" + (int_a << int_b); break;
+                                case ">>": resultValue = "" + (int_a >> int_b); break;
+
+                                case "~": resultValue = "" + (~int_a); break;
+                                case "++": resultValue = "" + (isPrefix ? ++int_a : int_a++); break;
+                                case "--": resultValue = "" + (isPrefix ? --int_a : int_a--); break;
+                            }
+                        }
+                        else if (m_BaseType == "uint")
+                        {
+                            if (i == 0 || lhsWide) uint_a = (uint)rnd.Next();
+                            if (i == 0 || rhsWide) uint_b = (uint)rnd.Next();
+
+                            lhsValue = "" + uint_a;
+                            rhsValue = "" + uint_b;
+                            switch (op)
+                            {
+                                case "+": resultValue = "" + (isBinary ? (uint_a + uint_b) : +uint_a); break;
+                                case "-": resultValue = "" + (isBinary ? (uint_a - uint_b) : (uint)-uint_a); break;
+                                case "*": resultValue = "" + (uint_a * uint_b); break;
+                                case "/": resultValue = "" + (uint_a / uint_b); break;
+                                case "%": resultValue = "" + (uint_a % uint_b); break;
+
+                                case "<": resultValue = (uint_a < uint_b) ? "true" : "false"; break;
+                                case ">": resultValue = (uint_a > uint_b) ? "true" : "false"; break;
+                                case "==": resultValue = (uint_a == uint_b) ? "true" : "false"; break;
+                                case "!=": resultValue = (uint_a != uint_b) ? "true" : "false"; break;
+                                case "<=": resultValue = (uint_a <= uint_b) ? "true" : "false"; break;
+                                case ">=": resultValue = (uint_a >= uint_b) ? "true" : "false"; break;
+
+                                case "&": resultValue = "" + (uint_a & uint_b); break;
+                                case "|": resultValue = "" + (uint_a | uint_b); break;
+                                case "^": resultValue = "" + (uint_a ^ uint_b); break;
+                                case "<<": resultValue = "" + (uint_a << (int)uint_b); break;
+                                case ">>": resultValue = "" + (uint_a >> (int)uint_b); break;
+
+                                case "~": resultValue = "" + (~uint_a); break;
+                                case "++": resultValue = "" + (isPrefix ? ++uint_a : uint_a++); break;
+                                case "--": resultValue = "" + (isPrefix ? --uint_a : uint_a--); break;
+                            }
+                        }
+                        else if (m_BaseType == "float")
+                        {
+                            if (i == 0 || lhsWide) float_a = (float)rnd.NextDouble() * 1024.0f - 512.0f;
+                            if (i == 0 || rhsWide) float_b = (float)rnd.NextDouble() * 1024.0f - 512.0f;
+
+                            lhsValue = "" + float_a.ToString("R") + "f";
+                            rhsValue = "" + float_b.ToString("R") + "f";
+                            switch (op)
+                            {
+                                case "+": resultValue = "" + (isBinary ? (float_a + float_b) : +float_a).ToString("R") + "f"; break;
+                                case "-": resultValue = "" + (isBinary ? (float_a - float_b) : -float_a).ToString("R") + "f"; break;
+                                case "*": resultValue = "" + (float_a * float_b).ToString("R") + "f"; break;
+                                case "/": resultValue = "" + (float_a / float_b).ToString("R") + "f"; break;
+                                case "%": resultValue = "" + (float_a % float_b).ToString("R") + "f"; break;
+
+                                case "<": resultValue = (float_a < float_b) ? "true" : "false"; break;
+                                case ">": resultValue = (float_a > float_b) ? "true" : "false"; break;
+                                case "==": resultValue = (float_a == float_b) ? "true" : "false"; break;
+                                case "!=": resultValue = (float_a != float_b) ? "true" : "false"; break;
+                                case "<=": resultValue = (float_a <= float_b) ? "true" : "false"; break;
+                                case ">=": resultValue = (float_a >= float_b) ? "true" : "false"; break;
+
+                                case "++": resultValue = "" + (isPrefix ? ++float_a : float_a++).ToString("R") + "f"; break;
+                                case "--": resultValue = "" + (isPrefix ? --float_a : float_a--).ToString("R") + "f"; break;
+                            }
+                        }
+
+                        if (i == 0 || lhsWide) lhsValues[i] = lhsValue;
+                        if (i == 0 || rhsWide) rhsValues[i] = rhsValue;
+                        resultValues[i] = resultValue;
+                    }
+                    
+                    str.AppendFormat("\t\t\t{0} a{1} = ", lhsType, pass);
+                    if (lhsWide) str.Append(lhsType);
+                    AddParenthesized(str, lhsValues);
+                    str.Append(";\n");
+
+                    if (isBinary)
+                    {
+                        str.AppendFormat("\t\t\t{0} b{1} = ", rhsType, pass);
+                        if (rhsWide) str.Append(rhsType);
+                        AddParenthesized(str, rhsValues);
+                        str.Append(";\n");
+
+                        str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
+                        AddParenthesized(str, resultValues);
+                        str.Append(";\n");
+
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1} {0} b{1}, r{1});\n", op, pass);
+                    }
+                    else
+                    {
+                        str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
+                        AddParenthesized(str, resultValues);
+                        str.Append(";\n");
+
+                        if (isPrefix)
+                            str.AppendFormat("\t\t\tTestUtils.AreEqual({0}a{1}, r{1});\n", op, pass);
+                        else
+                            str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1}{0}, r{1});\n", op, pass);
+                    }
+
+                    if (pass != numPasses - 1)
+                        str.Append("\n");
+
+                }
+                EndTest(str);
+            }
+        }
+
+        private void TestUnaryOperator(StringBuilder str, string returnType, string op, string opName, bool isPrefix)
+        {
+            TestOperator(str, true, false, m_TypeName, m_BaseType, returnType, op, opName, false, isPrefix);
+        }
+
+        private void TestBinaryOperator(StringBuilder str, string returnType, string op, string opName)
+        {
+            TestOperator(str, true, true, m_TypeName, m_TypeName, returnType, op, opName + "_wide_wide", true, false);
+            TestOperator(str, true, false, m_TypeName, m_BaseType, returnType, op, opName + "_wide_scalar", true, false);
+            TestOperator(str, false, true, m_BaseType, m_TypeName, returnType, op, opName + "_scalar_wide", true, false);
+        }
+
+        private void TestOperators(StringBuilder str)
+        {
+            string boolResultType = ToTypeName("bool", m_Rows, m_Columns);
+
+            TestBinaryOperator(str, boolResultType, "==", "equal");
+            TestBinaryOperator(str, boolResultType, "!=", "not_equal");
+            
+            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float")
+            {
+                TestBinaryOperator(str, boolResultType, "<", "less");
+                TestBinaryOperator(str, boolResultType, ">", "greater");
+                TestBinaryOperator(str, boolResultType, "<=", "less_equal");
+                TestBinaryOperator(str, boolResultType, ">=", "greater_equal");
+
+                TestBinaryOperator(str, m_TypeName, "+", "add");
+                TestBinaryOperator(str, m_TypeName, "-", "sub");
+                TestBinaryOperator(str, m_TypeName, "*", "mul");
+                TestBinaryOperator(str, m_TypeName, "/", "div");
+                TestBinaryOperator(str, m_TypeName, "%", "mod");
+
+                TestUnaryOperator(str, m_TypeName, "+", "plus", true);
+                TestUnaryOperator(str, m_TypeName, "-", "neg", true);
+
+                TestUnaryOperator(str, m_TypeName, "++", "prefix_inc", true);
+                TestUnaryOperator(str, m_TypeName, "++", "postfix_inc", false);
+                TestUnaryOperator(str, m_TypeName, "--", "prefix_dec", true);
+                TestUnaryOperator(str, m_TypeName, "--", "postfix_dec", false);
+            }
+
+            if(m_BaseType == "bool" || m_BaseType == "int" || m_BaseType == "uint")
+            {
+                TestBinaryOperator(str, m_TypeName, "&", "bitwise_and");
+                TestBinaryOperator(str, m_TypeName, "|", "bitwise_or");
+                TestBinaryOperator(str, m_TypeName, "^", "bitwise_xor");
+            }
+
+            if(m_BaseType == "int" || m_BaseType == "uint")
+            {
+                TestOperator(str, true, false, m_TypeName, "int", m_TypeName, "<<", "left_shift", true, false);
+                TestOperator(str, true, false, m_TypeName, "int", m_TypeName, ">>", "right_shift", true, false);
+
+                TestUnaryOperator(str, m_TypeName, "~", "bitwise_not", true);
+            }
+        }
+
+        private void GenerateTests(StringBuilder str)
+        {
+            StringBuilder mathStr = new StringBuilder();
+            
+            str.Append("// GENERATED CODE\n");
+            str.Append("using NUnit.Framework;\n");
+            str.Append("using static Unity.Mathematics.math;\n");
+            str.Append("namespace Unity.Mathematics.Tests\n");
+            str.Append("{\n");
+            str.Append("\t[TestFixture]\n");
+            str.AppendFormat("\tpublic class Test{0}\n", UpperCaseFirstLetter(m_TypeName));
+            str.Append("\t{\n");
+
+            TestConstructors(str);
+            TestOperators(str);
+
+            str.Append("\n\t}");
+            str.Append("\n}\n");
+        }
     }
 }
+
+//TODO: where is operator % ?
+//TODO: what about operator '?', '&&', '||'. cannot be overloaded in C#!
+//TODO: +=? yes: this should work automatically
+//TODO: prefix/postfix ++/-- 

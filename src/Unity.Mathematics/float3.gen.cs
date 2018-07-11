@@ -71,6 +71,20 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator / (float lhs, float3 rhs) { return new float3 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z); }
 
+        // mod
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 operator % (float3 lhs, float3 rhs) { return new float3 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 operator % (float3 lhs, float rhs) { return new float3 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 operator % (float lhs, float3 rhs) { return new float3 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z); }
+
+        // increment
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 operator ++ (float3 val) { return new float3 (++val.x, ++val.y, ++val.z); }
+        // decrement
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 operator -- (float3 val) { return new float3 (--val.x, --val.y, --val.z); }
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator < (float3 lhs, float3 rhs) { return new bool3 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z); }

@@ -54,6 +54,9 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint val) { return new uint3(val); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(int3 val) { return new uint3(val); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

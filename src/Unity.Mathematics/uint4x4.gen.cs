@@ -60,6 +60,20 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator / (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2, lhs / rhs.c3); }
 
+        // mod
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 operator % (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2, lhs.c3 % rhs.c3); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 operator % (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs, lhs.c3 % rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 operator % (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2, lhs % rhs.c3); }
+
+        // increment
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 operator ++ (uint4x4 val) { return new uint4x4 (++val.c0, ++val.c1, ++val.c2, ++val.c3); }
+        // decrement
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 operator -- (uint4x4 val) { return new uint4x4 (--val.c0, --val.c1, --val.c2, --val.c3); }
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2, lhs.c3 < rhs.c3); }

@@ -53,6 +53,20 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 operator / (int lhs, int2 rhs) { return new int2 (lhs / rhs.x, lhs / rhs.y); }
 
+        // mod
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 operator % (int2 lhs, int2 rhs) { return new int2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 operator % (int2 lhs, int rhs) { return new int2 (lhs.x % rhs, lhs.y % rhs); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 operator % (int lhs, int2 rhs) { return new int2 (lhs % rhs.x, lhs % rhs.y); }
+
+        // increment
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 operator ++ (int2 val) { return new int2 (++val.x, ++val.y); }
+        // decrement
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 operator -- (int2 val) { return new int2 (--val.x, --val.y); }
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (int2 lhs, int2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
