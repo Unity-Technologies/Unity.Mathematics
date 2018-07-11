@@ -44,7 +44,14 @@ namespace Unity.Mathematics
 
         // Equals 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(bool3x3 rhs)  { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+        public override bool Equals(object o) { bool3x3 rhs = (bool3x3)o; return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(bool3x3 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
 
         // [int index] 
         unsafe public bool3 this[int index]

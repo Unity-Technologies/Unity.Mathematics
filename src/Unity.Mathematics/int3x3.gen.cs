@@ -140,7 +140,14 @@ namespace Unity.Mathematics
 
         // Equals 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(int3x3 rhs)  { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+        public override bool Equals(object o) { int3x3 rhs = (int3x3)o; return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(int3x3 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
 
         // [int index] 
         unsafe public int3 this[int index]

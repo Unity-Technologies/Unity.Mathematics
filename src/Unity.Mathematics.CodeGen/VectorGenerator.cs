@@ -518,7 +518,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateBinaryOperator(m_Rows, m_Columns, "!=", resultBoolType, str);
 
             str.Append("\n\t\t// Equals \n");
-            GenerateEquals(str);
+            GenerateEquals(str, true);
+            GenerateEquals(str, false);
+
+            str.Append("\n\t\t// GetHashCode \n");
+            GenerateGetHashCode(str);
 
             str.Append("\n\t\t// [int index] \n");
             GenerateIndexOperator(str);
@@ -729,15 +733,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         }
 
-        void GenerateEquals(StringBuilder str)
+        void GenerateEquals(StringBuilder str, bool useObject)
         {
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic bool Equals({0} rhs) ", m_TypeName);
-            str.Append(" { return ");
-
+            if(useObject)
+                str.AppendFormat("\t\tpublic override bool Equals(object o) {{ {0} rhs = ({0})o; return ", m_TypeName);
+            else
+                str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
+            
             for (int i = 0; i < resultCount; i++)
             {
                 if (m_Columns == 1)
@@ -749,6 +755,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             str.Append("; }\n");
+        }
+
+        void GenerateGetHashCode(StringBuilder str)
+        {
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.Append("\t\tpublic override int GetHashCode() { return (int)math.hash(this); }\n\n");
         }
 
 
@@ -803,7 +815,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(", ");
             }
 
-            str.Append("); }\n");
+            str.Append("); }\n\n");
         }
 
         void GenerateSwizzles(StringBuilder str)

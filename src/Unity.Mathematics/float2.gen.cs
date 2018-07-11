@@ -128,7 +128,14 @@ namespace Unity.Mathematics
 
         // Equals 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(float2 rhs)  { return x == rhs.x && y == rhs.y; }
+        public override bool Equals(object o) { float2 rhs = (float2)o; return x == rhs.x && y == rhs.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(float2 rhs) { return x == rhs.x && y == rhs.y; }
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
 
         // [int index] 
         unsafe public float this[int index]

@@ -40,7 +40,14 @@ namespace Unity.Mathematics
 
         // Equals 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(bool2 rhs)  { return x == rhs.x && y == rhs.y; }
+        public override bool Equals(object o) { bool2 rhs = (bool2)o; return x == rhs.x && y == rhs.y; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(bool2 rhs) { return x == rhs.x && y == rhs.y; }
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
 
         // [int index] 
         unsafe public bool this[int index]
