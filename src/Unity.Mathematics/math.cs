@@ -129,6 +129,15 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 min(int4 a, int4 b) { return new int4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint min(uint a, uint b) { return a < b ? a : b; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 min(uint2 a, uint2 b) { return new uint2(min(a.x, b.x), min(a.y, b.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 min(uint3 a, uint3 b) { return new uint3(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 min(uint4 a, uint4 b) { return new uint4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
+
         // max
         [MethodImpl((MethodImplOptions) 0x100)] // agressive inline
         public static float max(float a, float b) { return float.IsNaN(b) || a > b ? a : b; }
@@ -140,13 +149,22 @@ namespace Unity.Mathematics
         public static float4 max(float4 a, float4 b) { return new float4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int max(int a, int b) { return a > b ? a : b; } // Use Math.Max as it is handling properly NaN
+        public static int max(int a, int b) { return a > b ? a : b; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 max(int2 a, int2 b) { return new int2(max(a.x, b.x), max(a.y, b.y)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 max(int3 a, int3 b) { return new int3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 max(int4 a, int4 b) { return new int4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint max(uint a, uint b) { return a > b ? a : b; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 max(uint2 a, uint2 b) { return new uint2(max(a.x, b.x), max(a.y, b.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 max(uint3 a, uint3 b) { return new uint3(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 max(uint4 a, uint4 b) { return new uint4(max(a.x, b.x), max(a.y, b.y), max(a.z, b.z), max(a.w, b.w)); }
 
         // lerp
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -177,8 +195,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 mad(int4 a, int4 b, int4 c) { return a * b + c; }
 
-        // TODO: madint version????
-
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint mad(uint a, uint b, uint c) { return a * b + c; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 mad(uint2 a, uint2 b, uint2 c) { return a * b + c; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 mad(uint3 a, uint3 b, uint3 c) { return a * b + c; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 mad(uint4 a, uint4 b, uint4 c) { return a * b + c; }
 
         // clamp
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -198,6 +222,15 @@ namespace Unity.Mathematics
         public static int3 clamp(int3 x, int3 a, int3 b) { return max(a, min(b, x)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 clamp(int4 x, int4 a, int4 b) { return max(a, min(b, x)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint clamp(uint x, uint a, uint b) { return max(a, min(b, x)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 clamp(uint2 x, uint2 a, uint2 b) { return max(a, min(b, x)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 clamp(uint3 x, uint3 a, uint3 b) { return max(a, min(b, x)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
 
         // saturate
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -465,6 +498,15 @@ namespace Unity.Mathematics
         public static bool any(int4 a) { return a.x != 0 || a.y != 0 || a.z != 0 || a.w != 0; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool any(uint a) { return a != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool any(uint2 a) { return a.x != 0 || a.y != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool any(uint3 a) { return a.x != 0 || a.y != 0 || a.z != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool any(uint4 a) { return a.x != 0 || a.y != 0 || a.z != 0 || a.w != 0; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(float a) { return a != 0.0F; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(float2 a) { return a.x != 0.0F || a.y != 0.0F; }
@@ -491,6 +533,15 @@ namespace Unity.Mathematics
         public static bool all(int3 a) { return a.x != 0 && a.y != 0 && a.z != 0; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(int4 a) { return a.x != 0 && a.y != 0 && a.z != 0 && a.w != 0; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool all(uint a) { return a != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool all(uint2 a) { return a.x != 0 && a.y != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool all(uint3 a) { return a.x != 0 && a.y != 0 && a.z != 0; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool all(uint4 a) { return a.x != 0 && a.y != 0 && a.z != 0 && a.w != 0; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(float a) { return a != 0.0F; }
