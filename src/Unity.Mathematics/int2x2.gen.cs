@@ -12,6 +12,8 @@ namespace Unity.Mathematics
         public int2 c0;
         public int2 c1;
 
+        public static readonly int2x2 zero = new int2x2(0, 0, 0, 0);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x2(int2 c0, int2 c1)
@@ -27,6 +29,27 @@ namespace Unity.Mathematics
             this.c0 = new int2(m00, m10);
             this.c1 = new int2(m01, m11);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x2(uint2x2 v)
+        {
+            this.c0 = (int2)v.c0;
+            this.c1 = (int2)v.c1;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x2(float2x2 v)
+        {
+            this.c0 = (int2)v.c0;
+            this.c1 = (int2)v.c1;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x2(uint2x2 v) { return new int2x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x2(float2x2 v) { return new int2x2(v); }
 
 
         // mul
@@ -229,6 +252,12 @@ namespace Unity.Mathematics
             return new int2x2(m00, m01,
                               m10, m11);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x2 int2x2(uint2x2 v) { return new int2x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x2 int2x2(float2x2 v) { return new int2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int2x2 v)

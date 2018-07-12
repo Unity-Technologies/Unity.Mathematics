@@ -21,6 +21,7 @@ namespace Unity.Mathematics
         [MarshalAs(UnmanagedType.U1)]
         public bool w;
 
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool z, bool w)
@@ -93,6 +94,20 @@ namespace Unity.Mathematics
             this.z = xyzw.z;
             this.w = xyzw.w;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4(bool v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator bool4(bool v) { return new bool4(v); }
 
 
         // equal 
@@ -3024,6 +3039,9 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 bool4(bool v) { return new bool4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4 v)

@@ -14,6 +14,8 @@ namespace Unity.Mathematics
         public int4 c2;
         public int4 c3;
 
+        public static readonly int4x4 zero = new int4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x4(int4 c0, int4 c1, int4 c2, int4 c3)
@@ -35,6 +37,31 @@ namespace Unity.Mathematics
             this.c2 = new int4(m02, m12, m22, m32);
             this.c3 = new int4(m03, m13, m23, m33);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(uint4x4 v)
+        {
+            this.c0 = (int4)v.c0;
+            this.c1 = (int4)v.c1;
+            this.c2 = (int4)v.c2;
+            this.c3 = (int4)v.c3;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(float4x4 v)
+        {
+            this.c0 = (int4)v.c0;
+            this.c1 = (int4)v.c1;
+            this.c2 = (int4)v.c2;
+            this.c3 = (int4)v.c3;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(uint4x4 v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(float4x4 v) { return new int4x4(v); }
 
 
         // mul
@@ -241,6 +268,12 @@ namespace Unity.Mathematics
                               m20, m21, m22, m23,
                               m30, m31, m32, m33);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(uint4x4 v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(float4x4 v) { return new int4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int4x4 v)

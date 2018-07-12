@@ -8,17 +8,6 @@ namespace Unity.Mathematics
 {
     public partial struct bool2
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool2(bool val)
-        {
-            x = y = val;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator bool2(bool d)
-        {
-            return new bool2(d);
-        }
     }
 }
 

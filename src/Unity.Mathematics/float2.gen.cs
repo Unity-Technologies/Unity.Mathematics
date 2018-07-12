@@ -14,6 +14,8 @@ namespace Unity.Mathematics
         public float x;
         public float y;
 
+        public static readonly float2 zero = new float2(0.0f, 0.0f);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float x, float y)
@@ -28,6 +30,54 @@ namespace Unity.Mathematics
             this.x = xy.x;
             this.y = xy.y;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(float v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(int v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(int2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(uint v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(uint2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(float v) { return new float2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(int v) { return new float2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(int2 v) { return new float2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(uint v) { return new float2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(uint2 v) { return new float2(v); }
 
 
         // mul
@@ -427,6 +477,21 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float2 xy) { return new float2(xy); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(float v) { return new float2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(int v) { return new float2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(int2 v) { return new float2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(uint v) { return new float2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(uint2 v) { return new float2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2 v)

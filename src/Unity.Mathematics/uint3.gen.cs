@@ -15,6 +15,8 @@ namespace Unity.Mathematics
         public uint y;
         public uint z;
 
+        public static readonly uint3 zero = new uint3(0, 0, 0);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint x, uint y, uint z)
@@ -47,6 +49,59 @@ namespace Unity.Mathematics
             this.y = xyz.y;
             this.z = xyz.z;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(uint v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(int v)
+        {
+            this.x = (uint)v;
+            this.y = (uint)v;
+            this.z = (uint)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(int3 v)
+        {
+            this.x = (uint)v.x;
+            this.y = (uint)v.y;
+            this.z = (uint)v.z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(float v)
+        {
+            this.x = (uint)v;
+            this.y = (uint)v;
+            this.z = (uint)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(float3 v)
+        {
+            this.x = (uint)v.x;
+            this.y = (uint)v.y;
+            this.z = (uint)v.z;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator uint3(uint v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(int v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(int3 v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(float v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(float3 v) { return new uint3(v); }
 
 
         // mul
@@ -1223,6 +1278,21 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint3 xyz) { return new uint3(xyz); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(uint v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(int v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(int3 v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(float v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(float3 v) { return new uint3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint3 v)

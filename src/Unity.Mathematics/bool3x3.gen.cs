@@ -13,6 +13,7 @@ namespace Unity.Mathematics
         public bool3 c1;
         public bool3 c2;
 
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool3 c0, bool3 c1, bool3 c2)
@@ -31,6 +32,9 @@ namespace Unity.Mathematics
             this.c1 = new bool3(m01, m11, m21);
             this.c2 = new bool3(m02, m12, m22);
         }
+
+
+        // conversions
 
 
         // equal 

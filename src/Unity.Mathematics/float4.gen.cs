@@ -16,6 +16,8 @@ namespace Unity.Mathematics
         public float z;
         public float w;
 
+        public static readonly float4 zero = new float4(0.0f, 0.0f, 0.0f, 0.0f);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float z, float w)
@@ -88,6 +90,64 @@ namespace Unity.Mathematics
             this.z = xyzw.z;
             this.w = xyzw.w;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(float v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(int v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(int4 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+            this.w = v.w;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(uint v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(uint4 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+            this.w = v.w;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(float v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(int v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(int4 v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(uint v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(uint4 v) { return new float4(v); }
 
 
         // mul
@@ -3089,6 +3149,21 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(float4 xyzw) { return new float4(xyzw); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(float v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(int v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(int4 v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(uint v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(uint4 v) { return new float4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4 v)

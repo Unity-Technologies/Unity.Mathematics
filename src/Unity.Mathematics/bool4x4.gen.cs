@@ -14,6 +14,7 @@ namespace Unity.Mathematics
         public bool4 c2;
         public bool4 c3;
 
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x4(bool4 c0, bool4 c1, bool4 c2, bool4 c3)
@@ -35,6 +36,9 @@ namespace Unity.Mathematics
             this.c2 = new bool4(m02, m12, m22, m32);
             this.c3 = new bool4(m03, m13, m23, m33);
         }
+
+
+        // conversions
 
 
         // equal 

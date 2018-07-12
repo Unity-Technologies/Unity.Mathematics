@@ -14,6 +14,8 @@ namespace Unity.Mathematics
         public uint x;
         public uint y;
 
+        public static readonly uint2 zero = new uint2(0, 0);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
@@ -28,6 +30,54 @@ namespace Unity.Mathematics
             this.x = xy.x;
             this.y = xy.y;
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(uint v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(int v)
+        {
+            this.x = (uint)v;
+            this.y = (uint)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(int2 v)
+        {
+            this.x = (uint)v.x;
+            this.y = (uint)v.y;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(float v)
+        {
+            this.x = (uint)v;
+            this.y = (uint)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(float2 v)
+        {
+            this.x = (uint)v.x;
+            this.y = (uint)v.y;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator uint2(uint v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(int v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(int2 v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(float v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(float2 v) { return new uint2(v); }
 
 
         // mul
@@ -464,6 +514,21 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint2 xy) { return new uint2(xy); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(uint v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(int v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(int2 v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(float v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(float2 v) { return new uint2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint2 v)

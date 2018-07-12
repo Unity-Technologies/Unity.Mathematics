@@ -176,6 +176,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
+        private void GenerateStaticFields(StringBuilder str)
+        {
+            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float")
+            {
+                //public static readonly int2 zero = new int2(0, 0);
+                str.AppendFormat("\t\tpublic static readonly {0} zero = new {0}(", m_TypeName);
+
+                for (int i = 0; i < m_Rows * m_Columns; i++)
+                {
+                    if (i != 0)
+                        str.Append(", ");
+                    str.Append(m_BaseType == "float" ? "0.0f" : "0");
+                }
+                str.Append(");\n");
+            }
+
+            str.Append("\n");
+        }
+
         private void GenerateDebuggerTypeProxy(StringBuilder str)
         {
             if (m_Columns > 1)
@@ -196,6 +215,72 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             str.Append("\t\t\t}\n");
             str.Append("\t\t}\n\n");
+        }
+
+        private void GenerateConversion(StringBuilder str, StringBuilder opStr, StringBuilder mathStr, string sourceBaseType, bool isExplicit, bool isScalar)
+        {
+            string sourceType = isScalar ? sourceBaseType : ToTypeName(sourceBaseType, m_Rows, m_Columns);
+
+            int fieldCount = (m_Columns > 1) ? m_Columns : m_Rows;
+            string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
+            string dstFieldType = (m_Columns > 1) ? ToTypeName(m_BaseType, m_Rows, 1) : m_BaseType;
+
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\tpublic {0}({1} v)\n", m_TypeName, sourceType);
+            str.Append("\t\t{\n");
+            for(int i = 0; i < fieldCount; i++)
+            {
+                string rhs = "v";
+                if (!isScalar)
+                    rhs = rhs + "." + fields[i];
+                if (isExplicit)
+                    rhs = "(" + dstFieldType + ")" + rhs;
+
+                str.AppendFormat("\t\t\tthis.{0} = {1};\n", fields[i], rhs);
+            }
+            str.Append("\t\t}\n\n");
+
+            mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            mathStr.AppendFormat("\t\tpublic static {0} {0}({1} v) {{ return new {0}(v); }}\n\n", m_TypeName, sourceType);
+
+            opStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
+        }
+
+        private void GenerateConversionConstructorsAndOperators(StringBuilder str, StringBuilder mathStr)
+        {
+            StringBuilder opStr = new StringBuilder();
+
+            opStr.Append("\t\t// conversions\n");
+            bool isVector = (m_Columns == 1);
+
+            if (isVector) GenerateConversion(str, opStr, mathStr, m_BaseType, false, true);
+
+            if (m_BaseType == "int")
+            {
+                if (isVector) GenerateConversion(str, opStr, mathStr, "uint", true, true);
+                GenerateConversion(str, opStr, mathStr, "uint", true, false);
+                if (isVector) GenerateConversion(str, opStr, mathStr, "float", true, true);
+                GenerateConversion(str, opStr, mathStr, "float", true, false);
+            }
+            else if (m_BaseType == "uint")
+            {
+                if (isVector) GenerateConversion(str, opStr, mathStr, "int", true, true);
+                GenerateConversion(str, opStr, mathStr, "int", true, false);
+                if (isVector) GenerateConversion(str, opStr, mathStr, "float", true, true);
+                GenerateConversion(str, opStr, mathStr, "float", true, false);
+            }
+            else if (m_BaseType == "float")
+            {
+                if(isVector) GenerateConversion(str, opStr, mathStr, "int", false, true);
+                GenerateConversion(str, opStr, mathStr, "int", false, false);
+                if (isVector) GenerateConversion(str, opStr, mathStr, "uint", false, true);
+                GenerateConversion(str, opStr, mathStr, "uint", false, false);
+            }
+
+            str.Append("\n");
+            str.Append(opStr);
+            str.Append("\n");
         }
 
         private void GenerateImplementation(StringBuilder str)
@@ -224,7 +309,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateMemberVariables(str);
 
+            GenerateStaticFields(str);
+
             GenerateConstructors(str, mathStr);
+
+            GenerateConversionConstructorsAndOperators(str, mathStr);
+
             GenerateOperators(str);
             GenerateHashFunction(mathStr);
             if(m_Columns == 1)
@@ -1356,5 +1446,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 //TODO: what about operator '?', '&&', '||'. cannot be overloaded in C#!
 //TODO: +=? yes: this should work automatically
 //TODO: prefix/postfix ++/-- 
+                             
+                             
                              
                              

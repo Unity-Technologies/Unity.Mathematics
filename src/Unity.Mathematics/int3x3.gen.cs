@@ -13,6 +13,8 @@ namespace Unity.Mathematics
         public int3 c1;
         public int3 c2;
 
+        public static readonly int3x3 zero = new int3x3(0, 0, 0, 0, 0, 0, 0, 0, 0);
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x3(int3 c0, int3 c1, int3 c2)
@@ -31,6 +33,29 @@ namespace Unity.Mathematics
             this.c1 = new int3(m01, m11, m21);
             this.c2 = new int3(m02, m12, m22);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3x3(uint3x3 v)
+        {
+            this.c0 = (int3)v.c0;
+            this.c1 = (int3)v.c1;
+            this.c2 = (int3)v.c2;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3x3(float3x3 v)
+        {
+            this.c0 = (int3)v.c0;
+            this.c1 = (int3)v.c1;
+            this.c2 = (int3)v.c2;
+        }
+
+
+        // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3x3(uint3x3 v) { return new int3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3x3(float3x3 v) { return new int3x3(v); }
 
 
         // mul
@@ -235,6 +260,12 @@ namespace Unity.Mathematics
                               m10, m11, m12,
                               m20, m21, m22);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3x3 int3x3(uint3x3 v) { return new int3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3x3 int3x3(float3x3 v) { return new int3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x3 v)

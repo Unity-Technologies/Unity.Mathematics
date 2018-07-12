@@ -9,40 +9,7 @@ namespace Unity.Mathematics
 {
     public partial struct float4 : IFormattable
     {
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float val) { x = y = z = w = val; }
         
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(int val) { x = y = z = w = val; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(int4 val)
-        {
-            x = val.x;
-            y = val.y;
-            z = val.z;
-            w = val.w;
-        }
-        
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(bool4 val)
-        {
-            x = val.x ? 1.0f : 0.0f;
-            y = val.y ? 1.0f : 0.0f;
-            z = val.z ? 1.0f : 0.0f;
-            w = val.w ? 1.0f : 0.0f;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(float d) { return new float4(d); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(int4 d) { return new float4(d.x, d.y, d.z, d.w); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(bool4 d) { return new float4(d.x ? 1.0f : 0.0f, d.y ? 1.0f : 0.0f, d.z ? 1.0f : 0.0f, d.w ? 1.0f : 0.0f); }
-
-        public static readonly float4 zero = new float4(0.0f, 0.0f, 0.0f, 0.0f);
     }
 }
 
