@@ -1,11 +1,19 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct int4x4 : System.IEquatable<int4x4>, IFormattable
     {
+        public int4 c0;
+        public int4 c1;
+        public int4 c2;
+        public int4 c3;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x4(int4 c0, int4 c1, int4 c2, int4 c3)
@@ -214,7 +222,6 @@ namespace Unity.Mathematics
         {
             return string.Format("int4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c2.x.ToString(format, formatProvider), c3.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider), c2.y.ToString(format, formatProvider), c3.y.ToString(format, formatProvider), c0.z.ToString(format, formatProvider), c1.z.ToString(format, formatProvider), c2.z.ToString(format, formatProvider), c3.z.ToString(format, formatProvider), c0.w.ToString(format, formatProvider), c1.w.ToString(format, formatProvider), c2.w.ToString(format, formatProvider), c3.w.ToString(format, formatProvider));
         }
-
 
     }
 

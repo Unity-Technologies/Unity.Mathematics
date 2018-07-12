@@ -1,11 +1,17 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct bool2x2 : System.IEquatable<bool2x2>
     {
+        public bool2 c0;
+        public bool2 c1;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool2 c0, bool2 c1)
@@ -101,7 +107,6 @@ namespace Unity.Mathematics
         {
             return string.Format("bool2x2({0}, {1},  {2}, {3})", c0.x, c1.x, c0.y, c1.y);
         }
-
 
     }
 

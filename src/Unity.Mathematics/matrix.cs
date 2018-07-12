@@ -5,9 +5,6 @@ namespace Unity.Mathematics
 {
     public partial struct float2x2
     {
-        public float2 c0;
-        public float2 c1;
-
         public static readonly float2x2 identity = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
 
         public static float2x2 rotate(float angle)  // counter-clockwise rotation
@@ -38,10 +35,6 @@ namespace Unity.Mathematics
 
     public partial struct float3x3
     {
-        public float3 c0;
-        public float3 c1;
-        public float3 c2;
-
         public float3x3(quaternion rotation)
         {
             rotation = math.normalize(rotation);
@@ -252,11 +245,6 @@ namespace Unity.Mathematics
 
     public partial struct float4x4
     {
-        public float4 c0;
-        public float4 c1;
-        public float4 c2;
-        public float4 c3;
-
         public float4x4(float3x3 rotation, float3 translation)
         {
             c0 = float4(rotation.c0, 0.0f);
@@ -469,70 +457,6 @@ namespace Unity.Mathematics
             matrix.c3 = float4(position, 1.0F);
             return matrix;
         }
-    }
-
-
-    public partial struct bool2x2
-    {
-        public bool2 c0;
-        public bool2 c1;
-    }
-
-    public partial struct bool3x3
-    {
-        public bool3 c0;
-        public bool3 c1;
-        public bool3 c2;
-    }
-
-    public partial struct bool4x4
-    {
-        public bool4 c0;
-        public bool4 c1;
-        public bool4 c2;
-        public bool4 c3;
-    }
-
-    public partial struct int2x2
-    {
-        public int2 c0;
-        public int2 c1;
-    }
-
-    public partial struct int3x3
-    {
-        public int3 c0;
-        public int3 c1;
-        public int3 c2;
-    }
-
-    public partial struct int4x4
-    {
-        public int4 c0;
-        public int4 c1;
-        public int4 c2;
-        public int4 c3;
-    }
-
-    public partial struct uint2x2
-    {
-        public uint2 c0;
-        public uint2 c1;
-    }
-
-    public partial struct uint3x3
-    {
-        public uint3 c0;
-        public uint3 c1;
-        public uint3 c2;
-    }
-
-    public partial struct uint4x4
-    {
-        public uint4 c0;
-        public uint4 c1;
-        public uint4 c2;
-        public uint4 c3;
     }
 
     partial class math

@@ -6,26 +6,8 @@ using System.Runtime.InteropServices;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(bool2.DebuggerProxy))]
     public partial struct bool2
     {
-        internal sealed class DebuggerProxy
-        {
-            public bool x;
-            public bool y;
-
-            public DebuggerProxy(bool2 vec)
-            {
-                x = vec.x;
-                y = vec.y;
-            }
-        }
-
-        [MarshalAs(UnmanagedType.U1)] // Allow this struct to be passed to a dynamic delegate and marshal correctly
-        public bool x;
-        [MarshalAs(UnmanagedType.U1)]
-        public bool y;
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool val)
         {

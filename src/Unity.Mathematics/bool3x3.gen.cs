@@ -1,11 +1,18 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct bool3x3 : System.IEquatable<bool3x3>
     {
+        public bool3 c0;
+        public bool3 c1;
+        public bool3 c2;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool3 c0, bool3 c1, bool3 c2)
@@ -104,7 +111,6 @@ namespace Unity.Mathematics
         {
             return string.Format("bool3x3({0}, {1}, {2},  {3}, {4}, {5},  {6}, {7}, {8})", c0.x, c1.x, c2.x, c0.y, c1.y, c2.y, c0.z, c1.z, c2.z);
         }
-
 
     }
 

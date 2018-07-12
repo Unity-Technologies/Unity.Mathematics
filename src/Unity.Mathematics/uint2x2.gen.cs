@@ -1,11 +1,17 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct uint2x2 : System.IEquatable<uint2x2>, IFormattable
     {
+        public uint2 c0;
+        public uint2 c1;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x2(uint2 c0, uint2 c1)
@@ -208,7 +214,6 @@ namespace Unity.Mathematics
         {
             return string.Format("uint2x2({0}, {1},  {2}, {3})", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider));
         }
-
 
     }
 

@@ -1,11 +1,21 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(float4.DebuggerProxy))]
+    [System.Serializable]
     public partial struct float4 : System.IEquatable<float4>, IFormattable
     {
+        public float x;
+        public float y;
+        public float z;
+        public float w;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float z, float w)
@@ -3037,6 +3047,20 @@ namespace Unity.Mathematics
             return string.Format("float4({0}f, {1}f, {2}f, {3}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public float x;
+            public float y;
+            public float z;
+            public float w;
+            public DebuggerProxy(float4 v)
+            {
+                x = v.x;
+                y = v.y;
+                z = v.z;
+                w = v.w;
+            }
+        }
 
     }
 

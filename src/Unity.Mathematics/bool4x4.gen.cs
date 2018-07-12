@@ -1,11 +1,19 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct bool4x4 : System.IEquatable<bool4x4>
     {
+        public bool4 c0;
+        public bool4 c1;
+        public bool4 c2;
+        public bool4 c3;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x4(bool4 c0, bool4 c1, bool4 c2, bool4 c3)
@@ -107,7 +115,6 @@ namespace Unity.Mathematics
         {
             return string.Format("bool4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x, c1.x, c2.x, c3.x, c0.y, c1.y, c2.y, c3.y, c0.z, c1.z, c2.z, c3.z, c0.w, c1.w, c2.w, c3.w);
         }
-
 
     }
 

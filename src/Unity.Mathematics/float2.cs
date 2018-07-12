@@ -6,25 +6,8 @@ using System.Diagnostics;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(float2.DebuggerProxy))]
-    [System.Serializable]
     public partial struct float2 : IFormattable
     {
-        internal sealed class DebuggerProxy
-        {
-            public float x;
-            public float y;
-
-            public DebuggerProxy(float2 vec)
-            {
-                x = vec.x;
-                y = vec.y;
-            }
-        }
-
-        public float x;
-        public float y;
-        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float val) { x = y = val; }
 

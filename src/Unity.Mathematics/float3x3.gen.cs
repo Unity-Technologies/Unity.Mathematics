@@ -1,11 +1,18 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct float3x3 : System.IEquatable<float3x3>, IFormattable
     {
+        public float3 c0;
+        public float3 c1;
+        public float3 c2;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x3(float3 c0, float3 c1, float3 c2)
@@ -174,7 +181,6 @@ namespace Unity.Mathematics
         {
             return string.Format("float3x3({0}f, {1}f, {2}f,  {3}f, {4}f, {5}f,  {6}f, {7}f, {8}f)", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c2.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider), c2.y.ToString(format, formatProvider), c0.z.ToString(format, formatProvider), c1.z.ToString(format, formatProvider), c2.z.ToString(format, formatProvider));
         }
-
 
     }
 

@@ -5,25 +5,8 @@ using System.Diagnostics;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(int2.DebuggerProxy))]
-    [System.Serializable]
     public partial struct int2
     {
-        internal sealed class DebuggerProxy
-        {
-            public int x;
-            public int y;
-
-            public DebuggerProxy(int2 vec)
-            {
-                x = vec.x;
-                y = vec.y;
-            }
-        }
-
-        public int x;
-        public int y;
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2(int val) { x = y = val; }
 

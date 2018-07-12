@@ -5,28 +5,8 @@ using System.Diagnostics;
 #pragma warning disable 0660, 0661
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(float3.DebuggerProxy))]
-    [System.Serializable]
     public partial struct float3 : IFormattable
     {
-        internal sealed class DebuggerProxy
-        {
-            public float x;
-            public float y;
-            public float z;
-
-            public DebuggerProxy(float3 vec)
-            {
-                x = vec.x;
-                y = vec.y;
-                z = vec.z;
-            }
-        }
-
-        public float x;
-        public float y;
-        public float z;
-        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float val) { x = y = z = val; }
 

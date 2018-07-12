@@ -1,11 +1,17 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [System.Serializable]
     public partial struct float2x2 : System.IEquatable<float2x2>, IFormattable
     {
+        public float2 c0;
+        public float2 c1;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float2 c0, float2 c1)
@@ -171,7 +177,6 @@ namespace Unity.Mathematics
         {
             return string.Format("float2x2({0}f, {1}f,  {2}f, {3}f)", c0.x.ToString(format, formatProvider), c1.x.ToString(format, formatProvider), c0.y.ToString(format, formatProvider), c1.y.ToString(format, formatProvider));
         }
-
 
     }
 

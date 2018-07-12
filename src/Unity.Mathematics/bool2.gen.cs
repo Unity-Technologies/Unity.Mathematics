@@ -1,11 +1,22 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(bool2.DebuggerProxy))]
+    [System.Serializable]
     public partial struct bool2 : System.IEquatable<bool2>
     {
+        [MarshalAs(UnmanagedType.U1)]
+        public bool x;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool y;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool x, bool y)
@@ -329,6 +340,16 @@ namespace Unity.Mathematics
             return string.Format("bool2({0}, {1})", x, y);
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public bool x;
+            public bool y;
+            public DebuggerProxy(bool2 v)
+            {
+                x = v.x;
+                y = v.y;
+            }
+        }
 
     }
 

@@ -1,11 +1,19 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(uint2.DebuggerProxy))]
+    [System.Serializable]
     public partial struct uint2 : System.IEquatable<uint2>, IFormattable
     {
+        public uint x;
+        public uint y;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
@@ -436,6 +444,16 @@ namespace Unity.Mathematics
             return string.Format("uint2({0}, {1})", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public uint x;
+            public uint y;
+            public DebuggerProxy(uint2 v)
+            {
+                x = v.x;
+                y = v.y;
+            }
+        }
 
     }
 

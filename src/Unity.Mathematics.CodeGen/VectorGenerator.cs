@@ -156,6 +156,48 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
 
+        private void GenerateMemberVariables(StringBuilder str)
+        {
+            if(m_Columns > 1)
+            {
+                string columnType = ToTypeName(m_BaseType, m_Rows, 1);
+                for (int i = 0; i < m_Columns; i++)
+                    str.AppendFormat("\t\tpublic {0} {1};\n", columnType, matrixFields[i]);
+            }
+            else
+            {
+                for (int i = 0; i < m_Rows; i++)
+                {
+                    if (m_Columns == 1 && m_BaseType == "bool")
+                        str.Append("\t\t[MarshalAs(UnmanagedType.U1)]\n");
+                    str.AppendFormat("\t\tpublic {0} {1};\n", m_BaseType, vectorFields[i]);
+                }
+            }
+            str.Append("\n");
+        }
+
+        private void GenerateDebuggerTypeProxy(StringBuilder str)
+        {
+            if (m_Columns > 1)
+                return;
+
+            str.Append("\t\tinternal sealed class DebuggerProxy\n");
+            str.Append("\t\t{\n");
+            for (int i = 0; i < m_Rows; i++)
+            {
+                str.AppendFormat("\t\t\tpublic {0} {1};\n", m_BaseType, vectorFields[i]);
+            }
+
+            str.AppendFormat("\t\t\tpublic DebuggerProxy({0} v)\n", m_TypeName);
+            str.Append("\t\t\t{\n");
+            for (int i = 0; i < m_Rows; i++)
+            {
+                str.AppendFormat("\t\t\t\t{0} = v.{0};\n", vectorFields[i]);
+            }
+            str.Append("\t\t\t}\n");
+            str.Append("\t\t}\n\n");
+        }
+
         private void GenerateImplementation(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
@@ -163,13 +205,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("// GENERATED CODE\n");
             str.Append("using System;\n");
             str.Append("using System.Runtime.CompilerServices;\n");
-            str.Append("#pragma warning disable 0660, 0661\n");
+            if (m_Columns == 1 && m_BaseType == "bool")
+                str.Append("using System.Runtime.InteropServices;\n");  // for MarshalAs
+            if (m_Columns == 1)
+                str.Append("using System.Diagnostics;\n");   // for DebuggerTypeProxy
+            str.Append("\n");
+            str.Append("#pragma warning disable 0660, 0661\n\n");
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
+
+            if (m_Columns == 1)
+                str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
+            str.Append("\t[System.Serializable]\n");
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>", m_TypeName);
             if (m_BaseType != "bool")
                 str.Append(", IFormattable");
             str.Append("\n\t{\n");
+
+            GenerateMemberVariables(str);
 
             GenerateConstructors(str, mathStr);
             GenerateOperators(str);
@@ -191,7 +244,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_BaseType != "bool")
                 GenerateToStringFunction(str, true);
 
-            str.Append("\n\t}\n\n");
+            GenerateDebuggerTypeProxy(str);
+
+            str.Append("\t}\n\n");
 
             str.Append("\tpublic static partial class math\n");
             str.Append("\t{\n");

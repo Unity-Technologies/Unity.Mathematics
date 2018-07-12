@@ -1,11 +1,24 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(bool3.DebuggerProxy))]
+    [System.Serializable]
     public partial struct bool3 : System.IEquatable<bool3>
     {
+        [MarshalAs(UnmanagedType.U1)]
+        public bool x;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool y;
+        [MarshalAs(UnmanagedType.U1)]
+        public bool z;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
@@ -1079,6 +1092,18 @@ namespace Unity.Mathematics
             return string.Format("bool3({0}, {1}, {2})", x, y, z);
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public bool x;
+            public bool y;
+            public bool z;
+            public DebuggerProxy(bool3 v)
+            {
+                x = v.x;
+                y = v.y;
+                z = v.z;
+            }
+        }
 
     }
 

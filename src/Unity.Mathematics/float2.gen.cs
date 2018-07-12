@@ -1,11 +1,19 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(float2.DebuggerProxy))]
+    [System.Serializable]
     public partial struct float2 : System.IEquatable<float2>, IFormattable
     {
+        public float x;
+        public float y;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float x, float y)
@@ -399,6 +407,16 @@ namespace Unity.Mathematics
             return string.Format("float2({0}f, {1}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public float x;
+            public float y;
+            public DebuggerProxy(float2 v)
+            {
+                x = v.x;
+                y = v.y;
+            }
+        }
 
     }
 

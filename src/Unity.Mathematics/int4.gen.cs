@@ -1,11 +1,21 @@
 // GENERATED CODE
 using System;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
+
 #pragma warning disable 0660, 0661
+
 namespace Unity.Mathematics
 {
+    [DebuggerTypeProxy(typeof(int4.DebuggerProxy))]
+    [System.Serializable]
     public partial struct int4 : System.IEquatable<int4>, IFormattable
     {
+        public int x;
+        public int y;
+        public int z;
+        public int w;
+
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(int x, int y, int z, int w)
@@ -3074,6 +3084,20 @@ namespace Unity.Mathematics
             return string.Format("int4({0}, {1}, {2}, {3})", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
         }
 
+        internal sealed class DebuggerProxy
+        {
+            public int x;
+            public int y;
+            public int z;
+            public int w;
+            public DebuggerProxy(int4 v)
+            {
+                x = v.x;
+                y = v.y;
+                z = v.z;
+                w = v.w;
+            }
+        }
 
     }
 

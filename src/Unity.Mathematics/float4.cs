@@ -7,31 +7,8 @@ using System.Diagnostics;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(float4.DebuggerProxy))]
-    [System.Serializable]
     public partial struct float4 : IFormattable
     {
-        internal sealed class DebuggerProxy
-        {
-            public float x;
-            public float y;
-            public float z;
-            public float w;
-
-            public DebuggerProxy(float4 vec)
-            {
-                x = vec.x;
-                y = vec.y;
-                z = vec.z;
-                w = vec.z;
-            }
-        }
-
-        public float x;
-        public float y;
-        public float z;
-        public float w;
-        
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float val) { x = y = z = w = val; }
         
