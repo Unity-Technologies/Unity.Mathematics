@@ -35,11 +35,35 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x3(uint v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+            this.c2 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x3(int v)
+        {
+            this.c0 = (uint3)v;
+            this.c1 = (uint3)v;
+            this.c2 = (uint3)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x3(int3x3 v)
         {
             this.c0 = (uint3)v.c0;
             this.c1 = (uint3)v.c1;
             this.c2 = (uint3)v.c2;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x3(float v)
+        {
+            this.c0 = (uint3)v;
+            this.c1 = (uint3)v;
+            this.c2 = (uint3)v;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -53,7 +77,13 @@ namespace Unity.Mathematics
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator uint3x3(uint v) { return new uint3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x3(int v) { return new uint3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(int3x3 v) { return new uint3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x3(float v) { return new uint3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(float3x3 v) { return new uint3x3(v); }
 
@@ -262,7 +292,16 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x3 uint3x3(uint v) { return new uint3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x3 uint3x3(int v) { return new uint3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(int3x3 v) { return new uint3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x3 uint3x3(float v) { return new uint3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(float3x3 v) { return new uint3x3(v); }

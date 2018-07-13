@@ -29,8 +29,17 @@ namespace Unity.Mathematics
             this.c1 = new bool2(m01, m11);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool2x2(bool v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+        }
+
 
         // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator bool2x2(bool v) { return new bool2x2(v); }
 
 
         // equal 
@@ -126,6 +135,9 @@ namespace Unity.Mathematics
             return new bool2x2(m00, m01,
                                m10, m11);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2x2 bool2x2(bool v) { return new bool2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2x2 v)

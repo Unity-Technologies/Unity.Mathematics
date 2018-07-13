@@ -39,12 +39,39 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(int v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+            this.c2 = v;
+            this.c3 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(uint v)
+        {
+            this.c0 = (int4)v;
+            this.c1 = (int4)v;
+            this.c2 = (int4)v;
+            this.c3 = (int4)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x4(uint4x4 v)
         {
             this.c0 = (int4)v.c0;
             this.c1 = (int4)v.c1;
             this.c2 = (int4)v.c2;
             this.c3 = (int4)v.c3;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(float v)
+        {
+            this.c0 = (int4)v;
+            this.c1 = (int4)v;
+            this.c2 = (int4)v;
+            this.c3 = (int4)v;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -59,7 +86,13 @@ namespace Unity.Mathematics
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator int4x4(int v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(uint v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(uint4x4 v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(float v) { return new int4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(float4x4 v) { return new int4x4(v); }
 
@@ -270,7 +303,16 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(int v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(uint v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(uint4x4 v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(float v) { return new int4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(float4x4 v) { return new int4x4(v); }

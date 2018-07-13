@@ -139,7 +139,7 @@ namespace Unity.Mathematics
         public static uint4 min(uint4 a, uint4 b) { return new uint4(min(a.x, b.x), min(a.y, b.y), min(a.z, b.z), min(a.w, b.w)); }
 
         // max
-        [MethodImpl((MethodImplOptions) 0x100)] // agressive inline
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float max(float a, float b) { return float.IsNaN(b) || a > b ? a : b; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 max(float2 a, float2 b) { return new float2(max(a.x, b.x), max(a.y, b.y)); }

@@ -33,8 +33,18 @@ namespace Unity.Mathematics
             this.c2 = new bool3(m02, m12, m22);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool3x3(bool v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+            this.c2 = v;
+        }
+
 
         // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator bool3x3(bool v) { return new bool3x3(v); }
 
 
         // equal 
@@ -132,6 +142,9 @@ namespace Unity.Mathematics
                                m10, m11, m12,
                                m20, m21, m22);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3x3 bool3x3(bool v) { return new bool3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3x3 v)

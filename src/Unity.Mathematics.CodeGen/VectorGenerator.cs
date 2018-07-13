@@ -252,29 +252,28 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder opStr = new StringBuilder();
 
             opStr.Append("\t\t// conversions\n");
-            bool isVector = (m_Columns == 1);
-
-            if (isVector) GenerateConversion(str, opStr, mathStr, m_BaseType, false, true);
+            
+            GenerateConversion(str, opStr, mathStr, m_BaseType, false, true);
 
             if (m_BaseType == "int")
             {
-                if (isVector) GenerateConversion(str, opStr, mathStr, "uint", true, true);
+                GenerateConversion(str, opStr, mathStr, "uint", true, true);
                 GenerateConversion(str, opStr, mathStr, "uint", true, false);
-                if (isVector) GenerateConversion(str, opStr, mathStr, "float", true, true);
+                GenerateConversion(str, opStr, mathStr, "float", true, true);
                 GenerateConversion(str, opStr, mathStr, "float", true, false);
             }
             else if (m_BaseType == "uint")
             {
-                if (isVector) GenerateConversion(str, opStr, mathStr, "int", true, true);
+                GenerateConversion(str, opStr, mathStr, "int", true, true);
                 GenerateConversion(str, opStr, mathStr, "int", true, false);
-                if (isVector) GenerateConversion(str, opStr, mathStr, "float", true, true);
+                GenerateConversion(str, opStr, mathStr, "float", true, true);
                 GenerateConversion(str, opStr, mathStr, "float", true, false);
             }
             else if (m_BaseType == "float")
             {
-                if(isVector) GenerateConversion(str, opStr, mathStr, "int", false, true);
+                GenerateConversion(str, opStr, mathStr, "int", false, true);
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
-                if (isVector) GenerateConversion(str, opStr, mathStr, "uint", false, true);
+                GenerateConversion(str, opStr, mathStr, "uint", false, true);
                 GenerateConversion(str, opStr, mathStr, "uint", false, false);
             }
 
@@ -1103,6 +1102,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
+        // Test Generation
+
         private void BeginTest(StringBuilder str, string name)
         {
             str.Append("\t\t[Test]\n");
@@ -1181,186 +1182,183 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             var rnd = new Random(opName.GetHashCode());
 
-            //if (m_Columns == 1)
+            BeginTest(str, "operator_" + opName);
+
+            int numValues = m_Rows;
+            int numPasses = 4;
+
+            string[] lhsValues = new string[lhsWide ? numValues : 1];
+            string[] rhsValues = new string[rhsWide ? numValues : 1];
+            string[] resultValues = new string[numValues];
+
+            for (int pass = 0; pass < numPasses; pass++)
             {
-                BeginTest(str, "operator_" + opName);
+                bool bool_a = false;
+                bool bool_b = false;
+                int int_a = 0;
+                int int_b = 0;
+                uint uint_a = 0;
+                uint uint_b = 0;
+                float float_a = 0.0f;
+                float float_b = 0.0f;
 
-                int numValues = m_Rows;
-                int numPasses = 4;
-
-                string[] lhsValues = new string[lhsWide ? numValues : 1];
-                string[] rhsValues = new string[rhsWide ? numValues : 1];
-                string[] resultValues = new string[numValues];
-
-                for (int pass = 0; pass < numPasses; pass++)
+                for (int i = 0; i < numValues; i++)
                 {
-                    bool bool_a = false;
-                    bool bool_b = false;
-                    int int_a = 0;
-                    int int_b = 0;
-                    uint uint_a = 0;
-                    uint uint_b = 0;
-                    float float_a = 0.0f;
-                    float float_b = 0.0f;
-
-                    for (int i = 0; i < numValues; i++)
-                    {
-                        string lhsValue = "";
-                        string rhsValue = "";
-                        string resultValue = "";
+                    string lhsValue = "";
+                    string rhsValue = "";
+                    string resultValue = "";
                         
-                        if (m_BaseType == "bool")
+                    if (m_BaseType == "bool")
+                    {
+                        if (i == 0 || lhsWide) bool_a = (rnd.Next(2) == 1);
+                        if (i == 0 || rhsWide) bool_b = (rnd.Next(2) == 1);
+
+                        lhsValue = bool_a ? "true" : "false";
+                        rhsValue = bool_b ? "true" : "false";
+                        switch (op)
                         {
-                            if (i == 0 || lhsWide) bool_a = (rnd.Next(2) == 1);
-                            if (i == 0 || rhsWide) bool_b = (rnd.Next(2) == 1);
+                            case "==": resultValue = (bool_a == bool_b) ? "true" : "false"; break;
+                            case "!=": resultValue = (bool_a != bool_b) ? "true" : "false"; break;
 
-                            lhsValue = bool_a ? "true" : "false";
-                            rhsValue = bool_b ? "true" : "false";
-                            switch (op)
-                            {
-                                case "==": resultValue = (bool_a == bool_b) ? "true" : "false"; break;
-                                case "!=": resultValue = (bool_a != bool_b) ? "true" : "false"; break;
-
-                                case "&": resultValue = (bool_a & bool_b) ? "true" : "false"; break;
-                                case "|": resultValue = (bool_a | bool_b) ? "true" : "false"; break;
-                                case "^": resultValue = (bool_a ^ bool_b) ? "true" : "false"; break;
-                            }
+                            case "&": resultValue = (bool_a & bool_b) ? "true" : "false"; break;
+                            case "|": resultValue = (bool_a | bool_b) ? "true" : "false"; break;
+                            case "^": resultValue = (bool_a ^ bool_b) ? "true" : "false"; break;
                         }
-                        else if (m_BaseType == "int")
-                        {
-                            if (i == 0 || lhsWide) int_a = rnd.Next();
-                            if (i == 0 || rhsWide) int_b = rnd.Next();
+                    }
+                    else if (m_BaseType == "int")
+                    {
+                        if (i == 0 || lhsWide) int_a = rnd.Next();
+                        if (i == 0 || rhsWide) int_b = rnd.Next();
                             
 
-                            lhsValue = "" + int_a;
-                            rhsValue = "" + int_b;
-                            switch (op)
-                            {
-                                case "+": resultValue = "" + (isBinary ? (int_a + int_b) : +int_a); break;
-                                case "-": resultValue = "" + (isBinary ? (int_a - int_b) : -int_a); break;
-                                case "*": resultValue = "" + (int_a * int_b); break;
-                                case "/": resultValue = "" + (int_a / int_b); break;
-                                case "%": resultValue = "" + (int_a % int_b); break;
-
-                                case "<": resultValue = (int_a < int_b) ? "true" : "false"; break;
-                                case ">": resultValue = (int_a > int_b) ? "true" : "false"; break;
-                                case "==": resultValue = (int_a == int_b) ? "true" : "false"; break;
-                                case "!=": resultValue = (int_a != int_b) ? "true" : "false"; break;
-                                case "<=": resultValue = (int_a <= int_b) ? "true" : "false"; break;
-                                case ">=": resultValue = (int_a >= int_b) ? "true" : "false"; break;
-
-                                case "&": resultValue = "" + (int_a & int_b); break;
-                                case "|": resultValue = "" + (int_a | int_b); break;
-                                case "^": resultValue = "" + (int_a ^ int_b); break;
-                                case "<<": resultValue = "" + (int_a << int_b); break;
-                                case ">>": resultValue = "" + (int_a >> int_b); break;
-
-                                case "~": resultValue = "" + (~int_a); break;
-                                case "++": resultValue = "" + (isPrefix ? ++int_a : int_a++); break;
-                                case "--": resultValue = "" + (isPrefix ? --int_a : int_a--); break;
-                            }
-                        }
-                        else if (m_BaseType == "uint")
+                        lhsValue = "" + int_a;
+                        rhsValue = "" + int_b;
+                        switch (op)
                         {
-                            if (i == 0 || lhsWide) uint_a = (uint)rnd.Next();
-                            if (i == 0 || rhsWide) uint_b = (uint)rnd.Next();
+                            case "+": resultValue = "" + (isBinary ? (int_a + int_b) : +int_a); break;
+                            case "-": resultValue = "" + (isBinary ? (int_a - int_b) : -int_a); break;
+                            case "*": resultValue = "" + (int_a * int_b); break;
+                            case "/": resultValue = "" + (int_a / int_b); break;
+                            case "%": resultValue = "" + (int_a % int_b); break;
 
-                            lhsValue = "" + uint_a;
-                            rhsValue = "" + uint_b;
-                            switch (op)
-                            {
-                                case "+": resultValue = "" + (isBinary ? (uint_a + uint_b) : +uint_a); break;
-                                case "-": resultValue = "" + (isBinary ? (uint_a - uint_b) : (uint)-uint_a); break;
-                                case "*": resultValue = "" + (uint_a * uint_b); break;
-                                case "/": resultValue = "" + (uint_a / uint_b); break;
-                                case "%": resultValue = "" + (uint_a % uint_b); break;
+                            case "<": resultValue = (int_a < int_b) ? "true" : "false"; break;
+                            case ">": resultValue = (int_a > int_b) ? "true" : "false"; break;
+                            case "==": resultValue = (int_a == int_b) ? "true" : "false"; break;
+                            case "!=": resultValue = (int_a != int_b) ? "true" : "false"; break;
+                            case "<=": resultValue = (int_a <= int_b) ? "true" : "false"; break;
+                            case ">=": resultValue = (int_a >= int_b) ? "true" : "false"; break;
 
-                                case "<": resultValue = (uint_a < uint_b) ? "true" : "false"; break;
-                                case ">": resultValue = (uint_a > uint_b) ? "true" : "false"; break;
-                                case "==": resultValue = (uint_a == uint_b) ? "true" : "false"; break;
-                                case "!=": resultValue = (uint_a != uint_b) ? "true" : "false"; break;
-                                case "<=": resultValue = (uint_a <= uint_b) ? "true" : "false"; break;
-                                case ">=": resultValue = (uint_a >= uint_b) ? "true" : "false"; break;
+                            case "&": resultValue = "" + (int_a & int_b); break;
+                            case "|": resultValue = "" + (int_a | int_b); break;
+                            case "^": resultValue = "" + (int_a ^ int_b); break;
+                            case "<<": resultValue = "" + (int_a << int_b); break;
+                            case ">>": resultValue = "" + (int_a >> int_b); break;
 
-                                case "&": resultValue = "" + (uint_a & uint_b); break;
-                                case "|": resultValue = "" + (uint_a | uint_b); break;
-                                case "^": resultValue = "" + (uint_a ^ uint_b); break;
-                                case "<<": resultValue = "" + (uint_a << (int)uint_b); break;
-                                case ">>": resultValue = "" + (uint_a >> (int)uint_b); break;
-
-                                case "~": resultValue = "" + (~uint_a); break;
-                                case "++": resultValue = "" + (isPrefix ? ++uint_a : uint_a++); break;
-                                case "--": resultValue = "" + (isPrefix ? --uint_a : uint_a--); break;
-                            }
+                            case "~": resultValue = "" + (~int_a); break;
+                            case "++": resultValue = "" + (isPrefix ? ++int_a : int_a++); break;
+                            case "--": resultValue = "" + (isPrefix ? --int_a : int_a--); break;
                         }
-                        else if (m_BaseType == "float")
-                        {
-                            if (i == 0 || lhsWide) float_a = (float)rnd.NextDouble() * 1024.0f - 512.0f;
-                            if (i == 0 || rhsWide) float_b = (float)rnd.NextDouble() * 1024.0f - 512.0f;
-
-                            lhsValue = "" + float_a.ToString("R") + "f";
-                            rhsValue = "" + float_b.ToString("R") + "f";
-                            switch (op)
-                            {
-                                case "+": resultValue = "" + (isBinary ? (float_a + float_b) : +float_a).ToString("R") + "f"; break;
-                                case "-": resultValue = "" + (isBinary ? (float_a - float_b) : -float_a).ToString("R") + "f"; break;
-                                case "*": resultValue = "" + (float_a * float_b).ToString("R") + "f"; break;
-                                case "/": resultValue = "" + (float_a / float_b).ToString("R") + "f"; break;
-                                case "%": resultValue = "" + (float_a % float_b).ToString("R") + "f"; break;
-
-                                case "<": resultValue = (float_a < float_b) ? "true" : "false"; break;
-                                case ">": resultValue = (float_a > float_b) ? "true" : "false"; break;
-                                case "==": resultValue = (float_a == float_b) ? "true" : "false"; break;
-                                case "!=": resultValue = (float_a != float_b) ? "true" : "false"; break;
-                                case "<=": resultValue = (float_a <= float_b) ? "true" : "false"; break;
-                                case ">=": resultValue = (float_a >= float_b) ? "true" : "false"; break;
-
-                                case "++": resultValue = "" + (isPrefix ? ++float_a : float_a++).ToString("R") + "f"; break;
-                                case "--": resultValue = "" + (isPrefix ? --float_a : float_a--).ToString("R") + "f"; break;
-                            }
-                        }
-
-                        if (i == 0 || lhsWide) lhsValues[i] = lhsValue;
-                        if (i == 0 || rhsWide) rhsValues[i] = rhsValue;
-                        resultValues[i] = resultValue;
                     }
+                    else if (m_BaseType == "uint")
+                    {
+                        if (i == 0 || lhsWide) uint_a = (uint)rnd.Next();
+                        if (i == 0 || rhsWide) uint_b = (uint)rnd.Next();
+
+                        lhsValue = "" + uint_a;
+                        rhsValue = "" + uint_b;
+                        switch (op)
+                        {
+                            case "+": resultValue = "" + (isBinary ? (uint_a + uint_b) : +uint_a); break;
+                            case "-": resultValue = "" + (isBinary ? (uint_a - uint_b) : (uint)-uint_a); break;
+                            case "*": resultValue = "" + (uint_a * uint_b); break;
+                            case "/": resultValue = "" + (uint_a / uint_b); break;
+                            case "%": resultValue = "" + (uint_a % uint_b); break;
+
+                            case "<": resultValue = (uint_a < uint_b) ? "true" : "false"; break;
+                            case ">": resultValue = (uint_a > uint_b) ? "true" : "false"; break;
+                            case "==": resultValue = (uint_a == uint_b) ? "true" : "false"; break;
+                            case "!=": resultValue = (uint_a != uint_b) ? "true" : "false"; break;
+                            case "<=": resultValue = (uint_a <= uint_b) ? "true" : "false"; break;
+                            case ">=": resultValue = (uint_a >= uint_b) ? "true" : "false"; break;
+
+                            case "&": resultValue = "" + (uint_a & uint_b); break;
+                            case "|": resultValue = "" + (uint_a | uint_b); break;
+                            case "^": resultValue = "" + (uint_a ^ uint_b); break;
+                            case "<<": resultValue = "" + (uint_a << (int)uint_b); break;
+                            case ">>": resultValue = "" + (uint_a >> (int)uint_b); break;
+
+                            case "~": resultValue = "" + (~uint_a); break;
+                            case "++": resultValue = "" + (isPrefix ? ++uint_a : uint_a++); break;
+                            case "--": resultValue = "" + (isPrefix ? --uint_a : uint_a--); break;
+                        }
+                    }
+                    else if (m_BaseType == "float")
+                    {
+                        if (i == 0 || lhsWide) float_a = (float)rnd.NextDouble() * 1024.0f - 512.0f;
+                        if (i == 0 || rhsWide) float_b = (float)rnd.NextDouble() * 1024.0f - 512.0f;
+
+                        lhsValue = "" + float_a.ToString("R") + "f";
+                        rhsValue = "" + float_b.ToString("R") + "f";
+                        switch (op)
+                        {
+                            case "+": resultValue = "" + (isBinary ? (float_a + float_b) : +float_a).ToString("R") + "f"; break;
+                            case "-": resultValue = "" + (isBinary ? (float_a - float_b) : -float_a).ToString("R") + "f"; break;
+                            case "*": resultValue = "" + (float_a * float_b).ToString("R") + "f"; break;
+                            case "/": resultValue = "" + (float_a / float_b).ToString("R") + "f"; break;
+                            case "%": resultValue = "" + (float_a % float_b).ToString("R") + "f"; break;
+
+                            case "<": resultValue = (float_a < float_b) ? "true" : "false"; break;
+                            case ">": resultValue = (float_a > float_b) ? "true" : "false"; break;
+                            case "==": resultValue = (float_a == float_b) ? "true" : "false"; break;
+                            case "!=": resultValue = (float_a != float_b) ? "true" : "false"; break;
+                            case "<=": resultValue = (float_a <= float_b) ? "true" : "false"; break;
+                            case ">=": resultValue = (float_a >= float_b) ? "true" : "false"; break;
+
+                            case "++": resultValue = "" + (isPrefix ? ++float_a : float_a++).ToString("R") + "f"; break;
+                            case "--": resultValue = "" + (isPrefix ? --float_a : float_a--).ToString("R") + "f"; break;
+                        }
+                    }
+
+                    if (i == 0 || lhsWide) lhsValues[i] = lhsValue;
+                    if (i == 0 || rhsWide) rhsValues[i] = rhsValue;
+                    resultValues[i] = resultValue;
+                }
                     
-                    str.AppendFormat("\t\t\t{0} a{1} = ", lhsType, pass);
-                    if (lhsWide) str.Append(lhsType);
-                    AddParenthesized(str, lhsValues);
+                str.AppendFormat("\t\t\t{0} a{1} = ", lhsType, pass);
+                if (lhsWide) str.Append(lhsType);
+                AddParenthesized(str, lhsValues);
+                str.Append(";\n");
+
+                if (isBinary)
+                {
+                    str.AppendFormat("\t\t\t{0} b{1} = ", rhsType, pass);
+                    if (rhsWide) str.Append(rhsType);
+                    AddParenthesized(str, rhsValues);
                     str.Append(";\n");
 
-                    if (isBinary)
-                    {
-                        str.AppendFormat("\t\t\t{0} b{1} = ", rhsType, pass);
-                        if (rhsWide) str.Append(rhsType);
-                        AddParenthesized(str, rhsValues);
-                        str.Append(";\n");
+                    str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
+                    AddParenthesized(str, resultValues);
+                    str.Append(";\n");
 
-                        str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
-                        AddParenthesized(str, resultValues);
-                        str.Append(";\n");
-
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1} {0} b{1}, r{1});\n", op, pass);
-                    }
-                    else
-                    {
-                        str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
-                        AddParenthesized(str, resultValues);
-                        str.Append(";\n");
-
-                        if (isPrefix)
-                            str.AppendFormat("\t\t\tTestUtils.AreEqual({0}a{1}, r{1});\n", op, pass);
-                        else
-                            str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1}{0}, r{1});\n", op, pass);
-                    }
-
-                    if (pass != numPasses - 1)
-                        str.Append("\n");
-
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1} {0} b{1}, r{1});\n", op, pass);
                 }
-                EndTest(str);
+                else
+                {
+                    str.AppendFormat("\t\t\t{0} r{1} = {0}", returnType, pass);
+                    AddParenthesized(str, resultValues);
+                    str.Append(";\n");
+
+                    if (isPrefix)
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}a{1}, r{1});\n", op, pass);
+                    else
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1}{0}, r{1});\n", op, pass);
+                }
+
+                if (pass != numPasses - 1)
+                    str.Append("\n");
+
             }
+            EndTest(str);
         }
 
         private void TestUnaryOperator(StringBuilder str, string returnType, string op, string opName, bool isPrefix)

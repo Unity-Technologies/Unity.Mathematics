@@ -37,8 +37,19 @@ namespace Unity.Mathematics
             this.c3 = new bool4(m03, m13, m23, m33);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool4x4(bool v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+            this.c2 = v;
+            this.c3 = v;
+        }
+
 
         // conversions
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator bool4x4(bool v) { return new bool4x4(v); }
 
 
         // equal 
@@ -138,6 +149,9 @@ namespace Unity.Mathematics
                                m20, m21, m22, m23,
                                m30, m31, m32, m33);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4x4 bool4x4(bool v) { return new bool4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4x4 v)
