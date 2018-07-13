@@ -121,14 +121,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             vectorGenerator.m_ImplementationDirectory = implementationDirectory;
             vectorGenerator.m_TestDirectory = testDirectory;
 
-            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("bool", 2, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 3, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 4, 1, Features.BitwiseLogic);
 
-            vectorGenerator.Write("float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("bool", 2, 2, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 3, 3, Features.BitwiseLogic);
+            vectorGenerator.Write("bool", 4, 4, Features.BitwiseLogic);
 
             vectorGenerator.Write("int", 2, 1, Features.All);
             vectorGenerator.Write("int", 3, 1, Features.All);
@@ -146,13 +145,23 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             vectorGenerator.Write("uint", 3, 3, Features.All);
             vectorGenerator.Write("uint", 4, 4, Features.All);
 
-            vectorGenerator.Write("bool", 2, 1, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 3, 1, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 4, 1, Features.BitwiseLogic);
+            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
 
-            vectorGenerator.Write("bool", 2, 2, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 3, 3, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 4, 4, Features.BitwiseLogic);
+            vectorGenerator.Write("float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
+
+            vectorGenerator.Write("double", 2, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("double", 3, 1, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("double", 4, 1, Features.Arithmetic | Features.UnaryNegation);
+
+            vectorGenerator.Write("double", 2, 2, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("double", 3, 3, Features.Arithmetic | Features.UnaryNegation);
+            vectorGenerator.Write("double", 4, 4, Features.Arithmetic | Features.UnaryNegation);
+
+
         }
 
 
@@ -732,7 +741,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         str.Append(" + \n\t\t\t\t\t\t");
                     string columnName = m_Columns > 1 ? "v.c" + column : "v";
                     if (m_BaseType != "uint")
-                        columnName = "asuint(" + columnName + ")";
+                    {
+                        if(m_BaseType == "double")
+                            columnName = "fold_to_uint(" + columnName + ")";
+                        else
+                            columnName = "asuint(" + columnName + ")";
+                    }
+                        
                     str.Append(columnName);
                     str.Append(" * ");
                     GeneratePrimeUIntVector(str, m_Rows);
@@ -1141,7 +1156,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if(isScalar)
                 {
-                    string value = m_BaseType == "bool" ? "true" : m_BaseType == "uint" ? "17u" : m_BaseType == "int" ? "17" : m_BaseType == "float" ? "17.0f" : "";
+                    string value = m_BaseType == "bool" ? "true" : m_BaseType == "uint" ? "17u" : m_BaseType == "int" ? "17" : m_BaseType == "float" ? "17.0f" : m_BaseType == "double" ? "17.0" : "";
                     str.Append("(" + value + ");\n");
 
                     for (int row = 0; row < m_Rows; row++)
@@ -1201,6 +1216,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 uint uint_b = 0;
                 float float_a = 0.0f;
                 float float_b = 0.0f;
+                double double_a = 0.0;
+                double double_b = 0.0;
 
                 for (int i = 0; i < numValues; i++)
                 {
@@ -1316,6 +1333,31 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                             case "++": resultValue = "" + (isPrefix ? ++float_a : float_a++).ToString("R") + "f"; break;
                             case "--": resultValue = "" + (isPrefix ? --float_a : float_a--).ToString("R") + "f"; break;
+                        }
+                    } else if (m_BaseType == "double")
+                    {
+                        if (i == 0 || lhsWide) double_a = rnd.NextDouble() * 1024.0 - 512.0;
+                        if (i == 0 || rhsWide) double_b = rnd.NextDouble() * 1024.0 - 512.0;
+
+                        lhsValue = "" + double_a.ToString("R");
+                        rhsValue = "" + double_b.ToString("R");
+                        switch (op)
+                        {
+                            case "+": resultValue = "" + (isBinary ? (double_a + double_b) : +double_a).ToString("R"); break;
+                            case "-": resultValue = "" + (isBinary ? (double_a - double_b) : -double_a).ToString("R"); break;
+                            case "*": resultValue = "" + (double_a * double_b).ToString("R"); break;
+                            case "/": resultValue = "" + (double_a / double_b).ToString("R"); break;
+                            case "%": resultValue = "" + (double_a % double_b).ToString("R"); break;
+
+                            case "<": resultValue = (double_a < double_b) ? "true" : "false"; break;
+                            case ">": resultValue = (double_a > double_b) ? "true" : "false"; break;
+                            case "==": resultValue = (double_a == double_b) ? "true" : "false"; break;
+                            case "!=": resultValue = (double_a != double_b) ? "true" : "false"; break;
+                            case "<=": resultValue = (double_a <= double_b) ? "true" : "false"; break;
+                            case ">=": resultValue = (double_a >= double_b) ? "true" : "false"; break;
+
+                            case "++": resultValue = "" + (isPrefix ? ++double_a : double_a++).ToString("R"); break;
+                            case "--": resultValue = "" + (isPrefix ? --double_a : double_a--).ToString("R"); break;
                         }
                     }
 

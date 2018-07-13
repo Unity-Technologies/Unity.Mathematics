@@ -7,413 +7,376 @@ using System.Diagnostics;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(float2.DebuggerProxy))]
+    [DebuggerTypeProxy(typeof(double2.DebuggerProxy))]
     [System.Serializable]
-    public partial struct float2 : System.IEquatable<float2>, IFormattable
+    public partial struct double2 : System.IEquatable<double2>, IFormattable
     {
-        public float x;
-        public float y;
+        public double x;
+        public double y;
 
-        public static readonly float2 zero = new float2(0.0f, 0.0f);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(float x, float y)
+        public double2(double x, double y)
         { 
             this.x = x;
             this.y = y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(float2 xy)
+        public double2(double2 xy)
         { 
             this.x = xy.x;
             this.y = xy.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(float v)
+        public double2(double v)
         {
             this.x = v;
             this.y = v;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(int v)
-        {
-            this.x = v;
-            this.y = v;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(int2 v)
-        {
-            this.x = v.x;
-            this.y = v.y;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(uint v)
-        {
-            this.x = v;
-            this.y = v;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2(uint2 v)
-        {
-            this.x = v.x;
-            this.y = v.y;
         }
 
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2(float v) { return new float2(v); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2(int v) { return new float2(v); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2(int2 v) { return new float2(v); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2(uint v) { return new float2(v); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2(uint2 v) { return new float2(v); }
+        public static implicit operator double2(double v) { return new double2(v); }
 
 
         // mul
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (float2 lhs, float2 rhs) { return new float2 (lhs.x * rhs.x, lhs.y * rhs.y); }
+        public static double2 operator * (double2 lhs, double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (float2 lhs, float rhs) { return new float2 (lhs.x * rhs, lhs.y * rhs); }
+        public static double2 operator * (double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (float lhs, float2 rhs) { return new float2 (lhs * rhs.x, lhs * rhs.y); }
+        public static double2 operator * (double lhs, double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
 
         // add
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (float2 lhs, float2 rhs) { return new float2 (lhs.x + rhs.x, lhs.y + rhs.y); }
+        public static double2 operator + (double2 lhs, double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (float2 lhs, float rhs) { return new float2 (lhs.x + rhs, lhs.y + rhs); }
+        public static double2 operator + (double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (float lhs, float2 rhs) { return new float2 (lhs + rhs.x, lhs + rhs.y); }
+        public static double2 operator + (double lhs, double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
 
         // sub
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (float2 lhs, float2 rhs) { return new float2 (lhs.x - rhs.x, lhs.y - rhs.y); }
+        public static double2 operator - (double2 lhs, double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (float2 lhs, float rhs) { return new float2 (lhs.x - rhs, lhs.y - rhs); }
+        public static double2 operator - (double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (float lhs, float2 rhs) { return new float2 (lhs - rhs.x, lhs - rhs.y); }
+        public static double2 operator - (double lhs, double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
 
         // div
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (float2 lhs, float2 rhs) { return new float2 (lhs.x / rhs.x, lhs.y / rhs.y); }
+        public static double2 operator / (double2 lhs, double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (float2 lhs, float rhs) { return new float2 (lhs.x / rhs, lhs.y / rhs); }
+        public static double2 operator / (double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (float lhs, float2 rhs) { return new float2 (lhs / rhs.x, lhs / rhs.y); }
+        public static double2 operator / (double lhs, double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
 
         // mod
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (float2 lhs, float2 rhs) { return new float2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        public static double2 operator % (double2 lhs, double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (float2 lhs, float rhs) { return new float2 (lhs.x % rhs, lhs.y % rhs); }
+        public static double2 operator % (double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (float lhs, float2 rhs) { return new float2 (lhs % rhs.x, lhs % rhs.y); }
+        public static double2 operator % (double lhs, double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
 
         // increment
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator ++ (float2 val) { return new float2 (++val.x, ++val.y); }
+        public static double2 operator ++ (double2 val) { return new double2 (++val.x, ++val.y); }
 
 
         // decrement
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator -- (float2 val) { return new float2 (--val.x, --val.y); }
+        public static double2 operator -- (double2 val) { return new double2 (--val.x, --val.y); }
 
 
         // smaller 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (float2 lhs, float2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
+        public static bool2 operator < (double2 lhs, double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (float2 lhs, float rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
+        public static bool2 operator < (double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (float lhs, float2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
+        public static bool2 operator < (double lhs, double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (float2 lhs, float2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
+        public static bool2 operator <= (double2 lhs, double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (float2 lhs, float rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
+        public static bool2 operator <= (double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (float lhs, float2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
+        public static bool2 operator <= (double lhs, double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
         // greater 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (float2 lhs, float2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
+        public static bool2 operator > (double2 lhs, double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (float2 lhs, float rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
+        public static bool2 operator > (double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (float lhs, float2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
+        public static bool2 operator > (double lhs, double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (float2 lhs, float2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
+        public static bool2 operator >= (double2 lhs, double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (float2 lhs, float rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
+        public static bool2 operator >= (double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (float lhs, float2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
+        public static bool2 operator >= (double lhs, double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
         // neg 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (float2 val) { return new float2 (-val.x, -val.y); }
+        public static double2 operator - (double2 val) { return new double2 (-val.x, -val.y); }
 
 
         // plus 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (float2 val) { return new float2 (+val.x, +val.y); }
+        public static double2 operator + (double2 val) { return new double2 (+val.x, +val.y); }
 
 
         // equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (float2 lhs, float2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (double2 lhs, double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (float2 lhs, float rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (float lhs, float2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (double lhs, double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
         // not equal 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (float2 lhs, float2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (double2 lhs, double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (float2 lhs, float rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (float lhs, float2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (double lhs, double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xxxx
+        public double4 xxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, x, x, x); }
+            get { return new double4(x, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xxxy
+        public double4 xxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, x, x, y); }
+            get { return new double4(x, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xxyx
+        public double4 xxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, x, y, x); }
+            get { return new double4(x, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xxyy
+        public double4 xxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, x, y, y); }
+            get { return new double4(x, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xyxx
+        public double4 xyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, y, x, x); }
+            get { return new double4(x, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xyxy
+        public double4 xyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, y, x, y); }
+            get { return new double4(x, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xyyx
+        public double4 xyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, y, y, x); }
+            get { return new double4(x, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 xyyy
+        public double4 xyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(x, y, y, y); }
+            get { return new double4(x, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yxxx
+        public double4 yxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, x, x, x); }
+            get { return new double4(y, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yxxy
+        public double4 yxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, x, x, y); }
+            get { return new double4(y, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yxyx
+        public double4 yxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, x, y, x); }
+            get { return new double4(y, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yxyy
+        public double4 yxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, x, y, y); }
+            get { return new double4(y, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yyxx
+        public double4 yyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, y, x, x); }
+            get { return new double4(y, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yyxy
+        public double4 yyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, y, x, y); }
+            get { return new double4(y, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yyyx
+        public double4 yyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, y, y, x); }
+            get { return new double4(y, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float4 yyyy
+        public double4 yyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float4(y, y, y, y); }
+            get { return new double4(y, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 xxx
+        public double3 xxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(x, x, x); }
+            get { return new double3(x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 xxy
+        public double3 xxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(x, x, y); }
+            get { return new double3(x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 xyx
+        public double3 xyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(x, y, x); }
+            get { return new double3(x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 xyy
+        public double3 xyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(x, y, y); }
+            get { return new double3(x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 yxx
+        public double3 yxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(y, x, x); }
+            get { return new double3(y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 yxy
+        public double3 yxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(y, x, y); }
+            get { return new double3(y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 yyx
+        public double3 yyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(y, y, x); }
+            get { return new double3(y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float3 yyy
+        public double3 yyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float3(y, y, y); }
+            get { return new double3(y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float2 xx
+        public double2 xx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float2(x, x); }
+            get { return new double2(x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float2 xy
+        public double2 xy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float2(x, y); }
+            get { return new double2(x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float2 yx
+        public double2 yx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float2(y, x); }
+            get { return new double2(y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public float2 yy
+        public double2 yy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new float2(y, y); }
+            get { return new double2(y, y); }
         }
 
 
 
         // [int index] 
-        unsafe public float this[int index]
+        unsafe public double this[int index]
         {
             get
             {
@@ -421,7 +384,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (float2* array = &this) { return ((float*)array)[index]; }
+                fixed (double2* array = &this) { return ((double*)array)[index]; }
             }
             set
             {
@@ -429,14 +392,14 @@ namespace Unity.Mathematics
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (float* array = &x) { array[index] = value; }
+                fixed (double* array = &x) { array[index] = value; }
             }
         }
 
         // Equals 
-        public bool Equals(float2 rhs) { return x == rhs.x && y == rhs.y; }
+        public bool Equals(double2 rhs) { return x == rhs.x && y == rhs.y; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { return Equals((float2)o); }
+        public override bool Equals(object o) { return Equals((double2)o); }
 
 
         // GetHashCode 
@@ -448,20 +411,20 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
-            return string.Format("float2({0}f, {1}f)", x, y);
+            return string.Format("double2({0}, {1})", x, y);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return string.Format("float2({0}f, {1}f)", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
+            return string.Format("double2({0}, {1})", x.ToString(format, formatProvider), y.ToString(format, formatProvider));
         }
 
         internal sealed class DebuggerProxy
         {
-            public float x;
-            public float y;
-            public DebuggerProxy(float2 v)
+            public double x;
+            public double y;
+            public DebuggerProxy(double2 v)
             {
                 x = v.x;
                 y = v.y;
@@ -473,30 +436,18 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(float x, float y) { return new float2(x, y); }
+        public static double2 double2(double x, double y) { return new double2(x, y); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(float2 xy) { return new float2(xy); }
+        public static double2 double2(double2 xy) { return new double2(xy); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(float v) { return new float2(v); }
+        public static double2 double2(double v) { return new double2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(int v) { return new float2(v); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(int2 v) { return new float2(v); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(uint v) { return new float2(v); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 float2(uint2 v) { return new float2(v); }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(float2 v)
+        public static uint hash(double2 v)
         {
-            return csum(asuint(v) * uint2(0xADF428FFu, 0xA3977109u)) + 0x745ED837u;
+            return csum(fold_to_uint(v) * uint2(0xA8F2213Bu, 0x9F3FDC37u)) + 0xAC60D0C3u;
         }
 
     }

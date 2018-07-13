@@ -3046,7 +3046,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4 v)
         {
-            return csum(select(uint4(0xF9137117u, 0xE857DCE1u, 0xF62213C5u, 0x9CDAA959u), uint4(0xAA269ABFu, 0xD54BA36Fu, 0xFD0847B9u, 0x8189A683u), v));
+            return csum(select(uint4(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u, 0xCC74B3B7u), uint4(0x83B58237u, 0x833E3E29u, 0xA9D919BFu, 0xC3EC1D97u), v));
         }
 
     }

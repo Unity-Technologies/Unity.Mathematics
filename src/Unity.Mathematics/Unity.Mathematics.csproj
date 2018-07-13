@@ -65,6 +65,12 @@
     <Compile Include="bool3x3.gen.cs" />
     <Compile Include="bool4.gen.cs" />
     <Compile Include="bool4x4.gen.cs" />
+    <Compile Include="double2.gen.cs" />
+    <Compile Include="double2x2.gen.cs" />
+    <Compile Include="double3.gen.cs" />
+    <Compile Include="double3x3.gen.cs" />
+    <Compile Include="double4.gen.cs" />
+    <Compile Include="double4x4.gen.cs" />
     <Compile Include="float2.gen.cs" />
     <Compile Include="float2x2.gen.cs" />
     <Compile Include="float3.gen.cs" />
@@ -82,6 +88,7 @@
     <Compile Include="mathextended.cs" />
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
+    <Compile Include="playground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="uint2.gen.cs" />

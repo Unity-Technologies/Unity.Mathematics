@@ -3205,7 +3205,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int4 v)
         {
-            return csum(asuint(v) * uint4(0xE191B035u, 0x68586FAFu, 0xD4DFF6D3u, 0xCB634F4Du)) + 0x9B13B92Du;
+            return csum(asuint(v) * uint4(0xB5F05AF1u, 0xFD80290Bu, 0x8B65ADB7u, 0xDFF4F563u)) + 0x7069770Du;
         }
 
     }

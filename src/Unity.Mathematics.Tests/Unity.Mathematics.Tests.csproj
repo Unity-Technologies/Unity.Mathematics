@@ -51,6 +51,12 @@
     <Compile Include="TestBool3x3.gen.cs" />
     <Compile Include="TestBool4.gen.cs" />
     <Compile Include="TestBool4x4.gen.cs" />
+    <Compile Include="TestDouble2.gen.cs" />
+    <Compile Include="TestDouble2x2.gen.cs" />
+    <Compile Include="TestDouble3.gen.cs" />
+    <Compile Include="TestDouble3x3.gen.cs" />
+    <Compile Include="TestDouble4.gen.cs" />
+    <Compile Include="TestDouble4x4.gen.cs" />
     <Compile Include="TestFloat2.gen.cs" />
     <Compile Include="TestFloat2x2.gen.cs" />
     <Compile Include="TestFloat3.gen.cs" />

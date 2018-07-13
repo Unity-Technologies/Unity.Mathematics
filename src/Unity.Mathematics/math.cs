@@ -748,6 +748,22 @@ namespace Unity.Mathematics
             return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint fold_to_uint(double v)  // utility for double hashing
+        {
+            LongDoubleUnion u;
+            u.longValue = 0;
+            u.doubleValue = v;
+            return (uint)(u.longValue >> 32) ^ (uint)u.longValue;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint2 fold_to_uint(double2 v) { return uint2(fold_to_uint(v.x), fold_to_uint(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint3 fold_to_uint(double3 v) { return uint3(fold_to_uint(v.x), fold_to_uint(v.y), fold_to_uint(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint4 fold_to_uint(double4 v) { return uint4(fold_to_uint(v.x), fold_to_uint(v.y), fold_to_uint(v.z), fold_to_uint(v.w)); }
+
         [StructLayout(LayoutKind.Explicit)]
         internal struct IntFloatUnion
         {
@@ -755,6 +771,15 @@ namespace Unity.Mathematics
             public int intValue;
             [FieldOffset(0)]
             public float floatValue;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct LongDoubleUnion
+        {
+            [FieldOffset(0)]
+            public long longValue;
+            [FieldOffset(0)]
+            public double doubleValue;
         }
     }
 }
