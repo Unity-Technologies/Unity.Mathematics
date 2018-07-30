@@ -1241,7 +1241,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             BeginTest(str, "operator_" + opName);
 
-            int numValues = m_Rows;
+            int numValues = m_Rows * m_Columns;
             int numPasses = 4;
 
             string[] lhsValues = new string[lhsWide ? numValues : 1];
