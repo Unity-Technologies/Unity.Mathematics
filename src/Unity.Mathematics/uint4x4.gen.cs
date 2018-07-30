@@ -14,7 +14,8 @@ namespace Unity.Mathematics
         public uint4 c2;
         public uint4 c3;
 
-        public static readonly uint4x4 zero = new uint4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+        public static readonly uint4x4 identity = new uint4x4(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1, 0,   0, 0, 0, 1);
+        public static readonly uint4x4 zero = new uint4x4(0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

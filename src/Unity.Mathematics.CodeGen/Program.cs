@@ -1,5 +1,7 @@
 using System;
+using System.Globalization;
 using System.IO;
+using System.Threading;
 
 namespace Unity.Mathematics.Mathematics.CodeGen
 {
@@ -7,6 +9,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
     {
         public static void Main (string[] args)
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
+         
             var thisExeDir = Path.GetDirectoryName(typeof(MainClass).Assembly.Location);
             if (thisExeDir == null)
             {

@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         public float x;
         public float y;
 
-        public static readonly float2 zero = new float2(0.0f, 0.0f);
+        public static readonly float2 zero = new float2(0.0f,   0.0f);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

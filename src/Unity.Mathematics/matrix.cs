@@ -5,8 +5,6 @@ namespace Unity.Mathematics
 {
     public partial struct float2x2
     {
-        public static readonly float2x2 identity = new float2x2(1.0f, 0.0f, 0.0f, 1.0f);
-
         public static float2x2 rotate(float angle)  // counter-clockwise rotation
         {
             float s, c;
@@ -56,10 +54,6 @@ namespace Unity.Mathematics
             c1 = float3(xy - wz, 1.0f - (xx + zz), yz + wx);
             c2 = float3(xz + wy, yz - wx, 1.0f - (xx + yy));
         }
-
-        public static readonly float3x3 identity = new float3x3(1.0f, 0.0f, 0.0f,
-            0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 1.0f);
 
         public static float3x3 eulerXYZ(float3 xyz)
         {
@@ -261,11 +255,6 @@ namespace Unity.Mathematics
             c2 = float4(rot.c2, 0.0f);
             c3 = float4(translation, 1.0f);
         }
-
-        public static readonly float4x4 identity = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,
-                                                                0.0f, 1.0f, 0.0f, 0.0f,
-                                                                0.0f, 0.0f, 1.0f, 0.0f,
-                                                                0.0f, 0.0f, 0.0f, 1.0f);
 
         public static float4x4 eulerXYZ(float3 xyz)
         {

@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         public int x;
         public int y;
 
-        public static readonly int2 zero = new int2(0, 0);
+        public static readonly int2 zero = new int2(0,   0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

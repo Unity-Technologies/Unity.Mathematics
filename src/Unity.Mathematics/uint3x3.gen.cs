@@ -13,7 +13,8 @@ namespace Unity.Mathematics
         public uint3 c1;
         public uint3 c2;
 
-        public static readonly uint3x3 zero = new uint3x3(0, 0, 0, 0, 0, 0, 0, 0, 0);
+        public static readonly uint3x3 identity = new uint3x3(1, 0, 0,   0, 1, 0,   0, 0, 1);
+        public static readonly uint3x3 zero = new uint3x3(0, 0, 0,   0, 0, 0,   0, 0, 0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -14,6 +14,7 @@ namespace Unity.Mathematics
         public double x;
         public double y;
 
+        public static readonly double2 zero = new double2(0.0,   0.0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -74,6 +74,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             return name;
         }
 
+        public static string ToTypedLiteral(string baseType, int value)
+        {
+            switch(baseType)
+            {
+                case "int":
+                case "uint":
+                    return "" + value;
+                case "float":
+                    return "" + value + ".0f";
+                case "double":
+                    return "" + value + ".0";
+                default:
+                    return "";
+            }
+        }
+
         private static string UpperCaseFirstLetter(string s)
         {
             return char.ToUpper(s[0]) + s.Substring(1);
@@ -187,16 +203,42 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void GenerateStaticFields(StringBuilder str)
         {
-            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float")
+            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float" || m_BaseType == "double")
             {
-                //public static readonly int2 zero = new int2(0, 0);
+                string zeroStr = ToTypedLiteral(m_BaseType, 0);
+
+                // identity
+                if (m_Rows == m_Columns)
+                {
+                    string oneStr = ToTypedLiteral(m_BaseType, 1);
+                    str.AppendFormat("\t\tpublic static readonly {0} identity = new {0}(", m_TypeName);
+                    for (int row = 0; row < m_Rows; row++)
+                    {
+                        for (int column = 0; column < m_Columns; column++)
+                        {
+                            if (row != 0 || column != 0)
+                                str.Append(", ");
+                            if (row != 0 && column == 0)
+                                str.Append("  ");
+                            str.Append(row == column ? oneStr : zeroStr);
+                        }
+                    }
+                    str.Append(");\n");
+                }
+
+                // zero
                 str.AppendFormat("\t\tpublic static readonly {0} zero = new {0}(", m_TypeName);
 
-                for (int i = 0; i < m_Rows * m_Columns; i++)
+                for (int row = 0; row < m_Rows; row++)
                 {
-                    if (i != 0)
-                        str.Append(", ");
-                    str.Append(m_BaseType == "float" ? "0.0f" : "0");
+                    for (int column = 0; column < m_Columns; column++)
+                    {
+                        if (row != 0 || column != 0)
+                            str.Append(", ");
+                        if (row != 0 && column == 0)
+                            str.Append("  ");
+                        str.Append(zeroStr);
+                    }
                 }
                 str.Append(");\n");
             }

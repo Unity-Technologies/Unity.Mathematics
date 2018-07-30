@@ -16,7 +16,7 @@ namespace Unity.Mathematics
         public int z;
         public int w;
 
-        public static readonly int4 zero = new int4(0, 0, 0, 0);
+        public static readonly int4 zero = new int4(0,   0,   0,   0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

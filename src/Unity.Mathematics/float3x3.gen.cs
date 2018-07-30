@@ -13,7 +13,8 @@ namespace Unity.Mathematics
         public float3 c1;
         public float3 c2;
 
-        public static readonly float3x3 zero = new float3x3(0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f);
+        public static readonly float3x3 identity = new float3x3(1.0f, 0.0f, 0.0f,   0.0f, 1.0f, 0.0f,   0.0f, 0.0f, 1.0f);
+        public static readonly float3x3 zero = new float3x3(0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

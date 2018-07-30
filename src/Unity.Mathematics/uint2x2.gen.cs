@@ -12,7 +12,8 @@ namespace Unity.Mathematics
         public uint2 c0;
         public uint2 c1;
 
-        public static readonly uint2x2 zero = new uint2x2(0, 0, 0, 0);
+        public static readonly uint2x2 identity = new uint2x2(1, 0,   0, 1);
+        public static readonly uint2x2 zero = new uint2x2(0, 0,   0, 0);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
