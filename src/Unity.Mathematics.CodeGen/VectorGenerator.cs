@@ -47,7 +47,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                 0x8C4CA03Fu,    0xB8D969EDu,    0xAC5DB57Bu,    0xA91A02EDu,            0xB3C49313u,    0xF43A9ABBu,    0x84E7E01Bu,    0x8E055BE5u
         };
 
-        private uint nextPrime = 0;
+        private uint m_NextPrime = 0;
+        private uint NextPrime()
+        {
+            return m_primes[m_NextPrime++ & 255]; //TOOD: fix
+        }
 
         [Flags]
         private enum Features
@@ -137,47 +141,26 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             vectorGenerator.m_ImplementationDirectory = implementationDirectory;
             vectorGenerator.m_TestDirectory = testDirectory;
 
-            vectorGenerator.Write("bool", 2, 1, Features.BitwiseLogic);
+            
             vectorGenerator.Write("bool", 3, 1, Features.BitwiseLogic);
             vectorGenerator.Write("bool", 4, 1, Features.BitwiseLogic);
 
-            vectorGenerator.Write("bool", 2, 2, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 3, 3, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 4, 4, Features.BitwiseLogic);
+            for(int rows = 1; rows <= 4; rows++)
+            {
+                for(int columns = 1; columns <= 4; columns++)
+                {
+                    if (rows == 1 && columns == 1)  // don't generate type1x1
+                        continue;
+                    if (rows == 1)  // ignore row vectors for now
+                        continue;
 
-            vectorGenerator.Write("int", 2, 1, Features.All);
-            vectorGenerator.Write("int", 3, 1, Features.All);
-            vectorGenerator.Write("int", 4, 1, Features.All);
-
-            vectorGenerator.Write("int", 2, 2, Features.All);
-            vectorGenerator.Write("int", 3, 3, Features.All);
-            vectorGenerator.Write("int", 4, 4, Features.All);
-
-            vectorGenerator.Write("uint", 2, 1, Features.All);
-            vectorGenerator.Write("uint", 3, 1, Features.All);
-            vectorGenerator.Write("uint", 4, 1, Features.All);
-
-            vectorGenerator.Write("uint", 2, 2, Features.All);
-            vectorGenerator.Write("uint", 3, 3, Features.All);
-            vectorGenerator.Write("uint", 4, 4, Features.All);
-
-            vectorGenerator.Write("float", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 3, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 4, 1, Features.Arithmetic | Features.UnaryNegation);
-
-            vectorGenerator.Write("float", 2, 2, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 3, 3, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("float", 4, 4, Features.Arithmetic | Features.UnaryNegation);
-
-            vectorGenerator.Write("double", 2, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("double", 3, 1, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("double", 4, 1, Features.Arithmetic | Features.UnaryNegation);
-
-            vectorGenerator.Write("double", 2, 2, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("double", 3, 3, Features.Arithmetic | Features.UnaryNegation);
-            vectorGenerator.Write("double", 4, 4, Features.Arithmetic | Features.UnaryNegation);
-
-
+                    vectorGenerator.Write("bool", rows, columns, Features.BitwiseLogic);
+                    vectorGenerator.Write("int", rows, columns, Features.All);
+                    vectorGenerator.Write("uint", rows, columns, Features.All);
+                    vectorGenerator.Write("float", rows, columns, Features.Arithmetic | Features.UnaryNegation);
+                    vectorGenerator.Write("double", rows, columns, Features.Arithmetic | Features.UnaryNegation);
+                }
+            }
         }
 
 
@@ -746,7 +729,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 if (row != 0)
                     str.Append(", ");
-                str.AppendFormat("0x{0:X}u", m_primes[nextPrime++]);
+                str.AppendFormat("0x{0:X}u", NextPrime());
             }
             str.Append(")");
         }
@@ -794,7 +777,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(" * ");
                     GeneratePrimeUIntVector(str, m_Rows);
                 }
-                str.AppendFormat(") + 0x{0:X}u;\n", m_primes[nextPrime++]);
+                str.AppendFormat(") + 0x{0:X}u;\n", NextPrime());
             }
             
             str.Append("\t\t}\n\n");
@@ -1010,7 +993,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.AppendFormat("(uint){0}val.{1}", op, fields[i]);
                 else
                     str.AppendFormat("{0}val.{1}", op, fields[i]);
-                if (i != m_Rows - 1)
+                if (i != resultCount - 1)
                     str.Append(", ");
             }
 

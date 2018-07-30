@@ -1208,7 +1208,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3 v)
         {
-            return csum(fold_to_uint(v) * uint3(0x9263662Fu, 0xE69626FFu, 0xBD010EEBu)) + 0x9CEDE1D1u;
+            return csum(fold_to_uint(v) * uint3(0xFA62D721u, 0x7E4DB1CFu, 0x68EEE0F5u)) + 0xBC3B0A59u;
         }
 
     }

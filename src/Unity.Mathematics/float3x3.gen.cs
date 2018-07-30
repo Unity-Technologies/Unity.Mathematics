@@ -273,9 +273,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3x3 v)
         {
-            return csum(asuint(v.c0) * uint3(0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u) + 
-                        asuint(v.c1) * uint3(0xFE31134Fu, 0x712A34D7u, 0x9D77A59Bu) + 
-                        asuint(v.c2) * uint3(0x4942CA39u, 0xB40EC62Du, 0x565ED63Fu)) + 0x93C30C2Bu;
+            return csum(asuint(v.c0) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u) + 
+                        asuint(v.c1) * uint3(0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u) + 
+                        asuint(v.c2) * uint3(0x6E624EB7u, 0x7383ED49u, 0xDD49C23Bu)) + 0xEBD0D005u;
         }
 
     }

@@ -448,7 +448,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2 v)
         {
-            return csum(fold_to_uint(v) * uint2(0xA8F2213Bu, 0x9F3FDC37u)) + 0xAC60D0C3u;
+            return csum(fold_to_uint(v) * uint2(0xAD55999Du, 0xDCDD5341u)) + 0x94DDD769u;
         }
 
     }
