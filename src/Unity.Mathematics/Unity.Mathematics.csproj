@@ -88,7 +88,6 @@
     <Compile Include="mathextended.cs" />
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
-    <Compile Include="playground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="uint2.gen.cs" />
