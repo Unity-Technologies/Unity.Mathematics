@@ -140,6 +140,14 @@ namespace Unity.Mathematics
         public static bool2x2 bool2x2(bool v) { return new bool2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2x2 transpose(bool2x2 v)
+        {
+            return bool2x2(
+                v.c0.x, v.c0.y,
+                v.c1.x, v.c1.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2x2 v)
         {
             return csum(select(uint2(0xA1E92D39u, 0x4583C801u), uint2(0x9536A0F5u, 0xAF816615u), v.c0) + 

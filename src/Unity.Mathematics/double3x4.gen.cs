@@ -222,6 +222,16 @@ namespace Unity.Mathematics
         public static double3x4 double3x4(double v) { return new double3x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4x3 transpose(double3x4 v)
+        {
+            return double4x3(
+                v.c0.x, v.c0.y, v.c0.z,
+                v.c1.x, v.c1.y, v.c1.z,
+                v.c2.x, v.c2.y, v.c2.z,
+                v.c3.x, v.c3.y, v.c3.z);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x4 v)
         {
             return csum(fold_to_uint(v.c0) * uint3(0xA88D187Du, 0xCF6EBA1Du, 0x9D88E5A1u) + 

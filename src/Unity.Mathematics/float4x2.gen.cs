@@ -265,6 +265,14 @@ namespace Unity.Mathematics
         public static float4x2 float4x2(uint4x2 v) { return new float4x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2x4 transpose(float4x2 v)
+        {
+            return float2x4(
+                v.c0.x, v.c0.y, v.c0.z, v.c0.w,
+                v.c1.x, v.c1.y, v.c1.z, v.c1.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4x2 v)
         {
             return csum(asuint(v.c0) * uint4(0x8189A683u, 0xB139D651u, 0xE7579997u, 0xEF7D56C7u) + 

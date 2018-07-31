@@ -319,6 +319,31 @@ namespace Unity.Mathematics
         public static int4x4 int4x4(float4x4 v) { return new int4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 transpose(int4x4 v)
+        {
+            return int4x4(
+                v.c0.x, v.c0.y, v.c0.z, v.c0.w,
+                v.c1.x, v.c1.y, v.c1.z, v.c1.w,
+                v.c2.x, v.c2.y, v.c2.z, v.c2.w,
+                v.c3.x, v.c3.y, v.c3.z, v.c3.w);
+        }
+
+        public static int determinant(int4x4 m)
+        {
+            int4 c0 = m.c0;
+            int4 c1 = m.c1;
+            int4 c2 = m.c2;
+            int4 c3 = m.c3;
+
+            int m00 = c1.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c1.z * c3.w - c1.w * c3.z) + c3.y * (c1.z * c2.w - c1.w * c2.z);
+            int m01 = c0.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c2.w - c0.w * c2.z);
+            int m02 = c0.y * (c1.z * c3.w - c1.w * c3.z) - c1.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c1.w - c0.w * c1.z);
+            int m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int4x4 v)
         {
             return csum(asuint(v.c0) * uint4(0x685835CFu, 0xC3D32AE1u, 0xB966942Fu, 0xFE9856B3u) + 

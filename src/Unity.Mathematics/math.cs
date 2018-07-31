@@ -901,6 +901,33 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static double pickShuffleComponent(double4 a, double4 b, ShuffleComponent component)
+        {
+            switch (component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.LeftZ:
+                    return a.z;
+                case ShuffleComponent.LeftW:
+                    return a.w;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                case ShuffleComponent.RightZ:
+                    return b.z;
+                case ShuffleComponent.RightW:
+                    return b.w;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + (int)component);
+            }
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 shuffle(float4 a, float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             // Naive implementation for non-burst
@@ -909,6 +936,17 @@ namespace Unity.Mathematics
                             pickShuffleComponent(a, b, z),
                             pickShuffleComponent(a, b, w));
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 shuffle(double4 a, double4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        {
+            // Naive implementation for non-burst
+            return double4(pickShuffleComponent(a, b, x),
+                            pickShuffleComponent(a, b, y),
+                            pickShuffleComponent(a, b, z),
+                            pickShuffleComponent(a, b, w));
+        }
+
 
         //Step
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1091,10 +1129,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 unpacklo(double4 a, double4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unpackhi(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
         }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 unpackhi(double4 a, double4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
+        }
+
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 movelh(float4 a, float4 b)
@@ -1103,7 +1155,20 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 movelh(double4 a, double4 b)
+        {
+            return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.RightY);
+        }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 movehl(float4 a, float4 b)
+        {
+            return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 movehl(double4 a, double4 b)
         {
             return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
         }

@@ -267,6 +267,15 @@ namespace Unity.Mathematics
         public static float2x3 float2x3(uint2x3 v) { return new float2x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x2 transpose(float2x3 v)
+        {
+            return float3x2(
+                v.c0.x, v.c0.y,
+                v.c1.x, v.c1.y,
+                v.c2.x, v.c2.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x3 v)
         {
             return csum(asuint(v.c0) * uint2(0xFD80290Bu, 0x8B65ADB7u) + 

@@ -212,6 +212,38 @@ namespace Unity.Mathematics
         public static double2x2 double2x2(double v) { return new double2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2x2 transpose(double2x2 v)
+        {
+            return double2x2(
+                v.c0.x, v.c0.y,
+                v.c1.x, v.c1.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2x2 inverse(double2x2 m)
+        {
+            double a = m.c0.x;
+            double b = m.c1.x;
+            double c = m.c0.y;
+            double d = m.c1.y;
+
+            double det = a * d - b * c;
+
+            return double2x2(d, -b, -c, a) * (1.0 / det);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double determinant(double2x2 m)
+        {
+            double a = m.c0.x;
+            double b = m.c1.x;
+            double c = m.c0.y;
+            double d = m.c1.y;
+
+            return a * d - b * c;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2x2 v)
         {
             return csum(fold_to_uint(v.c0) * uint2(0x863E3729u, 0xE191B035u) + 

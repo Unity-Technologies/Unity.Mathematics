@@ -297,6 +297,25 @@ namespace Unity.Mathematics
         public static int2x2 int2x2(float2x2 v) { return new int2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x2 transpose(int2x2 v)
+        {
+            return int2x2(
+                v.c0.x, v.c0.y,
+                v.c1.x, v.c1.y);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int determinant(int2x2 m)
+        {
+            int a = m.c0.x;
+            int b = m.c1.x;
+            int c = m.c0.y;
+            int d = m.c1.y;
+
+            return a * d - b * c;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int2x2 v)
         {
             return csum(asuint(v.c0) * uint2(0x7AF32C49u, 0xAE131389u) + 

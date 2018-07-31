@@ -150,6 +150,15 @@ namespace Unity.Mathematics
         public static bool4x3 bool4x3(bool v) { return new bool4x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3x4 transpose(bool4x3 v)
+        {
+            return bool3x4(
+                v.c0.x, v.c0.y, v.c0.z, v.c0.w,
+                v.c1.x, v.c1.y, v.c1.z, v.c1.w,
+                v.c2.x, v.c2.y, v.c2.z, v.c2.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4x3 v)
         {
             return csum(select(uint4(0x68EEE0F5u, 0xBC3B0A59u, 0x816EFB5Du, 0xA24E82B7u), uint4(0x45A22087u, 0xFC104C3Bu, 0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) + 

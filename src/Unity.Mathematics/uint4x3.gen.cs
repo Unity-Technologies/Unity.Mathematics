@@ -310,6 +310,15 @@ namespace Unity.Mathematics
         public static uint4x3 uint4x3(float4x3 v) { return new uint4x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x4 transpose(uint4x3 v)
+        {
+            return uint3x4(
+                v.c0.x, v.c0.y, v.c0.z, v.c0.w,
+                v.c1.x, v.c1.y, v.c1.z, v.c1.w,
+                v.c2.x, v.c2.y, v.c2.z, v.c2.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint4x3 v)
         {
             return csum(v.c0 * uint4(0xAF642BA9u, 0xA8F2213Bu, 0x9F3FDC37u, 0xAC60D0C3u) + 

@@ -308,6 +308,29 @@ namespace Unity.Mathematics
         public static int3x3 int3x3(float3x3 v) { return new int3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3x3 transpose(int3x3 v)
+        {
+            return int3x3(
+                v.c0.x, v.c0.y, v.c0.z,
+                v.c1.x, v.c1.y, v.c1.z,
+                v.c2.x, v.c2.y, v.c2.z);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int determinant(int3x3 m)
+        {
+            int3 c0 = m.c0;
+            int3 c1 = m.c1;
+            int3 c2 = m.c2;
+
+            int m00 = c1.y * c2.z - c1.z * c2.y;
+            int m01 = c0.y * c2.z - c0.z * c2.y;
+            int m02 = c0.y * c1.z - c0.z * c1.y;
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x3 v)
         {
             return csum(asuint(v.c0) * uint3(0x713BD06Fu, 0x753AD6ADu, 0xD19764C7u) + 

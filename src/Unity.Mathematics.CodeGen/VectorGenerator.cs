@@ -71,6 +71,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public static string ToTypeName(string baseType, int rows, int columns)
         {
             string name = baseType;
+            if (rows == 1 && columns > 1)
+                return name + columns;  // row vector
+
             if (rows > 1)
                 name += rows;
             if (columns > 1)
@@ -99,7 +102,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             return char.ToUpper(s[0]) + s.Substring(1);
         }
 
-        private void Write(string baseType, int rows, int columns, Features features)
+        private static void WriteFile(string filename, string text)
+        {
+            // Convert all tabs to spaces
+            text = text.Replace("\t", "    ");
+            // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
+            text = text.Replace("\r\n", "\n");
+            text = text.Replace("\n", Environment.NewLine);
+
+            System.IO.File.WriteAllText(filename, text);
+        }
+
+        private void WriteMatrix()
+        {
+            StringBuilder str = new StringBuilder();
+            GenerateMatrixImplementation(str);
+            WriteFile(m_ImplementationDirectory + "/matrix.gen.cs", str.ToString());
+        }
+
+        private void WriteType(string baseType, int rows, int columns, Features features)
         {
             m_BaseType = baseType;
             m_TypeName = ToTypeName(baseType, rows, columns);
@@ -109,29 +130,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             // implementation
             StringBuilder str = new StringBuilder();
-            GenerateImplementation(str);
-
-            var text = str.ToString();
-            // Convert all tabs to spaces
-            text = text.Replace("\t", "    ");
-            // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
-            text = text.Replace("\r\n", "\n");
-            text = text.Replace("\n", Environment.NewLine);
-
-            System.IO.File.WriteAllText(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", text);
+            GenerateTypeImplementation(str);
+            WriteFile(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", str.ToString());
+            
 
             // test
             str = new StringBuilder();
             GenerateTests(str);
-
-            text = str.ToString();
-            // Convert all tabs to spaces
-            text = text.Replace("\t", "    ");
-            // Normalize line endings, convert all EOL to platform EOL (and let git handle it)
-            text = text.Replace("\r\n", "\n");
-            text = text.Replace("\n", Environment.NewLine);
-
-            System.IO.File.WriteAllText(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", text);
+            WriteFile(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", str.ToString());
         }
 
 
@@ -141,9 +147,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             vectorGenerator.m_ImplementationDirectory = implementationDirectory;
             vectorGenerator.m_TestDirectory = testDirectory;
 
-            
-            vectorGenerator.Write("bool", 3, 1, Features.BitwiseLogic);
-            vectorGenerator.Write("bool", 4, 1, Features.BitwiseLogic);
+            vectorGenerator.WriteType("bool", 3, 1, Features.BitwiseLogic);
+            vectorGenerator.WriteType("bool", 4, 1, Features.BitwiseLogic);
 
             for(int rows = 1; rows <= 4; rows++)
             {
@@ -154,13 +159,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     if (rows == 1)  // ignore row vectors for now
                         continue;
 
-                    vectorGenerator.Write("bool", rows, columns, Features.BitwiseLogic);
-                    vectorGenerator.Write("int", rows, columns, Features.All);
-                    vectorGenerator.Write("uint", rows, columns, Features.All);
-                    vectorGenerator.Write("float", rows, columns, Features.Arithmetic | Features.UnaryNegation);
-                    vectorGenerator.Write("double", rows, columns, Features.Arithmetic | Features.UnaryNegation);
+                    vectorGenerator.WriteType("bool", rows, columns, Features.BitwiseLogic);
+                    vectorGenerator.WriteType("int", rows, columns, Features.All);
+                    vectorGenerator.WriteType("uint", rows, columns, Features.All);
+                    vectorGenerator.WriteType("float", rows, columns, Features.Arithmetic | Features.UnaryNegation);
+                    vectorGenerator.WriteType("double", rows, columns, Features.Arithmetic | Features.UnaryNegation);
                 }
             }
+
+            vectorGenerator.WriteMatrix();
         }
 
 
@@ -316,7 +323,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
-        private void GenerateImplementation(StringBuilder str)
+        private void GenerateTypeImplementation(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
 
@@ -349,8 +356,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateConversionConstructorsAndOperators(str, mathStr);
 
             GenerateOperators(str);
+
+            GenerateTransposeFunction(mathStr);
+            GenerateInverseFunction(mathStr);
+            GenerateDeterminantFunction(mathStr);
             GenerateHashFunction(mathStr);
-            if(m_Columns == 1)
+
+            if (m_Columns == 1)
                 GenerateSwizzles(str);
 
             str.Append("\n\t\t// [int index] \n");
@@ -375,6 +387,93 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t{\n");
             str.Append(mathStr);
             str.Append("\t}\n}\n");
+        }
+
+        private void GenerateMulImplementation(string baseType, StringBuilder str)
+        {
+            // typenxk = mul(typenxm, typemxk)
+            for(int n = 1; n <= 4; n++)
+            {
+                for(int m = 1; m <= 4; m++)
+                {
+                    for(int k = 1; k <= 4; k++)
+                    {
+                        // mul(a,b): if a is vector it is treated as a row vector. if b is a vector it is treaded as a column vector.
+
+                        if (n > 1 && m == 1)
+                            continue;   // lhs cannot be column vector
+                        if (m == 1 && k > 1)
+                            continue;   // rhs cannot be row vector
+                        string resultType = ToTypeName(baseType, n, k);
+                        string lhsType = ToTypeName(baseType, n, m);
+                        string rhsType = ToTypeName(baseType, m, k);
+
+                        bool isScalarResult = (n == 1 && k == 1);
+
+                        str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+                        str.AppendFormat("\t\tpublic static {0} mul({1} a, {2} b)\n", resultType, lhsType, rhsType);
+                        str.Append("\t\t{\n");
+
+                        str.Append("\t\t\treturn ");
+                        if (!isScalarResult)
+                            str.Append(resultType + "(\n\t\t\t\t");
+                        for(int i = 0; i < k; i++)
+                        {
+                            if(i > 0)
+                            str.Append("\n\t\t\t\t");
+                            for(int j = 0; j < m; j++)
+                            {
+                                if (j != 0)
+                                    str.Append(" + ");
+
+                                if (n == 1 && m == 1)
+                                    str.Append("a");
+                                else if(n == 1 || m == 1)
+                                    str.Append("a." + vectorFields[j]);
+                                else
+                                    str.Append("a." + matrixFields[j]);
+
+                                str.Append(" * ");
+
+                                if (m == 1 && k == 1)
+                                    str.Append("b");
+                                else if (m == 1 || k == 1)
+                                    str.Append("b." + vectorFields[j]);
+                                else
+                                    str.Append("b." + matrixFields[i] + "." + vectorFields[j]);
+                            }
+                            if (i != k - 1)
+                                str.Append(",");
+                        }
+                        if (!isScalarResult)
+                            str.Append(")");
+                        str.Append(";\n");
+                        str.Append("\t\t}\n\n");
+                    }
+                }
+            }
+        }
+
+        private void GenerateMatrixImplementation(StringBuilder str)
+        {
+            str.Append("// GENERATED CODE\n");
+            str.Append("using System;\n");
+            str.Append("using System.Runtime.CompilerServices;\n");
+            str.Append("\n");
+            str.Append("namespace Unity.Mathematics\n");
+            str.Append("{\n");
+            str.Append("\tpartial class math\n");
+            str.Append("\t{\n");
+
+            str.Append("\t\t// mul\n");
+            GenerateMulImplementation("float", str);
+            GenerateMulImplementation("double", str);
+            GenerateMulImplementation("int", str);
+            GenerateMulImplementation("uint", str);
+
+
+            str.Append("\t}\n");
+            str.Append("}\n");
         }
 
 
@@ -733,6 +832,238 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             str.Append(")");
         }
+
+        public void GenerateTransposeFunction(StringBuilder str)
+        {
+            if (m_Columns == 1 || m_Rows == 1)
+                return;
+
+            string resultType = ToTypeName(m_BaseType, m_Columns, m_Rows);
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\tpublic static {0} transpose({1} v)\n", resultType, m_TypeName);
+            str.Append("\t\t{\n");
+
+            str.AppendFormat("\t\t\treturn {0}(\n", resultType);
+            for(int i = 0; i < m_Columns; i++)
+            {
+                str.Append("\t\t\t\t");
+                for(int j = 0; j < m_Rows; j++)
+                {
+                    if (j != 0)
+                        str.Append(", ");
+                    str.AppendFormat("v.c{0}.{1}", i, vectorFields[j]);
+                }
+                if(i != m_Columns - 1)
+                    str.Append(",\n");
+            }
+
+            str.Append(");\n");
+            str.Append("\t\t}\n\n");
+        }
+
+        public void GenerateInverseFunction(StringBuilder str)
+        {
+            if (m_Rows != m_Columns || m_Rows == 1)
+                return;
+
+            if (m_BaseType != "float" && m_BaseType != "double")
+                return;
+
+            string oneStr = (m_BaseType == "float") ? "1.0f" : "1.0";
+
+            if(m_Rows == 2)
+            {
+                str.AppendFormat(
+                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static {0}2x2 inverse({0}2x2 m)
+        {{
+            {0} a = m.c0.x;
+            {0} b = m.c1.x;
+            {0} c = m.c0.y;
+            {0} d = m.c1.y;
+
+            {0} det = a * d - b * c;
+
+            return {0}2x2(d, -b, -c, a) * ({1} / det);
+        }}
+
+",
+                    m_BaseType, oneStr);
+            }
+            else if(m_Rows == 3)
+            {
+                str.AppendFormat(
+                    @"public static {0}3x3 inverse({0}3x3 m)
+        {{
+            // naive scalar implementation using direct calculation by cofactors
+            {0}3 c0 = m.c0;
+            {0}3 c1 = m.c1;
+            {0}3 c2 = m.c2;
+
+            // calculate minors
+            {0} m00 = c1.y * c2.z - c1.z * c2.y;
+            {0} m01 = c0.y * c2.z - c0.z * c2.y;
+            {0} m02 = c0.y * c1.z - c0.z * c1.y;
+
+            {0} m10 = c1.x * c2.z - c1.z * c2.x;
+            {0} m11 = c0.x * c2.z - c0.z * c2.x;
+            {0} m12 = c0.x * c1.z - c0.z * c1.x;
+
+            {0} m20 = c1.x * c2.y - c1.y * c2.x;
+            {0} m21 = c0.x * c2.y - c0.y * c2.x;
+            {0} m22 = c0.x * c1.y - c0.y * c1.x;
+
+            {0} det = c0.x * m00 - c1.x * m01 + c2.x * m02;
+
+            return {0}3x3(
+                 m00,-m10, m20,
+                -m01, m11,-m21,
+                 m02, -m12, m22) * ({1} / det);
+        }}
+
+",
+                m_BaseType, oneStr);
+            }
+            else if(m_Rows == 4)
+            {
+                str.AppendFormat(
+                    @"        public static {0}4x4 inverse({0}4x4 m)
+        {{
+            {0}4 c0 = m.c0;
+            {0}4 c1 = m.c1;
+            {0}4 c2 = m.c2;
+            {0}4 c3 = m.c3;
+
+            {0}4 r0y_r1y_r0x_r1x = movelh(c1, c0);
+            {0}4 r0z_r1z_r0w_r1w = movelh(c2, c3);
+            {0}4 r2y_r3y_r2x_r3x = movehl(c0, c1);
+            {0}4 r2z_r3z_r2w_r3w = movehl(c3, c2);
+
+            {0}4 r1y_r2y_r1x_r2x = shuffle(c1, c0, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightZ);
+            {0}4 r1z_r2z_r1w_r2w = shuffle(c2, c3, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightZ);
+            {0}4 r3y_r0y_r3x_r0x = shuffle(c1, c0, ShuffleComponent.LeftW, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightX);
+            {0}4 r3z_r0z_r3w_r0w = shuffle(c2, c3, ShuffleComponent.LeftW, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightX);
+
+            {0}4 r0_wzyx = shuffle(r0z_r1z_r0w_r1w, r0y_r1y_r0x_r1x, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
+            {0}4 r1_wzyx = shuffle(r0z_r1z_r0w_r1w, r0y_r1y_r0x_r1x, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightW);
+            {0}4 r2_wzyx = shuffle(r2z_r3z_r2w_r3w, r2y_r3y_r2x_r3x, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
+            {0}4 r3_wzyx = shuffle(r2z_r3z_r2w_r3w, r2y_r3y_r2x_r3x, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightW);
+            {0}4 r0_xyzw = shuffle(r0y_r1y_r0x_r1x, r0z_r1z_r0w_r1w, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.RightZ);
+
+            // Calculate remaining inner term pairs. inner terms have zw=-xy, so we only have to calculate xy and can pack two pairs per vector.
+            {0}4 inner12_23 = r1y_r2y_r1x_r2x * r2z_r3z_r2w_r3w - r1z_r2z_r1w_r2w * r2y_r3y_r2x_r3x;
+            {0}4 inner02_13 = r0y_r1y_r0x_r1x * r2z_r3z_r2w_r3w - r0z_r1z_r0w_r1w * r2y_r3y_r2x_r3x;
+            {0}4 inner30_01 = r3z_r0z_r3w_r0w * r0y_r1y_r0x_r1x - r3y_r0y_r3x_r0x * r0z_r1z_r0w_r1w;
+
+            // Expand inner terms back to 4 components. zw signs still need to be flipped
+            {0}4 inner12 = shuffle(inner12_23, inner12_23, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            {0}4 inner23 = shuffle(inner12_23, inner12_23, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            {0}4 inner02 = shuffle(inner02_13, inner02_13, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            {0}4 inner13 = shuffle(inner02_13, inner02_13, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            // Calculate minors
+            {0}4 minors0 = r3_wzyx * inner12 - r2_wzyx * inner13 + r1_wzyx * inner23;
+
+            {0}4 denom = r0_xyzw * minors0;
+
+            // Horizontal sum of denominator. Free sign flip of z and w compensates for missing flip in inner terms.
+            denom = denom + shuffle(denom, denom, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightW, ShuffleComponent.RightZ);   // x+y		x+y			z+w			z+w
+            denom = denom - shuffle(denom, denom, ShuffleComponent.LeftZ, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.RightX);   // x+y-z-w  x+y-z-w		z+w-x-y		z+w-x-y
+
+            {0}4 rcp_denom_ppnn = {0}4({1}) / denom;
+            {0}4x4 res;
+            res.c0 = minors0 * rcp_denom_ppnn;
+
+            {0}4 inner30 = shuffle(inner30_01, inner30_01, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX);
+            {0}4 inner01 = shuffle(inner30_01, inner30_01, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.RightY);
+
+            {0}4 minors1 = r2_wzyx * inner30 - r0_wzyx * inner23 - r3_wzyx * inner02;
+            res.c1 = minors1 * rcp_denom_ppnn;
+
+            {0}4 minors2 = r0_wzyx * inner13 - r1_wzyx * inner30 - r3_wzyx * inner01;
+            res.c2 = minors2 * rcp_denom_ppnn;
+
+            {0}4 minors3 = r1_wzyx * inner02 - r0_wzyx * inner12 + r2_wzyx * inner01;
+            res.c3 = minors3 * rcp_denom_ppnn;
+            return res;
+        }}
+
+",
+                    m_BaseType, oneStr);
+            }
+
+        }
+
+        public void GenerateDeterminantFunction(StringBuilder str)
+        {
+            if (m_Rows != m_Columns || m_Rows == 1)
+                return;
+
+            if (m_BaseType != "float" && m_BaseType != "double" && m_BaseType != "int")
+                return;
+
+            if (m_Rows == 2)
+            {
+                str.AppendFormat(
+                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static {0} determinant({0}2x2 m)
+        {{
+            {0} a = m.c0.x;
+            {0} b = m.c1.x;
+            {0} c = m.c0.y;
+            {0} d = m.c1.y;
+
+            return a * d - b * c;
+        }}
+
+",
+                    m_BaseType);
+            }
+            else if (m_Rows == 3)
+            {
+                str.AppendFormat(
+                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static {0} determinant({0}3x3 m)
+        {{
+            {0}3 c0 = m.c0;
+            {0}3 c1 = m.c1;
+            {0}3 c2 = m.c2;
+
+            {0} m00 = c1.y * c2.z - c1.z * c2.y;
+            {0} m01 = c0.y * c2.z - c0.z * c2.y;
+            {0} m02 = c0.y * c1.z - c0.z * c1.y;
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02;
+        }}
+
+",
+                m_BaseType);
+            }
+            else if (m_Rows == 4)
+            {
+                str.AppendFormat(
+                    @"        public static {0} determinant({0}4x4 m)
+        {{
+            {0}4 c0 = m.c0;
+            {0}4 c1 = m.c1;
+            {0}4 c2 = m.c2;
+            {0}4 c3 = m.c3;
+
+            {0} m00 = c1.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c1.z * c3.w - c1.w * c3.z) + c3.y * (c1.z * c2.w - c1.w * c2.z);
+            {0} m01 = c0.y * (c2.z * c3.w - c2.w * c3.z) - c2.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c2.w - c0.w * c2.z);
+            {0} m02 = c0.y * (c1.z * c3.w - c1.w * c3.z) - c1.y * (c0.z * c3.w - c0.w * c3.z) + c3.y * (c0.z * c1.w - c0.w * c1.z);
+            {0} m03 = c0.y * (c1.z * c2.w - c1.w * c2.z) - c1.y * (c0.z * c2.w - c0.w * c2.z) + c2.y * (c0.z * c1.w - c0.w * c1.z);
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
+        }}
+
+",
+                    m_BaseType);
+            }
+
+        }
+
 
         public void GenerateHashFunction(StringBuilder str)
         {

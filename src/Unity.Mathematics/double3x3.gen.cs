@@ -219,6 +219,57 @@ namespace Unity.Mathematics
         public static double3x3 double3x3(double v) { return new double3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x3 transpose(double3x3 v)
+        {
+            return double3x3(
+                v.c0.x, v.c0.y, v.c0.z,
+                v.c1.x, v.c1.y, v.c1.z,
+                v.c2.x, v.c2.y, v.c2.z);
+        }
+
+public static double3x3 inverse(double3x3 m)
+        {
+            // naive scalar implementation using direct calculation by cofactors
+            double3 c0 = m.c0;
+            double3 c1 = m.c1;
+            double3 c2 = m.c2;
+
+            // calculate minors
+            double m00 = c1.y * c2.z - c1.z * c2.y;
+            double m01 = c0.y * c2.z - c0.z * c2.y;
+            double m02 = c0.y * c1.z - c0.z * c1.y;
+
+            double m10 = c1.x * c2.z - c1.z * c2.x;
+            double m11 = c0.x * c2.z - c0.z * c2.x;
+            double m12 = c0.x * c1.z - c0.z * c1.x;
+
+            double m20 = c1.x * c2.y - c1.y * c2.x;
+            double m21 = c0.x * c2.y - c0.y * c2.x;
+            double m22 = c0.x * c1.y - c0.y * c1.x;
+
+            double det = c0.x * m00 - c1.x * m01 + c2.x * m02;
+
+            return double3x3(
+                 m00,-m10, m20,
+                -m01, m11,-m21,
+                 m02, -m12, m22) * (1.0 / det);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double determinant(double3x3 m)
+        {
+            double3 c0 = m.c0;
+            double3 c1 = m.c1;
+            double3 c2 = m.c2;
+
+            double m00 = c1.y * c2.z - c1.z * c2.y;
+            double m01 = c0.y * c2.z - c0.z * c2.y;
+            double m02 = c0.y * c1.z - c0.z * c1.y;
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x3 v)
         {
             return csum(fold_to_uint(v.c0) * uint3(0x91475DF7u, 0x55E84827u, 0x90A285BBu) + 

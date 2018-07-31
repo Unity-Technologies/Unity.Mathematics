@@ -271,6 +271,57 @@ namespace Unity.Mathematics
         public static float3x3 float3x3(uint3x3 v) { return new float3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 transpose(float3x3 v)
+        {
+            return float3x3(
+                v.c0.x, v.c0.y, v.c0.z,
+                v.c1.x, v.c1.y, v.c1.z,
+                v.c2.x, v.c2.y, v.c2.z);
+        }
+
+public static float3x3 inverse(float3x3 m)
+        {
+            // naive scalar implementation using direct calculation by cofactors
+            float3 c0 = m.c0;
+            float3 c1 = m.c1;
+            float3 c2 = m.c2;
+
+            // calculate minors
+            float m00 = c1.y * c2.z - c1.z * c2.y;
+            float m01 = c0.y * c2.z - c0.z * c2.y;
+            float m02 = c0.y * c1.z - c0.z * c1.y;
+
+            float m10 = c1.x * c2.z - c1.z * c2.x;
+            float m11 = c0.x * c2.z - c0.z * c2.x;
+            float m12 = c0.x * c1.z - c0.z * c1.x;
+
+            float m20 = c1.x * c2.y - c1.y * c2.x;
+            float m21 = c0.x * c2.y - c0.y * c2.x;
+            float m22 = c0.x * c1.y - c0.y * c1.x;
+
+            float det = c0.x * m00 - c1.x * m01 + c2.x * m02;
+
+            return float3x3(
+                 m00,-m10, m20,
+                -m01, m11,-m21,
+                 m02, -m12, m22) * (1.0f / det);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float determinant(float3x3 m)
+        {
+            float3 c0 = m.c0;
+            float3 c1 = m.c1;
+            float3 c2 = m.c2;
+
+            float m00 = c1.y * c2.z - c1.z * c2.y;
+            float m01 = c0.y * c2.z - c0.z * c2.y;
+            float m02 = c0.y * c1.z - c0.z * c1.y;
+
+            return c0.x * m00 - c1.x * m01 + c2.x * m02;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3x3 v)
         {
             return csum(asuint(v.c0) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u) + 
