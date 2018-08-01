@@ -113,7 +113,6 @@
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="matrix.gen.cs" />
-    <Compile Include="Playground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="uint2.gen.cs" />
