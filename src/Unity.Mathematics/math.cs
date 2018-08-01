@@ -33,6 +33,15 @@ namespace Unity.Mathematics
             RightW
         };
 
+        // constants
+        public static readonly double E = 2.71828182845904523536;
+        public static readonly double LOG2E = 1.44269504088896340736;
+        public static readonly double LOG10E = 0.434294481903251827651;
+        public static readonly double LN2 = 0.693147180559945309417;
+        public static readonly double LN10 = 2.30258509299404568402;
+        public static readonly double PI = 3.14159265358979323846;
+        public static readonly double SQRT2 = 1.41421356237309504880;
+
         // asint
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int asint(float v) {
