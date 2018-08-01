@@ -10,7 +10,7 @@ namespace Unity.Mathematics
 {
     public class Playground
     {
-        public static void Main(ref float2 res, ref float2 a, ref float4 b)
+        public static void Main(ref float2 res, ref float3 a, ref float3 b)
         {
             res = shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX);
         }

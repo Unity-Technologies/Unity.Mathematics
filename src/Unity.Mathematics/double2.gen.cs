@@ -451,5 +451,56 @@ namespace Unity.Mathematics
             return csum(fold_to_uint(v) * uint2(0xAD55999Du, 0xDCDD5341u)) + 0x94DDD769u;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static double select_shuffle_component(double2 a, double2 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double shuffle(double2 a, double2 b, ShuffleComponent x)
+        {
+            return select_shuffle_component(a, b, x);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y)
+        {
+            return double2(
+                select_shuffle_component(a, b, x),
+                select_shuffle_component(a, b, y));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        {
+            return double3(
+                select_shuffle_component(a, b, x),
+                select_shuffle_component(a, b, y),
+                select_shuffle_component(a, b, z));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        {
+            return double4(
+                select_shuffle_component(a, b, x),
+                select_shuffle_component(a, b, y),
+                select_shuffle_component(a, b, z),
+                select_shuffle_component(a, b, w));
+        }
+
     }
 }

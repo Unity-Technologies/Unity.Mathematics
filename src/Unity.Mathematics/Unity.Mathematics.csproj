@@ -128,7 +128,6 @@
     <Compile Include="uint4x2.gen.cs" />
     <Compile Include="uint4x3.gen.cs" />
     <Compile Include="uint4x4.gen.cs" />
-    <Compile Include="vector.gen.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
