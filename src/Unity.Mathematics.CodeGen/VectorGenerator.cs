@@ -67,6 +67,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         static readonly string[] components = { "x", "y", "z", "w" };
         static readonly string[] vectorFields = { "x", "y", "z", "w" };
         static readonly string[] matrixFields = { "c0", "c1", "c2", "c3" };
+        static readonly string[] shuffleComponents = { "LeftX", "LeftY", "LeftZ", "LeftW", "RightX", "RightY", "RightZ", "RightW" };
 
         public static string ToTypeName(string baseType, int rows, int columns)
         {
@@ -112,6 +113,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             System.IO.File.WriteAllText(filename, text);
         }
+
+        private void WriteVector()
+        {
+            StringBuilder str = new StringBuilder();
+            GenerateVectorImplementation(str);
+            WriteFile(m_ImplementationDirectory + "/vector.gen.cs", str.ToString());
+        }
+
 
         private void WriteMatrix()
         {
@@ -167,6 +176,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
             }
 
+            vectorGenerator.WriteVector();
             vectorGenerator.WriteMatrix();
         }
 
@@ -389,6 +399,85 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t}\n}\n");
         }
 
+        private void GenerateSelectShuffleComponentImplementation(string baseType, StringBuilder str)
+        {
+            for(int lhsComponents = 1; lhsComponents <= 4; lhsComponents++)
+            {
+                string lhsType = ToTypeName(baseType, lhsComponents, 1);
+                for (int rhsComponents = 1; rhsComponents <= 4; rhsComponents++)
+                {
+                    string rhsType = ToTypeName(baseType, rhsComponents, 1);
+                    str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+                    str.AppendFormat("\t\tinternal static {0} select_shuffle_component({1} a, {2} b, ShuffleComponent component)\n", baseType, lhsType, rhsType);
+                    str.Append("\t\t{\n");
+                    str.Append("\t\t\tswitch(component)\n");
+                    str.Append("\t\t\t{\n");
+                    for(int i = 0; i < lhsComponents; i++)
+                    {
+                        str.AppendFormat("\t\t\t\tcase ShuffleComponent.{0}:\n", shuffleComponents[i]);
+                        str.AppendFormat("\t\t\t\t\treturn a{0};\n", lhsComponents > 1 ? "." + vectorFields[i] : "");
+                    }
+                    for (int i = 0; i < rhsComponents; i++)
+                    {
+                        str.AppendFormat("\t\t\t\tcase ShuffleComponent.{0}:\n", shuffleComponents[i + 4]);
+                        str.AppendFormat("\t\t\t\t\treturn b{0};\n", rhsComponents > 1 ? "." + vectorFields[i] : "");
+                    }
+                    str.Append("\t\t\t\tdefault:\n");
+                    str.Append("\t\t\t\t\tthrow new System.ArgumentException(\"Invalid shuffle component: \" + component);\n");
+                    str.Append("\t\t\t}\n");
+                    str.Append("\t\t}\n\n");
+                }
+            }
+            
+        }
+
+        private void GenerateShuffleImplementation(string baseType, StringBuilder str)
+        {
+            for(int resultComponents = 1; resultComponents <= 4; resultComponents++)
+            {
+                string resultType = ToTypeName(baseType, resultComponents, 1);
+                for (int lhsComponents = 1; lhsComponents <= 4; lhsComponents++)
+                {
+                    string lhsType = ToTypeName(baseType, lhsComponents, 1);
+                    for (int rhsComponents = 1; rhsComponents <= 4; rhsComponents++)
+                    {
+                        string rhsType = ToTypeName(baseType, rhsComponents, 1);
+                        str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+                        str.AppendFormat("\t\tpublic static {0} shuffle({1} a, {2} b", resultType, lhsType, rhsType);
+                        for(int i = 0; i < resultComponents; i++)
+                        {
+                            str.AppendFormat(", ShuffleComponent {0}", vectorFields[i]);
+                        }
+                        str.Append(")\n");
+                        str.Append("\t\t{\n");
+
+                        str.Append("\t\t\t// Naive implementation for non-burst\n");
+                        if(resultComponents != 1)
+                            str.AppendFormat("\t\t\treturn {0}(\n", resultType);
+                        else
+                            str.AppendFormat("\t\t\treturn ", resultType);
+                            
+                        for(int i = 0; i < resultComponents; i++)
+                        {
+                            if (resultComponents != 1)
+                                str.Append("\t\t\t\t");
+
+                            str.AppendFormat("select_shuffle_component(a, b, {0})", vectorFields[i]);
+                            if(i != resultComponents - 1)
+                                str.Append(",\n");
+                        }
+
+                        if (resultComponents != 1)
+                            str.Append(");\n");
+                        else
+                            str.Append(";\n");
+
+                        str.Append("\t\t}\n\n");
+                    }
+                }
+            }
+        }
+
         private void GenerateMulImplementation(string baseType, StringBuilder str)
         {
             // typenxk = mul(typenxm, typemxk)
@@ -454,6 +543,37 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
+        private void GenerateVectorImplementation(StringBuilder str)
+        {
+            str.Append("// GENERATED CODE\n");
+            str.Append("using System;\n");
+            str.Append("using System.Runtime.CompilerServices;\n");
+            str.Append("\n");
+            str.Append("namespace Unity.Mathematics\n");
+            str.Append("{\n");
+            str.Append("\tpartial class math\n");
+            str.Append("\t{\n");
+
+            str.Append("\t\t// select_shuffle_component\n");
+            GenerateSelectShuffleComponentImplementation("bool", str);
+            GenerateSelectShuffleComponentImplementation("int", str);
+            GenerateSelectShuffleComponentImplementation("uint", str);
+            GenerateSelectShuffleComponentImplementation("float", str);
+            GenerateSelectShuffleComponentImplementation("double", str);
+
+            str.Append("\t\t// shuffle\n");
+            GenerateShuffleImplementation("bool", str);
+            GenerateShuffleImplementation("int", str);
+            GenerateShuffleImplementation("uint", str);
+            GenerateShuffleImplementation("float", str);
+            GenerateShuffleImplementation("double", str);
+
+
+            str.Append("\t}\n");
+            str.Append("}\n");
+        }
+
+
         private void GenerateMatrixImplementation(StringBuilder str)
         {
             str.Append("// GENERATED CODE\n");
@@ -475,8 +595,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t}\n");
             str.Append("}\n");
         }
-
-
+        
         private string GenerateComponentRangeString(int componentIndex, int numComponents)
         {
             string result = "";
@@ -1842,6 +1961,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 //TODO: what about operator '?', '&&', '||'. cannot be overloaded in C#!
 //TODO: +=? yes: this should work automatically
 //TODO: prefix/postfix ++/-- 
+                             
+                             
                              
                              
                              
