@@ -1242,6 +1242,94 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(~a3, r3);
         }
 
+        [Test]
+        public void int4_shuffle_result_1()
+        {
+            int4 a = int4(0, 1, 2, 3);
+            int4 b = int4(4, 5, 6, 7);
+
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX), (0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY), (1));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ), (2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW), (3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX), (4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY), (5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ), (6));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW), (7));
+        }
+
+        [Test]
+        public void int4_shuffle_result_2()
+        {
+            int4 a = int4(0, 1, 2, 3);
+            int4 b = int4(4, 5, 6, 7);
+
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightZ), int2(5, 6));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX), int2(6, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX), int2(1, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftW), int2(7, 3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftZ), int2(7, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftW), int2(2, 3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW), int2(5, 3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX), int2(7, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightW), int2(6, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftZ), int2(5, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ), int2(6, 6));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX), int2(7, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), int2(5, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightY), int2(7, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX), int2(4, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW), int2(1, 3));
+        }
+
+        [Test]
+        public void int4_shuffle_result_3()
+        {
+            int4 a = int4(0, 1, 2, 3);
+            int4 b = int4(4, 5, 6, 7);
+
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightY), int3(2, 7, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.LeftW), int3(6, 0, 3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightX), int3(2, 7, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftZ), int3(5, 0, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightZ, ShuffleComponent.LeftZ), int3(7, 6, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.LeftY), int3(3, 1, 1));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightX), int3(3, 5, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightW), int3(3, 1, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY, ShuffleComponent.RightZ), int3(6, 5, 6));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY), int3(5, 4, 1));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightW, ShuffleComponent.LeftX), int3(7, 7, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightY), int3(6, 1, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightW), int3(6, 1, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightY), int3(3, 5, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightY), int3(6, 0, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightW), int3(5, 1, 7));
+        }
+
+        [Test]
+        public void int4_shuffle_result_4()
+        {
+            int4 a = int4(0, 1, 2, 3);
+            int4 b = int4(4, 5, 6, 7);
+
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ), int4(1, 3, 4, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightZ), int4(5, 3, 6, 6));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ, ShuffleComponent.RightW, ShuffleComponent.LeftZ), int4(6, 6, 7, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftZ, ShuffleComponent.LeftZ), int4(4, 5, 2, 2));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftX), int4(6, 1, 1, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightW), int4(4, 5, 5, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightW, ShuffleComponent.LeftX, ShuffleComponent.RightW), int4(1, 7, 0, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftX), int4(5, 0, 1, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightW, ShuffleComponent.LeftW, ShuffleComponent.LeftY), int4(4, 7, 3, 1));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX), int4(5, 4, 1, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX), int4(0, 2, 6, 0));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightW, ShuffleComponent.RightW), int4(2, 5, 7, 7));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ, ShuffleComponent.RightX), int4(3, 4, 2, 4));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.LeftW), int4(4, 0, 2, 3));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY), int4(6, 4, 0, 5));
+            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.LeftY, ShuffleComponent.RightY), int4(3, 7, 1, 5));
+        }
+
 
     }
 }

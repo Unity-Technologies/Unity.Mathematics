@@ -1831,6 +1831,75 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndTest(str);
         }
 
+        private void TestShuffle(StringBuilder str)
+        {
+            if (m_BaseType == "bool")
+                return;
+
+            var rnd = new Random(0);
+
+            for (int resultComponents = 1; resultComponents <= 4; resultComponents++)
+            {
+                BeginTest(str, "shuffle_result_" + resultComponents);
+
+                string resultType = ToTypeName(m_BaseType, resultComponents, 1);
+                str.AppendFormat("\t\t\t{0} a = {0}", m_TypeName);
+                var a_data = (from row in Enumerable.Range(0, m_Rows) select m_BaseType == "bool" ? ((row & 1) != 0 ? "true" : "false") : "" + (row)).ToArray();
+                var b_data = (from row in Enumerable.Range(0, m_Rows) select m_BaseType == "bool" ? ((row & 1) != 1 ? "true" : "false") : "" + (row + m_Rows)).ToArray();
+
+                AddParenthesized(str, a_data);
+                str.Append(";\n");
+                str.AppendFormat("\t\t\t{0} b = {0}", m_TypeName);
+                AddParenthesized(str, b_data);
+                str.Append(";\n\n");
+
+
+                int totalTests = (int)Math.Pow(m_Rows * 2, resultComponents);
+                int targetTests = 16;
+                int numTests = Math.Min(totalTests, targetTests);
+
+                int[] shuffleIndices = new int[resultComponents];
+                string[] shuffleValues = new string[resultComponents];
+
+                for (int testIndex = 0; testIndex < numTests; testIndex++)
+                {
+                    if(numTests == totalTests)
+                    {
+                        // just enumerate all of them
+                        int t = testIndex;
+                        for(int i = 0; i < resultComponents; i++)
+                        {
+                            shuffleIndices[i] = t % (m_Rows * 2);
+                            t /= m_Rows * 2;
+                        }
+                    }
+                    else
+                    {
+                        // sample randomly
+                        for (int i = 0; i < resultComponents; i++)
+                            shuffleIndices[i] = rnd.Next(m_Rows * 2);
+                    }
+                    
+                    str.Append("\t\t\tTestUtils.AreEqual(shuffle(a, b");
+                    for(int i = 0; i < resultComponents; i++)
+                    {
+                        int t = shuffleIndices[i];
+                        shuffleValues[i] = t >= m_Rows ? b_data[t - m_Rows] : a_data[t];
+                        str.AppendFormat(", ShuffleComponent.{0}", shuffleComponents[t >= m_Rows ? (t - m_Rows + 4) : t]);
+                    }
+                    str.Append("), ");
+                    if (resultComponents > 1)
+                        str.Append(resultType);
+
+                    AddParenthesized(str, shuffleValues);
+                    str.Append(");\n");
+                }
+
+
+                EndTest(str);
+            }
+        }
+
         private void TestUnaryOperator(StringBuilder str, string returnType, string op, string opName, bool isPrefix)
         {
             TestOperator(str, true, false, m_TypeName, m_BaseType, returnType, op, opName, false, isPrefix);
@@ -1885,6 +1954,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 TestOperator(str, true, false, m_TypeName, "int", m_TypeName, ">>", "right_shift", true, false);
 
                 TestUnaryOperator(str, m_TypeName, "~", "bitwise_not", true);
+            }
+
+            if(m_Columns == 1)
+            {
+                TestShuffle(str);
             }
         }
 
