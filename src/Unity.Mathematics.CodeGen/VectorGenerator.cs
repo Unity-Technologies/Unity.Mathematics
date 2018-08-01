@@ -1778,7 +1778,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestBinaryOperator(str, boolResultType, "==", "equal");
             TestBinaryOperator(str, boolResultType, "!=", "not_equal");
             
-            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float")
+            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float" || m_BaseType == "double")
             {
                 TestBinaryOperator(str, boolResultType, "<", "less");
                 TestBinaryOperator(str, boolResultType, ">", "greater");
