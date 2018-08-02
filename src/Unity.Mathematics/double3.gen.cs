@@ -58,10 +58,70 @@ namespace Unity.Mathematics
             this.z = v;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(int v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(int3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(uint v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(uint3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(float v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(float3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(double v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(int v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(int3 v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(uint v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(uint3 v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(float v) { return new double3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(float3 v) { return new double3(v); }
 
 
         // mul
@@ -1204,6 +1264,24 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(int v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(int3 v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(uint v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(uint3 v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(float v) { return new double3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(float3 v) { return new double3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3 v)

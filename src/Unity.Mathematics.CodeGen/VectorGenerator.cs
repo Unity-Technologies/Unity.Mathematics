@@ -324,6 +324,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "double", true, true);
                 GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
+            else if (m_BaseType == "double")
+            {
+                GenerateConversion(str, opStr, mathStr, "int", false, true);
+                GenerateConversion(str, opStr, mathStr, "int", false, false);
+                GenerateConversion(str, opStr, mathStr, "uint", false, true);
+                GenerateConversion(str, opStr, mathStr, "uint", false, false);
+                GenerateConversion(str, opStr, mathStr, "float", false, true);
+                GenerateConversion(str, opStr, mathStr, "float", false, false);
+            }
 
             str.Append("\n");
             str.Append(opStr);

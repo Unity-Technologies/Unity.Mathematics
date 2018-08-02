@@ -38,10 +38,64 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(int v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(int3x2 v)
+        {
+            this.c0 = v.c0;
+            this.c1 = v.c1;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(uint v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(uint3x2 v)
+        {
+            this.c0 = v.c0;
+            this.c1 = v.c1;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(float v)
+        {
+            this.c0 = v;
+            this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x2(float3x2 v)
+        {
+            this.c0 = v.c0;
+            this.c1 = v.c1;
+        }
+
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x2(double v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(int v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(int3x2 v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(uint v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(uint3x2 v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(float v) { return new double3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3x2(float3x2 v) { return new double3x2(v); }
 
 
         // mul
@@ -212,6 +266,24 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x2 double3x2(double v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(int v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(int3x2 v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(uint v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(uint3x2 v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(float v) { return new double3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3x2 double3x2(float3x2 v) { return new double3x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 transpose(double3x2 v)
