@@ -303,6 +303,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "uint", true, false);
                 GenerateConversion(str, opStr, mathStr, "float", true, true);
                 GenerateConversion(str, opStr, mathStr, "float", true, false);
+                GenerateConversion(str, opStr, mathStr, "double", true, true);
+                GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
             else if (m_BaseType == "uint")
             {
@@ -310,6 +312,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "int", true, false);
                 GenerateConversion(str, opStr, mathStr, "float", true, true);
                 GenerateConversion(str, opStr, mathStr, "float", true, false);
+                GenerateConversion(str, opStr, mathStr, "double", true, true);
+                GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
             else if (m_BaseType == "float")
             {
@@ -317,6 +321,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
                 GenerateConversion(str, opStr, mathStr, "uint", false, true);
                 GenerateConversion(str, opStr, mathStr, "uint", false, false);
+                GenerateConversion(str, opStr, mathStr, "double", true, true);
+                GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
 
             str.Append("\n");
@@ -1983,14 +1989,3 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
     }
 }
-
-//TODO: where is operator % ?
-//TODO: what about operator '?', '&&', '||'. cannot be overloaded in C#!
-//TODO: +=? yes: this should work automatically
-//TODO: prefix/postfix ++/-- 
-                             
-                             
-                             
-                             
-                             
-                             

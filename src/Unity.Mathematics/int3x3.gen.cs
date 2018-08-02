@@ -75,6 +75,22 @@ namespace Unity.Mathematics
             this.c2 = (int3)v.c2;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3x3(double v)
+        {
+            this.c0 = (int3)v;
+            this.c1 = (int3)v;
+            this.c2 = (int3)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3x3(double3x3 v)
+        {
+            this.c0 = (int3)v.c0;
+            this.c1 = (int3)v.c1;
+            this.c2 = (int3)v.c2;
+        }
+
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -87,6 +103,10 @@ namespace Unity.Mathematics
         public static explicit operator int3x3(float v) { return new int3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x3(float3x3 v) { return new int3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3x3(double v) { return new int3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3x3(double3x3 v) { return new int3x3(v); }
 
 
         // mul
@@ -306,6 +326,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x3 int3x3(float3x3 v) { return new int3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3x3 int3x3(double v) { return new int3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3x3 int3x3(double3x3 v) { return new int3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x3 transpose(int3x3 v)

@@ -82,6 +82,24 @@ namespace Unity.Mathematics
             this.c3 = v.c3;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x4(double v)
+        {
+            this.c0 = (float3)v;
+            this.c1 = (float3)v;
+            this.c2 = (float3)v;
+            this.c3 = (float3)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x4(double3x4 v)
+        {
+            this.c0 = (float3)v.c0;
+            this.c1 = (float3)v.c1;
+            this.c2 = (float3)v.c2;
+            this.c3 = (float3)v.c3;
+        }
+
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -94,6 +112,10 @@ namespace Unity.Mathematics
         public static implicit operator float3x4(uint v) { return new float3x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(uint3x4 v) { return new float3x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x4(double v) { return new float3x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x4(double3x4 v) { return new float3x4(v); }
 
 
         // mul
@@ -276,6 +298,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(uint3x4 v) { return new float3x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x4 float3x4(double v) { return new float3x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x4 float3x4(double3x4 v) { return new float3x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 transpose(float3x4 v)

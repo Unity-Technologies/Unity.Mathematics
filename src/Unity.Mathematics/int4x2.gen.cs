@@ -67,6 +67,20 @@ namespace Unity.Mathematics
             this.c1 = (int4)v.c1;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x2(double v)
+        {
+            this.c0 = (int4)v;
+            this.c1 = (int4)v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x2(double4x2 v)
+        {
+            this.c0 = (int4)v.c0;
+            this.c1 = (int4)v.c1;
+        }
+
 
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -79,6 +93,10 @@ namespace Unity.Mathematics
         public static explicit operator int4x2(float v) { return new int4x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x2(float4x2 v) { return new int4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x2(double v) { return new int4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x2(double4x2 v) { return new int4x2(v); }
 
 
         // mul
@@ -300,6 +318,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x2 int4x2(float4x2 v) { return new int4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x2 int4x2(double v) { return new int4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x2 int4x2(double4x2 v) { return new int4x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x4 transpose(int4x2 v)
