@@ -341,9 +341,17 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint2x3 v)
         {
-            return csum(v.c0 * uint2(0xA88D187Du, 0xCF6EBA1Du) + 
-                        v.c1 * uint2(0x9D88E5A1u, 0xEADF0775u) + 
-                        v.c2 * uint2(0x747A9D7Bu, 0x4111F799u)) + 0xB5F05AF1u;
+            return csum(v.c0 * uint2(0xE7579997u, 0xEF7D56C7u) + 
+                        v.c1 * uint2(0x66F38F0Bu, 0x624256A3u) + 
+                        v.c2 * uint2(0x5292ADE1u, 0xD2E590E5u)) + 0xF25BE857u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 hash_wide(uint2x3 v)
+        {
+            return (v.c0 * uint2(0x9BC17CE7u, 0xC8B86851u) + 
+                    v.c1 * uint2(0x64095221u, 0xADF428FFu) + 
+                    v.c2 * uint2(0xA3977109u, 0x745ED837u)) + 0x9CDC88F5u;
         }
 
     }

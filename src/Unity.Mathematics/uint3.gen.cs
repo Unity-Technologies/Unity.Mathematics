@@ -1323,7 +1323,13 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint3 v)
         {
-            return csum(v * uint3(0xF25BE857u, 0x9BC17CE7u, 0xC8B86851u)) + 0x64095221u;
+            return csum(v * uint3(0xB36DE767u, 0x6FCA387Du, 0xAF0F3103u)) + 0xE4A056C7u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 hash_wide(uint3 v)
+        {
+            return (v * uint3(0x841D8225u, 0xC9393C7Du, 0xD42EAFA3u)) + 0xD9AFD06Du;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

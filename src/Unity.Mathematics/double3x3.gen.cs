@@ -350,9 +350,17 @@ public static double3x3 inverse(double3x3 m)
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x3 v)
         {
-            return csum(fold_to_uint(v.c0) * uint3(0x91475DF7u, 0x55E84827u, 0x90A285BBu) + 
-                        fold_to_uint(v.c1) * uint3(0x5D19E1D5u, 0xFAAF07DDu, 0x625C45BDu) + 
-                        fold_to_uint(v.c2) * uint3(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u)) + 0xCC74B3B7u;
+            return csum(fold_to_uint(v.c0) * uint3(0xFAAF07DDu, 0x625C45BDu, 0xC9F27FCBu) + 
+                        fold_to_uint(v.c1) * uint3(0x6D2523B1u, 0x6E2BF6A9u, 0xCC74B3B7u) + 
+                        fold_to_uint(v.c2) * uint3(0x83B58237u, 0x833E3E29u, 0xA9D919BFu)) + 0xC3EC1D97u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 hash_wide(double3x3 v)
+        {
+            return (fold_to_uint(v.c0) * uint3(0xB8B208C7u, 0x5D3ED947u, 0x4473BBB1u) + 
+                    fold_to_uint(v.c1) * uint3(0xCBA11D5Fu, 0x685835CFu, 0xC3D32AE1u) + 
+                    fold_to_uint(v.c2) * uint3(0xB966942Fu, 0xFE9856B3u, 0xFA3A3285u)) + 0xAD55999Du;
         }
 
     }

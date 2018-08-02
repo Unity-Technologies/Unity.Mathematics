@@ -315,10 +315,19 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2x4 v)
         {
-            return csum(fold_to_uint(v.c0) * uint2(0x9C8A2F05u, 0x4DDC6509u) + 
-                        fold_to_uint(v.c1) * uint2(0x7CF083CBu, 0x5C4D6CEDu) + 
-                        fold_to_uint(v.c2) * uint2(0xF9137117u, 0xE857DCE1u) + 
-                        fold_to_uint(v.c3) * uint2(0xF62213C5u, 0x9CDAA959u)) + 0xAA269ABFu;
+            return csum(fold_to_uint(v.c0) * uint2(0xFA3A3285u, 0xAD55999Du) + 
+                        fold_to_uint(v.c1) * uint2(0xDCDD5341u, 0x94DDD769u) + 
+                        fold_to_uint(v.c2) * uint2(0xA1E92D39u, 0x4583C801u) + 
+                        fold_to_uint(v.c3) * uint2(0x9536A0F5u, 0xAF816615u)) + 0x9AF8D62Du;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 hash_wide(double2x4 v)
+        {
+            return (fold_to_uint(v.c0) * uint2(0xE3600729u, 0x5F17300Du) + 
+                    fold_to_uint(v.c1) * uint2(0x670D6809u, 0x7AF32C49u) + 
+                    fold_to_uint(v.c2) * uint2(0xAE131389u, 0x5D1B165Bu) + 
+                    fold_to_uint(v.c3) * uint2(0x87096CD7u, 0x4C7F6DD1u)) + 0x4822A3E9u;
         }
 
     }

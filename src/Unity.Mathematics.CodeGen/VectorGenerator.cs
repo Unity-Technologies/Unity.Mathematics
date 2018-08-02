@@ -376,7 +376,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateTransposeFunction(mathStr);
             GenerateInverseFunction(mathStr);
             GenerateDeterminantFunction(mathStr);
-            GenerateHashFunction(mathStr);
+            GenerateHashFunction(mathStr, false);
+            GenerateHashFunction(mathStr, true);
 
             if (m_Columns == 1)
             {
@@ -1152,19 +1153,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
 
-        public void GenerateHashFunction(StringBuilder str)
+        public void GenerateHashFunction(StringBuilder str, bool wide)
         {
+            string returnType = wide ? ToTypeName("uint", m_Rows, 1) : "uint";
+            string functionName = wide ? "hash_wide" : "hash";
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static uint hash({0} v)\n", m_TypeName);
+            str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, m_TypeName);
             str.Append("\t\t{\n");
 
-            str.AppendFormat("\t\t\treturn csum(");
+            str.AppendFormat("\t\t\treturn ");
+            str.Append(wide ? "(" : "csum(");
+            
             if (m_BaseType == "bool")
             {
                 for (int column = 0; column < m_Columns; column++)
                 {
                     if (column > 0)
-                        str.Append(" + \n\t\t\t\t\t\t");
+                        str.Append(wide ? " + \n\t\t\t\t\t" : " + \n\t\t\t\t\t\t");
 
                     str.Append("select(");
                     GeneratePrimeUIntVector(str, m_Rows);
@@ -1181,7 +1187,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 for(int column = 0; column < m_Columns; column++)
                 {
                     if(column > 0)
-                        str.Append(" + \n\t\t\t\t\t\t");
+                        str.Append(wide ? " + \n\t\t\t\t\t" : " + \n\t\t\t\t\t\t");
                     string columnName = m_Columns > 1 ? "v.c" + column : "v";
                     if (m_BaseType != "uint")
                     {

@@ -350,9 +350,17 @@ public static float3x3 inverse(float3x3 m)
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3x3 v)
         {
-            return csum(asuint(v.c0) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u) + 
-                        asuint(v.c1) * uint3(0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u) + 
-                        asuint(v.c2) * uint3(0x6E624EB7u, 0x7383ED49u, 0xDD49C23Bu)) + 0xEBD0D005u;
+            return csum(asuint(v.c0) * uint3(0x568DAAA9u, 0x7530254Fu, 0x9F090439u) + 
+                        asuint(v.c1) * uint3(0x5E9F85C9u, 0x8C4CA03Fu, 0xB8D969EDu) + 
+                        asuint(v.c2) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u)) + 0xF43A9ABBu;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 hash_wide(float3x3 v)
+        {
+            return (asuint(v.c0) * uint3(0x84E7E01Bu, 0x8E055BE5u, 0x6E624EB7u) + 
+                    asuint(v.c1) * uint3(0x7383ED49u, 0xDD49C23Bu, 0xEBD0D005u) + 
+                    asuint(v.c2) * uint3(0x91475DF7u, 0x55E84827u, 0x90A285BBu)) + 0x5D19E1D5u;
         }
 
     }
