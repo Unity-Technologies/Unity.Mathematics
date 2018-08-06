@@ -118,6 +118,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asfloat(uint4 v) { return float4(asfloat(v.x), asfloat(v.y), asfloat(v.z), asfloat(v.w)); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static double asdouble(ulong v)
+        {
+            LongDoubleUnion u;
+            u.doubleValue = 0;
+            u.longValue = (long)v;
+            return u.doubleValue;
+        }
 
         // min
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1051,7 +1059,6 @@ namespace Unity.Mathematics
         public static bool3 notEqual(double3 x, double3 y) { return x != y; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 notEqual(double4 x, double4 y) { return x != y; }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }

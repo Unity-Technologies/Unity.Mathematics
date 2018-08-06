@@ -115,6 +115,7 @@
     <Compile Include="matrix.gen.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
+    <Compile Include="random.cs" />
     <Compile Include="uint2.gen.cs" />
     <Compile Include="uint2x2.gen.cs" />
     <Compile Include="uint2x3.gen.cs" />
