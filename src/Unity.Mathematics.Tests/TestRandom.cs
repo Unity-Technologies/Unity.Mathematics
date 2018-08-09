@@ -8,18 +8,17 @@ namespace Unity.Mathematics.Tests
     class TestRandom
     {
         // Kolmogorov–Smirnov test on lambda assuming the ideal distribution is uniform [0, 1]
-        private void ks_test(Func<double> func)
+        private void ks_test(Func<double> func, int num_buckets = 256)
         {
             const int N = 2048;
-            const int NUM_BUCKETS = 256;
-            var histogram = new int[NUM_BUCKETS];
+            var histogram = new int[num_buckets];
 
             for (int i = 0; i < N; i++)
             {
                 double x = func();
                 Assert.GreaterOrEqual(x, 0.0);
                 Assert.LessOrEqual(x, 1.0);
-                int bucket = min((int)(x * NUM_BUCKETS), NUM_BUCKETS - 1);
+                int bucket = min((int)(x * num_buckets), num_buckets - 1);
 
                 histogram[bucket]++;
             }
@@ -71,6 +70,69 @@ namespace Unity.Mathematics.Tests
             double r = cov / sqrt(var_a * var_b);
             Assert.Less(abs(r), 0.05);
         }
+
+        [Test]
+        public void bool_uniform()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => rnd.NextBool() ? 0.75 : 0.25), 2);
+        }
+
+        [Test]
+        public void bool2_uniform()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => rnd.NextBool2().x ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool2().y ? 0.75 : 0.25), 2);
+        }
+
+        [Test]
+        public void bool2_independent()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool2().xy)));
+        }
+        
+        [Test]
+        public void bool3_uniform()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => rnd.NextBool3().x ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool3().y ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool3().z ? 0.75 : 0.25), 2);
+        }
+
+        [Test]
+        public void bool3_independent()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool3().xy)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool3().xz)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool3().yz)));
+        }
+
+        [Test]
+        public void bool4_uniform()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => rnd.NextBool4().x ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool4().y ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool4().z ? 0.75 : 0.25), 2);
+            ks_test((() => rnd.NextBool4().w ? 0.75 : 0.25), 2);
+        }
+
+        [Test]
+        public void bool4_independent()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().xy)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().xz)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().xw)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().yz)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().yw)));
+            r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().zw)));
+        }
+
 
         [Test]
         public void float_uniform()
