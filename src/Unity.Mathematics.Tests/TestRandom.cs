@@ -33,7 +33,7 @@ namespace Unity.Mathematics.Tests
                 double target = (double)(i + 1) / histogram.Length;
                 largest_delta = math.max(largest_delta, math.abs(current - target));
             }
-            double d = 1.51743 / math.sqrt((double)N);   //significance: 0.02
+            double d = 1.62762 / math.sqrt((double)N);   // significance: 0.01
             Assert.Less(largest_delta, d);
         }
 

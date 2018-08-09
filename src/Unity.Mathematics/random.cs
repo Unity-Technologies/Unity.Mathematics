@@ -52,19 +52,19 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int2 NextInt2()  // [0, 4294967294]
+        public int2 NextInt2()  // [-2147483647, 2147483647]
         {
             return int2((int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int3 NextInt3()  // [0, 4294967294]
+        public int3 NextInt3()  // [-2147483647, 2147483647]
         {
             return int3((int)NextState(), (int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int4 NextInt4()  // [0, 4294967294]
+        public int4 NextInt4()  // [-2147483647, 2147483647]
         {
             return int4((int)NextState(), (int)NextState(), (int)NextState(), (int)NextState()) ^ -2147483648;
         }
