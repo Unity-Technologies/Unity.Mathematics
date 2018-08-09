@@ -3,231 +3,190 @@ using Unity.Mathematics.Experimental;
 using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
 
+// Random Number Generator based on xorshift.
+// Designed to have minimal state size to be easily embeddable and without use of multiplication
+// to make it easier to vectorize on targets with limited SIMD capabilities.
+
 namespace Unity.Mathematics
 {
     [Serializable]
     public partial struct Random
     {
-        public uint4 state;
+        private uint state;
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Random(uint seed = 0x6E624EB7u)
         {
-            state = uint4(seed) ^ uint4(0xFAAF07DDu, 0x625C45BDu, 0xC9F27FCBu, 0x6D2523B1u);
+            state = seed;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool NextBool()
         {
-            bool v = (state.x < 0);
-            AdvanceState();
-            return v;
+            return ((int)NextState() < 0);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2 NextBool2()
         {
-            bool2 v = (state.xy < 0);
-            AdvanceState();
-            return v;
+            return (int2((int)NextState(), (int)NextState()) < 0);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3 NextBool3()
         {
-            bool3 v = (state.xyz < 0);
-            AdvanceState();
-            return v;
+            return (int3((int)NextState(), (int)NextState(), (int)NextState()) < 0);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4 NextBool4()
         {
-            bool4 v = (state < 0);
-            AdvanceState();
-            return v;
+            return (int4((int)NextState(), (int)NextState(), (int)NextState(), (int)NextState()) < 0);
         }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int NextInt()
+        public int NextInt()    // [-2147483647, 2147483647]
         {
-            int v = (int)state.x;
-            AdvanceState();
-            return v;
+            return (int)NextState() ^ -2147483648;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int2 NextInt2()
+        public int2 NextInt2()  // [0, 4294967294]
         {
-            int2 v = (int2)state.xy;
-            AdvanceState();
-            return v;
+            return int2((int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int3 NextInt3()
+        public int3 NextInt3()  // [0, 4294967294]
         {
-            int3 v = (int3)state.xyz;
-            AdvanceState();
-            return v;
+            return int3((int)NextState(), (int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public int4 NextInt4()
+        public int4 NextInt4()  // [0, 4294967294]
         {
-            int4 v = (int4)state;
-            AdvanceState();
-            return v;
+            return int4((int)NextState(), (int)NextState(), (int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint NextUInt()
+        public uint NextUInt()  // [0, 4294967294]
         {
-            uint v = state.x;
-            AdvanceState();
-            return v;
+            return NextState() - 1u;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint2 NextUInt2()
+        public uint2 NextUInt2()    // [0, 4294967294]
         {
-            uint2 v = state.xy;
-            AdvanceState();
-            return v;
+            return uint2(NextState(), NextState()) - 1u;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3 NextUInt3()
+        public uint3 NextUInt3()    // [0, 4294967294]
         {
-            uint3 v = state.xyz;
-            AdvanceState();
-            return v;
+            return uint3(NextState(), NextState(), NextState()) - 1u;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4 NextUInt4()
+        public uint4 NextUInt4()    // [0, 4294967294]
         {
-            uint4 v = state;
-            AdvanceState();
-            return v;
+            return uint4(NextState(), NextState(), NextState(), NextState()) - 1u;
         }
-
 
         // return numbers from 0 (inclusive) to 1 (exclusive)
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float NextFloat()
+        public float NextFloat()    // [0, 1)
         {
-            float v = asfloat(0x3f800000 | (state.x & 0x7fffff)) - 1.0f;
-            AdvanceState();
-            return v;
+            return asfloat(0x3f80_0000 | (NextState() >> 9)) - 1.0f;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2 NextFloat2()
+        public float2 NextFloat2()  // [0, 1)
         {
-            float2 v = asfloat(0x3f80_0000 | (state.xy >> 9)) - 1.0f;
-            AdvanceState();
-            return v;
+            return asfloat(0x3f80_0000 | (uint2(NextState(), NextState()) >> 9)) - 1.0f;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3 NextFloat3()
+        public float3 NextFloat3()  // [0, 1)
         {
-            float3 v = asfloat(0x3f80_0000 | (state.xyz >> 9)) - 1.0f;
-            AdvanceState();
-            return v;
+            return asfloat(0x3f80_0000 | (uint3(NextState(), NextState(), NextState()) >> 9)) - 1.0f;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4 NextFloat4()
+        public float4 NextFloat4()  // [0, 1)
         {
-            float4 v = asfloat(0x3f80_0000 | (state >> 9)) - 1.0f;
-            AdvanceState();
-            return v;
+            return asfloat(0x3f80_0000 | (uint4(NextState(), NextState(), NextState(), NextState()) >> 9)) - 1.0f;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double NextDouble()
+        public double NextDouble()  // [0, 1)
         {
-            ulong sx = ((ulong)state.x << 20) ^ state.y;
-            double v = asdouble(0x3ff0_0000_0000_0000 | sx) - 1.0;
-            AdvanceState();
-            return v;
+            ulong sx = ((ulong)NextState() << 20) ^ NextState();
+            return asdouble(0x3ff0_0000_0000_0000 | sx) - 1.0;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2 NextDouble2()
+        public double2 NextDouble2()    // [0, 1)
         {
-            ulong sx = ((ulong)state.x << 20) ^ state.y;
-            ulong sy = ((ulong)state.z << 20) ^ state.w;
-            double2 v = double2(asdouble(0x3ff0_0000_0000_0000 | sx),
-                                asdouble(0x3ff0_0000_0000_0000 | sy)) - 1.0;
-            AdvanceState();
-            return v;
+            ulong sx = ((ulong)NextState() << 20) ^ NextState();
+            ulong sy = ((ulong)NextState() << 20) ^ NextState();
+            return double2(asdouble(0x3ff0_0000_0000_0000 | sx),
+                           asdouble(0x3ff0_0000_0000_0000 | sy)) - 1.0;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double3 NextDouble3()
+        public double3 NextDouble3()    // [0, 1)
         {
-            ulong sx = ((ulong)state.x << 20) ^ state.y;
-            ulong sy = ((ulong)state.z << 20) ^ state.w;
-            AdvanceState();
-            ulong sz = ((ulong)state.x << 20) ^ state.y;
-
-            double3 v = double3(asdouble(0x3ff0_0000_0000_0000 | sx),
-                                asdouble(0x3ff0_0000_0000_0000 | sy),
-                                asdouble(0x3ff0_0000_0000_0000 | sz)) - 1.0;
-            AdvanceState();
-            return v;
+            ulong sx = ((ulong)NextState() << 20) ^ NextState();
+            ulong sy = ((ulong)NextState() << 20) ^ NextState();
+            ulong sz = ((ulong)NextState() << 20) ^ NextState();
+            return double3(asdouble(0x3ff0_0000_0000_0000 | sx),
+                           asdouble(0x3ff0_0000_0000_0000 | sy),
+                           asdouble(0x3ff0_0000_0000_0000 | sz)) - 1.0;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double4 NextDouble4()
+        public double4 NextDouble4()    // [0, 1)
         {
-            ulong sx = ((ulong)state.x << 20) ^ state.y;
-            ulong sy = ((ulong)state.z << 20) ^ state.w;
-            AdvanceState();
-            ulong sz = ((ulong)state.y << 20) ^ state.z;
-            ulong sw = ((ulong)state.w << 20) ^ state.x;
-
-            double4 v = double4(asdouble(0x3ff0_0000_0000_0000 | sx),
-                                asdouble(0x3ff0_0000_0000_0000 | sy),
-                                asdouble(0x3ff0_0000_0000_0000 | sz),
-                                asdouble(0x3ff0_0000_0000_0000 | sw)) - 1.0;
-            AdvanceState();
-            return v;
+            ulong sx = ((ulong)NextState() << 20) ^ NextState();
+            ulong sy = ((ulong)NextState() << 20) ^ NextState();
+            ulong sz = ((ulong)NextState() << 20) ^ NextState();
+            ulong sw = ((ulong)NextState() << 20) ^ NextState();
+            return double4(asdouble(0x3ff0_0000_0000_0000 | sx),
+                           asdouble(0x3ff0_0000_0000_0000 | sy),
+                           asdouble(0x3ff0_0000_0000_0000 | sz),
+                           asdouble(0x3ff0_0000_0000_0000 | sw)) - 1.0;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint NextUInt(uint max)
+        public uint NextUInt(uint max)  // [0, max)
         {
-            return (uint)((state.x * (ulong)max) >> 32);
+            return (uint)((NextState() * (ulong)max) >> 32);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint2 NextUInt2(uint2 max)
+        public uint2 NextUInt2(uint2 max)   // [0, max)
         {
-            return uint2(   (uint)(state.x * (ulong)max.x >> 32),
-                            (uint)(state.y * (ulong)max.y >> 32));
+            return uint2(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3 NextUInt3(uint3 max)
+        public uint3 NextUInt3(uint3 max)   // [0, max)
         {
-            return uint3(   (uint)(state.x * (ulong)max.x >> 32),
-                            (uint)(state.y * (ulong)max.y >> 32),
-                            (uint)(state.z * (ulong)max.z >> 32));
+            return uint3(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32),
+                            (uint)(NextState() * (ulong)max.z >> 32));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4 NextUInt4(uint4 max)
+        public uint4 NextUInt4(uint4 max)   // [0, max)
         {
-            return uint4(   (uint)(state.x * (ulong)max.x >> 32),
-                            (uint)(state.y * (ulong)max.y >> 32),
-                            (uint)(state.z * (ulong)max.z >> 32),
-                            (uint)(state.w * (ulong)max.w >> 32));
+            return uint4(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32),
+                            (uint)(NextState() * (ulong)max.z >> 32),
+                            (uint)(NextState() * (ulong)max.w >> 32));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -287,11 +246,13 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        private void AdvanceState()
+        private uint NextState()
         {
+            uint t = state;
             state ^= state << 13;
             state ^= state >> 17;
             state ^= state << 5;
+            return t;
         }
     }
 }
