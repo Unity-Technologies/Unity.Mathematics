@@ -2,6 +2,7 @@ using System;
 using Unity.Mathematics.Experimental;
 using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
+using System.Diagnostics;
 
 // Random Number Generator based on xorshift.
 // Designed to have minimal state size to be easily embeddable and without use of multiplication
@@ -16,6 +17,13 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Random(uint seed = 0x6E624EB7u)
+        {
+            CheckInitState();
+            state = seed;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public void InitState(uint seed = 0x6E624EB7u)
         {
             state = seed;
         }
@@ -69,6 +77,46 @@ namespace Unity.Mathematics
             return int4((int)NextState(), (int)NextState(), (int)NextState(), (int)NextState()) ^ -2147483648;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int NextInt(int max)  // [0, max)
+        {
+            CheckMax(max);
+            return (int)((NextState() * (ulong)max) >> 32);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2 NextInt2(int2 max)   // [0, max)
+        {
+            CheckMax(max.x);
+            CheckMax(max.y);
+            return int2((int)(NextState() * (ulong)max.x >> 32),
+                        (int)(NextState() * (ulong)max.y >> 32));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3 NextInt3(int3 max)   // [0, max)
+        {
+            CheckMax(max.x);
+            CheckMax(max.y);
+            CheckMax(max.z);
+            return int3((int)(NextState() * (ulong)max.x >> 32),
+                        (int)(NextState() * (ulong)max.y >> 32),
+                        (int)(NextState() * (ulong)max.z >> 32));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4 NextInt4(int4 max)   // [0, max)
+        {
+            CheckMax(max.x);
+            CheckMax(max.y);
+            CheckMax(max.z);
+            CheckMax(max.w);
+            return int4((int)(NextState() * (ulong)max.x >> 32),
+                        (int)(NextState() * (ulong)max.y >> 32),
+                        (int)(NextState() * (ulong)max.z >> 32),
+                        (int)(NextState() * (ulong)max.w >> 32));
+        }
+
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt()  // [0, 4294967294]
@@ -92,6 +140,36 @@ namespace Unity.Mathematics
         public uint4 NextUInt4()    // [0, 4294967294]
         {
             return uint4(NextState(), NextState(), NextState(), NextState()) - 1u;
+        }
+        
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint NextUInt(uint max)  // [0, max)
+        {
+            return (uint)((NextState() * (ulong)max) >> 32);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2 NextUInt2(uint2 max)   // [0, max)
+        {
+            return uint2(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3 NextUInt3(uint3 max)   // [0, max)
+        {
+            return uint3(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32),
+                            (uint)(NextState() * (ulong)max.z >> 32));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4 NextUInt4(uint4 max)   // [0, max)
+        {
+            return uint4(   (uint)(NextState() * (ulong)max.x >> 32),
+                            (uint)(NextState() * (ulong)max.y >> 32),
+                            (uint)(NextState() * (ulong)max.z >> 32),
+                            (uint)(NextState() * (ulong)max.w >> 32));
         }
 
         // return numbers from 0 (inclusive) to 1 (exclusive)
@@ -160,36 +238,6 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint NextUInt(uint max)  // [0, max)
-        {
-            return (uint)((NextState() * (ulong)max) >> 32);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint2 NextUInt2(uint2 max)   // [0, max)
-        {
-            return uint2(   (uint)(NextState() * (ulong)max.x >> 32),
-                            (uint)(NextState() * (ulong)max.y >> 32));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3 NextUInt3(uint3 max)   // [0, max)
-        {
-            return uint3(   (uint)(NextState() * (ulong)max.x >> 32),
-                            (uint)(NextState() * (ulong)max.y >> 32),
-                            (uint)(NextState() * (ulong)max.z >> 32));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4 NextUInt4(uint4 max)   // [0, max)
-        {
-            return uint4(   (uint)(NextState() * (ulong)max.x >> 32),
-                            (uint)(NextState() * (ulong)max.y >> 32),
-                            (uint)(NextState() * (ulong)max.z >> 32),
-                            (uint)(NextState() * (ulong)max.w >> 32));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float NextFloat(float max) { return NextFloat() * max; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2(float2 max) { return NextFloat2() * max; }
@@ -248,11 +296,39 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private uint NextState()
         {
+            CheckState();
             uint t = state;
             state ^= state << 13;
             state ^= state >> 17;
             state ^= state << 5;
             return t;
+        }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        private void CheckInitState()
+        {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            if (state == 0)
+                throw new System.ArgumentException("Seed must be non-zero");
+#endif
+        }
+        
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        private void CheckState()
+        {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            if(state == 0)
+                throw new System.ArgumentException("Invalid state 0. Random object has not been properly initialized");
+#endif
+        }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        private void CheckMax(int max)
+        {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            if (max < 0)
+                throw new System.ArgumentException("max must be positive");
+#endif
         }
     }
 }

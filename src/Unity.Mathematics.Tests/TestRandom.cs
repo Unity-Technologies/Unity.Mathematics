@@ -133,6 +133,322 @@ namespace Unity.Mathematics.Tests
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().zw)));
         }
 
+        [Test]
+        public void int_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextInt() & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (((uint)rnd.NextInt() >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextInt(17) + 0.5) / 17.0), 17);
+        }
+
+        [Test]
+        public void int2_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextInt2().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt2().y & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int2_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (((uint)rnd.NextInt2().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt2().y >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int2_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextInt2(int2(13, 17)).x + 0.5) / 13.0), 13);
+            ks_test((() => (rnd.NextInt2(int2(13, 17)).y + 0.5) / 17.0), 17);
+        }
+
+        [Test]
+        public void int2_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextInt2().xy & 255));
+        }
+
+        [Test]
+        public void int2_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => ((uint2)rnd.NextInt2().xy >> 24));
+        }
+
+        [Test]
+        public void int3_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextInt3().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt3().y & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt3().z & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int3_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (((uint)rnd.NextInt3().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt3().y >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt3().z >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int3_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((uint)rnd.NextInt3(int3(13, 17, 19)).x + 0.5) / 13.0), 13);
+            ks_test((() => ((uint)rnd.NextInt3(int3(13, 17, 19)).y + 0.5) / 17.0), 17);
+            ks_test((() => ((uint)rnd.NextInt3(int3(13, 17, 19)).z + 0.5) / 19.0), 19);
+        }
+
+        [Test]
+        public void int3_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextInt3().xy & 255));
+            r_test(() => (rnd.NextInt3().xz & 255));
+            r_test(() => (rnd.NextInt3().yz & 255));
+        }
+
+        [Test]
+        public void int3_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => ((uint2)rnd.NextInt3().xy >> 24));
+            r_test(() => ((uint2)rnd.NextInt3().xz >> 24));
+            r_test(() => ((uint2)rnd.NextInt3().yz >> 24));
+        }
+
+        [Test]
+        public void int4_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextInt4().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt4().y & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt4().z & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextInt4().w & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int4_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (((uint)rnd.NextInt4().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt4().y >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt4().z >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => (((uint)rnd.NextInt4().w >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void int4_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextInt4(int4(13, 17, 19, 23)).x + 0.5) / 13.0), 13);
+            ks_test((() => (rnd.NextInt4(int4(13, 17, 19, 23)).y + 0.5) / 17.0), 17);
+            ks_test((() => (rnd.NextInt4(int4(13, 17, 19, 23)).z + 0.5) / 19.0), 19);
+            ks_test((() => (rnd.NextInt4(int4(13, 17, 19, 23)).w + 0.5) / 23.0), 23);
+        }
+
+        [Test]
+        public void int4_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt4().xy & 255));
+            r_test(() => (rnd.NextUInt4().xz & 255));
+            r_test(() => (rnd.NextUInt4().xw & 255));
+            r_test(() => (rnd.NextUInt4().yz & 255));
+            r_test(() => (rnd.NextUInt4().yw & 255));
+            r_test(() => (rnd.NextUInt4().zw & 255));
+        }
+
+        [Test]
+        public void int4_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => ((uint2)rnd.NextUInt4().xy >> 24));
+            r_test(() => ((uint2)rnd.NextUInt4().xz >> 24));
+            r_test(() => ((uint2)rnd.NextUInt4().xw >> 24));
+            r_test(() => ((uint2)rnd.NextUInt4().yz >> 24));
+            r_test(() => ((uint2)rnd.NextUInt4().yw >> 24));
+            r_test(() => ((uint2)rnd.NextUInt4().zw >> 24));
+        }
+
+
+        [Test]
+        public void uint_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt() & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt() >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextUInt(17) + 0.5) / 17.0), 17);
+        }
+
+        [Test]
+        public void uint2_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt2().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt2().y & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint2_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt2().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt2().y >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint2_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextUInt2(uint2(13,17)).x + 0.5) / 13.0), 13);
+            ks_test((() => (rnd.NextUInt2(uint2(13,17)).y + 0.5) / 17.0), 17);
+        }
+
+        [Test]
+        public void uint2_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt2().xy & 255));
+        }
+
+        [Test]
+        public void uint2_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt2().xy >> 24));
+        }
+
+        [Test]
+        public void uint3_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt3().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt3().y & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt3().z & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint3_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt3().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt3().y >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt3().z >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint3_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextUInt3(uint3(13, 17, 19)).x + 0.5) / 13.0), 13);
+            ks_test((() => (rnd.NextUInt3(uint3(13, 17, 19)).y + 0.5) / 17.0), 17);
+            ks_test((() => (rnd.NextUInt3(uint3(13, 17, 19)).z + 0.5) / 19.0), 19);
+        }
+
+        [Test]
+        public void uint3_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt3().xy & 255));
+            r_test(() => (rnd.NextUInt3().xz & 255));
+            r_test(() => (rnd.NextUInt3().yz & 255));
+        }
+
+        [Test]
+        public void uint3_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt3().xy >> 24));
+            r_test(() => (rnd.NextUInt3().xz >> 24));
+            r_test(() => (rnd.NextUInt3().yz >> 24));
+        }
+
+        [Test]
+        public void uint4_uniform_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt4().x & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().y & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().z & 255u) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().w & 255u) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint4_uniform_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => ((rnd.NextUInt4().x >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().y >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().z >> 24) + 0.5) / 256.0), 256);
+            ks_test((() => ((rnd.NextUInt4().w >> 24) + 0.5) / 256.0), 256);
+        }
+
+        [Test]
+        public void uint4_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test((() => (rnd.NextUInt4(uint4(13, 17, 19, 23)).x + 0.5) / 13.0), 13);
+            ks_test((() => (rnd.NextUInt4(uint4(13, 17, 19, 23)).y + 0.5) / 17.0), 17);
+            ks_test((() => (rnd.NextUInt4(uint4(13, 17, 19, 23)).z + 0.5) / 19.0), 19);
+            ks_test((() => (rnd.NextUInt4(uint4(13, 17, 19, 23)).w + 0.5) / 23.0), 23);
+        }
+
+        [Test]
+        public void uint4_independent_low_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt4().xy & 255));
+            r_test(() => (rnd.NextUInt4().xz & 255));
+            r_test(() => (rnd.NextUInt4().xw & 255));
+            r_test(() => (rnd.NextUInt4().yz & 255));
+            r_test(() => (rnd.NextUInt4().yw & 255));
+            r_test(() => (rnd.NextUInt4().zw & 255));
+        }
+
+        [Test]
+        public void uint4_independent_high_bits()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            r_test(() => (rnd.NextUInt4().xy >> 24));
+            r_test(() => (rnd.NextUInt4().xz >> 24));
+            r_test(() => (rnd.NextUInt4().xw >> 24));
+            r_test(() => (rnd.NextUInt4().yz >> 24));
+            r_test(() => (rnd.NextUInt4().yw >> 24));
+            r_test(() => (rnd.NextUInt4().zw >> 24));
+        }
 
         [Test]
         public void float_uniform()
