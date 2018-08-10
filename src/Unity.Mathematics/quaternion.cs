@@ -220,6 +220,12 @@ namespace Unity.Mathematics
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion scale(float s)
+        {
+            return quaternion(0.0f, 0.0f, 0.0f, sqrt(s)); 
+        }
+   
         public static quaternion lookRotation(float3 direction, float3 up)
         {
             var vector = math_experimental.normalizeSafe(direction);
@@ -371,6 +377,18 @@ namespace Unity.Mathematics
         public static float3 up(quaternion q)
         {
             return mul(q, float3(0, 1, 0));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(quaternion q)
+        {
+            return hash(q.value);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 hash_wide(quaternion q)
+        {
+            return hash_wide(q.value);
         }
     }
 }

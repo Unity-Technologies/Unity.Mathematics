@@ -256,6 +256,15 @@ namespace Unity.Mathematics
             c3 = float4(translation, 1.0f);
         }
 
+        public float4x4(RigidTransform transform)
+        {
+            float3x3 rot = float3x3(transform.rot);
+            c0 = float4(rot.c0, 0.0f);
+            c1 = float4(rot.c1, 0.0f);
+            c2 = float4(rot.c2, 0.0f);
+            c3 = float4(transform.pos, 1.0f);
+        }
+        
         public static float4x4 eulerXYZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
@@ -463,6 +472,11 @@ namespace Unity.Mathematics
         public static float4x4 float4x4(quaternion rotation, float3 translation)
         {
             return new float4x4(rotation, translation);
+        }
+
+        public static float4x4 float4x4(RigidTransform transform)
+        {
+            return new float4x4(transform);
         }
 
         public static float3x3 orthogonalize(float3x3 i)

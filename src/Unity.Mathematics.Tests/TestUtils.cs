@@ -475,5 +475,11 @@ namespace Unity.Mathematics.Tests
         {
             AreEqual(a.value, b.value, delta);
         }
+
+        public static void AreEqual(RigidTransform a, RigidTransform b, float delta = 0.0f)
+        {
+            AreEqual(a.rot, b.rot, delta);
+            AreEqual(a.pos, b.pos, delta);
+        }
     }
 }
