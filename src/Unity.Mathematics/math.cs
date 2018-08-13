@@ -1052,9 +1052,111 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 notEqual(double4 x, double4 y) { return x != y; }
 
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
+
+        // leading zero count
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int lzcnt(uint v)
+        {
+            if (v == 0)
+                return 32;
+            LongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.longValue = 0x4330_0000_0000_0000L + v;
+            u.doubleValue -= 4503599627370496.0;
+            return 0x41E - (int)(u.longValue >> 52);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int lzcnt(int v) { return lzcnt((uint)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 lzcnt(int2 v) { return int2(lzcnt(v.x), lzcnt(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 lzcnt(int3 v) { return int3(lzcnt(v.x), lzcnt(v.y), lzcnt(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 lzcnt(int4 v) { return int4(lzcnt(v.x), lzcnt(v.y), lzcnt(v.z), lzcnt(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 lzcnt(uint2 v) { return int2(lzcnt(v.x), lzcnt(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 lzcnt(uint3 v) { return int3(lzcnt(v.x), lzcnt(v.y), lzcnt(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 lzcnt(uint4 v) { return int4(lzcnt(v.x), lzcnt(v.y), lzcnt(v.z), lzcnt(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int lzcnt(ulong v)
+        {
+            if (v == 0)
+                return 64;
+
+            uint vh = (uint)(v >> 32);
+            uint bits = vh != 0 ? vh : (uint)v;
+            int offset = vh != 0 ? 0x41E : 0x43E;
+
+            LongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.longValue = 0x4330_0000_0000_0000L + bits;
+            u.doubleValue -= 4503599627370496.0;
+            return offset - (int)(u.longValue >> 52);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int lzcnt(long v) { return lzcnt((ulong)v); }
+
+        // trailing zero count
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int tzcnt(uint v)
+        {
+            if (v == 0)
+                return 32;
+
+            v &= (uint)-v;
+            LongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.longValue = 0x4330_0000_0000_0000L + v;
+            u.doubleValue -= 4503599627370496.0;
+            return (int)(u.longValue >> 52) - 0x3FF;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int tzcnt(int v) { return tzcnt((uint)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 tzcnt(int2 v) { return int2(tzcnt(v.x), tzcnt(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 tzcnt(int3 v) { return int3(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 tzcnt(int4 v) { return int4(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z), tzcnt(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 tzcnt(uint2 v) { return int2(tzcnt(v.x), tzcnt(v.y)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 tzcnt(uint3 v) { return int3(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 tzcnt(uint4 v) { return int4(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z), tzcnt(v.w)); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int tzcnt(ulong v)
+        {
+            if (v == 0)
+                return 64;
+
+            v = v & (ulong)-(long)v;
+            uint vl = (uint)v;
+
+            uint bits = vl != 0 ? vl : (uint)(v >> 32);
+            int offset = vl != 0 ? 0x3FF : 0x3DF;
+
+            LongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.longValue = 0x4330_0000_0000_0000L + bits;
+            u.doubleValue -= 4503599627370496.0;
+            return (int)(u.longValue >> 52) - offset;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int tzcnt(long v) { return tzcnt((ulong)v); }
+
 
         // SSE shuffles
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
