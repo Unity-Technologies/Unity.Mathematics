@@ -12,14 +12,7 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int bool_to_mask(bool value) { return value ? -1 : 0; }
-
-        public static int count_bits(int i)
-        {
-            i = i - ((i >> 1) & 0x55555555);
-            i = (i & 0x33333333) + ((i >> 2) & 0x33333333);
-            return (((i + (i >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24;
-        }
-
+        
         /// <summary>
         /// Returns the smallest power of two that is greater than or equal to the given integer
         /// </summary>

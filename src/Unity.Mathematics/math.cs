@@ -1055,6 +1055,59 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
 
+        // count bits
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int count_bits(uint v)
+        {
+            v = v - ((v >> 1) & 0x5555_5555);
+            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
+            return (int)((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 count_bits(uint2 v)
+        {
+            v = v - ((v >> 1) & 0x5555_5555);
+            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
+            return int2((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 count_bits(uint3 v)
+        {
+            v = v - ((v >> 1) & 0x5555_5555);
+            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
+            return int3((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 count_bits(uint4 v)
+        {
+            v = v - ((v >> 1) & 0x5555_5555);
+            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
+            return int4((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int count_bits(int v) { return count_bits((uint)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 count_bits(int2 v) { return count_bits((uint2)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 count_bits(int3 v) { return count_bits((uint3)v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 count_bits(int4 v) { return count_bits((uint4)v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int count_bits(ulong v)
+        {
+            v = v - ((v >> 1) & 0x5555_5555_5555_5555);
+            v = (v & 0x3333_3333_3333_3333) + ((v >> 2) & 0x3333_3333_3333_3333);
+            return (int)((((v + (v >> 4)) & 0x0F0F_0F0F_0F0F_0F0F) * 0x0101_0101_0101_0101) >> 56);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int count_bits(long v) { return count_bits((ulong)v); }
+
         // leading zero count
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int lzcnt(uint v)
