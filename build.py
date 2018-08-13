@@ -4,7 +4,7 @@ import logging
 
 def packages_list():
     return [
-        ("com.unity.mathematics", os.path.join("com.unity.mathematics"))
+        ("com.unity.mathematics", os.path.join("src"))
     ]
 
 def test_packages_list():
