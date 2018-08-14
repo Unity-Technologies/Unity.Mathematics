@@ -5,16 +5,18 @@ using static Unity.Mathematics.math;
 using System.Diagnostics;
 
 // Random Number Generator based on xorshift.
-// Designed to have minimal state size to be easily embeddable and without use of multiplication
-// to make it easier to vectorize on targets with limited SIMD capabilities.
+// Designed for minimal state (32bits) to be easily embeddable into components.
+// Core functionality is integer multiplication free to improve vectorization
+// on less capable SIMD instruction sets.
 
 namespace Unity.Mathematics
 {
     [Serializable]
     public partial struct Random
     {
-        private uint state;
+        public uint state;
 
+        // Seed must be non-zero
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Random(uint seed = 0x6E624EB7u)
         {
@@ -23,6 +25,7 @@ namespace Unity.Mathematics
             NextState();
         }
 
+        // Seed must be non-zero
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void InitState(uint seed = 0x6E624EB7u)
         {

@@ -1,8 +1,3 @@
-// * TODO: Validate -1 vs 1 behaviour in math lib. eg < returns 0 / -1
-//   Check if all operators act accordingly
-// * Also int3 etc bool casts? should they exist?
-// * Should we allow float4 value = 5; it is convenient and how it is in hlsl but maybe not the right fit in C#?
-
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
