@@ -1,8 +1,3 @@
-// * TODO: Validate -1 vs 1 behaviour in math lib. eg < returns 0 / -1
-//   Check if all operators act accordingly
-// * Also int3 etc bool casts? should they exist?
-// * Should we allow float4 value = 5; it is convenient and how it is in hlsl but maybe not the right fit in C#?
-
 using System;
 using System.Runtime.InteropServices;
 using System.Runtime.CompilerServices;
@@ -118,6 +113,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asfloat(uint4 v) { return float4(asfloat(v.x), asfloat(v.y), asfloat(v.z), asfloat(v.w)); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static double asdouble(ulong v)
+        {
+            LongDoubleUnion u;
+            u.doubleValue = 0;
+            u.longValue = (long)v;
+            return u.doubleValue;
+        }
 
         // min
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

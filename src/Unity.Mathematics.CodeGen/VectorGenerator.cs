@@ -50,7 +50,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private uint m_NextPrime = 0;
         private uint NextPrime()
         {
-            return m_primes[m_NextPrime++ & 255]; //TOOD: fix
+            return m_primes[m_NextPrime++ & 255]; //TODO: fix
         }
 
         [Flags]
