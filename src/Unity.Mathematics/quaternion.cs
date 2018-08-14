@@ -6,16 +6,16 @@ using static Unity.Mathematics.math;
 namespace Unity.Mathematics
 {
     [Serializable]
-    public partial struct quaternion
+    public partial struct Quaternion
     {
         public float4 value;
 
-        public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
-        public quaternion(float4 value)                       { this.value = value; }
+        public Quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
+        public Quaternion(float4 value)                       { this.value = value; }
 
 
         // Construct unit quaternion from rotation matrix. The matrix must be orthonormal.
-        public quaternion(float3x3 m)
+        public Quaternion(float3x3 m)
         {
             float3 u = m.c0;
             float3 v = m.c1;
@@ -41,7 +41,7 @@ namespace Unity.Mathematics
         }
 
         // Construct unit quaternion from rigid-transformation matrix. The matrix must be orthonormal.
-        public quaternion(float4x4 m)
+        public Quaternion(float4x4 m)
         {
             float4 u = m.c0;
             float4 v = m.c1;
@@ -66,22 +66,22 @@ namespace Unity.Mathematics
             value = normalize(value);
         }
 
-        public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
+        public static readonly Quaternion identity = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion axisAngle(float3 axis, float angle)
+        public static Quaternion axisAngle(float3 axis, float angle)
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-            return quaternion(float4(math.normalize(axis) * sina, cosa));
+            return Quaternion(float4(math.normalize(axis) * sina, cosa));
         }
 
-        public static quaternion eulerXYZ(float3 xyz)
+        public static Quaternion eulerXYZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z - s.y * s.z * c.x,
                 // s.y * c.x * c.z + s.x * s.z * c.y,
                 // s.z * c.x * c.y - s.x * s.y * c.z,
@@ -90,12 +90,12 @@ namespace Unity.Mathematics
                 );
         }
 
-        public static quaternion eulerXZY(float3 xyz)
+        public static Quaternion eulerXZY(float3 xyz)
         {
             // return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z + s.y * s.z * c.x,
                 // s.y * c.x * c.z + s.x * s.z * c.y,
                 // s.z * c.x * c.y - s.x * s.y * c.z,
@@ -103,12 +103,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, 1.0f, -1.0f, -1.0f)
                 );
         }
-        public static quaternion eulerYXZ(float3 xyz)
+        public static Quaternion eulerYXZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z - s.y * s.z * c.x,
                 // s.y * c.x * c.z + s.x * s.z * c.y,
                 // s.z * c.x * c.y + s.x * s.y * c.z,
@@ -116,12 +116,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, 1.0f, 1.0f, -1.0f)
                 );
         }
-        public static quaternion eulerYZX(float3 xyz)
+        public static Quaternion eulerYZX(float3 xyz)
         {
             // return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z - s.y * s.z * c.x,
                 // s.y * c.x * c.z - s.x * s.z * c.y,
                 // s.z * c.x * c.y + s.x * s.y * c.z,
@@ -129,12 +129,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, -1.0f, 1.0f, 1.0f)
                 );
         }
-        public static quaternion eulerZXY(float3 xyz)
+        public static Quaternion eulerZXY(float3 xyz)
         {
             // return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z + s.y * s.z * c.x,
                 // s.y * c.x * c.z - s.x * s.z * c.y,
                 // s.z * c.x * c.y - s.x * s.y * c.z,
@@ -142,12 +142,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, -1.0f, -1.0f, 1.0f)
                 );
         }
-        public static quaternion eulerZYX(float3 xyz)
+        public static Quaternion eulerZYX(float3 xyz)
         {
             // return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
             float3 s, c;
             sincos(0.5f * xyz, out s, out c);
-            return quaternion(
+            return Quaternion(
                 // s.x * c.y * c.z + s.y * s.z * c.x,
                 // s.y * c.x * c.z - s.x * s.z * c.y,
                 // s.z * c.x * c.y + s.x * s.y * c.z,
@@ -157,19 +157,19 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
+        public static Quaternion eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
+        public static Quaternion eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
+        public static Quaternion eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
+        public static Quaternion eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
+        public static Quaternion eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
+        public static Quaternion eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
 
-        public static quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        public static Quaternion euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             switch (order)
             {
@@ -186,47 +186,47 @@ namespace Unity.Mathematics
                 case RotationOrder.ZYX:
                     return eulerZYX(xyz);
                 default:
-                    return quaternion.identity;
+                    return Quaternion.identity;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static Quaternion euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
             return euler(float3(x, y, z), order);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion rotateX(float angle)
+        public static Quaternion rotateX(float angle)
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-            return quaternion(sina, 0.0f, 0.0f, cosa);
+            return Quaternion(sina, 0.0f, 0.0f, cosa);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion rotateY(float angle)
+        public static Quaternion rotateY(float angle)
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-            return quaternion(0.0f, sina, 0.0f, cosa);
+            return Quaternion(0.0f, sina, 0.0f, cosa);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion rotateZ(float angle)
+        public static Quaternion rotateZ(float angle)
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-            return quaternion(0.0f, 0.0f, sina, cosa);
+            return Quaternion(0.0f, 0.0f, sina, cosa);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion scale(float s)
+        public static Quaternion scale(float s)
         {
-            return quaternion(0.0f, 0.0f, 0.0f, sqrt(s)); 
+            return Quaternion(0.0f, 0.0f, 0.0f, sqrt(s)); 
         }
    
-        public static quaternion lookRotation(float3 direction, float3 up)
+        public static Quaternion lookRotation(float3 direction, float3 up)
         {
             var vector = math_experimental.normalizeSafe(direction);
             var vector2 = cross(up, vector);
@@ -250,7 +250,7 @@ namespace Unity.Mathematics
                 q.x = (m12 - m21) * num;
                 q.y = (m20 - m02) * num;
                 q.z = (m01 - m10) * num;
-                return quaternion(q);
+                return Quaternion(q);
             }
             if ((m00 >= m11) && (m00 >= m22))
             {
@@ -260,7 +260,7 @@ namespace Unity.Mathematics
                 q.y = (m01 + m10) * num4;
                 q.z = (m02 + m20) * num4;
                 q.w = (m12 - m21) * num4;
-                return quaternion(q);
+                return Quaternion(q);
             }
             if (m11 > m22)
             {
@@ -270,7 +270,7 @@ namespace Unity.Mathematics
                 q.y = 0.5f * num6;
                 q.z = (m21 + m12) * num3;
                 q.w = (m20 - m02) * num3;
-                return quaternion(q);
+                return Quaternion(q);
             }
             var num5 = sqrt(((1.0f + m22) - m00) - m11);
             var num2 = 0.5f / num5;
@@ -278,63 +278,63 @@ namespace Unity.Mathematics
             q.y = (m21 + m12) * num2;
             q.z = 0.5f * num5;
             q.w = (m01 - m10) * num2;
-            return quaternion(q);
+            return Quaternion(q);
         }
     }
 
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion quaternion(float x, float y, float z, float w) { return new quaternion(x, y, z, w); }
+        public static Quaternion Quaternion(float x, float y, float z, float w) { return new Quaternion(x, y, z, w); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion quaternion(float4 value) { return new quaternion(value); }
+        public static Quaternion Quaternion(float4 value) { return new Quaternion(value); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion quaternion(float3x3 m) { return new quaternion(m); }
+        public static Quaternion Quaternion(float3x3 m) { return new Quaternion(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion quaternion(float4x4 m) { return new quaternion(m); }
+        public static Quaternion Quaternion(float4x4 m) { return new Quaternion(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion conjugate(quaternion q)
+        public static Quaternion conjugate(Quaternion q)
         {
-            return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f)); // TODO: should only be one xorps
+            return Quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f)); // TODO: should only be one xorps
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion inverse(quaternion q)
+        public static Quaternion inverse(Quaternion q)
         {
             return conjugate(normalize(q));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float dot(quaternion a, quaternion b)
+        public static float dot(Quaternion a, Quaternion b)
         {
             return dot(a.value, b.value);
         }
 
-        public static quaternion normalize(quaternion q)
+        public static Quaternion normalize(Quaternion q)
         {
             float4 value = q.value;
             float len = dot(value, value);
-            value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
+            value = math.select(Mathematics.Quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
 
-            return quaternion(value);
+            return Quaternion(value);
         }
 
-        public static quaternion mul(quaternion a, quaternion b)
+        public static Quaternion mul(Quaternion a, Quaternion b)
         {
-            return quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
+            return Quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
-        public static float3 mul(quaternion q, float3 vector)
+        public static float3 mul(Quaternion q, float3 vector)
         {
             float3 t = 2 * cross(q.value.xyz, vector);
             return vector + q.value.w * t + cross(q.value.xyz, t);
         }
 
-        public static quaternion nlerp(quaternion q1, quaternion q2, float t)
+        public static Quaternion nlerp(Quaternion q1, Quaternion q2, float t)
         {
             float dt = dot(q1, q2);
             if(dt < 0.0f)
@@ -342,10 +342,10 @@ namespace Unity.Mathematics
                 q2.value = -q2.value;
             }
 
-            return normalize(quaternion(lerp(q1.value, q2.value, t)));
+            return normalize(Quaternion(lerp(q1.value, q2.value, t)));
         }
 
-        public static quaternion slerp(quaternion q1, quaternion q2, float t)
+        public static Quaternion slerp(Quaternion q1, Quaternion q2, float t)
         {
             float dt = dot(q1, q2);
             if (dt < 0.0f)
@@ -360,7 +360,7 @@ namespace Unity.Mathematics
                 float s = rsqrt(1.0f - dt * dt);    // 1.0f / sin(angle)
                 float w1 = sin(angle * (1.0f - t)) * s;
                 float w2 = sin(angle * t) * s;
-                return quaternion(q1.value * w1 + q2.value * w2);
+                return Quaternion(q1.value * w1 + q2.value * w2);
             }
             else
             {
@@ -369,24 +369,24 @@ namespace Unity.Mathematics
             }
         }
 
-        public static float3 forward(quaternion q)
+        public static float3 forward(Quaternion q)
         {
             return mul(q, float3(0, 0, 1));
         }
         
-        public static float3 up(quaternion q)
+        public static float3 up(Quaternion q)
         {
             return mul(q, float3(0, 1, 0));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(quaternion q)
+        public static uint hash(Quaternion q)
         {
             return hash(q.value);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 hash_wide(quaternion q)
+        public static uint4 hash_wide(Quaternion q)
         {
             return hash_wide(q.value);
         }
