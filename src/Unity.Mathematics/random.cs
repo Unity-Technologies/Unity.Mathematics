@@ -85,15 +85,15 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int NextInt(int max)  // [0, max)
         {
-            CheckMax(max);
+            CheckNextIntMax(max);
             return (int)((NextState() * (ulong)max) >> 32);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2 NextInt2(int2 max)   // [0, max)
         {
-            CheckMax(max.x);
-            CheckMax(max.y);
+            CheckNextIntMax(max.x);
+            CheckNextIntMax(max.y);
             return int2((int)(NextState() * (ulong)max.x >> 32),
                         (int)(NextState() * (ulong)max.y >> 32));
         }
@@ -101,9 +101,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3 NextInt3(int3 max)   // [0, max)
         {
-            CheckMax(max.x);
-            CheckMax(max.y);
-            CheckMax(max.z);
+            CheckNextIntMax(max.x);
+            CheckNextIntMax(max.y);
+            CheckNextIntMax(max.z);
             return int3((int)(NextState() * (ulong)max.x >> 32),
                         (int)(NextState() * (ulong)max.y >> 32),
                         (int)(NextState() * (ulong)max.z >> 32));
@@ -112,16 +112,59 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4 NextInt4(int4 max)   // [0, max)
         {
-            CheckMax(max.x);
-            CheckMax(max.y);
-            CheckMax(max.z);
-            CheckMax(max.w);
+            CheckNextIntMax(max.x);
+            CheckNextIntMax(max.y);
+            CheckNextIntMax(max.z);
+            CheckNextIntMax(max.w);
             return int4((int)(NextState() * (ulong)max.x >> 32),
                         (int)(NextState() * (ulong)max.y >> 32),
                         (int)(NextState() * (ulong)max.z >> 32),
                         (int)(NextState() * (ulong)max.w >> 32));
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int NextInt(int min, int max)    //[min, max)
+        {
+            CheckNextIntMinMax(min, max);
+            uint range = (uint)(max - min);
+            return (int)(NextState() * (ulong)range >> 32) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2 NextInt2(int2 min, int2 max)    //[min, max)
+        {
+            CheckNextIntMinMax(min.x, max.x);
+            CheckNextIntMinMax(min.y, max.y);
+            uint2 range = (uint2)(max - min);
+            return int2((int)(NextState() * (ulong)range.x >> 32),
+                        (int)(NextState() * (ulong)range.y >> 32)) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3 NextInt3(int3 min, int3 max)    //[min, max)
+        {
+            CheckNextIntMinMax(min.x, max.x);
+            CheckNextIntMinMax(min.y, max.y);
+            CheckNextIntMinMax(min.z, max.z);
+            uint3 range = (uint3)(max - min);
+            return int3((int)(NextState() * (ulong)range.x >> 32),
+                        (int)(NextState() * (ulong)range.y >> 32),
+                        (int)(NextState() * (ulong)range.z >> 32)) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4 NextInt4(int4 min, int4 max)    //[min, max)
+        {
+            CheckNextIntMinMax(min.x, max.x);
+            CheckNextIntMinMax(min.y, max.y);
+            CheckNextIntMinMax(min.z, max.z);
+            CheckNextIntMinMax(min.w, max.w);
+            uint4 range = (uint4)(max - min);
+            return int4((int)(NextState() * (ulong)range.x >> 32),
+                        (int)(NextState() * (ulong)range.y >> 32),
+                        (int)(NextState() * (ulong)range.z >> 32),
+                        (int)(NextState() * (ulong)range.w >> 32)) + min;
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt()  // [0, 4294967294]
@@ -175,6 +218,50 @@ namespace Unity.Mathematics
                             (uint)(NextState() * (ulong)max.y >> 32),
                             (uint)(NextState() * (ulong)max.z >> 32),
                             (uint)(NextState() * (ulong)max.w >> 32));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint NextUInt(uint min, uint max)    //[min, max)
+        {
+            CheckNextUIntMinMax(min, max);
+            uint range = max - min;
+            return (uint)(NextState() * (ulong)range >> 32) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2 NextUInt2(uint2 min, uint2 max)    //[min, max)
+        {
+            CheckNextUIntMinMax(min.x, max.x);
+            CheckNextUIntMinMax(min.y, max.y);
+            uint2 range = max - min;
+            return uint2((uint)(NextState() * (ulong)range.x >> 32),
+                         (uint)(NextState() * (ulong)range.y >> 32)) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3 NextUInt3(uint3 min, uint3 max)    //[min, max)
+        {
+            CheckNextUIntMinMax(min.x, max.x);
+            CheckNextUIntMinMax(min.y, max.y);
+            CheckNextUIntMinMax(min.z, max.z);
+            uint3 range = max - min;
+            return uint3((uint)(NextState() * (ulong)range.x >> 32),
+                         (uint)(NextState() * (ulong)range.y >> 32),
+                         (uint)(NextState() * (ulong)range.z >> 32)) + min;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4 NextUInt4(uint4 min, uint4 max)    //[min, max)
+        {
+            CheckNextUIntMinMax(min.x, max.x);
+            CheckNextUIntMinMax(min.y, max.y);
+            CheckNextUIntMinMax(min.z, max.z);
+            CheckNextUIntMinMax(min.w, max.w);
+            uint4 range = (uint4)(max - min);
+            return uint4((uint)(NextState() * (ulong)range.x >> 32),
+                         (uint)(NextState() * (ulong)range.y >> 32),
+                         (uint)(NextState() * (ulong)range.z >> 32),
+                         (uint)(NextState() * (ulong)range.w >> 32)) + min;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -350,12 +437,31 @@ namespace Unity.Mathematics
         }
 
         [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
-        private void CheckMax(int max)
+        private void CheckNextIntMax(int max)
         {
 #if ENABLE_UNITY_COLLECTIONS_CHECKS
             if (max < 0)
                 throw new System.ArgumentException("max must be positive");
 #endif
         }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        private void CheckNextIntMinMax(int min, int max)
+        {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            if (min > max)
+                throw new System.ArgumentException("min must be less than or equal to max");
+#endif
+        }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        private void CheckNextUIntMinMax(uint min, uint max)
+        {
+#if ENABLE_UNITY_COLLECTIONS_CHECKS
+            if (min > max)
+                throw new System.ArgumentException("min must be less than or equal to max");
+#endif
+        }
+
     }
 }
