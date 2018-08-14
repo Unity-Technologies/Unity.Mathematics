@@ -411,6 +411,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public quaternion NextQuaternionRotation()  // Uniformly random rotation
+        {
+            float3 rnd = NextFloat3(float3(2.0f * (float)PI, 2.0f * (float)PI, 1.0f));
+            float u1 = rnd.z;
+            float2 theta_rho = rnd.xy;
+            
+            float i = sqrt(1.0f - u1);
+            float j = sqrt(u1);
+
+            float2 sin_theta_rho;
+            float2 cos_theta_rho;
+            sincos(theta_rho, out sin_theta_rho, out cos_theta_rho);
+
+            quaternion q = quaternion(i * sin_theta_rho.x, i * cos_theta_rho.x, j * sin_theta_rho.y, j * cos_theta_rho.y);
+            return quaternion(select(q.value, -q.value, q.value.w < 0.0f));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         private uint NextState()
         {
             CheckState();

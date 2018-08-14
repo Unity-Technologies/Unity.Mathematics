@@ -10,7 +10,7 @@ namespace Unity.Mathematics.Tests
         // Kolmogorov–Smirnov test on lambda assuming the ideal distribution is uniform [0, 1]
         private void ks_test(Func<double> func, int num_buckets = 256)
         {
-            const int N = 2048;
+            const int N = 8192;
             var histogram = new int[num_buckets];
 
             for (int i = 0; i < N; i++)
@@ -1156,6 +1156,28 @@ namespace Unity.Mathematics.Tests
 
                 double phi = atan2(dir.y, dir.x) / (2.0 * PI) + 0.5;
                 double z = saturate(dir.z / r * 0.5 + 0.5);
+                return double2(phi, z);
+            });
+        }
+
+        [Test]
+        public void quaternion_rotation()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test(() =>
+            {
+                quaternion q = rnd.NextQuaternionRotation();
+                Assert.AreEqual(1.0, dot(q, q), 0.00001f);
+                Assert.GreaterOrEqual(q.value.w, 0.0f);
+                float3 p = float3(1.0f, 2.0f, 3.0f);
+
+                float3 qp = mul(q, p);
+
+                Assert.AreEqual(length(p), length(qp), 0.0001f);
+                float r = length(qp);
+
+                double phi = atan2(qp.y, qp.x) / (2.0 * PI) + 0.5;
+                double z = saturate(qp.z / r * 0.5 + 0.5);
                 return double2(phi, z);
             });
         }
