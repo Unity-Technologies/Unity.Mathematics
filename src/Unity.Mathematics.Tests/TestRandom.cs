@@ -99,6 +99,20 @@ namespace Unity.Mathematics.Tests
             return x;
         }
 
+        private float range_check(float x, float min, float max)
+        {
+            Assert.GreaterOrEqual(x, min);
+            Assert.Less(x, max);
+            return x;
+        }
+
+        private double range_check(double x, double min, double max)
+        {
+            Assert.GreaterOrEqual(x, min);
+            Assert.Less(x, max);
+            return x;
+        }
+
 
         [Test]
         public void bool_uniform()
@@ -745,6 +759,24 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float max = 16.4f;
+            ks_test((() => range_check(rnd.NextFloat(max), 0.0f, max) / max));
+        }
+
+        [Test]
+        public void float_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float min = -3.1f;
+            float max = 16.4f;
+            float range = max - min;
+            ks_test((() => (range_check(rnd.NextFloat(min, max), min, max) -min) / range));
+        }
+
+        [Test]
         public void float2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -758,6 +790,26 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat2().x * 65536.0f)));
             ks_test((() => frac(rnd.NextFloat2().y * 65536.0f)));
+        }
+
+        [Test]
+        public void float2_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float2 max = float2(16.4f, 1001.33333333f);
+            ks_test((() => range_check(rnd.NextFloat2(max).x, 0.0f, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextFloat2(max).y, 0.0f, max.y) / max.y));
+        }
+
+        [Test]
+        public void float2_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float2 min = float2(-3.1f, 17.1f);
+            float2 max = float2(16.4f, 1001.33333333f);
+            float2 range = max - min;
+            ks_test((() => (range_check(rnd.NextFloat2(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextFloat2(min, max).y, min.y, max.y) - min.y) / range.y));
         }
 
         [Test]
@@ -783,6 +835,28 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextFloat3().x * 65536.0f)));
             ks_test((() => frac(rnd.NextFloat3().y * 65536.0f)));
             ks_test((() => frac(rnd.NextFloat3().z * 65536.0f)));
+        }
+
+        [Test]
+        public void float3_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float3 max = float3(16.4f, 1001.33333333f, 3.121f);
+            ks_test((() => range_check(rnd.NextFloat3(max).x, 0.0f, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextFloat3(max).y, 0.0f, max.y) / max.y));
+            ks_test((() => range_check(rnd.NextFloat3(max).z, 0.0f, max.z) / max.z));
+        }
+
+        [Test]
+        public void float3_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float3 min = float3(-3.1f, 17.1f, -0.3f);
+            float3 max = float3(16.4f, 1001.33333333f, 3.121f);
+            float3 range = max - min;
+            ks_test((() => (range_check(rnd.NextFloat3(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextFloat3(min, max).y, min.y, max.y) - min.y) / range.y));
+            ks_test((() => (range_check(rnd.NextFloat3(min, max).z, min.z, max.z) - min.z) / range.z));
         }
 
         [Test]
@@ -815,6 +889,30 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float4_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float4 max = float4(16.4f, 1001.33333333f, 3.121f, 1.3232e23f);
+            ks_test((() => range_check(rnd.NextFloat4(max).x, 0.0f, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextFloat4(max).y, 0.0f, max.y) / max.y));
+            ks_test((() => range_check(rnd.NextFloat4(max).z, 0.0f, max.z) / max.z));
+            ks_test((() => range_check(rnd.NextFloat4(max).w, 0.0f, max.w) / max.w));
+        }
+
+        [Test]
+        public void float4_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            float4 min = float4(-3.1f, 17.1f, -0.3f, -22.6f);
+            float4 max = float4(16.4f, 1001.33333333f, 3.121f, 1.3232e23f);
+            float4 range = max - min;
+            ks_test((() => (range_check(rnd.NextFloat4(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextFloat4(min, max).y, min.y, max.y) - min.y) / range.y));
+            ks_test((() => (range_check(rnd.NextFloat4(min, max).z, min.z, max.z) - min.z) / range.z));
+            ks_test((() => (range_check(rnd.NextFloat4(min, max).w, min.w, max.w) - min.w) / range.w));
+        }
+
+        [Test]
         public void float4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -841,6 +939,24 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void double_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double max = 16.4;
+            ks_test((() => range_check(rnd.NextDouble(max), 0.0, max) / max));
+        }
+
+        [Test]
+        public void double_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double min = -3.1;
+            double max = 16.4;
+            double range = max - min;
+            ks_test((() => (range_check(rnd.NextDouble(min, max), min, max) - min) / range));
+        }
+
+        [Test]
         public void double2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -854,6 +970,26 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble2().x * 35184372088832.0)));
             ks_test((() => frac(rnd.NextDouble2().y * 35184372088832.0)));
+        }
+
+        [Test]
+        public void double2_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double2 max = double2(16.4, 1001.33333333);
+            ks_test((() => range_check(rnd.NextDouble2(max).x, 0.0, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextDouble2(max).y, 0.0, max.y) / max.y));
+        }
+
+        [Test]
+        public void double2_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double2 min = double2(-3.1, 17.1);
+            double2 max = double2(16.4, 1001.33333333);
+            double2 range = max - min;
+            ks_test((() => (range_check(rnd.NextDouble2(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextDouble2(min, max).y, min.y, max.y) - min.y) / range.y));
         }
 
         [Test]
@@ -880,6 +1016,29 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextDouble3().y * 35184372088832.0)));
             ks_test((() => frac(rnd.NextDouble3().z * 35184372088832.0)));
         }
+
+        [Test]
+        public void double3_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double3 max = double3(16.4, 1001.33333333, 3.121);
+            ks_test((() => range_check(rnd.NextDouble3(max).x, 0.0, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextDouble3(max).y, 0.0, max.y) / max.y));
+            ks_test((() => range_check(rnd.NextDouble3(max).z, 0.0, max.z) / max.z));
+        }
+
+        [Test]
+        public void double3_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double3 min = double3(-3.1, 17.1, -0.3);
+            double3 max = double3(16.4, 1001.33333333, 3.121);
+            double3 range = max - min;
+            ks_test((() => (range_check(rnd.NextDouble3(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextDouble3(min, max).y, min.y, max.y) - min.y) / range.y));
+            ks_test((() => (range_check(rnd.NextDouble3(min, max).z, min.z, max.z) - min.z) / range.z));
+        }
+
 
         [Test]
         public void double3_independent()
@@ -911,6 +1070,30 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void double4_uniform_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double4 max = double4(16.4f, 1001.33333333f, 3.121f, 1.3232e23f);
+            ks_test((() => range_check(rnd.NextDouble4(max).x, 0.0, max.x) / max.x));
+            ks_test((() => range_check(rnd.NextDouble4(max).y, 0.0, max.y) / max.y));
+            ks_test((() => range_check(rnd.NextDouble4(max).z, 0.0, max.z) / max.z));
+            ks_test((() => range_check(rnd.NextDouble4(max).w, 0.0, max.w) / max.w));
+        }
+
+        [Test]
+        public void double4_uniform_min_max()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            double4 min = double4(-3.1, 17.1, -0.3, -22.6);
+            double4 max = double4(16.4, 1001.33333333, 3.121, 1.3232e23);
+            double4 range = max - min;
+            ks_test((() => (range_check(rnd.NextDouble4(min, max).x, min.x, max.x) - min.x) / range.x));
+            ks_test((() => (range_check(rnd.NextDouble4(min, max).y, min.y, max.y) - min.y) / range.y));
+            ks_test((() => (range_check(rnd.NextDouble4(min, max).z, min.z, max.z) - min.z) / range.z));
+            ks_test((() => (range_check(rnd.NextDouble4(min, max).w, min.w, max.w) - min.w) / range.w));
+        }
+
+        [Test]
         public void double4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -929,7 +1112,7 @@ namespace Unity.Mathematics.Tests
             ks_test(() => {
                 float2 dir = rnd.NextFloat2Direction();
                 Assert.AreEqual(1.0f, length(dir), 0.001f);
-                return atan2(dir.x, dir.y)/(2.0f*(float)PI) + 0.5f;
+                return atan2(dir.x, dir.y) / (2.0f * (float)PI) + 0.5f;
             });
         }
 
@@ -957,6 +1140,22 @@ namespace Unity.Mathematics.Tests
 
                 float phi = atan2(dir.y, dir.x) / (2.0f * (float)PI) + 0.5f;
                 float z = saturate(dir.z / r * 0.5f + 0.5f);
+                return double2(phi, z);
+            });
+        }
+
+        [Test]
+        public void double3_direction()
+        {
+            var rnd = new Random(0x6E624EB7u);
+            ks_test(() =>
+            {
+                double3 dir = rnd.NextDouble3Direction();
+                double r = length(dir);
+                Assert.AreEqual(1.0, r, 0.00001);
+
+                double phi = atan2(dir.y, dir.x) / (2.0 * PI) + 0.5;
+                double z = saturate(dir.z / r * 0.5 + 0.5);
                 return double2(phi, z);
             });
         }

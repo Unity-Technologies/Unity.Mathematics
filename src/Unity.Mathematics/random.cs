@@ -347,13 +347,13 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float NextDouble(float max) { return NextFloat() * max; }
+        public double NextDouble(double max) { return NextDouble() * max; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2 NextDouble2(float2 max) { return NextFloat2() * max; }
+        public double2 NextDouble2(double2 max) { return NextDouble2() * max; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3 NextDouble3(float3 max) { return NextFloat3() * max; }
+        public double3 NextDouble3(double3 max) { return NextDouble3() * max; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4 NextDouble4(float4 max) { return NextFloat4() * max; }
+        public double4 NextDouble4(double4 max) { return NextDouble4() * max; }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double NextDouble(double min, double max) { return NextDouble() * (max - min) + min; }
