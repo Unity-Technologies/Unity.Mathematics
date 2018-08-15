@@ -42,6 +42,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2x3(bool v)
+        {
+            this.c0 = math.select(new double2(0.0), new double2(1.0), v);
+            this.c1 = math.select(new double2(0.0), new double2(1.0), v);
+            this.c2 = math.select(new double2(0.0), new double2(1.0), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2x3(bool2x3 v)
+        {
+            this.c0 = math.select(new double2(0.0), new double2(1.0), v.c0);
+            this.c1 = math.select(new double2(0.0), new double2(1.0), v.c1);
+            this.c2 = math.select(new double2(0.0), new double2(1.0), v.c2);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(int v)
         {
             this.c0 = v;
@@ -93,6 +109,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(double v) { return new double2x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double2x3(bool v) { return new double2x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double2x3(bool2x3 v) { return new double2x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(int v) { return new double2x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -273,6 +293,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(double v) { return new double2x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2x3 double2x3(bool v) { return new double2x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2x3 double2x3(bool2x3 v) { return new double2x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(int v) { return new double2x3(v); }

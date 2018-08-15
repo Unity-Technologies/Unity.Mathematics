@@ -59,6 +59,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3(bool v)
+        {
+            this.x = v ? 1 : 0;
+            this.y = v ? 1 : 0;
+            this.z = v ? 1 : 0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int3(bool3 v)
+        {
+            this.x = v.x ? 1 : 0;
+            this.y = v.y ? 1 : 0;
+            this.z = v.z ? 1 : 0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(uint v)
         {
             this.x = (int)v;
@@ -110,6 +126,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int3(int v) { return new int3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3(bool v) { return new int3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int3(bool3 v) { return new int3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(uint v) { return new int3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1301,6 +1321,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int v) { return new int3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 int3(bool v) { return new int3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 int3(bool3 v) { return new int3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(uint v) { return new int3(v); }

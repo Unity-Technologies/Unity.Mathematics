@@ -46,6 +46,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2x4(bool v)
+        {
+            this.c0 = math.select(new float2(0.0f), new float2(1.0f), v);
+            this.c1 = math.select(new float2(0.0f), new float2(1.0f), v);
+            this.c2 = math.select(new float2(0.0f), new float2(1.0f), v);
+            this.c3 = math.select(new float2(0.0f), new float2(1.0f), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2x4(bool2x4 v)
+        {
+            this.c0 = math.select(new float2(0.0f), new float2(1.0f), v.c0);
+            this.c1 = math.select(new float2(0.0f), new float2(1.0f), v.c1);
+            this.c2 = math.select(new float2(0.0f), new float2(1.0f), v.c2);
+            this.c3 = math.select(new float2(0.0f), new float2(1.0f), v.c3);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x4(int v)
         {
             this.c0 = v;
@@ -103,6 +121,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x4(float v) { return new float2x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float2x4(bool v) { return new float2x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float2x4(bool2x4 v) { return new float2x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x4(int v) { return new float2x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -283,6 +305,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x4 float2x4(float v) { return new float2x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2x4 float2x4(bool v) { return new float2x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2x4 float2x4(bool2x4 v) { return new float2x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x4 float2x4(int v) { return new float2x4(v); }

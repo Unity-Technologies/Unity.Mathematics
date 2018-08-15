@@ -12,7 +12,7 @@ namespace Unity.Mathematics
         public uint4 c0;
         public uint4 c1;
 
-        public static readonly uint4x2 zero = new uint4x2(0, 0,   0, 0,   0, 0,   0, 0);
+        public static readonly uint4x2 zero = new uint4x2(0u, 0u,   0u, 0u,   0u, 0u,   0u, 0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -37,6 +37,20 @@ namespace Unity.Mathematics
         {
             this.c0 = v;
             this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4x2(bool v)
+        {
+            this.c0 = math.select(new uint4(0u), new uint4(1u), v);
+            this.c1 = math.select(new uint4(0u), new uint4(1u), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4x2(bool4x2 v)
+        {
+            this.c0 = math.select(new uint4(0u), new uint4(1u), v.c0);
+            this.c1 = math.select(new uint4(0u), new uint4(1u), v.c1);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -85,6 +99,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint4x2(uint v) { return new uint4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4x2(bool v) { return new uint4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4x2(bool4x2 v) { return new uint4x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4x2(int v) { return new uint4x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -306,6 +324,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 uint4x2(uint v) { return new uint4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x2 uint4x2(bool v) { return new uint4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x2 uint4x2(bool4x2 v) { return new uint4x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 uint4x2(int v) { return new uint4x2(v); }

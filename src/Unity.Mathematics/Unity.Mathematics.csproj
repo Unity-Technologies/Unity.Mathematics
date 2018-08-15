@@ -113,6 +113,19 @@
     <Compile Include="mathexperimental.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="matrix.gen.cs" />
+    <Compile Include="Noise\cellular2D.cs" />
+    <Compile Include="Noise\cellular2x2.cs" />
+    <Compile Include="Noise\cellular2x2x2.cs" />
+    <Compile Include="Noise\cellular3D.cs" />
+    <Compile Include="Noise\classicnoise2D.cs" />
+    <Compile Include="Noise\classicnoise3D.cs" />
+    <Compile Include="Noise\classicnoise4D.cs" />
+    <Compile Include="Noise\common.cs" />
+    <Compile Include="Noise\noise2D.cs" />
+    <Compile Include="Noise\noise3D.cs" />
+    <Compile Include="Noise\noise3Dgrad.cs" />
+    <Compile Include="Noise\noise4D.cs" />
+    <Compile Include="Noise\psrdnoise2D.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="rigid_transform.cs" />
@@ -130,6 +143,7 @@
     <Compile Include="uint4x3.gen.cs" />
     <Compile Include="uint4x4.gen.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

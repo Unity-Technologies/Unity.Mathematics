@@ -49,6 +49,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4x4(bool v)
+        {
+            this.c0 = math.select(new double4(0.0), new double4(1.0), v);
+            this.c1 = math.select(new double4(0.0), new double4(1.0), v);
+            this.c2 = math.select(new double4(0.0), new double4(1.0), v);
+            this.c3 = math.select(new double4(0.0), new double4(1.0), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4x4(bool4x4 v)
+        {
+            this.c0 = math.select(new double4(0.0), new double4(1.0), v.c0);
+            this.c1 = math.select(new double4(0.0), new double4(1.0), v.c1);
+            this.c2 = math.select(new double4(0.0), new double4(1.0), v.c2);
+            this.c3 = math.select(new double4(0.0), new double4(1.0), v.c3);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4x4(int v)
         {
             this.c0 = v;
@@ -106,6 +124,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4x4(double v) { return new double4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4x4(bool v) { return new double4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4x4(bool4x4 v) { return new double4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4x4(int v) { return new double4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -290,6 +312,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x4 double4x4(double v) { return new double4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4x4 double4x4(bool v) { return new double4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4x4 double4x4(bool4x4 v) { return new double4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x4 double4x4(int v) { return new double4x4(v); }

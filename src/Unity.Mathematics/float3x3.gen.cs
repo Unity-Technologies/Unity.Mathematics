@@ -44,6 +44,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x3(bool v)
+        {
+            this.c0 = math.select(new float3(0.0f), new float3(1.0f), v);
+            this.c1 = math.select(new float3(0.0f), new float3(1.0f), v);
+            this.c2 = math.select(new float3(0.0f), new float3(1.0f), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x3(bool3x3 v)
+        {
+            this.c0 = math.select(new float3(0.0f), new float3(1.0f), v.c0);
+            this.c1 = math.select(new float3(0.0f), new float3(1.0f), v.c1);
+            this.c2 = math.select(new float3(0.0f), new float3(1.0f), v.c2);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x3(int v)
         {
             this.c0 = v;
@@ -95,6 +111,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(float v) { return new float3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x3(bool v) { return new float3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x3(bool3x3 v) { return new float3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(int v) { return new float3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -277,6 +297,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(float v) { return new float3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 float3x3(bool v) { return new float3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 float3x3(bool3x3 v) { return new float3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(int v) { return new float3x3(v); }

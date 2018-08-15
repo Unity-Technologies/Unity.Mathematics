@@ -44,6 +44,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x3(bool v)
+        {
+            this.c0 = math.select(new int4(0), new int4(1), v);
+            this.c1 = math.select(new int4(0), new int4(1), v);
+            this.c2 = math.select(new int4(0), new int4(1), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x3(bool4x3 v)
+        {
+            this.c0 = math.select(new int4(0), new int4(1), v.c0);
+            this.c1 = math.select(new int4(0), new int4(1), v.c1);
+            this.c2 = math.select(new int4(0), new int4(1), v.c2);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(uint v)
         {
             this.c0 = (int4)v;
@@ -95,6 +111,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int4x3(int v) { return new int4x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x3(bool v) { return new int4x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x3(bool4x3 v) { return new int4x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(uint v) { return new int4x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -316,6 +336,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(int v) { return new int4x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x3 int4x3(bool v) { return new int4x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x3 int4x3(bool4x3 v) { return new int4x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(uint v) { return new int4x3(v); }

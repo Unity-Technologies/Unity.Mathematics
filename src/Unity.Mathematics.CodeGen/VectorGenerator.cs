@@ -87,8 +87,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             switch(baseType)
             {
                 case "int":
-                case "uint":
                     return "" + value;
+                case "uint":
+                    return "" + value + "u";
                 case "float":
                     return "" + value + ".0f";
                 case "double":
@@ -276,7 +277,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (!isScalar)
                     rhs = rhs + "." + fields[i];
                 if (isExplicit)
-                    rhs = "(" + dstFieldType + ")" + rhs;
+                {
+                    if (sourceBaseType == "bool")
+                    {
+                        if (m_Columns > 1)
+                            rhs = string.Format("math.select(new {0}({1}), new {0}({2}), {3})", dstFieldType, ToTypedLiteral(m_BaseType, 0), ToTypedLiteral(m_BaseType, 1), rhs);
+                        else
+                            rhs = rhs + " ? " + ToTypedLiteral(m_BaseType, 1) + " : " + ToTypedLiteral(m_BaseType, 0);
+                    }
+                        
+                    else
+                        rhs = "(" + dstFieldType + ")" + rhs;
+                }
+                    
 
                 str.AppendFormat("\t\t\tthis.{0} = {1};\n", fields[i], rhs);
             }
@@ -299,6 +312,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_BaseType == "int")
             {
+                GenerateConversion(str, opStr, mathStr, "bool", true, true);
+                GenerateConversion(str, opStr, mathStr, "bool", true, false);
                 GenerateConversion(str, opStr, mathStr, "uint", true, true);
                 GenerateConversion(str, opStr, mathStr, "uint", true, false);
                 GenerateConversion(str, opStr, mathStr, "float", true, true);
@@ -308,6 +323,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_BaseType == "uint")
             {
+                GenerateConversion(str, opStr, mathStr, "bool", true, true);
+                GenerateConversion(str, opStr, mathStr, "bool", true, false);
                 GenerateConversion(str, opStr, mathStr, "int", true, true);
                 GenerateConversion(str, opStr, mathStr, "int", true, false);
                 GenerateConversion(str, opStr, mathStr, "float", true, true);
@@ -317,6 +334,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_BaseType == "float")
             {
+                GenerateConversion(str, opStr, mathStr, "bool", true, true);
+                GenerateConversion(str, opStr, mathStr, "bool", true, false);
                 GenerateConversion(str, opStr, mathStr, "int", false, true);
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
                 GenerateConversion(str, opStr, mathStr, "uint", false, true);
@@ -326,6 +345,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_BaseType == "double")
             {
+                GenerateConversion(str, opStr, mathStr, "bool", true, true);
+                GenerateConversion(str, opStr, mathStr, "bool", true, false);
                 GenerateConversion(str, opStr, mathStr, "int", false, true);
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
                 GenerateConversion(str, opStr, mathStr, "uint", false, true);

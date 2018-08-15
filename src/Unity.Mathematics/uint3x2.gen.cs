@@ -12,7 +12,7 @@ namespace Unity.Mathematics
         public uint3 c0;
         public uint3 c1;
 
-        public static readonly uint3x2 zero = new uint3x2(0, 0,   0, 0,   0, 0);
+        public static readonly uint3x2 zero = new uint3x2(0u, 0u,   0u, 0u,   0u, 0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -36,6 +36,20 @@ namespace Unity.Mathematics
         {
             this.c0 = v;
             this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x2(bool v)
+        {
+            this.c0 = math.select(new uint3(0u), new uint3(1u), v);
+            this.c1 = math.select(new uint3(0u), new uint3(1u), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x2(bool3x2 v)
+        {
+            this.c0 = math.select(new uint3(0u), new uint3(1u), v.c0);
+            this.c1 = math.select(new uint3(0u), new uint3(1u), v.c1);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3x2(uint v) { return new uint3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x2(bool v) { return new uint3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x2(bool3x2 v) { return new uint3x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(int v) { return new uint3x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -303,6 +321,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(uint v) { return new uint3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x2 uint3x2(bool v) { return new uint3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x2 uint3x2(bool3x2 v) { return new uint3x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(int v) { return new uint3x2(v); }

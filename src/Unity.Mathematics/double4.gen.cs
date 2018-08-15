@@ -101,6 +101,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4(bool v)
+        {
+            this.x = v ? 1.0 : 0.0;
+            this.y = v ? 1.0 : 0.0;
+            this.z = v ? 1.0 : 0.0;
+            this.w = v ? 1.0 : 0.0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4(bool4 v)
+        {
+            this.x = v.x ? 1.0 : 0.0;
+            this.y = v.y ? 1.0 : 0.0;
+            this.z = v.z ? 1.0 : 0.0;
+            this.w = v.w ? 1.0 : 0.0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(int v)
         {
             this.x = v;
@@ -158,6 +176,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(double v) { return new double4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4(bool v) { return new double4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4(bool4 v) { return new double4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(int v) { return new double4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3174,6 +3196,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double v) { return new double4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 double4(bool v) { return new double4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 double4(bool4 v) { return new double4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(int v) { return new double4(v); }

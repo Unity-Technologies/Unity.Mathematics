@@ -39,6 +39,20 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2(bool v)
+        {
+            this.x = v ? 1.0 : 0.0;
+            this.y = v ? 1.0 : 0.0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2(bool2 v)
+        {
+            this.x = v.x ? 1.0 : 0.0;
+            this.y = v.y ? 1.0 : 0.0;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(int v)
         {
             this.x = v;
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(double v) { return new double2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double2(bool v) { return new double2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double2(bool2 v) { return new double2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(int v) { return new double2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -498,6 +516,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double v) { return new double2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 double2(bool v) { return new double2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 double2(bool2 v) { return new double2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(int v) { return new double2(v); }

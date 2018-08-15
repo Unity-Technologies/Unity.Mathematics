@@ -16,7 +16,7 @@ namespace Unity.Mathematics
         public uint z;
         public uint w;
 
-        public static readonly uint4 zero = new uint4(0,   0,   0,   0);
+        public static readonly uint4 zero = new uint4(0u,   0u,   0u,   0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -101,6 +101,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4(bool v)
+        {
+            this.x = v ? 1u : 0u;
+            this.y = v ? 1u : 0u;
+            this.z = v ? 1u : 0u;
+            this.w = v ? 1u : 0u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4(bool4 v)
+        {
+            this.x = v.x ? 1u : 0u;
+            this.y = v.y ? 1u : 0u;
+            this.z = v.z ? 1u : 0u;
+            this.w = v.w ? 1u : 0u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(int v)
         {
             this.x = (uint)v;
@@ -158,6 +176,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint4(uint v) { return new uint4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4(bool v) { return new uint4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4(bool4 v) { return new uint4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(int v) { return new uint4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3211,6 +3233,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint v) { return new uint4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 uint4(bool v) { return new uint4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 uint4(bool4 v) { return new uint4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(int v) { return new uint4(v); }

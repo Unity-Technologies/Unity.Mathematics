@@ -14,8 +14,8 @@ namespace Unity.Mathematics
         public uint4 c2;
         public uint4 c3;
 
-        public static readonly uint4x4 identity = new uint4x4(1, 0, 0, 0,   0, 1, 0, 0,   0, 0, 1, 0,   0, 0, 0, 1);
-        public static readonly uint4x4 zero = new uint4x4(0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0);
+        public static readonly uint4x4 identity = new uint4x4(1u, 0u, 0u, 0u,   0u, 1u, 0u, 0u,   0u, 0u, 1u, 0u,   0u, 0u, 0u, 1u);
+        public static readonly uint4x4 zero = new uint4x4(0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -46,6 +46,24 @@ namespace Unity.Mathematics
             this.c1 = v;
             this.c2 = v;
             this.c3 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4x4(bool v)
+        {
+            this.c0 = math.select(new uint4(0u), new uint4(1u), v);
+            this.c1 = math.select(new uint4(0u), new uint4(1u), v);
+            this.c2 = math.select(new uint4(0u), new uint4(1u), v);
+            this.c3 = math.select(new uint4(0u), new uint4(1u), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint4x4(bool4x4 v)
+        {
+            this.c0 = math.select(new uint4(0u), new uint4(1u), v.c0);
+            this.c1 = math.select(new uint4(0u), new uint4(1u), v.c1);
+            this.c2 = math.select(new uint4(0u), new uint4(1u), v.c2);
+            this.c3 = math.select(new uint4(0u), new uint4(1u), v.c3);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -106,6 +124,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint4x4(uint v) { return new uint4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4x4(bool v) { return new uint4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint4x4(bool4x4 v) { return new uint4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4x4(int v) { return new uint4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -327,6 +349,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 uint4x4(uint v) { return new uint4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 uint4x4(bool v) { return new uint4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4x4 uint4x4(bool4x4 v) { return new uint4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 uint4x4(int v) { return new uint4x4(v); }

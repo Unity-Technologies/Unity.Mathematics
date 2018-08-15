@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         public uint x;
         public uint y;
 
-        public static readonly uint2 zero = new uint2(0,   0);
+        public static readonly uint2 zero = new uint2(0u,   0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -36,6 +36,20 @@ namespace Unity.Mathematics
         {
             this.x = v;
             this.y = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(bool v)
+        {
+            this.x = v ? 1u : 0u;
+            this.y = v ? 1u : 0u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2(bool2 v)
+        {
+            this.x = v.x ? 1u : 0u;
+            this.y = v.y ? 1u : 0u;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint2(uint v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(bool v) { return new uint2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2(bool2 v) { return new uint2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint2(int v) { return new uint2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -535,6 +553,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(bool v) { return new uint2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 uint2(bool2 v) { return new uint2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(int v) { return new uint2(v); }

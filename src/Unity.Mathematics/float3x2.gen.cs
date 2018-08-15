@@ -39,6 +39,20 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x2(bool v)
+        {
+            this.c0 = math.select(new float3(0.0f), new float3(1.0f), v);
+            this.c1 = math.select(new float3(0.0f), new float3(1.0f), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3x2(bool3x2 v)
+        {
+            this.c0 = math.select(new float3(0.0f), new float3(1.0f), v.c0);
+            this.c1 = math.select(new float3(0.0f), new float3(1.0f), v.c1);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x2(int v)
         {
             this.c0 = v;
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x2(float v) { return new float3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x2(bool v) { return new float3x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float3x2(bool3x2 v) { return new float3x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x2(int v) { return new float3x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -266,6 +284,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x2 float3x2(float v) { return new float3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x2 float3x2(bool v) { return new float3x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x2 float3x2(bool3x2 v) { return new float3x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x2 float3x2(int v) { return new float3x2(v); }

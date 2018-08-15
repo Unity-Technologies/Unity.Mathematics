@@ -42,6 +42,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x3(bool v)
+        {
+            this.c0 = math.select(new int2(0), new int2(1), v);
+            this.c1 = math.select(new int2(0), new int2(1), v);
+            this.c2 = math.select(new int2(0), new int2(1), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x3(bool2x3 v)
+        {
+            this.c0 = math.select(new int2(0), new int2(1), v.c0);
+            this.c1 = math.select(new int2(0), new int2(1), v.c1);
+            this.c2 = math.select(new int2(0), new int2(1), v.c2);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x3(uint v)
         {
             this.c0 = (int2)v;
@@ -93,6 +109,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int2x3(int v) { return new int2x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x3(bool v) { return new int2x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x3(bool2x3 v) { return new int2x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(uint v) { return new int2x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -310,6 +330,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(int v) { return new int2x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x3 int2x3(bool v) { return new int2x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x3 int2x3(bool2x3 v) { return new int2x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(uint v) { return new int2x3(v); }

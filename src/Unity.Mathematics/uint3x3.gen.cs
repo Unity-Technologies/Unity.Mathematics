@@ -13,8 +13,8 @@ namespace Unity.Mathematics
         public uint3 c1;
         public uint3 c2;
 
-        public static readonly uint3x3 identity = new uint3x3(1, 0, 0,   0, 1, 0,   0, 0, 1);
-        public static readonly uint3x3 zero = new uint3x3(0, 0, 0,   0, 0, 0,   0, 0, 0);
+        public static readonly uint3x3 identity = new uint3x3(1u, 0u, 0u,   0u, 1u, 0u,   0u, 0u, 1u);
+        public static readonly uint3x3 zero = new uint3x3(0u, 0u, 0u,   0u, 0u, 0u,   0u, 0u, 0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -41,6 +41,22 @@ namespace Unity.Mathematics
             this.c0 = v;
             this.c1 = v;
             this.c2 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x3(bool v)
+        {
+            this.c0 = math.select(new uint3(0u), new uint3(1u), v);
+            this.c1 = math.select(new uint3(0u), new uint3(1u), v);
+            this.c2 = math.select(new uint3(0u), new uint3(1u), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3x3(bool3x3 v)
+        {
+            this.c0 = math.select(new uint3(0u), new uint3(1u), v.c0);
+            this.c1 = math.select(new uint3(0u), new uint3(1u), v.c1);
+            this.c2 = math.select(new uint3(0u), new uint3(1u), v.c2);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -95,6 +111,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3x3(uint v) { return new uint3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x3(bool v) { return new uint3x3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3x3(bool3x3 v) { return new uint3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(int v) { return new uint3x3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -314,6 +334,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(uint v) { return new uint3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x3 uint3x3(bool v) { return new uint3x3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3x3 uint3x3(bool3x3 v) { return new uint3x3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(int v) { return new uint3x3(v); }

@@ -39,6 +39,20 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x2(bool v)
+        {
+            this.c0 = math.select(new int2(0), new int2(1), v);
+            this.c1 = math.select(new int2(0), new int2(1), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int2x2(bool2x2 v)
+        {
+            this.c0 = math.select(new int2(0), new int2(1), v.c0);
+            this.c1 = math.select(new int2(0), new int2(1), v.c1);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x2(uint v)
         {
             this.c0 = (int2)v;
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int2x2(int v) { return new int2x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x2(bool v) { return new int2x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int2x2(bool2x2 v) { return new int2x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x2(uint v) { return new int2x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -301,6 +319,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 int2x2(int v) { return new int2x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x2 int2x2(bool v) { return new int2x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2x2 int2x2(bool2x2 v) { return new int2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 int2x2(uint v) { return new int2x2(v); }

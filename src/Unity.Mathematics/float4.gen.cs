@@ -101,6 +101,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(bool v)
+        {
+            this.x = v ? 1.0f : 0.0f;
+            this.y = v ? 1.0f : 0.0f;
+            this.z = v ? 1.0f : 0.0f;
+            this.w = v ? 1.0f : 0.0f;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(bool4 v)
+        {
+            this.x = v.x ? 1.0f : 0.0f;
+            this.y = v.y ? 1.0f : 0.0f;
+            this.z = v.z ? 1.0f : 0.0f;
+            this.w = v.w ? 1.0f : 0.0f;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(int v)
         {
             this.x = v;
@@ -158,6 +176,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(float v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float4(bool v) { return new float4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator float4(bool4 v) { return new float4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(int v) { return new float4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3174,6 +3196,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(float v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(bool v) { return new float4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(bool4 v) { return new float4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(int v) { return new float4(v); }

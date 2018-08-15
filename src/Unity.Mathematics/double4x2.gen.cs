@@ -40,6 +40,20 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4x2(bool v)
+        {
+            this.c0 = math.select(new double4(0.0), new double4(1.0), v);
+            this.c1 = math.select(new double4(0.0), new double4(1.0), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4x2(bool4x2 v)
+        {
+            this.c0 = math.select(new double4(0.0), new double4(1.0), v.c0);
+            this.c1 = math.select(new double4(0.0), new double4(1.0), v.c1);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4x2(int v)
         {
             this.c0 = v;
@@ -85,6 +99,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4x2(double v) { return new double4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4x2(bool v) { return new double4x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator double4x2(bool4x2 v) { return new double4x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4x2(int v) { return new double4x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -269,6 +287,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x2 double4x2(double v) { return new double4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4x2 double4x2(bool v) { return new double4x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4x2 double4x2(bool4x2 v) { return new double4x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x2 double4x2(int v) { return new double4x2(v); }

@@ -49,6 +49,24 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(bool v)
+        {
+            this.c0 = math.select(new int4(0), new int4(1), v);
+            this.c1 = math.select(new int4(0), new int4(1), v);
+            this.c2 = math.select(new int4(0), new int4(1), v);
+            this.c3 = math.select(new int4(0), new int4(1), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public int4x4(bool4x4 v)
+        {
+            this.c0 = math.select(new int4(0), new int4(1), v.c0);
+            this.c1 = math.select(new int4(0), new int4(1), v.c1);
+            this.c2 = math.select(new int4(0), new int4(1), v.c2);
+            this.c3 = math.select(new int4(0), new int4(1), v.c3);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x4(uint v)
         {
             this.c0 = (int4)v;
@@ -106,6 +124,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int4x4(int v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(bool v) { return new int4x4(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator int4x4(bool4x4 v) { return new int4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(uint v) { return new int4x4(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -327,6 +349,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(int v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(bool v) { return new int4x4(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4x4 int4x4(bool4x4 v) { return new int4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(uint v) { return new int4x4(v); }

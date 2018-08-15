@@ -15,7 +15,7 @@ namespace Unity.Mathematics
         public uint y;
         public uint z;
 
-        public static readonly uint3 zero = new uint3(0,   0,   0);
+        public static readonly uint3 zero = new uint3(0u,   0u,   0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -56,6 +56,22 @@ namespace Unity.Mathematics
             this.x = v;
             this.y = v;
             this.z = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(bool v)
+        {
+            this.x = v ? 1u : 0u;
+            this.y = v ? 1u : 0u;
+            this.z = v ? 1u : 0u;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint3(bool3 v)
+        {
+            this.x = v.x ? 1u : 0u;
+            this.y = v.y ? 1u : 0u;
+            this.z = v.z ? 1u : 0u;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -110,6 +126,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3(uint v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(bool v) { return new uint3(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint3(bool3 v) { return new uint3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(int v) { return new uint3(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1301,6 +1321,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(bool v) { return new uint3(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 uint3(bool3 v) { return new uint3(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(int v) { return new uint3(v); }

@@ -12,8 +12,8 @@ namespace Unity.Mathematics
         public uint2 c0;
         public uint2 c1;
 
-        public static readonly uint2x2 identity = new uint2x2(1, 0,   0, 1);
-        public static readonly uint2x2 zero = new uint2x2(0, 0,   0, 0);
+        public static readonly uint2x2 identity = new uint2x2(1u, 0u,   0u, 1u);
+        public static readonly uint2x2 zero = new uint2x2(0u, 0u,   0u, 0u);
 
         // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -36,6 +36,20 @@ namespace Unity.Mathematics
         {
             this.c0 = v;
             this.c1 = v;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2x2(bool v)
+        {
+            this.c0 = math.select(new uint2(0u), new uint2(1u), v);
+            this.c1 = math.select(new uint2(0u), new uint2(1u), v);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public uint2x2(bool2x2 v)
+        {
+            this.c0 = math.select(new uint2(0u), new uint2(1u), v.c0);
+            this.c1 = math.select(new uint2(0u), new uint2(1u), v.c1);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -84,6 +98,10 @@ namespace Unity.Mathematics
         // conversions
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint2x2(uint v) { return new uint2x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2x2(bool v) { return new uint2x2(v); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator uint2x2(bool2x2 v) { return new uint2x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint2x2(int v) { return new uint2x2(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -301,6 +319,12 @@ namespace Unity.Mathematics
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x2 uint2x2(uint v) { return new uint2x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 uint2x2(bool v) { return new uint2x2(v); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2x2 uint2x2(bool2x2 v) { return new uint2x2(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x2 uint2x2(int v) { return new uint2x2(v); }
