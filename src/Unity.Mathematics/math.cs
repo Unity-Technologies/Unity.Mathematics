@@ -577,7 +577,7 @@ namespace Unity.Mathematics
         public static float3 exp2(float3 a) { return new float3(exp2(a.x), exp2(a.y), exp2(a.z)); }
         public static float4 exp2(float4 a) { return new float4(exp2(a.x), exp2(a.y), exp2(a.z), exp2(a.w)); }
 
-        public static double exp2(double x) { return System.Math.Pow(2.0f, x); }
+        public static double exp2(double x) { return System.Math.Pow(2.0, x); }
         public static double2 exp2(double2 a) { return new double2(exp2(a.x), exp2(a.y)); }
         public static double3 exp2(double3 a) { return new double3(exp2(a.x), exp2(a.y), exp2(a.z)); }
         public static double4 exp2(double4 a) { return new double4(exp2(a.x), exp2(a.y), exp2(a.z), exp2(a.w)); }
@@ -586,14 +586,13 @@ namespace Unity.Mathematics
         public static float exp10(float x) { return (float)System.Math.Exp((float)x); }
         public static float2 exp10(float2 a) { return new float2(exp10(a.x), exp10(a.y)); }
         public static float3 exp10(float3 a) { return new float3(exp10(a.x), exp10(a.y), exp10(a.z)); }
-        public static float4 exp10(float4 a) { return new float4(exp10(a.x), exp10(a.y), exp10(a.z), exp(a.w)); }
+        public static float4 exp10(float4 a) { return new float4(exp10(a.x), exp10(a.y), exp10(a.z), exp10(a.w)); }
 
         public static double exp10(double x) { return System.Math.Pow(10.0, x); }
         public static double2 exp10(double2 a) { return new double2(exp10(a.x), exp10(a.y)); }
         public static double3 exp10(double3 a) { return new double3(exp10(a.x), exp10(a.y), exp10(a.z)); }
         public static double4 exp10(double4 a) { return new double4(exp10(a.x), exp10(a.y), exp10(a.z), exp10(a.w)); }
-
-
+        
         // log
         public static float log(float x) { return (float)System.Math.Log((float)x); }
         public static float2 log(float2 a) { return new float2(log(a.x), log(a.y)); }
