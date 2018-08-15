@@ -314,26 +314,84 @@ namespace Unity.Mathematics
             return dot(a.value, b.value);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float length(Quaternion q)
+        {
+            return sqrt(dot(q.value, q.value));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float lengthSquared(Quaternion q)
+        {
+            return dot(q.value, q.value);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion normalize(Quaternion q)
         {
             float4 value = q.value;
-            float len = dot(value, value);
-            value = math.select(Mathematics.Quaternion.identity.value, value * math.rsqrt(len), len > math.epsilon_normal);
+            float lengthSq = dot(value, value);
+            value = math.select(Mathematics.Quaternion.identity.value, value * math.rsqrt(lengthSq), lengthSq > math.epsilon_normal);
 
             return Quaternion(value);
         }
 
+        // Calculate natural exponent of a quaternion. Assumes w is zero.
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion unitexp(Quaternion q)
+        {
+            float v_rcp_len = rsqrt(dot(q.value.xyz, q.value.xyz));
+            float v_len = rcp(v_rcp_len);
+            float sin_v_len, cos_v_len;
+            sincos(v_len, out sin_v_len, out cos_v_len);
+            return Quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len));
+        }
+
+        // Calculate natural exponent of a quaternion.
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion exp(Quaternion q)
+        {
+            float v_rcp_len = rsqrt(dot(q.value.xyz, q.value.xyz));
+            float v_len = rcp(v_rcp_len);
+            float sin_v_len, cos_v_len;
+            sincos(v_len, out sin_v_len, out cos_v_len);
+            return Quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len) * exp(q.value.w));
+        }
+
+        // Calculate natural logarithm of a unit length quaternion
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion unitlog(Quaternion q)
+        {
+            float w = clamp(q.value.w, -1.0f, 1.0f);
+            float s = acos(w) * rsqrt(1.0f - w*w);
+            return Quaternion(float4(q.value.xyz * s, 0.0f));
+        }
+
+        // Calculate natural logarithm of a quaternion
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Quaternion log(Quaternion q)
+        {
+            float v_len_sq = dot(q.value.xyz, q.value.xyz);
+            float q_len_sq = v_len_sq + q.value.w*q.value.w;
+
+            float s = acos(clamp(q.value.w * rsqrt(q_len_sq), -1.0f, 1.0f)) * rsqrt(v_len_sq);
+            return Quaternion(float4(q.value.xyz * s, 0.5f * log(q_len_sq)));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion mul(Quaternion a, Quaternion b)
         {
             return Quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(Quaternion q, float3 vector)
         {
             float3 t = 2 * cross(q.value.xyz, vector);
             return vector + q.value.w * t + cross(q.value.xyz, t);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion nlerp(Quaternion q1, Quaternion q2, float t)
         {
             float dt = dot(q1, q2);
@@ -369,11 +427,13 @@ namespace Unity.Mathematics
             }
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 forward(Quaternion q)
         {
             return mul(q, float3(0, 0, 1));
         }
-        
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up(Quaternion q)
         {
             return mul(q, float3(0, 1, 0));
