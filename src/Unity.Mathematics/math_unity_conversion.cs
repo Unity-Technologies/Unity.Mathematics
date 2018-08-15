@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 #pragma warning disable 0660, 0661
 
@@ -24,8 +24,8 @@ namespace Unity.Mathematics
 
     public partial struct quaternion
     {
-        public static implicit operator Quaternion(quaternion d)  { return new Quaternion(d.value.x, d.value.y, d.value.z, d.value.w); }
-        public static implicit operator quaternion(Quaternion d)  { return new quaternion(d.x, d.y, d.z, d.w); }
+        public static implicit operator UnityEngine.Quaternion(Unity.Mathematics.Quaternion d)  { return new UnityEngine.Quaternion(d.value.x, d.value.y, d.value.z, d.value.w); }
+        public static implicit operator Unity.Mathematics.Quaternion(UnityEngine.Quaternion d)  { return new Unity.Mathematics.Quaternion(d.x, d.y, d.z, d.w); }
     }
     
     public partial struct float4x4

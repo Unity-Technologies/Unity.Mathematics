@@ -20,8 +20,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Random(uint seed = 0x6E624EB7u)
         {
-            CheckInitState();
             state = seed;
+            CheckInitState();
             NextState();
         }
 
