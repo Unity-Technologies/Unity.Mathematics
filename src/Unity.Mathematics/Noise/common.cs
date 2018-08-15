@@ -32,8 +32,8 @@ namespace Unity.Mathematics
             float3 pxyz = floor(fract(float3(j) * ip.xyz) * 7.0f) * ip.z - 1.0f; 
             float  pw   = 1.5f - dot(abs(pxyz), ones.xyz);
             float4 p = float4(pxyz, pw);
-            float4 s = float4(lessThan(p, float4(0.0f)));
-            p.xyz = p.xyz + (s.xyz*2.0f - 1.0f) * s.www; 
+            float4 s = float4(p < 0.0f);
+            p.xyz = p.xyz + (s.xyz*2.0f - 1.0f) * s.www;
             return p;
         }
         
