@@ -409,6 +409,31 @@ namespace Unity.Mathematics
             return res;
         }
 
+        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        public static double4x4 fastinverse(double4x4 m)
+        {
+            double4 c0 = m.c0;
+            double4 c1 = m.c1;
+            double4 c2 = m.c2;
+            double4 pos = m.c3;
+
+            double4 zero = double4(0);
+
+            double4 t0 = unpacklo(c0, c2);
+            double4 t1 = unpacklo(c1, zero);
+            double4 t2 = unpackhi(c0, c2);
+            double4 t3 = unpackhi(c1, zero);
+
+            double4 r0 = unpacklo(t0, t1);
+            double4 r1 = unpackhi(t0, t1);
+            double4 r2 = unpacklo(t2, t3);
+
+            pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
+            pos.w = 1.0f;
+
+            return double4x4(r0, r1, r2, pos);
+        }
+
         public static double determinant(double4x4 m)
         {
             double4 c0 = m.c0;

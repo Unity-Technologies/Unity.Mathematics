@@ -343,6 +343,23 @@ namespace Unity.Mathematics
                 v.c3.x, v.c3.y, v.c3.z);
         }
 
+        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        public static float3x4 fastinverse(float3x4 m)
+        {
+            float3 c0 = m.c0;
+            float3 c1 = m.c1;
+            float3 c2 = m.c2;
+            float3 pos = m.c3;
+
+            float3 r0 = float3(c0.x, c1.x, c2.x);
+            float3 r1 = float3(c0.y, c1.y, c2.y);
+            float3 r2 = float3(c0.z, c1.z, c2.z);
+
+            pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
+
+            return float3x4(r0, r1, r2, pos);
+        }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3x4 v)
         {

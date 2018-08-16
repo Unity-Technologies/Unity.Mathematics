@@ -396,6 +396,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateTransposeFunction(mathStr);
             GenerateInverseFunction(mathStr);
+            GenerateFastInverseFunction(mathStr);
             GenerateDeterminantFunction(mathStr);
             GenerateHashFunction(mathStr, false);
             GenerateHashFunction(mathStr, true);
@@ -978,7 +979,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_BaseType != "float" && m_BaseType != "double")
                 return;
 
-            string oneStr = (m_BaseType == "float") ? "1.0f" : "1.0";
+            string oneStr = ToTypedLiteral(m_BaseType, 1);
 
             if(m_Rows == 2)
             {
@@ -1103,6 +1104,72 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
         }
+
+        public void GenerateFastInverseFunction(StringBuilder str)
+        {
+            if (m_BaseType != "float" && m_BaseType != "double")
+                return;
+
+            string zeroStr = ToTypedLiteral(m_BaseType, 0);
+            string oneStr = ToTypedLiteral(m_BaseType, 1);
+
+            if(m_Columns == 4 && m_Rows == 3)
+            {
+                str.AppendFormat(
+                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        public static {0}3x4 fastinverse({0}3x4 m)
+        {{
+            {0}3 c0 = m.c0;
+            {0}3 c1 = m.c1;
+            {0}3 c2 = m.c2;
+            {0}3 pos = m.c3;
+
+            {0}3 r0 = {0}3(c0.x, c1.x, c2.x);
+            {0}3 r1 = {0}3(c0.y, c1.y, c2.y);
+            {0}3 r2 = {0}3(c0.z, c1.z, c2.z);
+
+            pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
+
+            return {0}3x4(r0, r1, r2, pos);
+        }}
+
+",
+                    m_BaseType);
+
+            } else if(m_Columns == 4 && m_Rows == 4)
+            {
+                str.AppendFormat(
+                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        public static {0}4x4 fastinverse({0}4x4 m)
+        {{
+            {0}4 c0 = m.c0;
+            {0}4 c1 = m.c1;
+            {0}4 c2 = m.c2;
+            {0}4 pos = m.c3;
+
+            {0}4 zero = {0}4(0);
+
+            {0}4 t0 = unpacklo(c0, c2);
+            {0}4 t1 = unpacklo(c1, zero);
+            {0}4 t2 = unpackhi(c0, c2);
+            {0}4 t3 = unpackhi(c1, zero);
+
+            {0}4 r0 = unpacklo(t0, t1);
+            {0}4 r1 = unpackhi(t0, t1);
+            {0}4 r2 = unpacklo(t2, t3);
+
+            pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
+            pos.w = 1.0f;
+
+            return {0}4x4(r0, r1, r2, pos);
+        }}
+
+",
+                    m_BaseType, zeroStr, oneStr);
+            }
+
+        }
+
 
         public void GenerateDeterminantFunction(StringBuilder str)
         {

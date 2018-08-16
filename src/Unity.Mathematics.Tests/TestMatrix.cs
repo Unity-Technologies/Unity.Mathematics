@@ -814,6 +814,35 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float3x4_fastinverse()
+        {
+            float4x4 a = test4x4_xyz;
+            a.c3 = float4(1, 2, 3, 1);
+
+            float3x4 b = float3x4(a.c0.xyz, a.c1.xyz, a.c2.xyz, a.c3.xyz);
+
+            float4x4 invA = inverse(a);
+            float3x4 fastInvB = fastinverse(b);
+
+            TestUtils.AreEqual(fastInvB.c0.xyz, invA.c0.xyz, 0.0001f);
+            TestUtils.AreEqual(fastInvB.c1.xyz, invA.c1.xyz, 0.0001f);
+            TestUtils.AreEqual(fastInvB.c2.xyz, invA.c2.xyz, 0.0001f);
+            TestUtils.AreEqual(fastInvB.c3.xyz, invA.c3.xyz, 0.0001f);
+        }
+
+        [Test]
+        public void float4x4_fastinverse()
+        {
+            float4x4 a = test4x4_xyz;
+            a.c3 = float4(1, 2, 3, 1);
+
+            float4x4 invA = inverse(a);
+            float4x4 fastInvA = fastinverse(a);
+
+            TestUtils.AreEqual(fastInvA, invA, 0.0001f);
+        }
+
+        [Test]
         public void float2x2_determinant()
         {
             float2x2 a = float2x2(0.542968f, 0.867379f,
