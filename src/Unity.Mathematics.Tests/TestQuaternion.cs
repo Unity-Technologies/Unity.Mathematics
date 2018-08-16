@@ -219,5 +219,34 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(qvector, mvector, 0.0001f);
         }
+
+        [Test]
+        public void quaternion_log_exp_identity()
+        {
+            Quaternion q = Quaternion(1.2f, -2.6f, 3.1f, 6.0f);
+            Quaternion log_q = log(q);
+            Quaternion exp_log_q = exp(log_q);
+            TestUtils.AreEqual(exp_log_q, q, 0.0001f);
+        }
+
+        [Test]
+        public void quaternion_log_exp_rotation()
+        {
+            Quaternion q = Quaternion(TestMatrix.test3x3_xyz);
+            Quaternion q3 = mul(q, mul(q, q));
+            Quaternion log_q = log(q);
+            Quaternion t = exp(Quaternion(log_q.value * 3.0f));
+            TestUtils.AreEqual(t, q3, 0.0001f);
+        }
+
+        [Test]
+        public void quaternion_unitlog_unitexp_rotation()
+        {
+            Quaternion q = Quaternion(TestMatrix.test3x3_xyz);
+            Quaternion q3 = mul(q, mul(q, q));
+            Quaternion log_q = unitlog(q);
+            Quaternion t = unitexp(Quaternion(log_q.value * 3.0f));
+            TestUtils.AreEqual(t, q3, 0.0001f);
+        }
     }
 }

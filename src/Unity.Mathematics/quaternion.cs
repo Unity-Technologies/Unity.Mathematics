@@ -336,7 +336,7 @@ namespace Unity.Mathematics
             return Quaternion(value);
         }
 
-        // Calculate natural exponent of a quaternion. Assumes w is zero.
+        // Calculate the natural exponent of a quaternion. Assumes w is zero.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion unitexp(Quaternion q)
         {
@@ -347,7 +347,7 @@ namespace Unity.Mathematics
             return Quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len));
         }
 
-        // Calculate natural exponent of a quaternion.
+        // Calculate the natural exponent of a quaternion.
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion exp(Quaternion q)
         {
@@ -358,7 +358,7 @@ namespace Unity.Mathematics
             return Quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len) * exp(q.value.w));
         }
 
-        // Calculate natural logarithm of a unit length quaternion
+        // Calculate the natural logarithm of a unit length quaternion
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion unitlog(Quaternion q)
         {
@@ -367,7 +367,7 @@ namespace Unity.Mathematics
             return Quaternion(float4(q.value.xyz * s, 0.0f));
         }
 
-        // Calculate natural logarithm of a quaternion
+        // Calculate the natural logarithm of a quaternion
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Quaternion log(Quaternion q)
         {
