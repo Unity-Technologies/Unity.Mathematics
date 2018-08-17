@@ -1280,6 +1280,50 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int tzcnt(long v) { return tzcnt((ulong)v); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int reversebits(int x) { return (int)reversebits((uint)x); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 reversebits(int2 x) { return (int2)reversebits((uint2)x); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 reversebits(int3 x) { return (int3)reversebits((uint3)x); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 reversebits(int4 x) { return (int4)reversebits((uint4)x); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint reversebits(uint x) {
+            x = ((x >> 1) & 0x55555555) | ((x & 0x55555555) << 1);
+            x = ((x >> 2) & 0x33333333) | ((x & 0x33333333) << 2);
+            x = ((x >> 4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F) << 4);
+            x = ((x >> 8) & 0x00FF00FF) | ((x & 0x00FF00FF) << 8);
+            return (x >> 16) | (x << 16);
+        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 reversebits(uint2 x)
+        {
+            x = ((x >> 1) & 0x55555555) | ((x & 0x55555555) << 1);
+            x = ((x >> 2) & 0x33333333) | ((x & 0x33333333) << 2);
+            x = ((x >> 4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F) << 4);
+            x = ((x >> 8) & 0x00FF00FF) | ((x & 0x00FF00FF) << 8);
+            return (x >> 16) | (x << 16);
+        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 reversebits(uint3 x)
+        {
+            x = ((x >> 1) & 0x55555555) | ((x & 0x55555555) << 1);
+            x = ((x >> 2) & 0x33333333) | ((x & 0x33333333) << 2);
+            x = ((x >> 4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F) << 4);
+            x = ((x >> 8) & 0x00FF00FF) | ((x & 0x00FF00FF) << 8);
+            return (x >> 16) | (x << 16);
+        }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 reversebits(uint4 x)
+        {
+            x = ((x >> 1) & 0x55555555) | ((x & 0x55555555) << 1);
+            x = ((x >> 2) & 0x33333333) | ((x & 0x33333333) << 2);
+            x = ((x >> 4) & 0x0F0F0F0F) | ((x & 0x0F0F0F0F) << 4);
+            x = ((x >> 8) & 0x00FF00FF) | ((x & 0x00FF00FF) << 8);
+            return (x >> 16) | (x << 16);
+        }
 
         // SSE shuffles
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

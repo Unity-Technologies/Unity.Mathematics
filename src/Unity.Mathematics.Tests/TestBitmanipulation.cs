@@ -294,5 +294,63 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(tzcnt(0x8000000000000001UL), 0);
         }
 
+        [Test]
+        public void reversebits_int()
+        {
+            Assert.AreEqual(reversebits(-1872213312), 0x03521609);
+            Assert.AreEqual(reversebits(0x1260dafa), 0x5f5b0648);
+            Assert.AreEqual(reversebits(-1312858670), 0x4bbafd8d);
+            Assert.AreEqual(reversebits(0x74239b12), 0x48d9c42e);
+        }
+
+        [Test]
+        public void reversebits_int2()
+        {
+            Assert.AreEqual(reversebits(int2(-1872213312, 0x1260dafa)), int2(0x03521609, 0x5f5b0648));
+            Assert.AreEqual(reversebits(int2(-1312858670, 0x74239b12)), int2(0x4bbafd8d, 0x48d9c42e));
+        }
+
+        [Test]
+        public void reversebits_int3()
+        {
+            Assert.AreEqual(reversebits(int3(-1872213312, 0x1260dafa, -1312858670)), int3(0x03521609, 0x5f5b0648, 0x4bbafd8d));
+            Assert.AreEqual(reversebits(int3(0x74239b12, 0, -1)), int3(0x48d9c42e, 0, -1));
+        }
+
+        [Test]
+        public void reversebits_int4()
+        {
+            Assert.AreEqual(reversebits(int4(-1872213312, 0x1260dafa, -1312858670, 0x74239b12)), int4(0x03521609, 0x5f5b0648, 0x4bbafd8d, 0x48d9c42e));
+        }
+
+        [Test]
+        public void reversebits_uint()
+        {
+            Assert.AreEqual(reversebits(0x90684ac0u), 0x03521609u);
+            Assert.AreEqual(reversebits(0x1260dafau), 0x5f5b0648u);
+            Assert.AreEqual(reversebits(0xb1bf5dd2u), 0x4bbafd8du);
+            Assert.AreEqual(reversebits(0x74239b12u), 0x48d9c42eu);
+        }
+
+        [Test]
+        public void reversebits_uint2()
+        {
+            Assert.AreEqual(reversebits(uint2(0x90684ac0u, 0x1260dafau)), uint2(0x03521609u, 0x5f5b0648u));
+            Assert.AreEqual(reversebits(uint2(0xb1bf5dd2u, 0x74239b12u)), uint2(0x4bbafd8du, 0x48d9c42eu));
+        }
+
+        [Test]
+        public void reversebits_uint3()
+        {
+            Assert.AreEqual(reversebits(uint3(0x90684ac0u, 0x1260dafau, 0xb1bf5dd2u)), uint3(0x03521609u, 0x5f5b0648u, 0x4bbafd8du));
+            Assert.AreEqual(reversebits(uint3(0x74239b12u, 0u, 0xFFFFFFFF)), uint3(0x48d9c42eu, 0u, 0xFFFFFFFF));
+        }
+
+        [Test]
+        public void reversebits_uint4()
+        {
+            Assert.AreEqual(reversebits(uint4(0x90684ac0u, 0x1260dafau, 0xb1bf5dd2u, 0x74239b12u)), uint4(0x03521609u, 0x5f5b0648u, 0x4bbafd8du, 0x48d9c42eu));
+        }
+
     }
 }
