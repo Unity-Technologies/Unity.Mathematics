@@ -352,5 +352,16 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(reversebits(uint4(0x90684ac0u, 0x1260dafau, 0xb1bf5dd2u, 0x74239b12u)), uint4(0x03521609u, 0x5f5b0648u, 0x4bbafd8du, 0x48d9c42eu));
         }
 
+        [Test]
+        public void reversebits_long()
+        {
+            Assert.AreEqual(reversebits(0x1260dafab1bf5dd2L), 0x4bbafd8d5f5b0648L);
+        }
+
+        [Test]
+        public void reversebits_ulong()
+        {
+            Assert.AreEqual(reversebits(0x1260dafab1bf5dd2ul), 0x4bbafd8d5f5b0648ul);
+        }
     }
 }

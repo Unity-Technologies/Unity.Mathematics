@@ -1325,6 +1325,20 @@ namespace Unity.Mathematics
             return (x >> 16) | (x << 16);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong reversebits(ulong x)
+        {
+            x = ((x >> 1) & 0x5555555555555555ul) | ((x & 0x5555555555555555ul) << 1);
+            x = ((x >> 2) & 0x3333333333333333ul) | ((x & 0x3333333333333333ul) << 2);
+            x = ((x >> 4) & 0x0F0F0F0F0F0F0F0Ful) | ((x & 0x0F0F0F0F0F0F0F0Ful) << 4);
+            x = ((x >> 8) & 0x00FF00FF00FF00FFul) | ((x & 0x00FF00FF00FF00FFul) << 8);
+            x = ((x >> 16) & 0x0000FFFF0000FFFFul) | ((x & 0x0000FFFF0000FFFFul) << 16);
+            return (x >> 32) | (x << 32);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long reversebits(long x) { return (long)reversebits((ulong)x); }
+
         // SSE shuffles
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unpacklo(float4 a, float4 b)
@@ -1337,7 +1351,6 @@ namespace Unity.Mathematics
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
         }
-
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unpackhi(float4 a, float4 b)
