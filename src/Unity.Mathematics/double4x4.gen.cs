@@ -338,6 +338,18 @@ namespace Unity.Mathematics
         public static double4x4 double4x4(float4x4 v) { return new double4x4(v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 rotate(double4x4 a, double3 b)
+        {
+            return (a.c0 * b.x + a.c1 * b.y + a.c2 * b.z).xyz;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 transform(double4x4 a, double3 b)
+        {
+            return (a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3).xyz;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x4 transpose(double4x4 v)
         {
             return double4x4(

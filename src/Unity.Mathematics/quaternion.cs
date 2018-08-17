@@ -385,10 +385,17 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mul(Quaternion q, float3 vector)
+        public static float3 mul(Quaternion q, float3 dir)
         {
-            float3 t = 2 * cross(q.value.xyz, vector);
-            return vector + q.value.w * t + cross(q.value.xyz, t);
+            float3 t = 2 * cross(q.value.xyz, dir);
+            return dir + q.value.w * t + cross(q.value.xyz, t);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 rotate(Quaternion q, float3 dir)
+        {
+            float3 t = 2 * cross(q.value.xyz, dir);
+            return dir + q.value.w * t + cross(q.value.xyz, t);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -394,6 +394,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateOperators(str);
 
+            if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
+            {
+                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false);
+                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true);
+            }
+
+
             GenerateTransposeFunction(mathStr);
             GenerateInverseFunction(mathStr);
             GenerateFastInverseFunction(mathStr);
@@ -500,7 +507,75 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateMulImplementation(string baseType, StringBuilder str)
+        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation)
+        {
+            // mul(a,b): if a is vector it is treated as a row vector. if b is a vector it is treaded as a column vector.
+            int resultRows = (lhsColumns != rhsRows) ? rhsRows : lhsRows;
+            string resultType = ToTypeName(baseType, resultRows, rhsColumns);
+            string lhsType = ToTypeName(baseType, lhsRows, lhsColumns);
+            string rhsType = ToTypeName(baseType, rhsRows, rhsColumns);
+
+            bool isScalarResult = (resultRows == 1 && rhsColumns == 1);
+            bool needsSwizzle = (resultRows != lhsRows);
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, lhsType, rhsType);
+            str.Append("\t\t{\n");
+
+            str.Append("\t\t\treturn ");
+
+            bool needsParen = rhsColumns > 1 || needsSwizzle;
+
+            if (rhsColumns > 1)
+                str.Append(resultType);
+            if (needsParen)
+                str.Append("(");
+            
+            for (int i = 0; i < rhsColumns; i++)
+            {
+                if (i > 0 || rhsColumns > 1)
+                    str.Append("\n\t\t\t\t");
+                for (int j = 0; j < lhsColumns; j++)
+                {
+                    if(j < rhsRows || doTranslation)
+                    {
+                        if (j != 0)
+                            str.Append(" + ");
+
+                        if (lhsRows == 1 && lhsColumns == 1)
+                            str.Append("a");
+                        else if (lhsRows == 1 || lhsColumns == 1)
+                            str.Append("a." + vectorFields[j]);
+                        else
+                            str.Append("a." + matrixFields[j]);
+
+                        if(j < rhsRows)
+                        {
+                            str.Append(" * ");
+
+                            if (rhsRows == 1 && rhsColumns == 1)
+                                str.Append("b");
+                            else if (rhsRows == 1 || rhsColumns == 1)
+                                str.Append("b." + vectorFields[j]);
+                            else
+                                str.Append("b." + matrixFields[i] + "." + vectorFields[j]);
+                        }
+                    }
+                    
+                }
+
+                if (i != rhsColumns - 1)
+                    str.Append(",");
+            }
+            if (needsParen)
+                str.Append(")");
+            if (needsSwizzle)
+                str.Append("." + GenerateComponentRangeString(0, resultRows));
+
+            str.Append(";\n");
+            str.Append("\t\t}\n\n");
+        }
+
+        private void GenerateMulImplementations(string baseType, StringBuilder str)
         {
             // typenxk = mul(typenxm, typemxk)
             for(int n = 1; n <= 4; n++)
@@ -515,51 +590,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             continue;   // lhs cannot be column vector
                         if (m == 1 && k > 1)
                             continue;   // rhs cannot be row vector
-                        string resultType = ToTypeName(baseType, n, k);
-                        string lhsType = ToTypeName(baseType, n, m);
-                        string rhsType = ToTypeName(baseType, m, k);
 
-                        bool isScalarResult = (n == 1 && k == 1);
-
-                        str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-                        str.AppendFormat("\t\tpublic static {0} mul({1} a, {2} b)\n", resultType, lhsType, rhsType);
-                        str.Append("\t\t{\n");
-
-                        str.Append("\t\t\treturn ");
-                        if (!isScalarResult)
-                            str.Append(resultType + "(\n\t\t\t\t");
-                        for(int i = 0; i < k; i++)
-                        {
-                            if(i > 0)
-                            str.Append("\n\t\t\t\t");
-                            for(int j = 0; j < m; j++)
-                            {
-                                if (j != 0)
-                                    str.Append(" + ");
-
-                                if (n == 1 && m == 1)
-                                    str.Append("a");
-                                else if(n == 1 || m == 1)
-                                    str.Append("a." + vectorFields[j]);
-                                else
-                                    str.Append("a." + matrixFields[j]);
-
-                                str.Append(" * ");
-
-                                if (m == 1 && k == 1)
-                                    str.Append("b");
-                                else if (m == 1 || k == 1)
-                                    str.Append("b." + vectorFields[j]);
-                                else
-                                    str.Append("b." + matrixFields[i] + "." + vectorFields[j]);
-                            }
-                            if (i != k - 1)
-                                str.Append(",");
-                        }
-                        if (!isScalarResult)
-                            str.Append(")");
-                        str.Append(";\n");
-                        str.Append("\t\t}\n\n");
+                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false);
                     }
                 }
             }
@@ -577,11 +609,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t{\n");
 
             str.Append("\t\t// mul\n");
-            GenerateMulImplementation("float", str);
-            GenerateMulImplementation("double", str);
-            GenerateMulImplementation("int", str);
-            GenerateMulImplementation("uint", str);
-
+            GenerateMulImplementations("float", str);
+            GenerateMulImplementations("double", str);
+            GenerateMulImplementations("int", str);
+            GenerateMulImplementations("uint", str);
 
             str.Append("\t}\n");
             str.Append("}\n");

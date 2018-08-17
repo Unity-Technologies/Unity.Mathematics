@@ -175,17 +175,22 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mul(RigidTransform a, float3 pos)
-        {
-            return mul(a.rot, pos);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 mul(RigidTransform a, float4 pos)
         {
             return float4(mul(a.rot, pos.xyz) + a.pos * pos.w, pos.w);
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 rotate(RigidTransform a, float3 dir)
+        {
+            return mul(a.rot, dir);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 transform(RigidTransform a, float3 pos)
+        {
+            return mul(a.rot, pos) + a.pos;
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(RigidTransform t)

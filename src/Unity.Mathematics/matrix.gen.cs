@@ -115,8 +115,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 mul(float2x2 a, float2 b)
         {
-            return float2(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -149,8 +148,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 mul(float2x3 a, float3 b)
         {
-            return float2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -183,8 +181,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 mul(float2x4 a, float4 b)
         {
-            return float2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -217,8 +214,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(float3x2 a, float2 b)
         {
-            return float3(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -251,8 +247,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(float3x3 a, float3 b)
         {
-            return float3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -285,8 +280,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(float3x4 a, float4 b)
         {
-            return float3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -319,8 +313,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 mul(float4x2 a, float2 b)
         {
-            return float4(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -353,8 +346,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 mul(float4x3 a, float3 b)
         {
-            return float4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -387,8 +379,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 mul(float4x4 a, float4 b)
         {
-            return float4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -526,8 +517,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 mul(double2x2 a, double2 b)
         {
-            return double2(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -560,8 +550,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 mul(double2x3 a, double3 b)
         {
-            return double2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -594,8 +583,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 mul(double2x4 a, double4 b)
         {
-            return double2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -628,8 +616,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 mul(double3x2 a, double2 b)
         {
-            return double3(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -662,8 +649,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 mul(double3x3 a, double3 b)
         {
-            return double3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -696,8 +682,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 mul(double3x4 a, double4 b)
         {
-            return double3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -730,8 +715,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 mul(double4x2 a, double2 b)
         {
-            return double4(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -764,8 +748,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 mul(double4x3 a, double3 b)
         {
-            return double4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -798,8 +781,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 mul(double4x4 a, double4 b)
         {
-            return double4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -937,8 +919,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 mul(int2x2 a, int2 b)
         {
-            return int2(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -971,8 +952,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 mul(int2x3 a, int3 b)
         {
-            return int2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1005,8 +985,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 mul(int2x4 a, int4 b)
         {
-            return int2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1039,8 +1018,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 mul(int3x2 a, int2 b)
         {
-            return int3(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1073,8 +1051,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 mul(int3x3 a, int3 b)
         {
-            return int3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1107,8 +1084,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 mul(int3x4 a, int4 b)
         {
-            return int3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1141,8 +1117,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 mul(int4x2 a, int2 b)
         {
-            return int4(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1175,8 +1150,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 mul(int4x3 a, int3 b)
         {
-            return int4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1209,8 +1183,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 mul(int4x4 a, int4 b)
         {
-            return int4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1348,8 +1321,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 mul(uint2x2 a, uint2 b)
         {
-            return uint2(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1382,8 +1354,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 mul(uint2x3 a, uint3 b)
         {
-            return uint2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1416,8 +1387,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 mul(uint2x4 a, uint4 b)
         {
-            return uint2(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1450,8 +1420,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 mul(uint3x2 a, uint2 b)
         {
-            return uint3(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1484,8 +1453,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 mul(uint3x3 a, uint3 b)
         {
-            return uint3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1518,8 +1486,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 mul(uint3x4 a, uint4 b)
         {
-            return uint3(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1552,8 +1519,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 mul(uint4x2 a, uint2 b)
         {
-            return uint4(
-                a.c0 * b.x + a.c1 * b.y);
+            return a.c0 * b.x + a.c1 * b.y;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1586,8 +1552,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 mul(uint4x3 a, uint3 b)
         {
-            return uint4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1620,8 +1585,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 mul(uint4x4 a, uint4 b)
         {
-            return uint4(
-                a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w);
+            return a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3 * b.w;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
