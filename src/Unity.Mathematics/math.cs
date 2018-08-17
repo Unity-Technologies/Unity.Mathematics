@@ -64,11 +64,7 @@ namespace Unity.Mathematics
 
         // asuint
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float v)
-        {
-            return (uint)asint(v);
-        }
-
+        public static uint asuint(float v) { return (uint)asint(v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 asuint(float2 v) { return uint2(asuint(v.x), asuint(v.y)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -85,6 +81,17 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 asuint(int4 v) { return uint4((uint)v.x, (uint)v.y, (uint)v.z, (uint)v.w); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long aslong(double v)
+        {
+            LongDoubleUnion u;
+            u.longValue = 0;
+            u.doubleValue = v;
+            return u.longValue;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong asulong(double v) { return (ulong) aslong(v); }
 
         // asfloat
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -114,12 +121,89 @@ namespace Unity.Mathematics
         public static float4 asfloat(uint4 v) { return float4(asfloat(v.x), asfloat(v.y), asfloat(v.z), asfloat(v.w)); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static double asdouble(ulong v)
+        public static double asdouble(long v)
         {
             LongDoubleUnion u;
             u.doubleValue = 0;
-            u.longValue = (long)v;
+            u.longValue = v;
             return u.doubleValue;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double asdouble(ulong v) { return asdouble((long)v); }
+
+        // isfinite
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isfinite(float x) { return abs(x) < float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isfinite(float2 x) { return abs(x) < float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isfinite(float3 x) { return abs(x) < float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isfinite(float4 x) { return abs(x) < float.PositiveInfinity; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isfinite(double x) { return abs(x) < double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isfinite(double2 x) { return abs(x) < double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isfinite(double3 x) { return abs(x) < double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isfinite(double4 x) { return abs(x) < double.PositiveInfinity; }
+
+        // isinf
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isinf(float x) { return abs(x) == float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isinf(float2 x) { return abs(x) == float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isinf(float3 x) { return abs(x) == float.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isinf(float4 x) { return abs(x) == float.PositiveInfinity; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isinf(double x) { return abs(x) == double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isinf(double2 x) { return abs(x) == double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isinf(double3 x) { return abs(x) == double.PositiveInfinity; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isinf(double4 x) { return abs(x) == double.PositiveInfinity; }
+
+        // isnan
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isnan(float x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }    //TODO: evaluate as (x != x) with burst intrinsic
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isnan(float2 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isnan(float3 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isnan(float4 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool isnan(double x) { return (asulong(x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000; }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 isnan(double2 x) {
+            return bool2((asulong(x.x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.y) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 isnan(double3 x)
+        {
+            return bool3((asulong(x.x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.y) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.z) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 isnan(double4 x)
+        {
+            return bool4((asulong(x.x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.y) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.z) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
+                         (asulong(x.w) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
         }
 
         // min

@@ -94,6 +94,7 @@
     <Compile Include="TestInt4x2.gen.cs" />
     <Compile Include="TestInt4x3.gen.cs" />
     <Compile Include="TestInt4x4.gen.cs" />
+    <Compile Include="TestMath.cs" />
     <Compile Include="TestMatrix.cs" />
     <Compile Include="TestQuaternion.cs" />
     <Compile Include="TestRigidTransform.cs" />
