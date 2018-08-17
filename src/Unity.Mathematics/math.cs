@@ -956,6 +956,69 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 reflect(double4 i, double4 n) { return i - 2 * n * dot(i, n); }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float refract(float i, float n, float eta)
+        {
+            float ni = dot(n, i);
+            float k = 1.0f - eta * eta * (1.0f - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 refract(float2 i, float2 n, float eta)
+        {
+            float ni = dot(n, i);
+            float k = 1.0f - eta * eta * (1.0f - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 refract(float3 i, float3 n, float eta)
+        {
+            float ni = dot(n, i);
+            float k = 1.0f - eta * eta * (1.0f - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 refract(float4 i, float4 n, float eta)
+        {
+            float ni = dot(n, i);
+            float k = 1.0f - eta * eta * (1.0f - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double refract(double i, double n, double eta)
+        {
+            double ni = dot(n, i);
+            double k = 1.0 - eta * eta * (1.0 - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 refract(double2 i, double2 n, double eta)
+        {
+            double ni = dot(n, i);
+            double k = 1.0 - eta * eta * (1.0 - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 refract(double3 i, double3 n, double eta)
+        {
+            double ni = dot(n, i);
+            double k = 1.0 - eta * eta * (1.0 - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 refract(double4 i, double4 n, double eta)
+        {
+            double ni = dot(n, i);
+            double k = 1.0 - eta * eta * (1.0 - ni * ni);
+            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+        }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void sincos(float x, out float s, out float c) { s = sin(x); c = cos(x); }
