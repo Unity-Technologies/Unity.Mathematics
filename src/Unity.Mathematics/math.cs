@@ -1045,33 +1045,33 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int count_bits(uint v)
         {
-            v = v - ((v >> 1) & 0x5555_5555);
-            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
-            return (int)((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+            v = v - ((v >> 1) & 0x55555555);
+            v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+            return (int)((((v + (v >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 count_bits(uint2 v)
         {
-            v = v - ((v >> 1) & 0x5555_5555);
-            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
-            return int2((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+            v = v - ((v >> 1) & 0x55555555);
+            v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+            return int2((((v + (v >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 count_bits(uint3 v)
         {
-            v = v - ((v >> 1) & 0x5555_5555);
-            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
-            return int3((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+            v = v - ((v >> 1) & 0x55555555);
+            v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+            return int3((((v + (v >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 count_bits(uint4 v)
         {
-            v = v - ((v >> 1) & 0x5555_5555);
-            v = (v & 0x3333_3333) + ((v >> 2) & 0x3333_3333);
-            return int4((((v + (v >> 4)) & 0x0F0F_0F0F) * 0x0101_0101) >> 24);
+            v = v - ((v >> 1) & 0x55555555);
+            v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
+            return int4((((v + (v >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1086,9 +1086,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int count_bits(ulong v)
         {
-            v = v - ((v >> 1) & 0x5555_5555_5555_5555);
-            v = (v & 0x3333_3333_3333_3333) + ((v >> 2) & 0x3333_3333_3333_3333);
-            return (int)((((v + (v >> 4)) & 0x0F0F_0F0F_0F0F_0F0F) * 0x0101_0101_0101_0101) >> 56);
+            v = v - ((v >> 1) & 0x5555555555555555);
+            v = (v & 0x3333333333333333) + ((v >> 2) & 0x3333333333333333);
+            return (int)((((v + (v >> 4)) & 0x0F0F0F0F0F0F0F0F) * 0x0101010101010101) >> 56);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1102,7 +1102,7 @@ namespace Unity.Mathematics
                 return 32;
             LongDoubleUnion u;
             u.doubleValue = 0.0;
-            u.longValue = 0x4330_0000_0000_0000L + v;
+            u.longValue = 0x4330000000000000L + v;
             u.doubleValue -= 4503599627370496.0;
             return 0x41E - (int)(u.longValue >> 52);
         }
@@ -1135,7 +1135,7 @@ namespace Unity.Mathematics
 
             LongDoubleUnion u;
             u.doubleValue = 0.0;
-            u.longValue = 0x4330_0000_0000_0000L + bits;
+            u.longValue = 0x4330000000000000L + bits;
             u.doubleValue -= 4503599627370496.0;
             return offset - (int)(u.longValue >> 52);
         }
@@ -1153,7 +1153,7 @@ namespace Unity.Mathematics
             v &= (uint)-v;
             LongDoubleUnion u;
             u.doubleValue = 0.0;
-            u.longValue = 0x4330_0000_0000_0000L + v;
+            u.longValue = 0x4330000000000000L + v;
             u.doubleValue -= 4503599627370496.0;
             return (int)(u.longValue >> 52) - 0x3FF;
         }
@@ -1188,7 +1188,7 @@ namespace Unity.Mathematics
 
             LongDoubleUnion u;
             u.doubleValue = 0.0;
-            u.longValue = 0x4330_0000_0000_0000L + bits;
+            u.longValue = 0x4330000000000000L + bits;
             u.doubleValue -= 4503599627370496.0;
             return (int)(u.longValue >> 52) - offset;
         }
