@@ -1104,6 +1104,25 @@ namespace Unity.Mathematics
             return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
         }
 
+        // Returns n if dot(i, ng) < 0, otherwise returns -N
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float faceforward(float n, float i, float ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 faceforward(float2 n, float2 i, float2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 faceforward(float3 n, float3 i, float3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 faceforward(float4 n, float4 i, float4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double faceforward(double n, double i, double ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 faceforward(double2 n, double2 i, double2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 faceforward(double3 n, double3 i, double3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 faceforward(double4 n, double4 i, double4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void sincos(float x, out float s, out float c) { s = sin(x); c = cos(x); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
