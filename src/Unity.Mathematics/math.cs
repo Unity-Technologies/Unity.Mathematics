@@ -470,6 +470,17 @@ namespace Unity.Mathematics
         public static double3 tan(double3 value) { return new double3(tan(value.x), tan(value.y), tan(value.z)); }
         public static double4 tan(double4 value) { return new double4(tan(value.x), tan(value.y), tan(value.z), tan(value.w)); }
 
+        // tanh
+        public static float tanh(float value) { return (float)System.Math.Tanh(value); }
+        public static float2 tanh(float2 value) { return new float2(tanh(value.x), tanh(value.y)); }
+        public static float3 tanh(float3 value) { return new float3(tanh(value.x), tanh(value.y), tanh(value.z)); }
+        public static float4 tanh(float4 value) { return new float4(tanh(value.x), tanh(value.y), tanh(value.z), tanh(value.w)); }
+
+        public static double tanh(double value) { return (double)System.Math.Tanh(value); }
+        public static double2 tanh(double2 value) { return new double2(tanh(value.x), tanh(value.y)); }
+        public static double3 tanh(double3 value) { return new double3(tanh(value.x), tanh(value.y), tanh(value.z)); }
+        public static double4 tanh(double4 value) { return new double4(tanh(value.x), tanh(value.y), tanh(value.z), tanh(value.w)); }
+
         // atan
         public static float atan(float value) { return (float)System.Math.Atan(value); }
         public static float2 atan(float2 value) { return new float2(atan(value.x), atan(value.y)); }
@@ -503,6 +514,17 @@ namespace Unity.Mathematics
         public static double3 cos(double3 a) { return new double3(cos(a.x), cos(a.y), cos(a.z)); }
         public static double4 cos(double4 a) { return new double4(cos(a.x), cos(a.y), cos(a.z), cos(a.w)); }
 
+        // cosh
+        public static float cosh(float a) { return (float)System.Math.Cosh(a); }
+        public static float2 cosh(float2 a) { return new float2(cosh(a.x), cosh(a.y)); }
+        public static float3 cosh(float3 a) { return new float3(cosh(a.x), cosh(a.y), cosh(a.z)); }
+        public static float4 cosh(float4 a) { return new float4(cosh(a.x), cosh(a.y), cosh(a.z), cosh(a.w)); }
+
+        public static double cosh(double a) { return (double)System.Math.Cosh(a); }
+        public static double2 cosh(double2 a) { return new double2(cosh(a.x), cosh(a.y)); }
+        public static double3 cosh(double3 a) { return new double3(cosh(a.x), cosh(a.y), cosh(a.z)); }
+        public static double4 cosh(double4 a) { return new double4(cosh(a.x), cosh(a.y), cosh(a.z), cosh(a.w)); }
+
         // acos
         public static float acos(float a) { return (float)System.Math.Acos((float)a); }
         public static float2 acos(float2 a) { return new float2(acos(a.x), acos(a.y)); }
@@ -524,6 +546,17 @@ namespace Unity.Mathematics
         public static double2 sin(double2 a) { return new double2(sin(a.x), sin(a.y)); }
         public static double3 sin(double3 a) { return new double3(sin(a.x), sin(a.y), sin(a.z)); }
         public static double4 sin(double4 a) { return new double4(sin(a.x), sin(a.y), sin(a.z), sin(a.w)); }
+
+        // sinh
+        public static float sinh(float a) { return (float)System.Math.Sinh((float)a); }
+        public static float2 sinh(float2 a) { return new float2(sinh(a.x), sinh(a.y)); }
+        public static float3 sinh(float3 a) { return new float3(sinh(a.x), sinh(a.y), sinh(a.z)); }
+        public static float4 sinh(float4 a) { return new float4(sinh(a.x), sinh(a.y), sinh(a.z), sinh(a.w)); }
+
+        public static double sinh(double a) { return (double)System.Math.Sinh(a); }
+        public static double2 sinh(double2 a) { return new double2(sinh(a.x), sinh(a.y)); }
+        public static double3 sinh(double3 a) { return new double3(sinh(a.x), sinh(a.y), sinh(a.z)); }
+        public static double4 sinh(double4 a) { return new double4(sinh(a.x), sinh(a.y), sinh(a.z), sinh(a.w)); }
 
         // asin
         public static float asin(float a) { return (float)System.Math.Asin((float)a); }
@@ -568,6 +601,17 @@ namespace Unity.Mathematics
         public static double2 round(double2 a) { return new double2(round(a.x), round(a.y)); }
         public static double3 round(double3 a) { return new double3(round(a.x), round(a.y), round(a.z)); }
         public static double4 round(double4 a) { return new double4(round(a.x), round(a.y), round(a.z), round(a.w)); }
+
+        // trunc
+        public static float trunc(float a) { return (float)System.Math.Truncate((float)a); }
+        public static float2 trunc(float2 a) { return new float2(trunc(a.x), trunc(a.y)); }
+        public static float3 trunc(float3 a) { return new float3(trunc(a.x), trunc(a.y), trunc(a.z)); }
+        public static float4 trunc(float4 a) { return new float4(trunc(a.x), trunc(a.y), trunc(a.z), trunc(a.w)); }
+
+        public static double trunc(double a) { return (double)System.Math.Truncate(a); }
+        public static double2 trunc(double2 a) { return new double2(trunc(a.x), trunc(a.y)); }
+        public static double3 trunc(double3 a) { return new double3(trunc(a.x), trunc(a.y), trunc(a.z)); }
+        public static double4 trunc(double4 a) { return new double4(trunc(a.x), trunc(a.y), trunc(a.z), trunc(a.w)); }
 
         // frac
         public static float frac(float a) { return a - floor(a); }
