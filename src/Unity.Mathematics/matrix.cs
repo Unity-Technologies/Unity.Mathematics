@@ -33,7 +33,7 @@ namespace Unity.Mathematics
 
     public partial struct float3x3
     {
-        public float3x3(Quaternion rotation)
+        public float3x3(quaternion rotation)
         {
             rotation = math.normalize(rotation);
 
@@ -247,7 +247,7 @@ namespace Unity.Mathematics
             c3 = float4(translation, 1.0f);
         }
 
-        public float4x4(Quaternion rotation, float3 translation)
+        public float4x4(quaternion rotation, float3 translation)
         {
             float3x3 rot = float3x3(rotation);
             c0 = float4(rot.c0, 0.0f);
@@ -459,7 +459,7 @@ namespace Unity.Mathematics
 
     partial class math
     {
-        public static float3x3 float3x3(Quaternion rotation)
+        public static float3x3 float3x3(quaternion rotation)
         {
             return new float3x3(rotation);
         }
@@ -469,7 +469,7 @@ namespace Unity.Mathematics
             return new float4x4(rotation, translation);
         }
 
-        public static float4x4 float4x4(Quaternion rotation, float3 translation)
+        public static float4x4 float4x4(quaternion rotation, float3 translation)
         {
             return new float4x4(rotation, translation);
         }

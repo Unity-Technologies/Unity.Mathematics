@@ -1166,7 +1166,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test(() =>
             {
-                Quaternion q = rnd.NextQuaternionRotation();
+                quaternion q = rnd.NextQuaternionRotation();
                 Assert.AreEqual(1.0, dot(q, q), 0.00001f);
                 Assert.GreaterOrEqual(q.value.w, 0.0f);
                 float3 p = float3(1.0f, 2.0f, 3.0f);

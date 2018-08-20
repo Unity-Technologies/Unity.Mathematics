@@ -1,6 +1,6 @@
 # Unity.Mathematics
 
-A prototype of a C# math library providing vector types and math functions with a shader like syntax.  Used by the `burst` compiler to compile C#/IL to highly efficient native code.
+A prototype of a C# math library providing vector types and math functions with a shader like syntax. Used by the `burst` compiler to compile C#/IL to highly efficient native code.
 
 The main goal of this library is to provide a friendly Math API familiar to SIMD and graphic/shaders developers, using the well known `float4`, `float3` types...etc. with all intrinsics functions provided by a static class `math` that can be imported easily into your C# program with `using static Unity.Mathematics.math`.
 
@@ -63,6 +63,16 @@ After years of feedback and experience with the previous API, we believe that pr
 
 Mainly for the reason mentioned above, `System.Numerics.Vectors` is in many ways similar to our previous Vector library (more object oriented than graphics programming oriented).
 Also the fact that our `burst` compiler is able to recognize a lot more patterns for SIMD types and math intrinsics makes it easier to work with a dedicated API that reflects this ability.
+
+### Naming convention
+
+In C# `int` and `float` are considered builtin types. `burst` extends this set of bultin types to also include vectors, matrices and quaternions. These types are bultin in the sense that `burst` knows about them and is be able to generate better code using these types than what would be possible with equivalent code using custom types.
+
+To signify that these types are bultin their type names in all lower case. The operators on these bultin types found in `Unity.Mathematics.math` are considered intrinsics and are thus always in lower case.
+
+There are no plans to extend the set of intrinsic types beyond the current set of vectors (`typeN`), matrices (`typeNxN`) and quaternions (`quaternion`).
+
+This convention has the added benefit of making the library highly compatible with shader code and makes porting or sharing code between the two almost frictionless.
 
 ### Why can't we send a PR yet?
 

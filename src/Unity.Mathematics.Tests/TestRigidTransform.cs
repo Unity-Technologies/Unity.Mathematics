@@ -24,7 +24,7 @@ namespace Unity.Mathematics.Tests
         {
             RigidTransform q = RigidTransform.axisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
-            RigidTransform r = RigidTransform(Quaternion(-0.2562833f, -0.5125666f, -0.76885f, 0.2836622f), float3.zero);
+            RigidTransform r = RigidTransform(quaternion(-0.2562833f, -0.5125666f, -0.76885f, 0.2836622f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
         }
 
@@ -49,21 +49,21 @@ namespace Unity.Mathematics.Tests
             RigidTransform q1_zyx = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
             float epsilon = 0.0001f;
-            TestUtils.AreEqual(q0, RigidTransform(Quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_xyz, RigidTransform(Quaternion(-0.4597331f, 0.06979711f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_xzy, RigidTransform(Quaternion(-0.3133549f, 0.06979711f, 0.3899215f, 0.8630749f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_yxz, RigidTransform(Quaternion(-0.4597331f, 0.06979711f, 0.1971690f, 0.8630748f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_yzx, RigidTransform(Quaternion(-0.4597331f, 0.34356190f, 0.1971690f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_zxy, RigidTransform(Quaternion(-0.3133549f, 0.34356190f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q0_zyx, RigidTransform(Quaternion(-0.3133549f, 0.34356190f, 0.1971690f, 0.8630749f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0, RigidTransform(quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_xyz, RigidTransform(quaternion(-0.4597331f, 0.06979711f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_xzy, RigidTransform(quaternion(-0.3133549f, 0.06979711f, 0.3899215f, 0.8630749f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_yxz, RigidTransform(quaternion(-0.4597331f, 0.06979711f, 0.1971690f, 0.8630748f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_yzx, RigidTransform(quaternion(-0.4597331f, 0.34356190f, 0.1971690f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_zxy, RigidTransform(quaternion(-0.3133549f, 0.34356190f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q0_zyx, RigidTransform(quaternion(-0.3133549f, 0.34356190f, 0.1971690f, 0.8630749f), float3.zero), epsilon);
 
-            TestUtils.AreEqual(q1, RigidTransform(Quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_xyz, RigidTransform(Quaternion(-0.4597331f, 0.06979711f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_xzy, RigidTransform(Quaternion(-0.3133549f, 0.06979711f, 0.3899215f, 0.8630749f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_yxz, RigidTransform(Quaternion(-0.4597331f, 0.06979711f, 0.1971690f, 0.8630748f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_yzx, RigidTransform(Quaternion(-0.4597331f, 0.34356190f, 0.1971690f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_zxy, RigidTransform(Quaternion(-0.3133549f, 0.34356190f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
-            TestUtils.AreEqual(q1_zyx, RigidTransform(Quaternion(-0.3133549f, 0.34356190f, 0.1971690f, 0.8630749f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1, RigidTransform(quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_xyz, RigidTransform(quaternion(-0.4597331f, 0.06979711f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_xzy, RigidTransform(quaternion(-0.3133549f, 0.06979711f, 0.3899215f, 0.8630749f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_yxz, RigidTransform(quaternion(-0.4597331f, 0.06979711f, 0.1971690f, 0.8630748f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_yzx, RigidTransform(quaternion(-0.4597331f, 0.34356190f, 0.1971690f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_zxy, RigidTransform(quaternion(-0.3133549f, 0.34356190f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
+            TestUtils.AreEqual(q1_zyx, RigidTransform(quaternion(-0.3133549f, 0.34356190f, 0.1971690f, 0.8630749f), float3.zero), epsilon);
 
             float3x3 m0 = float3x3(q0.rot);
             float3x3 m0_xyz = float3x3(q0_xyz.rot);
@@ -104,7 +104,7 @@ namespace Unity.Mathematics.Tests
             float angle = 2.3f;
             RigidTransform q = RigidTransform.rotateX(angle);
 
-            RigidTransform r = RigidTransform(Quaternion(0.91276394f, 0.0f, 0.0f, 0.40848744f), float3.zero);
+            RigidTransform r = RigidTransform(quaternion(0.91276394f, 0.0f, 0.0f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
         }
 
@@ -114,7 +114,7 @@ namespace Unity.Mathematics.Tests
             float angle = 2.3f;
             RigidTransform q = RigidTransform.rotateY(angle);
 
-            RigidTransform r = RigidTransform(Quaternion(0.0f, 0.91276394f, 0.0f, 0.40848744f), float3.zero);
+            RigidTransform r = RigidTransform(quaternion(0.0f, 0.91276394f, 0.0f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
         }
 
@@ -124,21 +124,21 @@ namespace Unity.Mathematics.Tests
             float angle = 2.3f;
             RigidTransform q = RigidTransform.rotateZ(angle);
 
-            RigidTransform r = RigidTransform(Quaternion(0.0f, 0.0f, 0.91276394f, 0.40848744f), float3.zero);
+            RigidTransform r = RigidTransform(quaternion(0.0f, 0.0f, 0.91276394f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
         }
 
-        static internal Quaternion test_q0 = Quaternion(0.3270836f, 0.8449658f, -0.1090279f, 0.4088545f);
-        static internal Quaternion test_q1 = Quaternion(-0.05623216f, 0.731018f, -0.6747859f, -0.08434824f);
-        static internal Quaternion test_q2 = Quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
-        static internal Quaternion test_q3 = Quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
+        static internal quaternion test_q0 = quaternion(0.3270836f, 0.8449658f, -0.1090279f, 0.4088545f);
+        static internal quaternion test_q1 = quaternion(-0.05623216f, 0.731018f, -0.6747859f, -0.08434824f);
+        static internal quaternion test_q2 = quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
+        static internal quaternion test_q3 = quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
         
         [Test]
         public void rigid_transform_inverse()
         {
-            RigidTransform q = RigidTransform(Quaternion(1.0f, -2.0f, 3.0f, -4.0f), float3(1,2,3));
+            RigidTransform q = RigidTransform(quaternion(1.0f, -2.0f, 3.0f, -4.0f), float3(1,2,3));
             RigidTransform iq = inverse(q);
-            RigidTransform r = RigidTransform(Quaternion(-0.1825742f, 0.3651484f, -0.5477226f, -0.7302967f), float3(2.733333f, 0.6666664f, -2.466666f));
+            RigidTransform r = RigidTransform(quaternion(-0.1825742f, 0.3651484f, -0.5477226f, -0.7302967f), float3(2.733333f, 0.6666664f, -2.466666f));
 
             TestUtils.AreEqual(iq, r, 0.00001f);
         }

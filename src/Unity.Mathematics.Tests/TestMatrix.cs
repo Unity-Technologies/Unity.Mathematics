@@ -138,7 +138,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float3x3_constructor_quaternion()
         {
-            float3x3 m = float3x3(normalize(Quaternion(1.0f, 2.5f, 3.3f, 4.6f)));
+            float3x3 m = float3x3(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)));
 
             float3x3 r = float3x3( 0.12774f, -0.64529f, 0.75318f,
                                    0.89975f,  0.39491f, 0.18575f,
@@ -150,7 +150,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_constructor_quaternion_position()
         {
-            float4x4 m = float4x4(normalize(Quaternion(1.0f, 2.5f, 3.3f, 4.6f)), float3(1.0f, 2.0f, 3.0f));
+            float4x4 m = float4x4(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)), float3(1.0f, 2.0f, 3.0f));
 
             float4x4 r = float4x4( 0.12774f, -0.64529f, 0.75318f, 1.0f,
                                    0.89975f,  0.39491f, 0.18575f, 2.0f,

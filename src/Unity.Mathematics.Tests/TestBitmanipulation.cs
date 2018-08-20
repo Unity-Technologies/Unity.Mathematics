@@ -7,87 +7,87 @@ namespace Unity.Mathematics.Tests
     public class TestBitmanipulation
     {
         [Test]
-        public void count_bits_int()
+        public void countbits_int()
         {
-            Assert.AreEqual(count_bits(0), 0);
-            Assert.AreEqual(count_bits( 0x01234567), 12);
-            Assert.AreEqual(count_bits( 0x456789AB), 16);
-            Assert.AreEqual(count_bits(-0x01234567), 21);
-            Assert.AreEqual(count_bits(-0x456789AB), 17);
-            Assert.AreEqual(count_bits(-1), 32);
+            Assert.AreEqual(countbits(0), 0);
+            Assert.AreEqual(countbits( 0x01234567), 12);
+            Assert.AreEqual(countbits( 0x456789AB), 16);
+            Assert.AreEqual(countbits(-0x01234567), 21);
+            Assert.AreEqual(countbits(-0x456789AB), 17);
+            Assert.AreEqual(countbits(-1), 32);
         }
 
         [Test]
-        public void count_bits_int2()
+        public void countbits_int2()
         {
-            Assert.AreEqual(count_bits(int2(0, 0x01234567)), int2(0, 12));
-            Assert.AreEqual(count_bits(int2(0x456789AB, -0x01234567)), int2(16, 21));
-            Assert.AreEqual(count_bits(int2(-0x456789AB, -1)), int2(17, 32));
+            Assert.AreEqual(countbits(int2(0, 0x01234567)), int2(0, 12));
+            Assert.AreEqual(countbits(int2(0x456789AB, -0x01234567)), int2(16, 21));
+            Assert.AreEqual(countbits(int2(-0x456789AB, -1)), int2(17, 32));
         }
 
         [Test]
         public void count_bits_int3()
         {
-            Assert.AreEqual(count_bits(int3(0, 0x01234567, 0x456789AB)), int3(0, 12, 16));
-            Assert.AreEqual(count_bits(int3(-0x01234567, -0x456789AB, -1)), int3(21, 17, 32));
+            Assert.AreEqual(countbits(int3(0, 0x01234567, 0x456789AB)), int3(0, 12, 16));
+            Assert.AreEqual(countbits(int3(-0x01234567, -0x456789AB, -1)), int3(21, 17, 32));
         }
 
         [Test]
         public void count_bits_int4()
         {
-            Assert.AreEqual(count_bits(int4(0, 0x01234567, 0x456789AB, -0x01234567)), int4(0, 12, 16, 21));
-            Assert.AreEqual(count_bits(int4(-0x456789AB, -1, -7, -15)), int4(17, 32, 30, 29));
+            Assert.AreEqual(countbits(int4(0, 0x01234567, 0x456789AB, -0x01234567)), int4(0, 12, 16, 21));
+            Assert.AreEqual(countbits(int4(-0x456789AB, -1, -7, -15)), int4(17, 32, 30, 29));
         }
 
         [Test]
         public void count_bits_uint()
         {
-            Assert.AreEqual(count_bits(0u), 0);
-            Assert.AreEqual(count_bits(0x01234567u), 12);
-            Assert.AreEqual(count_bits(0x456789ABu), 16);
-            Assert.AreEqual(count_bits(0x89ABCDEFu), 20);
-            Assert.AreEqual(count_bits(0xCDEF0123u), 16);
-            Assert.AreEqual(count_bits(0xFFFFFFFFu), 32);
+            Assert.AreEqual(countbits(0u), 0);
+            Assert.AreEqual(countbits(0x01234567u), 12);
+            Assert.AreEqual(countbits(0x456789ABu), 16);
+            Assert.AreEqual(countbits(0x89ABCDEFu), 20);
+            Assert.AreEqual(countbits(0xCDEF0123u), 16);
+            Assert.AreEqual(countbits(0xFFFFFFFFu), 32);
         }
 
         [Test]
         public void count_bits_uint2()
         {
-            Assert.AreEqual(count_bits(uint2(0, 0x01234567)), int2(0, 12));
-            Assert.AreEqual(count_bits(uint2(0x456789AB, 0x89ABCDEFu)), int2(16, 20));
-            Assert.AreEqual(count_bits(uint2(0xCDEF0123u, 0xFFFFFFFFu)), int2(16, 32));
+            Assert.AreEqual(countbits(uint2(0, 0x01234567)), int2(0, 12));
+            Assert.AreEqual(countbits(uint2(0x456789AB, 0x89ABCDEFu)), int2(16, 20));
+            Assert.AreEqual(countbits(uint2(0xCDEF0123u, 0xFFFFFFFFu)), int2(16, 32));
         }
 
         [Test]
         public void count_bits_uint3()
         {
-            Assert.AreEqual(count_bits(uint3(0, 0x01234567, 0x456789AB)), int3(0, 12, 16));
-            Assert.AreEqual(count_bits(uint3(0x89ABCDEFu, 0xCDEF0123u, 0xFFFFFFFFu)), int3(20, 16, 32));
+            Assert.AreEqual(countbits(uint3(0, 0x01234567, 0x456789AB)), int3(0, 12, 16));
+            Assert.AreEqual(countbits(uint3(0x89ABCDEFu, 0xCDEF0123u, 0xFFFFFFFFu)), int3(20, 16, 32));
         }
 
         [Test]
         public void count_bits_uint4()
         {
-            Assert.AreEqual(count_bits(uint4(0, 0x01234567, 0x456789AB, 0x89ABCDEFu)), int4(0, 12, 16, 20));
-            Assert.AreEqual(count_bits(uint4(0xCDEF0123u, 0xFFFFFFFFu, 0xFFFFFFF5u, 0xFFFFFFF1u)), int4(16, 32, 30, 29));
+            Assert.AreEqual(countbits(uint4(0, 0x01234567, 0x456789AB, 0x89ABCDEFu)), int4(0, 12, 16, 20));
+            Assert.AreEqual(countbits(uint4(0xCDEF0123u, 0xFFFFFFFFu, 0xFFFFFFF5u, 0xFFFFFFF1u)), int4(16, 32, 30, 29));
         }
 
         [Test]
         public void count_bits_long()
         {
-            Assert.AreEqual(count_bits(0L), 0);
-            Assert.AreEqual(count_bits(0x0123456789ABCDEFL), 32);
-            Assert.AreEqual(count_bits(-0x0123456789ABCDEFL), 33);
-            Assert.AreEqual(count_bits(-1L), 64);
+            Assert.AreEqual(countbits(0L), 0);
+            Assert.AreEqual(countbits(0x0123456789ABCDEFL), 32);
+            Assert.AreEqual(countbits(-0x0123456789ABCDEFL), 33);
+            Assert.AreEqual(countbits(-1L), 64);
         }
 
         [Test]
         public void count_bits_ulong()
         {
-            Assert.AreEqual(count_bits(0UL), 0);
-            Assert.AreEqual(count_bits(0x0123456789ABCDEFUL), 32);
-            Assert.AreEqual(count_bits(0x89ABCDEF01234567UL), 32);
-            Assert.AreEqual(count_bits(0xFFFFFFFFFFFFFFFFUL), 64);
+            Assert.AreEqual(countbits(0UL), 0);
+            Assert.AreEqual(countbits(0x0123456789ABCDEFUL), 32);
+            Assert.AreEqual(countbits(0x89ABCDEF01234567UL), 32);
+            Assert.AreEqual(countbits(0xFFFFFFFFFFFFFFFFUL), 64);
         }
 
         [Test]

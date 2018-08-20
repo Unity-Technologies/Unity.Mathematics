@@ -471,7 +471,7 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c2, b.c2, delta);
             AreEqual(a.c3, b.c3, delta);
         }
-        public static void AreEqual(Quaternion a, Quaternion b, float delta = 0.0f)
+        public static void AreEqual(quaternion a, quaternion b, float delta = 0.0f)
         {
             AreEqual(a.value, b.value, delta);
         }

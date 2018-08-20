@@ -1127,7 +1127,7 @@ namespace Unity.Mathematics
 
         // count bits
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int count_bits(uint v)
+        public static int countbits(uint v)
         {
             v = v - ((v >> 1) & 0x55555555);
             v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
@@ -1135,7 +1135,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 count_bits(uint2 v)
+        public static int2 countbits(uint2 v)
         {
             v = v - ((v >> 1) & 0x55555555);
             v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
@@ -1143,7 +1143,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 count_bits(uint3 v)
+        public static int3 countbits(uint3 v)
         {
             v = v - ((v >> 1) & 0x55555555);
             v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
@@ -1151,7 +1151,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 count_bits(uint4 v)
+        public static int4 countbits(uint4 v)
         {
             v = v - ((v >> 1) & 0x55555555);
             v = (v & 0x33333333) + ((v >> 2) & 0x33333333);
@@ -1159,16 +1159,16 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int count_bits(int v) { return count_bits((uint)v); }
+        public static int countbits(int v) { return countbits((uint)v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 count_bits(int2 v) { return count_bits((uint2)v); }
+        public static int2 countbits(int2 v) { return countbits((uint2)v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 count_bits(int3 v) { return count_bits((uint3)v); }
+        public static int3 countbits(int3 v) { return countbits((uint3)v); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 count_bits(int4 v) { return count_bits((uint4)v); }
+        public static int4 countbits(int4 v) { return countbits((uint4)v); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int count_bits(ulong v)
+        public static int countbits(ulong v)
         {
             v = v - ((v >> 1) & 0x5555555555555555);
             v = (v & 0x3333333333333333) + ((v >> 2) & 0x3333333333333333);
@@ -1176,7 +1176,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int count_bits(long v) { return count_bits((ulong)v); }
+        public static int countbits(long v) { return countbits((ulong)v); }
 
         // leading zero count
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

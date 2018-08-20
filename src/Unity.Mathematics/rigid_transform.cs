@@ -6,13 +6,13 @@ namespace Unity.Mathematics
 {
     public struct RigidTransform
     {
-        public Quaternion rot;
+        public quaternion rot;
         public float3 pos;
 
-        public static readonly RigidTransform identity = new RigidTransform(Quaternion.identity, float3.zero);
+        public static readonly RigidTransform identity = new RigidTransform(quaternion.identity, float3.zero);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public RigidTransform(Quaternion rotation, float3 translation)
+        public RigidTransform(quaternion rotation, float3 translation)
         {
             this.rot = rotation;
             this.pos = translation;
@@ -20,32 +20,32 @@ namespace Unity.Mathematics
 
         public RigidTransform(float3x3 rotation, float3 translation)
         {
-            this.rot = new Quaternion(rotation);
+            this.rot = new quaternion(rotation);
             this.pos = translation;
         }
 
         public RigidTransform(float4x4 transform)
         {
-            this.rot = new Quaternion(transform);
+            this.rot = new quaternion(transform);
             this.pos = transform.c3.xyz;
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform axisAngle(float3 axis, float angle) { return new RigidTransform(Quaternion.axisAngle(axis, angle), float3.zero); }
+        public static RigidTransform axisAngle(float3 axis, float angle) { return new RigidTransform(quaternion.axisAngle(axis, angle), float3.zero); }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXYZ(float3 xyz) { return new RigidTransform(Quaternion.eulerXYZ(xyz), float3.zero); }
+        public static RigidTransform eulerXYZ(float3 xyz) { return new RigidTransform(quaternion.eulerXYZ(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXZY(float3 xyz) { return new RigidTransform(Quaternion.eulerXZY(xyz), float3.zero); }
+        public static RigidTransform eulerXZY(float3 xyz) { return new RigidTransform(quaternion.eulerXZY(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYXZ(float3 xyz) { return new RigidTransform(Quaternion.eulerYXZ(xyz), float3.zero); }
+        public static RigidTransform eulerYXZ(float3 xyz) { return new RigidTransform(quaternion.eulerYXZ(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYZX(float3 xyz) { return new RigidTransform(Quaternion.eulerYZX(xyz), float3.zero); }
+        public static RigidTransform eulerYZX(float3 xyz) { return new RigidTransform(quaternion.eulerYZX(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZXY(float3 xyz) { return new RigidTransform(Quaternion.eulerZXY(xyz), float3.zero); }
+        public static RigidTransform eulerZXY(float3 xyz) { return new RigidTransform(quaternion.eulerZXY(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZYX(float3 xyz) { return new RigidTransform(Quaternion.eulerZYX(xyz), float3.zero); }
+        public static RigidTransform eulerZYX(float3 xyz) { return new RigidTransform(quaternion.eulerZYX(xyz), float3.zero); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
@@ -91,31 +91,31 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateX(float angle)
         {
-            return new RigidTransform(Quaternion.rotateX(angle), float3.zero);
+            return new RigidTransform(quaternion.rotateX(angle), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateY(float angle)
         {
-            return new RigidTransform(Quaternion.rotateY(angle), float3.zero);
+            return new RigidTransform(quaternion.rotateY(angle), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateZ(float angle)
         {
-            return new RigidTransform(Quaternion.rotateZ(angle), float3.zero);
+            return new RigidTransform(quaternion.rotateZ(angle), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform scale(float s)
         {
-            return new RigidTransform(Quaternion.scale(s), float3.zero);
+            return new RigidTransform(quaternion.scale(s), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform translate(float3 vector)
         {
-            return new RigidTransform(Quaternion.identity, vector);
+            return new RigidTransform(quaternion.identity, vector);
         }
 
 
@@ -152,7 +152,7 @@ namespace Unity.Mathematics
     public static partial class math
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform RigidTransform(Quaternion rot, float3 pos) { return new RigidTransform(rot, pos); }
+        public static RigidTransform RigidTransform(quaternion rot, float3 pos) { return new RigidTransform(rot, pos); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform RigidTransform(float3x3 rotation, float3 translation) { return new RigidTransform(rotation, translation); }
@@ -163,7 +163,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform inverse(RigidTransform t)
         {
-            Quaternion invRotation = inverse(t.rot);
+            quaternion invRotation = inverse(t.rot);
             float3 invTranslation = mul(invRotation, -t.pos);
             return new RigidTransform(invRotation, invTranslation);
         }
