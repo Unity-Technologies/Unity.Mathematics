@@ -164,7 +164,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 hash_wide(bool3x3 v)
+        public static uint3 hashwide(bool3x3 v)
         {
             return (select(uint3(0x9D77A59Bu, 0x4942CA39u, 0xB40EC62Du), uint3(0x565ED63Fu, 0x93C30C2Bu, 0xDCAF0351u), v.c0) + 
                     select(uint3(0x6E050B01u, 0x750FDBF5u, 0x7F3DD499u), uint3(0x52EAAEBBu, 0x4599C793u, 0x83B5E729u), v.c1) + 

@@ -199,9 +199,9 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 hash_wide(RigidTransform t)
+        public static uint4 hashwide(RigidTransform t)
         {
-            return hash_wide(t.rot) + 0xC5C5394Bu * hash_wide(t.pos).xyzz;
+            return hashwide(t.rot) + 0xC5C5394Bu * hashwide(t.pos).xyzz;
         }
     }
 }

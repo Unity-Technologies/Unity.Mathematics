@@ -382,7 +382,7 @@ public static double3x3 inverse(double3x3 m)
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 hash_wide(double3x3 v)
+        public static uint3 hashwide(double3x3 v)
         {
             return (fold_to_uint(v.c0) * uint3(0xB8B208C7u, 0x5D3ED947u, 0x4473BBB1u) + 
                     fold_to_uint(v.c1) * uint3(0xCBA11D5Fu, 0x685835CFu, 0xC3D32AE1u) + 

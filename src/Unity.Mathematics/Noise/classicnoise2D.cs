@@ -22,7 +22,7 @@ namespace Unity.Mathematics
         public static float cnoise(float2 P)
         {
             float4 Pi = floor(P.xyxy) + float4(0.0f, 0.0f, 1.0f, 1.0f);
-            float4 Pf = fract(P.xyxy) - float4(0.0f, 0.0f, 1.0f, 1.0f);
+            float4 Pf = frac(P.xyxy) - float4(0.0f, 0.0f, 1.0f, 1.0f);
             Pi = mod289(Pi); // To avoid truncation effects in permutation
             float4 ix = Pi.xzxz;
             float4 iy = Pi.yyww;
@@ -31,7 +31,7 @@ namespace Unity.Mathematics
 
             float4 i = permute(permute(ix) + iy);
 
-            float4 gx = fract(i * (1.0f / 41.0f)) * 2.0f - 1.0f;
+            float4 gx = frac(i * (1.0f / 41.0f)) * 2.0f - 1.0f;
             float4 gy = abs(gx) - 0.5f;
             float4 tx = floor(gx + 0.5f);
             gx = gx - tx;
@@ -53,8 +53,8 @@ namespace Unity.Mathematics
             float n11 = dot(g11, float2(fx.w, fy.w));
 
             float2 fade_xy = fade(Pf.xy);
-            float2 n_x = mix(float2(n00, n01), float2(n10, n11), fade_xy.x);
-            float n_xy = mix(n_x.x, n_x.y, fade_xy.y);
+            float2 n_x = lerp(float2(n00, n01), float2(n10, n11), fade_xy.x);
+            float n_xy = lerp(n_x.x, n_x.y, fade_xy.y);
             return 2.3f * n_xy;
         }
 
@@ -62,7 +62,7 @@ namespace Unity.Mathematics
         public static float pnoise(float2 P, float2 rep)
         {
             float4 Pi = floor(P.xyxy) + float4(0.0f, 0.0f, 1.0f, 1.0f);
-            float4 Pf = fract(P.xyxy) - float4(0.0f, 0.0f, 1.0f, 1.0f);
+            float4 Pf = frac(P.xyxy) - float4(0.0f, 0.0f, 1.0f, 1.0f);
             Pi = mod(Pi, rep.xyxy); // To create noise with explicit period
             Pi = mod289(Pi); // To avoid truncation effects in permutation
             float4 ix = Pi.xzxz;
@@ -72,7 +72,7 @@ namespace Unity.Mathematics
 
             float4 i = permute(permute(ix) + iy);
 
-            float4 gx = fract(i * (1.0f / 41.0f)) * 2.0f - 1.0f;
+            float4 gx = frac(i * (1.0f / 41.0f)) * 2.0f - 1.0f;
             float4 gy = abs(gx) - 0.5f;
             float4 tx = floor(gx + 0.5f);
             gx = gx - tx;
@@ -94,8 +94,8 @@ namespace Unity.Mathematics
             float n11 = dot(g11, float2(fx.w, fy.w));
 
             float2 fade_xy = fade(Pf.xy);
-            float2 n_x = mix(float2(n00, n01), float2(n10, n11), fade_xy.x);
-            float n_xy = mix(n_x.x, n_x.y, fade_xy.y);
+            float2 n_x = lerp(float2(n00, n01), float2(n10, n11), fade_xy.x);
+            float n_xy = lerp(n_x.x, n_x.y, fade_xy.y);
             return 2.3f * n_xy;
         }
     }

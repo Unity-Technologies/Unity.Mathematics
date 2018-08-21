@@ -370,7 +370,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 hash_wide(double3x4 v)
+        public static uint3 hashwide(double3x4 v)
         {
             return (fold_to_uint(v.c0) * uint3(0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu) + 
                     fold_to_uint(v.c1) * uint3(0x68EEE0F5u, 0xBC3B0A59u, 0x816EFB5Du) + 

@@ -172,7 +172,7 @@ namespace Unity.Mathematics
 
         // isnan
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool isnan(float x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }    //TODO: evaluate as (x != x) with burst intrinsic
+        public static bool isnan(float x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isnan(float2 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -658,25 +658,6 @@ namespace Unity.Mathematics
         public static double3 sign(double3 f) { return new double3(sign(f.x), sign(f.y), sign(f.z)); }
         public static double4 sign(double4 f) { return new double4(sign(f.x), sign(f.y), sign(f.z), sign(f.w)); }
 
-        // mix
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float mix(float a, float b, float x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 mix(float2 a, float2 b, float2 x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mix(float3 a, float3 b, float3 x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 mix(float4 a, float4 b, float4 x) { return x * (b - a) + a; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double mix(double a, double b, double x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 mix(double2 a, double2 b, double2 x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 mix(double3 a, double3 b, double3 x) { return x * (b - a) + a; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 mix(double4 a, double4 b, double4 x) { return x * (b - a) + a; }
-
         // pow
         public static float pow(float a, float b) { return (float)System.Math.Pow((float)a, (float)b); }
         public static float2 pow(float2 a, float2 b) { return new float2(pow(a.x, b.x), pow(a.y, b.y)); }
@@ -838,16 +819,16 @@ namespace Unity.Mathematics
         public static double length(double3 v) { return sqrt(dot(v, v)); }
         public static double length(double4 v) { return sqrt(dot(v, v)); }
 
-        // length squared
-        public static float lengthSquared(float v) { return v*v; }
-        public static float lengthSquared(float2 v) { return dot(v, v); }
-        public static float lengthSquared(float3 v) { return dot(v, v); }
-        public static float lengthSquared(float4 v) { return dot(v, v); }
+        // lengthsq
+        public static float lengthsq(float v) { return v*v; }
+        public static float lengthsq(float2 v) { return dot(v, v); }
+        public static float lengthsq(float3 v) { return dot(v, v); }
+        public static float lengthsq(float4 v) { return dot(v, v); }
 
-        public static double lengthSquared(double v) { return v * v; }
-        public static double lengthSquared(double2 v) { return dot(v, v); }
-        public static double lengthSquared(double3 v) { return dot(v, v); }
-        public static double lengthSquared(double4 v) { return dot(v, v); }
+        public static double lengthsq(double v) { return v * v; }
+        public static double lengthsq(double2 v) { return dot(v, v); }
+        public static double lengthsq(double3 v) { return dot(v, v); }
+        public static double lengthsq(double4 v) { return dot(v, v); }
 
         // distance
         public static float distance(float pt1, float pt2) { return length(pt2 - pt1); }
@@ -1208,9 +1189,6 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static void sincos(double4 x, out double4 s, out double4 c) { s = sin(x); c = cos(x); }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 up() { return new float3(0.0f,1.0f,0.0f); }
-
         // count bits
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int countbits(uint v)
@@ -1425,53 +1403,55 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long reversebits(long x) { return (long)reversebits((ulong)x); }
 
+        // Internal
+
         // SSE shuffles
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 unpacklo(float4 a, float4 b)
+        internal static float4 unpacklo(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 unpacklo(double4 a, double4 b)
+        internal static double4 unpacklo(double4 a, double4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 unpackhi(float4 a, float4 b)
+        internal static float4 unpackhi(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 unpackhi(double4 a, double4 b)
+        internal static double4 unpackhi(double4 a, double4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftW, ShuffleComponent.RightW);
         }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 movelh(float4 a, float4 b)
+        internal static float4 movelh(float4 a, float4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.RightY);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 movelh(double4 a, double4 b)
+        internal static double4 movelh(double4 a, double4 b)
         {
             return shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.RightY);
         }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 movehl(float4 a, float4 b)
+        internal static float4 movehl(float4 a, float4 b)
         {
             return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 movehl(double4 a, double4 b)
+        internal static double4 movehl(double4 a, double4 b)
         {
             return shuffle(b, a, ShuffleComponent.LeftZ, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightW);
         }

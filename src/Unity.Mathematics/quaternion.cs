@@ -13,6 +13,8 @@ namespace Unity.Mathematics
         public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
         public quaternion(float4 value)                       { this.value = value; }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator quaternion(float4 v) { return new quaternion(v); }
 
         // Construct unit quaternion from rotation matrix. The matrix must be orthonormal.
         public quaternion(float3x3 m)
@@ -299,7 +301,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion conjugate(quaternion q)
         {
-            return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f)); // TODO: should only be one xorps
+            return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -441,21 +443,15 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 up(quaternion q)
-        {
-            return mul(q, float3(0, 1, 0));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(quaternion q)
         {
             return hash(q.value);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 hash_wide(quaternion q)
+        public static uint4 hashwide(quaternion q)
         {
-            return hash_wide(q.value);
+            return hashwide(q.value);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         static float4 grad4(float j, float4 ip)
         {
             float4 ones = float4(1.0f, 1.0f, 1.0f, -1.0f);
-            float3 pxyz = floor(fract(float3(j) * ip.xyz) * 7.0f) * ip.z - 1.0f; 
+            float3 pxyz = floor(frac(float3(j) * ip.xyz) * 7.0f) * ip.z - 1.0f; 
             float  pw   = 1.5f - dot(abs(pxyz), ones.xyz);
             float4 p = float4(pxyz, pw);
             float4 s = float4(p < 0.0f);
@@ -43,7 +43,7 @@ namespace Unity.Mathematics
         {
             // For more isotropic gradients, math.sin/math.cos can be used instead.
             float u = permute(permute(p.x) + p.y) * 0.0243902439f + rot; // Rotate by shift
-            u = fract(u) * 6.28318530718f; // 2*pi
+            u = frac(u) * 6.28318530718f; // 2*pi
             return float2(cos(u), sin(u));
         }
     }

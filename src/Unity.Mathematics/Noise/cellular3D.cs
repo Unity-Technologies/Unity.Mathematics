@@ -28,7 +28,7 @@ namespace Unity.Mathematics
             const float jitter = 1.0f; // smaller jitter gives more regular pattern
 
             float3 Pi = mod289(floor(P));
-            float3 Pf = fract(P) - 0.5f;
+            float3 Pf = frac(P) - 0.5f;
 
             float3 Pfx = Pf.x + float3(1.0f, 0.0f, -1.0f);
             float3 Pfy = Pf.y + float3(1.0f, 0.0f, -1.0f);
@@ -51,39 +51,39 @@ namespace Unity.Mathematics
             float3 p32 = permute(p3 + Pi.z);
             float3 p33 = permute(p3 + Pi.z + 1.0f);
 
-            float3 ox11 = fract(p11 * K) - Ko;
+            float3 ox11 = frac(p11 * K) - Ko;
             float3 oy11 = mod7(floor(p11 * K)) * K - Ko;
             float3 oz11 = floor(p11 * K2) * Kz - Kzo; // p11 < 289 guaranteed
 
-            float3 ox12 = fract(p12 * K) - Ko;
+            float3 ox12 = frac(p12 * K) - Ko;
             float3 oy12 = mod7(floor(p12 * K)) * K - Ko;
             float3 oz12 = floor(p12 * K2) * Kz - Kzo;
 
-            float3 ox13 = fract(p13 * K) - Ko;
+            float3 ox13 = frac(p13 * K) - Ko;
             float3 oy13 = mod7(floor(p13 * K)) * K - Ko;
             float3 oz13 = floor(p13 * K2) * Kz - Kzo;
 
-            float3 ox21 = fract(p21 * K) - Ko;
+            float3 ox21 = frac(p21 * K) - Ko;
             float3 oy21 = mod7(floor(p21 * K)) * K - Ko;
             float3 oz21 = floor(p21 * K2) * Kz - Kzo;
 
-            float3 ox22 = fract(p22 * K) - Ko;
+            float3 ox22 = frac(p22 * K) - Ko;
             float3 oy22 = mod7(floor(p22 * K)) * K - Ko;
             float3 oz22 = floor(p22 * K2) * Kz - Kzo;
 
-            float3 ox23 = fract(p23 * K) - Ko;
+            float3 ox23 = frac(p23 * K) - Ko;
             float3 oy23 = mod7(floor(p23 * K)) * K - Ko;
             float3 oz23 = floor(p23 * K2) * Kz - Kzo;
 
-            float3 ox31 = fract(p31 * K) - Ko;
+            float3 ox31 = frac(p31 * K) - Ko;
             float3 oy31 = mod7(floor(p31 * K)) * K - Ko;
             float3 oz31 = floor(p31 * K2) * Kz - Kzo;
 
-            float3 ox32 = fract(p32 * K) - Ko;
+            float3 ox32 = frac(p32 * K) - Ko;
             float3 oy32 = mod7(floor(p32 * K)) * K - Ko;
             float3 oz32 = floor(p32 * K2) * Kz - Kzo;
 
-            float3 ox33 = fract(p33 * K) - Ko;
+            float3 ox33 = frac(p33 * K) - Ko;
             float3 oy33 = mod7(floor(p33 * K)) * K - Ko;
             float3 oz33 = floor(p33 * K2) * Kz - Kzo;
 

@@ -5,20 +5,8 @@ namespace Unity.Mathematics
     public static partial class math
     {
         public const float epsilon_normal = 1e-30f;
-
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int bool_to_int(bool value) { return value ? 1 : 0; }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int bool_to_mask(bool value) { return value ? -1 : 0; }
         
-        /// <summary>
-        /// Returns the smallest power of two that is greater than or equal to the given integer
-        /// </summary>
-        /// <param name="i"></param>
-        /// <returns></returns>
-        public static int ceil_pow2(int i)
+        public static int ceilpow2(int i)
         {
             i -= 1;
             i |= i >> 1;
@@ -32,6 +20,7 @@ namespace Unity.Mathematics
         // Packs components with an enabled mask (LSB) to the left
         // The value of components after the last packed component are undefined.
         // Returns the number of enabled mask bits. (0 ... 4)
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static unsafe int compress(int* output, int index, int4 val, bool4 mask)
         {
             if (mask.x)
@@ -148,39 +137,5 @@ namespace Unity.Mathematics
         public static float3 nfence(float3 value) { return value; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 nfence(float4 value) { return value; }
-
-        // fract
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float fract(float a) { return a - floor(a); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 fract(float2 a) { return a - floor(a); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 fract(float3 a) { return a - floor(a); }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 fract(float4 a) { return a - floor(a); }
-        
-#if false
-
-        //@TODO: Complete all versions of this also, this implementation doesn't actaully do  msb(y) ? -x : x...
-
-        //  changesign: change sign
-        //  return value: msb(y) ? -x : x
-        public static float4 chgsign(float4 val, float sign) { return new float4(chgsign(val.x, sign), chgsign(val.y, sign), chgsign(val.z, sign), chgsign(val.w, sign)); }
-        public static float4 chgsign(float4 val, float4 sign) { return new float4(chgsign(val.x, sign.x), chgsign(val.y, sign.y), chgsign(val.z, sign.z), chgsign(val.w, sign.w)); }
-        public static float chgsign(float val, float sign) { return sign >= 0.0F ? val : -val; }
-
-        //  sign: change sign
-        //  return value: Returns -1 if x is less than zero; 0 if x equals zero; and 1 if x is greater than zero.
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool msb(float val) { return (IntFloatUnion.ToInt(val) & 0x80000000) != 0; }
-
-        //  copysign: copys the sign bit from sign to val
-        //  return value: msb(sign) ? abs(val) : -abs(val)
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 copysign(float4 val, float sign)  { return sign < 0.0F ? -val : val; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 copysign(float4 val, float4 sign) { return new float4(sign.x < 0.0F ? -val.x : val.x, sign.y < 0.0F ? -val.y : val.y, sign.z < 0.0F ? -val.z : val.z, sign.w < 0.0F ? -val.w : val.w); }
-
-#endif
     }
 }

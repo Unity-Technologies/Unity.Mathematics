@@ -23,7 +23,7 @@ namespace Unity.Mathematics
             const float jitter = 0.8f; // jitter 1.0 makes F1 wrong more often
             
             float2 Pi = mod289(floor(P));
-            float2 Pf = fract(P);
+            float2 Pf = frac(P);
             float4 Pfx = Pf.x + float4(-0.5f, -1.5f, -0.5f, -1.5f);
             float4 Pfy = Pf.y + float4(-0.5f, -0.5f, -1.5f, -1.5f);
             float4 p = permute(Pi.x + float4(0.0f, 1.0f, 0.0f, 1.0f));

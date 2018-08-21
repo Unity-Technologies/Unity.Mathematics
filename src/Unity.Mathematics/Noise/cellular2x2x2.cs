@@ -25,17 +25,17 @@ namespace Unity.Mathematics
             const float jitter = 0.8f; // smaller jitter gives less errors in F2
             
             float3 Pi = mod289(floor(P));
-            float3 Pf = fract(P);
+            float3 Pf = frac(P);
             float4 Pfx = Pf.x + float4(0.0f, -1.0f, 0.0f, -1.0f);
             float4 Pfy = Pf.y + float4(0.0f, 0.0f, -1.0f, -1.0f);
             float4 p = permute(Pi.x + float4(0.0f, 1.0f, 0.0f, 1.0f));
             p = permute(p + Pi.y + float4(0.0f, 0.0f, 1.0f, 1.0f));
             float4 p1 = permute(p + Pi.z); // z+0
             float4 p2 = permute(p + Pi.z + float4(1.0f,1.0f,1.0f,1.0f)); // z+1
-            float4 ox1 = fract(p1 * K) - Ko;
+            float4 ox1 = frac(p1 * K) - Ko;
             float4 oy1 = mod7(floor(p1 * K)) * K - Ko;
             float4 oz1 = floor(p1 * K2) * Kz - Kzo; // p1 < 289 guaranteed
-            float4 ox2 = fract(p2 * K) - Ko;
+            float4 ox2 = frac(p2 * K) - Ko;
             float4 oy2 = mod7(floor(p2 * K)) * K - Ko;
             float4 oz2 = floor(p2 * K2) * Kz - Kzo;
             float4 dx1 = Pfx + jitter * ox1;

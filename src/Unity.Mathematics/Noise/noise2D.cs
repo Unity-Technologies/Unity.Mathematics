@@ -47,7 +47,7 @@ namespace Unity.Mathematics
             // Gradients: 41 points uniformly over a line, mapped onto a diamond.
             // The ring size 17*17 = 289 is close to a multiple of 41 (41*7 = 287)
 
-            float3 x = 2.0f * fract(p * C.www) - 1.0f;
+            float3 x = 2.0f * frac(p * C.www) - 1.0f;
             float3 h = abs(x) - 0.5f;
             float3 ox = floor(x + 0.5f);
             float3 a0 = x - ox;

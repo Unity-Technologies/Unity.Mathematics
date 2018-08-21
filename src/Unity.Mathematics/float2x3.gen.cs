@@ -336,7 +336,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 hash_wide(float2x3 v)
+        public static uint2 hashwide(float2x3 v)
         {
             return (asuint(v.c0) * uint2(0xFC104C3Bu, 0x5FFF6B19u) + 
                     asuint(v.c1) * uint2(0x5E6CBF3Bu, 0xB546F2A5u) + 

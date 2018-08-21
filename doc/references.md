@@ -9,7 +9,7 @@ The following table shows the list of intrinsic functions exposed by the static 
 |acos            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-acos) |
 |all             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-all) |
 |any             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-any) |
-|asdouble        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-asdouble) |
+|asdouble        |   |
 |asfloat         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-asfloat) |
 |asin            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-asin) |
 |asint           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-asint) |
@@ -18,10 +18,8 @@ The following table shows the list of intrinsic functions exposed by the static 
 |asulong         |   |
 |atan            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-atan) |
 |atan2           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-atan2) |
-|bool_to_int     |   |
-|bool_to_mask    |   |
 |ceil            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-ceil) |
-|ceil_pow2       |   |
+|ceilpow2        |   |
 |clamp           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-clamp) |
 |cmax            |   |
 |cmin            |   |
@@ -37,35 +35,31 @@ The following table shows the list of intrinsic functions exposed by the static 
 |distance        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-distance) |
 |dot             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-dot) |
 |exp             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-exp) |
-|exp10           |   |
 |exp2            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-exp2) |
+|exp10           |   |
 |faceforward     | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-faceforward) |
 |fastinverse     |   |
 |floor           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-floor) |
 |forward         |   |
 |frac            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-frac) |
-|fract           |   |
 |hash            |   |
-|hash_wide       |   |
+|hashwide        |   |
 |inverse         |   |
 |isfinite        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isfinite) |
 |isinf           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isinf) |
 |isnan           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isnan) |
 |length          | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-length) |
-|lengthSquared   |   |
+|lengthsq        |   |
 |lerp            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-lerp) |
 |log             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log) |
-|log10           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log10) |
 |log2            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log2) |
+|log10           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log10) |
 |lzcnt           |   |
 |mad             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mad) |
 |max             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-max) |
 |min             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-min) |
-|mix             |   |
 |mod             |   |
 |modf            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-modf) |
-|movehl          |   |
-|movelh          |   |
 |mul             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul) |
 |nfence          |   |
 |nlerp           |   |
@@ -102,6 +96,3 @@ The following table shows the list of intrinsic functions exposed by the static 
 |unitexp         |   |
 |unitlog         |   |
 |unlerp          |   |
-|unpackhi        |   |
-|unpacklo        |   |
-|up              |   |

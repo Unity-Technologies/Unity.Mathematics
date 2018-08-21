@@ -1275,7 +1275,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public void GenerateHashFunction(StringBuilder str, bool wide)
         {
             string returnType = wide ? ToTypeName("uint", m_Rows, 1) : "uint";
-            string functionName = wide ? "hash_wide" : "hash";
+            string functionName = wide ? "hashwide" : "hash";
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, m_TypeName);

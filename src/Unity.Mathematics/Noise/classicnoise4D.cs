@@ -25,7 +25,7 @@ namespace Unity.Mathematics
             float4 Pi1 = Pi0 + 1.0f; // Integer part + 1
             Pi0 = mod289(Pi0);
             Pi1 = mod289(Pi1);
-            float4 Pf0 = fract(P); // Fractional part for interpolation
+            float4 Pf0 = frac(P); // Fractional part for interpolation
             float4 Pf1 = Pf0 - 1.0f; // Fractional part - 1.0
             float4 ix = float4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
             float4 iy = float4(Pi0.yy, Pi1.yy);
@@ -45,9 +45,9 @@ namespace Unity.Mathematics
             float4 gx00 = ixy00 * (1.0f / 7.0f);
             float4 gy00 = floor(gx00) * (1.0f / 7.0f);
             float4 gz00 = floor(gy00) * (1.0f / 6.0f);
-            gx00 = fract(gx00) - 0.5f;
-            gy00 = fract(gy00) - 0.5f;
-            gz00 = fract(gz00) - 0.5f;
+            gx00 = frac(gx00) - 0.5f;
+            gy00 = frac(gy00) - 0.5f;
+            gz00 = frac(gz00) - 0.5f;
             float4 gw00 = float4(0.75f) - abs(gx00) - abs(gy00) - abs(gz00);
             float4 sw00 = step(gw00, float4(0.0f));
             gx00 -= sw00 * (step(0.0f, gx00) - 0.5f);
@@ -56,9 +56,9 @@ namespace Unity.Mathematics
             float4 gx01 = ixy01 * (1.0f / 7.0f);
             float4 gy01 = floor(gx01) * (1.0f / 7.0f);
             float4 gz01 = floor(gy01) * (1.0f / 6.0f);
-            gx01 = fract(gx01) - 0.5f;
-            gy01 = fract(gy01) - 0.5f;
-            gz01 = fract(gz01) - 0.5f;
+            gx01 = frac(gx01) - 0.5f;
+            gy01 = frac(gy01) - 0.5f;
+            gz01 = frac(gz01) - 0.5f;
             float4 gw01 = float4(0.75f) - abs(gx01) - abs(gy01) - abs(gz01);
             float4 sw01 = step(gw01, float4(0.0f));
             gx01 -= sw01 * (step(0.0f, gx01) - 0.5f);
@@ -67,9 +67,9 @@ namespace Unity.Mathematics
             float4 gx10 = ixy10 * (1.0f / 7.0f);
             float4 gy10 = floor(gx10) * (1.0f / 7.0f);
             float4 gz10 = floor(gy10) * (1.0f / 6.0f);
-            gx10 = fract(gx10) - 0.5f;
-            gy10 = fract(gy10) - 0.5f;
-            gz10 = fract(gz10) - 0.5f;
+            gx10 = frac(gx10) - 0.5f;
+            gy10 = frac(gy10) - 0.5f;
+            gz10 = frac(gz10) - 0.5f;
             float4 gw10 = float4(0.75f) - abs(gx10) - abs(gy10) - abs(gz10);
             float4 sw10 = step(gw10, float4(0.0f));
             gx10 -= sw10 * (step(0.0f, gx10) - 0.5f);
@@ -78,9 +78,9 @@ namespace Unity.Mathematics
             float4 gx11 = ixy11 * (1.0f / 7.0f);
             float4 gy11 = floor(gx11) * (1.0f / 7.0f);
             float4 gz11 = floor(gy11) * (1.0f / 6.0f);
-            gx11 = fract(gx11) - 0.5f;
-            gy11 = fract(gy11) - 0.5f;
-            gz11 = fract(gz11) - 0.5f;
+            gx11 = frac(gx11) - 0.5f;
+            gy11 = frac(gy11) - 0.5f;
+            gz11 = frac(gz11) - 0.5f;
             float4 gw11 = float4(0.75f) - abs(gx11) - abs(gy11) - abs(gz11);
             float4 sw11 = step(gw11, float4(0.0f));
             gx11 -= sw11 * (step(0.0f, gx11) - 0.5f);
@@ -145,11 +145,11 @@ namespace Unity.Mathematics
             float n1111 = dot(g1111, Pf1);
 
             float4 fade_xyzw = fade(Pf0);
-            float4 n_0w = mix(float4(n0000, n1000, n0100, n1100), float4(n0001, n1001, n0101, n1101), fade_xyzw.w);
-            float4 n_1w = mix(float4(n0010, n1010, n0110, n1110), float4(n0011, n1011, n0111, n1111), fade_xyzw.w);
-            float4 n_zw = mix(n_0w, n_1w, fade_xyzw.z);
-            float2 n_yzw = mix(n_zw.xy, n_zw.zw, fade_xyzw.y);
-            float n_xyzw = mix(n_yzw.x, n_yzw.y, fade_xyzw.x);
+            float4 n_0w = lerp(float4(n0000, n1000, n0100, n1100), float4(n0001, n1001, n0101, n1101), fade_xyzw.w);
+            float4 n_1w = lerp(float4(n0010, n1010, n0110, n1110), float4(n0011, n1011, n0111, n1111), fade_xyzw.w);
+            float4 n_zw = lerp(n_0w, n_1w, fade_xyzw.z);
+            float2 n_yzw = lerp(n_zw.xy, n_zw.zw, fade_xyzw.y);
+            float n_xyzw = lerp(n_yzw.x, n_yzw.y, fade_xyzw.x);
             return 2.2f * n_xyzw;
         }
 
@@ -160,7 +160,7 @@ namespace Unity.Mathematics
             float4 Pi1 = mod(Pi0 + 1.0f, rep); // Integer part + 1 math.mod rep
             Pi0 = mod289(Pi0);
             Pi1 = mod289(Pi1);
-            float4 Pf0 = fract(P); // Fractional part for interpolation
+            float4 Pf0 = frac(P); // Fractional part for interpolation
             float4 Pf1 = Pf0 - 1.0f; // Fractional part - 1.0
             float4 ix = float4(Pi0.x, Pi1.x, Pi0.x, Pi1.x);
             float4 iy = float4(Pi0.yy, Pi1.yy);
@@ -180,9 +180,9 @@ namespace Unity.Mathematics
             float4 gx00 = ixy00 * (1.0f / 7.0f);
             float4 gy00 = floor(gx00) * (1.0f / 7.0f);
             float4 gz00 = floor(gy00) * (1.0f / 6.0f);
-            gx00 = fract(gx00) - 0.5f;
-            gy00 = fract(gy00) - 0.5f;
-            gz00 = fract(gz00) - 0.5f;
+            gx00 = frac(gx00) - 0.5f;
+            gy00 = frac(gy00) - 0.5f;
+            gz00 = frac(gz00) - 0.5f;
             float4 gw00 = float4(0.75f) - abs(gx00) - abs(gy00) - abs(gz00);
             float4 sw00 = step(gw00, float4(0.0f));
             gx00 -= sw00 * (step(0.0f, gx00) - 0.5f);
@@ -191,9 +191,9 @@ namespace Unity.Mathematics
             float4 gx01 = ixy01 * (1.0f / 7.0f);
             float4 gy01 = floor(gx01) * (1.0f / 7.0f);
             float4 gz01 = floor(gy01) * (1.0f / 6.0f);
-            gx01 = fract(gx01) - 0.5f;
-            gy01 = fract(gy01) - 0.5f;
-            gz01 = fract(gz01) - 0.5f;
+            gx01 = frac(gx01) - 0.5f;
+            gy01 = frac(gy01) - 0.5f;
+            gz01 = frac(gz01) - 0.5f;
             float4 gw01 = float4(0.75f) - abs(gx01) - abs(gy01) - abs(gz01);
             float4 sw01 = step(gw01, float4(0.0f));
             gx01 -= sw01 * (step(0.0f, gx01) - 0.5f);
@@ -202,9 +202,9 @@ namespace Unity.Mathematics
             float4 gx10 = ixy10 * (1.0f / 7.0f);
             float4 gy10 = floor(gx10) * (1.0f / 7.0f);
             float4 gz10 = floor(gy10) * (1.0f / 6.0f);
-            gx10 = fract(gx10) - 0.5f;
-            gy10 = fract(gy10) - 0.5f;
-            gz10 = fract(gz10) - 0.5f;
+            gx10 = frac(gx10) - 0.5f;
+            gy10 = frac(gy10) - 0.5f;
+            gz10 = frac(gz10) - 0.5f;
             float4 gw10 = float4(0.75f) - abs(gx10) - abs(gy10) - abs(gz10);
             float4 sw10 = step(gw10, float4(0.0f));
             gx10 -= sw10 * (step(0.0f, gx10) - 0.5f);
@@ -213,9 +213,9 @@ namespace Unity.Mathematics
             float4 gx11 = ixy11 * (1.0f / 7.0f);
             float4 gy11 = floor(gx11) * (1.0f / 7.0f);
             float4 gz11 = floor(gy11) * (1.0f / 6.0f);
-            gx11 = fract(gx11) - 0.5f;
-            gy11 = fract(gy11) - 0.5f;
-            gz11 = fract(gz11) - 0.5f;
+            gx11 = frac(gx11) - 0.5f;
+            gy11 = frac(gy11) - 0.5f;
+            gz11 = frac(gz11) - 0.5f;
             float4 gw11 = float4(0.75f) - abs(gx11) - abs(gy11) - abs(gz11);
             float4 sw11 = step(gw11, float4(0.0f));
             gx11 -= sw11 * (step(0.0f, gx11) - 0.5f);
@@ -280,11 +280,11 @@ namespace Unity.Mathematics
             float n1111 = dot(g1111, Pf1);
 
             float4 fade_xyzw = fade(Pf0);
-            float4 n_0w = mix(float4(n0000, n1000, n0100, n1100), float4(n0001, n1001, n0101, n1101), fade_xyzw.w);
-            float4 n_1w = mix(float4(n0010, n1010, n0110, n1110), float4(n0011, n1011, n0111, n1111), fade_xyzw.w);
-            float4 n_zw = mix(n_0w, n_1w, fade_xyzw.z);
-            float2 n_yzw = mix(n_zw.xy, n_zw.zw, fade_xyzw.y);
-            float n_xyzw = mix(n_yzw.x, n_yzw.y, fade_xyzw.x);
+            float4 n_0w = lerp(float4(n0000, n1000, n0100, n1100), float4(n0001, n1001, n0101, n1101), fade_xyzw.w);
+            float4 n_1w = lerp(float4(n0010, n1010, n0110, n1110), float4(n0011, n1011, n0111, n1111), fade_xyzw.w);
+            float4 n_zw = lerp(n_0w, n_1w, fade_xyzw.z);
+            float2 n_yzw = lerp(n_zw.xy, n_zw.zw, fade_xyzw.y);
+            float n_xyzw = lerp(n_yzw.x, n_yzw.y, fade_xyzw.x);
             return 2.2f * n_xyzw;
         }
     }

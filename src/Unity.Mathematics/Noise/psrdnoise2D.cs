@@ -86,7 +86,7 @@ namespace Unity.Mathematics
             float2 uv = float2(pos.x + pos.y * 0.5f, pos.y);
 
             float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 f0 = frac(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? float2(1.0f, 0.0f) : float2(0.0f, 1.0f);
 
@@ -189,7 +189,7 @@ namespace Unity.Mathematics
             float2 uv = float2(pos.x + pos.y * 0.5f, pos.y);
 
             float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 f0 = frac(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? float2(1.0f, 0.0f) : float2(0.0f, 1.0f);
 
@@ -264,7 +264,7 @@ namespace Unity.Mathematics
             float2 uv = float2(pos.x + pos.y * 0.5f, pos.y);
 
             float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 f0 = frac(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? float2(1.0f, 0.0f) : float2(0.0f, 1.0f);
 
@@ -368,7 +368,7 @@ namespace Unity.Mathematics
             float2 uv = float2(pos.x + pos.y * 0.5f, pos.y);
 
             float2 i0 = floor(uv);
-            float2 f0 = fract(uv);
+            float2 f0 = frac(uv);
             // Traversal order
             float2 i1 = (f0.x > f0.y) ? float2(1.0f, 0.0f) : float2(0.0f, 1.0f);
 
