@@ -765,6 +765,17 @@ namespace Unity.Mathematics
         public static double3 mod(double3 a, double3 b) { return new double3(a.x % b.x, a.y % b.y, a.z % b.z); }
         public static double4 mod(double4 a, double4 b) { return new double4(a.x % b.x, a.y % b.y, a.z % b.z, a.w % b.w); }
 
+        // modf - Splits a value v into an integer part i and a fractional part. Both parts take the sign of the input
+        public static float modf(float v, out float i) { i = trunc(v); return v - i; }
+        public static float2 modf(float2 v, out float2 i) { i = trunc(v); return v - i; }
+        public static float3 modf(float3 v, out float3 i) { i = trunc(v); return v - i; }
+        public static float4 modf(float4 v, out float4 i) { i = trunc(v); return v - i; }
+
+        public static double modf(double v, out double i) { i = trunc(v); return v - i; }
+        public static double2 modf(double2 v, out double2 i) { i = trunc(v); return v - i; }
+        public static double3 modf(double3 v, out double3 i) { i = trunc(v); return v - i; }
+        public static double4 modf(double4 v, out double4 i) { i = trunc(v); return v - i; }
+
         // sqrt
         public static float sqrt(float a) { return (float)System.Math.Sqrt((float)a); }
         public static float2 sqrt(float2 a) { return new float2(sqrt(a.x), sqrt(a.y)); }

@@ -68,7 +68,7 @@ Also the fact that our `burst` compiler is able to recognize a lot more patterns
 
 In C# `int` and `float` are considered builtin types. `burst` extends this set of bultin types to also include vectors, matrices and quaternions. These types are bultin in the sense that `burst` knows about them and is be able to generate better code using these types than what would be possible with equivalent code using custom types.
 
-To signify that these types are bultin their type names in all lower case. The operators on these bultin types found in `Unity.Mathematics.math` are considered intrinsics and are thus always in lower case.
+To signify that these types are bultin their type names are in all lower case. The operators on these bultin types found in `Unity.Mathematics.math` are considered intrinsics and are thus always in lower case.
 
 There are no plans to extend the set of intrinsic types beyond the current set of vectors (`typeN`), matrices (`typeNxN`) and quaternions (`quaternion`).
 

@@ -309,5 +309,102 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4(-3.0,  4.0, -5.0,  6.0)), double4( 3.5, -4.5,  5.5, -6.5));
             Assert.AreEqual(faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4( 0.0,  0.0,  0.0,  0.0)), double4(-3.5,  4.5, -5.5,  6.5));
         }
+
+        [Test]
+        public void modf_float()
+        {
+            float f, i;
+            f = modf(313.75f, out i);
+            Assert.AreEqual(i, 313.0f);
+            Assert.AreEqual(f, 0.75f);
+
+            f = modf(-313.25f, out i);
+            Assert.AreEqual(i, -313.0f);
+            Assert.AreEqual(f, -0.25f);
+
+            f = modf(-314.0f, out i);
+            Assert.AreEqual(i, -314.0f);
+            Assert.AreEqual(f, 0.0f);
+        }
+
+        [Test]
+        public void modf_float2()
+        {
+            float2 f, i;
+            f = modf(float2(313.75f, -313.25f), out i);
+            Assert.AreEqual(i, float2(313.0f, -313.0f));
+            Assert.AreEqual(f, float2(0.75f, -0.25f));
+
+            f = modf(float2(-314.0f, 7.5f), out i);
+            Assert.AreEqual(i, float2(-314.0f, 7.0f));
+            Assert.AreEqual(f, float2(0.0f, 0.5f));
+        }
+
+        [Test]
+        public void modf_float3()
+        {
+            float3 f, i;
+            f = modf(float3(313.75f, -313.25f, -314.0f), out i);
+            Assert.AreEqual(i, float3(313.0f, -313.0f, -314.0f));
+            Assert.AreEqual(f, float3(0.75f, -0.25f, 0.0f));
+        }
+
+        [Test]
+        public void modf_float4()
+        {
+            float4 f, i;
+            f = modf(float4(313.75f, -313.25f, -314.0f, 7.5f), out i);
+            Assert.AreEqual(i, float4(313.0f, -313.0f, -314.0f, 7.0f));
+            Assert.AreEqual(f, float4(0.75f, -0.25f, 0.0f, 0.5f));
+        }
+
+        [Test]
+        public void modf_double()
+        {
+            double f, i;
+            f = modf(313.75, out i);
+            Assert.AreEqual(i, 313.0);
+            Assert.AreEqual(f, 0.75);
+
+            f = modf(-313.25, out i);
+            Assert.AreEqual(i, -313.0);
+            Assert.AreEqual(f, -0.25);
+
+            f = modf(-314.0, out i);
+            Assert.AreEqual(i, -314.0);
+            Assert.AreEqual(f, 0.0);
+        }
+
+        [Test]
+        public void modf_double2()
+        {
+            double2 f, i;
+            f = modf(double2(313.75, -313.25), out i);
+            Assert.AreEqual(i, double2(313.0, -313.0));
+            Assert.AreEqual(f, double2(0.75, -0.25));
+
+            f = modf(double2(-314.0, 7.5), out i);
+            Assert.AreEqual(i, double2(-314.0, 7.0));
+            Assert.AreEqual(f, double2(0.0, 0.5));
+        }
+
+        [Test]
+        public void modf_double3()
+        {
+            double3 f, i;
+            f = modf(double3(313.75, -313.25, -314.0), out i);
+            Assert.AreEqual(i, double3(313.0, -313.0, -314.0));
+            Assert.AreEqual(f, double3(0.75, -0.25, 0.0));
+        }
+
+        [Test]
+        public void modf_double4()
+        {
+            double4 f, i;
+            f = modf(double4(313.75, -313.25, -314.0, 7.5), out i);
+            Assert.AreEqual(i, double4(313.0, -313.0, -314.0, 7.0));
+            Assert.AreEqual(f, double4(0.75, -0.25, 0.0, 0.5f));
+        }
+
     }
 }
