@@ -406,5 +406,30 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(f, double4(0.75, -0.25, 0.0, 0.5f));
         }
 
+        [Test]
+        public void unlerp_float()
+        {
+            Assert.AreEqual(unlerp(-1.5f, 2.5f, 0.5f), 0.5f);
+            Assert.AreEqual(unlerp(-100.5f, 22.5f, lerp(-100.5f, 22.5f, 0.25f)), 0.25f);
+        }
+
+        [Test]
+        public void unlerp_double()
+        {
+            Assert.AreEqual(unlerp(-1.5, 2.5, 0.5), 0.5);
+            Assert.AreEqual(unlerp(-100.5, 22.5, lerp(-100.5, 22.5, 0.25)), 0.25);
+        }
+
+        [Test]
+        public void remap_float()
+        {
+            Assert.AreEqual(remap(-1.0f, 3.0f, -75.0f, 25.0f, 0.5f), -37.5f);
+        }
+
+        [Test]
+        public void remap_double()
+        {
+            Assert.AreEqual(remap(-1.0, 3.0, -75.0, 25.0, 0.5), -37.5);
+        }
     }
 }

@@ -283,22 +283,34 @@ namespace Unity.Mathematics
 
         // lerp
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float lerp(float a, float b, float w) { return a + w * (b - a); }
+        public static float lerp(float a, float b, float x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 lerp(float2 a, float2 b, float w) { return a + w * (b - a); }
+        public static float2 lerp(float2 a, float2 b, float x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 lerp(float3 a, float3 b, float w) { return a + w * (b - a); }
+        public static float3 lerp(float3 a, float3 b, float x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 lerp(float4 a, float4 b, float w) { return a + w * (b - a); }
+        public static float4 lerp(float4 a, float4 b, float x) { return a + x * (b - a); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double lerp(double a, double b, double w) { return a + w * (b - a); }
+        public static double lerp(double a, double b, double x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 lerp(double2 a, double2 b, double w) { return a + w * (b - a); }
+        public static double2 lerp(double2 a, double2 b, double x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 lerp(double3 a, double3 b, double w) { return a + w * (b - a); }
+        public static double3 lerp(double3 a, double3 b, double x) { return a + x * (b - a); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 lerp(double4 a, double4 b, double w) { return a + w * (b - a); }
+        public static double4 lerp(double4 a, double4 b, double x) { return a + x * (b - a); }
+
+        // unlerp - The inverse of lerp. unlerp(a, b, lerp(a, b, x)) = x
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float unlerp(float a, float b, float x) { return (x - a) / (b - a); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double unlerp(double a, double b, double x) { return (x - a) / (b - a); }
+
+        // remap - Linearly remaps a value x from [sa, sb] to [da, db]. lerp(da, db, unlerp(sa, sb, x));
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float remap(float sa, float sb, float da, float db, float x) { return lerp(da, db, unlerp(sa, sb, x)); }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double remap(double sa, double sb, double da, double db, double x) { return lerp(da, db, unlerp(sa, sb, x)); }
 
         // mad
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
