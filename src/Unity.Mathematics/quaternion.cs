@@ -298,12 +298,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4x4 m) { return new quaternion(m); }
 
+       /// <summary>Returns the conjugate of a quaternion value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion conjugate(quaternion q)
         {
             return quaternion(q.value * float4(-1.0f, -1.0f, -1.0f, 1.0f));
         }
 
+       /// <summary>Returns the inverse of a quaternion value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion inverse(quaternion q)
         {
@@ -323,7 +325,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float lengthSquared(quaternion q)
+        public static float lengthsq(quaternion q)
         {
             return dot(q.value, q.value);
         }
@@ -434,12 +436,6 @@ namespace Unity.Mathematics
                 // if the angle is small, use linear interpolation
                 return nlerp(q1, q2, t);
             }
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 forward(quaternion q)
-        {
-            return mul(q, float3(0, 0, 1));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

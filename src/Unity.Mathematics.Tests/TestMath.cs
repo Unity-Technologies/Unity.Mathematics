@@ -247,14 +247,6 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
-        public void faceforward_float()
-        {
-            Assert.AreEqual(faceforward(3.5f, 1.0f,  2.0f), -3.5f);
-            Assert.AreEqual(faceforward(3.5f, 1.0f, -2.0f),  3.5f);
-            Assert.AreEqual(faceforward(3.5f, 0.0f,  0.0f), -3.5f);
-        }
-
-        [Test]
         public void faceforward_float2()
         {
             Assert.AreEqual(faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2( 3.0f, -4.0f)), float2(-3.5f,  4.5f));
@@ -276,14 +268,6 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4( 3.0f, -4.0f,  5.0f, -6.0f)), float4(-3.5f,  4.5f, -5.5f,  6.5f));
             Assert.AreEqual(faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4(-3.0f,  4.0f, -5.0f,  6.0f)), float4( 3.5f, -4.5f,  5.5f, -6.5f));
             Assert.AreEqual(faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4( 0.0f,  0.0f,  0.0f,  0.0f)), float4(-3.5f,  4.5f, -5.5f,  6.5f));
-        }
-
-        [Test]
-        public void faceforward_double()
-        {
-            Assert.AreEqual(faceforward(3.5,  1.0,  2.0), -3.5);
-            Assert.AreEqual(faceforward(3.5,  1.0, -2.0),  3.5);
-            Assert.AreEqual(faceforward(3.5,  0.0,  0.0), -3.5);
         }
 
         [Test]
