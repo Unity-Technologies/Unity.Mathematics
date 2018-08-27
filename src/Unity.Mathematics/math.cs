@@ -450,15 +450,28 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lerp(float x, float y, float s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 lerp(float2 x, float2 y, float s) { return x + s * (y - x); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 lerp(float3 x, float3 y, float s) { return x + s * (y - x); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 lerp(float4 x, float4 y, float s) { return x + s * (y - x); }
+
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 lerp(float2 x, float2 y, float2 s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 lerp(float3 x, float3 y, float3 s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 lerp(float4 x, float4 y, float4 s) { return x + s * (y - x); }
 
@@ -467,15 +480,28 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lerp(double x, double y, double s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 lerp(double2 x, double2 y, double s) { return x + s * (y - x); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 lerp(double3 x, double3 y, double s) { return x + s * (y - x); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 lerp(double4 x, double4 y, double s) { return x + s * (y - x); }
+
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 lerp(double2 x, double2 y, double2 s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 lerp(double3 x, double3 y, double3 s) { return x + s * (y - x); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 lerp(double4 x, double4 y, double4 s) { return x + s * (y - x); }
 
