@@ -32,7 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a bool2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool2 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool v)
         {
@@ -375,7 +375,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool2 xy) { return new bool2(xy); }
 
-        /// <summary>Returns a bool2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool2 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool v) { return new bool2(v); }
 

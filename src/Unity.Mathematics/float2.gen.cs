@@ -32,7 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a float2 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float v)
         {
@@ -541,7 +541,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float2 xy) { return new float2(xy); }
 
-        /// <summary>Returns a float2 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float v) { return new float2(v); }
 

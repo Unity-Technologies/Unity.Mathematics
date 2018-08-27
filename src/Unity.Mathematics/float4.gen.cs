@@ -92,7 +92,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a float4 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Constructs a float4 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float v)
         {
@@ -3221,7 +3221,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(float4 xyzw) { return new float4(xyzw); }
 
-        /// <summary>Returns a float4 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Returns a float4 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(float v) { return new float4(v); }
 

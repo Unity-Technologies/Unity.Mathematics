@@ -94,7 +94,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a bool4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool4 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool v)
         {
@@ -3041,7 +3041,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
 
-        /// <summary>Returns a bool4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool4 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool v) { return new bool4(v); }
 

@@ -52,7 +52,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a bool3 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool3 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool v)
         {
@@ -1136,7 +1136,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
-        /// <summary>Returns a bool3 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool v) { return new bool3(v); }
 

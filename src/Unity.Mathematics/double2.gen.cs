@@ -32,7 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a double2 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Constructs a double2 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double v)
         {
@@ -541,7 +541,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double2 xy) { return new double2(xy); }
 
-        /// <summary>Returns a double2 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Returns a double2 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double v) { return new double2(v); }
 

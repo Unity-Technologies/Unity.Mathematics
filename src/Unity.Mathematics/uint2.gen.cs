@@ -32,7 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a uint2 matrix constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Constructs a uint2 vector constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint v)
         {
@@ -578,7 +578,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint2 xy) { return new uint2(xy); }
 
-        /// <summary>Returns a uint2 matrix constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Returns a uint2 vector constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint v) { return new uint2(v); }
 

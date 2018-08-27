@@ -282,8 +282,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
                 else
                 {
-                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} constructed from a single {2} value by assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
                     opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every entry.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
                 }
             }

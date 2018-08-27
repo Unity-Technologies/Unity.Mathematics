@@ -92,7 +92,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a double4 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Constructs a double4 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double v)
         {
@@ -3221,7 +3221,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double4 xyzw) { return new double4(xyzw); }
 
-        /// <summary>Returns a double4 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Returns a double4 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double v) { return new double4(v); }
 

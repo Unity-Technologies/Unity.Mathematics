@@ -51,7 +51,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a float3 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Constructs a float3 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float v)
         {
@@ -1309,7 +1309,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float3 xyz) { return new float3(xyz); }
 
-        /// <summary>Returns a float3 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Returns a float3 vector constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float v) { return new float3(v); }
 

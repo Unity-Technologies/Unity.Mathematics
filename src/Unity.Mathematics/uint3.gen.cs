@@ -51,7 +51,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a uint3 matrix constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint v)
         {
@@ -1346,7 +1346,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint3 xyz) { return new uint3(xyz); }
 
-        /// <summary>Returns a uint3 matrix constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint v) { return new uint3(v); }
 

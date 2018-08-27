@@ -51,7 +51,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a double3 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Constructs a double3 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double v)
         {
@@ -1309,7 +1309,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double3 xyz) { return new double3(xyz); }
 
-        /// <summary>Returns a double3 matrix constructed from a single double value by assigning it to every entry.</summary>
+        /// <summary>Returns a double3 vector constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double v) { return new double3(v); }
 

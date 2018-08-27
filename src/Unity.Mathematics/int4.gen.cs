@@ -92,7 +92,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a int4 matrix constructed from a single int value by assigning it to every entry.</summary>
+        /// <summary>Constructs a int4 vector constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(int v)
         {
@@ -3258,7 +3258,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(int4 xyzw) { return new int4(xyzw); }
 
-        /// <summary>Returns a int4 matrix constructed from a single int value by assigning it to every entry.</summary>
+        /// <summary>Returns a int4 vector constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(int v) { return new int4(v); }
 

@@ -51,7 +51,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a int3 matrix constructed from a single int value by assigning it to every entry.</summary>
+        /// <summary>Constructs a int3 vector constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int v)
         {
@@ -1346,7 +1346,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int3 xyz) { return new int3(xyz); }
 
-        /// <summary>Returns a int3 matrix constructed from a single int value by assigning it to every entry.</summary>
+        /// <summary>Returns a int3 vector constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int v) { return new int3(v); }
 
