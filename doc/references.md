@@ -33,7 +33,7 @@ The following table shows the list of intrinsic functions exposed by the static 
 |degrees         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-degrees) | Returns the result of a componentwise conversion of a vector or scalar value from radians to degrees.
 |determinant     | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-determinant) | Returns the determinant of a square integer or floating point matrix.
 |distance        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-distance) | Returns the distance between two scalar or vector values.
-|dot             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-dot) | Returns the dot product of two vectors of the same type.
+|dot             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-dot) | Returns the dot product of two quaternion or two vectors of the same type.
 |exp             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-exp) | Returns the componentwise base-e exponential of a vector or scalar value.
 |exp2            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-exp2) | Returns the componentwise base-2 exponential of a vector or scalar value.
 |exp10           |   | Returns the componentwise base-10 exponential of a vector or scalar value.
@@ -41,14 +41,14 @@ The following table shows the list of intrinsic functions exposed by the static 
 |fastinverse     |   | Returns the inverse of a square matrix that is assumed to represent a rigid transformation (only rotation, reflection and translation). A faster alternative to inverse when applicable.
 |floor           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-floor) | Returns the result of rounding each component of a vector or scalar to the nearest integral value less or equal to the original value.
 |frac            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-frac) | Returns the componentwise fractional parts of a floating point vector or scalar.
-|hash            |   |
-|hashwide        |   |
+|hash            |   | Returns a uint hash code of a matrix, vector, quaternion or scalar type.
+|hashwide        |   | Returns a uint vector hash code of a matrix, vector, quaternion or scalar type. The number of components of the result corresponds to the number of rows in the input. When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hashes that are only reduced to a narrow uint hash at the very end.
 |inverse         |   | Returns the full inverse of a square matrix or quaternion.
 |isfinite        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isfinite) | Returns a bool vector of equal length to the input indicating for each component whether the value is a finite floating point number.
 |isinf           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isinf) | Returns a bool vector of equal length to the input indicating for each component whether the value is an infinite floating point number.
 |isnan           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-isnan) | Returns a bool vector of equal length to the input indicating for each component whether the value is NaN (not a number) floating point number.
-|length          | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-length) | Returns the length of a scalar or vector value.
-|lengthsq        |   | Returns the squared length of a scalar or vector value.
+|length          | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-length) | Returns the length of a vector, quaternion or scalar value.
+|lengthsq        |   | Returns the squared length of a vector, quaternion or scalar value.
 |lerp            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-lerp) | Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.
 |log             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log) | Returns the componentwise natural logarithm of a scalar or vector value.
 |log2            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-log2) | Returns the componentwise base-2 logarithm of a scalar or vector value.
@@ -61,29 +61,29 @@ The following table shows the list of intrinsic functions exposed by the static 
 |modf            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-modf) | Performs a componentwise split of a vector or scalar into an integral part i and a fractional part that gets returned. Both parts take the sign of the corresponding input component.
 |mul             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul) |
 |nfence          |   |
-|nlerp           |   |
-|normalize       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of the vector x by scaling it by 1 / length(x).
-|orthogonalize   |   |
-|pow             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pow) |
-|powr            |   |
+|nlerp           |   | Returns the result of a normalized linear interpolation between two quaternions using an interpolation parameter.
+|normalize       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of a vector or quaternion x by scaling it by 1 / length(x).
+|orthogonalize   |   | Returns the result of orthogonalizing a matrix.
+|pow             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pow) | Returns the componentwise result of raising x to the power y.
+|powr            |   | Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.
 |radians         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-radians) | Returns the result of a componentwise conversion of a vector or scalar value from degrees to radians.
 |rcp             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-rcp) | Returns the componentwise reciprocal of a scalar or vector value.
 |reflect         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-reflect) | Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2 * dot(i, n) * n.
 |refract         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-refract) | Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.
-|remap           |   | Returns the result of a non-clamping linear remapping of a value x from [a, b] to [c, d].
+|remap           |   | Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].
 |reversebits     | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-reversebits) | Returns the result of performing a componentwise reversal of the bit pattern of an integer vector or scalar.
 |rotate          |   |
 |round           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-round) | Returns the result of rounding each component of a vector or scalar to the nearest integral value.
 |rsqrt           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-rsqrt) | Returns the componentwise reciprocal square root of a scalar or vector value.
 |saturate        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-saturate) |  Returns the result of a componentwise clamping of the input scalar or vector value x into the interval [0, 1].
 |select          |   | Returns a componentwise selection between two vectors and b based on a boolean mask c. Per component b is selected when the corresponding component in c is true, a otherwise.
-|shuffle         |   |
-|sign            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sign) |
+|shuffle         |   | Returns the result of a specified static shuffling of the components of two vectors of the same type.
+|sign            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sign) | Returns the componentwise sign of a vector or scalar value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.
 |sin             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sin) | Returns the componentwise sine of a scalar or vector value.
 |sincos          | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sincos) | Returns the componentwise sine and cosine of a vector or scalar value.
 |sinh            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sinh) | Returns the componentwise hyperbolic sine of a scalar or vector value.
-|slerp           |   |
-|smoothstep      | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-smoothstep) |
+|slerp           |   | Returns the result of a spherical interpolation between two quaternions using an interpolation parameter.
+|smoothstep      | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-smoothstep) | Returns a componenwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].
 |sqrt            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-sqrt) | Returns the componentwise square root of a scalar or vector value.
 |step            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-step) | Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.
 |tan             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-tan) | Returns the componentwise tangent of a scalar or vector value.
@@ -92,6 +92,6 @@ The following table shows the list of intrinsic functions exposed by the static 
 |transpose       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-transpose) | Returns the transpose of a matrix.
 |trunc           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-trunc) | Returns the result of a componentwise truncation of a floating point vector or scalar value to an integral value of the same type.
 |tzcnt           |   | Returns the componentwise number of trailing zeros in the binary representations of an integer scalar or vector value.
-|unitexp         |   |
-|unitlog         |   |
-|unlerp          |   |
+|unitexp         |   | Returns the natural exponent of a quaternion. Assumes w is zero.
+|unitlog         |   | Returns the natural logarithm of a unit length quaternion.
+|unlerp          |   | Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).

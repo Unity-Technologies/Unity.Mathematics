@@ -506,21 +506,72 @@ namespace Unity.Mathematics
         public static double4 lerp(double4 x, double4 y, double4 s) { return x + s * (y - x); }
 
 
-        // unlerp - The inverse of lerp. unlerp(a, b, lerp(a, b, x)) = x
+        /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float unlerp(float a, float b, float x) { return (x - a) / (b - a); }
+
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 unlerp(float2 a, float2 b, float2 x) { return (x - a) / (b - a); }
+
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 unlerp(float3 a, float3 b, float3 x) { return (x - a) / (b - a); }
+
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 unlerp(float4 a, float4 b, float4 x) { return (x - a) / (b - a); }
+
+
+        /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double unlerp(double a, double b, double x) { return (x - a) / (b - a); }
 
-        // remap - Linearly remaps a value x from [sa, sb] to [da, db]. lerp(da, db, unlerp(sa, sb, x));
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 unlerp(double2 a, double2 b, double2 x) { return (x - a) / (b - a); }
+
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 unlerp(double3 a, double3 b, double3 x) { return (x - a) / (b - a); }
+
+        /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 unlerp(double4 a, double4 b, double4 x) { return (x - a) / (b - a); }
+
 
         /// <summary>Returns the result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float remap(float a, float b, float c, float d, float x) { return lerp(c, d, unlerp(a, b, x)); }
 
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 remap(float2 a, float2 b, float2 c, float2 d, float2 x) { return lerp(c, d, unlerp(a, b, x)); }
+
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 remap(float3 a, float3 b, float3 c, float3 d, float3 x) { return lerp(c, d, unlerp(a, b, x)); }
+
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 remap(float4 a, float4 b, float4 c, float4 d, float4 x) { return lerp(c, d, unlerp(a, b, x)); }
+
+
         /// <summary>Returns the result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double remap(double a, double b, double c, double d, double x) { return lerp(c, d, unlerp(a, b, x)); }
+
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 remap(double2 a, double2 b, double2 c, double2 d, double2 x) { return lerp(c, d, unlerp(a, b, x)); }
+
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 remap(double3 a, double3 b, double3 c, double3 d, double3 x) { return lerp(c, d, unlerp(a, b, x)); }
+
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 remap(double4 a, double4 b, double4 c, double4 d, double4 x) { return lerp(c, d, unlerp(a, b, x)); }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 int values </summary>
@@ -1697,24 +1748,28 @@ namespace Unity.Mathematics
         public static double3 cross(double3 x, double3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
 
+        /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
         public static float smoothstep(float a, float b, float x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0f - (2.0f * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
         public static float2 smoothstep(float2 a, float2 b, float2 x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0f - (2.0f * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
         public static float3 smoothstep(float3 a, float3 b, float3 x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0f - (2.0f * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
         public static float4 smoothstep(float4 a, float4 b, float4 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -1722,24 +1777,28 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
         public static double smoothstep(double a, double b, double x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0 - (2.0 * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
         public static double2 smoothstep(double2 a, double2 b, double2 x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0 - (2.0 * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
         public static double3 smoothstep(double3 a, double3 b, double3 x)
         {
             var t = saturate((x - a) / (b - a));
             return t * t * (3.0 - (2.0 * t));
         }
 
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
         public static double4 smoothstep(double4 a, double4 b, double4 x)
         {
             var t = saturate((x - a) / (b - a));
