@@ -198,6 +198,11 @@ namespace Unity.Mathematics
             return hash(t.rot) + 0xC5C5394Bu * hash(t.pos);
         }
 
+        /// <summary>
+        /// Returns a uint4 vector hash code of a RigidTransform.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(RigidTransform t)
         {

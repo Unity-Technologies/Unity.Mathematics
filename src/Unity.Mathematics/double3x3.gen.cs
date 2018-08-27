@@ -13,10 +13,14 @@ namespace Unity.Mathematics
         public double3 c1;
         public double3 c2;
 
+        /// <summary>double3x3 identity transform.</summary>
         public static readonly double3x3 identity = new double3x3(1.0, 0.0, 0.0,   0.0, 1.0, 0.0,   0.0, 0.0, 1.0);
+
+        /// <summary>double3x3 zero value.</summary>
         public static readonly double3x3 zero = new double3x3(0.0, 0.0, 0.0,   0.0, 0.0, 0.0,   0.0, 0.0, 0.0);
 
-        // constructors
+
+        /// <summary>Constructs a double3x3 matrix from 3 double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(double3 c0, double3 c1, double3 c2)
         { 
@@ -25,6 +29,7 @@ namespace Unity.Mathematics
             this.c2 = c2;
         }
 
+        /// <summary>Constructs a double3x3 matrix from 9 double values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(double m00, double m01, double m02,
                          double m10, double m11, double m12,
@@ -35,6 +40,7 @@ namespace Unity.Mathematics
             this.c2 = new double3(m02, m12, m22);
         }
 
+        /// <summary>Constructs a double3x3 matrix constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(double v)
         {
@@ -43,6 +49,7 @@ namespace Unity.Mathematics
             this.c2 = v;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a single bool value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(bool v)
         {
@@ -51,6 +58,7 @@ namespace Unity.Mathematics
             this.c2 = math.select(new double3(0.0), new double3(1.0), v);
         }
 
+        /// <summary>Constructs a double3x3 matrix from a bool3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(bool3x3 v)
         {
@@ -59,6 +67,7 @@ namespace Unity.Mathematics
             this.c2 = math.select(new double3(0.0), new double3(1.0), v.c2);
         }
 
+        /// <summary>Constructs a double3x3 matrix from a single int value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(int v)
         {
@@ -67,6 +76,7 @@ namespace Unity.Mathematics
             this.c2 = v;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a int3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(int3x3 v)
         {
@@ -75,6 +85,7 @@ namespace Unity.Mathematics
             this.c2 = v.c2;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a single uint value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(uint v)
         {
@@ -83,6 +94,7 @@ namespace Unity.Mathematics
             this.c2 = v;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(uint3x3 v)
         {
@@ -91,6 +103,7 @@ namespace Unity.Mathematics
             this.c2 = v.c2;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a single float value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(float v)
         {
@@ -99,6 +112,7 @@ namespace Unity.Mathematics
             this.c2 = v;
         }
 
+        /// <summary>Constructs a double3x3 matrix from a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(float3x3 v)
         {
@@ -282,9 +296,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a double3x3 matrix constructed from 3 double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(double3 c0, double3 c1, double3 c2) { return new double3x3(c0, c1, c2); }
 
+        /// <summary>Returns a double3x3 matrix constructed from from 9 double values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(double m00, double m01, double m02,
                                           double m10, double m11, double m12,
@@ -295,33 +311,43 @@ namespace Unity.Mathematics
                                  m20, m21, m22);
         }
 
+        /// <summary>Returns a double3x3 matrix constructed from a single double value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(double v) { return new double3x3(v); }
 
+        /// <summary>Returns a double3x3 matrix constructed from a single bool value by convering it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(bool v) { return new double3x3(v); }
 
+        /// <summary>Return a double3x3 matrix constructed from a bool3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(bool3x3 v) { return new double3x3(v); }
 
+        /// <summary>Returns a double3x3 matrix constructed from a single int value by convering it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(int v) { return new double3x3(v); }
 
+        /// <summary>Return a double3x3 matrix constructed from a int3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(int3x3 v) { return new double3x3(v); }
 
+        /// <summary>Returns a double3x3 matrix constructed from a single uint value by convering it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(uint v) { return new double3x3(v); }
 
+        /// <summary>Return a double3x3 matrix constructed from a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(uint3x3 v) { return new double3x3(v); }
 
+        /// <summary>Returns a double3x3 matrix constructed from a single float value by convering it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(float v) { return new double3x3(v); }
 
+        /// <summary>Return a double3x3 matrix constructed from a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 double3x3(float3x3 v) { return new double3x3(v); }
 
+        /// <summary>Return the double3x3 transpose of a double3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x3 transpose(double3x3 v)
         {
@@ -373,6 +399,7 @@ public static double3x3 inverse(double3x3 m)
             return c0.x * m00 - c1.x * m01 + c2.x * m02;
         }
 
+        /// <summary>Returns a uint hash code of a double3x3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x3 v)
         {
@@ -381,6 +408,11 @@ public static double3x3 inverse(double3x3 m)
                         fold_to_uint(v.c2) * uint3(0x83B58237u, 0x833E3E29u, 0xA9D919BFu)) + 0xC3EC1D97u;
         }
 
+        /// <summary>
+        /// Returns a uint3 vector hash code of a double3x3 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3x3 v)
         {

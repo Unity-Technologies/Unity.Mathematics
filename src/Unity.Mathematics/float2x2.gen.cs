@@ -12,10 +12,14 @@ namespace Unity.Mathematics
         public float2 c0;
         public float2 c1;
 
+        /// <summary>float2x2 identity transform.</summary>
         public static readonly float2x2 identity = new float2x2(1.0f, 0.0f,   0.0f, 1.0f);
+
+        /// <summary>float2x2 zero value.</summary>
         public static readonly float2x2 zero = new float2x2(0.0f, 0.0f,   0.0f, 0.0f);
 
-        // constructors
+
+        /// <summary>Constructs a float2x2 matrix from 2 float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float2 c0, float2 c1)
         { 
@@ -23,6 +27,7 @@ namespace Unity.Mathematics
             this.c1 = c1;
         }
 
+        /// <summary>Constructs a float2x2 matrix from 4 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float m00, float m01,
                         float m10, float m11)
@@ -31,6 +36,7 @@ namespace Unity.Mathematics
             this.c1 = new float2(m01, m11);
         }
 
+        /// <summary>Constructs a float2x2 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float v)
         {
@@ -38,6 +44,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(bool v)
         {
@@ -45,6 +52,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new float2(0.0f), new float2(1.0f), v);
         }
 
+        /// <summary>Constructs a float2x2 matrix from a bool2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(bool2x2 v)
         {
@@ -52,6 +60,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new float2(0.0f), new float2(1.0f), v.c1);
         }
 
+        /// <summary>Constructs a float2x2 matrix from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(int v)
         {
@@ -59,6 +68,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a int2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(int2x2 v)
         {
@@ -66,6 +76,7 @@ namespace Unity.Mathematics
             this.c1 = v.c1;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(uint v)
         {
@@ -73,6 +84,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a uint2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(uint2x2 v)
         {
@@ -80,6 +92,7 @@ namespace Unity.Mathematics
             this.c1 = v.c1;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(double v)
         {
@@ -87,6 +100,7 @@ namespace Unity.Mathematics
             this.c1 = (float2)v;
         }
 
+        /// <summary>Constructs a float2x2 matrix from a double2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(double2x2 v)
         {
@@ -269,9 +283,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a float2x2 matrix constructed from 2 float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(float2 c0, float2 c1) { return new float2x2(c0, c1); }
 
+        /// <summary>Returns a float2x2 matrix constructed from from 4 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(float m00, float m01,
                                         float m10, float m11)
@@ -280,33 +296,43 @@ namespace Unity.Mathematics
                                 m10, m11);
         }
 
+        /// <summary>Returns a float2x2 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(float v) { return new float2x2(v); }
 
+        /// <summary>Returns a float2x2 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(bool v) { return new float2x2(v); }
 
+        /// <summary>Return a float2x2 matrix constructed from a bool2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(bool2x2 v) { return new float2x2(v); }
 
+        /// <summary>Returns a float2x2 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(int v) { return new float2x2(v); }
 
+        /// <summary>Return a float2x2 matrix constructed from a int2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(int2x2 v) { return new float2x2(v); }
 
+        /// <summary>Returns a float2x2 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(uint v) { return new float2x2(v); }
 
+        /// <summary>Return a float2x2 matrix constructed from a uint2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(uint2x2 v) { return new float2x2(v); }
 
+        /// <summary>Returns a float2x2 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(double v) { return new float2x2(v); }
 
+        /// <summary>Return a float2x2 matrix constructed from a double2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(double2x2 v) { return new float2x2(v); }
 
+        /// <summary>Return the float2x2 transpose of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 transpose(float2x2 v)
         {
@@ -339,6 +365,7 @@ namespace Unity.Mathematics
             return a * d - b * c;
         }
 
+        /// <summary>Returns a uint hash code of a float2x2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x2 v)
         {
@@ -346,6 +373,11 @@ namespace Unity.Mathematics
                         asuint(v.c1) * uint2(0xDB3DE101u, 0x7B6D1B4Bu)) + 0x58399E77u;
         }
 
+        /// <summary>
+        /// Returns a uint2 vector hash code of a float2x2 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2x2 v)
         {

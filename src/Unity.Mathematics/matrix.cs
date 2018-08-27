@@ -489,7 +489,7 @@ namespace Unity.Mathematics
             float lenU = math.length(u);
             float lenV = math.length(v);
 
-            bool c = lenU > epsilon_normal && lenV > epsilon_normal;
+            bool c = lenU > 1e-30f && lenV > 1e-30f;
 
             o.c0 = math.select(float3(1, 0, 0), u / lenU, c);
             o.c1 = math.select(float3(0, 1, 0), v / lenV, c);

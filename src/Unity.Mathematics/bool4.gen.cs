@@ -22,7 +22,6 @@ namespace Unity.Mathematics
         public bool w;
 
 
-        // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool z, bool w)
         { 
@@ -95,6 +94,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
+        /// <summary>Constructs a bool4 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool v)
         {
@@ -3040,15 +3040,22 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
 
+        /// <summary>Returns a bool4 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool v) { return new bool4(v); }
 
+        /// <summary>Returns a uint hash code of a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4 v)
         {
             return csum(select(uint4(0xC53F4755u, 0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u), uint4(0xFE31134Fu, 0x712A34D7u, 0x9D77A59Bu, 0x4942CA39u), v));
         }
 
+        /// <summary>
+        /// Returns a uint4 vector hash code of a bool4 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(bool4 v)
         {

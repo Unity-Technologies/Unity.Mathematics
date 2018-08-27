@@ -18,7 +18,6 @@ namespace Unity.Mathematics
         public bool y;
 
 
-        // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool x, bool y)
         { 
@@ -33,6 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
+        /// <summary>Constructs a bool2 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool v)
         {
@@ -374,15 +374,22 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool2 xy) { return new bool2(xy); }
 
+        /// <summary>Returns a bool2 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool v) { return new bool2(v); }
 
+        /// <summary>Returns a uint hash code of a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2 v)
         {
             return csum(select(uint2(0xDCDD5341u, 0x94DDD769u), uint2(0xA1E92D39u, 0x4583C801u), v));
         }
 
+        /// <summary>
+        /// Returns a uint2 vector hash code of a bool2 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(bool2 v)
         {

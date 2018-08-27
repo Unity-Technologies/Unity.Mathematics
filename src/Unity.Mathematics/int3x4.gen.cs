@@ -14,9 +14,11 @@ namespace Unity.Mathematics
         public int3 c2;
         public int3 c3;
 
+        /// <summary>int3x4 zero value.</summary>
         public static readonly int3x4 zero = new int3x4(0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0);
 
-        // constructors
+
+        /// <summary>Constructs a int3x4 matrix from 4 int3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(int3 c0, int3 c1, int3 c2, int3 c3)
         { 
@@ -26,6 +28,7 @@ namespace Unity.Mathematics
             this.c3 = c3;
         }
 
+        /// <summary>Constructs a int3x4 matrix from 12 int values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(int m00, int m01, int m02, int m03,
                       int m10, int m11, int m12, int m13,
@@ -37,6 +40,7 @@ namespace Unity.Mathematics
             this.c3 = new int3(m03, m13, m23);
         }
 
+        /// <summary>Constructs a int3x4 matrix constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(int v)
         {
@@ -46,6 +50,7 @@ namespace Unity.Mathematics
             this.c3 = v;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(bool v)
         {
@@ -55,6 +60,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new int3(0), new int3(1), v);
         }
 
+        /// <summary>Constructs a int3x4 matrix from a bool3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(bool3x4 v)
         {
@@ -64,6 +70,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new int3(0), new int3(1), v.c3);
         }
 
+        /// <summary>Constructs a int3x4 matrix from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(uint v)
         {
@@ -73,6 +80,7 @@ namespace Unity.Mathematics
             this.c3 = (int3)v;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a uint3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(uint3x4 v)
         {
@@ -82,6 +90,7 @@ namespace Unity.Mathematics
             this.c3 = (int3)v.c3;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(float v)
         {
@@ -91,6 +100,7 @@ namespace Unity.Mathematics
             this.c3 = (int3)v;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a float3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(float3x4 v)
         {
@@ -100,6 +110,7 @@ namespace Unity.Mathematics
             this.c3 = (int3)v.c3;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(double v)
         {
@@ -109,6 +120,7 @@ namespace Unity.Mathematics
             this.c3 = (int3)v;
         }
 
+        /// <summary>Constructs a int3x4 matrix from a double3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x4(double3x4 v)
         {
@@ -330,9 +342,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a int3x4 matrix constructed from 4 int3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(int3 c0, int3 c1, int3 c2, int3 c3) { return new int3x4(c0, c1, c2, c3); }
 
+        /// <summary>Returns a int3x4 matrix constructed from from 12 int values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(int m00, int m01, int m02, int m03,
                                     int m10, int m11, int m12, int m13,
@@ -343,33 +357,43 @@ namespace Unity.Mathematics
                               m20, m21, m22, m23);
         }
 
+        /// <summary>Returns a int3x4 matrix constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(int v) { return new int3x4(v); }
 
+        /// <summary>Returns a int3x4 matrix constructed from a single bool value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(bool v) { return new int3x4(v); }
 
+        /// <summary>Return a int3x4 matrix constructed from a bool3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(bool3x4 v) { return new int3x4(v); }
 
+        /// <summary>Returns a int3x4 matrix constructed from a single uint value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(uint v) { return new int3x4(v); }
 
+        /// <summary>Return a int3x4 matrix constructed from a uint3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(uint3x4 v) { return new int3x4(v); }
 
+        /// <summary>Returns a int3x4 matrix constructed from a single float value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(float v) { return new int3x4(v); }
 
+        /// <summary>Return a int3x4 matrix constructed from a float3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(float3x4 v) { return new int3x4(v); }
 
+        /// <summary>Returns a int3x4 matrix constructed from a single double value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(double v) { return new int3x4(v); }
 
+        /// <summary>Return a int3x4 matrix constructed from a double3x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 int3x4(double3x4 v) { return new int3x4(v); }
 
+        /// <summary>Return the int4x3 transpose of a int3x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 transpose(int3x4 v)
         {
@@ -380,6 +404,7 @@ namespace Unity.Mathematics
                 v.c3.x, v.c3.y, v.c3.z);
         }
 
+        /// <summary>Returns a uint hash code of a int3x4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x4 v)
         {
@@ -389,6 +414,11 @@ namespace Unity.Mathematics
                         asuint(v.c3) * uint3(0x8B65ADB7u, 0xDFF4F563u, 0x7069770Du)) + 0xD1224537u;
         }
 
+        /// <summary>
+        /// Returns a uint3 vector hash code of a int3x4 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3x4 v)
         {

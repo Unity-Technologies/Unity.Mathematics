@@ -15,9 +15,10 @@ namespace Unity.Mathematics
         public int y;
         public int z;
 
+        /// <summary>int3 zero value.</summary>
         public static readonly int3 zero = new int3(0,   0,   0);
 
-        // constructors
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int y, int z)
         { 
@@ -50,6 +51,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
+        /// <summary>Constructs a int3 matrix constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int v)
         {
@@ -58,6 +60,7 @@ namespace Unity.Mathematics
             this.z = v;
         }
 
+        /// <summary>Constructs a int3 matrix from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(bool v)
         {
@@ -66,6 +69,7 @@ namespace Unity.Mathematics
             this.z = v ? 1 : 0;
         }
 
+        /// <summary>Constructs a int3 matrix from a bool3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(bool3 v)
         {
@@ -74,6 +78,7 @@ namespace Unity.Mathematics
             this.z = v.z ? 1 : 0;
         }
 
+        /// <summary>Constructs a int3 matrix from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(uint v)
         {
@@ -82,6 +87,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
+        /// <summary>Constructs a int3 matrix from a uint3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(uint3 v)
         {
@@ -90,6 +96,7 @@ namespace Unity.Mathematics
             this.z = (int)v.z;
         }
 
+        /// <summary>Constructs a int3 matrix from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(float v)
         {
@@ -98,6 +105,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
+        /// <summary>Constructs a int3 matrix from a float3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(float3 v)
         {
@@ -106,6 +114,7 @@ namespace Unity.Mathematics
             this.z = (int)v.z;
         }
 
+        /// <summary>Constructs a int3 matrix from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(double v)
         {
@@ -114,6 +123,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
+        /// <summary>Constructs a int3 matrix from a double3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(double3 v)
         {
@@ -1319,39 +1329,54 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int3 xyz) { return new int3(xyz); }
 
+        /// <summary>Returns a int3 matrix constructed from a single int value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int v) { return new int3(v); }
 
+        /// <summary>Returns a int3 matrix constructed from a single bool value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(bool v) { return new int3(v); }
 
+        /// <summary>Return a int3 matrix constructed from a bool3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(bool3 v) { return new int3(v); }
 
+        /// <summary>Returns a int3 matrix constructed from a single uint value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(uint v) { return new int3(v); }
 
+        /// <summary>Return a int3 matrix constructed from a uint3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(uint3 v) { return new int3(v); }
 
+        /// <summary>Returns a int3 matrix constructed from a single float value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(float v) { return new int3(v); }
 
+        /// <summary>Return a int3 matrix constructed from a float3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(float3 v) { return new int3(v); }
 
+        /// <summary>Returns a int3 matrix constructed from a single double value by convering it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(double v) { return new int3(v); }
 
+        /// <summary>Return a int3 matrix constructed from a double3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(double3 v) { return new int3(v); }
 
+        /// <summary>Returns a uint hash code of a int3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3 v)
         {
             return csum(asuint(v) * uint3(0xD4DFF6D3u, 0xCB634F4Du, 0x9B13B92Du)) + 0x4ABF0813u;
         }
 
+        /// <summary>
+        /// Returns a uint3 vector hash code of a int3 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3 v)
         {

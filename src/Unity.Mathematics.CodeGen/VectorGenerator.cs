@@ -203,6 +203,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (m_Rows == m_Columns)
                 {
                     string oneStr = ToTypedLiteral(m_BaseType, 1);
+                    str.AppendFormat("\t\t/// <summary>{0} identity transform.</summary>\n", m_TypeName);
                     str.AppendFormat("\t\tpublic static readonly {0} identity = new {0}(", m_TypeName);
                     for (int row = 0; row < m_Rows; row++)
                     {
@@ -215,10 +216,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             str.Append(row == column ? oneStr : zeroStr);
                         }
                     }
-                    str.Append(");\n");
+                    str.Append(");\n\n");
                 }
 
                 // zero
+                str.AppendFormat("\t\t/// <summary>{0} zero value.</summary>\n", m_TypeName);
                 str.AppendFormat("\t\tpublic static readonly {0} zero = new {0}(", m_TypeName);
 
                 for (int row = 0; row < m_Rows; row++)
@@ -232,7 +234,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         str.Append(zeroStr);
                     }
                 }
-                str.Append(");\n");
+                str.Append(");\n\n");
             }
 
             str.Append("\n");
@@ -268,6 +270,28 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             string dstFieldType = (m_Columns > 1) ? ToTypeName(m_BaseType, m_Rows, 1) : m_BaseType;
 
+            if(isScalar)
+            {
+                if(sourceBaseType != m_BaseType)
+                {
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from a single {1} value by converting it to {2} and assigning it to every entry.</summary>\n", m_TypeName, sourceType, m_BaseType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from a single {1} value by convering it to {2} and assigning it to every entry.</summary>\n", m_TypeName, sourceType, m_BaseType);
+                }
+                else
+                {
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
+                }
+            }
+            else
+            {
+                if (sourceBaseType != m_BaseType)
+                {
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from a {1} matrix by componentwise conversion.</summary>\n", m_TypeName, sourceType);
+                    mathStr.AppendFormat("\t\t/// <summary>Return a {0} matrix constructed from a {1} matrix by componentwise conversion.</summary>\n", m_TypeName, sourceType);
+                }
+            }
+            
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic {0}({1} v)\n", m_TypeName, sourceType);
             str.Append("\t\t{\n");
@@ -723,10 +747,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public void GenerateMatrixColumnConstructor(StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
+            string columnType = ToTypeName(m_BaseType, m_Rows, 1);
+
+            constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1} {2} vectors.</summary>\n", m_TypeName, m_Columns, columnType);
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
+
+            mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from {1} {2} vectors.</summary>\n", m_TypeName, m_Columns, columnType);
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -734,7 +763,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             mathStr.Append(m_TypeName);
             mathStr.Append("(");
 
-            string columnType = ToTypeName(m_BaseType, m_Rows, 1);
             for (int column = 0; column < m_Columns; column++)
             {
                 if (column != 0)
@@ -781,10 +809,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public void GenerateMatrixRowConstructor(StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
+            constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
+            mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -870,8 +900,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         public void GenerateConstructors(StringBuilder constructorStr, StringBuilder mathStr)
         {
-            constructorStr.Append("\t\t// constructors\n");
-            
             if(m_Columns == 1)
             {
                 int[] parameterComponenets = new int[4];
@@ -980,6 +1008,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 return;
 
             string resultType = ToTypeName(m_BaseType, m_Columns, m_Rows);
+            str.AppendFormat("\t\t/// <summary>Return the {0} transpose of a {1} matrix.</summary>\n", resultType, m_TypeName);
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} transpose({1} v)\n", resultType, m_TypeName);
             str.Append("\t\t{\n");
@@ -1276,6 +1305,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             string returnType = wide ? ToTypeName("uint", m_Rows, 1) : "uint";
             string functionName = wide ? "hashwide" : "hash";
+
+            if(wide)
+            {
+                str.AppendFormat("\t\t/// <summary>\n" +
+                            "\t\t/// Returns a {0} vector hash code of a {1} vector.\n" +
+                            "\t\t/// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash\n" +
+                            "\t\t/// that are only reduced to a narrow uint hash at the very end instead of at every step.\n" +
+                            "\t\t/// </summary>\n", returnType, m_TypeName);
+            }
+            else
+            {
+                str.AppendFormat("\t\t/// <summary>Returns a uint hash code of a {0} vector.</summary>\n", m_TypeName);
+            }
+
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, m_TypeName);

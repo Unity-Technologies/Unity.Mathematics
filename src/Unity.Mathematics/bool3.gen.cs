@@ -20,7 +20,6 @@ namespace Unity.Mathematics
         public bool z;
 
 
-        // constructors
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
         { 
@@ -53,6 +52,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
+        /// <summary>Constructs a bool3 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool v)
         {
@@ -1135,15 +1135,22 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
+        /// <summary>Returns a bool3 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool v) { return new bool3(v); }
 
+        /// <summary>Returns a uint hash code of a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3 v)
         {
             return csum(select(uint3(0xAAC3C25Du, 0xD21D0945u, 0x88FCAB2Du), uint3(0x614DA60Du, 0x5BA2C50Bu, 0x8C455ACBu), v));
         }
 
+        /// <summary>
+        /// Returns a uint3 vector hash code of a bool3 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3 v)
         {

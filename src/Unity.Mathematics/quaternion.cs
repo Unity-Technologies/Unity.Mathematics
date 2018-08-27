@@ -312,35 +312,39 @@ namespace Unity.Mathematics
             return conjugate(normalize(q));
         }
 
+        /// <summary>Returns the dot product of two quaternions.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(quaternion a, quaternion b)
         {
             return dot(a.value, b.value);
         }
 
+        /// <summary>Returns the length of a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(quaternion q)
         {
             return sqrt(dot(q.value, q.value));
         }
 
+        /// <summary>Returns the squared length of a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(quaternion q)
         {
             return dot(q.value, q.value);
         }
 
+        /// <summary>Returns a normalized version of a quaternion q.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion normalize(quaternion q)
         {
             float4 value = q.value;
             float lengthSq = dot(value, value);
-            value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(lengthSq), lengthSq > math.epsilon_normal);
+            value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(lengthSq), lengthSq > 1e-30f);
 
             return quaternion(value);
         }
 
-        // Calculate the natural exponent of a quaternion. Assumes w is zero.
+        /// <summary>Returns the natural exponent of a quaternion. Assumes w is zero.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion unitexp(quaternion q)
         {
@@ -351,7 +355,7 @@ namespace Unity.Mathematics
             return quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len));
         }
 
-        // Calculate the natural exponent of a quaternion.
+        /// <summary>Returns the natural exponent of a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion exp(quaternion q)
         {
@@ -362,7 +366,7 @@ namespace Unity.Mathematics
             return quaternion(float4(q.value.xyz * v_rcp_len * sin_v_len, cos_v_len) * exp(q.value.w));
         }
 
-        // Calculate the natural logarithm of a unit length quaternion
+        /// <summary>Returns the natural logarithm of a unit length quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion unitlog(quaternion q)
         {
@@ -371,7 +375,7 @@ namespace Unity.Mathematics
             return quaternion(float4(q.value.xyz * s, 0.0f));
         }
 
-        // Calculate the natural logarithm of a quaternion
+        /// <summary>Returns the natural logarithm of a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion log(quaternion q)
         {
@@ -402,6 +406,7 @@ namespace Unity.Mathematics
             return dir + q.value.w * t + cross(q.value.xyz, t);
         }
 
+        /// <summary>Returns the result of a normalized linear interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
         {
@@ -414,6 +419,7 @@ namespace Unity.Mathematics
             return normalize(quaternion(lerp(q1.value, q2.value, t)));
         }
 
+        /// <summary>Returns the result of a spherical interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
         public static quaternion slerp(quaternion q1, quaternion q2, float t)
         {
             float dt = dot(q1, q2);
@@ -444,6 +450,11 @@ namespace Unity.Mathematics
             return hash(q.value);
         }
 
+        /// <summary>
+        /// Returns a uint4 vector hash code of a quaternion.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(quaternion q)
         {

@@ -14,7 +14,7 @@ namespace Unity.Mathematics
         public bool2 c2;
 
 
-        // constructors
+        /// <summary>Constructs a bool2x3 matrix from 3 bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x3(bool2 c0, bool2 c1, bool2 c2)
         { 
@@ -23,6 +23,7 @@ namespace Unity.Mathematics
             this.c2 = c2;
         }
 
+        /// <summary>Constructs a bool2x3 matrix from 6 bool values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x3(bool m00, bool m01, bool m02,
                        bool m10, bool m11, bool m12)
@@ -32,6 +33,7 @@ namespace Unity.Mathematics
             this.c2 = new bool2(m02, m12);
         }
 
+        /// <summary>Constructs a bool2x3 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x3(bool v)
         {
@@ -129,9 +131,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a bool2x3 matrix constructed from 3 bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x3 bool2x3(bool2 c0, bool2 c1, bool2 c2) { return new bool2x3(c0, c1, c2); }
 
+        /// <summary>Returns a bool2x3 matrix constructed from from 6 bool values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x3 bool2x3(bool m00, bool m01, bool m02,
                                       bool m10, bool m11, bool m12)
@@ -140,9 +144,11 @@ namespace Unity.Mathematics
                                m10, m11, m12);
         }
 
+        /// <summary>Returns a bool2x3 matrix constructed from a single bool value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x3 bool2x3(bool v) { return new bool2x3(v); }
 
+        /// <summary>Return the bool3x2 transpose of a bool2x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x2 transpose(bool2x3 v)
         {
@@ -152,6 +158,7 @@ namespace Unity.Mathematics
                 v.c2.x, v.c2.y);
         }
 
+        /// <summary>Returns a uint hash code of a bool2x3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2x3 v)
         {
@@ -160,6 +167,11 @@ namespace Unity.Mathematics
                         select(uint2(0x52F7230Fu, 0xCF286E83u), uint2(0xE121E6ADu, 0xC9CA1249u), v.c2));
         }
 
+        /// <summary>
+        /// Returns a uint2 vector hash code of a bool2x3 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(bool2x3 v)
         {

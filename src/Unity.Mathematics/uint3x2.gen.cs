@@ -12,9 +12,11 @@ namespace Unity.Mathematics
         public uint3 c0;
         public uint3 c1;
 
+        /// <summary>uint3x2 zero value.</summary>
         public static readonly uint3x2 zero = new uint3x2(0u, 0u,   0u, 0u,   0u, 0u);
 
-        // constructors
+
+        /// <summary>Constructs a uint3x2 matrix from 2 uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(uint3 c0, uint3 c1)
         { 
@@ -22,6 +24,7 @@ namespace Unity.Mathematics
             this.c1 = c1;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from 6 uint values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(uint m00, uint m01,
                        uint m10, uint m11,
@@ -31,6 +34,7 @@ namespace Unity.Mathematics
             this.c1 = new uint3(m01, m11, m21);
         }
 
+        /// <summary>Constructs a uint3x2 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(uint v)
         {
@@ -38,6 +42,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a single bool value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(bool v)
         {
@@ -45,6 +50,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new uint3(0u), new uint3(1u), v);
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a bool3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(bool3x2 v)
         {
@@ -52,6 +58,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new uint3(0u), new uint3(1u), v.c1);
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a single int value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(int v)
         {
@@ -59,6 +66,7 @@ namespace Unity.Mathematics
             this.c1 = (uint3)v;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(int3x2 v)
         {
@@ -66,6 +74,7 @@ namespace Unity.Mathematics
             this.c1 = (uint3)v.c1;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a single float value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(float v)
         {
@@ -73,6 +82,7 @@ namespace Unity.Mathematics
             this.c1 = (uint3)v;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a float3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(float3x2 v)
         {
@@ -80,6 +90,7 @@ namespace Unity.Mathematics
             this.c1 = (uint3)v.c1;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a single double value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(double v)
         {
@@ -87,6 +98,7 @@ namespace Unity.Mathematics
             this.c1 = (uint3)v;
         }
 
+        /// <summary>Constructs a uint3x2 matrix from a double3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x2(double3x2 v)
         {
@@ -306,9 +318,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a uint3x2 matrix constructed from 2 uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(uint3 c0, uint3 c1) { return new uint3x2(c0, c1); }
 
+        /// <summary>Returns a uint3x2 matrix constructed from from 6 uint values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(uint m00, uint m01,
                                       uint m10, uint m11,
@@ -319,33 +333,43 @@ namespace Unity.Mathematics
                                m20, m21);
         }
 
+        /// <summary>Returns a uint3x2 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(uint v) { return new uint3x2(v); }
 
+        /// <summary>Returns a uint3x2 matrix constructed from a single bool value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(bool v) { return new uint3x2(v); }
 
+        /// <summary>Return a uint3x2 matrix constructed from a bool3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(bool3x2 v) { return new uint3x2(v); }
 
+        /// <summary>Returns a uint3x2 matrix constructed from a single int value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(int v) { return new uint3x2(v); }
 
+        /// <summary>Return a uint3x2 matrix constructed from a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(int3x2 v) { return new uint3x2(v); }
 
+        /// <summary>Returns a uint3x2 matrix constructed from a single float value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(float v) { return new uint3x2(v); }
 
+        /// <summary>Return a uint3x2 matrix constructed from a float3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(float3x2 v) { return new uint3x2(v); }
 
+        /// <summary>Returns a uint3x2 matrix constructed from a single double value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(double v) { return new uint3x2(v); }
 
+        /// <summary>Return a uint3x2 matrix constructed from a double3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(double3x2 v) { return new uint3x2(v); }
 
+        /// <summary>Return the uint2x3 transpose of a uint3x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x3 transpose(uint3x2 v)
         {
@@ -354,6 +378,7 @@ namespace Unity.Mathematics
                 v.c1.x, v.c1.y, v.c1.z);
         }
 
+        /// <summary>Returns a uint hash code of a uint3x2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint3x2 v)
         {
@@ -361,6 +386,11 @@ namespace Unity.Mathematics
                         v.c1 * uint3(0xE0EB6C25u, 0xF648BEABu, 0x6BDB2B07u)) + 0xEF63C699u;
         }
 
+        /// <summary>
+        /// Returns a uint3 vector hash code of a uint3x2 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(uint3x2 v)
         {

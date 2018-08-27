@@ -14,10 +14,14 @@ namespace Unity.Mathematics
         public float4 c2;
         public float4 c3;
 
+        /// <summary>float4x4 identity transform.</summary>
         public static readonly float4x4 identity = new float4x4(1.0f, 0.0f, 0.0f, 0.0f,   0.0f, 1.0f, 0.0f, 0.0f,   0.0f, 0.0f, 1.0f, 0.0f,   0.0f, 0.0f, 0.0f, 1.0f);
+
+        /// <summary>float4x4 zero value.</summary>
         public static readonly float4x4 zero = new float4x4(0.0f, 0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f);
 
-        // constructors
+
+        /// <summary>Constructs a float4x4 matrix from 4 float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(float4 c0, float4 c1, float4 c2, float4 c3)
         { 
@@ -27,6 +31,7 @@ namespace Unity.Mathematics
             this.c3 = c3;
         }
 
+        /// <summary>Constructs a float4x4 matrix from 16 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(float m00, float m01, float m02, float m03,
                         float m10, float m11, float m12, float m13,
@@ -39,6 +44,7 @@ namespace Unity.Mathematics
             this.c3 = new float4(m03, m13, m23, m33);
         }
 
+        /// <summary>Constructs a float4x4 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(float v)
         {
@@ -48,6 +54,7 @@ namespace Unity.Mathematics
             this.c3 = v;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(bool v)
         {
@@ -57,6 +64,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new float4(0.0f), new float4(1.0f), v);
         }
 
+        /// <summary>Constructs a float4x4 matrix from a bool4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(bool4x4 v)
         {
@@ -66,6 +74,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new float4(0.0f), new float4(1.0f), v.c3);
         }
 
+        /// <summary>Constructs a float4x4 matrix from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(int v)
         {
@@ -75,6 +84,7 @@ namespace Unity.Mathematics
             this.c3 = v;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(int4x4 v)
         {
@@ -84,6 +94,7 @@ namespace Unity.Mathematics
             this.c3 = v.c3;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(uint v)
         {
@@ -93,6 +104,7 @@ namespace Unity.Mathematics
             this.c3 = v;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a uint4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(uint4x4 v)
         {
@@ -102,6 +114,7 @@ namespace Unity.Mathematics
             this.c3 = v.c3;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(double v)
         {
@@ -111,6 +124,7 @@ namespace Unity.Mathematics
             this.c3 = (float4)v;
         }
 
+        /// <summary>Constructs a float4x4 matrix from a double4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(double4x4 v)
         {
@@ -295,9 +309,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a float4x4 matrix constructed from 4 float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float4 c0, float4 c1, float4 c2, float4 c3) { return new float4x4(c0, c1, c2, c3); }
 
+        /// <summary>Returns a float4x4 matrix constructed from from 16 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float m00, float m01, float m02, float m03,
                                         float m10, float m11, float m12, float m13,
@@ -310,30 +326,39 @@ namespace Unity.Mathematics
                                 m30, m31, m32, m33);
         }
 
+        /// <summary>Returns a float4x4 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float v) { return new float4x4(v); }
 
+        /// <summary>Returns a float4x4 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(bool v) { return new float4x4(v); }
 
+        /// <summary>Return a float4x4 matrix constructed from a bool4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(bool4x4 v) { return new float4x4(v); }
 
+        /// <summary>Returns a float4x4 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(int v) { return new float4x4(v); }
 
+        /// <summary>Return a float4x4 matrix constructed from a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(int4x4 v) { return new float4x4(v); }
 
+        /// <summary>Returns a float4x4 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(uint v) { return new float4x4(v); }
 
+        /// <summary>Return a float4x4 matrix constructed from a uint4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(uint4x4 v) { return new float4x4(v); }
 
+        /// <summary>Returns a float4x4 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(double v) { return new float4x4(v); }
 
+        /// <summary>Return a float4x4 matrix constructed from a double4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(double4x4 v) { return new float4x4(v); }
 
@@ -349,6 +374,7 @@ namespace Unity.Mathematics
             return (a.c0 * b.x + a.c1 * b.y + a.c2 * b.z + a.c3).xyz;
         }
 
+        /// <summary>Return the float4x4 transpose of a float4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 transpose(float4x4 v)
         {
@@ -461,6 +487,7 @@ namespace Unity.Mathematics
             return c0.x * m00 - c1.x * m01 + c2.x * m02 - c3.x * m03;
         }
 
+        /// <summary>Returns a uint hash code of a float4x4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4x4 v)
         {
@@ -470,6 +497,11 @@ namespace Unity.Mathematics
                         asuint(v.c3) * uint4(0x52F7230Fu, 0xCF286E83u, 0xE121E6ADu, 0xC9CA1249u)) + 0x69B60C81u;
         }
 
+        /// <summary>
+        /// Returns a uint4 vector hash code of a float4x4 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(float4x4 v)
         {

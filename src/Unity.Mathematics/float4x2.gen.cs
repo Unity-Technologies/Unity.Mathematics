@@ -12,9 +12,11 @@ namespace Unity.Mathematics
         public float4 c0;
         public float4 c1;
 
+        /// <summary>float4x2 zero value.</summary>
         public static readonly float4x2 zero = new float4x2(0.0f, 0.0f,   0.0f, 0.0f,   0.0f, 0.0f,   0.0f, 0.0f);
 
-        // constructors
+
+        /// <summary>Constructs a float4x2 matrix from 2 float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(float4 c0, float4 c1)
         { 
@@ -22,6 +24,7 @@ namespace Unity.Mathematics
             this.c1 = c1;
         }
 
+        /// <summary>Constructs a float4x2 matrix from 8 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(float m00, float m01,
                         float m10, float m11,
@@ -32,6 +35,7 @@ namespace Unity.Mathematics
             this.c1 = new float4(m01, m11, m21, m31);
         }
 
+        /// <summary>Constructs a float4x2 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(float v)
         {
@@ -39,6 +43,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(bool v)
         {
@@ -46,6 +51,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new float4(0.0f), new float4(1.0f), v);
         }
 
+        /// <summary>Constructs a float4x2 matrix from a bool4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(bool4x2 v)
         {
@@ -53,6 +59,7 @@ namespace Unity.Mathematics
             this.c1 = math.select(new float4(0.0f), new float4(1.0f), v.c1);
         }
 
+        /// <summary>Constructs a float4x2 matrix from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(int v)
         {
@@ -60,6 +67,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a int4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(int4x2 v)
         {
@@ -67,6 +75,7 @@ namespace Unity.Mathematics
             this.c1 = v.c1;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(uint v)
         {
@@ -74,6 +83,7 @@ namespace Unity.Mathematics
             this.c1 = v;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a uint4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(uint4x2 v)
         {
@@ -81,6 +91,7 @@ namespace Unity.Mathematics
             this.c1 = v.c1;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(double v)
         {
@@ -88,6 +99,7 @@ namespace Unity.Mathematics
             this.c1 = (float4)v;
         }
 
+        /// <summary>Constructs a float4x2 matrix from a double4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(double4x2 v)
         {
@@ -270,9 +282,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a float4x2 matrix constructed from 2 float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(float4 c0, float4 c1) { return new float4x2(c0, c1); }
 
+        /// <summary>Returns a float4x2 matrix constructed from from 8 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(float m00, float m01,
                                         float m10, float m11,
@@ -285,33 +299,43 @@ namespace Unity.Mathematics
                                 m30, m31);
         }
 
+        /// <summary>Returns a float4x2 matrix constructed from a single float value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(float v) { return new float4x2(v); }
 
+        /// <summary>Returns a float4x2 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(bool v) { return new float4x2(v); }
 
+        /// <summary>Return a float4x2 matrix constructed from a bool4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(bool4x2 v) { return new float4x2(v); }
 
+        /// <summary>Returns a float4x2 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(int v) { return new float4x2(v); }
 
+        /// <summary>Return a float4x2 matrix constructed from a int4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(int4x2 v) { return new float4x2(v); }
 
+        /// <summary>Returns a float4x2 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(uint v) { return new float4x2(v); }
 
+        /// <summary>Return a float4x2 matrix constructed from a uint4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(uint4x2 v) { return new float4x2(v); }
 
+        /// <summary>Returns a float4x2 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(double v) { return new float4x2(v); }
 
+        /// <summary>Return a float4x2 matrix constructed from a double4x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(double4x2 v) { return new float4x2(v); }
 
+        /// <summary>Return the float2x4 transpose of a float4x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x4 transpose(float4x2 v)
         {
@@ -320,6 +344,7 @@ namespace Unity.Mathematics
                 v.c1.x, v.c1.y, v.c1.z, v.c1.w);
         }
 
+        /// <summary>Returns a uint hash code of a float4x2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4x2 v)
         {
@@ -327,6 +352,11 @@ namespace Unity.Mathematics
                         asuint(v.c1) * uint4(0x77E35E77u, 0x863E3729u, 0xE191B035u, 0x68586FAFu)) + 0xD4DFF6D3u;
         }
 
+        /// <summary>
+        /// Returns a uint4 vector hash code of a float4x2 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(float4x2 v)
         {

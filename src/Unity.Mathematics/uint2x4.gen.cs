@@ -14,9 +14,11 @@ namespace Unity.Mathematics
         public uint2 c2;
         public uint2 c3;
 
+        /// <summary>uint2x4 zero value.</summary>
         public static readonly uint2x4 zero = new uint2x4(0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u);
 
-        // constructors
+
+        /// <summary>Constructs a uint2x4 matrix from 4 uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(uint2 c0, uint2 c1, uint2 c2, uint2 c3)
         { 
@@ -26,6 +28,7 @@ namespace Unity.Mathematics
             this.c3 = c3;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from 8 uint values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(uint m00, uint m01, uint m02, uint m03,
                        uint m10, uint m11, uint m12, uint m13)
@@ -36,6 +39,7 @@ namespace Unity.Mathematics
             this.c3 = new uint2(m03, m13);
         }
 
+        /// <summary>Constructs a uint2x4 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(uint v)
         {
@@ -45,6 +49,7 @@ namespace Unity.Mathematics
             this.c3 = v;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a single bool value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(bool v)
         {
@@ -54,6 +59,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new uint2(0u), new uint2(1u), v);
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a bool2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(bool2x4 v)
         {
@@ -63,6 +69,7 @@ namespace Unity.Mathematics
             this.c3 = math.select(new uint2(0u), new uint2(1u), v.c3);
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a single int value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(int v)
         {
@@ -72,6 +79,7 @@ namespace Unity.Mathematics
             this.c3 = (uint2)v;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a int2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(int2x4 v)
         {
@@ -81,6 +89,7 @@ namespace Unity.Mathematics
             this.c3 = (uint2)v.c3;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a single float value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(float v)
         {
@@ -90,6 +99,7 @@ namespace Unity.Mathematics
             this.c3 = (uint2)v;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a float2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(float2x4 v)
         {
@@ -99,6 +109,7 @@ namespace Unity.Mathematics
             this.c3 = (uint2)v.c3;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a single double value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(double v)
         {
@@ -108,6 +119,7 @@ namespace Unity.Mathematics
             this.c3 = (uint2)v;
         }
 
+        /// <summary>Constructs a uint2x4 matrix from a double2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(double2x4 v)
         {
@@ -329,9 +341,11 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a uint2x4 matrix constructed from 4 uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(uint2 c0, uint2 c1, uint2 c2, uint2 c3) { return new uint2x4(c0, c1, c2, c3); }
 
+        /// <summary>Returns a uint2x4 matrix constructed from from 8 uint values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(uint m00, uint m01, uint m02, uint m03,
                                       uint m10, uint m11, uint m12, uint m13)
@@ -340,33 +354,43 @@ namespace Unity.Mathematics
                                m10, m11, m12, m13);
         }
 
+        /// <summary>Returns a uint2x4 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(uint v) { return new uint2x4(v); }
 
+        /// <summary>Returns a uint2x4 matrix constructed from a single bool value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(bool v) { return new uint2x4(v); }
 
+        /// <summary>Return a uint2x4 matrix constructed from a bool2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(bool2x4 v) { return new uint2x4(v); }
 
+        /// <summary>Returns a uint2x4 matrix constructed from a single int value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(int v) { return new uint2x4(v); }
 
+        /// <summary>Return a uint2x4 matrix constructed from a int2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(int2x4 v) { return new uint2x4(v); }
 
+        /// <summary>Returns a uint2x4 matrix constructed from a single float value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(float v) { return new uint2x4(v); }
 
+        /// <summary>Return a uint2x4 matrix constructed from a float2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(float2x4 v) { return new uint2x4(v); }
 
+        /// <summary>Returns a uint2x4 matrix constructed from a single double value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(double v) { return new uint2x4(v); }
 
+        /// <summary>Return a uint2x4 matrix constructed from a double2x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(double2x4 v) { return new uint2x4(v); }
 
+        /// <summary>Return the uint4x2 transpose of a uint2x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 transpose(uint2x4 v)
         {
@@ -377,6 +401,7 @@ namespace Unity.Mathematics
                 v.c3.x, v.c3.y);
         }
 
+        /// <summary>Returns a uint hash code of a uint2x4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint2x4 v)
         {
@@ -386,6 +411,11 @@ namespace Unity.Mathematics
                         v.c3 * uint2(0xB3C49313u, 0xF43A9ABBu)) + 0x84E7E01Bu;
         }
 
+        /// <summary>
+        /// Returns a uint2 vector hash code of a uint2x4 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(uint2x4 v)
         {

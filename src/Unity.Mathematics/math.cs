@@ -1021,7 +1021,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the arcsine of a float value</summary>
-        public static float asin(float x) { return (float)System.Math.Asin((float)a); }
+        public static float asin(float x) { return (float)System.Math.Asin((float)x); }
 
         /// <summary>Returns the componentwise arcsine of a float2 vector</summary>
         public static float2 asin(float2 x) { return new float2(asin(x.x), asin(x.y)); }
@@ -1202,39 +1202,83 @@ namespace Unity.Mathematics
         public static double4 rcp(double4 x) { return 1.0 / x; }
 
 
-        // sign
+        /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
         public static float sign(float x) { return x == 0.0f ? 0.0f : (x > 0.0f ? 1.0f : 0.0f) - (x < 0.0f ? 1.0f : 0.0f); }
+
+        /// <summary>Returns the componentwise sign of a float2 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
         public static float2 sign(float2 x) { return new float2(sign(x.x), sign(x.y)); }
+
+        /// <summary>Returns the componentwise sign of a float3 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
         public static float3 sign(float3 x) { return new float3(sign(x.x), sign(x.y), sign(x.z)); }
+
+        /// <summary>Returns the componentwise sign of a float4 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
         public static float4 sign(float4 x) { return new float4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
+
+        /// <summary>Returns the sign of a double value. -1.0 if it is less than zero, 0.0 if it is zero and 1.0 if it greater than zero.</summary>
         public static double sign(double x) { return x == 0 ? 0 : (x > 0.0 ? 1.0 : 0.0) - (x < 0.0 ? 1.0 : 0.0); }
+
+        /// <summary>Returns the componentwise sign of a double2 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
         public static double2 sign(double2 x) { return new double2(sign(x.x), sign(x.y)); }
+
+        /// <summary>Returns the componentwise sign of a double3 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
         public static double3 sign(double3 x) { return new double3(sign(x.x), sign(x.y), sign(x.z)); }
+
+        /// <summary>Returns the componentwise sign of a double4 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
         public static double4 sign(double4 x) { return new double4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
-        // pow
+
+        /// <summary>Returns x raised to the y power y.</summary>
         public static float pow(float x, float y) { return (float)System.Math.Pow((float)x, (float)y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static float2 pow(float2 x, float2 y) { return new float2(pow(x.x, y.x), pow(x.y, y.y)); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static float3 pow(float3 x, float3 y) { return new float3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static float4 pow(float4 x, float4 y) { return new float4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
+
+        /// <summary>Returns x raised to the y power y.</summary>
         public static double pow(double x, double y) { return System.Math.Pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static double2 pow(double2 x, double2 y) { return new double2(pow(x.x, y.x), pow(x.y, y.y)); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static double3 pow(double3 x, double3 y) { return new double3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y.</summary>
         public static double4 pow(double4 x, double4 y) { return new double4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
-        // powr - assumes sign of a is 0 or greater
+        /// <summary>Returns x raised to the y power y. Assumes x is non-negative.</summary>
         public static float powr(float x, float y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static float2 powr(float2 x, float2 y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static float3 powr(float3 x, float3 y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static float4 powr(float4 x, float4 y) { return pow(x, y); }
 
+
+        /// <summary>Returns x raised to the y power y. Assumes x is non-negative.</summary>
         public static double powr(double x, double y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static double2 powr(double2 x, double2 y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static double3 powr(double3 x, double3 y) { return pow(x, y); }
+
+        /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
         public static double4 powr(double4 x, double4 y) { return pow(x, y); }
+
 
         /// <summary>Returns the base-e exponential of x</summary>
         public static float exp(float x) { return (float)System.Math.Exp((float)x); }

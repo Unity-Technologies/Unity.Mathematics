@@ -14,9 +14,10 @@ namespace Unity.Mathematics
         public uint x;
         public uint y;
 
+        /// <summary>uint2 zero value.</summary>
         public static readonly uint2 zero = new uint2(0u,   0u);
 
-        // constructors
+
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
         { 
@@ -31,6 +32,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
+        /// <summary>Constructs a uint2 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint v)
         {
@@ -38,6 +40,7 @@ namespace Unity.Mathematics
             this.y = v;
         }
 
+        /// <summary>Constructs a uint2 matrix from a single bool value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(bool v)
         {
@@ -45,6 +48,7 @@ namespace Unity.Mathematics
             this.y = v ? 1u : 0u;
         }
 
+        /// <summary>Constructs a uint2 matrix from a bool2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(bool2 v)
         {
@@ -52,6 +56,7 @@ namespace Unity.Mathematics
             this.y = v.y ? 1u : 0u;
         }
 
+        /// <summary>Constructs a uint2 matrix from a single int value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(int v)
         {
@@ -59,6 +64,7 @@ namespace Unity.Mathematics
             this.y = (uint)v;
         }
 
+        /// <summary>Constructs a uint2 matrix from a int2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(int2 v)
         {
@@ -66,6 +72,7 @@ namespace Unity.Mathematics
             this.y = (uint)v.y;
         }
 
+        /// <summary>Constructs a uint2 matrix from a single float value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(float v)
         {
@@ -73,6 +80,7 @@ namespace Unity.Mathematics
             this.y = (uint)v;
         }
 
+        /// <summary>Constructs a uint2 matrix from a float2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(float2 v)
         {
@@ -80,6 +88,7 @@ namespace Unity.Mathematics
             this.y = (uint)v.y;
         }
 
+        /// <summary>Constructs a uint2 matrix from a single double value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(double v)
         {
@@ -87,6 +96,7 @@ namespace Unity.Mathematics
             this.y = (uint)v;
         }
 
+        /// <summary>Constructs a uint2 matrix from a double2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(double2 v)
         {
@@ -551,39 +561,54 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint2 xy) { return new uint2(xy); }
 
+        /// <summary>Returns a uint2 matrix constructed from a single uint value by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint v) { return new uint2(v); }
 
+        /// <summary>Returns a uint2 matrix constructed from a single bool value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(bool v) { return new uint2(v); }
 
+        /// <summary>Return a uint2 matrix constructed from a bool2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(bool2 v) { return new uint2(v); }
 
+        /// <summary>Returns a uint2 matrix constructed from a single int value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(int v) { return new uint2(v); }
 
+        /// <summary>Return a uint2 matrix constructed from a int2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(int2 v) { return new uint2(v); }
 
+        /// <summary>Returns a uint2 matrix constructed from a single float value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(float v) { return new uint2(v); }
 
+        /// <summary>Return a uint2 matrix constructed from a float2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(float2 v) { return new uint2(v); }
 
+        /// <summary>Returns a uint2 matrix constructed from a single double value by convering it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(double v) { return new uint2(v); }
 
+        /// <summary>Return a uint2 matrix constructed from a double2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(double2 v) { return new uint2(v); }
 
+        /// <summary>Returns a uint hash code of a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint2 v)
         {
             return csum(v * uint2(0x4C7F6DD1u, 0x4822A3E9u)) + 0xAAC3C25Du;
         }
 
+        /// <summary>
+        /// Returns a uint2 vector hash code of a uint2 vector.
+        /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
+        /// that are only reduced to a narrow uint hash at the very end instead of at every step.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(uint2 v)
         {

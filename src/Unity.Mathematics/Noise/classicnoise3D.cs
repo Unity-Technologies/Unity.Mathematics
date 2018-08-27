@@ -91,8 +91,8 @@ namespace Unity.Mathematics
         // Classic Perlin noise, periodic variant
         public static float pnoise(float3 P, float3 rep)
         {
-            float3 Pi0 = mod(floor(P), rep); // Integer part, math.modulo period
-            float3 Pi1 = mod(Pi0 + float3(1.0f), rep); // Integer part + 1, math.mod period
+            float3 Pi0 = fmod(floor(P), rep); // Integer part, math.modulo period
+            float3 Pi1 = fmod(Pi0 + float3(1.0f), rep); // Integer part + 1, math.mod period
             Pi0 = mod289(Pi0);
             Pi1 = mod289(Pi1);
             float3 Pf0 = frac(P); // Fractional part for interpolation
