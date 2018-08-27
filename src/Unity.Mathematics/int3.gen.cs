@@ -60,7 +60,7 @@ namespace Unity.Mathematics
             this.z = v;
         }
 
-        /// <summary>Constructs a int3 matrix from a single bool value by converting it to int and assigning it to every entry.</summary>
+        /// <summary>Constructs a int3 vector from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(bool v)
         {
@@ -69,7 +69,7 @@ namespace Unity.Mathematics
             this.z = v ? 1 : 0;
         }
 
-        /// <summary>Constructs a int3 matrix from a bool3 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a int3 vector from a bool3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(bool3 v)
         {
@@ -78,7 +78,7 @@ namespace Unity.Mathematics
             this.z = v.z ? 1 : 0;
         }
 
-        /// <summary>Constructs a int3 matrix from a single uint value by converting it to int and assigning it to every entry.</summary>
+        /// <summary>Constructs a int3 vector from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(uint v)
         {
@@ -87,7 +87,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
-        /// <summary>Constructs a int3 matrix from a uint3 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a int3 vector from a uint3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(uint3 v)
         {
@@ -96,7 +96,7 @@ namespace Unity.Mathematics
             this.z = (int)v.z;
         }
 
-        /// <summary>Constructs a int3 matrix from a single float value by converting it to int and assigning it to every entry.</summary>
+        /// <summary>Constructs a int3 vector from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(float v)
         {
@@ -105,7 +105,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
-        /// <summary>Constructs a int3 matrix from a float3 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a int3 vector from a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(float3 v)
         {
@@ -114,7 +114,7 @@ namespace Unity.Mathematics
             this.z = (int)v.z;
         }
 
-        /// <summary>Constructs a int3 matrix from a single double value by converting it to int and assigning it to every entry.</summary>
+        /// <summary>Constructs a int3 vector from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(double v)
         {
@@ -123,7 +123,7 @@ namespace Unity.Mathematics
             this.z = (int)v;
         }
 
-        /// <summary>Constructs a int3 matrix from a double3 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a int3 vector from a double3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(double3 v)
         {
@@ -133,25 +133,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single int value to a int3 vector by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int3(int v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a single bool value to a int3 vector by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(bool v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a bool3 vector to a int3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(bool3 v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a single uint value to a int3 vector by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(uint v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a uint3 vector to a int3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(uint3 v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a single float value to a int3 vector by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(float v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a float3 vector to a int3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(float3 v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a single double value to a int3 vector by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(double v) { return new int3(v); }
+
+        /// <summary>Explicitly converts a double3 vector to a int3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3(double3 v) { return new int3(v); }
+
 
 
         // mul
@@ -1333,35 +1350,35 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int v) { return new int3(v); }
 
-        /// <summary>Returns a int3 matrix constructed from a single bool value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3 vector constructed from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(bool v) { return new int3(v); }
 
-        /// <summary>Return a int3 matrix constructed from a bool3 matrix by componentwise conversion.</summary>
+        /// <summary>Return a int3 vector constructed from a bool3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(bool3 v) { return new int3(v); }
 
-        /// <summary>Returns a int3 matrix constructed from a single uint value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3 vector constructed from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(uint v) { return new int3(v); }
 
-        /// <summary>Return a int3 matrix constructed from a uint3 matrix by componentwise conversion.</summary>
+        /// <summary>Return a int3 vector constructed from a uint3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(uint3 v) { return new int3(v); }
 
-        /// <summary>Returns a int3 matrix constructed from a single float value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3 vector constructed from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(float v) { return new int3(v); }
 
-        /// <summary>Return a int3 matrix constructed from a float3 matrix by componentwise conversion.</summary>
+        /// <summary>Return a int3 vector constructed from a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(float3 v) { return new int3(v); }
 
-        /// <summary>Returns a int3 matrix constructed from a single double value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3 vector constructed from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(double v) { return new int3(v); }
 
-        /// <summary>Return a int3 matrix constructed from a double3 matrix by componentwise conversion.</summary>
+        /// <summary>Return a int3 vector constructed from a double3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(double3 v) { return new int3(v); }
 

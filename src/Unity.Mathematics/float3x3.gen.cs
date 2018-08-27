@@ -122,25 +122,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single float value to a float3x3 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(float v) { return new float3x3(v); }
+
+        /// <summary>Explicitly converts a single bool value to a float3x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x3(bool v) { return new float3x3(v); }
+
+        /// <summary>Explicitly converts a bool3x3 matrix to a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x3(bool3x3 v) { return new float3x3(v); }
+
+        /// <summary>Implicitly converts a single int value to a float3x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(int v) { return new float3x3(v); }
+
+        /// <summary>Implicitly converts a int3x3 matrix to a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(int3x3 v) { return new float3x3(v); }
+
+        /// <summary>Implicitly converts a single uint value to a float3x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(uint v) { return new float3x3(v); }
+
+        /// <summary>Implicitly converts a uint3x3 matrix to a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x3(uint3x3 v) { return new float3x3(v); }
+
+        /// <summary>Explicitly converts a single double value to a float3x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x3(double v) { return new float3x3(v); }
+
+        /// <summary>Explicitly converts a double3x3 matrix to a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x3(double3x3 v) { return new float3x3(v); }
+
 
 
         // mul
@@ -315,7 +332,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(float v) { return new float3x3(v); }
 
-        /// <summary>Returns a float3x3 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float3x3 matrix constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(bool v) { return new float3x3(v); }
 
@@ -323,7 +340,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(bool3x3 v) { return new float3x3(v); }
 
-        /// <summary>Returns a float3x3 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float3x3 matrix constructed from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(int v) { return new float3x3(v); }
 
@@ -331,7 +348,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(int3x3 v) { return new float3x3(v); }
 
-        /// <summary>Returns a float3x3 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float3x3 matrix constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(uint v) { return new float3x3(v); }
 
@@ -339,7 +356,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(uint3x3 v) { return new float3x3(v); }
 
-        /// <summary>Returns a float3x3 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float3x3 matrix constructed from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(double v) { return new float3x3(v); }
 
@@ -357,7 +374,8 @@ namespace Unity.Mathematics
                 v.c2.x, v.c2.y, v.c2.z);
         }
 
-public static float3x3 inverse(float3x3 m)
+        /// <summary>Returns the float3x3 full inverse of a float3x3 matrix.</summary>
+        public static float3x3 inverse(float3x3 m)
         {
             // naive scalar implementation using direct calculation by cofactors
             float3 c0 = m.c0;
@@ -385,6 +403,7 @@ public static float3x3 inverse(float3x3 m)
                  m02, -m12, m22) * (1.0f / det);
         }
 
+        /// <summary>Returns the determinant of a float3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float determinant(float3x3 m)
         {

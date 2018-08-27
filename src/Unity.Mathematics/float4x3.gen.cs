@@ -120,25 +120,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single float value to a float4x3 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x3(float v) { return new float4x3(v); }
+
+        /// <summary>Explicitly converts a single bool value to a float4x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float4x3(bool v) { return new float4x3(v); }
+
+        /// <summary>Explicitly converts a bool4x3 matrix to a float4x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float4x3(bool4x3 v) { return new float4x3(v); }
+
+        /// <summary>Implicitly converts a single int value to a float4x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x3(int v) { return new float4x3(v); }
+
+        /// <summary>Implicitly converts a int4x3 matrix to a float4x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x3(int4x3 v) { return new float4x3(v); }
+
+        /// <summary>Implicitly converts a single uint value to a float4x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x3(uint v) { return new float4x3(v); }
+
+        /// <summary>Implicitly converts a uint4x3 matrix to a float4x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x3(uint4x3 v) { return new float4x3(v); }
+
+        /// <summary>Explicitly converts a single double value to a float4x3 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float4x3(double v) { return new float4x3(v); }
+
+        /// <summary>Explicitly converts a double4x3 matrix to a float4x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float4x3(double4x3 v) { return new float4x3(v); }
+
 
 
         // mul
@@ -315,7 +332,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(float v) { return new float4x3(v); }
 
-        /// <summary>Returns a float4x3 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float4x3 matrix constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(bool v) { return new float4x3(v); }
 
@@ -323,7 +340,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(bool4x3 v) { return new float4x3(v); }
 
-        /// <summary>Returns a float4x3 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float4x3 matrix constructed from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(int v) { return new float4x3(v); }
 
@@ -331,7 +348,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(int4x3 v) { return new float4x3(v); }
 
-        /// <summary>Returns a float4x3 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float4x3 matrix constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(uint v) { return new float4x3(v); }
 
@@ -339,7 +356,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(uint4x3 v) { return new float4x3(v); }
 
-        /// <summary>Returns a float4x3 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float4x3 matrix constructed from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(double v) { return new float4x3(v); }
 

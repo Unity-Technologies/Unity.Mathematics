@@ -43,9 +43,10 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single bool value to a bool2x3 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2x3(bool v) { return new bool2x3(v); }
+
 
 
         // equal 

@@ -40,7 +40,7 @@ namespace Unity.Mathematics
             this.y = v;
         }
 
-        /// <summary>Constructs a float2 matrix from a single bool value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(bool v)
         {
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
             this.y = v ? 1.0f : 0.0f;
         }
 
-        /// <summary>Constructs a float2 matrix from a bool2 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a float2 vector from a bool2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(bool2 v)
         {
@@ -56,7 +56,7 @@ namespace Unity.Mathematics
             this.y = v.y ? 1.0f : 0.0f;
         }
 
-        /// <summary>Constructs a float2 matrix from a single int value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(int v)
         {
@@ -64,7 +64,7 @@ namespace Unity.Mathematics
             this.y = v;
         }
 
-        /// <summary>Constructs a float2 matrix from a int2 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a float2 vector from a int2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(int2 v)
         {
@@ -72,7 +72,7 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
-        /// <summary>Constructs a float2 matrix from a single uint value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(uint v)
         {
@@ -80,7 +80,7 @@ namespace Unity.Mathematics
             this.y = v;
         }
 
-        /// <summary>Constructs a float2 matrix from a uint2 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a float2 vector from a uint2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(uint2 v)
         {
@@ -88,7 +88,7 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
-        /// <summary>Constructs a float2 matrix from a single double value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(double v)
         {
@@ -96,7 +96,7 @@ namespace Unity.Mathematics
             this.y = (float)v;
         }
 
-        /// <summary>Constructs a float2 matrix from a double2 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a float2 vector from a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(double2 v)
         {
@@ -105,25 +105,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single float value to a float2 vector by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(float v) { return new float2(v); }
+
+        /// <summary>Explicitly converts a single bool value to a float2 vector by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(bool v) { return new float2(v); }
+
+        /// <summary>Explicitly converts a bool2 vector to a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(bool2 v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a single int value to a float2 vector by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(int v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a int2 vector to a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(int2 v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a single uint value to a float2 vector by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(uint v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a uint2 vector to a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(uint2 v) { return new float2(v); }
+
+        /// <summary>Explicitly converts a single double value to a float2 vector by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(double v) { return new float2(v); }
+
+        /// <summary>Explicitly converts a double2 vector to a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(double2 v) { return new float2(v); }
+
 
 
         // mul
@@ -528,35 +545,35 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float v) { return new float2(v); }
 
-        /// <summary>Returns a float2 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(bool v) { return new float2(v); }
 
-        /// <summary>Return a float2 matrix constructed from a bool2 matrix by componentwise conversion.</summary>
+        /// <summary>Return a float2 vector constructed from a bool2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(bool2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(int v) { return new float2(v); }
 
-        /// <summary>Return a float2 matrix constructed from a int2 matrix by componentwise conversion.</summary>
+        /// <summary>Return a float2 vector constructed from a int2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(int2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(uint v) { return new float2(v); }
 
-        /// <summary>Return a float2 matrix constructed from a uint2 matrix by componentwise conversion.</summary>
+        /// <summary>Return a float2 vector constructed from a uint2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(uint2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(double v) { return new float2(v); }
 
-        /// <summary>Return a float2 matrix constructed from a double2 matrix by componentwise conversion.</summary>
+        /// <summary>Return a float2 vector constructed from a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(double2 v) { return new float2(v); }
 

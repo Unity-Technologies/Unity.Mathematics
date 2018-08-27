@@ -122,25 +122,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single uint value to a uint3x3 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3x3(uint v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a single bool value to a uint3x3 matrix by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(bool v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a bool3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(bool3x3 v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a single int value to a uint3x3 matrix by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(int v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a int3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(int3x3 v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a single float value to a uint3x3 matrix by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(float v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a float3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(float3x3 v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a single double value to a uint3x3 matrix by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(double v) { return new uint3x3(v); }
+
+        /// <summary>Explicitly converts a double3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x3(double3x3 v) { return new uint3x3(v); }
+
 
 
         // mul
@@ -352,7 +369,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(uint v) { return new uint3x3(v); }
 
-        /// <summary>Returns a uint3x3 matrix constructed from a single bool value by convering it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3x3 matrix constructed from a single bool value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(bool v) { return new uint3x3(v); }
 
@@ -360,7 +377,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(bool3x3 v) { return new uint3x3(v); }
 
-        /// <summary>Returns a uint3x3 matrix constructed from a single int value by convering it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3x3 matrix constructed from a single int value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(int v) { return new uint3x3(v); }
 
@@ -368,7 +385,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(int3x3 v) { return new uint3x3(v); }
 
-        /// <summary>Returns a uint3x3 matrix constructed from a single float value by convering it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3x3 matrix constructed from a single float value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(float v) { return new uint3x3(v); }
 
@@ -376,7 +393,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(float3x3 v) { return new uint3x3(v); }
 
-        /// <summary>Returns a uint3x3 matrix constructed from a single double value by convering it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3x3 matrix constructed from a single double value by converting it to uint and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x3 uint3x3(double v) { return new uint3x3(v); }
 

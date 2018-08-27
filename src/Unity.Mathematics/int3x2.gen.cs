@@ -107,25 +107,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single int value to a int3x2 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int3x2(int v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a single bool value to a int3x2 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(bool v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a bool3x2 matrix to a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(bool3x2 v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a single uint value to a int3x2 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(uint v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a uint3x2 matrix to a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(uint3x2 v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a single float value to a int3x2 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(float v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a float3x2 matrix to a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(float3x2 v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a single double value to a int3x2 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(double v) { return new int3x2(v); }
+
+        /// <summary>Explicitly converts a double3x2 matrix to a int3x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int3x2(double3x2 v) { return new int3x2(v); }
+
 
 
         // mul
@@ -337,7 +354,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(int v) { return new int3x2(v); }
 
-        /// <summary>Returns a int3x2 matrix constructed from a single bool value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3x2 matrix constructed from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(bool v) { return new int3x2(v); }
 
@@ -345,7 +362,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(bool3x2 v) { return new int3x2(v); }
 
-        /// <summary>Returns a int3x2 matrix constructed from a single uint value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3x2 matrix constructed from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(uint v) { return new int3x2(v); }
 
@@ -353,7 +370,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(uint3x2 v) { return new int3x2(v); }
 
-        /// <summary>Returns a int3x2 matrix constructed from a single float value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3x2 matrix constructed from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(float v) { return new int3x2(v); }
 
@@ -361,7 +378,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(float3x2 v) { return new int3x2(v); }
 
-        /// <summary>Returns a int3x2 matrix constructed from a single double value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int3x2 matrix constructed from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 int3x2(double v) { return new int3x2(v); }
 

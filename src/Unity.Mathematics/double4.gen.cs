@@ -102,7 +102,7 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a double4 matrix from a single bool value by converting it to double and assigning it to every entry.</summary>
+        /// <summary>Constructs a double4 vector from a single bool value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(bool v)
         {
@@ -112,7 +112,7 @@ namespace Unity.Mathematics
             this.w = v ? 1.0 : 0.0;
         }
 
-        /// <summary>Constructs a double4 matrix from a bool4 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a double4 vector from a bool4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(bool4 v)
         {
@@ -122,7 +122,7 @@ namespace Unity.Mathematics
             this.w = v.w ? 1.0 : 0.0;
         }
 
-        /// <summary>Constructs a double4 matrix from a single int value by converting it to double and assigning it to every entry.</summary>
+        /// <summary>Constructs a double4 vector from a single int value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(int v)
         {
@@ -132,7 +132,7 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a double4 matrix from a int4 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a double4 vector from a int4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(int4 v)
         {
@@ -142,7 +142,7 @@ namespace Unity.Mathematics
             this.w = v.w;
         }
 
-        /// <summary>Constructs a double4 matrix from a single uint value by converting it to double and assigning it to every entry.</summary>
+        /// <summary>Constructs a double4 vector from a single uint value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(uint v)
         {
@@ -152,7 +152,7 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a double4 matrix from a uint4 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a double4 vector from a uint4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(uint4 v)
         {
@@ -162,7 +162,7 @@ namespace Unity.Mathematics
             this.w = v.w;
         }
 
-        /// <summary>Constructs a double4 matrix from a single float value by converting it to double and assigning it to every entry.</summary>
+        /// <summary>Constructs a double4 vector from a single float value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(float v)
         {
@@ -172,7 +172,7 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a double4 matrix from a float4 matrix by componentwise conversion.</summary>
+        /// <summary>Constructs a double4 vector from a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(float4 v)
         {
@@ -183,25 +183,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single double value to a double4 vector by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(double v) { return new double4(v); }
+
+        /// <summary>Explicitly converts a single bool value to a double4 vector by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double4(bool v) { return new double4(v); }
+
+        /// <summary>Explicitly converts a bool4 vector to a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double4(bool4 v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a single int value to a double4 vector by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(int v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a int4 vector to a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(int4 v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a single uint value to a double4 vector by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(uint v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a uint4 vector to a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(uint4 v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a single float value to a double4 vector by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(float v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a float4 vector to a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(float4 v) { return new double4(v); }
+
 
 
         // mul
@@ -3208,35 +3225,35 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double v) { return new double4(v); }
 
-        /// <summary>Returns a double4 matrix constructed from a single bool value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double4 vector constructed from a single bool value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(bool v) { return new double4(v); }
 
-        /// <summary>Return a double4 matrix constructed from a bool4 matrix by componentwise conversion.</summary>
+        /// <summary>Return a double4 vector constructed from a bool4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(bool4 v) { return new double4(v); }
 
-        /// <summary>Returns a double4 matrix constructed from a single int value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double4 vector constructed from a single int value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(int v) { return new double4(v); }
 
-        /// <summary>Return a double4 matrix constructed from a int4 matrix by componentwise conversion.</summary>
+        /// <summary>Return a double4 vector constructed from a int4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(int4 v) { return new double4(v); }
 
-        /// <summary>Returns a double4 matrix constructed from a single uint value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double4 vector constructed from a single uint value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(uint v) { return new double4(v); }
 
-        /// <summary>Return a double4 matrix constructed from a uint4 matrix by componentwise conversion.</summary>
+        /// <summary>Return a double4 vector constructed from a uint4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(uint4 v) { return new double4(v); }
 
-        /// <summary>Returns a double4 matrix constructed from a single float value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double4 vector constructed from a single float value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(float v) { return new double4(v); }
 
-        /// <summary>Return a double4 matrix constructed from a float4 matrix by componentwise conversion.</summary>
+        /// <summary>Return a double4 vector constructed from a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(float4 v) { return new double4(v); }
 

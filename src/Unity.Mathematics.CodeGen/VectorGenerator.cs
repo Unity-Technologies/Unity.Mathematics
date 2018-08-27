@@ -269,26 +269,31 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             int fieldCount = (m_Columns > 1) ? m_Columns : m_Rows;
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             string dstFieldType = (m_Columns > 1) ? ToTypeName(m_BaseType, m_Rows, 1) : m_BaseType;
+            string dstTypeCategory = (m_Columns > 1) ? "matrix" : "vector";
+            string plicitlyString = isExplicit ? "Explicitly" : "Implicitly";
 
-            if(isScalar)
+            if (isScalar)
             {
                 if(sourceBaseType != m_BaseType)
                 {
-                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from a single {1} value by converting it to {2} and assigning it to every entry.</summary>\n", m_TypeName, sourceType, m_BaseType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from a single {1} value by convering it to {2} and assigning it to every entry.</summary>\n", m_TypeName, sourceType, m_BaseType);
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by converting it to {3} and assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every entry.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
                 }
                 else
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
                     mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from a single {1} value by assigning it to every entry.</summary>\n", m_TypeName, sourceType);
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every entry.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
                 }
             }
             else
             {
                 if (sourceBaseType != m_BaseType)
                 {
-                    str.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from a {1} matrix by componentwise conversion.</summary>\n", m_TypeName, sourceType);
-                    mathStr.AppendFormat("\t\t/// <summary>Return a {0} matrix constructed from a {1} matrix by componentwise conversion.</summary>\n", m_TypeName, sourceType);
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    mathStr.AppendFormat("\t\t/// <summary>Return a {0} {1} constructed from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a {1} {2} to a {3} {2} by componentwise conversion.</summary>\n", plicitlyString, sourceType, dstTypeCategory, m_TypeName);
                 }
             }
             
@@ -323,15 +328,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             mathStr.AppendFormat("\t\tpublic static {0} {0}({1} v) {{ return new {0}(v); }}\n\n", m_TypeName, sourceType);
 
             opStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
+            opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
         }
 
         private void GenerateConversionConstructorsAndOperators(StringBuilder str, StringBuilder mathStr)
         {
             StringBuilder opStr = new StringBuilder();
 
-            opStr.Append("\t\t// conversions\n");
-            
             GenerateConversion(str, opStr, mathStr, m_BaseType, false, true);
 
             if (m_BaseType == "int")
@@ -1044,7 +1047,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_Rows == 2)
             {
                 str.AppendFormat(
-                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                    @"        /// <summary>Returns the {0}2x2 full inverse of a {0}2x2 matrix.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0}2x2 inverse({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1063,7 +1067,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             else if(m_Rows == 3)
             {
                 str.AppendFormat(
-                    @"public static {0}3x3 inverse({0}3x3 m)
+                    @"        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>
+        public static {0}3x3 inverse({0}3x3 m)
         {{
             // naive scalar implementation using direct calculation by cofactors
             {0}3 c0 = m.c0;
@@ -1097,7 +1102,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             else if(m_Rows == 4)
             {
                 str.AppendFormat(
-                    @"        public static {0}4x4 inverse({0}4x4 m)
+                    @"        /// <summary>Returns the {0}4x4 full inverse of a {0}4x4 matrix.</summary>
+        public static {0}4x4 inverse({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;
@@ -1242,7 +1248,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_Rows == 2)
             {
                 str.AppendFormat(
-                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                    @"        /// <summary>Returns the determinant of a {0}2x2 matrix.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1259,7 +1266,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             else if (m_Rows == 3)
             {
                 str.AppendFormat(
-                    @"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                    @"        /// <summary>Returns the determinant of a {0}3x3 matrix.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}3x3 m)
         {{
             {0}3 c0 = m.c0;
@@ -1279,7 +1287,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             else if (m_Rows == 4)
             {
                 str.AppendFormat(
-                    @"        public static {0} determinant({0}4x4 m)
+                    @"        /// <summary>Returns the determinant of a {0}4x4 matrix.</summary>
+        public static {0} determinant({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;

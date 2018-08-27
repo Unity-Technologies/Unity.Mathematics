@@ -41,9 +41,10 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single bool value to a bool4x2 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool4x2(bool v) { return new bool4x2(v); }
+
 
 
         // equal 

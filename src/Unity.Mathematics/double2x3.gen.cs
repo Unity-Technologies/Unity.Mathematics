@@ -118,25 +118,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single double value to a double2x3 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(double v) { return new double2x3(v); }
+
+        /// <summary>Explicitly converts a single bool value to a double2x3 matrix by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2x3(bool v) { return new double2x3(v); }
+
+        /// <summary>Explicitly converts a bool2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2x3(bool2x3 v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a single int value to a double2x3 matrix by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(int v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a int2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(int2x3 v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a single uint value to a double2x3 matrix by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(uint v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a uint2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(uint2x3 v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a single float value to a double2x3 matrix by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(float v) { return new double2x3(v); }
+
+        /// <summary>Implicitly converts a float2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(float2x3 v) { return new double2x3(v); }
+
 
 
         // mul
@@ -309,7 +326,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(double v) { return new double2x3(v); }
 
-        /// <summary>Returns a double2x3 matrix constructed from a single bool value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double2x3 matrix constructed from a single bool value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(bool v) { return new double2x3(v); }
 
@@ -317,7 +334,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(bool2x3 v) { return new double2x3(v); }
 
-        /// <summary>Returns a double2x3 matrix constructed from a single int value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double2x3 matrix constructed from a single int value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(int v) { return new double2x3(v); }
 
@@ -325,7 +342,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(int2x3 v) { return new double2x3(v); }
 
-        /// <summary>Returns a double2x3 matrix constructed from a single uint value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double2x3 matrix constructed from a single uint value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(uint v) { return new double2x3(v); }
 
@@ -333,7 +350,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(uint2x3 v) { return new double2x3(v); }
 
-        /// <summary>Returns a double2x3 matrix constructed from a single float value by convering it to double and assigning it to every entry.</summary>
+        /// <summary>Returns a double2x3 matrix constructed from a single float value by converting it to double and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(float v) { return new double2x3(v); }
 

@@ -135,25 +135,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single int value to a int4x4 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int4x4(int v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a single bool value to a int4x4 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(bool v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a bool4x4 matrix to a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(bool4x4 v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a single uint value to a int4x4 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(uint v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a uint4x4 matrix to a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(uint4x4 v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a single float value to a int4x4 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(float v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a float4x4 matrix to a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(float4x4 v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a single double value to a int4x4 matrix by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(double v) { return new int4x4(v); }
+
+        /// <summary>Explicitly converts a double4x4 matrix to a int4x4 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x4(double4x4 v) { return new int4x4(v); }
+
 
 
         // mul
@@ -367,7 +384,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(int v) { return new int4x4(v); }
 
-        /// <summary>Returns a int4x4 matrix constructed from a single bool value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int4x4 matrix constructed from a single bool value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(bool v) { return new int4x4(v); }
 
@@ -375,7 +392,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(bool4x4 v) { return new int4x4(v); }
 
-        /// <summary>Returns a int4x4 matrix constructed from a single uint value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int4x4 matrix constructed from a single uint value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(uint v) { return new int4x4(v); }
 
@@ -383,7 +400,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(uint4x4 v) { return new int4x4(v); }
 
-        /// <summary>Returns a int4x4 matrix constructed from a single float value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int4x4 matrix constructed from a single float value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(float v) { return new int4x4(v); }
 
@@ -391,7 +408,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(float4x4 v) { return new int4x4(v); }
 
-        /// <summary>Returns a int4x4 matrix constructed from a single double value by convering it to int and assigning it to every entry.</summary>
+        /// <summary>Returns a int4x4 matrix constructed from a single double value by converting it to int and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x4 int4x4(double v) { return new int4x4(v); }
 
@@ -410,6 +427,7 @@ namespace Unity.Mathematics
                 v.c3.x, v.c3.y, v.c3.z, v.c3.w);
         }
 
+        /// <summary>Returns the determinant of a int4x4 matrix.</summary>
         public static int determinant(int4x4 m)
         {
             int4 c0 = m.c0;

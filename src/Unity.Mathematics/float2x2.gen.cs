@@ -109,25 +109,42 @@ namespace Unity.Mathematics
         }
 
 
-        // conversions
+        /// <summary>Implicitly converts a single float value to a float2x2 matrix by assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x2(float v) { return new float2x2(v); }
+
+        /// <summary>Explicitly converts a single bool value to a float2x2 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x2(bool v) { return new float2x2(v); }
+
+        /// <summary>Explicitly converts a bool2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x2(bool2x2 v) { return new float2x2(v); }
+
+        /// <summary>Implicitly converts a single int value to a float2x2 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x2(int v) { return new float2x2(v); }
+
+        /// <summary>Implicitly converts a int2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x2(int2x2 v) { return new float2x2(v); }
+
+        /// <summary>Implicitly converts a single uint value to a float2x2 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x2(uint v) { return new float2x2(v); }
+
+        /// <summary>Implicitly converts a uint2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x2(uint2x2 v) { return new float2x2(v); }
+
+        /// <summary>Explicitly converts a single double value to a float2x2 matrix by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x2(double v) { return new float2x2(v); }
+
+        /// <summary>Explicitly converts a double2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x2(double2x2 v) { return new float2x2(v); }
+
 
 
         // mul
@@ -300,7 +317,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(float v) { return new float2x2(v); }
 
-        /// <summary>Returns a float2x2 matrix constructed from a single bool value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x2 matrix constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(bool v) { return new float2x2(v); }
 
@@ -308,7 +325,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(bool2x2 v) { return new float2x2(v); }
 
-        /// <summary>Returns a float2x2 matrix constructed from a single int value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x2 matrix constructed from a single int value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(int v) { return new float2x2(v); }
 
@@ -316,7 +333,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(int2x2 v) { return new float2x2(v); }
 
-        /// <summary>Returns a float2x2 matrix constructed from a single uint value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x2 matrix constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(uint v) { return new float2x2(v); }
 
@@ -324,7 +341,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(uint2x2 v) { return new float2x2(v); }
 
-        /// <summary>Returns a float2x2 matrix constructed from a single double value by convering it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x2 matrix constructed from a single double value by converting it to float and assigning it to every entry.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 float2x2(double v) { return new float2x2(v); }
 
@@ -341,6 +358,7 @@ namespace Unity.Mathematics
                 v.c1.x, v.c1.y);
         }
 
+        /// <summary>Returns the float2x2 full inverse of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 inverse(float2x2 m)
         {
@@ -354,6 +372,7 @@ namespace Unity.Mathematics
             return float2x2(d, -b, -c, a) * (1.0f / det);
         }
 
+        /// <summary>Returns the determinant of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float determinant(float2x2 m)
         {
