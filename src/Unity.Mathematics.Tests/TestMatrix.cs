@@ -874,5 +874,18 @@ namespace Unity.Mathematics.Tests
             float det = determinant(a);
             Assert.AreEqual(det, 0.5838502f, 0.0001f);
         }
+
+        [Test]
+        public void float4x4_lookat()
+        {
+            float4x4 m = float4x4.lookAt(float3(0.3f, -0.5f, 3.0f), float3(3.2f, -3.1f, 0.2f), normalize(float3(0.3f, 1.0f, -3.0f)));
+            float4x4 r = float4x4(
+                -0.77374f, -0.18930f,  0.60456f,  0.30000f,
+                -0.57373f,  0.61404f, -0.54202f, -0.50000f,
+                -0.26862f, -0.76624f, -0.58371f,  3.00000f,
+                 0.00000f,  0.00000f,  0.00000f,  1.00000f
+                );
+            TestUtils.AreEqual(m, r, 0.001f);
+        }
     }
 }

@@ -444,15 +444,15 @@ namespace Unity.Mathematics
                             float4(vector.x, vector.y, vector.z, 1.0f));
         }
 
-        public static float4x4 lookAt(float3 position, float3 forward, float3 up)
+        public static float4x4 lookAt(float3 eye, float3 target, float3 up)
         {
-            float3x3 rot = float3x3.lookRotation(forward, up);
+            float3x3 rot = float3x3.lookRotation(target - eye, up);
 
             float4x4 matrix;
             matrix.c0 = float4(rot.c0, 0.0F);
             matrix.c1 = float4(rot.c1, 0.0F);
             matrix.c2 = float4(rot.c2, 0.0F);
-            matrix.c3 = float4(position, 1.0F);
+            matrix.c3 = float4(eye, 1.0F);
             return matrix;
         }
     }
