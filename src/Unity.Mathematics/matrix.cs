@@ -456,6 +456,34 @@ namespace Unity.Mathematics
             return matrix;
         }
 
+        public static float4x4 ortho(float width, float height, float near, float far)
+        {
+            float rcpdx = 1.0f / width;
+            float rcpdy = 1.0f / height;
+            float rcpdz = 1.0f / (far - near);
+
+            return float4x4(
+                2.0f * rcpdx,   0.0f,            0.0f,           0.0f,
+                0.0f,           2.0f * rcpdy,    0.0f,           0.0f,
+                0.0f,           0.0f,           -2.0f * rcpdz,  -(far + near) * rcpdz,
+                0.0f,           0.0f,            0.0f,           1.0f
+                );
+        }
+
+        public static float4x4 orthoOffCenter(float left, float right, float bottom, float top, float near, float far)
+        {
+            float rcpdx = 1.0f / (right - left);
+            float rcpdy = 1.0f / (top - bottom);
+            float rcpdz = 1.0f / (far - near);
+
+            return float4x4(
+                2.0f * rcpdx,   0.0f,           0.0f,               -(right + left) * rcpdx,
+                0.0f,           2.0f * rcpdy,   0.0f,               -(top + bottom) * rcpdy,
+                0.0f,           0.0f,          -2.0f * rcpdz,       -(far + near) * rcpdz,
+                0.0f,           0.0f,           0.0f,                1.0f
+                );
+        }
+
         public static float4x4 perspective(float verticalFov, float aspect, float near, float far)
         {
             float cotangent = 1.0f / tan(verticalFov * 0.5f);

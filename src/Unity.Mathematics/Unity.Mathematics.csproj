@@ -125,7 +125,6 @@
     <Compile Include="Noise\noise3Dgrad.cs" />
     <Compile Include="Noise\noise4D.cs" />
     <Compile Include="Noise\psrdnoise2D.cs" />
-    <Compile Include="Playground.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="quaternion.cs" />
     <Compile Include="rigid_transform.cs" />

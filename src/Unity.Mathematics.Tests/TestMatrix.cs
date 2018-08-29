@@ -888,6 +888,33 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m, r, 0.001f);
         }
 
+
+        [Test]
+        public void float4x4_ortho()
+        {
+            float4x4 m = float4x4.ortho(2.0f, 3.0f, -3.0f, 7.0f);
+            float4x4 r = float4x4(
+                1.00000f, 0.00000f,  0.00000f,  0.00000f,
+                0.00000f, 0.66667f,  0.00000f,  0.00000f,
+                0.00000f, 0.00000f, -0.20000f, -0.40000f,
+                0.00000f, 0.00000f,  0.00000f,  1.00000f
+                );
+            TestUtils.AreEqual(m, r, 0.001f);
+        }
+
+        [Test]
+        public void float4x4_orthoOffCenter()
+        {
+            float4x4 m = float4x4.orthoOffCenter(-2.0f, 1.0f, -3.0f, -1.0f, -3.0f, 7.0f);
+            float4x4 r = float4x4(
+                0.66667f, 0.00000f,  0.00000f,  0.33333f,
+                0.00000f, 1.00000f,  0.00000f,  2.00000f,
+                0.00000f, 0.00000f, -0.20000f, -0.40000f,
+                0.00000f, 0.00000f,  0.00000f,  1.00000f
+                );
+            TestUtils.AreEqual(m, r, 0.001f);
+        }
+
         [Test]
         public void float4x4_perspective()
         {
