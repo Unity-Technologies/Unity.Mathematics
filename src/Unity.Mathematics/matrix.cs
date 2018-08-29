@@ -455,6 +455,33 @@ namespace Unity.Mathematics
             matrix.c3 = float4(eye, 1.0F);
             return matrix;
         }
+
+        public static float4x4 perspective(float verticalFov, float aspect, float near, float far)
+        {
+            float cotangent = 1.0f / tan(verticalFov * 0.5f);
+            float rcpdz = 1.0f / (near - far);
+
+            return float4x4(
+                cotangent / aspect, 0.0f,       0.0f,                   0.0f,
+                0.0f,               cotangent,  0.0f,                   0.0f,
+                0.0f,               0.0f,       (far + near) * rcpdz,   2.0f * near * far * rcpdz,
+                0.0f,               0.0f,      -1.0f,                   0.0f
+                );
+        }
+
+        public static float4x4 perspectiveOffCenter(float left, float right, float bottom, float top, float near, float far)
+        {
+            float rcpdz = 1.0f / (near - far);
+            float rcpWidth = 1.0f / (right - left);
+            float rcpHeight = 1.0f / (top - bottom);
+
+            return float4x4(
+                2.0f * near * rcpWidth,     0.0f,                       (left + right) * rcpWidth,     0.0f,
+                0.0f,                       2.0f * near * rcpHeight,    (bottom + top) * rcpHeight,    0.0f,
+                0.0f,                       0.0f,                        (far + near) * rcpdz,          2.0f * near * far * rcpdz,
+                0.0f,                       0.0f,                       -1.0f,                          0.0f
+                );
+        }
     }
 
     partial class math

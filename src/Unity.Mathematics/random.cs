@@ -18,7 +18,7 @@ namespace Unity.Mathematics
 
         // Seed must be non-zero
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Random(uint seed = 0x6E624EB7u)
+        public Random(uint seed)
         {
             state = seed;
             CheckInitState();

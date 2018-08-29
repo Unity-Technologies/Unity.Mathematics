@@ -887,5 +887,68 @@ namespace Unity.Mathematics.Tests
                 );
             TestUtils.AreEqual(m, r, 0.001f);
         }
+
+        [Test]
+        public void float4x4_perspective()
+        {
+            float fovy = 1.6f;
+            float aspect = 1.3333f;
+            float near = 0.1f;
+            float far = 100.0f;
+
+            float height = tan(fovy * 0.5f) * near;
+            float width = height * 1.3333f;
+
+            float4x4 m = float4x4.perspective(fovy, aspect, near, far);
+            float4x4 r = float4x4(
+                0.72843f, 0.00000f,  0.00000f,  0.00000f,
+                0.00000f, 0.97121f,  0.00000f,  0.00000f,
+                0.00000f, 0.00000f, -1.00200f, -0.20020f,
+                0.00000f, 0.00000f, -1.00000f,  0.00000f
+                );
+            TestUtils.AreEqual(m, r, 0.001f);
+
+            float4 p0 = mul(m, float4(-width, -height, -near, 1.0f));
+            float4 pp0 = p0 / p0.w;
+            TestUtils.AreEqual(pp0.xyz, float3(-1.0f, -1.0f, -1.0f), 0.001f);
+
+            float4 p1 = mul(m, float4(width / near * far, height / near * far, -far, 1.0f));
+            float4 pp1 = p1 / p1.w;
+            TestUtils.AreEqual(pp1.xyz, float3(1.0f, 1.0f, 1.0f), 0.001f);
+        }
+
+        [Test]
+        public void float4x4_perspectiveOffCenter()
+        {
+            float fovy = 1.6f;
+            float aspect = 1.3333f;
+            float near = 0.1f;
+            float far = 100.0f;
+            
+            float4x4 r0 = float4x4.perspective(fovy, aspect, near, far);
+
+            float height = tan(fovy * 0.5f) * near;
+            float width = height * 1.3333f;
+
+            float4x4 m0 = float4x4.perspectiveOffCenter(-width, width, -height, height, 0.1f, 100.0f);
+            TestUtils.AreEqual(m0, r0, 0.001f);
+            
+            float left = -0.3f;
+            float right = -0.1f;
+            float bottom = -0.2f;
+            float top = 0.1f;
+            float4x4 m1 = float4x4.perspectiveOffCenter(left, right, bottom, top, near, far);
+            float4 p0 = mul(m1, float4(left, bottom, -near, 1.0f));
+            float4 pp0 = p0 / p0.w;
+            TestUtils.AreEqual(pp0.xyz, float3(-1.0f, -1.0f, -1.0f), 0.001f);
+
+            float4 p1 = mul(m1, float4(right, top, -near, 1.0f));
+            float4 pp1 = p1 / p1.w;
+            TestUtils.AreEqual(pp1.xyz, float3(1.0f, 1.0f, -1.0f), 0.001f);
+
+            float4 p2 = mul(m1, float4(left*far/near, top * far / near, -far, 1.0f));
+            float4 pp2 = p2 / p2.w;
+            TestUtils.AreEqual(pp2.xyz, float3(-1.0f,  1.0f, 1.0f), 0.001f);
+        }
     }
 }
