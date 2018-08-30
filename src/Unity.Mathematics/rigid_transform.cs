@@ -88,18 +88,24 @@ namespace Unity.Mathematics
             return euler(float3(x, y, z), order);
         }
 
+        /// <summary>Returns a float4x4 matrix that rotates around the x-axis by a given number of radians.</summary>
+        /// <param name="angle">The clockwise rotation angle when looking along the x-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateX(float angle)
         {
             return new RigidTransform(quaternion.rotateX(angle), float3.zero);
         }
 
+        /// <summary>Returns a float4x4 matrix that rotates around the y-axis by a given number of radians.</summary>
+        /// <param name="angle">The clockwise rotation angle when looking along the y-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateY(float angle)
         {
             return new RigidTransform(quaternion.rotateY(angle), float3.zero);
         }
 
+        /// <summary>Returns a float4x4 matrix that rotates around the z-axis by a given number of radians.</summary>
+        /// <param name="angle">The clockwise rotation angle when looking along the z-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform rotateZ(float angle)
         {

@@ -271,6 +271,38 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float3x3_rotate_x_handedness()
+        {
+            float3 a = float3(0.0f, 0.3f, 0.7f);
+            float3x3 m = float3x3.rotateX(0.3f);
+            float3 b = mul(m, a);
+            float w = cross(a, b).x;
+            Assert.AreEqual(true, w > 0.0f);
+        }
+
+
+        [Test]
+        public void float3x3_rotate_y_handedness()
+        {
+            float3 a = float3(0.3f, 0.0f, 0.7f);
+            float3x3 m = float3x3.rotateY(0.3f);
+            float3 b = mul(m, a);
+            float w = cross(a, b).y;
+            Assert.AreEqual(true, w > 0.0f);
+        }
+
+        [Test]
+        public void float3x3_rotate_z_handedness()
+        {
+            float3 a = float3(0.3f, 0.7f, 0.0f);
+            float3x3 m = float3x3.rotateZ(0.3f);
+            float3 b = mul(m, a);
+            float w = cross(a, b).z;
+            Assert.AreEqual(true, w > 0.0f);
+        }
+
+
+        [Test]
         public void float4x4_rotate_x()
         {
             float epsilon = 0.0001f;
@@ -340,6 +372,37 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(m.c3.y, 0.0f, epsilon);
             Assert.AreEqual(m.c3.z, 0.0f, epsilon);
             Assert.AreEqual(m.c3.w, 1.0f, epsilon);
+        }
+
+        [Test]
+        public void float4x4_rotate_x_handedness()
+        {
+            float3 a = float3(0.0f, 0.3f, 0.7f);
+            float4x4 m = float4x4.rotateX(0.3f);
+            float3 b = rotate(m, a);
+            float w = cross(a, b).x;
+            Assert.AreEqual(true, w > 0.0f);
+        }
+
+
+        [Test]
+        public void float4x4_rotate_y_handedness()
+        {
+            float3 a = float3(0.3f, 0.0f, 0.7f);
+            float4x4 m = float4x4.rotateY(0.3f);
+            float3 b = rotate(m, a);
+            float w = cross(a, b).y;
+            Assert.AreEqual(true, w > 0.0f);
+        }
+
+        [Test]
+        public void float4x4_rotate_z_handedness()
+        {
+            float3 a = float3(0.3f, 0.7f, 0.0f);
+            float4x4 m = float4x4.rotateZ(0.3f);
+            float3 b = rotate(m, a);
+            float w = cross(a, b).z;
+            Assert.AreEqual(true, w > 0.0f);
         }
 
 
@@ -926,7 +989,7 @@ namespace Unity.Mathematics.Tests
             float height = tan(fovy * 0.5f) * near;
             float width = height * 1.3333f;
 
-            float4x4 m = float4x4.perspective(fovy, aspect, near, far);
+            float4x4 m = float4x4.perspectiveFov(fovy, aspect, near, far);
             float4x4 r = float4x4(
                 0.72843f, 0.00000f,  0.00000f,  0.00000f,
                 0.00000f, 0.97121f,  0.00000f,  0.00000f,
@@ -952,7 +1015,7 @@ namespace Unity.Mathematics.Tests
             float near = 0.1f;
             float far = 100.0f;
             
-            float4x4 r0 = float4x4.perspective(fovy, aspect, near, far);
+            float4x4 r0 = float4x4.perspectiveFov(fovy, aspect, near, far);
 
             float height = tan(fovy * 0.5f) * near;
             float width = height * 1.3333f;
