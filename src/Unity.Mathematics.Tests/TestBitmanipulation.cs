@@ -363,5 +363,159 @@ namespace Unity.Mathematics.Tests
         {
             Assert.AreEqual(reversebits(0x1260dafab1bf5dd2ul), 0x4bbafd8d5f5b0648ul);
         }
+
+        [Test]
+        public void rol_int()
+        {
+            Assert.AreEqual(rol(219257022, 11), -1933184920);
+            Assert.AreEqual(rol(-1586446996, 11), -2048170741);
+            Assert.AreEqual(rol(-279484078, 11), -1152739462);
+            Assert.AreEqual(rol(-1692078607, 11), 661621977);
+        }
+
+        [Test]
+        public void rol_int2()
+        {
+            Assert.AreEqual(rol(int2(219257022, -1586446996), 11), int2(-1933184920, -2048170741));
+            Assert.AreEqual(rol(int2(-279484078, -1692078607), 11), int2(-1152739462, 661621977));
+        }
+
+        [Test]
+        public void rol_int3()
+        {
+            Assert.AreEqual(rol(int3(219257022, -1586446996, -279484078), 11), int3(-1933184920, -2048170741, -1152739462));
+        }
+
+
+        [Test]
+        public void rol_int4()
+        {
+            Assert.AreEqual(rol(int4(219257022, -1586446996, -279484078, -1692078607), 11), int4(-1933184920, -2048170741, -1152739462, 661621977));
+        }
+        
+        [Test]
+        public void rol_uint()
+        {
+            Assert.AreEqual(rol(219257022u, 11), 2361782376u);
+            Assert.AreEqual(rol(2708520300u, 11), 2246796555u);
+            Assert.AreEqual(rol(4015483218u, 11), 3142227834u);
+            Assert.AreEqual(rol(2602888689u, 11), 661621977u);
+        }
+
+        [Test]
+        public void rol_uint2()
+        {
+            Assert.AreEqual(rol(uint2(219257022u, 2708520300u), 11), uint2(2361782376u, 2246796555u));
+            Assert.AreEqual(rol(uint2(4015483218u, 2602888689u), 11), uint2(3142227834u, 661621977u));
+        }
+
+        [Test]
+        public void rol_uint3()
+        {
+            Assert.AreEqual(rol(uint3(219257022u, 2708520300u, 4015483218u), 11), uint3(2361782376u, 2246796555u, 3142227834u));
+        }
+        
+        [Test]
+        public void rol_uint4()
+        {
+            Assert.AreEqual(rol(uint4(219257022u, 2708520300u, 4015483218u, 2602888689u), 11), uint4(2361782376u, 2246796555u, 3142227834u, 661621977u));
+        }
+
+
+        [Test]
+        public void rol_long()
+        {
+            Assert.AreEqual(rol(6894885722123239465L, 37), 4769317691753349395L);
+            Assert.AreEqual(rol(9017875690541231318L, 37), 7702732954299909421L);
+            Assert.AreEqual(rol(-6252342588442027279L, 37), 4304137451269976409L);
+            Assert.AreEqual(rol(2788577329702376155L, 37), -5493728106787075631L);
+        }
+
+        [Test]
+        public void rol_ulong()
+        {
+            Assert.AreEqual(rol(6894885722123239465UL, 37), 4769317691753349395UL);
+            Assert.AreEqual(rol(9017875690541231318UL, 37), 7702732954299909421UL);
+            Assert.AreEqual(rol(12194401485267524337UL, 37), 4304137451269976409UL);
+            Assert.AreEqual(rol(2788577329702376155UL, 37), 12953015966922475985UL);
+        }
+
+
+        [Test]
+        public void ror_int()
+        {
+            Assert.AreEqual(ror(-1710129111, 11), 87245360);
+            Assert.AreEqual(ror(1232136068, 11), -259445220);
+            Assert.AreEqual(ror(1800875222, 11), -1697813787);
+            Assert.AreEqual(ror(-98246768, 11), -232831845);
+        }
+
+        [Test]
+        public void ror_int2()
+        {
+            Assert.AreEqual(ror(int2(-1710129111, 1232136068), 11), int2(87245360, -259445220));
+            Assert.AreEqual(ror(int2(1800875222, -98246768), 11), int2(-1697813787, -232831845));
+        }
+
+        [Test]
+        public void ror_int3()
+        {
+            Assert.AreEqual(ror(int3(-1710129111, 1232136068, 1800875222), 11), int3(87245360, -259445220, -1697813787));
+        }
+
+        [Test]
+        public void ror_int4()
+        {
+            Assert.AreEqual(ror(int4(-1710129111, 1232136068, 1800875222, -98246768), 11), int4(87245360, -259445220, -1697813787, -232831845));
+        }
+
+
+        [Test]
+        public void ror_uint()
+        {
+            Assert.AreEqual(ror(2584838185u, 11), 87245360u);
+            Assert.AreEqual(ror(1232136068u, 11), 4035522076u);
+            Assert.AreEqual(ror(1800875222u, 11), 2597153509u);
+            Assert.AreEqual(ror(4196720528u, 11), 4062135451u);
+        }
+
+        [Test]
+        public void ror_uint2()
+        {
+            Assert.AreEqual(ror(uint2(2584838185u, 1232136068u), 11), uint2(87245360u, 4035522076u));
+            Assert.AreEqual(ror(uint2(1800875222u, 4196720528u), 11), uint2(2597153509u, 4062135451u));
+        }
+
+        [Test]
+        public void ror_uint3()
+        {
+            Assert.AreEqual(ror(uint3(2584838185u, 1232136068u, 1800875222u), 11), uint3(87245360u, 4035522076u, 2597153509u));
+        }
+
+        [Test]
+        public void ror_uint4()
+        {
+            Assert.AreEqual(ror(uint4(2584838185u, 1232136068u, 1800875222u, 4196720528u), 11), uint4(87245360u, 4035522076u, 2597153509u, 4062135451u));
+        }
+
+        [Test]
+        public void ror_long()
+        {
+            Assert.AreEqual(ror(6894885722123239465L, 37), 4958617126915898480L);
+            Assert.AreEqual(ror(9017875690541231318L, 37), 5429856151504760689L);
+            Assert.AreEqual(ror(-6252342588442027279L, 37), 6219170745001040316L);
+            Assert.AreEqual(ror(2788577329702376155L, 37), 8389344736564320290L);
+        }
+
+        [Test]
+        public void ror_ulong()
+        {
+            Assert.AreEqual(ror(6894885722123239465UL, 37), 4958617126915898480UL);
+            Assert.AreEqual(ror(9017875690541231318UL, 37), 5429856151504760689UL);
+            Assert.AreEqual(ror(12194401485267524337UL, 37), 6219170745001040316UL);
+            Assert.AreEqual(ror(2788577329702376155UL, 37), 8389344736564320290UL);
+        }
+
+
     }
 }

@@ -72,6 +72,9 @@ The following table shows the list of intrinsic functions exposed by the static 
 |refract         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-refract) | Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.
 |remap           |   | Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].
 |reversebits     | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-reversebits) | Returns the result of performing a componentwise reversal of the bit pattern of an integer vector or scalar.
+|rol             |   | Returns the result of a componentwise left rotation by n bits of the bit pattern of an integer vector or scalar.
+|ror             |   | Returns the result of a componentwise right rotation by n bits of the bit pattern of an integer vector or scalar.
+
 |rotate          |   |
 |round           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-round) | Returns the result of rounding each component of a vector or scalar to the nearest integral value.
 |rsqrt           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-rsqrt) | Returns the componentwise reciprocal square root of a scalar or vector value.
