@@ -1993,25 +1993,25 @@ namespace Unity.Mathematics
 
 
         /// <summary>
-        // Returns a componentwise selection between two int2 vectors a and b based on a bool2 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two int2 vectors a and b based on a bool2 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 select(int2 a, int2 b, bool2 c) { return new int2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
 
         /// <summary>
-        // Returns a componentwise selection between two int3 vectors a and b based on a bool3 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two int3 vectors a and b based on a bool3 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 select(int3 a, int3 b, bool3 c) { return new int3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
 
         /// <summary>
-        // Returns a componentwise selection between two int4 vectors a and b based on a bool4 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two int4 vectors a and b based on a bool4 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 select(int4 a, int4 b, bool4 c) { return new int4(c.x ? b.x : a.x, c.y ? a.y : b.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static int4 select(int4 a, int4 b, bool4 c) { return new int4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
@@ -2032,25 +2032,25 @@ namespace Unity.Mathematics
 
 
         /// <summary>
-        // Returns a componentwise selection between two uint2 vectors a and b based on a bool2 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two uint2 vectors a and b based on a bool2 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 select(uint2 a, uint2 b, bool2 c) { return new uint2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
 
         /// <summary>
-        // Returns a componentwise selection between two uint3 vectors a and b based on a bool3 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two uint3 vectors a and b based on a bool3 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 select(uint3 a, uint3 b, bool3 c) { return new uint3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
 
         /// <summary>
-        // Returns a componentwise selection between two uint4 vectors a and b based on a bool4 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two uint4 vectors a and b based on a bool4 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 select(uint4 a, uint4 b, bool4 c) { return new uint4(c.x ? b.x : a.x, c.y ? a.y : b.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static uint4 select(uint4 a, uint4 b, bool4 c) { return new uint4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
@@ -2071,23 +2071,23 @@ namespace Unity.Mathematics
 
 
         /// <summary>
-        // Returns a componentwise selection between two float2 vectors a and b based on a bool2 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two float2 vectors a and b based on a bool2 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 select(float2 a, float2 b, bool2 c) { return new float2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
 
         /// <summary>
-        // Returns a componentwise selection between two float3 vectors a and b based on a bool3 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two float3 vectors a and b based on a bool3 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 select(float3 a, float3 b, bool3 c) { return new float3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
 
         /// <summary>
-        // Returns a componentwise selection between two float4 vectors a and b based on a bool4 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two float4 vectors a and b based on a bool4 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 select(float4 a, float4 b, bool4 c) { return new float4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
@@ -2109,23 +2109,23 @@ namespace Unity.Mathematics
         public static double4 select(double4 a, double4 b, bool c) { return c ? b : a; }
 
         /// <summary>
-        // Returns a componentwise selection between two double2 vectors a and b based on a bool2 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two double2 vectors a and b based on a bool2 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 select(double2 a, double2 b, bool2 c) { return new double2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
 
         /// <summary>
-        // Returns a componentwise selection between two double3 vectors a and b based on a bool3 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two double3 vectors a and b based on a bool3 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 select(double3 a, double3 b, bool3 c) { return new double3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
 
         /// <summary>
-        // Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        // Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        //</summary>
+        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
+        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 select(double4 a, double4 b, bool4 c) { return new double4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
@@ -3122,6 +3122,63 @@ namespace Unity.Mathematics
         public static float3 nfence(float3 x) { return x; }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 nfence(float4 x) { return x; }
+
+        /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
+        /// <param name="pBuffer">A pointer to the beginning of the data.</param>
+        /// <param name="numBytes">Number of bytes to hash.</param>
+        /// <param name="seed">Starting seed value.</param>
+        public static unsafe uint hash(void* pBuffer, int numBytes, uint seed = 0)
+        {
+            unchecked
+            {
+                const uint Prime1 = 2654435761;
+                const uint Prime2 = 2246822519;
+                const uint Prime3 = 3266489917;
+                const uint Prime4 = 668265263;
+                const uint Prime5 = 374761393;
+
+                uint4* p = (uint4*)pBuffer;
+                uint hash = seed + Prime5;
+                if (numBytes >= 16)
+                {
+                    uint4 state = new uint4(Prime1 + Prime2, Prime2, 0, (uint)-Prime1) + seed;
+
+                    int count = numBytes >> 4;
+                    for (int i = 0; i < count; ++i)
+                    {
+                        state += *p++ * Prime2;
+                        state = (state << 13) | (state >> 19);
+                        state *= Prime1;
+                    }
+
+                    hash = rol(state.x, 1) + rol(state.y, 7) + rol(state.z, 12) + rol(state.w, 18);
+                }
+
+                hash += (uint)numBytes;
+
+                uint* puint = (uint*)p;
+                for (int i = 0; i < ((numBytes >> 2) & 3); ++i)
+                {
+                    hash += *puint++ * Prime3;
+                    hash = rol(hash, 17) * Prime4;
+                }
+
+                byte* pbyte = (byte*)puint;
+                for (int i = 0; i < ((numBytes) & 3); ++i)
+                {
+                    hash += (*pbyte++) * Prime5;
+                    hash = rol(hash, 11) * Prime1;
+                }
+
+                hash ^= hash >> 15;
+                hash *= Prime2;
+                hash ^= hash >> 13;
+                hash *= Prime3;
+                hash ^= hash >> 16;
+
+                return hash;
+            }
+        }
 
 
         // Internal
