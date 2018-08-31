@@ -23,7 +23,7 @@ The following table shows the list of intrinsic functions exposed by the static 
 |clamp           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-clamp) | Returns the result of a componentwise clamping of the input value x into the interval [a, b], where x, a and b are all of the same scalar or vector type.
 |cmax            |   | Returns the maximum component of a vector.
 |cmin            |   | Returns the minimum component of a vector.
-|compress        |   |
+|compress        |   | Selects and writes elements of an int4 densely to a location indicated by an offset from a pointer location. Returns the new offset at the end of the written elements. Requires unsafe code.
 |conjugate       |   | Returns the conjugate (-x,-y,-z,w) of a quaternion value.
 |cos             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-cos) | Returns the componentwise cosine of a scalar or vector value.
 |cosh            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-cosh) | Returns the componentwise hyperbolic cosine of a scalar or vector value.
@@ -59,8 +59,8 @@ The following table shows the list of intrinsic functions exposed by the static 
 |min             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-min) | Returns the componentwise minimum of two scalar or vector values.
 |fmod            |   | Returns the componentwise floating point remainder of a division between two floating point vectors or scalars.
 |modf            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-modf) | Performs a componentwise split of a vector or scalar into an integral part i and a fractional part that gets returned. Both parts take the sign of the corresponding input component.
-|mul             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul) |
-|nfence          |   |
+|mul             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul) | Returns the result of multiplying two matrices, vectors or quaternions. When the inputs are matrix types, the number of columns on the left-hand side must match the number of rows of the right hand side. Because there is no row-vector type, when a vector is used on the left hand side, it will be interpreted as a row-vector.
+|nfence          |   | A numerical optimization fence. Guarantees the argument expression is optimized in insolation from the rest of the code.
 |nlerp           |   | Returns the result of a normalized linear interpolation between two quaternions using an interpolation parameter.
 |normalize       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of a vector or quaternion x by scaling it by 1 / length(x).
 |orthogonalize   |   | Returns the result of orthogonalizing a matrix.
