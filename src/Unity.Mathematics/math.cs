@@ -3075,15 +3075,15 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the horizontal sum of components of a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 csum(double2 x) { return x.x + x.y; }
+        public static double csum(double2 x) { return x.x + x.y; }
 
         /// <summary>Returns the horizontal sum of components of a double3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 csum(double3 x) { return x.x + x.y + x.z; }
+        public static double csum(double3 x) { return x.x + x.y + x.z; }
 
         /// <summary>Returns the horizontal sum of components of a double4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 csum(double4 x) { return x.x + x.y + x.z + x.w; }
+        public static double csum(double4 x) { return x.x + x.y + x.z + x.w; }
 
         /// <summary>
         /// Packs components with an enabled mask (LSB) to the left
