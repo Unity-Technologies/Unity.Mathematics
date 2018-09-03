@@ -31,95 +31,95 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform axisAngle(float3 axis, float angle) { return new RigidTransform(quaternion.axisAngle(axis, angle), float3.zero); }
+        public static RigidTransform AxisAngle(float3 axis, float angle) { return new RigidTransform(quaternion.AxisAngle(axis, angle), float3.zero); }
 
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXYZ(float3 xyz) { return new RigidTransform(quaternion.eulerXYZ(xyz), float3.zero); }
+        public static RigidTransform EulerXYZ(float3 xyz) { return new RigidTransform(quaternion.EulerXYZ(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXZY(float3 xyz) { return new RigidTransform(quaternion.eulerXZY(xyz), float3.zero); }
+        public static RigidTransform EulerXZY(float3 xyz) { return new RigidTransform(quaternion.EulerXZY(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYXZ(float3 xyz) { return new RigidTransform(quaternion.eulerYXZ(xyz), float3.zero); }
+        public static RigidTransform EulerYXZ(float3 xyz) { return new RigidTransform(quaternion.EulerYXZ(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYZX(float3 xyz) { return new RigidTransform(quaternion.eulerYZX(xyz), float3.zero); }
+        public static RigidTransform EulerYZX(float3 xyz) { return new RigidTransform(quaternion.EulerYZX(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZXY(float3 xyz) { return new RigidTransform(quaternion.eulerZXY(xyz), float3.zero); }
+        public static RigidTransform EulerZXY(float3 xyz) { return new RigidTransform(quaternion.EulerZXY(xyz), float3.zero); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZYX(float3 xyz) { return new RigidTransform(quaternion.eulerZYX(xyz), float3.zero); }
+        public static RigidTransform EulerZYX(float3 xyz) { return new RigidTransform(quaternion.EulerZYX(xyz), float3.zero); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXYZ(float x, float y, float z) { return eulerXYZ(float3(x, y, z)); }
+        public static RigidTransform EulerXYZ(float x, float y, float z) { return EulerXYZ(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerXZY(float x, float y, float z) { return eulerXZY(float3(x, y, z)); }
+        public static RigidTransform EulerXZY(float x, float y, float z) { return EulerXZY(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYXZ(float x, float y, float z) { return eulerYXZ(float3(x, y, z)); }
+        public static RigidTransform EulerYXZ(float x, float y, float z) { return EulerYXZ(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerYZX(float x, float y, float z) { return eulerYZX(float3(x, y, z)); }
+        public static RigidTransform EulerYZX(float x, float y, float z) { return EulerYZX(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZXY(float x, float y, float z) { return eulerZXY(float3(x, y, z)); }
+        public static RigidTransform EulerZXY(float x, float y, float z) { return EulerZXY(float3(x, y, z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform eulerZYX(float x, float y, float z) { return eulerZYX(float3(x, y, z)); }
+        public static RigidTransform EulerZYX(float x, float y, float z) { return EulerZYX(float3(x, y, z)); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        public static RigidTransform Euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             switch (order)
             {
                 case RotationOrder.XYZ:
-                    return eulerXYZ(xyz);
+                    return EulerXYZ(xyz);
                 case RotationOrder.XZY:
-                    return eulerXZY(xyz);
+                    return EulerXZY(xyz);
                 case RotationOrder.YXZ:
-                    return eulerYXZ(xyz);
+                    return EulerYXZ(xyz);
                 case RotationOrder.YZX:
-                    return eulerYZX(xyz);
+                    return EulerYZX(xyz);
                 case RotationOrder.ZXY:
-                    return eulerZXY(xyz);
+                    return EulerZXY(xyz);
                 case RotationOrder.ZYX:
-                    return eulerZYX(xyz);
+                    return EulerZYX(xyz);
                 default:
                     return RigidTransform.identity;
             }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static RigidTransform Euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
-            return euler(float3(x, y, z), order);
+            return Euler(float3(x, y, z), order);
         }
 
         /// <summary>Returns a float4x4 matrix that rotates around the x-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the x-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform rotateX(float angle)
+        public static RigidTransform RotateX(float angle)
         {
-            return new RigidTransform(quaternion.rotateX(angle), float3.zero);
+            return new RigidTransform(quaternion.RotateX(angle), float3.zero);
         }
 
         /// <summary>Returns a float4x4 matrix that rotates around the y-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the y-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform rotateY(float angle)
+        public static RigidTransform RotateY(float angle)
         {
-            return new RigidTransform(quaternion.rotateY(angle), float3.zero);
+            return new RigidTransform(quaternion.RotateY(angle), float3.zero);
         }
 
         /// <summary>Returns a float4x4 matrix that rotates around the z-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the z-axis towards the origin in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform rotateZ(float angle)
+        public static RigidTransform RotateZ(float angle)
         {
-            return new RigidTransform(quaternion.rotateZ(angle), float3.zero);
+            return new RigidTransform(quaternion.RotateZ(angle), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform scale(float s)
+        public static RigidTransform Scale(float s)
         {
-            return new RigidTransform(quaternion.scale(s), float3.zero);
+            return new RigidTransform(quaternion.Scale(s), float3.zero);
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform translate(float3 vector)
+        public static RigidTransform Translate(float3 vector)
         {
             return new RigidTransform(quaternion.identity, vector);
         }

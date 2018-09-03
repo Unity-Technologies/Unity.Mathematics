@@ -212,7 +212,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float2x2 m = float2x2.rotate(angle);
+            float2x2 m = float2x2.Rotate(angle);
             Assert.AreEqual(m.c0.x, cos(angle), epsilon);
             Assert.AreEqual(m.c0.y, sin(angle), epsilon);
             Assert.AreEqual(m.c1.x, -sin(angle), epsilon);
@@ -224,7 +224,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float3x3 m = float3x3.rotateX(angle);
+            float3x3 m = float3x3.RotateX(angle);
             Assert.AreEqual(m.c0.x, 1.0f, epsilon);
             Assert.AreEqual(m.c0.y, 0.0f, epsilon);
             Assert.AreEqual(m.c0.z, 0.0f, epsilon);
@@ -241,7 +241,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float3x3 m = float3x3.rotateY(angle);
+            float3x3 m = float3x3.RotateY(angle);
             Assert.AreEqual(m.c0.x, cos(angle), epsilon);
             Assert.AreEqual(m.c0.y, 0.0f, epsilon);
             Assert.AreEqual(m.c0.z, -sin(angle), epsilon);
@@ -258,7 +258,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float3x3 m = float3x3.rotateZ(angle);
+            float3x3 m = float3x3.RotateZ(angle);
             Assert.AreEqual(m.c0.x, cos(angle), epsilon);
             Assert.AreEqual(m.c0.y, sin(angle), epsilon);
             Assert.AreEqual(m.c0.z, 0.0f, epsilon);
@@ -274,7 +274,7 @@ namespace Unity.Mathematics.Tests
         public void float3x3_rotate_x_handedness()
         {
             float3 a = float3(0.0f, 0.3f, 0.7f);
-            float3x3 m = float3x3.rotateX(0.3f);
+            float3x3 m = float3x3.RotateX(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).x;
             Assert.AreEqual(true, w > 0.0f);
@@ -285,7 +285,7 @@ namespace Unity.Mathematics.Tests
         public void float3x3_rotate_y_handedness()
         {
             float3 a = float3(0.3f, 0.0f, 0.7f);
-            float3x3 m = float3x3.rotateY(0.3f);
+            float3x3 m = float3x3.RotateY(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).y;
             Assert.AreEqual(true, w > 0.0f);
@@ -295,7 +295,7 @@ namespace Unity.Mathematics.Tests
         public void float3x3_rotate_z_handedness()
         {
             float3 a = float3(0.3f, 0.7f, 0.0f);
-            float3x3 m = float3x3.rotateZ(0.3f);
+            float3x3 m = float3x3.RotateZ(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).z;
             Assert.AreEqual(true, w > 0.0f);
@@ -307,7 +307,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float4x4 m = float4x4.rotateX(angle);
+            float4x4 m = float4x4.RotateX(angle);
             Assert.AreEqual(m.c0.x, 1.0f, epsilon);
             Assert.AreEqual(m.c0.y, 0.0f, epsilon);
             Assert.AreEqual(m.c0.z, 0.0f, epsilon);
@@ -331,7 +331,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float4x4 m = float4x4.rotateY(angle);
+            float4x4 m = float4x4.RotateY(angle);
             Assert.AreEqual(m.c0.x, cos(angle), epsilon);
             Assert.AreEqual(m.c0.y, 0.0f, epsilon);
             Assert.AreEqual(m.c0.z, -sin(angle), epsilon);
@@ -355,7 +355,7 @@ namespace Unity.Mathematics.Tests
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
-            float4x4 m = float4x4.rotateZ(angle);
+            float4x4 m = float4x4.RotateZ(angle);
             Assert.AreEqual(m.c0.x, cos(angle), epsilon);
             Assert.AreEqual(m.c0.y, sin(angle), epsilon);
             Assert.AreEqual(m.c0.z, 0.0f, epsilon);
@@ -378,7 +378,7 @@ namespace Unity.Mathematics.Tests
         public void float4x4_rotate_x_handedness()
         {
             float3 a = float3(0.0f, 0.3f, 0.7f);
-            float4x4 m = float4x4.rotateX(0.3f);
+            float4x4 m = float4x4.RotateX(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).x;
             Assert.AreEqual(true, w > 0.0f);
@@ -389,7 +389,7 @@ namespace Unity.Mathematics.Tests
         public void float4x4_rotate_y_handedness()
         {
             float3 a = float3(0.3f, 0.0f, 0.7f);
-            float4x4 m = float4x4.rotateY(0.3f);
+            float4x4 m = float4x4.RotateY(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).y;
             Assert.AreEqual(true, w > 0.0f);
@@ -399,7 +399,7 @@ namespace Unity.Mathematics.Tests
         public void float4x4_rotate_z_handedness()
         {
             float3 a = float3(0.3f, 0.7f, 0.0f);
-            float4x4 m = float4x4.rotateZ(0.3f);
+            float4x4 m = float4x4.RotateZ(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).z;
             Assert.AreEqual(true, w > 0.0f);
@@ -445,36 +445,36 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float3x3_euler()
         {
-            float3x3 m0_xyz = float3x3.eulerXYZ(test_angles);
-            float3x3 m0_xzy = float3x3.eulerXZY(test_angles);
-            float3x3 m0_yxz = float3x3.eulerYXZ(test_angles);
-            float3x3 m0_yzx = float3x3.eulerYZX(test_angles);
-            float3x3 m0_zxy = float3x3.eulerZXY(test_angles);
-            float3x3 m0_zyx = float3x3.eulerZYX(test_angles);
+            float3x3 m0_xyz = float3x3.EulerXYZ(test_angles);
+            float3x3 m0_xzy = float3x3.EulerXZY(test_angles);
+            float3x3 m0_yxz = float3x3.EulerYXZ(test_angles);
+            float3x3 m0_yzx = float3x3.EulerYZX(test_angles);
+            float3x3 m0_zxy = float3x3.EulerZXY(test_angles);
+            float3x3 m0_zyx = float3x3.EulerZYX(test_angles);
 
-            float3x3 m1 = float3x3.euler(test_angles);
-            float3x3 m1_xyz = float3x3.euler(test_angles, RotationOrder.XYZ);
-            float3x3 m1_xzy = float3x3.euler(test_angles, RotationOrder.XZY);
-            float3x3 m1_yxz = float3x3.euler(test_angles, RotationOrder.YXZ);
-            float3x3 m1_yzx = float3x3.euler(test_angles, RotationOrder.YZX);
-            float3x3 m1_zxy = float3x3.euler(test_angles, RotationOrder.ZXY);
-            float3x3 m1_zyx = float3x3.euler(test_angles, RotationOrder.ZYX);
+            float3x3 m1 = float3x3.Euler(test_angles);
+            float3x3 m1_xyz = float3x3.Euler(test_angles, RotationOrder.XYZ);
+            float3x3 m1_xzy = float3x3.Euler(test_angles, RotationOrder.XZY);
+            float3x3 m1_yxz = float3x3.Euler(test_angles, RotationOrder.YXZ);
+            float3x3 m1_yzx = float3x3.Euler(test_angles, RotationOrder.YZX);
+            float3x3 m1_zxy = float3x3.Euler(test_angles, RotationOrder.ZXY);
+            float3x3 m1_zyx = float3x3.Euler(test_angles, RotationOrder.ZYX);
 
 
-            float3x3 m2_xyz = float3x3.eulerXYZ(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m2_xzy = float3x3.eulerXZY(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m2_yxz = float3x3.eulerYXZ(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m2_yzx = float3x3.eulerYZX(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m2_zxy = float3x3.eulerZXY(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m2_zyx = float3x3.eulerZYX(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_xyz = float3x3.EulerXYZ(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_xzy = float3x3.EulerXZY(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_yxz = float3x3.EulerYXZ(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_yzx = float3x3.EulerYZX(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_zxy = float3x3.EulerZXY(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m2_zyx = float3x3.EulerZYX(test_angles.x, test_angles.y, test_angles.z);
 
-            float3x3 m3 = float3x3.euler(test_angles.x, test_angles.y, test_angles.z);
-            float3x3 m3_xyz = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
-            float3x3 m3_xzy = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
-            float3x3 m3_yxz = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
-            float3x3 m3_yzx = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
-            float3x3 m3_zxy = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
-            float3x3 m3_zyx = float3x3.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
+            float3x3 m3 = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z);
+            float3x3 m3_xyz = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            float3x3 m3_xzy = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            float3x3 m3_yxz = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            float3x3 m3_yzx = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            float3x3 m3_zxy = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            float3x3 m3_zyx = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
 
             TestUtils.AreEqual(m0_xyz, test3x3_xyz, 0.0001f);
@@ -512,36 +512,36 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_euler()
         {
-            float4x4 m0_xyz = float4x4.eulerXYZ(test_angles);
-            float4x4 m0_xzy = float4x4.eulerXZY(test_angles);
-            float4x4 m0_yxz = float4x4.eulerYXZ(test_angles);
-            float4x4 m0_yzx = float4x4.eulerYZX(test_angles);
-            float4x4 m0_zxy = float4x4.eulerZXY(test_angles);
-            float4x4 m0_zyx = float4x4.eulerZYX(test_angles);
+            float4x4 m0_xyz = float4x4.EulerXYZ(test_angles);
+            float4x4 m0_xzy = float4x4.EulerXZY(test_angles);
+            float4x4 m0_yxz = float4x4.EulerYXZ(test_angles);
+            float4x4 m0_yzx = float4x4.EulerYZX(test_angles);
+            float4x4 m0_zxy = float4x4.EulerZXY(test_angles);
+            float4x4 m0_zyx = float4x4.EulerZYX(test_angles);
 
-            float4x4 m1 = float4x4.euler(test_angles);
-            float4x4 m1_xyz = float4x4.euler(test_angles, RotationOrder.XYZ);
-            float4x4 m1_xzy = float4x4.euler(test_angles, RotationOrder.XZY);
-            float4x4 m1_yxz = float4x4.euler(test_angles, RotationOrder.YXZ);
-            float4x4 m1_yzx = float4x4.euler(test_angles, RotationOrder.YZX);
-            float4x4 m1_zxy = float4x4.euler(test_angles, RotationOrder.ZXY);
-            float4x4 m1_zyx = float4x4.euler(test_angles, RotationOrder.ZYX);
+            float4x4 m1 = float4x4.Euler(test_angles);
+            float4x4 m1_xyz = float4x4.Euler(test_angles, RotationOrder.XYZ);
+            float4x4 m1_xzy = float4x4.Euler(test_angles, RotationOrder.XZY);
+            float4x4 m1_yxz = float4x4.Euler(test_angles, RotationOrder.YXZ);
+            float4x4 m1_yzx = float4x4.Euler(test_angles, RotationOrder.YZX);
+            float4x4 m1_zxy = float4x4.Euler(test_angles, RotationOrder.ZXY);
+            float4x4 m1_zyx = float4x4.Euler(test_angles, RotationOrder.ZYX);
 
             
-            float4x4 m2_xyz = float4x4.eulerXYZ(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m2_xzy = float4x4.eulerXZY(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m2_yxz = float4x4.eulerYXZ(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m2_yzx = float4x4.eulerYZX(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m2_zxy = float4x4.eulerZXY(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m2_zyx = float4x4.eulerZYX(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_xyz = float4x4.EulerXYZ(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_xzy = float4x4.EulerXZY(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_yxz = float4x4.EulerYXZ(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_yzx = float4x4.EulerYZX(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_zxy = float4x4.EulerZXY(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m2_zyx = float4x4.EulerZYX(test_angles.x, test_angles.y, test_angles.z);
 
-            float4x4 m3 = float4x4.euler(test_angles.x, test_angles.y, test_angles.z);
-            float4x4 m3_xyz = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
-            float4x4 m3_xzy = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
-            float4x4 m3_yxz = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
-            float4x4 m3_yzx = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
-            float4x4 m3_zxy = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
-            float4x4 m3_zyx = float4x4.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
+            float4x4 m3 = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z);
+            float4x4 m3_xyz = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            float4x4 m3_xzy = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            float4x4 m3_yxz = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            float4x4 m3_yzx = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            float4x4 m3_zxy = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            float4x4 m3_zyx = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
             
             TestUtils.AreEqual(m0_xyz, test4x4_xyz, 0.0001f);
@@ -588,9 +588,9 @@ namespace Unity.Mathematics.Tests
             float2x2 r1 = float2x2(2.0f,  4.0f,
                                    9.0f, 12.0f);
 
-            float2x2 a = mul(float2x2.scale(2.0f), m);
-            float2x2 b = mul(float2x2.scale(2.0f, 3.0f), m);
-            float2x2 c = mul(float2x2.scale(2.0f, 3.0f), m);
+            float2x2 a = mul(float2x2.Scale(2.0f), m);
+            float2x2 b = mul(float2x2.Scale(2.0f, 3.0f), m);
+            float2x2 c = mul(float2x2.Scale(2.0f, 3.0f), m);
 
             TestUtils.AreEqual(a, r0);
             TestUtils.AreEqual(b, r1);
@@ -614,9 +614,9 @@ namespace Unity.Mathematics.Tests
                                    28.0f, 32.0f, 36.0f);
 
 
-            float3x3 a = mul(float3x3.scale(2.0f), m);
-            float3x3 b = mul(float3x3.scale(2.0f, 3.0f, 4.0f), m);
-            float3x3 c = mul(float3x3.scale(2.0f, 3.0f, 4.0f), m);
+            float3x3 a = mul(float3x3.Scale(2.0f), m);
+            float3x3 b = mul(float3x3.Scale(2.0f, 3.0f, 4.0f), m);
+            float3x3 c = mul(float3x3.Scale(2.0f, 3.0f, 4.0f), m);
 
             TestUtils.AreEqual(a, r0);
             TestUtils.AreEqual(b, r1);
@@ -641,9 +641,9 @@ namespace Unity.Mathematics.Tests
                                    36.0f, 40.0f, 44.0f, 48.0f,
                                    13.0f, 14.0f, 15.0f, 16.0f);
 
-            float4x4 a = mul(float4x4.scale(2.0f), m);
-            float4x4 b = mul(float4x4.scale(2.0f, 3.0f, 4.0f), m);
-            float4x4 c = mul(float4x4.scale(2.0f, 3.0f, 4.0f), m);
+            float4x4 a = mul(float4x4.Scale(2.0f), m);
+            float4x4 b = mul(float4x4.Scale(2.0f, 3.0f, 4.0f), m);
+            float4x4 c = mul(float4x4.Scale(2.0f, 3.0f, 4.0f), m);
 
             TestUtils.AreEqual(a, r0);
             TestUtils.AreEqual(b, r1);
@@ -941,7 +941,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_lookat()
         {
-            float4x4 m = float4x4.lookAt(float3(0.3f, -0.5f, 3.0f), float3(3.2f, -3.1f, 0.2f), normalize(float3(0.3f, 1.0f, -3.0f)));
+            float4x4 m = float4x4.LookAt(float3(0.3f, -0.5f, 3.0f), float3(3.2f, -3.1f, 0.2f), normalize(float3(0.3f, 1.0f, -3.0f)));
             float4x4 r = float4x4(
                 -0.77374f, -0.18930f,  0.60456f,  0.30000f,
                 -0.57373f,  0.61404f, -0.54202f, -0.50000f,
@@ -955,7 +955,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_ortho()
         {
-            float4x4 m = float4x4.ortho(2.0f, 3.0f, -3.0f, 7.0f);
+            float4x4 m = float4x4.Ortho(2.0f, 3.0f, -3.0f, 7.0f);
             float4x4 r = float4x4(
                 1.00000f, 0.00000f,  0.00000f,  0.00000f,
                 0.00000f, 0.66667f,  0.00000f,  0.00000f,
@@ -968,7 +968,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void float4x4_orthoOffCenter()
         {
-            float4x4 m = float4x4.orthoOffCenter(-2.0f, 1.0f, -3.0f, -1.0f, -3.0f, 7.0f);
+            float4x4 m = float4x4.OrthoOffCenter(-2.0f, 1.0f, -3.0f, -1.0f, -3.0f, 7.0f);
             float4x4 r = float4x4(
                 0.66667f, 0.00000f,  0.00000f,  0.33333f,
                 0.00000f, 1.00000f,  0.00000f,  2.00000f,
@@ -989,7 +989,7 @@ namespace Unity.Mathematics.Tests
             float height = tan(fovy * 0.5f) * near;
             float width = height * 1.3333f;
 
-            float4x4 m = float4x4.perspectiveFov(fovy, aspect, near, far);
+            float4x4 m = float4x4.PerspectiveFov(fovy, aspect, near, far);
             float4x4 r = float4x4(
                 0.72843f, 0.00000f,  0.00000f,  0.00000f,
                 0.00000f, 0.97121f,  0.00000f,  0.00000f,
@@ -1015,19 +1015,19 @@ namespace Unity.Mathematics.Tests
             float near = 0.1f;
             float far = 100.0f;
             
-            float4x4 r0 = float4x4.perspectiveFov(fovy, aspect, near, far);
+            float4x4 r0 = float4x4.PerspectiveFov(fovy, aspect, near, far);
 
             float height = tan(fovy * 0.5f) * near;
             float width = height * 1.3333f;
 
-            float4x4 m0 = float4x4.perspectiveOffCenter(-width, width, -height, height, 0.1f, 100.0f);
+            float4x4 m0 = float4x4.PerspectiveOffCenter(-width, width, -height, height, 0.1f, 100.0f);
             TestUtils.AreEqual(m0, r0, 0.001f);
             
             float left = -0.3f;
             float right = -0.1f;
             float bottom = -0.2f;
             float top = 0.1f;
-            float4x4 m1 = float4x4.perspectiveOffCenter(left, right, bottom, top, near, far);
+            float4x4 m1 = float4x4.PerspectiveOffCenter(left, right, bottom, top, near, far);
             float4 p0 = mul(m1, float4(left, bottom, -near, 1.0f));
             float4 pp0 = p0 / p0.w;
             TestUtils.AreEqual(pp0.xyz, float3(-1.0f, -1.0f, -1.0f), 0.001f);

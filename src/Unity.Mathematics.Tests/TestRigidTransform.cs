@@ -22,7 +22,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void rigid_transform_axisAngle()
         {
-            RigidTransform q = RigidTransform.axisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
+            RigidTransform q = RigidTransform.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
             RigidTransform r = RigidTransform(quaternion(-0.2562833f, -0.5125666f, -0.76885f, 0.2836622f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -32,21 +32,21 @@ namespace Unity.Mathematics.Tests
         public void rigid_transform_euler()
         {
             float3 test_angles = TestMatrix.test_angles;
-            RigidTransform q0 = RigidTransform.euler(test_angles);
-            RigidTransform q0_xyz = RigidTransform.euler(test_angles, RotationOrder.XYZ);
-            RigidTransform q0_xzy = RigidTransform.euler(test_angles, RotationOrder.XZY);
-            RigidTransform q0_yxz = RigidTransform.euler(test_angles, RotationOrder.YXZ);
-            RigidTransform q0_yzx = RigidTransform.euler(test_angles, RotationOrder.YZX);
-            RigidTransform q0_zxy = RigidTransform.euler(test_angles, RotationOrder.ZXY);
-            RigidTransform q0_zyx = RigidTransform.euler(test_angles, RotationOrder.ZYX);
+            RigidTransform q0 = RigidTransform.Euler(test_angles);
+            RigidTransform q0_xyz = RigidTransform.Euler(test_angles, RotationOrder.XYZ);
+            RigidTransform q0_xzy = RigidTransform.Euler(test_angles, RotationOrder.XZY);
+            RigidTransform q0_yxz = RigidTransform.Euler(test_angles, RotationOrder.YXZ);
+            RigidTransform q0_yzx = RigidTransform.Euler(test_angles, RotationOrder.YZX);
+            RigidTransform q0_zxy = RigidTransform.Euler(test_angles, RotationOrder.ZXY);
+            RigidTransform q0_zyx = RigidTransform.Euler(test_angles, RotationOrder.ZYX);
 
-            RigidTransform q1 = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z);
-            RigidTransform q1_xyz = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
-            RigidTransform q1_xzy = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
-            RigidTransform q1_yxz = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
-            RigidTransform q1_yzx = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
-            RigidTransform q1_zxy = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
-            RigidTransform q1_zyx = RigidTransform.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
+            RigidTransform q1 = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z);
+            RigidTransform q1_xyz = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            RigidTransform q1_xzy = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            RigidTransform q1_yxz = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            RigidTransform q1_yzx = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            RigidTransform q1_zxy = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            RigidTransform q1_zyx = RigidTransform.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
             float epsilon = 0.0001f;
             TestUtils.AreEqual(q0, RigidTransform(quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), float3.zero), epsilon);
@@ -102,7 +102,7 @@ namespace Unity.Mathematics.Tests
         public void rigid_transform_rotateX()
         {
             float angle = 2.3f;
-            RigidTransform q = RigidTransform.rotateX(angle);
+            RigidTransform q = RigidTransform.RotateX(angle);
 
             RigidTransform r = RigidTransform(quaternion(0.91276394f, 0.0f, 0.0f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -112,7 +112,7 @@ namespace Unity.Mathematics.Tests
         public void rigid_transform_rotateY()
         {
             float angle = 2.3f;
-            RigidTransform q = RigidTransform.rotateY(angle);
+            RigidTransform q = RigidTransform.RotateY(angle);
 
             RigidTransform r = RigidTransform(quaternion(0.0f, 0.91276394f, 0.0f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -122,7 +122,7 @@ namespace Unity.Mathematics.Tests
         public void rigid_transform_rotateZ()
         {
             float angle = 2.3f;
-            RigidTransform q = RigidTransform.rotateZ(angle);
+            RigidTransform q = RigidTransform.RotateZ(angle);
 
             RigidTransform r = RigidTransform(quaternion(0.0f, 0.0f, 0.91276394f, 0.40848744f), float3.zero);
             TestUtils.AreEqual(q, r, 0.0001f);

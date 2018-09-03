@@ -41,7 +41,7 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void quaternion_axisAngle()
         {
-            quaternion q = quaternion.axisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
+            quaternion q = quaternion.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
             quaternion r = quaternion(-0.2562833f, -0.5125666f, -0.76885f, 0.2836622f);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -51,21 +51,21 @@ namespace Unity.Mathematics.Tests
         public void quaternion_euler()
         {
             float3 test_angles = TestMatrix.test_angles;
-            quaternion q0 = quaternion.euler(test_angles);
-            quaternion q0_xyz = quaternion.euler(test_angles, RotationOrder.XYZ);
-            quaternion q0_xzy = quaternion.euler(test_angles, RotationOrder.XZY);
-            quaternion q0_yxz = quaternion.euler(test_angles, RotationOrder.YXZ);
-            quaternion q0_yzx = quaternion.euler(test_angles, RotationOrder.YZX);
-            quaternion q0_zxy = quaternion.euler(test_angles, RotationOrder.ZXY);
-            quaternion q0_zyx = quaternion.euler(test_angles, RotationOrder.ZYX);
+            quaternion q0 = quaternion.Euler(test_angles);
+            quaternion q0_xyz = quaternion.Euler(test_angles, RotationOrder.XYZ);
+            quaternion q0_xzy = quaternion.Euler(test_angles, RotationOrder.XZY);
+            quaternion q0_yxz = quaternion.Euler(test_angles, RotationOrder.YXZ);
+            quaternion q0_yzx = quaternion.Euler(test_angles, RotationOrder.YZX);
+            quaternion q0_zxy = quaternion.Euler(test_angles, RotationOrder.ZXY);
+            quaternion q0_zyx = quaternion.Euler(test_angles, RotationOrder.ZYX);
 
-            quaternion q1 = quaternion.euler(test_angles.x, test_angles.y, test_angles.z);
-            quaternion q1_xyz = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
-            quaternion q1_xzy = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
-            quaternion q1_yxz = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
-            quaternion q1_yzx = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
-            quaternion q1_zxy = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
-            quaternion q1_zyx = quaternion.euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
+            quaternion q1 = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z);
+            quaternion q1_xyz = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XYZ);
+            quaternion q1_xzy = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.XZY);
+            quaternion q1_yxz = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YXZ);
+            quaternion q1_yzx = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.YZX);
+            quaternion q1_zxy = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
+            quaternion q1_zyx = quaternion.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
             float epsilon = 0.0001f;
             TestUtils.AreEqual(q0, quaternion(-0.3133549f, 0.3435619f, 0.3899215f, 0.7948176f), epsilon);
@@ -121,7 +121,7 @@ namespace Unity.Mathematics.Tests
         public void quaternion_rotateX()
         {
             float angle = 2.3f;
-            quaternion q = quaternion.rotateX(angle);
+            quaternion q = quaternion.RotateX(angle);
 
             quaternion r = quaternion(0.91276394f, 0.0f, 0.0f, 0.40848744f);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -131,7 +131,7 @@ namespace Unity.Mathematics.Tests
         public void quaternion_rotateY()
         {
             float angle = 2.3f;
-            quaternion q = quaternion.rotateY(angle);
+            quaternion q = quaternion.RotateY(angle);
 
             quaternion r = quaternion(0.0f, 0.91276394f, 0.0f, 0.40848744f);
             TestUtils.AreEqual(q, r, 0.0001f);
@@ -141,7 +141,7 @@ namespace Unity.Mathematics.Tests
         public void quaternion_rotateZ()
         {
             float angle = 2.3f;
-            quaternion q = quaternion.rotateZ(angle);
+            quaternion q = quaternion.RotateZ(angle);
 
             quaternion r = quaternion(0.0f, 0.0f, 0.91276394f, 0.40848744f);
             TestUtils.AreEqual(q, r, 0.0001f);
