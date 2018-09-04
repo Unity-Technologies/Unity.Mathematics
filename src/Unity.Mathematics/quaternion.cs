@@ -339,15 +339,36 @@ namespace Unity.Mathematics
             return dot(q.value, q.value);
         }
 
-        /// <summary>Returns a normalized version of a quaternion q.</summary>
+        /// <summary>Returns a normalized version of a quaternion q by scaling it by 1 / length(q).</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion normalize(quaternion q)
         {
-            float4 value = q.value;
-            float lengthSq = dot(value, value);
-            value = math.select(Mathematics.quaternion.identity.value, value * math.rsqrt(lengthSq), lengthSq > 1e-30f);
+            float4 x = q.value;
+            return quaternion(rsqrt(dot(x, x)) * x);
+        }
 
-            return quaternion(value);
+        /// <summary>
+        /// Returns a safe normalized version of the q by scaling it by 1 / length(q).
+        /// Returns the identity when 1 / length(q) does not produce a finite number.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion normalizesafe(quaternion q)
+        {
+            float4 x = q.value;
+            float len = math.dot(x, x);
+            return quaternion(math.select(Mathematics.quaternion.identity.value, x * math.rsqrt(len), len > FLT_MIN_NORMAL));
+        }
+
+        /// <summary>
+        /// Returns a safe normalized version of the q by scaling it by 1 / length(q).
+        /// Returns the given default value when 1 / length(q) does not produce a finite number.
+        /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion normalizesafe(quaternion q, quaternion defaultvalue)
+        {
+            float4 x = q.value;
+            float len = math.dot(x, x);
+            return quaternion(math.select(defaultvalue.value, x * math.rsqrt(len), len > FLT_MIN_NORMAL));
         }
 
         /// <summary>Returns the natural exponent of a quaternion. Assumes w is zero.</summary>

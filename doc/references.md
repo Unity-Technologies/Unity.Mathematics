@@ -60,9 +60,9 @@ The following table shows the list of intrinsic functions exposed by the static 
 |fmod            |   | Returns the componentwise floating point remainder of a division between two floating point vectors or scalars.
 |modf            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-modf) | Performs a componentwise split of a vector or scalar into an integral part i and a fractional part that gets returned. Both parts take the sign of the corresponding input component.
 |mul             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-mul) | Returns the result of multiplying two matrices, vectors or quaternions. When the inputs are matrix types, the number of columns on the left-hand side must match the number of rows of the right hand side. Because there is no row-vector type, when a vector is used on the left hand side, it will be interpreted as a row-vector.
-|nfence          |   | A numerical optimization fence. Guarantees the argument expression is optimized in insolation from the rest of the code.
 |nlerp           |   | Returns the result of a normalized linear interpolation between two quaternions using an interpolation parameter.
 |normalize       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of a vector or quaternion x by scaling it by 1 / length(x).
+|normalizesafe       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of a vector or quaternion x by scaling it by 1 / length(x). Returns a default value when 1 / length(x) does not produce a finite number.
 |orthogonalize   |   | Returns the result of orthogonalizing a matrix.
 |pow             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pow) | Returns the componentwise result of raising x to the power y.
 |powr            |   | Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.

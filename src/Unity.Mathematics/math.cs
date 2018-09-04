@@ -49,6 +49,13 @@ namespace Unity.Mathematics
         /// <summary>The square root 2. Approximately 1.41.</summary>
         public static readonly double SQRT2 = 1.41421356237309504880;
 
+        /// <summary>The smallest positive normal number representable in a float.</summary>
+        public static readonly float FLT_MIN_NORMAL = 1.175494351e-38F;
+
+        /// <summary>The smallest positive normal number representable in a double.</summary>
+        public static readonly float DBL_MIN_NORMAL = 1.175494351e-38F;
+
+
         /// <summary>Returns the bit pattern of a uint as an int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int asint(uint x) { return (int)x; }
@@ -1661,6 +1668,68 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a normalized version of the double4 vector x by scaling it by 1 / length(x).</summary>
         public static double4 normalize(double4 x) { return rsqrt(dot(x, x)) * x; }
+
+
+        /// <summary>
+        /// Returns a safe normalized version of the float2 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public float2 normalizesafe(float2 x, float2 defaultvalue = new float2())
+        {
+            float len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
+
+        /// <summary>
+        /// Returns a safe normalized version of the float3 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public float3 normalizesafe(float3 x, float3 defaultvalue = new float3())
+        {
+            float len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
+
+        /// <summary>
+        /// Returns a safe normalized version of the float4 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public float4 normalizesafe(float4 x, float4 defaultvalue = new float4())
+        {
+            float len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
+
+
+        /// <summary>
+        /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public double2 normalizesafe(double2 x, double2 defaultvalue = new double2())
+        {
+            double len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
+
+        /// <summary>
+        /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public double3 normalizesafe(double3 x, double3 defaultvalue = new double3())
+        {
+            double len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
+
+        /// <summary>
+        /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
+        /// Returns the given default value when 1 / length(x) does not produce a finite number.
+        /// </summary>
+        static public double4 normalizesafe(double4 x, double4 defaultvalue = new double4())
+        {
+            double len = math.dot(x, x);
+            return math.select(defaultvalue, x * math.rsqrt(len), len > FLT_MIN_NORMAL);
+        }
 
 
         /// <summary>Returns the length of a float value. Equivalent to the absolute value.</summary>
