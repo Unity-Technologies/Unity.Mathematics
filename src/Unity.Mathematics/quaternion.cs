@@ -1,5 +1,4 @@
 using System;
-using Unity.Mathematics.Experimental;
 using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
 
@@ -236,7 +235,7 @@ namespace Unity.Mathematics
    
         public static quaternion LookRotation(float3 direction, float3 up)
         {
-            var vector = math_experimental.normalizeSafe(direction);
+            var vector = normalizesafe(direction);
             var vector2 = cross(up, vector);
             var vector3 = cross(vector, vector2);
             var m00 = vector2.x;

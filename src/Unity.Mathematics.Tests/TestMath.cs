@@ -435,7 +435,7 @@ namespace Unity.Mathematics.Tests
         public void normalize_float4()
         {
             TestUtils.AreEqual(normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
-            Assert.IsTrue(all(isnan(normalize(float3(0.0f, 0.0f, 0.0f)))));
+            Assert.IsTrue(all(isnan(normalize(float4(0.0f, 0.0f, 0.0f, 0.0f)))));
         }
 
 
@@ -458,6 +458,13 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), double4(0.234727, -0.401308, 0.196868, 0.863191), 0.0001);
             Assert.IsTrue(all(isnan(normalize(double4(0.0, 0.0, 0.0, 0.0f)))));
+        }
+
+        [Test]
+        public void normalize_quaternion()
+        {
+            TestUtils.AreEqual(normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
+            Assert.IsTrue(all(isnan(normalize(quaternion(0.0f, 0.0f, 0.0f, 0.0f)).value)));
         }
 
 
@@ -520,6 +527,16 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(normalizesafe(double4(0.0, 0.0, 0.0, 0.0), double4(1.0, 2.0, 3.0, 4.0)), double4(1.0, 2.0, 3.0, 4.0));
             TestUtils.AreEqual(normalizesafe(double4(1e-19, 2e-19, 3e-19, 4e-19)), double4(0.182574, 0.3651484, 0.547723, 0.730297), 0.0001);
             Assert.AreEqual(normalizesafe(double4(7.45e-155, 7.45e-155, 7.45e-155, 7.45e-155), double4(1.0, 2.0, 3.0, 4.0)), double4(1.0, 2.0, 3.0, 4.0));
+        }
+
+        [Test]
+        public void normalizesafe_quaternion()
+        {
+            TestUtils.AreEqual(normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
+            Assert.AreEqual(normalizesafe(quaternion(0.0f, 0.0f, 0.0f, 0.0f)), quaternion(0.0f, 0.0f, 0.0f, 1.0f));
+            Assert.AreEqual(normalizesafe(quaternion(0.0f, 0.0f, 0.0f, 0.0f), quaternion(1.0f, 2.0f, 3.0f, 4.0f)), quaternion(1.0f, 2.0f, 3.0f, 4.0f));
+            TestUtils.AreEqual(normalizesafe(quaternion(1e-19f, 2e-19f, 3e-19f, 4e-19f)), quaternion(0.182574f, 0.3651484f, 0.547723f, 0.730297f), 0.0001f);
+            Assert.AreEqual(normalizesafe(quaternion(5.42e-20f, 5.42e-20f, 5.42e-20f, 5.42e-20f), quaternion(1.0f, 2.0f, 3.0f, 4.0f)), quaternion(1.0f, 2.0f, 3.0f, 4.0f));
         }
 
         [Test]
