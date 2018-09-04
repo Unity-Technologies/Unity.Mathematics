@@ -3105,24 +3105,6 @@ namespace Unity.Mathematics
             return index;
         }
 
-        /// <summary>
-        /// A numeric optimization fence.
-        /// prevents the compiler from optimizing operators.
-        /// Some algorithms are written in specific ways to get more precision.
-        /// For example: https://en.wikipedia.org/wiki/Kahan_summation_algorithm
-        /// this gives the programmer a tool to prevent specific optimization.
-        /// example:
-        /// var c = math.nfence(a + b) * c;
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float nfence(float x) { return x; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 nfence(float2 x) { return x; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 nfence(float3 x) { return x; }
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 nfence(float4 x) { return x; }
-
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>
