@@ -40,24 +40,20 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3x3 matrix from a quaternion.</summary>
         public float3x3(quaternion rotation)
         {
-            rotation = math.normalize(rotation);
+            float4 v = rotation.value;
+            float4 v2 = v + v;
+            /*
+            c0 = v2.y * v.yxw * float3(-1, 1,-1) - v2.z * v.zwx * float3( 1,-1,-1) + float3(1, 0, 0);
+            c1 = v2.z * v.wzy * float3(-1,-1, 1) - v2.x * v.yxw * float3(-1, 1,-1) + float3(0, 1, 0);
+            c2 = v2.x * v.zwx * float3( 1,-1,-1) - v2.y * v.wzy * float3(-1,-1, 1) + float3(0, 0, 1);
+            */
 
-            float x = rotation.value.x * 2.0F;
-            float y = rotation.value.y * 2.0F;
-            float z = rotation.value.z * 2.0F;
-            float xx = rotation.value.x * x;
-            float yy = rotation.value.y * y;
-            float zz = rotation.value.z * z;
-            float xy = rotation.value.x * y;
-            float xz = rotation.value.x * z;
-            float yz = rotation.value.y * z;
-            float wx = rotation.value.w * x;
-            float wy = rotation.value.w * y;
-            float wz = rotation.value.w * z;
-
-            c0 = float3(1.0f - (yy + zz), xy + wz, xz - wy);
-            c1 = float3(xy - wz, 1.0f - (xx + zz), yz + wx);
-            c2 = float3(xz + wy, yz - wx, 1.0f - (xx + yy));
+            uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
+            uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
+            uint3 pnn = uint3(0x00000000, 0x80000000, 0x80000000);
+            c0 = v2.y * asfloat(asuint(v.yxw) ^ npn) - v2.z * asfloat(asuint(v.zwx) ^ pnn) + float3(1, 0, 0);
+            c1 = v2.z * asfloat(asuint(v.wzy) ^ nnp) - v2.x * asfloat(asuint(v.yxw) ^ npn) + float3(0, 1, 0);
+            c2 = v2.x * asfloat(asuint(v.zwx) ^ pnn) - v2.y * asfloat(asuint(v.wzy) ^ nnp) + float3(0, 0, 1);
         }
 
         /// <summary>
