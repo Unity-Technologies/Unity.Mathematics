@@ -83,7 +83,32 @@ namespace Unity.Mathematics
         /// </summary>
         public static float3x3 AxisAngle(float3 axis, float angle)
         {
-            return float3x3(quaternion.AxisAngle(axis, angle));
+            float sina, cosa;
+            math.sincos(angle, out sina, out cosa);
+
+            float3 u = axis;
+            float3 u2 = u * u;
+            float3 u_yzx = u.yzx;
+            float3 u_zxy = u.zxy;
+            float3 u_inv_cosa = u - u * cosa;  // u * (1.0f - cosa);
+            float4 t = float4(u * sina, cosa);
+
+            uint3 ppn = uint3(0x00000000, 0x00000000, 0x80000000);
+            uint3 npp = uint3(0x80000000, 0x00000000, 0x00000000);
+            uint3 pnp = uint3(0x00000000, 0x80000000, 0x00000000);
+
+            return float3x3(
+                u.x * u_inv_cosa + asfloat(asuint(t.wzy) ^ ppn),
+                u.y * u_inv_cosa + asfloat(asuint(t.zwx) ^ npp),
+                u.z * u_inv_cosa + asfloat(asuint(t.yxw) ^ pnp)
+                );
+            /*
+            return float3x3(
+                cosa + u.x * u.x * (1.0f - cosa),       u.y * u.x * (1.0f - cosa) - u.z * sina, u.z * u.x * (1.0f - cosa) + u.y * sina,
+                u.x * u.y * (1.0f - cosa) + u.z * sina, cosa + u.y * u.y * (1.0f - cosa),       u.y * u.z * (1.0f - cosa) - u.x * sina,
+                u.x * u.z * (1.0f - cosa) - u.y * sina, u.y * u.z * (1.0f - cosa) + u.x * sina, cosa + u.z * u.z * (1.0f - cosa)
+                );
+                */
         }
 
         /// <summary>
