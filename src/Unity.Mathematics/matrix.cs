@@ -441,7 +441,28 @@ namespace Unity.Mathematics
         /// </summary>
         public static float4x4 AxisAngle(float3 axis, float angle)
         {
-            return float4x4(quaternion.AxisAngle(axis, angle), float3.zero);
+            float sina, cosa;
+            math.sincos(angle, out sina, out cosa);
+
+            float4 u = float4(axis, 0.0f);
+            float4 u2 = u * u;
+            float4 u_yzx = u.yzxx;
+            float4 u_zxy = u.zxyx;
+            float4 u_inv_cosa = u - u * cosa;  // u * (1.0f - cosa);
+            float4 t = float4(u.xyz * sina, cosa);
+
+            uint4 ppnp = uint4(0x00000000, 0x00000000, 0x80000000, 0x00000000);
+            uint4 nppp = uint4(0x80000000, 0x00000000, 0x00000000, 0x00000000);
+            uint4 pnpp = uint4(0x00000000, 0x80000000, 0x00000000, 0x00000000);
+            uint4 mask = uint4(0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0x00000000);
+
+            return float4x4(
+                u.x * u_inv_cosa + asfloat((asuint(t.wzyx) ^ ppnp) & mask),
+                u.y * u_inv_cosa + asfloat((asuint(t.zwxx) ^ nppp) & mask),
+                u.z * u_inv_cosa + asfloat((asuint(t.yxwx) ^ pnpp) & mask),
+                float4(0.0f, 0.0f, 0.0f, 1.0f)
+                );
+
         }
 
         /// <summary>
