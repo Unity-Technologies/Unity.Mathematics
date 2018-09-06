@@ -39,12 +39,20 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
-        public void quaternion_axisAngle()
+        public void quaternion_axis_angle()
         {
             quaternion q = quaternion.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
             quaternion r = quaternion(-0.2562833f, -0.5125666f, -0.76885f, 0.2836622f);
             TestUtils.AreEqual(q, r, 0.0001f);
+        }
+
+        [Test]
+        public void quaternion_axis_angle_consistency()
+        {
+            TestUtils.AreEqual(quaternion.AxisAngle(float3(1, 0, 0), 1.0f), quaternion.RotateX(1.0f), 0.001f);
+            TestUtils.AreEqual(quaternion.AxisAngle(float3(0, 1, 0), 1.0f), quaternion.RotateY(1.0f), 0.001f);
+            TestUtils.AreEqual(quaternion.AxisAngle(float3(0, 0, 1), 1.0f), quaternion.RotateZ(1.0f), 0.001f);
         }
 
         [Test]

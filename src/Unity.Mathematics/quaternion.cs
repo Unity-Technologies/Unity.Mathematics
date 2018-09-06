@@ -69,12 +69,16 @@ namespace Unity.Mathematics
             value = normalize(value);
         }
 
+        /// <summary>
+        /// Returns a quaternion representing a rotation around a unit axis by an angle in radians.
+        /// The rotation direction is clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion AxisAngle(float3 axis, float angle)
         {
             float sina, cosa;
             math.sincos(0.5f * angle, out sina, out cosa);
-            return quaternion(float4(math.normalize(axis) * sina, cosa));
+            return quaternion(float4(axis * sina, cosa));
         }
 
         public static quaternion EulerXYZ(float3 xyz)

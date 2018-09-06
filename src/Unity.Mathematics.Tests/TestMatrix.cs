@@ -220,6 +220,25 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float3x3_axis_angle()
+        {
+            float3 axis = normalize(float3(1.1f, 2.3f, -3.6f));
+            float angle = 2.7f;
+
+            float3x3 r = float3x3(quaternion.AxisAngle(axis, angle));
+            float3x3 m = float3x3.AxisAngle(axis, angle);
+            TestUtils.AreEqual(m, r, 0.00001f);
+        }
+
+        [Test]
+        public void float3x3_axis_angle_consistency()
+        {
+            TestUtils.AreEqual(float3x3.AxisAngle(float3(1, 0, 0), 1.0f), float3x3.RotateX(1.0f), 0.001f);
+            TestUtils.AreEqual(float3x3.AxisAngle(float3(0, 1, 0), 1.0f), float3x3.RotateY(1.0f), 0.001f);
+            TestUtils.AreEqual(float3x3.AxisAngle(float3(0, 0, 1), 1.0f), float3x3.RotateZ(1.0f), 0.001f);
+        }
+
+        [Test]
         public void float3x3_rotate_x()
         {
             float epsilon = 0.0001f;
@@ -301,6 +320,24 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(true, w > 0.0f);
         }
 
+        [Test]
+        public void float4x4_axis_angle()
+        {
+            float3 axis = normalize(float3(1.1f, 2.3f, -3.6f));
+            float angle = 2.7f;
+
+            float4x4 r = float4x4(quaternion.AxisAngle(axis, angle), float3.zero);
+            float4x4 m = float4x4.AxisAngle(axis, angle);
+            TestUtils.AreEqual(m, r, 0.00001f);
+        }
+
+        [Test]
+        public void float4x4_axis_angle_consistency()
+        {
+            TestUtils.AreEqual(float4x4.AxisAngle(float3(1, 0, 0), 1.0f), float4x4.RotateX(1.0f), 0.001f);
+            TestUtils.AreEqual(float4x4.AxisAngle(float3(0, 1, 0), 1.0f), float4x4.RotateY(1.0f), 0.001f);
+            TestUtils.AreEqual(float4x4.AxisAngle(float3(0, 0, 1), 1.0f), float4x4.RotateZ(1.0f), 0.001f);
+        }
 
         [Test]
         public void float4x4_rotate_x()

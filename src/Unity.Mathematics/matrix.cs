@@ -37,16 +37,11 @@ namespace Unity.Mathematics
 
     public partial struct float3x3
     {
-        /// <summary>Constructs a float3x3 matrix from a quaternion.</summary>
-        public float3x3(quaternion rotation)
+        /// <summary>Constructs a float3x3 matrix from a unit quaternion.</summary>
+        public float3x3(quaternion q)
         {
-            float4 v = rotation.value;
+            float4 v = q.value;
             float4 v2 = v + v;
-            /*
-            c0 = v2.y * v.yxw * float3(-1, 1,-1) - v2.z * v.zwx * float3( 1,-1,-1) + float3(1, 0, 0);
-            c1 = v2.z * v.wzy * float3(-1,-1, 1) - v2.x * v.yxw * float3(-1, 1,-1) + float3(0, 1, 0);
-            c2 = v2.x * v.zwx * float3( 1,-1,-1) - v2.y * v.wzy * float3(-1,-1, 1) + float3(0, 0, 1);
-            */
 
             uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
             uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
@@ -54,6 +49,41 @@ namespace Unity.Mathematics
             c0 = v2.y * asfloat(asuint(v.yxw) ^ npn) - v2.z * asfloat(asuint(v.zwx) ^ pnn) + float3(1, 0, 0);
             c1 = v2.z * asfloat(asuint(v.wzy) ^ nnp) - v2.x * asfloat(asuint(v.yxw) ^ npn) + float3(0, 1, 0);
             c2 = v2.x * asfloat(asuint(v.zwx) ^ pnn) - v2.y * asfloat(asuint(v.wzy) ^ nnp) + float3(0, 0, 1);
+
+            /*
+            // TODO: This should be better, but it isn't currently because the input quaternion ends being loaded as scalars for some reason.
+            // Test again later.
+            float4 xv2 = v.x * v2;
+            float4 yv2 = v.y * v2;
+            float4 zv2 = v.z * v2;
+            float4 wv2 = v.w * v2;
+            uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
+            uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
+            uint3 pnn = uint3(0x00000000, 0x80000000, 0x80000000);
+            c0 = asfloat(asuint(yv2.yxw) ^ npn) - asfloat(asuint(zv2.zwx) ^ pnn) + float3(1, 0, 0);
+            c1 = asfloat(asuint(zv2.wzy) ^ nnp) - asfloat(asuint(xv2.yxw) ^ npn) + float3(0, 1, 0);
+            c2 = asfloat(asuint(xv2.zwx) ^ pnn) - asfloat(asuint(yv2.wzy) ^ nnp) + float3(0, 0, 1);
+            */
+
+            /*
+            // handles scale
+            float dt = dot(v,v);
+            uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
+            uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
+            uint3 pnn = uint3(0x00000000, 0x80000000, 0x80000000);
+            c0 = v2.y * asfloat(asuint(v.yxw) ^ npn) - v2.z * asfloat(asuint(v.zwx) ^ pnn);
+            c1 = v2.z * asfloat(asuint(v.wzy) ^ nnp) - v2.x * asfloat(asuint(v.yxw) ^ npn);
+            c2 = v2.x * asfloat(asuint(v.zwx) ^ pnn) - v2.y * asfloat(asuint(v.wzy) ^ nnp);
+            */
+        }
+
+        /// <summary>
+        /// Returns a float3x3 matrix representing a rotation around a unit axis by an angle in radians.
+        /// The rotation direction is clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        public static float3x3 AxisAngle(float3 axis, float angle)
+        {
+            return float3x3(quaternion.AxisAngle(axis, angle));
         }
 
         /// <summary>
@@ -378,6 +408,15 @@ namespace Unity.Mathematics
             c1 = float4(rot.c1, 0.0f);
             c2 = float4(rot.c2, 0.0f);
             c3 = float4(transform.pos, 1.0f);
+        }
+
+        /// <summary>
+        /// Returns a float4x4 matrix representing a rotation around a unit axis by an angle in radians.
+        /// The rotation direction is clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        public static float4x4 AxisAngle(float3 axis, float angle)
+        {
+            return float4x4(quaternion.AxisAngle(axis, angle), float3.zero);
         }
 
         /// <summary>
