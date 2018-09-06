@@ -314,7 +314,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion inverse(quaternion q)
         {
-            return conjugate(normalize(q));
+            float4 x = q.value;
+            return quaternion(rcp(dot(x, x)) * x * float4(-1.0f, -1.0f, -1.0f, 1.0f));
         }
 
         /// <summary>Returns the dot product of two quaternions.</summary>

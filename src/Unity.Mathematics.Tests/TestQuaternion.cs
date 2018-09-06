@@ -167,9 +167,9 @@ namespace Unity.Mathematics.Tests
         {
             quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
             quaternion iq = inverse(q);
-            quaternion r = quaternion(-0.1825742f, 0.3651484f, -0.5477226f, -0.7302967f);
+            quaternion qiq = mul(iq, q);
 
-            TestUtils.AreEqual(iq, r, 0.00001f);
+            TestUtils.AreEqual(qiq, quaternion.identity, 0.00001f);
         }
 
         [Test]

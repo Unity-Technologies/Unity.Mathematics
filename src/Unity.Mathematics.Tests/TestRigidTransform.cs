@@ -138,9 +138,9 @@ namespace Unity.Mathematics.Tests
         {
             RigidTransform q = RigidTransform(quaternion(1.0f, -2.0f, 3.0f, -4.0f), float3(1,2,3));
             RigidTransform iq = inverse(q);
-            RigidTransform r = RigidTransform(quaternion(-0.1825742f, 0.3651484f, -0.5477226f, -0.7302967f), float3(2.733333f, 0.6666664f, -2.466666f));
+            RigidTransform qiq = mul(iq, q);
 
-            TestUtils.AreEqual(iq, r, 0.00001f);
+            TestUtils.AreEqual(qiq, RigidTransform.identity, 0.00001f);
         }
         
         [Test]
