@@ -7,6 +7,102 @@ namespace Unity.Mathematics.Tests
     public class TestMath
     {
         [Test]
+        public void abs_int()
+        {
+            Assert.AreEqual(abs(0), 0);
+            Assert.AreEqual(abs(-7), 7);
+            Assert.AreEqual(abs(11), 11);
+            Assert.AreEqual(abs(-2147483647), 2147483647);
+            Assert.AreEqual(abs(-2147483648), -2147483648);
+        }
+
+        [Test]
+        public void abs_int2()
+        {
+            Assert.AreEqual(abs(int2(0, -7)), int2(0, 7));
+            Assert.AreEqual(abs(int2(11, -2147483647)), int2(11, 2147483647));
+            Assert.AreEqual(abs(int2(-2147483648, -123412)), int2(-2147483648, 123412));
+        }
+
+        [Test]
+        public void abs_int3()
+        {
+            Assert.AreEqual(abs(int3(0, -7, 11)), int3(0, 7, 11));
+            Assert.AreEqual(abs(int3(-2147483647, -2147483648, -123412)), int3(2147483647, -2147483648, 123412));
+        }
+
+        [Test]
+        public void abs_int4()
+        {
+            Assert.AreEqual(abs(int4(0, -7, 11, -2147483647)), int4(0, 7, 11, 2147483647));
+            Assert.AreEqual(abs(int4(-2147483648, -123412, 17, -34)), int4(-2147483648, 123412, 17, 34));
+        }
+
+        [Test]
+        public void abs_float()
+        {
+            Assert.AreEqual(abs(0.0f), 0.0f);
+            Assert.AreEqual(abs(-1.1f), 1.1f);
+            Assert.AreEqual(abs(2.2f), 2.2f);
+            Assert.AreEqual(abs(float.NegativeInfinity), float.PositiveInfinity);
+            Assert.AreEqual(abs(float.PositiveInfinity), float.PositiveInfinity);
+        }
+
+        [Test]
+        public void abs_float2()
+        {
+            Assert.AreEqual(abs(float2(0.0f, -1.1f)), float2(0.0f, 1.1f));
+            Assert.AreEqual(abs(float2(2.2f, float.NegativeInfinity)), float2(2.2f, float.PositiveInfinity));
+            Assert.AreEqual(abs(float2(float.PositiveInfinity, -3.3f)), float2(float.PositiveInfinity, 3.3f));
+        }
+
+        [Test]
+        public void abs_float3()
+        {
+            Assert.AreEqual(abs(float3(0.0f, -1.1f, 2.2f)), float3(0.0f, 1.1f, 2.2f));
+            Assert.AreEqual(abs(float3(float.NegativeInfinity, float.PositiveInfinity, -3.3f)), float3(float.PositiveInfinity, float.PositiveInfinity, 3.3f));
+        }
+
+        [Test]
+        public void abs_float4()
+        {
+            Assert.AreEqual(abs(float4(0.0f, -1.1f, 2.2f, float.NegativeInfinity)), float4(0.0f, 1.1f, 2.2f, float.PositiveInfinity));
+            Assert.AreEqual(abs(float4(float.PositiveInfinity, -3.3f, 5.5f, -6.6f)), float4(float.PositiveInfinity, 3.3f, 5.5f, 6.6f));
+        }
+
+        [Test]
+        public void abs_double()
+        {
+            Assert.AreEqual(abs(0.0), 0.0);
+            Assert.AreEqual(abs(-1.1), 1.1);
+            Assert.AreEqual(abs(2.2), 2.2);
+            Assert.AreEqual(abs(double.NegativeInfinity), double.PositiveInfinity);
+            Assert.AreEqual(abs(double.PositiveInfinity), double.PositiveInfinity);
+        }
+
+        [Test]
+        public void abs_double2()
+        {
+            Assert.AreEqual(abs(double2(0.0, -1.1)), double2(0.0, 1.1));
+            Assert.AreEqual(abs(double2(2.2, double.NegativeInfinity)), double2(2.2, double.PositiveInfinity));
+            Assert.AreEqual(abs(double2(double.PositiveInfinity, -3.3)), double2(double.PositiveInfinity, 3.3));
+        }
+
+        [Test]
+        public void abs_double3()
+        {
+            Assert.AreEqual(abs(double3(0.0, -1.1, 2.2)), double3(0.0, 1.1, 2.2));
+            Assert.AreEqual(abs(double3(double.NegativeInfinity, double.PositiveInfinity, -3.3)), double3(double.PositiveInfinity, double.PositiveInfinity, 3.3));
+        }
+
+        [Test]
+        public void abs_double4()
+        {
+            Assert.AreEqual(abs(double4(0.0, -1.1, 2.2, double.NegativeInfinity)), double4(0.0, 1.1, 2.2, double.PositiveInfinity));
+            Assert.AreEqual(abs(double4(double.PositiveInfinity, -3.3, 5.5, -6.6)), double4(double.PositiveInfinity, 3.3, 5.5, 6.6));
+        }
+
+        [Test]
         public void isfinite_float()
         {
             Assert.AreEqual(isfinite(-float.NaN), false);

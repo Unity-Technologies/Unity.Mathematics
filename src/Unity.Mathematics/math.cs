@@ -770,36 +770,36 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the absolute value of a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float abs(float x) { return max(-x, x); }
+        public static float abs(float x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 abs(float2 x) { return max(-x, x); }
+        public static float2 abs(float2 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 abs(float3 x) { return max(-x, x); }
+        public static float3 abs(float3 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 abs(float4 x) { return max(-x, x); }
+        public static float4 abs(float4 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
 
         /// <summary>Returns the absolute value of a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double abs(double x) { return max(-x, x); }
+        public static double abs(double x) { return asdouble(asulong(x) & 0x7FFFFFFFFFFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 abs(double2 x) { return max(-x, x); }
+        public static double2 abs(double2 x) { return double2(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF)); }
 
         /// <summary>Returns the componentwise absolute value of a double3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 abs(double3 x) { return max(-x, x); }
+        public static double3 abs(double3 x) { return double3(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.z) & 0x7FFFFFFFFFFFFFFF)); }
 
         /// <summary>Returns the componentwise absolute value of a double4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 abs(double4 x) { return max(-x, x); }
+        public static double4 abs(double4 x) { return double4(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.z) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.w) & 0x7FFFFFFFFFFFFFFF)); }
 
 
         /// <summary>Returns the dot product of two int values. Equivalent to multiplication.</summary>
