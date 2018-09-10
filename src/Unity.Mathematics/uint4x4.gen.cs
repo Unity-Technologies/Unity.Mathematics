@@ -172,149 +172,223 @@ namespace Unity.Mathematics
         public static explicit operator uint4x4(double4x4 v) { return new uint4x4(v); }
 
 
-
-        // mul
+        /// <summary>Returns the result of a componentwise multiplication operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator * (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2, lhs.c3 * rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise multiplication operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator * (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs, lhs.c3 * rhs); }
+
+        /// <summary>Returns the result of a componentwise multiplication operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator * (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2, lhs * rhs.c3); }
 
-        // add
+
+        /// <summary>Returns the result of a componentwise addition operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator + (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2, lhs.c3 + rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise addition operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator + (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs, lhs.c3 + rhs); }
+
+        /// <summary>Returns the result of a componentwise addition operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator + (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2, lhs + rhs.c3); }
 
-        // sub
+
+        /// <summary>Returns the result of a componentwise subtraction operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator - (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2, lhs.c3 - rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise subtraction operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator - (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs, lhs.c3 - rhs); }
+
+        /// <summary>Returns the result of a componentwise subtraction operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator - (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2, lhs - rhs.c3); }
 
-        // div
+
+        /// <summary>Returns the result of a componentwise division operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator / (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2, lhs.c3 / rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise division operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator / (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs, lhs.c3 / rhs); }
+
+        /// <summary>Returns the result of a componentwise division operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator / (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2, lhs / rhs.c3); }
 
-        // mod
+
+        /// <summary>Returns the result of a componentwise modulus operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator % (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2, lhs.c3 % rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise modulus operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator % (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs, lhs.c3 % rhs); }
+
+        /// <summary>Returns the result of a componentwise modulus operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator % (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2, lhs % rhs.c3); }
 
-        // increment
+
+        /// <summary>Returns the result of a componentwise increment operation on a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator ++ (uint4x4 val) { return new uint4x4 (++val.c0, ++val.c1, ++val.c2, ++val.c3); }
 
 
-        // decrement
+        /// <summary>Returns the result of a componentwise decrement operation on a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator -- (uint4x4 val) { return new uint4x4 (--val.c0, --val.c1, --val.c2, --val.c3); }
 
 
-        // smaller 
+        /// <summary>Returns the result of a componentwise less than operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2, lhs.c3 < rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise less than operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs, lhs.c3 < rhs); }
+
+        /// <summary>Returns the result of a componentwise less than operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator < (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2, lhs < rhs.c3); }
+
+
+        /// <summary>Returns the result of a componentwise less or equal operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator <= (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2, lhs.c3 <= rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise less or equal operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator <= (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs, lhs.c3 <= rhs); }
+
+        /// <summary>Returns the result of a componentwise less or equal operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator <= (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2, lhs <= rhs.c3); }
 
-        // greater 
+
+        /// <summary>Returns the result of a componentwise greater than operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator > (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2, lhs.c3 > rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise greater than operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator > (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs, lhs.c3 > rhs); }
+
+        /// <summary>Returns the result of a componentwise greater than operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator > (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2, lhs > rhs.c3); }
+
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator >= (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2, lhs.c3 >= rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator >= (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs, lhs.c3 >= rhs); }
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator >= (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2, lhs >= rhs.c3); }
 
-        // neg 
+
+        /// <summary>Returns the result of a componentwise unary minus operation on a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator - (uint4x4 val) { return new uint4x4 (-val.c0, -val.c1, -val.c2, -val.c3); }
 
 
-        // plus 
+        /// <summary>Returns the result of a componentwise unary plus operation on a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator + (uint4x4 val) { return new uint4x4 (+val.c0, +val.c1, +val.c2, +val.c3); }
 
 
-        // left shift
+        /// <summary>Returns the result of a componentwise left shift operation on a uint4x4 matrix by a number of bits specified by a single int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4x4 operator << (uint4x4 lhs, int rhs) { return new uint4x4 (lhs.c0 << rhs, lhs.c1 << rhs, lhs.c2 << rhs, lhs.c3 << rhs); }
+        public static uint4x4 operator << (uint4x4 x, int n) { return new uint4x4 (x.c0 << n, x.c1 << n, x.c2 << n, x.c3 << n); }
 
-        // right shift
+        /// <summary>Returns the result of a componentwise right shift operation on a uint4x4 matrix by a number of bits specified by a single int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4x4 operator >> (uint4x4 lhs, int rhs) { return new uint4x4 (lhs.c0 >> rhs, lhs.c1 >> rhs, lhs.c2 >> rhs, lhs.c3 >> rhs); }
+        public static uint4x4 operator >> (uint4x4 x, int n) { return new uint4x4 (x.c0 >> n, x.c1 >> n, x.c2 >> n, x.c3 >> n); }
 
-        // equal 
+        /// <summary>Returns the result of a componentwise equality operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator == (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2, lhs.c3 == rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise equality operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator == (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs, lhs.c3 == rhs); }
+
+        /// <summary>Returns the result of a componentwise equality operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator == (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2, lhs == rhs.c3); }
 
-        // not equal 
+
+        /// <summary>Returns the result of a componentwise not equal operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator != (uint4x4 lhs, uint4x4 rhs) { return new bool4x4 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2, lhs.c3 != rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise not equal operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator != (uint4x4 lhs, uint rhs) { return new bool4x4 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs, lhs.c3 != rhs); }
+
+        /// <summary>Returns the result of a componentwise not equal operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 operator != (uint lhs, uint4x4 rhs) { return new bool4x4 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2, lhs != rhs.c3); }
 
-        // operator ~ 
+
+        /// <summary>Returns the result of a componentwise bitwise not operation on a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator ~ (uint4x4 val) { return new uint4x4 (~val.c0, ~val.c1, ~val.c2, ~val.c3); }
 
 
-        // operator &
+        /// <summary>Returns the result of a componentwise bitwise and operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator & (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1, lhs.c2 & rhs.c2, lhs.c3 & rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise bitwise and operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator & (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs, lhs.c3 & rhs); }
+
+        /// <summary>Returns the result of a componentwise bitwise and operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator & (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2, lhs & rhs.c3); }
 
-        // operator |
+
+        /// <summary>Returns the result of a componentwise bitwise or operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator | (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1, lhs.c2 | rhs.c2, lhs.c3 | rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise bitwise or operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator | (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs, lhs.c3 | rhs); }
+
+        /// <summary>Returns the result of a componentwise bitwise or operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator | (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2, lhs | rhs.c3); }
 
-        // operator ^
+
+        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two uint4x4 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator ^ (uint4x4 lhs, uint4x4 rhs) { return new uint4x4 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1, lhs.c2 ^ rhs.c2, lhs.c3 ^ rhs.c3); }
+
+        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint4x4 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator ^ (uint4x4 lhs, uint rhs) { return new uint4x4 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs, lhs.c3 ^ rhs); }
+
+        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint value and a uint4x4 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x4 operator ^ (uint lhs, uint4x4 rhs) { return new uint4x4 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2, lhs ^ rhs.c3); }
 
-        // [int index] 
+
+
+        /// <summary>Returns the uint4 element at a specified index.</summary>
         unsafe public uint4 this[int index]
         {
             get
@@ -335,24 +409,27 @@ namespace Unity.Mathematics
             }
         }
 
-        // Equals 
-        public bool Equals(uint4x4 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2) && c3.Equals(rhs.c3); }
+        /// <summary>Returns true if the uint4x4 is equal to a given uint4x4, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(uint4x4 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2) && c3.Equals(rhs.c3); }
+
+        /// <summary>Returns true if the uint4x4 is equal to a given uint4x4, false otherwise.</summary>
         public override bool Equals(object o) { return Equals((uint4x4)o); }
 
 
-        // GetHashCode 
+        /// <summary>Returns a hash code for the uint4x4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
-        // ToString 
+        /// <summary>Returns a string representation of the uint4x4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
             return string.Format("uint4x4({0}, {1}, {2}, {3},  {4}, {5}, {6}, {7},  {8}, {9}, {10}, {11},  {12}, {13}, {14}, {15})", c0.x, c1.x, c2.x, c3.x, c0.y, c1.y, c2.y, c3.y, c0.z, c1.z, c2.z, c3.z, c0.w, c1.w, c2.w, c3.w);
         }
 
+        /// <summary>Returns a string representation of the uint4x4 using a specified format and culture-specific format information.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {

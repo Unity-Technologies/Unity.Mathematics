@@ -393,24 +393,26 @@ namespace Unity.Mathematics
             q.w = (m01 - m10) * num2;
             return quaternion(q);
         }
-        
-        // Equals 
-        public bool Equals(quaternion rhs) { return value.x == rhs.value.x && value.y == rhs.value.y && value.z == rhs.value.z && value.w == rhs.value.w; }
+
+        /// <summary>Returns true if the quaternion is equal to a given quaternion, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { return Equals((quaternion)o); }
+        public bool Equals(quaternion x) { return value.x == x.value.x && value.y == x.value.y && value.z == x.value.z && value.w == x.value.w; }
 
+        /// <summary>Returns whether true if the quaternion is equal to a given quaternion, false otherwise.</summary>
+        public override bool Equals(object x) { return Equals((quaternion)x); }
 
-        // GetHashCode 
+        /// <summary>Returns a hash code for the quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
-        // ToString 
+        /// <summary>Returns a string representation of the quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
             return string.Format("quaternion({0}f, {1}f, {2}f, {3}f)", value.x, value.y, value.z, value.w);
         }
 
+        /// <summary>Returns a string representation of the quaternion using a specified format and culture-specific format information.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {

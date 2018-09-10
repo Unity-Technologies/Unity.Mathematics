@@ -174,110 +174,171 @@ namespace Unity.Mathematics
         public static explicit operator float3(double3 v) { return new float3(v); }
 
 
-
-        // mul
+        /// <summary>Returns the result of a componentwise multiplication operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator * (float3 lhs, float3 rhs) { return new float3 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z); }
+
+        /// <summary>Returns the result of a componentwise multiplication operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator * (float3 lhs, float rhs) { return new float3 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs); }
+
+        /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator * (float lhs, float3 rhs) { return new float3 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z); }
 
-        // add
+
+        /// <summary>Returns the result of a componentwise addition operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator + (float3 lhs, float3 rhs) { return new float3 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z); }
+
+        /// <summary>Returns the result of a componentwise addition operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator + (float3 lhs, float rhs) { return new float3 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs); }
+
+        /// <summary>Returns the result of a componentwise addition operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator + (float lhs, float3 rhs) { return new float3 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z); }
 
-        // sub
+
+        /// <summary>Returns the result of a componentwise subtraction operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator - (float3 lhs, float3 rhs) { return new float3 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z); }
+
+        /// <summary>Returns the result of a componentwise subtraction operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator - (float3 lhs, float rhs) { return new float3 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs); }
+
+        /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator - (float lhs, float3 rhs) { return new float3 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z); }
 
-        // div
+
+        /// <summary>Returns the result of a componentwise division operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator / (float3 lhs, float3 rhs) { return new float3 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z); }
+
+        /// <summary>Returns the result of a componentwise division operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator / (float3 lhs, float rhs) { return new float3 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs); }
+
+        /// <summary>Returns the result of a componentwise division operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator / (float lhs, float3 rhs) { return new float3 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z); }
 
-        // mod
+
+        /// <summary>Returns the result of a componentwise modulus operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator % (float3 lhs, float3 rhs) { return new float3 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z); }
+
+        /// <summary>Returns the result of a componentwise modulus operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator % (float3 lhs, float rhs) { return new float3 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs); }
+
+        /// <summary>Returns the result of a componentwise modulus operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator % (float lhs, float3 rhs) { return new float3 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z); }
 
-        // increment
+
+        /// <summary>Returns the result of a componentwise increment operation on a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator ++ (float3 val) { return new float3 (++val.x, ++val.y, ++val.z); }
 
 
-        // decrement
+        /// <summary>Returns the result of a componentwise decrement operation on a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator -- (float3 val) { return new float3 (--val.x, --val.y, --val.z); }
 
 
-        // smaller 
+        /// <summary>Returns the result of a componentwise less than operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator < (float3 lhs, float3 rhs) { return new bool3 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z); }
+
+        /// <summary>Returns the result of a componentwise less than operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator < (float3 lhs, float rhs) { return new bool3 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs); }
+
+        /// <summary>Returns the result of a componentwise less than operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator < (float lhs, float3 rhs) { return new bool3 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z); }
+
+
+        /// <summary>Returns the result of a componentwise less or equal operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator <= (float3 lhs, float3 rhs) { return new bool3 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z); }
+
+        /// <summary>Returns the result of a componentwise less or equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator <= (float3 lhs, float rhs) { return new bool3 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs); }
+
+        /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator <= (float lhs, float3 rhs) { return new bool3 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z); }
 
-        // greater 
+
+        /// <summary>Returns the result of a componentwise greater than operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator > (float3 lhs, float3 rhs) { return new bool3 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z); }
+
+        /// <summary>Returns the result of a componentwise greater than operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator > (float3 lhs, float rhs) { return new bool3 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs); }
+
+        /// <summary>Returns the result of a componentwise greater than operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator > (float lhs, float3 rhs) { return new bool3 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z); }
+
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator >= (float3 lhs, float3 rhs) { return new bool3 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z); }
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator >= (float3 lhs, float rhs) { return new bool3 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs); }
+
+        /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator >= (float lhs, float3 rhs) { return new bool3 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z); }
 
-        // neg 
+
+        /// <summary>Returns the result of a componentwise unary minus operation on a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator - (float3 val) { return new float3 (-val.x, -val.y, -val.z); }
 
 
-        // plus 
+        /// <summary>Returns the result of a componentwise unary plus operation on a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 operator + (float3 val) { return new float3 (+val.x, +val.y, +val.z); }
 
 
-        // equal 
+        /// <summary>Returns the result of a componentwise equality operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (float3 lhs, float3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
+
+        /// <summary>Returns the result of a componentwise equality operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (float3 lhs, float rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
+
+        /// <summary>Returns the result of a componentwise equality operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (float lhs, float3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
-        // not equal 
+
+        /// <summary>Returns the result of a componentwise not equal operation on two float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (float3 lhs, float3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
+
+        /// <summary>Returns the result of a componentwise not equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (float3 lhs, float rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
+
+        /// <summary>Returns the result of a componentwise not equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (float lhs, float3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
+
+
+
+
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxx
         {
@@ -1239,7 +1300,7 @@ namespace Unity.Mathematics
 
 
 
-        // [int index] 
+        /// <summary>Returns the float element at a specified index.</summary>
         unsafe public float this[int index]
         {
             get
@@ -1260,24 +1321,27 @@ namespace Unity.Mathematics
             }
         }
 
-        // Equals 
-        public bool Equals(float3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
+        /// <summary>Returns true if the float3 is equal to a given float3, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(float3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
+
+        /// <summary>Returns true if the float3 is equal to a given float3, false otherwise.</summary>
         public override bool Equals(object o) { return Equals((float3)o); }
 
 
-        // GetHashCode 
+        /// <summary>Returns a hash code for the float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
-        // ToString 
+        /// <summary>Returns a string representation of the float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
             return string.Format("float3({0}f, {1}f, {2}f)", x, y, z);
         }
 
+        /// <summary>Returns a string representation of the float3 using a specified format and culture-specific format information.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
@@ -1371,12 +1435,14 @@ namespace Unity.Mathematics
             return (asuint(v) * uint3(0xAFCDD5EFu, 0xA88D187Du, 0xCF6EBA1Du)) + 0x9D88E5A1u;
         }
 
+        /// <summary>Returns the result of specified shuffling of the components from two float3 vectors into a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float shuffle(float3 a, float3 b, ShuffleComponent x)
         {
             return select_shuffle_component(a, b, x);
         }
 
+        /// <summary>Returns the result of specified shuffling of the components from two float3 vectors into a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 shuffle(float3 a, float3 b, ShuffleComponent x, ShuffleComponent y)
         {
@@ -1385,6 +1451,7 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y));
         }
 
+        /// <summary>Returns the result of specified shuffling of the components from two float3 vectors into a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 shuffle(float3 a, float3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
@@ -1394,6 +1461,7 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, z));
         }
 
+        /// <summary>Returns the result of specified shuffling of the components from two float3 vectors into a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 shuffle(float3 a, float3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {

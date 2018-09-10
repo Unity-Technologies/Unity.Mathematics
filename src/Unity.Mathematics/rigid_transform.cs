@@ -119,15 +119,18 @@ namespace Unity.Mathematics
         }
 
 
-        // Equals
-        public bool Equals(RigidTransform rhs) { return rot.Equals(rhs.rot) && pos.Equals(rhs.pos); }
+        /// <summary>Returns true if the RigidTransform is equal to a given RigidTransform, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object o) { return Equals((RigidTransform)o); }
+        public bool Equals(RigidTransform x) { return rot.Equals(x.rot) && pos.Equals(x.pos); }
 
+        /// <summary>Returns true if the RigidTransform is equal to a given RigidTransform, false otherwise.</summary>
+        public override bool Equals(object x) { return Equals((RigidTransform)x); }
+
+        /// <summary>Returns a hash code for the RigidTransform.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
-        // ToString 
+        /// <summary>Returns a string representation of the RigidTransform.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -135,6 +138,7 @@ namespace Unity.Mathematics
                 rot.value.x, rot.value.y, rot.value.z, rot.value.w, pos.x, pos.y, pos.z);
         }
 
+        /// <summary>Returns a string representation of the quaternion using a specified format and culture-specific format information.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {

@@ -464,21 +464,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_Columns == 1)
             {
+                str.Append("\n\n");
                 GenerateSwizzles(str);
                 GenerateShuffleImplementation(mathStr);
             }
 
 
-            str.Append("\n\t\t// [int index] \n");
+            str.Append("\n");
             GenerateIndexOperator(str);
 
-            str.Append("\n\t\t// Equals \n");
+            str.Append("\n");
             GenerateEquals(str);
 
-            str.Append("\n\t\t// GetHashCode \n");
+            str.Append("\n");
             GenerateGetHashCode(str);
 
-            str.Append("\n\t\t// ToString \n");
+            str.Append("\n");
             GenerateToStringFunction(str, false);
             if(m_BaseType != "bool")
                 GenerateToStringFunction(str, true);
@@ -534,7 +535,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             for (int resultComponents = 1; resultComponents <= 4; resultComponents++)
             {
                 string resultType = ToTypeName(m_BaseType, resultComponents, 1);
-                    
+
+                str.AppendFormat("\t\t/// <summary>Returns the result of specified shuffling of the components from {0} into {1}.</summary>\n",
+                    ToValueDescription(m_BaseType, m_Rows, m_Columns, 2), ToValueDescription(m_BaseType, resultComponents, m_Columns, 1));
                 str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
                 str.AppendFormat("\t\tpublic static {0} shuffle({1} a, {2} b", resultType, m_TypeName, m_TypeName);
                 for(int i = 0; i < resultComponents; i++)
@@ -988,80 +991,57 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             
             if (0 != (m_Features & Features.Arithmetic))
             {
-                str.Append("\n\t\t// mul\n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "*", resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "*", resultType, str, "multiplication");
 
-                str.Append("\n\t\t// add\n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "+", resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "+", resultType, str, "addition");
 
-                str.Append("\n\t\t// sub\n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "-", resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "-", resultType, str, "subtraction");
 
-                str.Append("\n\t\t// div\n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "/", resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "/", resultType, str, "division");
 
-                str.Append("\n\t\t// mod\n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "%", resultType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "%", resultType, str, "modulus");
 
-                str.Append("\n\t\t// increment\n");
-                GenerateUnaryOperator("++", str);
+                GenerateUnaryOperator("++", str, "increment");
 
-                str.Append("\n\t\t// decrement\n");
-                GenerateUnaryOperator("--", str);
+                GenerateUnaryOperator("--", str, "decrement");
 
-                str.Append("\n\t\t// smaller \n");
-                GenerateBinaryOperator(m_Rows, m_Columns, "<", resultBoolType, str);
-                GenerateBinaryOperator(m_Rows, m_Columns, "<=", resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, "<", resultBoolType, str, "less than");
+                GenerateBinaryOperator(m_Rows, m_Columns, "<=", resultBoolType, str, "less or equal");
 
-                str.Append("\n\t\t// greater \n");
-                GenerateBinaryOperator(m_Rows, m_Columns, ">", resultBoolType, str);
-                GenerateBinaryOperator(m_Rows, m_Columns, ">=", resultBoolType, str);
+                GenerateBinaryOperator(m_Rows, m_Columns, ">", resultBoolType, str, "greater than");
+                GenerateBinaryOperator(m_Rows, m_Columns, ">=", resultBoolType, str, "greater or equal");
             }
 
             if (0 != (m_Features & Features.UnaryNegation))
             {
-                str.Append("\n\t\t// neg \n");
-                GenerateUnaryOperator("-", str);
-
-                str.Append("\n\t\t// plus \n");
-                GenerateUnaryOperator("+", str);
+                GenerateUnaryOperator("-", str, "unary minus");
+                GenerateUnaryOperator("+", str, "unary plus");
             }
 
             if (0 != (m_Features & Features.Shifts))
             {
-                str.Append("\n\t\t// left shift\n");
-                GenerateShiftOperator(m_Rows, "<<", resultType, str);
-
-                str.Append("\n\t\t// right shift\n");
-                GenerateShiftOperator(m_Rows, ">>", resultType, str);
+                GenerateShiftOperator(m_Rows, "<<", resultType, str, "left shift");
+                GenerateShiftOperator(m_Rows, ">>", resultType, str, "right shift");
             }
 
-            str.Append("\n\t\t// equal \n");
-            GenerateBinaryOperator(m_Rows, m_Columns, "==", resultBoolType, str);
-
-            str.Append("\n\t\t// not equal \n");
-            GenerateBinaryOperator(m_Rows, m_Columns, "!=", resultBoolType, str);
+            GenerateBinaryOperator(m_Rows, m_Columns, "==", resultBoolType, str, "equality");
+            GenerateBinaryOperator(m_Rows, m_Columns, "!=", resultBoolType, str, "not equal");
 
             if (0 != (m_Features & Features.BitwiseComplement))
             {
-                str.Append("\n\t\t// operator ~ \n");
-                GenerateUnaryOperator("~", str);
+                GenerateUnaryOperator("~", str, "bitwise not");
             }
 
             if(m_BaseType == "bool")
             {
-                str.Append("\n\t\t// operator ! \n");
-                GenerateUnaryOperator("!", str);
+                GenerateUnaryOperator("!", str, "not");
             }
 
             if (0 != (m_Features & Features.BitwiseLogic))
             {
-                string[] binaryOps = { "&", "|", "^" };
-                foreach (string binOp in binaryOps)
-                {
-                    str.AppendFormat("\n\t\t// operator {0}\n", binOp);
-                    GenerateBinaryOperator(m_Rows, m_Columns, binOp, resultType, str);
-                }
+                GenerateBinaryOperator(m_Rows, m_Columns, "&", resultType, str, "bitwise and");
+                GenerateBinaryOperator(m_Rows, m_Columns, "|", resultType, str, "bitwise or");
+                GenerateBinaryOperator(m_Rows, m_Columns, "^", resultType, str, "bitwise exclusive or");
 
             }
         }
@@ -1453,6 +1433,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         public void GenerateToStringFunction(StringBuilder str, bool useFormat)
         {
+            if(useFormat)
+                str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0} using a specified format and culture-specific format information.</summary>\n", m_TypeName);
+            else
+                str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0}.</summary>\n", m_TypeName);
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             if(useFormat)
                 str.Append("\t\tpublic string ToString(string format, IFormatProvider formatProvider)\n\t\t{\n");
@@ -1498,15 +1483,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t\t}\n\n");
         }
 
-        void GenerateBinaryOperator(int rows, int columns, string op, string resultType, StringBuilder str)
+        void GenerateBinaryOperator(int rows, int columns, string op, string resultType, StringBuilder str, string opDesc)
         {
-            GenerateBinaryOperator(rows, columns, rows, columns, op, resultType, rows, columns, str);
-            GenerateBinaryOperator(rows, columns, 1, 1, op, resultType, rows, columns, str);
-            GenerateBinaryOperator(1, 1, rows, columns, op, resultType, rows, columns, str);
+            GenerateBinaryOperator(rows, columns, rows, columns, op, resultType, rows, columns, str, opDesc);
+            GenerateBinaryOperator(rows, columns, 1, 1, op, resultType, rows, columns, str, opDesc);
+            GenerateBinaryOperator(1, 1, rows, columns, op, resultType, rows, columns, str, opDesc);
+            str.Append("\n");
         }
 
-        void GenerateBinaryOperator(int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, string op, string resultType, int resultRows, int resultColumns, StringBuilder str)
+        void GenerateBinaryOperator(int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, string op, string resultType, int resultRows, int resultColumns, StringBuilder str, string opDesc)
         {
+            if(lhsRows == rhsRows && lhsColumns == rhsColumns)
+                str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 2));
+            else
+                str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} and {2}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 1), ToValueDescription(m_BaseType, rhsRows, rhsColumns, 1));
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
             str.Append(" { ");
@@ -1543,14 +1534,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
 
-            str.Append("); }\n");
+            str.Append("); }\n\n");
         }
 
         void GenerateIndexOperator(StringBuilder str)
         {
             int count = m_Columns > 1 ? m_Columns : m_Rows;
             string returnType = ToTypeName(m_BaseType, m_Columns > 1 ? m_Rows : 1, 1);
-            
+
+            str.AppendFormat("\t\t/// <summary>Returns the {0} element at a specified index.</summary>\n", returnType);
             str.AppendFormat("\t\tunsafe public {0} this[int index]\n", returnType);
             str.AppendLine("\t\t{");
             str.AppendLine("\t\t\tget");
@@ -1589,6 +1581,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
+            str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
+            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
             
             for (int i = 0; i < resultCount; i++)
@@ -1601,27 +1595,29 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(" && ");
             }
 
-            str.Append("; }\n");
+            str.Append("; }\n\n");
 
-            str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+            str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
             str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return Equals(({0})o); }}\n\n", m_TypeName);
         }
 
         void GenerateGetHashCode(StringBuilder str)
         {
+            str.AppendFormat("\t\t/// <summary>Returns a hash code for the {0}.</summary>\n", m_TypeName);
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.Append("\t\tpublic override int GetHashCode() { return (int)math.hash(this); }\n\n");
         }
 
 
-        void GenerateShiftOperator(int lhsRows, string op, string resultBaseType, StringBuilder str)
+        void GenerateShiftOperator(int lhsRows, string op, string resultBaseType, StringBuilder str, string opDesc)
         {
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
             string resultType = ToTypeName(resultBaseType, resultCount, 1);
+            str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} by a number of bits specified by a single int.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} ({0} lhs, int rhs)", m_TypeName, op);
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({0} x, int n)", m_TypeName, op);
             str.Append(" { ");
             str.AppendFormat("return new {0} (", m_TypeName);
 
@@ -1629,24 +1625,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 if (lhsRows == 1)
                 {
-                    str.AppendFormat("lhs {0} rhs", op);
+                    str.AppendFormat("x {0} n", op);
                     if (i != resultCount - 1)
                         str.Append(", ");
                 }
                 else
                 {
                     int lhsIndex = i;
-                    str.AppendFormat("lhs.{0} {1} rhs", fields[lhsIndex], op);
+                    str.AppendFormat("x.{0} {1} n", fields[lhsIndex], op);
                     if (i != resultCount - 1)
                         str.Append(", ");
                 }
             }
 
-            str.Append("); }\n");
+            str.Append("); }\n\n");
         }
 
-        void GenerateUnaryOperator(string op, StringBuilder str)
+        void GenerateUnaryOperator(string op, StringBuilder str, string opDesc)
         {
+            str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_TypeName, op);
             str.Append(" { ");
@@ -1665,7 +1662,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(", ");
             }
 
-            str.Append("); }\n\n");
+            str.Append("); }\n\n\n");
         }
 
         void GenerateSwizzles(StringBuilder str)
