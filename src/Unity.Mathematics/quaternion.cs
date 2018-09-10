@@ -9,15 +9,22 @@ namespace Unity.Mathematics
     {
         public float4 value;
 
+        /// <summary>A quaternion representing the identity transform.</summary>
         public static readonly quaternion identity = new quaternion(0.0f, 0.0f, 0.0f, 1.0f);
 
+        /// <summary>Constructs a quaternion from four float values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public quaternion(float x, float y, float z, float w) { value.x = x; value.y = y; value.z = z; value.w = w; }
+
+        /// <summary>Constructs a quaternion from float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public quaternion(float4 value)                       { this.value = value; }
 
+        /// <summary>Implicitly converts a float4 vector to a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator quaternion(float4 v) { return new quaternion(v); }
 
-        // Construct unit quaternion from rotation matrix. The matrix must be orthonormal.
+        /// <summary>Constructs a unit quaternion from a float3x3 rotation matrix. The matrix must be orthonormal.</summary>
         public quaternion(float3x3 m)
         {
             float3 u = m.c0;
@@ -43,7 +50,7 @@ namespace Unity.Mathematics
             value = normalize(value);
         }
 
-        // Construct unit quaternion from rigid-transformation matrix. The matrix must be orthonormal.
+        /// <summary>Constructs a unit quaternion from an orthonormal float4x4 matrix.</summary>
         public quaternion(float4x4 m)
         {
             float4 u = m.c0;
@@ -81,6 +88,11 @@ namespace Unity.Mathematics
             return quaternion(float4(axis * sina, cosa));
         }
 
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the x-axis, then the y-axis and finally the z-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerXYZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateY(xyz.y), rotateX(xyz.x)));
@@ -95,6 +107,11 @@ namespace Unity.Mathematics
                 );
         }
 
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the x-axis, then the z-axis and finally the y-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerXZY(float3 xyz)
         {
             // return mul(rotateY(xyz.y), mul(rotateZ(xyz.z), rotateX(xyz.x)));
@@ -108,6 +125,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, 1.0f, -1.0f, -1.0f)
                 );
         }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the y-axis, then the x-axis and finally the z-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerYXZ(float3 xyz)
         {
             // return mul(rotateZ(xyz.z), mul(rotateX(xyz.x), rotateY(xyz.y)));
@@ -121,6 +144,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, 1.0f, 1.0f, -1.0f)
                 );
         }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the y-axis, then the z-axis and finally the x-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerYZX(float3 xyz)
         {
             // return mul(rotateX(xyz.x), mul(rotateZ(xyz.z), rotateY(xyz.y)));
@@ -134,6 +163,13 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(-1.0f, -1.0f, 1.0f, 1.0f)
                 );
         }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the z-axis, then the x-axis and finally the y-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// This is the default order rotation order in Unity.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerZXY(float3 xyz)
         {
             // return mul(rotateY(xyz.y), mul(rotateX(xyz.x), rotateZ(xyz.z)));
@@ -147,6 +183,12 @@ namespace Unity.Mathematics
                 float4(s.xyz, c.x) * c.yxxy * c.zzyz + s.yxxy * s.zzyz * float4(c.xyz, s.x) * float4(1.0f, -1.0f, -1.0f, 1.0f)
                 );
         }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the z-axis, then the y-axis and finally the x-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         public static quaternion EulerZYX(float3 xyz)
         {
             // return mul(rotateX(xyz.x), mul(rotateY(xyz.y), rotateZ(xyz.z)));
@@ -161,19 +203,75 @@ namespace Unity.Mathematics
                 );
         }
 
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the x-axis, then the y-axis and finally the z-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerXYZ(float x, float y, float z) { return EulerXYZ(float3(x, y, z)); }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the x-axis, then the z-axis and finally the y-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerXZY(float x, float y, float z) { return EulerXZY(float3(x, y, z)); }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the y-axis, then the x-axis and finally the z-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerYXZ(float x, float y, float z) { return EulerYXZ(float3(x, y, z)); }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the y-axis, then the z-axis and finally the x-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerYZX(float x, float y, float z) { return EulerYZX(float3(x, y, z)); }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the z-axis, then the x-axis and finally the y-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// This is the default order rotation order in Unity.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerZXY(float x, float y, float z) { return EulerZXY(float3(x, y, z)); }
+
+        /// <summary>
+        /// Returns a quaternion constructed by first performing a rotation around the z-axis, then the y-axis and finally the x-axis.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion EulerZYX(float x, float y, float z) { return EulerZYX(float3(x, y, z)); }
 
+        /// <summary>
+        /// Returns a quaternion constructed by first performing 3 rotations around the principal axes in a given order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// When the rotation order is known at compile time, it is recommended for performance reasons to use specific
+        /// Euler rotation constructors such as EulerZXY(...).
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <param name="order">The order in which the rotations are applied.</param>
         public static quaternion Euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
         {
             switch (order)
@@ -195,6 +293,16 @@ namespace Unity.Mathematics
             }
         }
 
+        /// <summary>
+        /// Returns a quaternion constructed by first performing 3 rotations around the principal axes in a given order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// When the rotation order is known at compile time, it is recommended for performance reasons to use specific
+        /// Euler rotation constructors such as EulerZXY(...).
+        /// </summary>
+        /// <param name="x">The rotation angle around the x-axis in radians.</param>
+        /// <param name="y">The rotation angle around the y-axis in radians.</param>
+        /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <param name="order">The order in which the rotations are applied.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion Euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
         {
@@ -231,12 +339,6 @@ namespace Unity.Mathematics
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion Scale(float s)
-        {
-            return quaternion(0.0f, 0.0f, 0.0f, sqrt(s)); 
-        }
-   
         public static quaternion LookRotation(float3 direction, float3 up)
         {
             var vector = normalizesafe(direction);
@@ -295,15 +397,19 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a quaternion constructed from four float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float x, float y, float z, float w) { return new quaternion(x, y, z, w); }
 
+        /// <summary>Returns a quaternion constructed from a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4 value) { return new quaternion(value); }
 
+        /// <summary>Returns a unit quaternion constructed from a float3x3 rotation matrix. The matrix must be orthonormal.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float3x3 m) { return new quaternion(m); }
 
+        /// <summary>Returns a unit quaternion constructed from a float4x4 matrix. The matrix must be orthonormal.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4x4 m) { return new quaternion(m); }
 
@@ -417,24 +523,27 @@ namespace Unity.Mathematics
             return quaternion(float4(q.value.xyz * s, 0.5f * log(q_len_sq)));
         }
 
+        /// <summary>Returns the result of transforming the quaternion b by the quaternion a.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion mul(quaternion a, quaternion b)
         {
             return quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
+        /// <summary>Returns the result of transforming a vector by a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mul(quaternion q, float3 dir)
+        public static float3 mul(quaternion q, float3 v)
         {
-            float3 t = 2 * cross(q.value.xyz, dir);
-            return dir + q.value.w * t + cross(q.value.xyz, t);
+            float3 t = 2 * cross(q.value.xyz, v);
+            return v + q.value.w * t + cross(q.value.xyz, t);
         }
 
+        /// <summary>Returns the result of rotating a vector by a unit quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 rotate(quaternion q, float3 dir)
+        public static float3 rotate(quaternion q, float3 v)
         {
-            float3 t = 2 * cross(q.value.xyz, dir);
-            return dir + q.value.w * t + cross(q.value.xyz, t);
+            float3 t = 2 * cross(q.value.xyz, v);
+            return v + q.value.w * t + cross(q.value.xyz, t);
         }
 
         /// <summary>Returns the result of a normalized linear interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
@@ -475,6 +584,7 @@ namespace Unity.Mathematics
             }
         }
 
+        /// <summary>Returns a uint hash code of a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(quaternion q)
         {
