@@ -5,7 +5,7 @@ using static Unity.Mathematics.math;
 namespace Unity.Mathematics
 {
     [Serializable]
-    public partial struct quaternion
+    public partial struct quaternion : System.IEquatable<quaternion>, IFormattable
     {
         public float4 value;
 
@@ -18,7 +18,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a quaternion from float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public quaternion(float4 value)                       { this.value = value; }
+        public quaternion(float4 value) { this.value = value; }
 
         /// <summary>Implicitly converts a float4 vector to a quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -392,6 +392,29 @@ namespace Unity.Mathematics
             q.z = 0.5f * num5;
             q.w = (m01 - m10) * num2;
             return quaternion(q);
+        }
+        
+        // Equals 
+        public bool Equals(quaternion rhs) { return value.x == rhs.value.x && value.y == rhs.value.y && value.z == rhs.value.z && value.w == rhs.value.w; }
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override bool Equals(object o) { return Equals((quaternion)o); }
+
+
+        // GetHashCode 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)math.hash(this); }
+
+        // ToString 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return string.Format("quaternion({0}f, {1}f, {2}f, {3}f)", value.x, value.y, value.z, value.w);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return string.Format("quaternion({0}f, {1}f, {2}f, {3}f)", value.x.ToString(format, formatProvider), value.y.ToString(format, formatProvider), value.z.ToString(format, formatProvider), value.w.ToString(format, formatProvider));
         }
     }
 
