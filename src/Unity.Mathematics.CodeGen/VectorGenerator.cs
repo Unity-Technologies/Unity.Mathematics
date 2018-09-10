@@ -981,6 +981,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateUnaryOperator("~", str);
             }
 
+            if(m_BaseType == "bool")
+            {
+                str.Append("\n\t\t// operator ! \n");
+                GenerateUnaryOperator("!", str);
+            }
+
             if (0 != (m_Features & Features.BitwiseLogic))
             {
                 string[] binaryOps = { "&", "|", "^" };
@@ -1860,6 +1866,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             case "&": resultValue = (bool_a & bool_b) ? "true" : "false"; break;
                             case "|": resultValue = (bool_a | bool_b) ? "true" : "false"; break;
                             case "^": resultValue = (bool_a ^ bool_b) ? "true" : "false"; break;
+                            case "!": resultValue = (!bool_a) ? "true" : "false"; break;
                         }
                     }
                     else if (m_BaseType == "int")
@@ -2138,6 +2145,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 TestBinaryOperator(str, m_TypeName, "&", "bitwise_and");
                 TestBinaryOperator(str, m_TypeName, "|", "bitwise_or");
                 TestBinaryOperator(str, m_TypeName, "^", "bitwise_xor");
+            }
+
+            if(m_BaseType == "bool")
+            {
+                TestUnaryOperator(str, m_TypeName, "!", "bitwise_not", true);
             }
 
             if(m_BaseType == "int" || m_BaseType == "uint")

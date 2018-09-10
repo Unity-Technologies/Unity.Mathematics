@@ -127,6 +127,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (bool lhs, bool4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
+        // operator ! 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 operator ! (bool4 val) { return new bool4 (!val.x, !val.y, !val.z, !val.w); }
+
+
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator & (bool4 lhs, bool4 rhs) { return new bool4 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z, lhs.w & rhs.w); }

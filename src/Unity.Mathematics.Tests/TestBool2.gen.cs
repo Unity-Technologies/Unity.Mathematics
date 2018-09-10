@@ -398,6 +398,26 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
+        [Test]
+        public void bool2_operator_bitwise_not()
+        {
+            bool2 a0 = bool2(false, false);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(!a0, r0);
+
+            bool2 a1 = bool2(false, true);
+            bool2 r1 = bool2(true, false);
+            TestUtils.AreEqual(!a1, r1);
+
+            bool2 a2 = bool2(false, true);
+            bool2 r2 = bool2(true, false);
+            TestUtils.AreEqual(!a2, r2);
+
+            bool2 a3 = bool2(false, false);
+            bool2 r3 = bool2(true, true);
+            TestUtils.AreEqual(!a3, r3);
+        }
+
 
     }
 }

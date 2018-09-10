@@ -61,6 +61,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
+        // operator ! 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2x2 operator ! (bool2x2 val) { return new bool2x2 (!val.c0, !val.c1); }
+
+
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator & (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1); }

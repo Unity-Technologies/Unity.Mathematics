@@ -84,6 +84,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (bool lhs, bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
+        // operator ! 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 operator ! (bool3 val) { return new bool3 (!val.x, !val.y, !val.z); }
+
+
         // operator &
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator & (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z); }

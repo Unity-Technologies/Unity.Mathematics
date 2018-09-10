@@ -366,6 +366,26 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
+        [Test]
+        public void bool3x4_operator_bitwise_not()
+        {
+            bool3x4 a0 = bool3x4(false, false, false, false, true, false, true, true, false, false, false, false);
+            bool3x4 r0 = bool3x4(true, true, true, true, false, true, false, false, true, true, true, true);
+            TestUtils.AreEqual(!a0, r0);
+
+            bool3x4 a1 = bool3x4(false, true, false, false, false, false, true, true, false, false, true, false);
+            bool3x4 r1 = bool3x4(true, false, true, true, true, true, false, false, true, true, false, true);
+            TestUtils.AreEqual(!a1, r1);
+
+            bool3x4 a2 = bool3x4(false, true, false, false, false, false, false, true, true, false, false, true);
+            bool3x4 r2 = bool3x4(true, false, true, true, true, true, true, false, false, true, true, false);
+            TestUtils.AreEqual(!a2, r2);
+
+            bool3x4 a3 = bool3x4(false, true, false, true, false, false, false, true, true, false, false, false);
+            bool3x4 r3 = bool3x4(true, false, true, false, true, true, true, false, false, true, true, true);
+            TestUtils.AreEqual(!a3, r3);
+        }
+
 
     }
 }
