@@ -2,20 +2,54 @@ variables:
   GIT_SUBMODULE_STRATEGY: recursive
 
 stages:
+  - run_tests
   - build_package
+  - validate_package
+  - publish_package
+
+run_tests:mac:
+  stage: run_tests
+  tags:
+    - mac
+  script:
+    - cd src
+    - nuget restore
+    - msbuild Unity.Mathematics.sln
+    - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe Unity.Mathematics.Tests/bin/Debug/Unity.Mathematics.Tests.dll
 
 build_package:mac:
   stage: build_package
   tags:
     - mac
+  script:
+    - cd src/
+    - npm version 0.0.1
+    - npm pack .
+  artifacts:
+    paths:
+      - src/*.tgz
+
+validate_package:mac:
+  stage: validate_package
+  tags:
+    - mac
+  script:
+    - tar xzvf src/com.unity.mathematics-0.0.1.tgz
+    - python Tools/CI/validation.py --package-path package
+  dependencies:
+    - build_package:mac
+
+publish_package:mac:
+  stage: publish_package
+  tags:
+    - mac
   only:
     - tags
   script:
-    - cd src/
+    - tar xzvf src/com.unity.mathematics-0.0.1.tgz
+    - cd package
     - npm version $CI_COMMIT_TAG
     - npm pack .
-    - tar xzvf com.unity.mathematics-$CI_COMMIT_TAG.tgz
-    - cd ..
-    - python Tools/CI/validation.py --package-path src/package
-    - cd src/
     - npm publish com.unity.mathematics-$CI_COMMIT_TAG.tgz
+  dependencies:
+    - build_package:mac
