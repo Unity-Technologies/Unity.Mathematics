@@ -304,7 +304,7 @@ namespace Unity.Mathematics
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static quaternion Euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static quaternion Euler(float x, float y, float z, RotationOrder order = RotationOrder.Default)
         {
             return Euler(float3(x, y, z), order);
         }

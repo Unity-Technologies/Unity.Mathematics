@@ -441,12 +441,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(double4x4 v) { return new float4x4(v); }
 
+        /// <summary>Return the result of rotating a float3 vector by a float4x4 matrix</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rotate(float4x4 a, float3 b)
         {
             return (a.c0 * b.x + a.c1 * b.y + a.c2 * b.z).xyz;
         }
 
+        /// <summary>Return the result of transforming a float3 point by a float4x4 matrix</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 transform(float4x4 a, float3 b)
         {

@@ -441,12 +441,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x4 double4x4(float4x4 v) { return new double4x4(v); }
 
+        /// <summary>Return the result of rotating a double3 vector by a double4x4 matrix</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 rotate(double4x4 a, double3 b)
         {
             return (a.c0 * b.x + a.c1 * b.y + a.c2 * b.z).xyz;
         }
 
+        /// <summary>Return the result of transforming a double3 point by a double4x4 matrix</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 transform(double4x4 a, double3 b)
         {

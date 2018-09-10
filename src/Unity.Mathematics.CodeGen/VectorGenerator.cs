@@ -82,7 +82,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             return name;
         }
 
-        public static string ToValueDescription(string baseType, int rows, int columns, int n)
+
+        public enum VectorType { Row, Column, DontCare };
+        public static string ToValueDescription(string baseType, int rows, int columns, int n, bool addRowColumnVectorPrefix = false)
         {
             string name = ToTypeName(baseType, rows, columns);
 
@@ -103,10 +105,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     break;
             }
 
+            string vectorPrefix = addRowColumnVectorPrefix ? ((rows == 1) ? " row" : (columns == 1) ? " column" : "") : "";
+
             if(n > 1)
-                return numStr + name + ((rows == 1) ? " values" : (columns > 1) ? " matrices" : " vectors");
+                return numStr + name + ((rows == 1 && columns == 1) ? " values" : (rows > 1 && columns > 1) ? " matrices" : vectorPrefix + " vectors");
             else
-                return numStr + name + ((rows == 1) ? " value" : (columns > 1) ? " matrix" : " vector");
+                return numStr + name + ((rows == 1 && columns == 1) ? " value" : (rows > 1 && columns > 1) ? " matrix" : vectorPrefix + " vector");
         }
 
         public static string ToTypedLiteral(string baseType, int value)
@@ -450,8 +454,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
             {
-                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false);
-                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true);
+                
+                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false,
+                    string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
+                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true,
+                    string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
             }
 
 
@@ -571,9 +578,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation)
+        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation, string desc)
         {
             // mul(a,b): if a is vector it is treated as a row vector. if b is a vector it is treaded as a column vector.
+            bool isResultRowVector = (lhsRows == 1 && lhsColumns > 1);
             int resultRows = (lhsColumns != rhsRows) ? rhsRows : lhsRows;
             string resultType = ToTypeName(baseType, resultRows, rhsColumns);
             string lhsType = ToTypeName(baseType, lhsRows, lhsColumns);
@@ -581,6 +589,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             bool isScalarResult = (resultRows == 1 && rhsColumns == 1);
             bool needsSwizzle = (resultRows != lhsRows);
+            if(desc == "")
+            {
+                str.AppendFormat("\t\t/// <summary>Returns the {0} result of a matrix multiplication between {1} and {2}.</summary>\n",
+                    ToValueDescription(baseType, resultRows, rhsColumns, 0, true),
+                    ToValueDescription(baseType, lhsRows, lhsColumns, 1, true),
+                    ToValueDescription(baseType, rhsRows, rhsColumns, 1, true));
+            }
+            else
+            {
+                str.AppendFormat("\t\t/// <summary>{0}</summary>\n", desc);
+            }
+            
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, lhsType, rhsType);
             str.Append("\t\t{\n");
@@ -655,7 +675,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         if (m == 1 && k > 1)
                             continue;   // rhs cannot be row vector
 
-                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false);
+                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false, "");
                     }
                 }
             }
@@ -672,7 +692,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\tpartial class math\n");
             str.Append("\t{\n");
 
-            str.Append("\t\t// mul\n");
             GenerateMulImplementations("float", str);
             GenerateMulImplementations("double", str);
             GenerateMulImplementations("int", str);

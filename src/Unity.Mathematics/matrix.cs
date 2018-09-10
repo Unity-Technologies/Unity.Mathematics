@@ -283,7 +283,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
-        public static float3x3 Euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        public static float3x3 Euler(float3 xyz, RotationOrder order = RotationOrder.Default)
         {
             switch (order)
             {
@@ -315,7 +315,7 @@ namespace Unity.Mathematics
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3x3 Euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static float3x3 Euler(float x, float y, float z, RotationOrder order = RotationOrder.Default)
         {
             return Euler(float3(x, y, z), order);
         }
@@ -635,7 +635,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerZYX(float x, float y, float z) { return EulerZYX(float3(x, y, z)); }
 
-        public static float4x4 Euler(float3 xyz, RotationOrder order = RotationOrder.ZXY)
+        public static float4x4 Euler(float3 xyz, RotationOrder order = RotationOrder.Default)
         {
             switch (order)
             {
@@ -667,7 +667,7 @@ namespace Unity.Mathematics
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4x4 Euler(float x, float y, float z, RotationOrder order = RotationOrder.ZXY)
+        public static float4x4 Euler(float x, float y, float z, RotationOrder order = RotationOrder.Default)
         {
             return Euler(float3(x, y, z), order);
         }
