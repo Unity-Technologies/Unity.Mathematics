@@ -874,8 +874,8 @@ namespace Unity.Mathematics
             return new float4x4(transform);
         }
 
-        /// <summary>Returns an orthogonalized version of a float3x3 matrix.</summary>
-        public static float3x3 orthogonalize(float3x3 i)
+        /// <summary>Returns an orthonormalized version of a float3x3 matrix.</summary>
+        public static float3x3 orthonormalize(float3x3 i)
         {
             float3x3 o;
 
