@@ -113,12 +113,6 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static RigidTransform Scale(float s)
-        {
-            return new RigidTransform(quaternion.Scale(s), float3.zero);
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static RigidTransform Translate(float3 vector)
         {
             return new RigidTransform(quaternion.identity, vector);
