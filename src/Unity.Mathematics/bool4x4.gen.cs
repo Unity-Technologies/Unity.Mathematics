@@ -15,7 +15,7 @@ namespace Unity.Mathematics
         public bool4 c3;
 
 
-        /// <summary>Constructs a bool4x4 matrix from 4 bool4 vectors.</summary>
+        /// <summary>Constructs a bool4x4 matrix from four bool4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x4(bool4 c0, bool4 c1, bool4 c2, bool4 c3)
         { 
@@ -38,7 +38,7 @@ namespace Unity.Mathematics
             this.c3 = new bool4(m03, m13, m23, m33);
         }
 
-        /// <summary>Constructs a bool4x4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool4x4 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x4(bool v)
         {
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool4x4 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool4x4 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool4x4(bool v) { return new bool4x4(v); }
 
@@ -143,7 +143,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a bool4x4 matrix constructed from 4 bool4 vectors.</summary>
+        /// <summary>Returns a bool4x4 matrix constructed from four bool4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 bool4x4(bool4 c0, bool4 c1, bool4 c2, bool4 c3) { return new bool4x4(c0, c1, c2, c3); }
 
@@ -160,7 +160,7 @@ namespace Unity.Mathematics
                                m30, m31, m32, m33);
         }
 
-        /// <summary>Returns a bool4x4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool4x4 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 bool4x4(bool v) { return new bool4x4(v); }
 

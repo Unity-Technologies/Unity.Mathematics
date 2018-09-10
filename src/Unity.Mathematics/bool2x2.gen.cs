@@ -13,7 +13,7 @@ namespace Unity.Mathematics
         public bool2 c1;
 
 
-        /// <summary>Constructs a bool2x2 matrix from 2 bool2 vectors.</summary>
+        /// <summary>Constructs a bool2x2 matrix from two bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool2 c0, bool2 c1)
         { 
@@ -30,7 +30,7 @@ namespace Unity.Mathematics
             this.c1 = new bool2(m01, m11);
         }
 
-        /// <summary>Constructs a bool2x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool2x2 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool v)
         {
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool2x2 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool2x2 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2x2(bool v) { return new bool2x2(v); }
 
@@ -133,7 +133,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a bool2x2 matrix constructed from 2 bool2 vectors.</summary>
+        /// <summary>Returns a bool2x2 matrix constructed from two bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 bool2x2(bool2 c0, bool2 c1) { return new bool2x2(c0, c1); }
 
@@ -146,7 +146,7 @@ namespace Unity.Mathematics
                                m10, m11);
         }
 
-        /// <summary>Returns a bool2x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool2x2 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 bool2x2(bool v) { return new bool2x2(v); }
 

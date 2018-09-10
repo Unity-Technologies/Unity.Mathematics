@@ -15,7 +15,7 @@ namespace Unity.Mathematics
         public bool3 c3;
 
 
-        /// <summary>Constructs a bool3x4 matrix from 4 bool3 vectors.</summary>
+        /// <summary>Constructs a bool3x4 matrix from four bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x4(bool3 c0, bool3 c1, bool3 c2, bool3 c3)
         { 
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
             this.c3 = new bool3(m03, m13, m23);
         }
 
-        /// <summary>Constructs a bool3x4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool3x4 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x4(bool v)
         {
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool3x4 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool3x4 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3x4(bool v) { return new bool3x4(v); }
 
@@ -142,7 +142,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a bool3x4 matrix constructed from 4 bool3 vectors.</summary>
+        /// <summary>Returns a bool3x4 matrix constructed from four bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x4 bool3x4(bool3 c0, bool3 c1, bool3 c2, bool3 c3) { return new bool3x4(c0, c1, c2, c3); }
 
@@ -157,7 +157,7 @@ namespace Unity.Mathematics
                                m20, m21, m22, m23);
         }
 
-        /// <summary>Returns a bool3x4 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool3x4 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x4 bool3x4(bool v) { return new bool3x4(v); }
 

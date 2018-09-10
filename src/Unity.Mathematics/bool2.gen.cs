@@ -18,6 +18,7 @@ namespace Unity.Mathematics
         public bool y;
 
 
+        /// <summary>Constructs a bool2 vector from two bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool x, bool y)
         { 
@@ -25,6 +26,7 @@ namespace Unity.Mathematics
             this.y = y;
         }
 
+        /// <summary>Constructs a bool2 vector from a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool2 xy)
         { 
@@ -32,7 +34,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a bool2 vector constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool2 vector from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool v)
         {
@@ -41,7 +43,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool2 vector by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool2 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2(bool v) { return new bool2(v); }
 
@@ -374,13 +376,15 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a bool2 vector constructed from two bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool x, bool y) { return new bool2(x, y); }
 
+        /// <summary>Returns a bool2 vector constructed from a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool2 xy) { return new bool2(xy); }
 
-        /// <summary>Returns a bool2 vector constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool2 vector constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool v) { return new bool2(v); }
 
@@ -400,24 +404,6 @@ namespace Unity.Mathematics
         public static uint2 hashwide(bool2 v)
         {
             return (select(uint2(0x9536A0F5u, 0xAF816615u), uint2(0x9AF8D62Du, 0xE3600729u), v));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static bool select_shuffle_component(bool2 a, bool2 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -451,6 +437,24 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y),
                 select_shuffle_component(a, b, z),
                 select_shuffle_component(a, b, w));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static bool select_shuffle_component(bool2 a, bool2 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
         }
 
     }

@@ -18,6 +18,7 @@ namespace Unity.Mathematics
         public static readonly float2 zero = new float2(0.0f,   0.0f);
 
 
+        /// <summary>Constructs a float2 vector from two float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float x, float y)
         { 
@@ -25,6 +26,7 @@ namespace Unity.Mathematics
             this.y = y;
         }
 
+        /// <summary>Constructs a float2 vector from a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float2 xy)
         { 
@@ -32,7 +34,7 @@ namespace Unity.Mathematics
             this.y = xy.y;
         }
 
-        /// <summary>Constructs a float2 vector constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float v)
         {
@@ -40,7 +42,7 @@ namespace Unity.Mathematics
             this.y = v;
         }
 
-        /// <summary>Constructs a float2 vector from a single bool value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(bool v)
         {
@@ -56,7 +58,7 @@ namespace Unity.Mathematics
             this.y = v.y ? 1.0f : 0.0f;
         }
 
-        /// <summary>Constructs a float2 vector from a single int value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(int v)
         {
@@ -72,7 +74,7 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
-        /// <summary>Constructs a float2 vector from a single uint value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(uint v)
         {
@@ -88,7 +90,7 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
-        /// <summary>Constructs a float2 vector from a single double value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(double v)
         {
@@ -105,11 +107,11 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single float value to a float2 vector by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single float value to a float2 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(float v) { return new float2(v); }
 
-        /// <summary>Explicitly converts a single bool value to a float2 vector by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single bool value to a float2 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(bool v) { return new float2(v); }
 
@@ -117,7 +119,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(bool2 v) { return new float2(v); }
 
-        /// <summary>Implicitly converts a single int value to a float2 vector by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single int value to a float2 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(int v) { return new float2(v); }
 
@@ -125,7 +127,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(int2 v) { return new float2(v); }
 
-        /// <summary>Implicitly converts a single uint value to a float2 vector by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single uint value to a float2 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(uint v) { return new float2(v); }
 
@@ -133,7 +135,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(uint2 v) { return new float2(v); }
 
-        /// <summary>Explicitly converts a single double value to a float2 vector by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single double value to a float2 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2(double v) { return new float2(v); }
 
@@ -535,17 +537,19 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a float2 vector constructed from two float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float x, float y) { return new float2(x, y); }
 
+        /// <summary>Returns a float2 vector constructed from a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float2 xy) { return new float2(xy); }
 
-        /// <summary>Returns a float2 vector constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(float v) { return new float2(v); }
 
-        /// <summary>Returns a float2 vector constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(bool v) { return new float2(v); }
 
@@ -553,7 +557,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(bool2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 vector constructed from a single int value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(int v) { return new float2(v); }
 
@@ -561,7 +565,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(int2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 vector constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(uint v) { return new float2(v); }
 
@@ -569,7 +573,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(uint2 v) { return new float2(v); }
 
-        /// <summary>Returns a float2 vector constructed from a single double value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(double v) { return new float2(v); }
 
@@ -593,24 +597,6 @@ namespace Unity.Mathematics
         public static uint2 hashwide(float2 v)
         {
             return (asuint(v) * uint2(0xF1852A33u, 0x77E35E77u)) + 0x863E3729u;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static float select_shuffle_component(float2 a, float2 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -644,6 +630,24 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y),
                 select_shuffle_component(a, b, z),
                 select_shuffle_component(a, b, w));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static float select_shuffle_component(float2 a, float2 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
         }
 
     }

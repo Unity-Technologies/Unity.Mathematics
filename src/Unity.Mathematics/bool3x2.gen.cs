@@ -13,7 +13,7 @@ namespace Unity.Mathematics
         public bool3 c1;
 
 
-        /// <summary>Constructs a bool3x2 matrix from 2 bool3 vectors.</summary>
+        /// <summary>Constructs a bool3x2 matrix from two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x2(bool3 c0, bool3 c1)
         { 
@@ -31,7 +31,7 @@ namespace Unity.Mathematics
             this.c1 = new bool3(m01, m11, m21);
         }
 
-        /// <summary>Constructs a bool3x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool3x2 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x2(bool v)
         {
@@ -40,7 +40,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool3x2 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool3x2 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3x2(bool v) { return new bool3x2(v); }
 
@@ -134,7 +134,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a bool3x2 matrix constructed from 2 bool3 vectors.</summary>
+        /// <summary>Returns a bool3x2 matrix constructed from two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x2 bool3x2(bool3 c0, bool3 c1) { return new bool3x2(c0, c1); }
 
@@ -149,7 +149,7 @@ namespace Unity.Mathematics
                                m20, m21);
         }
 
-        /// <summary>Returns a bool3x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool3x2 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x2 bool3x2(bool v) { return new bool3x2(v); }
 

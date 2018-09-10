@@ -20,6 +20,7 @@ namespace Unity.Mathematics
         public bool z;
 
 
+        /// <summary>Constructs a bool3 vector from three bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
         { 
@@ -28,6 +29,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
+        /// <summary>Constructs a bool3 vector from a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool2 yz)
         { 
@@ -36,6 +38,7 @@ namespace Unity.Mathematics
             this.z = yz.y;
         }
 
+        /// <summary>Constructs a bool3 vector from a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool2 xy, bool z)
         { 
@@ -44,6 +47,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
+        /// <summary>Constructs a bool3 vector from a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool3 xyz)
         { 
@@ -52,7 +56,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a bool3 vector constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool3 vector from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool v)
         {
@@ -62,7 +66,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool3 vector by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool3 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3(bool v) { return new bool3(v); }
 
@@ -1129,19 +1133,23 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a bool3 vector constructed from three bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool y, bool z) { return new bool3(x, y, z); }
 
+        /// <summary>Returns a bool3 vector constructed from a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool2 yz) { return new bool3(x, yz); }
 
+        /// <summary>Returns a bool3 vector constructed from a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool2 xy, bool z) { return new bool3(xy, z); }
 
+        /// <summary>Returns a bool3 vector constructed from a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
-        /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool v) { return new bool3(v); }
 
@@ -1161,28 +1169,6 @@ namespace Unity.Mathematics
         public static uint3 hashwide(bool3 v)
         {
             return (select(uint3(0xCD266C89u, 0xF1852A33u, 0x77E35E77u), uint3(0x863E3729u, 0xE191B035u, 0x68586FAFu), v));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static bool select_shuffle_component(bool3 a, bool3 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.LeftZ:
-                    return a.z;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                case ShuffleComponent.RightZ:
-                    return b.z;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1216,6 +1202,28 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y),
                 select_shuffle_component(a, b, z),
                 select_shuffle_component(a, b, w));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static bool select_shuffle_component(bool3 a, bool3 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.LeftZ:
+                    return a.z;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                case ShuffleComponent.RightZ:
+                    return b.z;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
         }
 
     }

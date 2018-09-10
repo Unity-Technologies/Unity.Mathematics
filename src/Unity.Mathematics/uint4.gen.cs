@@ -20,6 +20,7 @@ namespace Unity.Mathematics
         public static readonly uint4 zero = new uint4(0u,   0u,   0u,   0u);
 
 
+        /// <summary>Constructs a uint4 vector from four uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint y, uint z, uint w)
         { 
@@ -29,6 +30,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
+        /// <summary>Constructs a uint4 vector from two uint values and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint y, uint2 zw)
         { 
@@ -38,6 +40,7 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
 
+        /// <summary>Constructs a uint4 vector from a uint value, a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint2 yz, uint w)
         { 
@@ -47,6 +50,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
+        /// <summary>Constructs a uint4 vector from a uint value and a uint3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint3 yzw)
         { 
@@ -56,6 +60,7 @@ namespace Unity.Mathematics
             this.w = yzw.z;
         }
 
+        /// <summary>Constructs a uint4 vector from a uint2 vector and two uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint2 xy, uint z, uint w)
         { 
@@ -65,6 +70,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
+        /// <summary>Constructs a uint4 vector from two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint2 xy, uint2 zw)
         { 
@@ -74,6 +80,7 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
 
+        /// <summary>Constructs a uint4 vector from a uint3 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint3 xyz, uint w)
         { 
@@ -83,6 +90,7 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
+        /// <summary>Constructs a uint4 vector from a uint4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint4 xyzw)
         { 
@@ -92,7 +100,7 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a uint4 vector constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Constructs a uint4 vector from a single uint value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint v)
         {
@@ -102,7 +110,7 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a uint4 vector from a single bool value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint4 vector from a single bool value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(bool v)
         {
@@ -122,7 +130,7 @@ namespace Unity.Mathematics
             this.w = v.w ? 1u : 0u;
         }
 
-        /// <summary>Constructs a uint4 vector from a single int value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint4 vector from a single int value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(int v)
         {
@@ -142,7 +150,7 @@ namespace Unity.Mathematics
             this.w = (uint)v.w;
         }
 
-        /// <summary>Constructs a uint4 vector from a single float value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint4 vector from a single float value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(float v)
         {
@@ -162,7 +170,7 @@ namespace Unity.Mathematics
             this.w = (uint)v.w;
         }
 
-        /// <summary>Constructs a uint4 vector from a single double value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint4 vector from a single double value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(double v)
         {
@@ -183,11 +191,11 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single uint value to a uint4 vector by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single uint value to a uint4 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint4(uint v) { return new uint4(v); }
 
-        /// <summary>Explicitly converts a single bool value to a uint4 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single bool value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(bool v) { return new uint4(v); }
 
@@ -195,7 +203,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(bool4 v) { return new uint4(v); }
 
-        /// <summary>Explicitly converts a single int value to a uint4 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single int value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(int v) { return new uint4(v); }
 
@@ -203,7 +211,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(int4 v) { return new uint4(v); }
 
-        /// <summary>Explicitly converts a single float value to a uint4 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single float value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(float v) { return new uint4(v); }
 
@@ -211,7 +219,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(float4 v) { return new uint4(v); }
 
-        /// <summary>Explicitly converts a single double value to a uint4 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single double value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint4(double v) { return new uint4(v); }
 
@@ -3234,35 +3242,43 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a uint4 vector constructed from four uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint x, uint y, uint z, uint w) { return new uint4(x, y, z, w); }
 
+        /// <summary>Returns a uint4 vector constructed from two uint values and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint x, uint y, uint2 zw) { return new uint4(x, y, zw); }
 
+        /// <summary>Returns a uint4 vector constructed from a uint value, a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint x, uint2 yz, uint w) { return new uint4(x, yz, w); }
 
+        /// <summary>Returns a uint4 vector constructed from a uint value and a uint3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint x, uint3 yzw) { return new uint4(x, yzw); }
 
+        /// <summary>Returns a uint4 vector constructed from a uint2 vector and two uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint2 xy, uint z, uint w) { return new uint4(xy, z, w); }
 
+        /// <summary>Returns a uint4 vector constructed from two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint2 xy, uint2 zw) { return new uint4(xy, zw); }
 
+        /// <summary>Returns a uint4 vector constructed from a uint3 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint3 xyz, uint w) { return new uint4(xyz, w); }
 
+        /// <summary>Returns a uint4 vector constructed from a uint4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint4 xyzw) { return new uint4(xyzw); }
 
-        /// <summary>Returns a uint4 vector constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Returns a uint4 vector constructed from a single uint value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(uint v) { return new uint4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single bool value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint4 vector constructed from a single bool value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(bool v) { return new uint4(v); }
 
@@ -3270,7 +3286,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(bool4 v) { return new uint4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single int value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint4 vector constructed from a single int value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(int v) { return new uint4(v); }
 
@@ -3278,7 +3294,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(int4 v) { return new uint4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single float value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint4 vector constructed from a single float value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(float v) { return new uint4(v); }
 
@@ -3286,7 +3302,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(float4 v) { return new uint4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single double value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint4 vector constructed from a single double value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 uint4(double v) { return new uint4(v); }
 
@@ -3310,32 +3326,6 @@ namespace Unity.Mathematics
         public static uint4 hashwide(uint4 v)
         {
             return (v * uint4(0x9263662Fu, 0xE69626FFu, 0xBD010EEBu, 0x9CEDE1D1u)) + 0x43BE0B51u;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static uint select_shuffle_component(uint4 a, uint4 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.LeftZ:
-                    return a.z;
-                case ShuffleComponent.LeftW:
-                    return a.w;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                case ShuffleComponent.RightZ:
-                    return b.z;
-                case ShuffleComponent.RightW:
-                    return b.w;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3369,6 +3359,32 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y),
                 select_shuffle_component(a, b, z),
                 select_shuffle_component(a, b, w));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint select_shuffle_component(uint4 a, uint4 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.LeftZ:
+                    return a.z;
+                case ShuffleComponent.LeftW:
+                    return a.w;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                case ShuffleComponent.RightZ:
+                    return b.z;
+                case ShuffleComponent.RightW:
+                    return b.w;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
         }
 
     }

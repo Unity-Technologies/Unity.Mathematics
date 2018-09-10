@@ -13,7 +13,7 @@ namespace Unity.Mathematics
         public bool4 c1;
 
 
-        /// <summary>Constructs a bool4x2 matrix from 2 bool4 vectors.</summary>
+        /// <summary>Constructs a bool4x2 matrix from two bool4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x2(bool4 c0, bool4 c1)
         { 
@@ -32,7 +32,7 @@ namespace Unity.Mathematics
             this.c1 = new bool4(m01, m11, m21, m31);
         }
 
-        /// <summary>Constructs a bool4x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Constructs a bool4x2 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x2(bool v)
         {
@@ -41,7 +41,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single bool value to a bool4x2 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single bool value to a bool4x2 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool4x2(bool v) { return new bool4x2(v); }
 
@@ -135,7 +135,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a bool4x2 matrix constructed from 2 bool4 vectors.</summary>
+        /// <summary>Returns a bool4x2 matrix constructed from two bool4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 bool4x2(bool4 c0, bool4 c1) { return new bool4x2(c0, c1); }
 
@@ -152,7 +152,7 @@ namespace Unity.Mathematics
                                m30, m31);
         }
 
-        /// <summary>Returns a bool4x2 matrix constructed from a single bool value by assigning it to every entry.</summary>
+        /// <summary>Returns a bool4x2 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 bool4x2(bool v) { return new bool4x2(v); }
 

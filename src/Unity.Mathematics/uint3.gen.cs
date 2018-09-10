@@ -19,6 +19,7 @@ namespace Unity.Mathematics
         public static readonly uint3 zero = new uint3(0u,   0u,   0u);
 
 
+        /// <summary>Constructs a uint3 vector from three uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint x, uint y, uint z)
         { 
@@ -27,6 +28,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
+        /// <summary>Constructs a uint3 vector from a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint x, uint2 yz)
         { 
@@ -35,6 +37,7 @@ namespace Unity.Mathematics
             this.z = yz.y;
         }
 
+        /// <summary>Constructs a uint3 vector from a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint2 xy, uint z)
         { 
@@ -43,6 +46,7 @@ namespace Unity.Mathematics
             this.z = z;
         }
 
+        /// <summary>Constructs a uint3 vector from a uint3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint3 xyz)
         { 
@@ -51,7 +55,7 @@ namespace Unity.Mathematics
             this.z = xyz.z;
         }
 
-        /// <summary>Constructs a uint3 vector constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector from a single uint value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(uint v)
         {
@@ -60,7 +64,7 @@ namespace Unity.Mathematics
             this.z = v;
         }
 
-        /// <summary>Constructs a uint3 vector from a single bool value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector from a single bool value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(bool v)
         {
@@ -78,7 +82,7 @@ namespace Unity.Mathematics
             this.z = v.z ? 1u : 0u;
         }
 
-        /// <summary>Constructs a uint3 vector from a single int value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector from a single int value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(int v)
         {
@@ -96,7 +100,7 @@ namespace Unity.Mathematics
             this.z = (uint)v.z;
         }
 
-        /// <summary>Constructs a uint3 vector from a single float value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector from a single float value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(float v)
         {
@@ -114,7 +118,7 @@ namespace Unity.Mathematics
             this.z = (uint)v.z;
         }
 
-        /// <summary>Constructs a uint3 vector from a single double value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Constructs a uint3 vector from a single double value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3(double v)
         {
@@ -133,11 +137,11 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single uint value to a uint3 vector by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single uint value to a uint3 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3(uint v) { return new uint3(v); }
 
-        /// <summary>Explicitly converts a single bool value to a uint3 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single bool value to a uint3 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(bool v) { return new uint3(v); }
 
@@ -145,7 +149,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(bool3 v) { return new uint3(v); }
 
-        /// <summary>Explicitly converts a single int value to a uint3 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single int value to a uint3 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(int v) { return new uint3(v); }
 
@@ -153,7 +157,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(int3 v) { return new uint3(v); }
 
-        /// <summary>Explicitly converts a single float value to a uint3 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single float value to a uint3 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(float v) { return new uint3(v); }
 
@@ -161,7 +165,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(float3 v) { return new uint3(v); }
 
-        /// <summary>Explicitly converts a single double value to a uint3 vector by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single double value to a uint3 vector by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3(double v) { return new uint3(v); }
 
@@ -1334,23 +1338,27 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
+        /// <summary>Returns a uint3 vector constructed from three uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint x, uint y, uint z) { return new uint3(x, y, z); }
 
+        /// <summary>Returns a uint3 vector constructed from a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint x, uint2 yz) { return new uint3(x, yz); }
 
+        /// <summary>Returns a uint3 vector constructed from a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint2 xy, uint z) { return new uint3(xy, z); }
 
+        /// <summary>Returns a uint3 vector constructed from a uint3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint3 xyz) { return new uint3(xyz); }
 
-        /// <summary>Returns a uint3 vector constructed from a single uint value by assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single uint value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(uint v) { return new uint3(v); }
 
-        /// <summary>Returns a uint3 vector constructed from a single bool value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single bool value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(bool v) { return new uint3(v); }
 
@@ -1358,7 +1366,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(bool3 v) { return new uint3(v); }
 
-        /// <summary>Returns a uint3 vector constructed from a single int value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single int value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(int v) { return new uint3(v); }
 
@@ -1366,7 +1374,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(int3 v) { return new uint3(v); }
 
-        /// <summary>Returns a uint3 vector constructed from a single float value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single float value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(float v) { return new uint3(v); }
 
@@ -1374,7 +1382,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(float3 v) { return new uint3(v); }
 
-        /// <summary>Returns a uint3 vector constructed from a single double value by converting it to uint and assigning it to every entry.</summary>
+        /// <summary>Returns a uint3 vector constructed from a single double value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 uint3(double v) { return new uint3(v); }
 
@@ -1398,28 +1406,6 @@ namespace Unity.Mathematics
         public static uint3 hashwide(uint3 v)
         {
             return (v * uint3(0x841D8225u, 0xC9393C7Du, 0xD42EAFA3u)) + 0xD9AFD06Du;
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static uint select_shuffle_component(uint3 a, uint3 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.LeftZ:
-                    return a.z;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                case ShuffleComponent.RightZ:
-                    return b.z;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1453,6 +1439,28 @@ namespace Unity.Mathematics
                 select_shuffle_component(a, b, y),
                 select_shuffle_component(a, b, z),
                 select_shuffle_component(a, b, w));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint select_shuffle_component(uint3 a, uint3 b, ShuffleComponent component)
+        {
+            switch(component)
+            {
+                case ShuffleComponent.LeftX:
+                    return a.x;
+                case ShuffleComponent.LeftY:
+                    return a.y;
+                case ShuffleComponent.LeftZ:
+                    return a.z;
+                case ShuffleComponent.RightX:
+                    return b.x;
+                case ShuffleComponent.RightY:
+                    return b.y;
+                case ShuffleComponent.RightZ:
+                    return b.z;
+                default:
+                    throw new System.ArgumentException("Invalid shuffle component: " + component);
+            }
         }
 
     }

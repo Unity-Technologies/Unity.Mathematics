@@ -82,6 +82,33 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             return name;
         }
 
+        public static string ToValueDescription(string baseType, int rows, int columns, int n)
+        {
+            string name = ToTypeName(baseType, rows, columns);
+
+            string numStr = "";
+            switch(n)
+            {
+                case 1:
+                    numStr = baseType == "int" ? "an " : "a ";
+                    break;
+                case 2:
+                    numStr = "two ";
+                    break;
+                case 3:
+                    numStr = "three ";
+                    break;
+                case 4:
+                    numStr = "four ";
+                    break;
+            }
+
+            if(n > 1)
+                return numStr + name + ((rows == 1) ? " values" : (columns > 1) ? " matrices" : " vectors");
+            else
+                return numStr + name + ((rows == 1) ? " value" : (columns > 1) ? " matrix" : " vector");
+        }
+
         public static string ToTypedLiteral(string baseType, int value)
         {
             switch(baseType)
@@ -276,15 +303,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 if(sourceBaseType != m_BaseType)
                 {
-                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by converting it to {3} and assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
-                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every entry.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
                 }
                 else
                 {
-                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} constructed from a single {2} value by assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every entry.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every entry.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
+                    str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
                 }
             }
             else
@@ -438,10 +465,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_Columns == 1)
             {
                 GenerateSwizzles(str);
-                GenerateSelectShuffleComponentImplementation(mathStr);
                 GenerateShuffleImplementation(mathStr);
             }
-            
+
+
             str.Append("\n\t\t// [int index] \n");
             GenerateIndexOperator(str);
 
@@ -457,6 +484,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateToStringFunction(str, true);
 
             GenerateDebuggerTypeProxy(str);
+
+
+            // Internal members last
+            if (m_Columns == 1)
+            {
+                GenerateSelectShuffleComponentImplementation(mathStr);
+            }
 
             str.Append("\t}\n\n");
 
@@ -659,10 +693,44 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private void GenerateVectorConstructor(int numComponents, int numParameters, int[] parameterComponents, StringBuilder constructorStr, StringBuilder mathStr)
         {
             // Generate signatures
+            string dstTypeCategory = (m_Columns > 1) ? "matrix" : "vector";
+
+            StringBuilder descriptionStr = new StringBuilder();
+            {
+                int idx = 0;
+                bool first = true;
+                while(true)
+                {
+                    int paramComponents = parameterComponents[idx];
+                    string paramType = ToTypeName(m_BaseType, paramComponents, 1);
+                    
+                    int n = 1;
+                    while(idx + 1 < numParameters && parameterComponents[idx + 1] == paramComponents)
+                    {
+                        n++;
+                        idx++;
+                    }
+                    idx++;
+
+                    bool last = (idx == numParameters);
+                    if (!first)
+                        descriptionStr.Append(last ? " and " : ", ");
+
+                    descriptionStr.Append(ToValueDescription(m_BaseType, paramComponents, 1, n));
+                    if (last)
+                        break;
+                    first = false;
+                }
+            }
+            
+
+            constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
+
+            mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -679,7 +747,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     mathStr.Append(", ");
                 }
 
-                
                 int paramComponents = parameterComponents[i];
                 string paramType = ToTypeName(m_BaseType, paramComponents, 1);
                 string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
@@ -751,14 +818,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             // Generate signatures
             string columnType = ToTypeName(m_BaseType, m_Rows, 1);
-
-            constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1} {2} vectors.</summary>\n", m_TypeName, m_Columns, columnType);
+            string columnDescription = ToValueDescription(m_BaseType, m_Rows, 1, m_Columns);
+            constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1}.</summary>\n", m_TypeName, columnDescription);
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
 
-            mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from {1} {2} vectors.</summary>\n", m_TypeName, m_Columns, columnType);
+            mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from {1}.</summary>\n", m_TypeName, columnDescription);
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);

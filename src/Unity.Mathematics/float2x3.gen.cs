@@ -17,7 +17,7 @@ namespace Unity.Mathematics
         public static readonly float2x3 zero = new float2x3(0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f);
 
 
-        /// <summary>Constructs a float2x3 matrix from 3 float2 vectors.</summary>
+        /// <summary>Constructs a float2x3 matrix from three float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(float2 c0, float2 c1, float2 c2)
         { 
@@ -36,7 +36,7 @@ namespace Unity.Mathematics
             this.c2 = new float2(m02, m12);
         }
 
-        /// <summary>Constructs a float2x3 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Constructs a float2x3 matrix from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(float v)
         {
@@ -45,7 +45,7 @@ namespace Unity.Mathematics
             this.c2 = v;
         }
 
-        /// <summary>Constructs a float2x3 matrix from a single bool value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2x3 matrix from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(bool v)
         {
@@ -63,7 +63,7 @@ namespace Unity.Mathematics
             this.c2 = math.select(new float2(0.0f), new float2(1.0f), v.c2);
         }
 
-        /// <summary>Constructs a float2x3 matrix from a single int value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2x3 matrix from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(int v)
         {
@@ -81,7 +81,7 @@ namespace Unity.Mathematics
             this.c2 = v.c2;
         }
 
-        /// <summary>Constructs a float2x3 matrix from a single uint value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2x3 matrix from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(uint v)
         {
@@ -99,7 +99,7 @@ namespace Unity.Mathematics
             this.c2 = v.c2;
         }
 
-        /// <summary>Constructs a float2x3 matrix from a single double value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Constructs a float2x3 matrix from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x3(double v)
         {
@@ -118,11 +118,11 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Implicitly converts a single float value to a float2x3 matrix by assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single float value to a float2x3 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x3(float v) { return new float2x3(v); }
 
-        /// <summary>Explicitly converts a single bool value to a float2x3 matrix by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single bool value to a float2x3 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x3(bool v) { return new float2x3(v); }
 
@@ -130,7 +130,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x3(bool2x3 v) { return new float2x3(v); }
 
-        /// <summary>Implicitly converts a single int value to a float2x3 matrix by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single int value to a float2x3 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x3(int v) { return new float2x3(v); }
 
@@ -138,7 +138,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x3(int2x3 v) { return new float2x3(v); }
 
-        /// <summary>Implicitly converts a single uint value to a float2x3 matrix by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Implicitly converts a single uint value to a float2x3 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x3(uint v) { return new float2x3(v); }
 
@@ -146,7 +146,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2x3(uint2x3 v) { return new float2x3(v); }
 
-        /// <summary>Explicitly converts a single double value to a float2x3 matrix by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Explicitly converts a single double value to a float2x3 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float2x3(double v) { return new float2x3(v); }
 
@@ -309,7 +309,7 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a float2x3 matrix constructed from 3 float2 vectors.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from three float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(float2 c0, float2 c1, float2 c2) { return new float2x3(c0, c1, c2); }
 
@@ -322,11 +322,11 @@ namespace Unity.Mathematics
                                 m10, m11, m12);
         }
 
-        /// <summary>Returns a float2x3 matrix constructed from a single float value by assigning it to every entry.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(float v) { return new float2x3(v); }
 
-        /// <summary>Returns a float2x3 matrix constructed from a single bool value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(bool v) { return new float2x3(v); }
 
@@ -334,7 +334,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(bool2x3 v) { return new float2x3(v); }
 
-        /// <summary>Returns a float2x3 matrix constructed from a single int value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(int v) { return new float2x3(v); }
 
@@ -342,7 +342,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(int2x3 v) { return new float2x3(v); }
 
-        /// <summary>Returns a float2x3 matrix constructed from a single uint value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(uint v) { return new float2x3(v); }
 
@@ -350,7 +350,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(uint2x3 v) { return new float2x3(v); }
 
-        /// <summary>Returns a float2x3 matrix constructed from a single double value by converting it to float and assigning it to every entry.</summary>
+        /// <summary>Returns a float2x3 matrix constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x3 float2x3(double v) { return new float2x3(v); }
 
