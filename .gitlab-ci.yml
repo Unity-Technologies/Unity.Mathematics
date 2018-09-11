@@ -15,7 +15,7 @@ run_tests:mac:
     - cd src
     - nuget restore
     - msbuild Unity.Mathematics.sln
-    - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe Unity.Mathematics.Tests/bin/Debug/Unity.Mathematics.Tests.dll
+    - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe Unity.Mathematics.Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
 
 build_package:mac:
   stage: build_package
