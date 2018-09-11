@@ -367,22 +367,22 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
-        public void bool2x4_operator_bitwise_not()
+        public void bool2x4_operator_logical_not()
         {
-            bool2x4 a0 = bool2x4(false, false, false, false, true, false, true, true);
-            bool2x4 r0 = bool2x4(true, true, true, true, false, true, false, false);
+            bool2x4 a0 = bool2x4(true, true, false, false, true, false, true, false);
+            bool2x4 r0 = bool2x4(false, false, true, true, false, true, false, true);
             TestUtils.AreEqual(!a0, r0);
 
-            bool2x4 a1 = bool2x4(false, false, false, false, false, true, false, false);
-            bool2x4 r1 = bool2x4(true, true, true, true, true, false, true, true);
+            bool2x4 a1 = bool2x4(true, false, false, false, true, true, false, false);
+            bool2x4 r1 = bool2x4(false, true, true, true, false, false, true, true);
             TestUtils.AreEqual(!a1, r1);
 
-            bool2x4 a2 = bool2x4(false, true, true, false, false, true, false, false);
-            bool2x4 r2 = bool2x4(true, false, false, true, true, false, true, true);
+            bool2x4 a2 = bool2x4(true, true, false, true, true, true, false, false);
+            bool2x4 r2 = bool2x4(false, false, true, false, false, false, true, true);
             TestUtils.AreEqual(!a2, r2);
 
-            bool2x4 a3 = bool2x4(true, false, false, false, false, false, true, true);
-            bool2x4 r3 = bool2x4(false, true, true, true, true, true, false, false);
+            bool2x4 a3 = bool2x4(false, false, true, false, false, true, true, false);
+            bool2x4 r3 = bool2x4(true, true, false, true, true, false, false, true);
             TestUtils.AreEqual(!a3, r3);
         }
 

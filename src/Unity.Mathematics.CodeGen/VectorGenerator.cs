@@ -2232,7 +2232,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_BaseType == "bool")
             {
-                TestUnaryOperator(str, m_TypeName, "!", "bitwise_not", true);
+                TestUnaryOperator(str, m_TypeName, "!", "logical_not", true);
             }
 
             if(m_BaseType == "int" || m_BaseType == "uint")
