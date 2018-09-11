@@ -3136,7 +3136,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the horizontal sum of components of a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float csum(float4 x) { return x.x + x.y + x.z + x.w; }
+        public static float csum(float4 x) { return (x.x + x.y) + (x.z + x.w); }
 
 
         /// <summary>Returns the input double value. Identity function.</summary>
@@ -3153,7 +3153,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the horizontal sum of components of a double4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double csum(double4 x) { return x.x + x.y + x.z + x.w; }
+        public static double csum(double4 x) { return (x.x + x.y) + (x.z + x.w); }
 
         /// <summary>
         /// Packs components with an enabled mask (LSB) to the left
