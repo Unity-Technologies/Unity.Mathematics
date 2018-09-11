@@ -6,26 +6,44 @@ namespace Unity.Mathematics
 {
     public static partial class math
     {
+        /// <summary>Extrinsic rotation order. Specifies in which order rotations around the principal axes (x, y and z) are to be applied.</summary>
         public enum RotationOrder : byte
         {
+            /// <summary>Extrinsic rotation around the x axis, then around the y axis and finally around the z axis.</summary>
             XYZ,
+            /// <summary>Extrinsic rotation around the x axis, then around the z axis and finally around the y axis.</summary>
             XZY,
+            /// <summary>Extrinsic rotation around the y axis, then around the x axis and finally around the z axis.</summary>
             YXZ,
+            /// <summary>Extrinsic rotation around the y axis, then around the z axis and finally around the x axis.</summary>
             YZX,
+            /// <summary>Extrinsic rotation around the z axis, then around the x axis and finally around the y axis.</summary>
             ZXY,
+            /// <summary>Extrinsic rotation around the z axis, then around the y axis and finally around the x axis.</summary>
             ZYX,
-            Default = ZXY   // Unity Default
+            /// <summary>Unity default rotation order. Extrinsic Rotation around the z axis, then around the x axis and finally around the y axis.</summary>
+            Default = ZXY
         };
 
+        /// <summary>Specifies a shuffle component.</summary>
         public enum ShuffleComponent : byte
         {
+            /// <summary>Specified the x component of the left vector.</summary>
             LeftX,
+            /// <summary>Specified the y component of the left vector.</summary>
             LeftY,
+            /// <summary>Specified the z component of the left vector.</summary>
             LeftZ,
+            /// <summary>Specified the w component of the left vector.</summary>
             LeftW,
+
+            /// <summary>Specified the x component of the right vector.</summary>
             RightX,
+            /// <summary>Specified the y component of the right vector.</summary>
             RightY,
+            /// <summary>Specified the z component of the right vector.</summary>
             RightZ,
+            /// <summary>Specified the w component of the right vector.</summary>
             RightW
         };
 
