@@ -626,5 +626,9 @@ namespace Unity.Mathematics
         {
             return hashwide(q.value);
         }
+
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 forward(quaternion q) { return mul(q, float3(0, 0, 1)); }  // for compatibility
     }
 }
