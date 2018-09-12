@@ -363,7 +363,7 @@ namespace Unity.Mathematics
                 q.x = (m12 - m21) * num;
                 q.y = (m20 - m02) * num;
                 q.z = (m01 - m10) * num;
-                return quaternion(q);
+                return normalize(quaternion(q));
             }
             if ((m00 >= m11) && (m00 >= m22))
             {
@@ -373,7 +373,7 @@ namespace Unity.Mathematics
                 q.y = (m01 + m10) * num4;
                 q.z = (m02 + m20) * num4;
                 q.w = (m12 - m21) * num4;
-                return quaternion(q);
+                return normalize(quaternion(q));
             }
             if (m11 > m22)
             {
@@ -383,7 +383,7 @@ namespace Unity.Mathematics
                 q.y = 0.5f * num6;
                 q.z = (m21 + m12) * num3;
                 q.w = (m20 - m02) * num3;
-                return quaternion(q);
+                return normalize(quaternion(q));
             }
             var num5 = sqrt(((1.0f + m22) - m00) - m11);
             var num2 = 0.5f / num5;
@@ -391,7 +391,7 @@ namespace Unity.Mathematics
             q.y = (m21 + m12) * num2;
             q.z = 0.5f * num5;
             q.w = (m01 - m10) * num2;
-            return quaternion(q);
+            return normalize(quaternion(q));
         }
 
         /// <summary>Returns true if the quaternion is equal to a given quaternion, false otherwise.</summary>
