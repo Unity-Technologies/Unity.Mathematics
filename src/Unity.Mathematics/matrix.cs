@@ -87,7 +87,6 @@ namespace Unity.Mathematics
             math.sincos(angle, out sina, out cosa);
 
             float3 u = axis;
-            float3 u2 = u * u;
             float3 u_yzx = u.yzx;
             float3 u_zxy = u.zxy;
             float3 u_inv_cosa = u - u * cosa;  // u * (1.0f - cosa);
@@ -445,7 +444,6 @@ namespace Unity.Mathematics
             math.sincos(angle, out sina, out cosa);
 
             float4 u = float4(axis, 0.0f);
-            float4 u2 = u * u;
             float4 u_yzx = u.yzxx;
             float4 u_zxy = u.zxyx;
             float4 u_inv_cosa = u - u * cosa;  // u * (1.0f - cosa);
