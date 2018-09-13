@@ -43,6 +43,33 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q3, quaternion(0.2665918f, 0.5331835f, 0.7997754f, 0.0707372f), 0.0001f);
         }
 
+
+        [Test]
+        public void quaternion_construct_from_matrix3x3_torture()
+        {
+            Random rnd = new Random(0x12345678);
+            for(int i = 0; i < 1000; i++)
+            {
+                float3x3 r = float3x3(rnd.NextQuaternionRotation());
+                quaternion q = quaternion(r);
+                float3x3 t = float3x3(q);
+                TestUtils.AreEqual(t, r, 0.001f);
+            }
+        }
+
+        [Test]
+        public void quaternion_construct_from_matrix4x4_torture()
+        {
+            Random rnd = new Random(0x12345678);
+            for (int i = 0; i < 1000; i++)
+            {
+                float4x4 r = float4x4(rnd.NextQuaternionRotation(), float3.zero);
+                quaternion q = quaternion(r);
+                float4x4 t = float4x4(q, float3.zero);
+                TestUtils.AreEqual(t, r, 0.001f);
+            }
+        }
+
         [Test]
         public void quaternion_axis_angle()
         {
