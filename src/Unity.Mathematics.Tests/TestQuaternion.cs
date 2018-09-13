@@ -25,17 +25,22 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void quaternion_construct_from_matrix()
         {
-            float3x3 m3x3 = TestMatrix.test3x3_xyz;
-            float4x4 m4x4 = TestMatrix.test4x4_zyx;
+            TestUtils.AreEqual(TestMatrix.test3x3_xyz, float3x3(quaternion(TestMatrix.test3x3_xyz)), 0.0001f);
+            TestUtils.AreEqual(TestMatrix.test4x4_xyz, float4x4(quaternion(TestMatrix.test4x4_xyz), float3.zero), 0.0001f);
 
-            quaternion q3x3 = quaternion(m3x3);
-            quaternion q4x4 = quaternion(m4x4);
-
-            float3x3 mq3x3 = float3x3(q3x3);
-            float4x4 mq4x4 = float4x4(q4x4, float3(0.0f));
-
-            TestUtils.AreEqual(mq3x3, m3x3, 0.0001f);
-            TestUtils.AreEqual(mq4x4, m4x4, 0.0001f);
+            // Make sure to hit all 4 cases
+            float3x3 m0 = float3x3.AxisAngle(normalize(float3(1, 2, 3)), 1.0f);
+            float3x3 m1 = float3x3.AxisAngle(normalize(float3(3, 2, 1)), 3.0f);
+            float3x3 m2 = float3x3.AxisAngle(normalize(float3(1, 3, 2)), 3.0f);
+            float3x3 m3 = float3x3.AxisAngle(normalize(float3(1, 2, 3)), 3.0f);
+            quaternion q0 = quaternion(m0);
+            quaternion q1 = quaternion(m1);
+            quaternion q2 = quaternion(m2);
+            quaternion q3 = quaternion(m3);
+            TestUtils.AreEqual(q0, quaternion(0.1281319f, 0.2562638f, 0.3843956f, 0.8775827f), 0.0001f);
+            TestUtils.AreEqual(q1, quaternion(0.7997754f, 0.5331835f, 0.2665918f, 0.0707372f), 0.0001f);
+            TestUtils.AreEqual(q2, quaternion(0.2665918f, 0.7997754f, 0.5331835f, 0.0707372f), 0.0001f);
+            TestUtils.AreEqual(q3, quaternion(0.2665918f, 0.5331835f, 0.7997754f, 0.0707372f), 0.0001f);
         }
 
         [Test]
