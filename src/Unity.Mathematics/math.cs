@@ -3193,6 +3193,58 @@ namespace Unity.Mathematics
             return index;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float f16tof32(uint x)
+        {
+            const uint shifted_exp = (0x7c00 << 13);
+            uint uf = (x & 0x7fff) << 13;
+            uint e = uf & shifted_exp;
+            uf += (127 - 15) << 23;
+            uf += select(0, (128u - 16u) << 23, e == shifted_exp);
+            uf = select(uf, asuint(asfloat(uf + (1 << 23)) - 6.10351563e-05f), e == 0);
+            uf |= (x & 0x8000) << 16;
+            return asfloat(uf);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 f16tof32(uint2 x)
+        {
+            const uint shifted_exp = (0x7c00 << 13);
+            uint2 uf = (x & 0x7fff) << 13;
+            uint2 e = uf & shifted_exp;
+            uf += (127 - 15) << 23;
+            uf += select(0, (128u - 16u) << 23, e == shifted_exp);
+            uf = select(uf, asuint(asfloat(uf + (1 << 23)) - 6.10351563e-05f), e == 0);
+            uf |= (x & 0x8000) << 16;
+            return asfloat(uf);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 f16tof32(uint3 x)
+        {
+            const uint shifted_exp = (0x7c00 << 13);
+            uint3 uf = (x & 0x7fff) << 13;
+            uint3 e = uf & shifted_exp;
+            uf += (127 - 15) << 23;
+            uf += select(0, (128u - 16u) << 23, e == shifted_exp);
+            uf = select(uf, asuint(asfloat(uf + (1 << 23)) - 6.10351563e-05f), e == 0);
+            uf |= (x & 0x8000) << 16;
+            return asfloat(uf);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 f16tof32(uint4 x)
+        {
+            const uint shifted_exp = (0x7c00 << 13);
+            uint4 uf = (x & 0x7fff) << 13;
+            uint4 e = uf & shifted_exp;
+            uf += (127 - 15) << 23;
+            uf += select(0, (128u - 16u) << 23, e == shifted_exp);
+            uf = select(uf, asuint(asfloat(uf + (1 << 23)) - 6.10351563e-05f), e == 0);
+            uf |= (x & 0x8000) << 16;
+            return asfloat(uf);
+        }
+
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>

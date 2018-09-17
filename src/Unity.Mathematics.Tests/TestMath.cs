@@ -636,6 +636,62 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void f16tof32_float()
+        {
+            Assert.AreEqual(asuint(f16tof32(0x0000)), 0x00000000);
+            Assert.AreEqual(asuint(f16tof32(0x0203)), 0x3800C000);
+            Assert.AreEqual(asuint(f16tof32(0x4321)), 0x40642000);
+            Assert.AreEqual(asuint(f16tof32(0x7BFF)), 0x477FE000);
+            Assert.AreEqual(asuint(f16tof32(0x7C00)), 0x7F800000);
+            Assert.IsTrue(isnan(f16tof32(0x7C01)));
+
+            Assert.AreEqual(asuint(f16tof32(0x8000)), 0x80000000);
+            Assert.AreEqual(asuint(f16tof32(0x8203)), 0xB800C000);
+            Assert.AreEqual(asuint(f16tof32(0xC321)), 0xC0642000);
+            Assert.AreEqual(asuint(f16tof32(0xFBFF)), 0xC77FE000);
+            Assert.AreEqual(asuint(f16tof32(0xFC00)), 0xFF800000);
+            Assert.IsTrue(isnan(f16tof32(0xFC01)));
+        }
+
+        [Test]
+        public void f16tof32_float2()
+        {
+            Assert.AreEqual(asuint(f16tof32(uint2(0x0000, 0x0203))), uint2(0x00000000, 0x3800C000));
+            Assert.AreEqual(asuint(f16tof32(uint2(0x4321, 0x7BFF))), uint2(0x40642000, 0x477FE000));
+            Assert.AreEqual(asuint(f16tof32(uint2(0x7C00, 0x7C00))), uint2(0x7F800000, 0x7F800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint2(0x7C01, 0x7C01)))));
+
+            Assert.AreEqual(asuint(f16tof32(uint2(0x8000, 0x8203))), uint2(0x80000000, 0xB800C000));
+            Assert.AreEqual(asuint(f16tof32(uint2(0xC321, 0xFBFF))), uint2(0xC0642000, 0xC77FE000));
+            Assert.AreEqual(asuint(f16tof32(uint2(0xFC00, 0xFC00))), uint2(0xFF800000, 0xFF800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint2(0xFC01, 0xFC01)))));
+        }
+
+        [Test]
+        public void f16tof32_float3()
+        {
+            Assert.AreEqual(asuint(f16tof32(uint3(0x0000, 0x0203, 0x4321))), uint3(0x00000000, 0x3800C000, 0x40642000));
+            Assert.AreEqual(asuint(f16tof32(uint3(0x7BFF, 0x7C00, 0x7C00))), uint3(0x477FE000, 0x7F800000, 0x7F800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint3(0x7C01, 0x7C01, 0x7C01)))));
+
+            Assert.AreEqual(asuint(f16tof32(uint3(0x8000, 0x8203, 0xC321))), uint3(0x80000000, 0xB800C000, 0xC0642000));
+            Assert.AreEqual(asuint(f16tof32(uint3(0xFBFF, 0xFC00, 0xFC00))), uint3(0xC77FE000, 0xFF800000, 0xFF800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint3(0xFC01, 0xFC01, 0xFC01)))));
+        }
+
+        [Test]
+        public void f16tof32_float4()
+        {
+            Assert.AreEqual(asuint(f16tof32(uint4(0x0000, 0x0203, 0x4321, 0x7BFF))), uint4(0x00000000, 0x3800C000, 0x40642000, 0x477FE000));
+            Assert.AreEqual(asuint(f16tof32(uint4(0x7C00, 0x7C00, 0x7C00, 0x7C00))), uint4(0x7F800000, 0x7F800000, 0x7F800000, 0x7F800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint4(0x7C01, 0x7C01, 0x7C01, 0x7C01)))));
+
+            Assert.AreEqual(asuint(f16tof32(uint4(0x8000, 0x8203, 0xC321, 0xFBFF))), uint4(0x80000000, 0xB800C000, 0xC0642000, 0xC77FE000));
+            Assert.AreEqual(asuint(f16tof32(uint4(0xFC00, 0xFC00, 0xFC00, 0xFC00))), uint4(0xFF800000, 0xFF800000, 0xFF800000, 0xFF800000));
+            Assert.IsTrue(all(isnan(f16tof32(uint4(0xFC01, 0xFC01, 0xFC01, 0xFC01)))));
+        }
+
+        [Test]
         public unsafe void hash_blob()
         {
             byte[] testData = {
