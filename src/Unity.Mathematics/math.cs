@@ -3207,7 +3207,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
-        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
+        /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 f16tof32(uint2 x)
         {
@@ -3221,7 +3221,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
-        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
+        /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 f16tof32(uint3 x)
         {
@@ -3235,7 +3235,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
-        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
+        /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 f16tof32(uint4 x)
         {
@@ -3277,15 +3277,15 @@ namespace Unity.Mathematics
             return h;
         }
 
-        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float2 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 f32tof16(float2 x) { return uint2(f32tof16(x.x), f32tof16(x.y)); }
 
-        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float3 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 f32tof16(float3 x) { return uint3(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z)); }
 
-        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float4 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 f32tof16(float4 x) { return uint4(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z), f32tof16(x.w)); }
 
