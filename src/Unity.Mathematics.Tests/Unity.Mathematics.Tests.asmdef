@@ -8,5 +8,6 @@
     ],
     "includePlatforms": [
         "Editor"
-    ]
+    ],
+    "allowUnsafeCode": true
 }
