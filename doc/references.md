@@ -38,6 +38,8 @@ The following table shows the list of intrinsic functions exposed by the static 
 |exp2            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-exp2) | Returns the componentwise base-2 exponential of a vector or scalar value.
 |exp10           |   | Returns the componentwise base-10 exponential of a vector or scalar value.
 |faceforward     | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-faceforward) | Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.
+|f16tof32        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/f16tof32) | Returns the floating point representation of a half-precision floating point vector
+|f32tof16        | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/f32tof16) | Returns the result of a componentwise conversion of a float vector or scalar to its nearest half-precision floating point representation.
 |fastinverse     |   | Returns the inverse of a square matrix that is assumed to represent a rigid transformation (only rotation, reflection and translation). A faster alternative to inverse when applicable.
 |floor           | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-floor) | Returns the result of rounding each component of a vector or scalar to the nearest integral value less or equal to the original value.
 |frac            | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-frac) | Returns the componentwise fractional parts of a floating point vector or scalar.

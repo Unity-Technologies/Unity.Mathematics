@@ -692,6 +692,61 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void f32tof16_float()
+        {
+            Assert.AreEqual(f32tof16(0.0f), 0x0000);
+            Assert.AreEqual(f32tof16(2.98e-08f), 0x0000);
+            Assert.AreEqual(f32tof16(5.96046448e-08f), 0x0001);
+            Assert.AreEqual(f32tof16(123.4f), 0x57B6);
+            Assert.AreEqual(f32tof16(65504.0f), 0x7BFF);
+            Assert.AreEqual(f32tof16(65520.0f), 0x7C00);
+            Assert.AreEqual(f32tof16(float.PositiveInfinity), 0x7C00);
+            Assert.AreEqual(f32tof16(float.NaN), 0xFE00);
+
+            Assert.AreEqual(f32tof16(-0.0f), 0x8000);
+            Assert.AreEqual(f32tof16(-2.98e-08f), 0x8000);
+            Assert.AreEqual(f32tof16(-5.96046448e-08f), 0x8001);
+            Assert.AreEqual(f32tof16(-123.4f), 0xD7B6);
+            Assert.AreEqual(f32tof16(-65504.0f), 0xFBFF);
+            Assert.AreEqual(f32tof16(-65520.0f), 0xFC00);
+            Assert.AreEqual(f32tof16(float.NegativeInfinity), 0xFC00);
+        }
+
+        [Test]
+        public void f32tof16_float2()
+        {
+            Assert.AreEqual(f32tof16(float2(0.0f, 2.98e-08f)), uint2(0x0000, 0x0000));
+            Assert.AreEqual(f32tof16(float2(5.96046448e-08f, 123.4f)), uint2(0x0001, 0x57B6));
+            Assert.AreEqual(f32tof16(float2(65504.0f, 65520.0f)), uint2(0x7BFF, 0x7C00));
+            Assert.AreEqual(f32tof16(float2(float.PositiveInfinity, float.NaN)), uint2(0x7C00, 0xFE00));
+
+            Assert.AreEqual(f32tof16(float2(-0.0f, -2.98e-08f)), uint2(0x8000, 0x8000));
+            Assert.AreEqual(f32tof16(float2(-5.96046448e-08f, -123.4f)), uint2(0x8001, 0xD7B6));
+            Assert.AreEqual(f32tof16(float2(-65504.0f, -65520.0f)), uint2(0xFBFF, 0xFC00));
+            Assert.AreEqual(f32tof16(float2(float.NegativeInfinity, float.NegativeInfinity)), uint2(0xFC00, 0xFC00));
+        }
+
+        [Test]
+        public void f32tof16_float3()
+        {
+            Assert.AreEqual(f32tof16(float3(0.0f, 2.98e-08f, 5.96046448e-08f)), uint3(0x0000, 0x0000, 0x0001));
+            Assert.AreEqual(f32tof16(float3(123.4f, 65504.0f, 65520.0f)), uint3(0x57B6, 0x7BFF, 0x7C00));
+            Assert.AreEqual(f32tof16(float3(float.PositiveInfinity, float.NaN, -0.0f)), uint3(0x7C00, 0xFE00, 0x8000));
+
+            Assert.AreEqual(f32tof16(float3(-2.98e-08f, -5.96046448e-08f, -123.4f)), uint3(0x8000, 0x8001, 0xD7B6));
+            Assert.AreEqual(f32tof16(float3(-65504.0f, -65520.0f, float.NegativeInfinity)), uint3(0xFBFF, 0xFC00, 0xFC00));
+        }
+
+        [Test]
+        public void f32tof16_float4()
+        {
+            Assert.AreEqual(f32tof16(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f)), uint4(0x0000, 0x0000, 0x0001, 0x57B6));
+            Assert.AreEqual(f32tof16(float4(65504.0f, 65520.0f, float.PositiveInfinity, float.NaN)), uint4(0x7BFF, 0x7C00, 0x7C00, 0xFE00));
+            Assert.AreEqual(f32tof16(float4(-0.0f, -2.98e-08f, -5.96046448e-08f, -123.4f)), uint4(0x8000, 0x8000, 0x8001, 0xD7B6));
+            Assert.AreEqual(f32tof16(float4(-65504.0f, -65520.0f, float.NegativeInfinity, float.NegativeInfinity)), uint4(0xFBFF, 0xFC00, 0xFC00, 0xFC00));
+        }
+
+        [Test]
         public unsafe void hash_blob()
         {
             byte[] testData = {

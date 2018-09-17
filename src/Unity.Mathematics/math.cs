@@ -3193,6 +3193,7 @@ namespace Unity.Mathematics
             return index;
         }
 
+        /// <summary>Returns the floating point representation of a half-precision floating point value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float f16tof32(uint x)
         {
@@ -3206,6 +3207,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
+        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 f16tof32(uint2 x)
         {
@@ -3219,6 +3221,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
+        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 f16tof32(uint3 x)
         {
@@ -3232,6 +3235,7 @@ namespace Unity.Mathematics
             return asfloat(uf);
         }
 
+        /// <summary>Returns the componentwise floating point representation of a half-precision floating point value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 f16tof32(uint4 x)
         {
@@ -3244,6 +3248,47 @@ namespace Unity.Mathematics
             uf |= (x & 0x8000) << 16;
             return asfloat(uf);
         }
+
+        /// <summary>Returns the result converting a float value to its nearest half-precision floating point representation.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint f32tof16(float x)
+        {
+            int intf = asint(x);
+            int infinity_32 = 255 << 23;
+            int infinity_16 = 31 << 23;
+            
+            uint s = (uint)intf & 0x80000000u;
+            intf ^= (int)s;
+
+            uint h;
+            if (intf >= infinity_32) // Inf or NaN (all exponent bits set)
+                h = select(0x7c00u, 0x7e00u, intf > infinity_32); // NaN->qNaN and Inf->Inf
+            else // (De)normalized number or zero
+            {
+                intf &= ~0xfff;
+                intf = asint(asfloat(intf) * 1.92592994e-34f);
+                intf -= ~0xfff;
+                if (intf > infinity_16) intf = infinity_16; // Clamp to signed infinity if overflowed
+
+                h = (uint)intf >> 13; // Take the bits!
+            }
+
+            h |= s >> 16;
+            return h;
+        }
+
+        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 f32tof16(float2 x) { return uint2(f32tof16(x.x), f32tof16(x.y)); }
+
+        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 f32tof16(float3 x) { return uint3(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z)); }
+
+        /// <summary>Returns componentwise the result converting a float value to its nearest half-precision floating point representation.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 f32tof16(float4 x) { return uint4(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z), f32tof16(x.w)); }
+
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
