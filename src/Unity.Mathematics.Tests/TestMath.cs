@@ -269,13 +269,13 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(aslong(0.0), 0L);
             Assert.AreEqual(aslong(1.0), 0x3FF0000000000000L);
             Assert.AreEqual(aslong(1234.56), 0x40934A3D70A3D70AL);
-            Assert.AreEqual(aslong(float.PositiveInfinity), 0x7FF0000000000000L);
-            Assert.AreEqual(aslong(float.NaN), unchecked((long)0xFFF8000000000000UL));
+            Assert.AreEqual(aslong(double.PositiveInfinity), 0x7FF0000000000000L);
+            Assert.AreEqual(aslong(double.NaN), unchecked((long)0xFFF8000000000000UL));
 
             Assert.AreEqual(aslong(-0.0), unchecked((long)0x8000000000000000UL));
             Assert.AreEqual(aslong(-1.0), unchecked((long)0xBFF0000000000000UL));
             Assert.AreEqual(aslong(-1234.56), unchecked((long)0xC0934A3D70A3D70AUL));
-            Assert.AreEqual(aslong(float.NegativeInfinity), unchecked((long)0xFFF0000000000000UL));
+            Assert.AreEqual(aslong(double.NegativeInfinity), unchecked((long)0xFFF0000000000000UL));
         }
 
 
@@ -296,13 +296,13 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(asulong(0.0), 0UL);
             Assert.AreEqual(asulong(1.0), 0x3FF0000000000000UL);
             Assert.AreEqual(asulong(1234.56), 0x40934A3D70A3D70AUL);
-            Assert.AreEqual(asulong(float.PositiveInfinity), 0x7FF0000000000000UL);
-            Assert.AreEqual(asulong(float.NaN), 0xFFF8000000000000UL);
+            Assert.AreEqual(asulong(double.PositiveInfinity), 0x7FF0000000000000UL);
+            Assert.AreEqual(asulong(double.NaN), 0xFFF8000000000000UL);
 
             Assert.AreEqual(asulong(-0.0), 0x8000000000000000UL);
             Assert.AreEqual(asulong(-1.0), 0xBFF0000000000000UL);
             Assert.AreEqual(asulong(-1234.56), 0xC0934A3D70A3D70AUL);
-            Assert.AreEqual(asulong(float.NegativeInfinity), 0xFFF0000000000000UL);
+            Assert.AreEqual(asulong(double.NegativeInfinity), 0xFFF0000000000000UL);
         }
 
         [Test]
@@ -395,6 +395,35 @@ namespace Unity.Mathematics.Tests
             Assert.AreEqual(asuint(asfloat(uint4(0xFFC00000u, 0xFFC00000u, 0xFFC00000u, 0xFFC00000u))), asuint(float4(float.NaN, float.NaN, float.NaN, float.NaN)));
         }
 
+        [Test]
+        public void asdouble_long()
+        {
+            Assert.AreEqual(asdouble(0L), 0.0);
+            Assert.AreEqual(asdouble(0x3FF0000000000000L), 1.0);
+            Assert.AreEqual(asdouble(0x40934A3D70A3D70AL), 1234.56);
+            Assert.AreEqual(asdouble(0x7FF0000000000000L), double.PositiveInfinity);
+            Assert.AreEqual(asdouble(unchecked((long)0xFFF8000000000000UL)), double.NaN);
+
+            Assert.AreEqual(asdouble(unchecked((long)0x8000000000000000UL)), -0.0);
+            Assert.AreEqual(asdouble(unchecked((long)0xBFF0000000000000UL)), -1.0);
+            Assert.AreEqual(asdouble(unchecked((long)0xC0934A3D70A3D70AUL)), -1234.56);
+            Assert.AreEqual(asdouble(unchecked((long)0xFFF0000000000000UL)), double.NegativeInfinity);
+        }
+
+        [Test]
+        public void asdouble_ulong()
+        {
+            Assert.AreEqual(asdouble(0UL), 0.0);
+            Assert.AreEqual(asdouble(0x3FF0000000000000UL), 1.0);
+            Assert.AreEqual(asdouble(0x40934A3D70A3D70AUL), 1234.56);
+            Assert.AreEqual(asdouble(0x7FF0000000000000UL), double.PositiveInfinity);
+            Assert.AreEqual(asdouble(0xFFF8000000000000UL), double.NaN);
+
+            Assert.AreEqual(asdouble(0x8000000000000000UL), -0.0);
+            Assert.AreEqual(asdouble(0xBFF0000000000000UL), -1.0);
+            Assert.AreEqual(asdouble(0xC0934A3D70A3D70AUL), -1234.56);
+            Assert.AreEqual(asdouble(0xFFF0000000000000UL), double.NegativeInfinity);
+        }
 
         [Test]
         public void isfinite_float()
