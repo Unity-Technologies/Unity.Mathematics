@@ -103,6 +103,157 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void asint_uint()
+        {
+            Assert.AreEqual(asint(0u), 0);
+            Assert.AreEqual(asint(0x12345678u), 0x12345678);
+            Assert.AreEqual(asint(0x7FFFFFFFu), 0x7FFFFFFF);
+            Assert.AreEqual(asint(0x80000000u), -2147483648);
+            Assert.AreEqual(asint(0x87654321u), -2023406815);
+            Assert.AreEqual(asint(0xFFFFFFFFu), -1);
+        }
+
+        [Test]
+        public void asint_uint2()
+        {
+            Assert.AreEqual(asint(uint2(0u, 0x12345678u)), int2(0, 0x12345678));
+            Assert.AreEqual(asint(uint2(0x7FFFFFFFu, 0x80000000u)), int2(0x7FFFFFFF, -2147483648));
+            Assert.AreEqual(asint(uint2(0x87654321u, 0xFFFFFFFFu)), int2(-2023406815, -1));
+        }
+
+        [Test]
+        public void asint_uint3()
+        {
+            Assert.AreEqual(asint(uint3(0u, 0x12345678u, 0x7FFFFFFFu)), int3(0, 0x12345678, 0x7FFFFFFF));
+            Assert.AreEqual(asint(uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu)), int3(-2147483648, -2023406815, -1));
+        }
+
+        [Test]
+        public void asint_uint4()
+        {
+            Assert.AreEqual(asint(uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u)), int4(0, 0x12345678, 0x7FFFFFFF, -2147483648));
+            Assert.AreEqual(asint(uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u)), int4(-2023406815, -1, 0, 0));
+        }
+
+        [Test]
+        public void asint_float()
+        {
+            Assert.AreEqual(asint(0.0f), 0);
+            Assert.AreEqual(asint(1.0f), 0x3f800000);
+            Assert.AreEqual(asint(1234.56f), 0x449a51ec);
+            Assert.AreEqual(asint(float.PositiveInfinity), 0x7f800000);
+            Assert.AreEqual(asint(float.NaN), unchecked((int)0xffc00000));
+
+            Assert.AreEqual(asint(-0.0f), unchecked((int)0x80000000));
+            Assert.AreEqual(asint(-1.0f), unchecked((int)0xBf800000));
+            Assert.AreEqual(asint(-1234.56f), unchecked((int)0xC49a51ec));
+            Assert.AreEqual(asint(float.NegativeInfinity), unchecked((int)0xff800000));
+        }
+
+        [Test]
+        public void asint_float2()
+        {
+            Assert.AreEqual(asint(float2(0.0f, 1.0f)), int2(0, 0x3f800000));
+            Assert.AreEqual(asint(float2(1234.56f, float.PositiveInfinity)), int2(0x449a51ec, 0x7f800000));
+            Assert.AreEqual(asint(float2(float.NaN, -0.0f)), int2(unchecked((int)0xffc00000), unchecked((int)0x80000000)));
+
+            Assert.AreEqual(asint(float2(-1.0f, -1234.56f)), int2(unchecked((int)0xBf800000), unchecked((int)0xC49a51ec)));
+            Assert.AreEqual(asint(float2(float.NegativeInfinity, 0.0f)), int2(unchecked((int)0xff800000), 0));
+        }
+
+        [Test]
+        public void asint_float3()
+        {
+            Assert.AreEqual(asint(float3(0.0f, 1.0f, 1234.56f)), int3(0, 0x3f800000, 0x449a51ec));
+            Assert.AreEqual(asint(float3(float.PositiveInfinity, float.NaN, -0.0f)), int3(0x7f800000, unchecked((int)0xffc00000), unchecked((int)0x80000000)));
+            Assert.AreEqual(asint(float3(-1.0f, -1234.56f, float.NegativeInfinity)), int3(unchecked((int)0xBf800000), unchecked((int)0xC49a51ec), unchecked((int)0xff800000)));
+        }
+
+        [Test]
+        public void asint_float4()
+        {
+            Assert.AreEqual(asint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), int4(0, 0x3f800000, 0x449a51ec, 0x7f800000));
+            Assert.AreEqual(asint(float4(float.NaN, -0.0f, -1.0f, -1234.56f)), int4(unchecked((int)0xffc00000), unchecked((int)0x80000000), unchecked((int)0xBf800000), unchecked((int)0xC49a51ec)));
+            Assert.AreEqual(asint(float4(float.NegativeInfinity, 0.0f, 0.0f, 0.0f)), int4(unchecked((int)0xff800000), 0, 0, 0));
+        }
+
+        [Test]
+        public void asuint_int()
+        {
+            Assert.AreEqual(asuint(0), 0u);
+            Assert.AreEqual(asuint(0x12345678), 0x12345678u);
+            Assert.AreEqual(asuint(0x7FFFFFFF), 0x7FFFFFFFu);
+            Assert.AreEqual(asuint(-2147483648), 0x80000000u);
+            Assert.AreEqual(asuint(-2023406815), 0x87654321u);
+            Assert.AreEqual(asuint(-1), 0xFFFFFFFFu);
+        }
+
+        [Test]
+        public void asuint_int2()
+        {
+            Assert.AreEqual(asuint(int2(0, 0x12345678)), uint2(0u, 0x12345678u));
+            Assert.AreEqual(asuint(int2(0x7FFFFFFF, -2147483648)), uint2(0x7FFFFFFFu, 0x80000000u));
+            Assert.AreEqual(asuint(int2(-2023406815, -1)), uint2(0x87654321u, 0xFFFFFFFFu));
+        }
+
+        [Test]
+        public void asuint_int3()
+        {
+            Assert.AreEqual(asuint(int3(0, 0x12345678, 0x7FFFFFFF)), uint3(0u, 0x12345678u, 0x7FFFFFFFu));
+            Assert.AreEqual(asuint(int3(-2147483648, -2023406815, -1)), uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu));
+        }
+
+        [Test]
+        public void asuint_int4()
+        {
+            Assert.AreEqual(asuint(int4(0, 0x12345678, 0x7FFFFFFF, -2147483648)), uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u));
+            Assert.AreEqual(asuint(int4(-2023406815, -1, 0, 0)), uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u));
+        }
+
+        [Test]
+        public void asuint_float()
+        {
+            Assert.AreEqual(asuint(0.0f), 0u);
+            Assert.AreEqual(asuint(1.0f), 0x3f800000u);
+            Assert.AreEqual(asuint(1234.56f), 0x449a51ecu);
+            Assert.AreEqual(asuint(float.PositiveInfinity), 0x7f800000u);
+            Assert.AreEqual(asuint(float.NaN), 0xffc00000u);
+
+            Assert.AreEqual(asuint(-0.0f), 0x80000000u);
+            Assert.AreEqual(asuint(-1.0f), 0xBf800000u);
+            Assert.AreEqual(asuint(-1234.56f), 0xC49a51ecu);
+            Assert.AreEqual(asuint(float.NegativeInfinity), 0xff800000u);
+        }
+
+        [Test]
+        public void asuint_float2()
+        {
+            Assert.AreEqual(asuint(float2(0.0f, 1.0f)), uint2(0u, 0x3f800000u));
+            Assert.AreEqual(asuint(float2(1234.56f, float.PositiveInfinity)), uint2(0x449a51ecu, 0x7f800000u));
+            Assert.AreEqual(asuint(float2(float.NaN, -0.0f)), uint2(0xffc00000u, 0x80000000u));
+
+            Assert.AreEqual(asuint(float2(-1.0f, -1234.56f)), uint2(0xBf800000u, 0xC49a51ecu));
+            Assert.AreEqual(asuint(float2(float.NegativeInfinity, 0.0f)), uint2(0xff800000u, 0u));
+        }
+
+        [Test]
+        public void asuint_float3()
+        {
+            Assert.AreEqual(asuint(float3(0.0f, 1.0f, 1234.56f)), uint3(0u, 0x3f800000u, 0x449a51ecu));
+            Assert.AreEqual(asuint(float3(float.PositiveInfinity, float.NaN, -0.0f)), uint3(0x7f800000u, 0xffc00000u, 0x80000000u));
+            Assert.AreEqual(asuint(float3(-1.0f, -1234.56f, float.NegativeInfinity)), uint3(0xBf800000u, 0xC49a51ecu, 0xff800000u));
+        }
+
+        [Test]
+        public void asuint_float4()
+        {
+            Assert.AreEqual(asuint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), uint4(0u, 0x3f800000u, 0x449a51ecu, 0x7f800000u));
+            Assert.AreEqual(asuint(float4(float.NaN, -0.0f, -1.0f, -1234.56f)), uint4(0xffc00000u, 0x80000000u, 0xBf800000u, 0xC49a51ecu));
+            Assert.AreEqual(asuint(float4(float.NegativeInfinity, 0.0f, 0.0f, 0.0f)), uint4(0xff800000u, 0u, 0u, 0u));
+        }
+
+
+        [Test]
         public void isfinite_float()
         {
             Assert.AreEqual(isfinite(-float.NaN), false);
