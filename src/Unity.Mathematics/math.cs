@@ -3253,41 +3253,57 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint f32tof16(float x)
         {
-            int intf = asint(x);
-            int infinity_32 = 255 << 23;
-            int infinity_16 = 31 << 23;
-            
-            uint s = (uint)intf & 0x80000000u;
-            intf ^= (int)s;
+            const int infinity_32 = 255 << 23;
+            const uint msk = 0x7FFFF000u;
 
-            uint h;
-            if (intf >= infinity_32) // Inf or NaN (all exponent bits set)
-                h = select(0x7c00u, 0x7e00u, intf > infinity_32); // NaN->qNaN and Inf->Inf
-            else // (De)normalized number or zero
-            {
-                intf &= ~0xfff;
-                intf = asint(asfloat(intf) * 1.92592994e-34f);
-                intf -= ~0xfff;
-                if (intf > infinity_16) intf = infinity_16; // Clamp to signed infinity if overflowed
-
-                h = (uint)intf >> 13; // Take the bits!
-            }
-
-            h |= s >> 16;
-            return h;
+            uint ux = asuint(x);
+            uint uux = ux & msk;
+            uint h = (uint)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            h = select(h, select(0x7c00u, 0x7e00u, (int)uux > infinity_32), (int)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
+            return h | (ux & ~msk) >> 16;
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float2 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 f32tof16(float2 x) { return uint2(f32tof16(x.x), f32tof16(x.y)); }
+        public static uint2 f32tof16(float2 x)
+        {
+            const int infinity_32 = 255 << 23;
+            const uint msk = 0x7FFFF000u;
+
+            uint2 ux = asuint(x);
+            uint2 uux = ux & msk;
+            uint2 h = (uint2)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            h = select(h, select(0x7c00u, 0x7e00u, (int2)uux > infinity_32), (int2)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
+            return h | (ux & ~msk) >> 16;
+        }
 
         /// <summary>Returns the result of a componentwise conversion of a float3 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 f32tof16(float3 x) { return uint3(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z)); }
+        public static uint3 f32tof16(float3 x)
+        {
+            const int infinity_32 = 255 << 23;
+            const uint msk = 0x7FFFF000u;
+
+            uint3 ux = asuint(x);
+            uint3 uux = ux & msk;
+            uint3 h = (uint3)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            h = select(h, select(0x7c00u, 0x7e00u, (int3)uux > infinity_32), (int3)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
+            return h | (ux & ~msk) >> 16;
+        }
 
         /// <summary>Returns the result of a componentwise conversion of a float4 vector to its nearest half-precision floating point representation.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 f32tof16(float4 x) { return uint4(f32tof16(x.x), f32tof16(x.y), f32tof16(x.z), f32tof16(x.w)); }
+        public static uint4 f32tof16(float4 x)
+        {
+            const int infinity_32 = 255 << 23;
+            const uint msk = 0x7FFFF000u;
+
+            uint4 ux = asuint(x);
+            uint4 uux = ux & msk;
+            uint4 h = (uint4)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            h = select(h, select(0x7c00u, 0x7e00u, (int4)uux > infinity_32), (int4)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
+            return h | (ux & ~msk) >> 16;
+        }
 
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
