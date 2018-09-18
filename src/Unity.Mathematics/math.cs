@@ -148,6 +148,10 @@ namespace Unity.Mathematics
         public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
 
 
+        /// <summary>Returns the bit pattern of a ulong as a long.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long aslong(ulong x) { return (long)x; }
+
         /// <summary>Returns the bit pattern of a double as a long.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(double x)
@@ -158,6 +162,10 @@ namespace Unity.Mathematics
             return u.longValue;
         }
 
+
+        /// <summary>Returns the bit pattern of a long as a ulong.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong asulong(long x) { return (ulong)x; }
 
         /// <summary>Returns the bit pattern of a double as a ulong.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
