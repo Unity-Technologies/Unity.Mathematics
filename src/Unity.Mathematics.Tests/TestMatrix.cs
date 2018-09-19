@@ -985,7 +985,7 @@ namespace Unity.Mathematics.Tests
                 float3x3( 0.948683f, -0.169031f, 0.267261f,
                           0.000000f,  0.845154f, 0.534523f,
                          -0.316228f, -0.507093f, 0.801784f), 0.001f);
-            TestUtils.AreEqual(m0, float3x3(quaternion.LookRotation(forward0, up0)), 0.02f);
+            TestUtils.AreEqual(m0, float3x3(quaternion.LookRotation(forward0, up0)), 0.001f);
 
             float3 forward1 = normalize(float3(-3.2f, 2.3f, -1.3f));
             float3 up1 = normalize(float3(1.0f, -3.2f, -1.5f));
@@ -994,7 +994,7 @@ namespace Unity.Mathematics.Tests
                 float3x3( 0.605102f, -0.197976f, -0.771140f,
                           0.485036f, -0.676417f,  0.554257f,
                          -0.631342f, -0.709413f, -0.313276f), 0.001f);
-            TestUtils.AreEqual(m1, float3x3(quaternion.LookRotation(forward1, up1)), 0.02f);
+            TestUtils.AreEqual(m1, float3x3(quaternion.LookRotation(forward1, up1)), 0.001f);
 
             float3 forward2 = normalize(float3(-2.6f, -5.2f, -1.1f));
             float3 up2 = normalize(float3(-4.2f, -1.2f, -4.5f));
@@ -1003,7 +1003,7 @@ namespace Unity.Mathematics.Tests
                 float3x3(-0.740918f, -0.507890f, -0.439418f,
                           0.237577f,  0.413771f, -0.878835f,
                           0.628170f, -0.755540f, -0.185907f), 0.001f);
-            TestUtils.AreEqual(m2, float3x3(quaternion.LookRotation(forward2, up2)), 0.02f);
+            TestUtils.AreEqual(m2, float3x3(quaternion.LookRotation(forward2, up2)), 0.001f);
 
             float3 forward3 = normalize(float3(1.3f, 2.1f, 3.4f));
             float3 up3 = normalize(float3(0.2f, -1.0f, 0.3f));
@@ -1012,7 +1012,7 @@ namespace Unity.Mathematics.Tests
                 float3x3(-0.917727f,  0.249162f, 0.309349f,
                          -0.066040f, -0.863668f, 0.499717f,
                           0.391685f,  0.438174f, 0.809065f), 0.001f);
-            TestUtils.AreEqual(m3, float3x3(quaternion.LookRotation(forward3, up3)), 0.02f);
+            TestUtils.AreEqual(m3, float3x3(quaternion.LookRotation(forward3, up3)), 0.001f);
         }
 
         [Test]

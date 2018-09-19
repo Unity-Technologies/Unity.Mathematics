@@ -355,63 +355,11 @@ namespace Unity.Mathematics
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
 
-        /// <summary>Returns a quaternion view rotation given a forward direction and an up vector.</summary>
+        /// <summary>Returns a quaternion view rotation given a unit length forward vector and a unit length up vector.</summary>
         public static quaternion LookRotation(float3 forward, float3 up)
         {
-            var vector = normalizesafe(forward);
-            var vector2 = cross(up, vector);
-            var vector3 = cross(vector, vector2);
-            var m00 = vector2.x;
-            var m01 = vector2.y;
-            var m02 = vector2.z;
-            var m10 = vector3.x;
-            var m11 = vector3.y;
-            var m12 = vector3.z;
-            var m20 = vector.x;
-            var m21 = vector.y;
-            var m22 = vector.z;
-            var num8 = (m00 + m11) + m22;
-            float4 q;
-            if (num8 > 0.0)
-            {
-                var num = sqrt(num8 + 1.0f);
-                q.w = num * 0.5f;
-                num = 0.5f / num;
-                q.x = (m12 - m21) * num;
-                q.y = (m20 - m02) * num;
-                q.z = (m01 - m10) * num;
-                return normalize(quaternion(q));
-            }
-            else if ((m00 >= m11) && (m00 >= m22))
-            {
-                var num7 = sqrt(((1.0f + m00) - m11) - m22);
-                var num4 = 0.5f / num7;
-                q.x = 0.5f * num7;
-                q.y = (m01 + m10) * num4;
-                q.z = (m02 + m20) * num4;
-                q.w = (m12 - m21) * num4;
-                return normalize(quaternion(q));
-            }
-            else if (m11 > m22)
-            {
-                var num6 = sqrt(((1.0f + m11) - m00) - m22);
-                var num3 = 0.5f / num6;
-                q.x = (m10 + m01) * num3;
-                q.y = 0.5f * num6;
-                q.z = (m21 + m12) * num3;
-                q.w = (m20 - m02) * num3;
-                return normalize(quaternion(q));
-            }
-            else
-            {
-                var num5 = sqrt(((1.0f + m22) - m00) - m11);
-                var num2 = 0.5f / num5;
-                q.x = (m20 + m02) * num2;
-                q.y = (m21 + m12) * num2;
-                q.z = 0.5f * num5;
-                q.w = (m01 - m10) * num2;
-                return normalize(quaternion(q));
-            }
+            float3 t = normalize(cross(up, forward));
+            return quaternion(float3x3(t, cross(forward, t), forward));
         }
 
         /// <summary>Returns true if the quaternion is equal to a given quaternion, false otherwise.</summary>
