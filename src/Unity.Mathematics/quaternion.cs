@@ -355,9 +355,10 @@ namespace Unity.Mathematics
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
 
-        public static quaternion LookRotation(float3 direction, float3 up)
+        /// <summary>Returns a quaternion view rotation given a forward direction and an up vector.</summary>
+        public static quaternion LookRotation(float3 forward, float3 up)
         {
-            var vector = normalizesafe(direction);
+            var vector = normalizesafe(forward);
             var vector2 = cross(up, vector);
             var vector3 = cross(vector, vector2);
             var m00 = vector2.x;
@@ -381,7 +382,7 @@ namespace Unity.Mathematics
                 q.z = (m01 - m10) * num;
                 return normalize(quaternion(q));
             }
-            if ((m00 >= m11) && (m00 >= m22))
+            else if ((m00 >= m11) && (m00 >= m22))
             {
                 var num7 = sqrt(((1.0f + m00) - m11) - m22);
                 var num4 = 0.5f / num7;
@@ -391,7 +392,7 @@ namespace Unity.Mathematics
                 q.w = (m12 - m21) * num4;
                 return normalize(quaternion(q));
             }
-            if (m11 > m22)
+            else if (m11 > m22)
             {
                 var num6 = sqrt(((1.0f + m11) - m00) - m22);
                 var num3 = 0.5f / num6;
@@ -401,13 +402,16 @@ namespace Unity.Mathematics
                 q.w = (m20 - m02) * num3;
                 return normalize(quaternion(q));
             }
-            var num5 = sqrt(((1.0f + m22) - m00) - m11);
-            var num2 = 0.5f / num5;
-            q.x = (m20 + m02) * num2;
-            q.y = (m21 + m12) * num2;
-            q.z = 0.5f * num5;
-            q.w = (m01 - m10) * num2;
-            return normalize(quaternion(q));
+            else
+            {
+                var num5 = sqrt(((1.0f + m22) - m00) - m11);
+                var num2 = 0.5f / num5;
+                q.x = (m20 + m02) * num2;
+                q.y = (m21 + m12) * num2;
+                q.z = 0.5f * num5;
+                q.w = (m01 - m10) * num2;
+                return normalize(quaternion(q));
+            }
         }
 
         /// <summary>Returns true if the quaternion is equal to a given quaternion, false otherwise.</summary>

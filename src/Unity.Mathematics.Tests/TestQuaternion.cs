@@ -288,5 +288,34 @@ namespace Unity.Mathematics.Tests
             quaternion t = unitexp(quaternion(log_q.value * 3.0f));
             TestUtils.AreEqual(t, q3, 0.0001f);
         }
+
+        [Test]
+        public void quaternion_look_rotation()
+        {
+            // Exercise the 4 cases
+            float3 forward0 = normalize(float3(1.0f, 2.0f, 3.0f));
+            float3 up0 = float3(0.0f, 1.0f, 0.0f);
+            quaternion q0 = quaternion.LookRotation(forward0, up0);
+            TestUtils.AreEqual(q0, quaternion(-0.274657f, 0.153857f, 0.044571f, 0.948106f), 0.01f);
+            TestUtils.AreEqual(float3x3(q0), float3x3.LookRotation(forward0, up0), 0.02f);
+
+            float3 forward1 = normalize(float3(-3.2f, 2.3f, -1.3f));
+            float3 up1 = normalize(float3(1.0f, -3.2f, -1.5f));
+            quaternion q1 = quaternion.LookRotation(forward1, up1);
+            TestUtils.AreEqual(q1, quaternion(0.805418f, 0.089103f, -0.435327f, -0.392240f), 0.01f);
+            TestUtils.AreEqual(float3x3(q1), float3x3.LookRotation(forward1, up1), 0.02f);
+
+            float3 forward2 = normalize(float3(-2.6f, -5.2f, -1.1f));
+            float3 up2 = normalize(float3(-4.2f, -1.2f, -4.5f));
+            quaternion q2 = quaternion.LookRotation(forward2, up2);
+            TestUtils.AreEqual(q2, quaternion(-0.088343f, 0.764951f, -0.534144f, -0.348907f), 0.01f);
+            TestUtils.AreEqual(float3x3(q2), float3x3.LookRotation(forward2, up2), 0.02f);
+
+            float3 forward3 = normalize(float3(1.3f, 2.1f, 3.4f));
+            float3 up3 = normalize(float3(0.2f, -1.0f, 0.3f));
+            quaternion q3 = quaternion.LookRotation(forward3, up3);
+            TestUtils.AreEqual(q3, quaternion(0.184984f, 0.247484f, 0.947425f, -0.083173f), 0.01f);
+            TestUtils.AreEqual(float3x3(q3), float3x3.LookRotation(forward3, up3), 0.02f);
+        }
     }
 }
