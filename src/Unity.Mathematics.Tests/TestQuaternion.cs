@@ -317,5 +317,24 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q3, quaternion(0.184984f, 0.247484f, 0.947425f, -0.083173f), 0.001f);
             TestUtils.AreEqual(float3x3(q3), float3x3.LookRotation(forward3, up3), 0.001f);
         }
+
+        [Test]
+        public void quaternion_look_rotation_safe()
+        {
+            float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
+            float3 up0 = float3(1.0f, -3.2f, -1.5f) * 1e10f;
+            quaternion q0 = quaternion.LookRotationSafe(forward0, up0);
+            TestUtils.AreEqual(q0, quaternion(0.805418f, 0.089103f, -0.435327f, -0.392240f), 0.001f);
+
+            float3 forward1 = float3(-3.2f, 2.3f, -1.3f) * 1e-30f;
+            float3 up1 = float3(1.0f, -3.2f, -1.5f);
+            quaternion q1 = quaternion.LookRotationSafe(forward1, up1);
+            TestUtils.AreEqual(q1, quaternion.identity, 0.001f);
+
+            float3 forward2 = float3(-3.2f, 2.3f, -1.3f);
+            float3 up2 = forward2;
+            quaternion q2 = quaternion.LookRotationSafe(forward2, up2);
+            TestUtils.AreEqual(q2, quaternion.identity, 0.001f);
+        }
     }
 }

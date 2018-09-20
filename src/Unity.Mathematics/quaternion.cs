@@ -355,11 +355,40 @@ namespace Unity.Mathematics
             return quaternion(0.0f, 0.0f, sina, cosa);
         }
 
-        /// <summary>Returns a quaternion view rotation given a unit length forward vector and a unit length up vector.</summary>
+        /// <summary>
+        /// Returns a quaternion view rotation given a unit length forward vector and a unit length up vector.
+        /// The two input vectors are assumed to be unit length and not collinear.
+        /// If these assumptions are not met use float3x3.LookRotationSafe instead.
+        /// </summary>
         public static quaternion LookRotation(float3 forward, float3 up)
         {
             float3 t = normalize(cross(up, forward));
             return quaternion(float3x3(t, cross(forward, t), forward));
+        }
+
+        /// <summary>
+        /// Returns a quaternion view rotation given a forward vector and an up vector.
+        /// The two input vectors are not assumed to be unit length.
+        /// If the magnitude of either of the vectors is so extreme that the calculation cannot be carried out reliably or the vectors are collinear,
+        /// the identity will be returned instead.
+        /// </summary>
+        public static quaternion LookRotationSafe(float3 forward, float3 up)
+        {
+            float forwardLengthSq = dot(forward, forward);
+            float upLengthSq = dot(up, up);
+
+            forward *= rsqrt(forwardLengthSq);
+            up *= rsqrt(upLengthSq);
+
+            float3 t = cross(up, forward);
+            float tLengthSq = dot(t, t);
+            t *= rsqrt(tLengthSq);
+
+            float mn = min(min(forwardLengthSq, upLengthSq), tLengthSq);
+            float mx = max(max(forwardLengthSq, upLengthSq), tLengthSq);
+
+            bool accept = mn > 1e-35f && mx < 1e35f;
+            return quaternion(select(float4(0.0f, 0.0f, 0.0f, 1.0f), quaternion(float3x3(t, cross(forward, t),forward)).value, accept));
         }
 
         /// <summary>Returns true if the quaternion is equal to a given quaternion, false otherwise.</summary>

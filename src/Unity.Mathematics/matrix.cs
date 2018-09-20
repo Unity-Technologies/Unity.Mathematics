@@ -377,29 +377,43 @@ namespace Unity.Mathematics
             return Scale(v.x, v.y, v.z);
         }
 
-        /// <summary>Returns a float3x3 view rotation matrix given a forward direction and an up vector.</summary>
+        /// <summary>
+        /// Returns a float3x3 view rotation matrix given a unit length forward vector and a unit length up vector.
+        /// The two input vectors are assumed to be unit length and not collinear.
+        /// If these assumptions are not met use float3x3.LookRotationSafe instead.
+        /// </summary>
         public static float3x3 LookRotation(float3 forward, float3 up)
         {
-            const float epsilon = 0.000001F;
-            float3 z = forward;
-            // compute u0
-            float mag = math.length(z);
-            if (mag < epsilon)
-                return Mathematics.float3x3.identity;
-            z /= mag;
+            float3 t = normalize(cross(up, forward));
+            return float3x3(t, cross(forward, t), forward);
+        }
 
-            float3 x = math.cross(up, z);
-            mag = math.length(x);
-            if (mag < epsilon)
-                return Mathematics.float3x3.identity;
-            x /= mag;
+        /// <summary>
+        /// Returns a float3x3 view rotation matrix given a forward vector and an up vector.
+        /// The two input vectors are not assumed to be unit length.
+        /// If the magnitude of either of the vectors is so extreme that the calculation cannot be carried out reliably or the vectors are collinear,
+        /// the identity will be returned instead.
+        /// </summary>
+        public static float3x3 LookRotationSafe(float3 forward, float3 up)
+        {
+            float forwardLengthSq = dot(forward, forward);
+            float upLengthSq = dot(up, up);
+            
+            forward *= rsqrt(forwardLengthSq);
+            up *= rsqrt(upLengthSq);
 
-            float3 y = math.cross(z, x);
-            float yLength = math.length(y);
-            if (yLength < 0.9F || yLength > 1.1F)
-                return Mathematics.float3x3.identity;
+            float3 t = cross(up, forward);
+            float tLengthSq = dot(t, t);
+            t *= rsqrt(tLengthSq);
 
-            return float3x3(x, y, z);
+            float mn = min(min(forwardLengthSq, upLengthSq), tLengthSq);
+            float mx = max(max(forwardLengthSq, upLengthSq), tLengthSq);
+
+            bool accept = mn > 1e-35f && mx < 1e35f;
+            return float3x3(
+                select(float3(1,0,0), t, accept),
+                select(float3(0,1,0), cross(forward, t), accept),
+                select(float3(0,0,1), forward, accept));
         }
     }
 
@@ -745,10 +759,16 @@ namespace Unity.Mathematics
                             float4(vector.x, vector.y, vector.z, 1.0f));
         }
 
-        /// <summary>Returns a float4x4 view matrix given an eye position, a target point and an up vector.</summary>
+        /// <summary>
+        /// Returns a float4x4 view matrix given an eye position, a target point and a unit length up vector.
+        /// The up vectors assumed to be unit length, the eye and target points are assumed to be distinct and the
+        /// 
+        /// If these assumptions are not met use float3x3.LookRotationSafe instead.
+
+        /// </summary>
         public static float4x4 LookAt(float3 eye, float3 target, float3 up)
         {
-            float3x3 rot = float3x3.LookRotation(target - eye, up);
+            float3x3 rot = float3x3.LookRotation(normalize(target - eye), up);
 
             float4x4 matrix;
             matrix.c0 = float4(rot.c0, 0.0F);

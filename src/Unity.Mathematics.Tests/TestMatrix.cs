@@ -1016,6 +1016,29 @@ namespace Unity.Mathematics.Tests
         }
 
         [Test]
+        public void float3x3_look_rotation_safe()
+        {
+            float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
+            float3 up0 = float3(1.0f, -3.2f, -1.5f) * 1e10f;
+            float3x3 m0 = float3x3.LookRotationSafe(forward0, up0);
+            TestUtils.AreEqual(m0,
+                float3x3(0.605102f, -0.197976f, -0.771140f,
+                          0.485036f, -0.676417f, 0.554257f,
+                         -0.631342f, -0.709413f, -0.313276f), 0.001f);
+
+            float3 forward1 = float3(-3.2f, 2.3f, -1.3f) * 1e-30f;
+            float3 up1 = float3(1.0f, -3.2f, -1.5f);
+            float3x3 m1 = float3x3.LookRotationSafe(forward1, up1);
+            TestUtils.AreEqual(m1, float3x3.identity, 0.001f);
+
+            float3 forward2 = float3(-3.2f, 2.3f, -1.3f);
+            float3 up2 = forward2;
+            float3x3 m2 = float3x3.LookRotationSafe(forward2, up2);
+            TestUtils.AreEqual(m1, float3x3.identity, 0.001f);
+        }
+
+
+        [Test]
         public void float4x4_lookat()
         {
             float4x4 m = float4x4.LookAt(float3(0.3f, -0.5f, 3.0f), float3(3.2f, -3.1f, 0.2f), normalize(float3(0.3f, 1.0f, -3.0f)));
