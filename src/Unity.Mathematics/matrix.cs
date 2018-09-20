@@ -761,10 +761,9 @@ namespace Unity.Mathematics
 
         /// <summary>
         /// Returns a float4x4 view matrix given an eye position, a target point and a unit length up vector.
-        /// The up vectors assumed to be unit length, the eye and target points are assumed to be distinct and the
-        /// 
-        /// If these assumptions are not met use float3x3.LookRotationSafe instead.
-
+        /// The up vector is assumed to be unit length, the eye and target points are assumed to be distinct and
+        /// the vector between them is assumes to be collinear with the up vector.
+        /// If these assumptions are not met use float4x4.LookRotationSafe instead.
         /// </summary>
         public static float4x4 LookAt(float3 eye, float3 target, float3 up)
         {
