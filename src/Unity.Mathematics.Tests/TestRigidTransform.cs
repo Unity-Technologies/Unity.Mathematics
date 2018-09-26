@@ -9,7 +9,6 @@ namespace Unity.Mathematics.Tests
         [Test]
         public void rigid_transform_construct_from_matrix()
         {
-            float3x3 m3x3 = TestMatrix.test3x3_xyz;
             float4x4 m4x4 = TestMatrix.test4x4_zyx;
 
             RigidTransform q4x4 = RigidTransform(m4x4);

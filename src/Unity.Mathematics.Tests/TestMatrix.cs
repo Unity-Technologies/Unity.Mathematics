@@ -1030,11 +1030,6 @@ namespace Unity.Mathematics.Tests
             float3 up1 = float3(1.0f, -3.2f, -1.5f);
             float3x3 m1 = float3x3.LookRotationSafe(forward1, up1);
             TestUtils.AreEqual(m1, float3x3.identity, 0.001f);
-
-            float3 forward2 = float3(-3.2f, 2.3f, -1.3f);
-            float3 up2 = forward2;
-            float3x3 m2 = float3x3.LookRotationSafe(forward2, up2);
-            TestUtils.AreEqual(m1, float3x3.identity, 0.001f);
         }
 
 
