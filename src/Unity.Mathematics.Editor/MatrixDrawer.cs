@@ -6,46 +6,6 @@ using UnityEngine;
 
 namespace Unity.Mathematics.Editor
 {
-    [CustomPropertyDrawer(typeof(bool2)), CustomPropertyDrawer(typeof(bool3)), CustomPropertyDrawer(typeof(bool4))]
-    [CustomPropertyDrawer(typeof(double2)), CustomPropertyDrawer(typeof(double3)), CustomPropertyDrawer(typeof(double4))]
-    [CustomPropertyDrawer(typeof(float2)), CustomPropertyDrawer(typeof(float3)), CustomPropertyDrawer(typeof(float4))]
-    [CustomPropertyDrawer(typeof(int2)), CustomPropertyDrawer(typeof(int3)), CustomPropertyDrawer(typeof(int4))]
-    [CustomPropertyDrawer(typeof(uint2)), CustomPropertyDrawer(typeof(uint3)), CustomPropertyDrawer(typeof(uint4))]
-    [CustomPropertyDrawer(typeof(quaternion))]
-    public class MultiDrawer1D : PropertyDrawer
-    {
-        static readonly GUIContent[] k_Labels2 = { new GUIContent("X"), new GUIContent("Y") };
-        static readonly GUIContent[] k_Labels3 = { new GUIContent("X"), new GUIContent("Y"), new GUIContent("Z") };
-        static readonly GUIContent[] k_Labels4 = { new GUIContent("X"), new GUIContent("Y"), new GUIContent("Z"), new GUIContent("W") };
-
-        public override bool CanCacheInspectorGUI(SerializedProperty property)
-        {
-            return false;
-        }
-
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
-        {
-            var height = EditorGUIUtility.singleLineHeight;
-            if (!EditorGUIUtility.wideMode)
-                height += EditorGUIUtility.singleLineHeight + EditorGUIUtility.standardVerticalSpacing;
-            return height;
-        }
-
-        public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
-        {
-            var subLabels = k_Labels4;
-            var startIter = "x";
-            if (property.type[property.type.Length - 1] == '3')
-                subLabels = k_Labels3;
-            else if (property.type[property.type.Length - 1] == '2')
-                subLabels = k_Labels2;
-            else if (property.type == nameof(quaternion))
-                startIter = "value.x";
-
-            EditorGUI.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
-        }
-    }
-
     [CustomPropertyDrawer(typeof(bool2x2)), CustomPropertyDrawer(typeof(bool2x3)), CustomPropertyDrawer(typeof(bool2x4))]
     [CustomPropertyDrawer(typeof(bool3x2)), CustomPropertyDrawer(typeof(bool3x3)), CustomPropertyDrawer(typeof(bool3x4))]
     [CustomPropertyDrawer(typeof(bool4x2)), CustomPropertyDrawer(typeof(bool4x3)), CustomPropertyDrawer(typeof(bool4x4))]
@@ -61,7 +21,7 @@ namespace Unity.Mathematics.Editor
     [CustomPropertyDrawer(typeof(uint2x2)), CustomPropertyDrawer(typeof(uint2x3)), CustomPropertyDrawer(typeof(uint2x4))]
     [CustomPropertyDrawer(typeof(uint3x2)), CustomPropertyDrawer(typeof(uint3x3)), CustomPropertyDrawer(typeof(uint3x4))]
     [CustomPropertyDrawer(typeof(uint4x2)), CustomPropertyDrawer(typeof(uint4x3)), CustomPropertyDrawer(typeof(uint4x4))]
-    public class MultiDrawerMxN : PropertyDrawer
+    class MatrixDrawer : PropertyDrawer
     {
         public override bool CanCacheInspectorGUI(SerializedProperty property)
         {
