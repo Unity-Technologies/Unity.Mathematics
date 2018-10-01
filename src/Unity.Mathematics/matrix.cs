@@ -409,7 +409,7 @@ namespace Unity.Mathematics
             float mn = min(min(forwardLengthSq, upLengthSq), tLengthSq);
             float mx = max(max(forwardLengthSq, upLengthSq), tLengthSq);
 
-            bool accept = mn > 1e-35f && mx < 1e35f;
+            bool accept = mn > 1e-35f && mx < 1e35f && isfinite(forwardLengthSq) && isfinite(upLengthSq) && isfinite(tLengthSq);
             return float3x3(
                 select(float3(1,0,0), t, accept),
                 select(float3(0,1,0), cross(forward, t), accept),

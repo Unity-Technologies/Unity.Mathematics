@@ -387,7 +387,7 @@ namespace Unity.Mathematics
             float mn = min(min(forwardLengthSq, upLengthSq), tLengthSq);
             float mx = max(max(forwardLengthSq, upLengthSq), tLengthSq);
 
-            bool accept = mn > 1e-35f && mx < 1e35f;
+            bool accept = mn > 1e-35f && mx < 1e35f && isfinite(forwardLengthSq) && isfinite(upLengthSq) && isfinite(tLengthSq);
             return quaternion(select(float4(0.0f, 0.0f, 0.0f, 1.0f), quaternion(float3x3(t, cross(forward, t),forward)).value, accept));
         }
 
