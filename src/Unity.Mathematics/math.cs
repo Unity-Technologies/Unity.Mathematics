@@ -2910,36 +2910,36 @@ namespace Unity.Mathematics
             return x + 1;
         }
 
-        /// <summary>Returns the result of converting a float value from radians to degrees.</summary>
+        /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float radians(float x) { return x * 0.0174532925f; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float2 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float2 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 radians(float2 x) { return x * 0.0174532925f; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float3 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float3 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 radians(float3 x) { return x * 0.0174532925f; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float4 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float4 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 radians(float4 x) { return x * 0.0174532925f; }
 
 
-        /// <summary>Returns the result of converting a float value from radians to degrees.</summary>
+        /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double radians(double x) { return x * 0.017453292519943296; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float2 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float2 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 radians(double2 x) { return x * 0.017453292519943296; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float3 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float3 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 radians(double3 x) { return x * 0.017453292519943296; }
 
-        /// <summary>Returns the result of a componentwise conversion of a float4 vector from radians to degrees.</summary>
+        /// <summary>Returns the result of a componentwise conversion of a float4 vector from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 radians(double4 x) { return x * 0.017453292519943296; }
 
