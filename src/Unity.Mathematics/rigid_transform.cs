@@ -10,7 +10,7 @@ namespace Unity.Mathematics
         public float3 pos;
 
         /// <summary>A RigidTransform representing the identity transform.</summary>
-        public static readonly RigidTransform identity = new RigidTransform(quaternion.identity, float3.zero);
+        public static readonly RigidTransform identity = new RigidTransform(new quaternion(0.0f, 0.0f, 0.0f, 1.0f), new float3(0.0f, 0.0f, 0.0f));
 
         /// <summary>Constructs a RigidTransform from a rotation represented by a unit quaternion and a translation represented by a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
