@@ -9,8 +9,9 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unity.Mathematics.Tests</RootNamespace>
     <AssemblyName>Unity.Mathematics.Tests</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,74 +47,75 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TestCompilerAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TestBitmanipulation.cs" />
-    <Compile Include="TestBool2.gen.cs" />
-    <Compile Include="TestBool2x2.gen.cs" />
-    <Compile Include="TestBool2x3.gen.cs" />
-    <Compile Include="TestBool2x4.gen.cs" />
-    <Compile Include="TestBool3.gen.cs" />
-    <Compile Include="TestBool3x2.gen.cs" />
-    <Compile Include="TestBool3x3.gen.cs" />
-    <Compile Include="TestBool3x4.gen.cs" />
-    <Compile Include="TestBool4.gen.cs" />
-    <Compile Include="TestBool4x2.gen.cs" />
-    <Compile Include="TestBool4x3.gen.cs" />
-    <Compile Include="TestBool4x4.gen.cs" />
-    <Compile Include="TestDouble2.gen.cs" />
-    <Compile Include="TestDouble2x2.gen.cs" />
-    <Compile Include="TestDouble2x3.gen.cs" />
-    <Compile Include="TestDouble2x4.gen.cs" />
-    <Compile Include="TestDouble3.gen.cs" />
-    <Compile Include="TestDouble3x2.gen.cs" />
-    <Compile Include="TestDouble3x3.gen.cs" />
-    <Compile Include="TestDouble3x4.gen.cs" />
-    <Compile Include="TestDouble4.gen.cs" />
-    <Compile Include="TestDouble4x2.gen.cs" />
-    <Compile Include="TestDouble4x3.gen.cs" />
-    <Compile Include="TestDouble4x4.gen.cs" />
-    <Compile Include="TestFloat2.gen.cs" />
-    <Compile Include="TestFloat2x2.gen.cs" />
-    <Compile Include="TestFloat2x3.gen.cs" />
-    <Compile Include="TestFloat2x4.gen.cs" />
-    <Compile Include="TestFloat3.gen.cs" />
-    <Compile Include="TestFloat3x2.gen.cs" />
-    <Compile Include="TestFloat3x3.gen.cs" />
-    <Compile Include="TestFloat3x4.gen.cs" />
-    <Compile Include="TestFloat4.gen.cs" />
-    <Compile Include="TestFloat4x2.gen.cs" />
-    <Compile Include="TestFloat4x3.gen.cs" />
-    <Compile Include="TestFloat4x4.gen.cs" />
-    <Compile Include="TestInt2.gen.cs" />
-    <Compile Include="TestInt2x2.gen.cs" />
-    <Compile Include="TestInt2x3.gen.cs" />
-    <Compile Include="TestInt2x4.gen.cs" />
-    <Compile Include="TestInt3.gen.cs" />
-    <Compile Include="TestInt3x2.gen.cs" />
-    <Compile Include="TestInt3x3.gen.cs" />
-    <Compile Include="TestInt3x4.gen.cs" />
-    <Compile Include="TestInt4.gen.cs" />
-    <Compile Include="TestInt4x2.gen.cs" />
-    <Compile Include="TestInt4x3.gen.cs" />
-    <Compile Include="TestInt4x4.gen.cs" />
-    <Compile Include="TestMath.cs" />
-    <Compile Include="TestMatrix.cs" />
-    <Compile Include="TestQuaternion.cs" />
-    <Compile Include="TestRigidTransform.cs" />
-    <Compile Include="TestRandom.cs" />
-    <Compile Include="TestUint2.gen.cs" />
-    <Compile Include="TestUint2x2.gen.cs" />
-    <Compile Include="TestUint2x3.gen.cs" />
-    <Compile Include="TestUint2x4.gen.cs" />
-    <Compile Include="TestUint3.gen.cs" />
-    <Compile Include="TestUint3x2.gen.cs" />
-    <Compile Include="TestUint3x3.gen.cs" />
-    <Compile Include="TestUint3x4.gen.cs" />
-    <Compile Include="TestUint4.gen.cs" />
-    <Compile Include="TestUint4x2.gen.cs" />
-    <Compile Include="TestUint4x3.gen.cs" />
-    <Compile Include="TestUint4x4.gen.cs" />
-    <Compile Include="TestUtils.cs" />
+    <Compile Include="Tests\Shared\TestBitmanipulation.cs" />
+    <Compile Include="Tests\Shared\TestBool2.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool2x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool2x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool2x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool3.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool3x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool3x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool3x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool4.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool4x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool4x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestBool4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble2.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble2x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble2x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble2x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble3.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble3x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble3x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble3x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble4.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble4x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble4x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestDouble4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat2.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat2x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat2x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat2x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat3.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat3x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat3x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat3x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat4.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat4x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat4x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestFloat4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt2.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt2x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt2x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt2x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt3.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt3x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt3x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt3x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt4.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt4x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt4x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestInt4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestMath.cs" />
+    <Compile Include="Tests\Shared\TestMatrix.cs" />
+    <Compile Include="Tests\Shared\TestQuaternion.cs" />
+    <Compile Include="Tests\Shared\TestRigidTransform.cs" />
+    <Compile Include="Tests\TestRandom.cs" />
+    <Compile Include="Tests\Shared\TestUint2.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint2x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint2x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint2x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint3.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint3x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint3x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint3x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint4.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint4x2.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint4x3.gen.cs" />
+    <Compile Include="Tests\Shared\TestUint4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestUtils.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

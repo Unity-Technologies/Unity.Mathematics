@@ -1830,7 +1830,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void BeginTest(StringBuilder str, string name)
         {
-            str.Append("\t\t[Test]\n");
+            str.Append("\t\t[TestCompiler]\n");
             str.AppendFormat("\t\tpublic void {0}_{1}()\n", m_TypeName, name);
             str.Append("\t\t{\n");
         }
@@ -1870,7 +1870,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tAssert.AreEqual(a.{0}, {1});\n", components[row], value);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], value);
                     }
                 }
                 else
@@ -1881,7 +1881,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tAssert.AreEqual(a.{0}, {1});\n", components[row], values[row]);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], values[row]);
                     }
                 }
                 
@@ -2256,6 +2256,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("// GENERATED CODE\n");
             str.Append("using NUnit.Framework;\n");
             str.Append("using static Unity.Mathematics.math;\n");
+            str.Append("using Burst.Compiler.IL.Tests;\n\n");
             str.Append("namespace Unity.Mathematics.Tests\n");
             str.Append("{\n");
             str.Append("\t[TestFixture]\n");

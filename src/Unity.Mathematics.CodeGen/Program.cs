@@ -34,7 +34,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 throw new InvalidOperationException($"The directory `{implementationDirectory.FullName}` must exist");
             }
 
-            var testDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Unity.Mathematics.Tests"));
+            var testDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Unity.Mathematics.Tests/Tests/Shared"));
             if (!implementationDirectory.Exists)
             {
                 throw new InvalidOperationException($"The directory `{testDirectory.FullName}` must exist");
