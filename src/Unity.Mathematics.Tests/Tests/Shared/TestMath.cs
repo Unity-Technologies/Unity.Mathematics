@@ -137,6 +137,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asint_float()
         {
             TestUtils.AreEqual(asint(0.0f), 0);
@@ -152,6 +153,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asint_float2()
         {
             TestUtils.AreEqual(asint(float2(0.0f, 1.0f)), int2(0, 0x3F800000));
@@ -163,6 +165,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asint_float3()
         {
             TestUtils.AreEqual(asint(float3(0.0f, 1.0f, 1234.56f)), int3(0, 0x3F800000, 0x449A51EC));
@@ -171,6 +174,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asint_float4()
         {
             TestUtils.AreEqual(asint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), int4(0, 0x3F800000, 0x449A51EC, 0x7F800000));
@@ -179,6 +183,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_int()
         {
             TestUtils.AreEqual(asuint(0), 0u);
@@ -190,6 +195,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_int2()
         {
             TestUtils.AreEqual(asuint(int2(0, 0x12345678)), uint2(0u, 0x12345678u));
@@ -198,6 +204,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_int3()
         {
             TestUtils.AreEqual(asuint(int3(0, 0x12345678, 0x7FFFFFFF)), uint3(0u, 0x12345678u, 0x7FFFFFFFu));
@@ -205,6 +212,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_int4()
         {
             TestUtils.AreEqual(asuint(int4(0, 0x12345678, 0x7FFFFFFF, -2147483648)), uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u));
@@ -212,6 +220,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_float()
         {
             TestUtils.AreEqual(asuint(0.0f), 0u);
@@ -227,6 +236,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_float2()
         {
             TestUtils.AreEqual(asuint(float2(0.0f, 1.0f)), uint2(0u, 0x3F800000u));
@@ -238,6 +248,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_float3()
         {
             TestUtils.AreEqual(asuint(float3(0.0f, 1.0f, 1234.56f)), uint3(0u, 0x3F800000u, 0x449A51ECu));
@@ -246,6 +257,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asuint_float4()
         {
             TestUtils.AreEqual(asuint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u));
@@ -265,6 +277,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void aslong_double()
         {
             TestUtils.AreEqual(aslong(0.0), 0L);
@@ -279,7 +292,6 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(aslong(double.NegativeInfinity), unchecked((long)0xFFF0000000000000UL));
         }
 
-
         [TestCompiler]
         public void asulong_long()
         {
@@ -292,6 +304,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void asulong_double()
         {
             TestUtils.AreEqual(asulong(0.0), 0UL);
@@ -1074,6 +1087,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void f32tof16_float()
         {
             TestUtils.AreEqual(f32tof16(0.0f), 0x0000);
@@ -1095,6 +1109,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void f32tof16_float2()
         {
             TestUtils.AreEqual(f32tof16(float2(0.0f, 2.98e-08f)), uint2(0x0000, 0x0000));
@@ -1109,6 +1124,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void f32tof16_float3()
         {
             TestUtils.AreEqual(f32tof16(float3(0.0f, 2.98e-08f, 5.96046448e-08f)), uint3(0x0000, 0x0000, 0x0001));
@@ -1120,6 +1136,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
         public void f32tof16_float4()
         {
             TestUtils.AreEqual(f32tof16(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f)), uint4(0x0000, 0x0000, 0x0001, 0x57B6));
