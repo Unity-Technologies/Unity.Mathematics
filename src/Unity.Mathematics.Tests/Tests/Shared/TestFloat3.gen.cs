@@ -9,6 +9,14 @@ namespace Unity.Mathematics.Tests
     public class TestFloat3
     {
         [TestCompiler]
+        public void float3_zero()
+        {
+            TestUtils.AreEqual(float3.zero.x, 0.0f);
+            TestUtils.AreEqual(float3.zero.y, 0.0f);
+            TestUtils.AreEqual(float3.zero.z, 0.0f);
+        }
+
+        [TestCompiler]
         public void float3_constructor()
         {
             float3 a = new float3(1, 2, 3);

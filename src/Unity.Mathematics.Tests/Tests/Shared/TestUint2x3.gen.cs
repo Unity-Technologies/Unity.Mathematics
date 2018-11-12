@@ -9,6 +9,17 @@ namespace Unity.Mathematics.Tests
     public class TestUint2x3
     {
         [TestCompiler]
+        public void uint2x3_zero()
+        {
+            TestUtils.AreEqual(uint2x3.zero.c0.x, 0u);
+            TestUtils.AreEqual(uint2x3.zero.c0.y, 0u);
+            TestUtils.AreEqual(uint2x3.zero.c1.x, 0u);
+            TestUtils.AreEqual(uint2x3.zero.c1.y, 0u);
+            TestUtils.AreEqual(uint2x3.zero.c2.x, 0u);
+            TestUtils.AreEqual(uint2x3.zero.c2.y, 0u);
+        }
+
+        [TestCompiler]
         public void uint2x3_operator_equal_wide_wide()
         {
             uint2x3 a0 = uint2x3(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098);

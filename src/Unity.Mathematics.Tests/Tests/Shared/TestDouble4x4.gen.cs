@@ -9,6 +9,48 @@ namespace Unity.Mathematics.Tests
     public class TestDouble4x4
     {
         [TestCompiler]
+        public void double4x4_zero()
+        {
+            TestUtils.AreEqual(double4x4.zero.c0.x, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c0.y, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c0.z, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c0.w, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c1.x, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c1.y, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c1.z, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c1.w, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c2.x, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c2.y, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c2.z, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c2.w, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c3.x, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c3.y, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c3.z, 0.0);
+            TestUtils.AreEqual(double4x4.zero.c3.w, 0.0);
+        }
+
+        [TestCompiler]
+        public void double4x4_identity()
+        {
+            TestUtils.AreEqual(double4x4.identity.c0.x, 1.0);
+            TestUtils.AreEqual(double4x4.identity.c0.y, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c0.z, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c0.w, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c1.x, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c1.y, 1.0);
+            TestUtils.AreEqual(double4x4.identity.c1.z, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c1.w, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c2.x, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c2.y, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c2.z, 1.0);
+            TestUtils.AreEqual(double4x4.identity.c2.w, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c3.x, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c3.y, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c3.z, 0.0);
+            TestUtils.AreEqual(double4x4.identity.c3.w, 1.0);
+        }
+
+        [TestCompiler]
         public void double4x4_operator_equal_wide_wide()
         {
             double4x4 a0 = double4x4(492.15758275061728, -495.20632027797694, 227.45765195947968, -147.37405950733182, -222.68201909897942, 64.093720704360749, -23.890404473939157, -16.8197190839889, 163.23210890741655, -165.27101071424363, 470.87767980568003, -423.94255967808078, 109.63436918595539, 462.69031283943468, -335.38147727371262, 357.23446934168896);

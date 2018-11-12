@@ -1847,6 +1847,37 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append(")");
         }
 
+        private void TestStaticFields(StringBuilder str)
+        {
+            if (m_BaseType == "bool")
+                return;
+
+            if (m_Columns == 1)
+            {
+                BeginTest(str, "zero");
+                for (int row = 0; row < m_Rows; row++)
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.{1}, {2});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
+                EndTest(str);
+            }
+            else
+            {
+                BeginTest(str, "zero");
+                for(int column = 0; column < m_Columns; column++)
+                    for (int row = 0; row < m_Rows; row++)
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
+                EndTest(str);
+
+                if(m_Columns == m_Rows)
+                {
+                    BeginTest(str, "identity");
+                    for (int column = 0; column < m_Columns; column++)
+                        for (int row = 0; row < m_Rows; row++)
+                            str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.identity.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
+                    EndTest(str);
+                }
+            }
+        }
+
         private void TestConstructor(StringBuilder str, bool isStatic, bool isScalar)
         {
             if(m_Columns == 1)
@@ -2263,6 +2294,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\tpublic class Test{0}\n", UpperCaseFirstLetter(m_TypeName));
             str.Append("\t{\n");
 
+            TestStaticFields(str);
             TestConstructors(str);
             TestOperators(str);
 

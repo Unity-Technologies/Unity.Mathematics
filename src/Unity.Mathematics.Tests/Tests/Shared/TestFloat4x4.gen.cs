@@ -9,6 +9,48 @@ namespace Unity.Mathematics.Tests
     public class TestFloat4x4
     {
         [TestCompiler]
+        public void float4x4_zero()
+        {
+            TestUtils.AreEqual(float4x4.zero.c0.x, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c0.y, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c0.z, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c0.w, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c1.x, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c1.y, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c1.z, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c1.w, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c2.x, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c2.y, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c2.z, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c2.w, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c3.x, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c3.y, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c3.z, 0.0f);
+            TestUtils.AreEqual(float4x4.zero.c3.w, 0.0f);
+        }
+
+        [TestCompiler]
+        public void float4x4_identity()
+        {
+            TestUtils.AreEqual(float4x4.identity.c0.x, 1.0f);
+            TestUtils.AreEqual(float4x4.identity.c0.y, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c0.z, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c0.w, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c1.x, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c1.y, 1.0f);
+            TestUtils.AreEqual(float4x4.identity.c1.z, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c1.w, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c2.x, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c2.y, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c2.z, 1.0f);
+            TestUtils.AreEqual(float4x4.identity.c2.w, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c3.x, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c3.y, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c3.z, 0.0f);
+            TestUtils.AreEqual(float4x4.identity.c3.w, 1.0f);
+        }
+
+        [TestCompiler]
         public void float4x4_operator_equal_wide_wide()
         {
             float4x4 a0 = float4x4(492.1576f, -495.206329f, 227.457642f, -147.374054f, -222.682f, 64.09375f, -23.8904114f, -16.8197327f, 163.232117f, -165.271f, 470.8777f, -423.942566f, 109.6344f, 462.6903f, -335.38147f, 357.2345f);

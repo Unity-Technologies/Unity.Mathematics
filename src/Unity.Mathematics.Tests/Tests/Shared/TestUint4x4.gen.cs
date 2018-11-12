@@ -9,6 +9,48 @@ namespace Unity.Mathematics.Tests
     public class TestUint4x4
     {
         [TestCompiler]
+        public void uint4x4_zero()
+        {
+            TestUtils.AreEqual(uint4x4.zero.c0.x, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c0.y, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c0.z, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c0.w, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c1.x, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c1.y, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c1.z, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c1.w, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c2.x, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c2.y, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c2.z, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c2.w, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c3.x, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c3.y, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c3.z, 0u);
+            TestUtils.AreEqual(uint4x4.zero.c3.w, 0u);
+        }
+
+        [TestCompiler]
+        public void uint4x4_identity()
+        {
+            TestUtils.AreEqual(uint4x4.identity.c0.x, 1u);
+            TestUtils.AreEqual(uint4x4.identity.c0.y, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c0.z, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c0.w, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c1.x, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c1.y, 1u);
+            TestUtils.AreEqual(uint4x4.identity.c1.z, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c1.w, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c2.x, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c2.y, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c2.z, 1u);
+            TestUtils.AreEqual(uint4x4.identity.c2.w, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c3.x, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c3.y, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c3.z, 0u);
+            TestUtils.AreEqual(uint4x4.identity.c3.w, 1u);
+        }
+
+        [TestCompiler]
         public void uint4x4_operator_equal_wide_wide()
         {
             uint4x4 a0 = uint4x4(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316, 1416064367, 727143393, 2061243891, 184669837, 1303661760, 2044073738, 370395888, 1822916805);

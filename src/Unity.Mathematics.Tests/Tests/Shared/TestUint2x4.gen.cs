@@ -9,6 +9,19 @@ namespace Unity.Mathematics.Tests
     public class TestUint2x4
     {
         [TestCompiler]
+        public void uint2x4_zero()
+        {
+            TestUtils.AreEqual(uint2x4.zero.c0.x, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c0.y, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c1.x, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c1.y, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c2.x, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c2.y, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c3.x, 0u);
+            TestUtils.AreEqual(uint2x4.zero.c3.y, 0u);
+        }
+
+        [TestCompiler]
         public void uint2x4_operator_equal_wide_wide()
         {
             uint2x4 a0 = uint2x4(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316);

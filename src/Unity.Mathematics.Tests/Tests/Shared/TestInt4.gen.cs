@@ -9,6 +9,15 @@ namespace Unity.Mathematics.Tests
     public class TestInt4
     {
         [TestCompiler]
+        public void int4_zero()
+        {
+            TestUtils.AreEqual(int4.zero.x, 0);
+            TestUtils.AreEqual(int4.zero.y, 0);
+            TestUtils.AreEqual(int4.zero.z, 0);
+            TestUtils.AreEqual(int4.zero.w, 0);
+        }
+
+        [TestCompiler]
         public void int4_constructor()
         {
             int4 a = new int4(1, 2, 3, 4);

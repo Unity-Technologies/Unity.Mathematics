@@ -9,6 +9,17 @@ namespace Unity.Mathematics.Tests
     public class TestInt3x2
     {
         [TestCompiler]
+        public void int3x2_zero()
+        {
+            TestUtils.AreEqual(int3x2.zero.c0.x, 0);
+            TestUtils.AreEqual(int3x2.zero.c0.y, 0);
+            TestUtils.AreEqual(int3x2.zero.c0.z, 0);
+            TestUtils.AreEqual(int3x2.zero.c1.x, 0);
+            TestUtils.AreEqual(int3x2.zero.c1.y, 0);
+            TestUtils.AreEqual(int3x2.zero.c1.z, 0);
+        }
+
+        [TestCompiler]
         public void int3x2_operator_equal_wide_wide()
         {
             int3x2 a0 = int3x2(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098);

@@ -9,6 +9,34 @@ namespace Unity.Mathematics.Tests
     public class TestUint3x3
     {
         [TestCompiler]
+        public void uint3x3_zero()
+        {
+            TestUtils.AreEqual(uint3x3.zero.c0.x, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c0.y, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c0.z, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c1.x, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c1.y, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c1.z, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c2.x, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c2.y, 0u);
+            TestUtils.AreEqual(uint3x3.zero.c2.z, 0u);
+        }
+
+        [TestCompiler]
+        public void uint3x3_identity()
+        {
+            TestUtils.AreEqual(uint3x3.identity.c0.x, 1u);
+            TestUtils.AreEqual(uint3x3.identity.c0.y, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c0.z, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c1.x, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c1.y, 1u);
+            TestUtils.AreEqual(uint3x3.identity.c1.z, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c2.x, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c2.y, 0u);
+            TestUtils.AreEqual(uint3x3.identity.c2.z, 1u);
+        }
+
+        [TestCompiler]
         public void uint3x3_operator_equal_wide_wide()
         {
             uint3x3 a0 = uint3x3(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316, 1416064367);

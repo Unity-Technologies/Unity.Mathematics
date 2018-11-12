@@ -9,6 +9,24 @@ namespace Unity.Mathematics.Tests
     public class TestFloat2x2
     {
         [TestCompiler]
+        public void float2x2_zero()
+        {
+            TestUtils.AreEqual(float2x2.zero.c0.x, 0.0f);
+            TestUtils.AreEqual(float2x2.zero.c0.y, 0.0f);
+            TestUtils.AreEqual(float2x2.zero.c1.x, 0.0f);
+            TestUtils.AreEqual(float2x2.zero.c1.y, 0.0f);
+        }
+
+        [TestCompiler]
+        public void float2x2_identity()
+        {
+            TestUtils.AreEqual(float2x2.identity.c0.x, 1.0f);
+            TestUtils.AreEqual(float2x2.identity.c0.y, 0.0f);
+            TestUtils.AreEqual(float2x2.identity.c1.x, 0.0f);
+            TestUtils.AreEqual(float2x2.identity.c1.y, 1.0f);
+        }
+
+        [TestCompiler]
         public void float2x2_operator_equal_wide_wide()
         {
             float2x2 a0 = float2x2(492.1576f, -495.206329f, 227.457642f, -147.374054f);

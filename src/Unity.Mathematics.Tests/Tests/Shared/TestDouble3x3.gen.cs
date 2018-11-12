@@ -9,6 +9,34 @@ namespace Unity.Mathematics.Tests
     public class TestDouble3x3
     {
         [TestCompiler]
+        public void double3x3_zero()
+        {
+            TestUtils.AreEqual(double3x3.zero.c0.x, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c0.y, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c0.z, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c1.x, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c1.y, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c1.z, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c2.x, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c2.y, 0.0);
+            TestUtils.AreEqual(double3x3.zero.c2.z, 0.0);
+        }
+
+        [TestCompiler]
+        public void double3x3_identity()
+        {
+            TestUtils.AreEqual(double3x3.identity.c0.x, 1.0);
+            TestUtils.AreEqual(double3x3.identity.c0.y, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c0.z, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c1.x, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c1.y, 1.0);
+            TestUtils.AreEqual(double3x3.identity.c1.z, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c2.x, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c2.y, 0.0);
+            TestUtils.AreEqual(double3x3.identity.c2.z, 1.0);
+        }
+
+        [TestCompiler]
         public void double3x3_operator_equal_wide_wide()
         {
             double3x3 a0 = double3x3(492.15758275061728, -495.20632027797694, 227.45765195947968, -147.37405950733182, -222.68201909897942, 64.093720704360749, -23.890404473939157, -16.8197190839889, 163.23210890741655);
