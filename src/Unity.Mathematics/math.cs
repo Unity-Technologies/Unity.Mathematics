@@ -72,7 +72,7 @@ namespace Unity.Mathematics
         public static readonly float FLT_MIN_NORMAL = 1.175494351e-38F;
 
         /// <summary>The smallest positive normal number representable in a double.</summary>
-        public static readonly float DBL_MIN_NORMAL = 1.175494351e-38F;
+        public static readonly double DBL_MIN_NORMAL = 2.2250738585072014e-308;
 
 
         /// <summary>Returns the bit pattern of a uint as an int.</summary>
