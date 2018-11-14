@@ -1142,30 +1142,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     @"        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>
         public static {0}3x3 inverse({0}3x3 m)
         {{
-            // naive scalar implementation using direct calculation by cofactors
             {0}3 c0 = m.c0;
             {0}3 c1 = m.c1;
             {0}3 c2 = m.c2;
 
-            // calculate minors
-            {0} m00 = c1.y * c2.z - c1.z * c2.y;
-            {0} m01 = c0.y * c2.z - c0.z * c2.y;
-            {0} m02 = c0.y * c1.z - c0.z * c1.y;
+            {0}3 t0 = {0}3(c1.x, c2.x, c0.x);
+            {0}3 t1 = {0}3(c1.y, c2.y, c0.y);
+            {0}3 t2 = {0}3(c1.z, c2.z, c0.z);
 
-            {0} m10 = c1.x * c2.z - c1.z * c2.x;
-            {0} m11 = c0.x * c2.z - c0.z * c2.x;
-            {0} m12 = c0.x * c1.z - c0.z * c1.x;
+            {0}3 m0 = t1 * t2.yzx - t1.yzx * t2;
+            {0}3 m1 = t0.yzx * t2 - t0 * t2.yzx;
+            {0}3 m2 = t0 * t1.yzx - t0.yzx * t1;
 
-            {0} m20 = c1.x * c2.y - c1.y * c2.x;
-            {0} m21 = c0.x * c2.y - c0.y * c2.x;
-            {0} m22 = c0.x * c1.y - c0.y * c1.x;
-
-            {0} det = c0.x * m00 - c1.x * m01 + c2.x * m02;
-
-            return {0}3x3(
-                 m00,-m10, m20,
-                -m01, m11,-m21,
-                 m02, -m12, m22) * ({1} / det);
+            {0} rcpDet = {1} / csum(t0.zxy * m0);
+            return {0}3x3(m0, m1, m2) * rcpDet;
         }}
 
 ",

@@ -439,30 +439,20 @@ namespace Unity.Mathematics
         /// <summary>Returns the float3x3 full inverse of a float3x3 matrix.</summary>
         public static float3x3 inverse(float3x3 m)
         {
-            // naive scalar implementation using direct calculation by cofactors
             float3 c0 = m.c0;
             float3 c1 = m.c1;
             float3 c2 = m.c2;
 
-            // calculate minors
-            float m00 = c1.y * c2.z - c1.z * c2.y;
-            float m01 = c0.y * c2.z - c0.z * c2.y;
-            float m02 = c0.y * c1.z - c0.z * c1.y;
+            float3 t0 = float3(c1.x, c2.x, c0.x);
+            float3 t1 = float3(c1.y, c2.y, c0.y);
+            float3 t2 = float3(c1.z, c2.z, c0.z);
 
-            float m10 = c1.x * c2.z - c1.z * c2.x;
-            float m11 = c0.x * c2.z - c0.z * c2.x;
-            float m12 = c0.x * c1.z - c0.z * c1.x;
+            float3 m0 = t1 * t2.yzx - t1.yzx * t2;
+            float3 m1 = t0.yzx * t2 - t0 * t2.yzx;
+            float3 m2 = t0 * t1.yzx - t0.yzx * t1;
 
-            float m20 = c1.x * c2.y - c1.y * c2.x;
-            float m21 = c0.x * c2.y - c0.y * c2.x;
-            float m22 = c0.x * c1.y - c0.y * c1.x;
-
-            float det = c0.x * m00 - c1.x * m01 + c2.x * m02;
-
-            return float3x3(
-                 m00,-m10, m20,
-                -m01, m11,-m21,
-                 m02, -m12, m22) * (1.0f / det);
+            float rcpDet = 1.0f / csum(t0.zxy * m0);
+            return float3x3(m0, m1, m2) * rcpDet;
         }
 
         /// <summary>Returns the determinant of a float3x3 matrix.</summary>

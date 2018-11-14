@@ -439,30 +439,20 @@ namespace Unity.Mathematics
         /// <summary>Returns the double3x3 full inverse of a double3x3 matrix.</summary>
         public static double3x3 inverse(double3x3 m)
         {
-            // naive scalar implementation using direct calculation by cofactors
             double3 c0 = m.c0;
             double3 c1 = m.c1;
             double3 c2 = m.c2;
 
-            // calculate minors
-            double m00 = c1.y * c2.z - c1.z * c2.y;
-            double m01 = c0.y * c2.z - c0.z * c2.y;
-            double m02 = c0.y * c1.z - c0.z * c1.y;
+            double3 t0 = double3(c1.x, c2.x, c0.x);
+            double3 t1 = double3(c1.y, c2.y, c0.y);
+            double3 t2 = double3(c1.z, c2.z, c0.z);
 
-            double m10 = c1.x * c2.z - c1.z * c2.x;
-            double m11 = c0.x * c2.z - c0.z * c2.x;
-            double m12 = c0.x * c1.z - c0.z * c1.x;
+            double3 m0 = t1 * t2.yzx - t1.yzx * t2;
+            double3 m1 = t0.yzx * t2 - t0 * t2.yzx;
+            double3 m2 = t0 * t1.yzx - t0.yzx * t1;
 
-            double m20 = c1.x * c2.y - c1.y * c2.x;
-            double m21 = c0.x * c2.y - c0.y * c2.x;
-            double m22 = c0.x * c1.y - c0.y * c1.x;
-
-            double det = c0.x * m00 - c1.x * m01 + c2.x * m02;
-
-            return double3x3(
-                 m00,-m10, m20,
-                -m01, m11,-m21,
-                 m02, -m12, m22) * (1.0 / det);
+            double rcpDet = 1.0 / csum(t0.zxy * m0);
+            return double3x3(m0, m1, m2) * rcpDet;
         }
 
         /// <summary>Returns the determinant of a double3x3 matrix.</summary>
