@@ -99,6 +99,7 @@
     <Compile Include="Tests\Shared\TestInt4x3.gen.cs" />
     <Compile Include="Tests\Shared\TestInt4x4.gen.cs" />
     <Compile Include="Tests\Shared\TestMath.cs" />
+    <Compile Include="Tests\Shared\TestMath.gen.cs" />
     <Compile Include="Tests\Shared\TestMatrix.cs" />
     <Compile Include="Tests\Shared\TestQuaternion.cs" />
     <Compile Include="Tests\Shared\TestRigidTransform.cs" />

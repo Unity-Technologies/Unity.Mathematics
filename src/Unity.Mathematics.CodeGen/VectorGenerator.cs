@@ -146,6 +146,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             System.IO.File.WriteAllText(filename, text);
         }
 
+        private void WriteMath()
+        {
+            StringBuilder str = new StringBuilder();
+            GenerateMathTests(str);
+            WriteFile(m_TestDirectory + "/TestMath.gen.cs", str.ToString());
+        }
+
         private void WriteMatrix()
         {
             StringBuilder str = new StringBuilder();
@@ -166,10 +173,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateTypeImplementation(str);
             WriteFile(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", str.ToString());
             
-
             // test
             str = new StringBuilder();
-            GenerateTests(str);
+            GenerateTypeTests(str);
             WriteFile(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", str.ToString());
         }
 
@@ -201,6 +207,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             vectorGenerator.WriteMatrix();
+
+            vectorGenerator.WriteMath();
         }
 
 
@@ -1821,7 +1829,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private void BeginTest(StringBuilder str, string name)
         {
             str.Append("\t\t[TestCompiler]\n");
-            str.AppendFormat("\t\tpublic void {0}_{1}()\n", m_TypeName, name);
+            str.AppendFormat("\t\tpublic void {0}()\n", name);
             str.Append("\t\t{\n");
         }
 
@@ -1844,14 +1852,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_Columns == 1)
             {
-                BeginTest(str, "zero");
+                BeginTest(str, m_TypeName + "_zero");
                 for (int row = 0; row < m_Rows; row++)
                     str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.{1}, {2});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
             }
             else
             {
-                BeginTest(str, "zero");
+                BeginTest(str, m_TypeName + "_zero");
                 for(int column = 0; column < m_Columns; column++)
                     for (int row = 0; row < m_Rows; row++)
                         str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
@@ -1859,7 +1867,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if(m_Columns == m_Rows)
                 {
-                    BeginTest(str, "identity");
+                    BeginTest(str, m_TypeName + "_identity");
                     for (int column = 0; column < m_Columns; column++)
                         for (int row = 0; row < m_Rows; row++)
                             str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.identity.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
@@ -1878,7 +1886,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (isStatic)
                     name = "static_" + name;
 
-                BeginTest(str, name);
+                BeginTest(str, m_TypeName + "_" + name);
                 str.AppendFormat("\t\t\t{0} a = ", m_TypeName);
                 if (!isStatic)
                     str.Append("new ");
@@ -1927,7 +1935,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             var rnd = new Random(opName.GetHashCode());
 
-            BeginTest(str, "operator_" + opName);
+            BeginTest(str, m_TypeName + "_operator_" + opName);
 
             int numValues = m_Rows * m_Columns;
             int numPasses = 4;
@@ -2143,7 +2151,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             for (int resultComponents = 1; resultComponents <= 4; resultComponents++)
             {
-                BeginTest(str, "shuffle_result_" + resultComponents);
+                BeginTest(str, m_TypeName + "_shuffle_result_" + resultComponents);
 
                 string resultType = ToTypeName(m_BaseType, resultComponents, 1);
                 str.AppendFormat("\t\t\t{0} a = {0}", m_TypeName);
@@ -2270,7 +2278,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateTests(StringBuilder str)
+        private void GenerateTypeTests(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
             
@@ -2287,6 +2295,198 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestStaticFields(str);
             TestConstructors(str);
             TestOperators(str);
+
+            str.Append("\n\t}");
+            str.Append("\n}\n");
+        }
+
+        private T[] GetColumn<T>(T[,] matrix, int columnNumber)
+        {
+            return Enumerable.Range(0, matrix.GetLength(0)).Select(x => matrix[x, columnNumber]).ToArray();
+        }
+
+        private string ToLiteral<T>(T value)
+        {
+            if(typeof(T) == typeof(float))
+            {
+                if (float.IsPositiveInfinity((float)(object)value))
+                    return "float.PositiveInfinity";
+                else if (float.IsNegativeInfinity((float)(object)value))
+                    return "float.NegativeInfinity";
+                else if ((float)(object)value == float.MaxValue)
+                    return "float.MaxValue";
+                else if ((float)(object)value == float.MinValue)
+                    return "float.MinValue";
+                else if (float.IsNaN((float)(object)value))
+                    return "float.NaN";
+                else
+                    return "" + value + "f";
+            }
+            else if(typeof(T) == typeof(double))
+            {
+                if (double.IsPositiveInfinity((double)(object)value))
+                    return "double.PositiveInfinity";
+                else if (double.IsNegativeInfinity((double)(object)value))
+                    return "double.NegativeInfinity";
+                else if ((double)(object)value == double.MaxValue)
+                    return "double.MaxValue";
+                else if ((double)(object)value == double.MinValue)
+                    return "double.MinValue";
+                else if (double.IsNaN((double)(object)value))
+                    return "double.NaN";
+                else
+                    return "" + value;
+            }
+            else if (typeof(T) == typeof(uint))
+            {
+                return "" + value + "u";
+            }
+            else if(typeof(T) == typeof(bool))
+            {
+                return (bool)(object)value ? "true" : "false";
+            }
+            return "" + value;
+        }
+
+        private void GenerateComponentWiseParam<I>(StringBuilder str, string typeName, int numComponents, I[] input, int test)
+        {
+            int numTests = input.GetLength(0);
+
+            if (numComponents > 1)
+                str.Append(typeName + numComponents + "(");
+
+            for(int i = 0; i < numComponents; i++)
+            {
+                int idx = Math.Min(test + i, numTests - 1);
+                I v = input[idx];
+
+                if (i > 0)
+                    str.Append(", ");
+
+                str.Append(ToLiteral(v));
+            }
+
+            if (numComponents > 1)
+                str.Append(")");
+        }
+
+        private string GetTypeName(Type t)
+        {
+            if (t == typeof(float))
+                return "float";
+            else if (t == typeof(double))
+                return "double";
+            else if (t == typeof(bool))
+                return "bool";
+            else if (t == typeof(int))
+                return "int";
+            else if (t == typeof(uint))
+                return "uint";
+            else if (t == typeof(long))
+                return "long";
+            else if (t == typeof(ulong))
+                return "ulong";
+            return "";
+        }
+
+        private void GenerateComponentWiseTest<I,O>(StringBuilder str, string functionName, I[,] input, O[] output)
+        {
+            int numTests = input.GetLength(0);
+            int numParams = input.GetLength(1);
+
+            string inputTypeName = GetTypeName(typeof(I));
+            string outputTypeName = GetTypeName(typeof(O));
+
+            int inputIndex = input.Length;
+            for(int numComponents = 1; numComponents <= 4; numComponents++)
+            {
+                string name =  functionName + "_" + inputTypeName + (numComponents > 1 ? ("" + numComponents) : "");
+                BeginTest(str, name);
+
+                for(int test = 0; test < numTests; test += numComponents)
+                {
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}(", functionName);
+
+                    for(int param = 0; param < numParams; param++)
+                    {
+                        if (param > 0)
+                            str.Append(", ");
+                        GenerateComponentWiseParam<I>(str, inputTypeName, numComponents, GetColumn(input, param), test);
+                    }
+
+                    str.Append("), ");
+
+                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+
+                    str.Append(");\n");
+                }
+
+                EndTest(str);
+            }   
+        }
+
+        private void GenerateComponentWiseTestFloatAndDouble(StringBuilder str, string functionName, double[,] input, double[] output)
+        {
+            float[,] inputFloat = new float[input.GetLength(0), input.GetLength(1)];
+            
+            for (int i = 0; i < input.GetLength(0); i++)
+                for (int j = 0; j < input.GetLength(1); j++)
+                    inputFloat[i, j] = (float)input[i, j];
+
+            float[] outputFloat = new float[output.GetLength(0)];
+            for (int i = 0; i < output.GetLength(0); i++)
+                outputFloat[i] = (float)output[i];
+
+            GenerateComponentWiseTest(str, functionName, inputFloat, outputFloat);
+            GenerateComponentWiseTest(str, functionName, input, output);
+        }
+
+        private void GenerateMathTests(StringBuilder str)
+        {
+            str.Append("// GENERATED CODE\n");
+            str.Append("using NUnit.Framework;\n");
+            str.Append("using static Unity.Mathematics.math;\n");
+            str.Append("using Burst.Compiler.IL.Tests;\n\n");
+            str.Append("namespace Unity.Mathematics.Tests\n");
+            str.Append("{\n");
+            str.Append("\t[TestFixture]\n");
+            str.Append("\tpublic partial class TestMath\n");
+            str.Append("\t{\n");
+
+
+            GenerateComponentWiseTest(str, "abs", new int[,] { { 0 }, { -7 }, { 11 }, { -2147483647 }, { -2147483648 } }, new int[] { 0, 7, 11, 2147483647, -2147483648 });
+            GenerateComponentWiseTestFloatAndDouble(str, "abs", new double[,] { { 0.0 }, { -1.1 }, { 2.2 }, { double.NegativeInfinity }, { double.PositiveInfinity } }, new double[] { 0.0, 1.1, 2.2, double.PositiveInfinity, double.PositiveInfinity });
+
+
+            GenerateComponentWiseTest(str, "isfinite", new float[,] { { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN }  },
+                                                                    new bool[] { false, true, true, true, true, true, false, false });
+
+            GenerateComponentWiseTest(str, "isfinite", new double[,] { { double.NegativeInfinity }, { double.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                    new bool[] { false, true, true, true, true, true, false, false });
+
+            GenerateComponentWiseTest(str, "isinf", new float[,] { { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+                                                                    new bool[] { true, false, false, false, false, false, true, false });
+
+            GenerateComponentWiseTest(str, "isinf", new double[,] { { double.NegativeInfinity }, { double.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                    new bool[] { true, false, false, false, false, false, true, false });
+
+            GenerateComponentWiseTest(str, "isnan", new float[,] { { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+                                                                    new bool[] { false, false, false, false, false, false, false, true });
+
+            GenerateComponentWiseTest(str, "isnan", new double[,] { { double.NegativeInfinity }, { double.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                    new bool[] { false, false, false, false, false, false, false, true });
+
+            /*
+            TestUtils.AreEqual(isfinite(-float.NaN), false);
+            TestUtils.AreEqual(isfinite(float.NegativeInfinity), false);
+            TestUtils.AreEqual(isfinite(float.MinValue), true);
+            TestUtils.AreEqual(isfinite(-1.0f), true);
+            TestUtils.AreEqual(isfinite(0.0f), true);
+            TestUtils.AreEqual(isfinite(1.0f), true);
+            TestUtils.AreEqual(isfinite(float.MaxValue), true);
+            TestUtils.AreEqual(isfinite(float.PositiveInfinity), false);
+            TestUtils.AreEqual(isfinite(float.NaN), false);
+     */
 
             str.Append("\n\t}");
             str.Append("\n}\n");
