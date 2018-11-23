@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace Unity.Mathematics.Mathematics.CodeGen
@@ -68,6 +69,40 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         static readonly string[] vectorFields = { "x", "y", "z", "w" };
         static readonly string[] matrixFields = { "c0", "c1", "c2", "c3" };
         static readonly string[] shuffleComponents = { "LeftX", "LeftY", "LeftZ", "LeftW", "RightX", "RightY", "RightZ", "RightW" };
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct UIntFloatUnion
+        {
+            [FieldOffset(0)]
+            public uint uintValue;
+            [FieldOffset(0)]
+            public float floatValue;
+        }
+
+        [StructLayout(LayoutKind.Explicit)]
+        internal struct ULongDoubleUnion
+        {
+            [FieldOffset(0)]
+            public ulong ulongValue;
+            [FieldOffset(0)]
+            public double doubleValue;
+        }
+
+        public static uint AsUInt(float x)
+        {
+            UIntFloatUnion u;
+            u.uintValue = 0;
+            u.floatValue = x;
+            return u.uintValue;
+        }
+
+        public static ulong AsULong(double x)
+        {
+            ULongDoubleUnion u;
+            u.ulongValue = 0;
+            u.doubleValue = x;
+            return u.ulongValue;
+        }
 
         public static string ToTypeName(string baseType, int rows, int columns)
         {
@@ -169,10 +204,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             // test
             str = new StringBuilder();
-            GenerateTests(str);
+            GenerateTypeTests(str);
             WriteFile(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", str.ToString());
         }
-
+        private void WriteMath()
+        {
+            StringBuilder str = new StringBuilder();
+            GenerateMathTests(str);
+            WriteFile(m_TestDirectory + "/TestMath.gen.cs", str.ToString());
+        }
 
         public static void Write(string implementationDirectory, string testDirectory)
         {
@@ -201,6 +241,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             vectorGenerator.WriteMatrix();
+            vectorGenerator.WriteMath();
         }
 
 
@@ -1821,7 +1862,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private void BeginTest(StringBuilder str, string name)
         {
             str.Append("\t\t[TestCompiler]\n");
-            str.AppendFormat("\t\tpublic void {0}_{1}()\n", m_TypeName, name);
+            str.AppendFormat("\t\tpublic void {0}()\n", name);
             str.Append("\t\t{\n");
         }
 
@@ -1844,14 +1885,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_Columns == 1)
             {
-                BeginTest(str, "zero");
+                BeginTest(str, m_TypeName + "_zero");
                 for (int row = 0; row < m_Rows; row++)
                     str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.{1}, {2});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
             }
             else
             {
-                BeginTest(str, "zero");
+                BeginTest(str, m_TypeName + "_zero");
                 for(int column = 0; column < m_Columns; column++)
                     for (int row = 0; row < m_Rows; row++)
                         str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
@@ -1859,7 +1900,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if(m_Columns == m_Rows)
                 {
-                    BeginTest(str, "identity");
+                    BeginTest(str, m_TypeName + "_identity");
                     for (int column = 0; column < m_Columns; column++)
                         for (int row = 0; row < m_Rows; row++)
                             str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.identity.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
@@ -1878,7 +1919,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (isStatic)
                     name = "static_" + name;
 
-                BeginTest(str, name);
+                BeginTest(str, m_TypeName + "_" + name);
                 str.AppendFormat("\t\t\t{0} a = ", m_TypeName);
                 if (!isStatic)
                     str.Append("new ");
@@ -1927,7 +1968,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             var rnd = new Random(opName.GetHashCode());
 
-            BeginTest(str, "operator_" + opName);
+            BeginTest(str, m_TypeName + "_operator_" + opName);
 
             int numValues = m_Rows * m_Columns;
             int numPasses = 4;
@@ -2143,7 +2184,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             for (int resultComponents = 1; resultComponents <= 4; resultComponents++)
             {
-                BeginTest(str, "shuffle_result_" + resultComponents);
+                BeginTest(str, m_TypeName + "_shuffle_result_" + resultComponents);
 
                 string resultType = ToTypeName(m_BaseType, resultComponents, 1);
                 str.AppendFormat("\t\t\t{0} a = {0}", m_TypeName);
@@ -2270,7 +2311,455 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateTests(StringBuilder str)
+        private T[] GetColumn<T>(T[,] matrix, int columnNumber)
+        {
+            return Enumerable.Range(0, matrix.GetLength(0)).Select(x => matrix[x, columnNumber]).ToArray();
+        }
+        private string ToLiteral<T>(T value)
+        {
+            if (typeof(T) == typeof(float))
+            {
+                float f = (float)(object)value;
+                uint uf = AsUInt(f);
+                if (float.IsPositiveInfinity(f))
+                    return "float.PositiveInfinity";
+                else if (float.IsNegativeInfinity(f))
+                    return "float.NegativeInfinity";
+                else if (f == float.MaxValue)
+                    return "float.MaxValue";
+                else if (f == float.MinValue)
+                    return "float.MinValue";
+                else if (float.IsNaN(f))
+                    return uf >= 0x80000000u ? "float.NaN" : "-float.NaN";
+                else if (uf == 0x80000000u)
+                    return "-0.0f";
+                else
+                    return ((float)(object)value).ToString("R") + "f";
+            }
+            else if (typeof(T) == typeof(double))
+            {
+                double d = (double)(object)value;
+                ulong ud = AsULong(d);
+                if (double.IsPositiveInfinity(d))
+                    return "double.PositiveInfinity";
+                else if (double.IsNegativeInfinity(d))
+                    return "double.NegativeInfinity";
+                else if (d == double.MaxValue)
+                    return "double.MaxValue";
+                else if (d == double.MinValue)
+                    return "double.MinValue";
+                else if (double.IsNaN(d))
+                    return ud >= 0x8000000000000000ul ? "double.NaN" : "-double.NaN";
+                else if (ud == 0x8000000000000000ul)
+                    return "-0.0";
+                else
+                {
+                    string s = ((double)(object)value).ToString("R");
+                    if (s.IndexOfAny("eE.".ToCharArray()) == -1)
+                        s += ".0";
+                    return s;
+                }
+                    
+            }
+            else if (typeof(T) == typeof(uint))
+            {
+                return "" + value + "u";
+            }
+            else if (typeof(T) == typeof(bool))
+            {
+                return (bool)(object)value ? "true" : "false";
+            }
+            return "" + value;
+        }
+        private void GenerateComponentWiseParam<I>(StringBuilder str, string typeName, int numComponents, I[] input, int test)
+        {
+            int numTests = input.GetLength(0);
+            if (numComponents > 1)
+                str.Append(typeName + numComponents + "(");
+            for (int i = 0; i < numComponents; i++)
+            {
+                int idx = Math.Min(test + i, numTests - 1);
+                I v = input[idx];
+                if (i > 0)
+                    str.Append(", ");
+                str.Append(ToLiteral(v));
+            }
+            if (numComponents > 1)
+                str.Append(")");
+        }
+        private string GetTypeName(Type t)
+        {
+            if (t == typeof(float))
+                return "float";
+            else if (t == typeof(double))
+                return "double";
+            else if (t == typeof(bool))
+                return "bool";
+            else if (t == typeof(int))
+                return "int";
+            else if (t == typeof(uint))
+                return "uint";
+            else if (t == typeof(long))
+                return "long";
+            else if (t == typeof(ulong))
+                return "ulong";
+            return "";
+        }
+        private void GenerateComponentWiseTest<I, O>(StringBuilder str, string functionName, I[,] input, O[] output, int maxComponents, int maxUps = 0, bool signedZeroEqual = false)
+        {
+            int numTests = input.GetLength(0);
+            int numParams = input.GetLength(1);
+            string inputTypeName = GetTypeName(typeof(I));
+            string outputTypeName = GetTypeName(typeof(O));
+            int inputIndex = input.Length;
+            for (int numComponents = 1; numComponents <= maxComponents; numComponents++)
+            {
+                BeginTest(str, functionName + "_" + inputTypeName + (numComponents > 1 ? ("" + numComponents) : ""));
+                for (int test = 0; test < numTests; test += numComponents)
+                {
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}(", functionName);
+                    for (int param = 0; param < numParams; param++)
+                    {
+                        if (param > 0)
+                            str.Append(", ");
+                        GenerateComponentWiseParam<I>(str, inputTypeName, numComponents, GetColumn(input, param), test);
+                    }
+                    str.Append("), ");
+                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+
+                    if((typeof(O) == typeof(float) || typeof(O) == typeof(double)) && maxUps > 0)
+                    {
+                        str.Append(", " + maxUps + ", " + (signedZeroEqual ? "true" : "false"));
+                    }
+
+                    str.Append(");\n");
+                }
+                EndTest(str);
+            }
+        }
+        private void GenerateComponentWiseTestFloatAndDouble(StringBuilder str, string functionName, double[,] input, double[] output, int floatMaxEps = 0, int doubleMaxEps = 0, bool signedZeroEqual = false)
+        {
+            float[,] inputFloat = new float[input.GetLength(0), input.GetLength(1)];
+
+            for (int i = 0; i < input.GetLength(0); i++)
+                for (int j = 0; j < input.GetLength(1); j++)
+                    inputFloat[i, j] = (float)input[i, j];
+            float[] outputFloat = new float[output.GetLength(0)];
+            for (int i = 0; i < output.GetLength(0); i++)
+                outputFloat[i] = (float)output[i];
+            GenerateComponentWiseTest(str, functionName, inputFloat, outputFloat, 4, floatMaxEps, signedZeroEqual);
+            GenerateComponentWiseTest(str, functionName, input, output, 4, doubleMaxEps, signedZeroEqual);
+        }
+        private void GenerateMathTests(StringBuilder str)
+        {
+            str.Append("// GENERATED CODE\n");
+            str.Append("using NUnit.Framework;\n");
+            str.Append("using static Unity.Mathematics.math;\n");
+            str.Append("using Burst.Compiler.IL.Tests;\n\n");
+            str.Append("namespace Unity.Mathematics.Tests\n");
+            str.Append("{\n");
+            str.Append("\t[TestFixture]\n");
+            str.Append("\tpublic partial class TestMath\n");
+            str.Append("\t{\n");
+
+            GenerateComponentWiseTest(str, "abs", new int[,] { { 0 }, { -7 }, { 11 }, { -2147483647 }, { -2147483648 } }, new int[] { 0, 7, 11, 2147483647, -2147483648 }, 4);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "abs", new double[,] { { 0.0 }, { -1.1 }, { 2.2 }, { double.NegativeInfinity }, { double.PositiveInfinity } }, new double[] { 0.0, 1.1, 2.2, double.PositiveInfinity, double.PositiveInfinity }, 0, 0, false);
+
+            GenerateComponentWiseTest(str, "isfinite", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+                                                                   new bool[] { false, false, true, true, true, true, true, false, false }, 4);
+            GenerateComponentWiseTest(str, "isfinite", new double[,] { { -float.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                   new bool[] { false, false, true, true, true, true, true, false, false }, 4);
+            GenerateComponentWiseTest(str, "isinf", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+                                                                   new bool[] { false, true, false, false, false, false, false, true, false }, 4);
+            GenerateComponentWiseTest(str, "isinf", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                   new bool[] { false, true, false, false, false, false, false, true, false }, 4);
+            GenerateComponentWiseTest(str, "isnan", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+                                                                   new bool[] { true, false, false, false, false, false, false, false, true }, 4);
+            GenerateComponentWiseTest(str, "isnan", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+                                                                   new bool[] { true, false, false, false, false, false, false, false, true }, 4);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "sin", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 0.34999350217129295, -0.93203908596722635, 0.0, 0.93203908596722635, -0.34999350217129295, double.NaN, double.NaN, double.NaN }, 1, 32);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "cos", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 },  { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 0.93675212753314479,  0.36235775447667358, 1.0, 0.36235775447667358,  0.93675212753314479, double.NaN, double.NaN, double.NaN }, 8, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "tan", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 0.373624453987599, -2.57215162212632, 0.0, 2.57215162212632, -0.373624453987599, double.NaN, double.NaN, double.NaN }, 1, 32);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "atan",new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -1.570795326794897, -0.8760580505981934, 0.0, 0.8760580505981934, 1.570795326794897, -1.570796326794897, double.NaN, 1.570796326794897 }, 1, 32);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "atan2", new double[,] { { 3.1, 2.4 }, { 3.1, -2.4 }, { -3.1, 2.4 }, { -3.1, -2.4 }, { 0.0, 0.0 },
+                                                                { 1.0, double.NegativeInfinity },   { 1.0, double.PositiveInfinity }, { double.NegativeInfinity, 1.0 },   { double.PositiveInfinity, 1.0 },
+                                                                // { double.NegativeInfinity, double.PositiveInfinity }, // TODO: fails with burst
+                                                                { 1.0, double.NaN }, { double.NaN, 1.0 }, { double.NaN, double.NaN },
+                                                                },
+                                                                new double[] { 0.91199029067742038, 2.2296023629123729, -0.91199029067742038, -2.2296023629123729, 0.0f,
+                                                                Math.PI, 0.0, -Math.PI*0.5, Math.PI*0.5,
+                                                                // double.NaN, // TODO: fails with burst
+                                                                double.NaN, double.NaN, double.NaN,
+                                                                }, 1, 32);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "sinh",new double[,] { { -2.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 2.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -3.626860407847018, -1.509461355412173, 0.0, 1.509461355412173, 3.626860407847018, double.NegativeInfinity, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "cosh",new double[,] { { -2.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 2.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 3.7621956910836314, 1.81065556732437, 1.0, 1.81065556732437, 3.7621956910836314, double.PositiveInfinity, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "tanh",new double[,] { { -2.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 2.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -0.96402758007581688, -0.83365460701215526, 0.0, 0.83365460701215526, 0.96402758007581688, -1.0, double.NaN, 1.0 }, 1, 32);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "exp", new double[,] { { -10.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 0.00004539992976248485, 0.3011942119122021, 1.0, 3.3201169227365475, 0.0, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "exp2",new double[,] { { -10.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 0.0009765625, 0.435275281648062, 1.0, 2.297396709994070, 0.0, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "exp10",new double[,] { { -10.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { 1e-10, 0.063095734448019325, 1.0, 15.8489319246111348520210, 0.0, double.NaN, double.PositiveInfinity }, 32, 32);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "log", new double[,] { { 1.2e-9 }, { 1.0 }, { 1.2e10 }, { -1.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -20.540944280152457, 0.0, 23.20817248673441, double.NaN, double.NaN, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "log2", new double[,] { { 1.2e-9 }, { 1.0 }, { 1.2e10 }, { -1.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -29.634318448152467, 0.0, 33.48231535470742, double.NaN, double.NaN, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "log10", new double[,] { { 1.2e-9 }, { 1.0 }, { 1.2e10 }, { -1.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -8.92081875395237517, 0.0, 10.079181246047624, double.NaN, double.NaN, double.NaN, double.PositiveInfinity }, 1, 32);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "radians", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -2.15460896158699986, 0.0, 2.15460896158699986, double.NegativeInfinity, double.NaN, double.PositiveInfinity });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "degrees", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -7073.1639808900125122, 0.0, 7073.1639808900125122, double.NegativeInfinity, double.NaN, double.PositiveInfinity });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "sign",new double[,] { { -123.45 }, { -1e-20 }, { 0.0 }, { 1e-10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -1.0, -1.0, 0.0, 1.0, 1.0, -1.0, 0.0, 1.0 });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "sqrt", new double[,] { { -1.0}, { 0.0 }, { 1e-10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { double.NaN, 0.0, 1e-5, 11.11080555135405, double.NaN, double.NaN, double.PositiveInfinity, }, 1, 1);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "rsqrt", new double[,] { { -1.0 }, { 0.0 }, { 1e10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { double.NaN, double.PositiveInfinity, 1e-5, 0.0900024751020984295, double.NaN, double.NaN, 0.0, }, 1, 1);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "rcp", new double[,] { { -123.45 }, { -0.0 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -0.0081004455245038477, double.NegativeInfinity, double.PositiveInfinity, 0.0081004455245038477, -0.0, double.NaN, 0.0, }, 0, 0);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "floor", new double[,] { { double.NegativeInfinity },  { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { double.PositiveInfinity }, { double.NaN } },
+                                                                new double[] { double.NegativeInfinity, -101.0, -101.0, -101.0, 0.0, 100.0, 100.0, 100.0, double.PositiveInfinity, double.NaN } );
+
+            GenerateComponentWiseTestFloatAndDouble(str, "ceil", new double[,] { { double.NegativeInfinity }, { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { double.PositiveInfinity }, { double.NaN } },
+                                                                new double[] { double.NegativeInfinity, -100.0, -100.0, -100.0, 0.0, 101.0, 101.0, 101.0, double.PositiveInfinity, double.NaN });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "round", new double[,] { { double.NegativeInfinity }, { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { 101.50 }, { double.PositiveInfinity }, { double.NaN } },
+                                                                new double[] { double.NegativeInfinity, -101.0, -100.0, -100.0, 0.0, 100.0, 100.0, 101.0, 102.0, double.PositiveInfinity, double.NaN });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "trunc", new double[,] { { double.NegativeInfinity }, { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { 101.50 }, { double.PositiveInfinity }, { double.NaN } },
+                                                                new double[] { double.NegativeInfinity, -100.0, -100.0, -100.0, 0.0, 100.0, 100.0, 100.0, 101.0, double.PositiveInfinity, double.NaN });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "frac", new double[,] { { double.NegativeInfinity }, { -1e20 }, { -100.3 }, { 0.0 }, { 100.8 }, { double.PositiveInfinity }, { double.NaN } },
+                                                                new double[] { double.NaN, 0.0, 0.7, 0.0, 0.8, double.NaN, double.NaN }, 64, 64);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "lerp", new double[,] { { -123.45, 439.43, -1.5 }, { -123.45, 439.43, 0.5 }, { -123.45, 439.43, 5.5 }, { -123.45, 439.43, double.NaN } },
+                                                                new double[] { -967.77, 157.99, 2972.39, double.NaN }, 1, 1);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "unlerp", new double[,] {  { -123.45, 439.43, -254.3}, { -123.45, 439.43, 0.0 }, { -123.45, 439.43, 632.1 },
+                                                                                    { 123.4, 123.4, -430.0 }, { 123.4, 123.4, 430.0 },
+                                                                                    { 439.43, -123.45, -254.3}, { 439.43, -123.45, 0.0 }, { 439.43, -123.45, 632.1 } },
+                                                                new double[] { -0.23246517907902217, 0.21931850483229107, 1.3422932063672541,
+                                                                                double.NegativeInfinity, double.PositiveInfinity,
+                                                                                1.2324651790790221, 0.78068149516770893, -0.34229320636725412}, 4, 4);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "remap", new double[,] { { -123.45, 439.43, 541.3, 631.5, -200.0 }, { -123.45, 439.43, 541.3, 631.5, -100.0 }, { -123.45, 439.43, 541.3, 631.5, 500.0 },
+                                                                                  { 439.43, -123.45, 541.3, 631.5, -200.0 }, { 439.43, -123.45, 541.3, 631.5, -100.0 }, { 439.43, -123.45, 541.3, 631.5, 500.0 },
+                                                                                  { -123.45, 439.43, 631.5, 541.3, -200.0 }, { -123.45, 439.43, 631.5, 541.3,-100.0 }, { -123.45,  439.43, 631.5, 541.3, 500.0 },
+                                                                                  { -123.45,-123.45, 541.3, 631.5, -200.0 }, { -123.45,-123.45, 541.3, 631.5, -100.0 }, },
+                                                                new double[] {  529.03306921546333, 545.05779917566799, 641.20617893689596,
+                                                                                643.76693078453667, 627.74220082433201, 531.59382106310404,
+                                                                                643.76693078453667, 627.74220082433201, 531.59382106310404,
+                                                                                double.NegativeInfinity, double.PositiveInfinity,
+                                                                }, 4, 4);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "clamp", new double[,] {   { double.NegativeInfinity, -123.45, 439.43},
+                                                                                    { -254.3, -123.45, 439.43}, { 246.3, -123.45, 439.43 }, { 632.1, -123.45, 439.43 },
+                                                                                    { -254.3,  439.43,-123.45}, { 246.3,  439.43,-123.45 }, { 632.1,  439.43,-123.45 },
+                                                                                    { double.PositiveInfinity, -123.45, 439.43},
+                                                                                    { double.NaN, -123.45, 439.43},
+                                                                                    },
+                                                    new double[] { -123.45, -123.45, 246.3, 439.43, 439.43, 439.43, 439.43, 439.43, 439.43 });
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "saturate", new double[,] { { double.NegativeInfinity }, { -123.45 }, { 0.0 }, { 0.5 }, { 1.0 }, { 123.45 }, { double.PositiveInfinity }, { double.NaN } },
+                                                    new double[] { 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0 });
+
+            GenerateComponentWiseTestFloatAndDouble(str, "step", new double[,] { { -123.45, double.NegativeInfinity }, { -123.45, -200.0 }, { -123.45, 200.0 }, { -123.45, double.PositiveInfinity }, { -123.45, double.NaN },
+                                                                                 { 123.45, double.NegativeInfinity }, { 123.45, -200.0 }, { 123.45, 200.0 }, { 123.45, double.PositiveInfinity }, { 123.45, double.NaN },
+                                                                                 { double.NegativeInfinity, double.NegativeInfinity }, { double.NegativeInfinity, -200.0 }, { double.NegativeInfinity, 200.0 }, { double.NegativeInfinity, double.PositiveInfinity }, { double.NegativeInfinity, double.NaN },
+                                                                                 { double.PositiveInfinity, double.NegativeInfinity }, { double.PositiveInfinity, -200.0 }, { double.PositiveInfinity, 200.0 }, { double.PositiveInfinity, double.PositiveInfinity }, { double.PositiveInfinity, double.NaN },
+                                                                                 { double.NaN, double.NegativeInfinity }, { double.NaN, -200.0 }, { double.NaN, 200.0 }, { double.NaN, double.PositiveInfinity }, { double.NaN, double.NaN }},
+                                                                 new double[] {  0.0, 0.0, 1.0, 1.0, 0.0,
+                                                                                 0.0, 0.0, 1.0, 1.0, 0.0,
+                                                                                 1.0, 1.0, 1.0, 1.0, 0.0,
+                                                                                 0.0, 0.0, 0.0, 1.0, 0.0,
+                                                                                 0.0, 0.0, 0.0, 0.0, 0.0});
+
+
+            GenerateComponentWiseTest(str, "min", new int[,] { { int.MinValue, int.MinValue }, { int.MinValue, -1 }, { -1, int.MinValue },
+                                                                                { -1234, -3456 }, { -3456, -1234 }, { -1234, 3456 }, { 3456, -1234 }, { 1234, 3456 }, { 3456, 1234 },
+                                                                                { 1, int.MaxValue}, { int.MaxValue, 1 }, { int.MaxValue, int.MinValue }, { int.MaxValue, int.MaxValue} },
+                                                  new int[] { int.MinValue, int.MinValue, int.MinValue,
+                                                                -3456, -3456, -1234, -1234, 1234, 1234,
+                                                                1, 1, int.MinValue, int.MaxValue}, 4);
+
+            GenerateComponentWiseTest(str, "min", new uint[,] { { 1234u, 3456u }, { 3456u, 1234u },
+                                                                { 0xFFFFFF00u, 7u}, { 7u, 0xFFFFFF00u},
+                                                                { 1u, uint.MaxValue}, { uint.MaxValue, 1u }, { uint.MaxValue, uint.MaxValue} },
+                                                  new uint[] { 1234u, 1234u, 7u, 7u, 1u, 1u, uint.MaxValue}, 4);
+
+            GenerateComponentWiseTest(str, "min", new long[,] { { long.MinValue, long.MinValue }, { long.MinValue, -1 }, { -1, long.MinValue },
+                                                                                { -1234, -3456 }, { -3456, -1234 }, { -1234, 3456 }, { 3456, -1234 }, { 1234, 3456 }, { 3456, 1234 },
+                                                                                { 1, long.MaxValue}, { long.MaxValue, 1 }, { long.MaxValue, long.MinValue }, { long.MaxValue, long.MaxValue} },
+                                                  new long[] { long.MinValue, long.MinValue, long.MinValue,
+                                                                -3456, -3456, -1234, -1234, 1234, 1234,
+                                                                1, 1, long.MinValue, long.MaxValue}, 1);
+
+            GenerateComponentWiseTest(str, "min", new ulong[,] { { 1234u, 3456u }, { 3456u, 1234u },
+                                                                { 0xFFFFFFFFFFFFFF00ul, 7u}, { 7u, 0xFFFFFFFFFFFFFF00ul},
+                                                                { 1u, ulong.MaxValue}, { ulong.MaxValue, 1u }, { ulong.MaxValue, ulong.MaxValue} },
+                                                  new ulong[] { 1234u, 1234u, 7u, 7u, 1u, 1u, ulong.MaxValue }, 1);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "min", new double[,] { { double.NegativeInfinity, double.NegativeInfinity }, { double.NegativeInfinity, -1.0 }, { -1.0, double.NegativeInfinity },
+                                                                                { -1234.56, -3456.7 }, { -3456.7, -1234.56 }, { -1234.56, 3456.7 }, { 3456.7, -1234.56 }, { 1234.56, 3456.7 }, { 3456.7, 1234.56 },
+                                                                                { 1.0, double.PositiveInfinity}, { double.PositiveInfinity, 1.0 }, { double.PositiveInfinity, double.NegativeInfinity }, { double.PositiveInfinity, double.PositiveInfinity },
+                                                                                { double.NaN, 2.3 },    { 2.3, double.NaN }, { double.NaN, double.NaN } },
+                                                                new double[] { double.NegativeInfinity, double.NegativeInfinity, double.NegativeInfinity,
+                                                                                -3456.7, -3456.7, -1234.56, -1234.56, 1234.56, 1234.56,
+                                                                                1.0, 1.0, double.NegativeInfinity, double.PositiveInfinity,
+                                                                                2.3, 2.3, double.NaN});
+
+
+
+            GenerateComponentWiseTest(str, "max", new int[,] { { int.MinValue, int.MinValue }, { int.MinValue, -1 }, { -1, int.MinValue },
+                                                                                { -1234, -3456 }, { -3456, -1234 }, { -1234, 3456 }, { 3456, -1234 }, { 1234, 3456 }, { 3456, 1234 },
+                                                                                { 1, int.MaxValue}, { int.MaxValue, 1 }, { int.MaxValue, int.MinValue }, { int.MaxValue, int.MaxValue} },
+                                                  new int[] { int.MinValue, -1, -1,
+                                                                -1234, -1234, 3456, 3456, 3456, 3456,
+                                                                int.MaxValue, int.MaxValue, int.MaxValue, int.MaxValue}, 4);
+
+            GenerateComponentWiseTest(str, "max", new uint[,] { { 1234u, 3456u }, { 3456u, 1234u },
+                                                                { 0xFFFFFF00u, 7u}, { 7u, 0xFFFFFF00u},
+                                                                { 1u, uint.MaxValue}, { uint.MaxValue, 1u }, { uint.MaxValue, uint.MaxValue} },
+                                                  new uint[] { 3456u, 3456u, 0xFFFFFF00u, 0xFFFFFF00u, uint.MaxValue, uint.MaxValue, uint.MaxValue }, 4);
+
+            GenerateComponentWiseTest(str, "max", new long[,] { { long.MinValue, long.MinValue }, { long.MinValue, -1 }, { -1, long.MinValue },
+                                                                                { -1234, -3456 }, { -3456, -1234 }, { -1234, 3456 }, { 3456, -1234 }, { 1234, 3456 }, { 3456, 1234 },
+                                                                                { 1, long.MaxValue}, { long.MaxValue, 1 }, { long.MaxValue, long.MinValue }, { long.MaxValue, long.MaxValue} },
+                                                  new long[] { long.MinValue, -1, -1,
+                                                                -1234, -1234, 3456, 3456, 3456, 3456,
+                                                                long.MaxValue, long.MaxValue, long.MaxValue, long.MaxValue}, 1);
+
+            GenerateComponentWiseTest(str, "max", new ulong[,] { { 1234u, 3456u }, { 3456u, 1234u },
+                                                                { 0xFFFFFFFFFFFFFF00ul, 7u}, { 7u, 0xFFFFFFFFFFFFFF00ul},
+                                                                { 1u, ulong.MaxValue}, { ulong.MaxValue, 1u }, { ulong.MaxValue, ulong.MaxValue} },
+                                                  new ulong[] { 3456u, 3456u, 0xFFFFFFFFFFFFFF00ul, 0xFFFFFFFFFFFFFF00ul, ulong.MaxValue, ulong.MaxValue, ulong.MaxValue }, 1);
+
+            GenerateComponentWiseTestFloatAndDouble(str, "max", new double[,] { { double.NegativeInfinity, double.NegativeInfinity }, { double.NegativeInfinity, -1.0 }, { -1.0, double.NegativeInfinity },
+                                                                                { -1234.56, -3456.7 }, { -3456.7, -1234.56 }, { -1234.56, 3456.7 }, { 3456.7, -1234.56 }, { 1234.56, 3456.7 }, { 3456.7, 1234.56 },
+                                                                                { 1.0, double.PositiveInfinity}, { double.PositiveInfinity, 1.0 }, { double.PositiveInfinity, double.NegativeInfinity }, { double.PositiveInfinity, double.PositiveInfinity },
+                                                                                { double.NaN, 2.3 },    { 2.3, double.NaN }, { double.NaN, double.NaN } },
+                                                                new double[] { double.NegativeInfinity, -1.0, -1.0,
+                                                                                -1234.56, -1234.56, 3456.7, 3456.7, 3456.7, 3456.7,
+                                                                                double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity,
+                                                                                2.3, 2.3, double.NaN});
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "smoothstep", new double[,] { { -123.45, 345.6, double.NegativeInfinity}, { -123.45, 345.6, -200.0}, { -123.45, 345.6, -100.0}, { -123.45, 345.6, 400.0}, { -123.45, 345.6, double.PositiveInfinity}, { -123.45, 345.6, double.NaN },
+                                                                                        { 345.6, -123.45, double.NegativeInfinity}, { 345.6, -123.45, -200.0}, { 345.6, -123.45, -100.0}, { 345.6, -123.45, 400.0}, { 345.6, -123.45, double.PositiveInfinity}, { 345.6, -123.45, double.NaN }},
+                                                                       new double[] { 0.0, 0.0, 0.0072484810488798993, 1.0, 1.0, 1.0,
+                                                                                      1.0, 1.0, 0.9927515189511201007, 0.0, 0.0, 1.0}, 8, 8);
+
+            GenerateComponentWiseTest(str, "mad", new int[,] { { 1234, 5678, 91011 }, { 1234, 5678, -91011 }, { 1234, -5678, 91011 }, { 1234, -5678, -91011 },
+                                                               {-1234, 5678, 91011 }, {-1234, 5678, -91011 }, {-1234, -5678, 91011 }, {-1234, -5678, -91011 },
+                                                               { 98765, 56789, 91011 }, { 98765, 56789,-91011 }, { 98765,-56789, 91011 }, { 98765,-56789,-91011 },
+                                                               {-98765, 56789, 91011 }, {-98765, 56789,-91011 }, {-98765,-56789, 91011 }, {-98765,-56789,-91011 }},
+                                                  new int[] { 7097663,  6915641, -6915641, -7097663,
+                                                             -6915641, -7097663,  7097663,  6915641,
+                                                              1313889300, 1313707278, -1313707278, -1313889300,
+                                                             -1313707278, -1313889300, 1313889300, 1313707278}, 4);
+
+
+            GenerateComponentWiseTest(str, "mad", new uint[,] { { 1234u, 5678u, 91011u }, { 98765u, 56789u, 91011u } },
+                                                  new uint[] { 7097663u, 1313889300u }, 4);
+
+
+            GenerateComponentWiseTest(str, "mad", new long[,] { { 1234, 5678, 91011 }, { 1234, 5678, -91011 }, { 1234, -5678, 91011 }, { 1234, -5678, -91011 },
+                                                               {-1234, 5678, 91011 }, {-1234, 5678, -91011 }, {-1234, -5678, 91011 }, {-1234, -5678, -91011 },
+                                                               { 9876543210, 5678901234, 9101112134 }, { 9876543210, 5678901234,-9101112134 }, { 9876543210,-5678901234, 9101112134 }, { 9876543210,-5678901234,-9101112134 },
+                                                               {-9876543210, 5678901234, 9101112134 }, {-9876543210, 5678901234,-9101112134 }, {-9876543210,-5678901234, 9101112134 }, {-9876543210,-5678901234,-9101112134 }},
+                                                  new long[] { 7097663,  6915641, -6915641, -7097663,
+                                                             -6915641, -7097663,  7097663,  6915641,
+                                                              747681210895778426, 747681192693554158, -747681192693554158, -747681210895778426,
+                                                              -747681192693554158, -747681210895778426, 747681210895778426, 747681192693554158}, 1);
+
+            GenerateComponentWiseTest(str, "mad", new ulong[,] { { 1234, 5678, 91011 }, { 9876543210, 5678901234, 9101112134 }},
+                                                  new long[] { 7097663, 747681210895778426 }, 1);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "mad",         new double[,] { { -123.45, 345.6, 4.321 }, { double.NaN, 345.6, 4.321 }, { -123.45, double.NaN, 4.321 }, { -123.45, 345.6, double.NaN } },
+                                                                        new double[] { -42659.999, double.NaN, double.NaN, double.NaN }, 1, 1);
+
+
+            GenerateComponentWiseTestFloatAndDouble(str, "fmod", new double[,] {    { double.NegativeInfinity, double.NegativeInfinity }, { -323.4, double.NegativeInfinity }, { -0.0, double.NegativeInfinity}, { 0.0, double.NegativeInfinity}, { 323.4, double.NegativeInfinity}, { double.PositiveInfinity, double.NegativeInfinity}, { double.NaN, double.NegativeInfinity},
+                                                                                    { double.NegativeInfinity, -123.6}, { -323.4, -123.6}, { -0.0, -123.6}, { 0.0, -123.6}, { 323.4, -123.6}, { double.PositiveInfinity, -123.6}, { double.NaN, -123.6},
+                                                                                    { double.NegativeInfinity, -0.0}, { -323.4, -0.0}, { -0.0, -0.0}, { 0.0, -0.0}, { 323.4, -0.0}, { double.PositiveInfinity, -0.0}, { double.NaN, -0.0},
+                                                                                    { double.NegativeInfinity, 0.0}, { -323.4, 0.0}, { -0.0, 0.0}, { 0.0, 0.0}, { 323.4, 0.0}, { double.PositiveInfinity, 0.0}, { double.NaN, 0.0},
+                                                                                    { double.NegativeInfinity, 123.6}, { -323.4, 123.6}, { -0.0, 123.6}, { 0.0, 123.6}, { 323.4, 123.6}, { double.PositiveInfinity, 123.6}, { double.NaN, 123.6},
+                                                                                    { double.NegativeInfinity, double.PositiveInfinity}, { -323.4, double.PositiveInfinity}, { -0.0, double.PositiveInfinity}, { 0.0, double.PositiveInfinity}, { 323.4, double.PositiveInfinity}, { double.PositiveInfinity, double.PositiveInfinity}, { double.NaN, double.PositiveInfinity},
+                                                                                    { double.NegativeInfinity, double.NaN}, { -323.4, double.NaN}, { -0.0, double.NaN}, { 0.0, double.NaN}, { 323.4, double.NaN}, { double.PositiveInfinity, double.NaN}, { double.NaN, double.NaN},
+                                                                                    },
+                                                                 new double[] {     double.NaN, -323.4, -0.0, 0.0, 323.4, double.NaN, double.NaN,
+                                                                                    double.NaN, -76.2, -0.0, 0.0, 76.2, double.NaN, double.NaN,
+                                                                                    double.NaN, double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,
+                                                                                    double.NaN, double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,
+                                                                                    double.NaN, -76.2, -0.0, 0.0, 76.2, double.NaN, double.NaN,
+                                                                                    double.NaN, -323.4, -0.0, 0.0, 323.4, double.NaN, double.NaN,
+                                                                                    double.NaN, double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,double.NaN}, 1, 1);
+            
+            GenerateComponentWiseTestFloatAndDouble(str, "pow", new double[,] {     { double.NegativeInfinity, double.NegativeInfinity }, { -3.4, double.NegativeInfinity }, { -0.0, double.NegativeInfinity}, { 0.0, double.NegativeInfinity}, { 3.4, double.NegativeInfinity}, { double.PositiveInfinity, double.NegativeInfinity}, { double.NaN, double.NegativeInfinity},
+                                                                                    
+                                                                                    { double.NegativeInfinity, -2.6}, { -3.4, -2.6}, { -0.0, -2.6}, { 0.0, -2.6}, { 3.4, -2.6}, { double.PositiveInfinity, -2.6}, { double.NaN, -2.6},
+                                                                                    
+                                                                                    { double.NegativeInfinity, -0.0}, { -3.4, -0.0}, { -0.0, -0.0}, { 0.0, -0.0}, { 3.4, -0.0}, { double.PositiveInfinity, -0.0}, // { double.NaN, -0.0}, // TODO: fails with burst
+                                                                                    { double.NegativeInfinity, 0.0}, { -3.4, 0.0}, { -0.0, 0.0}, { 0.0, 0.0}, { 3.4, 0.0}, { double.PositiveInfinity, 0.0}, // { double.NaN, 0.0}, // TODO: fails with burst
+                                                                                    
+                                                                                    { double.NegativeInfinity, 2.6}, { -3.4, 2.6}, { -0.0, 2.6}, { 0.0, 2.6}, { 3.4, 2.6}, { double.PositiveInfinity, 2.6}, { double.NaN, 2.6},
+                                                                                    { double.NegativeInfinity, double.PositiveInfinity}, { -3.4, double.PositiveInfinity}, { -0.0, double.PositiveInfinity}, { 0.0, double.PositiveInfinity}, { 3.4, double.PositiveInfinity}, { double.PositiveInfinity, double.PositiveInfinity}, { double.NaN, double.PositiveInfinity},
+                                                                                    { double.NegativeInfinity, double.NaN}, { -3.4, double.NaN}, { -0.0, double.NaN}, { 0.0, double.NaN}, { 3.4, double.NaN}, { double.PositiveInfinity, double.NaN}, { double.NaN, double.NaN},
+                                                                                    
+                                                                                    },
+                                                                 new double[]       {
+                                                                                      0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.NaN,
+                                                                                      0.0, double.NaN, double.PositiveInfinity, double.PositiveInfinity, 0.041510199028461224, 0.0, double.NaN,
+                                                                                      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
+                                                                                      1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
+                                                                                      
+                                                                                      double.PositiveInfinity, double.NaN, 0.0, 0.0, 24.090465076169736, double.PositiveInfinity, double.NaN,
+                                                                                      
+                                                                                      double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, double.NaN,
+                                                                                      double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN,
+                                                                                    }, 1, 1);
+            
+
+            str.Append("\n\t}");
+            str.Append("\n}\n");
+        }
+
+        private void GenerateTypeTests(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
             

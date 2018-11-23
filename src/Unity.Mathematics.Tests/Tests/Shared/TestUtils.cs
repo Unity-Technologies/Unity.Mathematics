@@ -5,31 +5,105 @@ namespace Unity.Mathematics.Tests
 {
     class TestUtils
     {
-        // bool
+        
         public static void AreEqual(bool a, bool b)
         {
             Assert.AreEqual(a, b);
         }
 
+        public static void AreEqual(int a, int b)
+        {
+            Assert.AreEqual(a, b);
+        }
+
+        public static void AreEqual(uint a, uint b)
+        {
+            Assert.AreEqual(a, b);
+        }
+
+        public static void AreEqual(long a, long b)
+        {
+            Assert.AreEqual(a, b);
+        }
+
+        public static void AreEqual(ulong a, ulong b)
+        {
+            Assert.AreEqual(a, b);
+        }
+
+        public static void AreEqual(float a, float b, float delta = 0.0f)
+        {
+            Assert.AreEqual(a, b, delta);
+        }
+
+        public static void AreEqual(float a, float b, int maxUlp, bool signedZeroEqual)
+        {
+            if (signedZeroEqual && a == b)
+                return;
+
+            if(isfinite(a) && isfinite(b))
+            {
+                int ia = asint(a);
+                int ib = asint(b);
+                if ((ia ^ ib) < 0)
+                    Assert.AreEqual(true, false);
+                int ulps = abs(ia - ib);
+                Assert.AreEqual(true, ulps <= maxUlp);
+            }
+            else
+            {
+                if (a != b && (!isnan(a) || !isnan(b)))
+                    Assert.AreEqual(true, false);
+            }
+        }
+
+        public static void AreEqual(double a, double b, double delta = 0.0)
+        {
+            Assert.AreEqual(a, b, delta);
+        }
+
+        public static void AreEqual(double a, double b, int maxUlp, bool signedZeroEqual)
+        {
+            if (signedZeroEqual && a == b)
+                return;
+
+            if (isfinite(a) && isfinite(b))
+            {
+                long la = aslong(a);
+                long lb = aslong(b);
+                if ((la ^ lb) < 0)
+                    Assert.AreEqual(true, false);
+                long ulps = abs(la - lb);
+                Assert.AreEqual(true, ulps <= maxUlp);
+            }
+            else
+            {
+                if (a != b && (!isnan(a) || !isnan(b)))
+                    Assert.AreEqual(true, false);
+            }
+        }
+
+
+        // bool
         public static void AreEqual(bool2 a, bool2 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
         }
 
         public static void AreEqual(bool3 a, bool3 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
         }
 
         public static void AreEqual(bool4 a, bool4 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
-            Assert.AreEqual(a.w, b.w);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
+            AreEqual(a.w, b.w);
         }
 
 
@@ -99,30 +173,25 @@ namespace Unity.Mathematics.Tests
         }
 
         // int
-        public static void AreEqual(int a, int b)
-        {
-            Assert.AreEqual(a, b);
-        }
-
         public static void AreEqual(int2 a, int2 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
         }
 
         public static void AreEqual(int3 a, int3 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
         }
 
         public static void AreEqual(int4 a, int4 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
-            Assert.AreEqual(a.w, b.w);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
+            AreEqual(a.w, b.w);
         }
 
 
@@ -194,30 +263,25 @@ namespace Unity.Mathematics.Tests
 
 
         // uint
-        public static void AreEqual(uint a, uint b)
-        {
-            Assert.AreEqual(a, b);
-        }
-
         public static void AreEqual(uint2 a, uint2 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
         }
 
         public static void AreEqual(uint3 a, uint3 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
         }
 
         public static void AreEqual(uint4 a, uint4 b)
         {
-            Assert.AreEqual(a.x, b.x);
-            Assert.AreEqual(a.y, b.y);
-            Assert.AreEqual(a.z, b.z);
-            Assert.AreEqual(a.w, b.w);
+            AreEqual(a.x, b.x);
+            AreEqual(a.y, b.y);
+            AreEqual(a.z, b.z);
+            AreEqual(a.w, b.w);
         }
 
 
@@ -287,30 +351,46 @@ namespace Unity.Mathematics.Tests
         }
 
         // float
-        public static void AreEqual(float a, float b, float delta = 0.0f)
-        {
-            Assert.AreEqual(a, b, delta);
-        }
-
         public static void AreEqual(float2 a, float2 b, float delta = 0.0f)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+        }
+
+        public static void AreEqual(float2 a, float2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(float3 a, float3 b, float delta = 0.0f)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
-            Assert.AreEqual(a.z, b.z, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+            AreEqual(a.z, b.z, delta);
+        }
+
+        public static void AreEqual(float3 a, float3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
+            AreEqual(a.z, b.z, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(float4 a, float4 b, float delta = 0.0f)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
-            Assert.AreEqual(a.z, b.z, delta);
-            Assert.AreEqual(a.w, b.w, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+            AreEqual(a.z, b.z, delta);
+            AreEqual(a.w, b.w, delta);
+        }
+
+        public static void AreEqual(float4 a, float4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
+            AreEqual(a.z, b.z, maxUlp, signedZeroEqual);
+            AreEqual(a.w, b.w, maxUlp, signedZeroEqual);
         }
 
 
@@ -320,16 +400,34 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c1, b.c1, delta);
         }
 
+        public static void AreEqual(float2x2 a, float2x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(float3x2 a, float3x2 b, float delta = 0.0f)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
         }
 
+        public static void AreEqual(float3x2 a, float3x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(float4x2 a, float4x2 b, float delta = 0.0f)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
+        }
+
+        public static void AreEqual(float4x2 a, float4x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
         }
 
 
@@ -340,6 +438,13 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c2, b.c2, delta);
         }
 
+        public static void AreEqual(float2x3 a, float2x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(float3x3 a, float3x3 b, float delta = 0.0f)
         {
             AreEqual(a.c0, b.c0, delta);
@@ -347,11 +452,25 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c2, b.c2, delta);
         }
 
+        public static void AreEqual(float3x3 a, float3x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(float4x3 a, float4x3 b, float delta = 0.0f)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
             AreEqual(a.c2, b.c2, delta);
+        }
+
+        public static void AreEqual(float4x3 a, float4x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
         }
 
 
@@ -363,12 +482,28 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c3, b.c3, delta);
         }
 
+        public static void AreEqual(float2x4 a, float2x4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(float3x4 a, float3x4 b, float delta = 0.0f)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
             AreEqual(a.c2, b.c2, delta);
             AreEqual(a.c3, b.c3, delta);
+        }
+
+        public static void AreEqual(float3x4 a, float3x4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(float4x4 a, float4x4 b, float delta = 0.0f)
@@ -379,31 +514,55 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c3, b.c3, delta);
         }
 
-        // double
-        public static void AreEqual(double a, double b, double delta = 0.0)
+        public static void AreEqual(float4x4 a, float4x4 b, int maxUlp, bool signedZeroEqual)
         {
-            Assert.AreEqual(a, b, delta);
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
         }
 
+        // double
         public static void AreEqual(double2 a, double2 b, double delta = 0.0)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+        }
+
+        public static void AreEqual(double2 a, double2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(double3 a, double3 b, double delta = 0.0)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
-            Assert.AreEqual(a.z, b.z, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+            AreEqual(a.z, b.z, delta);
+        }
+
+        public static void AreEqual(double3 a, double3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
+            AreEqual(a.z, b.z, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(double4 a, double4 b, double delta = 0.0)
         {
-            Assert.AreEqual(a.x, b.x, delta);
-            Assert.AreEqual(a.y, b.y, delta);
-            Assert.AreEqual(a.z, b.z, delta);
-            Assert.AreEqual(a.w, b.w, delta);
+            AreEqual(a.x, b.x, delta);
+            AreEqual(a.y, b.y, delta);
+            AreEqual(a.z, b.z, delta);
+            AreEqual(a.w, b.w, delta);
+        }
+
+        public static void AreEqual(double4 a, double4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.x, b.x, maxUlp, signedZeroEqual);
+            AreEqual(a.y, b.y, maxUlp, signedZeroEqual);
+            AreEqual(a.z, b.z, maxUlp, signedZeroEqual);
+            AreEqual(a.w, b.w, maxUlp, signedZeroEqual);
         }
 
 
@@ -413,10 +572,22 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c1, b.c1, delta);
         }
 
+        public static void AreEqual(double2x2 a, double2x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(double3x2 a, double3x2 b, double delta = 0.0)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
+        }
+
+        public static void AreEqual(double3x2 a, double3x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(double4x2 a, double4x2 b, double delta = 0.0)
@@ -425,12 +596,24 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c1, b.c1, delta);
         }
 
+        public static void AreEqual(double4x2 a, double4x2 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+        }
 
         public static void AreEqual(double2x3 a, double2x3 b, double delta = 0.0)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
             AreEqual(a.c2, b.c2, delta);
+        }
+
+        public static void AreEqual(double2x3 a, double2x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(double3x3 a, double3x3 b, double delta = 0.0)
@@ -440,11 +623,25 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c2, b.c2, delta);
         }
 
+        public static void AreEqual(double3x3 a, double3x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(double4x3 a, double4x3 b, double delta = 0.0)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
             AreEqual(a.c2, b.c2, delta);
+        }
+
+        public static void AreEqual(double4x3 a, double4x3 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
         }
 
 
@@ -456,12 +653,28 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c3, b.c3, delta);
         }
 
+        public static void AreEqual(double2x4 a, double2x4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(double3x4 a, double3x4 b, double delta = 0.0)
         {
             AreEqual(a.c0, b.c0, delta);
             AreEqual(a.c1, b.c1, delta);
             AreEqual(a.c2, b.c2, delta);
             AreEqual(a.c3, b.c3, delta);
+        }
+
+        public static void AreEqual(double3x4 a, double3x4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
         }
 
         public static void AreEqual(double4x4 a, double4x4 b, double delta = 0.0)
@@ -471,6 +684,15 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.c2, b.c2, delta);
             AreEqual(a.c3, b.c3, delta);
         }
+
+        public static void AreEqual(double4x4 a, double4x4 b, int maxUlp, bool signedZeroEqual)
+        {
+            AreEqual(a.c0, b.c0, maxUlp, signedZeroEqual);
+            AreEqual(a.c1, b.c1, maxUlp, signedZeroEqual);
+            AreEqual(a.c2, b.c2, maxUlp, signedZeroEqual);
+            AreEqual(a.c3, b.c3, maxUlp, signedZeroEqual);
+        }
+
         public static void AreEqual(quaternion a, quaternion b, float delta = 0.0f)
         {
             AreEqual(a.value, b.value, delta);
@@ -480,16 +702,6 @@ namespace Unity.Mathematics.Tests
         {
             AreEqual(a.rot, b.rot, delta);
             AreEqual(a.pos, b.pos, delta);
-        }
-
-        public static void AreEqual(long a, long b)
-        {
-            Assert.AreEqual(a, b);
-        }
-
-        public static void AreEqual(ulong a, ulong b)
-        {
-            Assert.AreEqual(a, b);
         }
     }
 }

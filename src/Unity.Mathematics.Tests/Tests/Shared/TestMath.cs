@@ -5,104 +5,8 @@ using Burst.Compiler.IL.Tests;
 namespace Unity.Mathematics.Tests
 {
     [TestFixture]
-    public class TestMath
+    public partial class TestMath
     {
-        [TestCompiler]
-        public void abs_int()
-        {
-            TestUtils.AreEqual(abs(0), 0);
-            TestUtils.AreEqual(abs(-7), 7);
-            TestUtils.AreEqual(abs(11), 11);
-            TestUtils.AreEqual(abs(-2147483647), 2147483647);
-            TestUtils.AreEqual(abs(-2147483648), -2147483648);
-        }
-
-        [TestCompiler]
-        public void abs_int2()
-        {
-            TestUtils.AreEqual(abs(int2(0, -7)), int2(0, 7));
-            TestUtils.AreEqual(abs(int2(11, -2147483647)), int2(11, 2147483647));
-            TestUtils.AreEqual(abs(int2(-2147483648, -123412)), int2(-2147483648, 123412));
-        }
-
-        [TestCompiler]
-        public void abs_int3()
-        {
-            TestUtils.AreEqual(abs(int3(0, -7, 11)), int3(0, 7, 11));
-            TestUtils.AreEqual(abs(int3(-2147483647, -2147483648, -123412)), int3(2147483647, -2147483648, 123412));
-        }
-
-        [TestCompiler]
-        public void abs_int4()
-        {
-            TestUtils.AreEqual(abs(int4(0, -7, 11, -2147483647)), int4(0, 7, 11, 2147483647));
-            TestUtils.AreEqual(abs(int4(-2147483648, -123412, 17, -34)), int4(-2147483648, 123412, 17, 34));
-        }
-
-        [TestCompiler]
-        public void abs_float()
-        {
-            TestUtils.AreEqual(abs(0.0f), 0.0f);
-            TestUtils.AreEqual(abs(-1.1f), 1.1f);
-            TestUtils.AreEqual(abs(2.2f), 2.2f);
-            TestUtils.AreEqual(abs(float.NegativeInfinity), float.PositiveInfinity);
-            TestUtils.AreEqual(abs(float.PositiveInfinity), float.PositiveInfinity);
-        }
-
-        [TestCompiler]
-        public void abs_float2()
-        {
-            TestUtils.AreEqual(abs(float2(0.0f, -1.1f)), float2(0.0f, 1.1f));
-            TestUtils.AreEqual(abs(float2(2.2f, float.NegativeInfinity)), float2(2.2f, float.PositiveInfinity));
-            TestUtils.AreEqual(abs(float2(float.PositiveInfinity, -3.3f)), float2(float.PositiveInfinity, 3.3f));
-        }
-
-        [TestCompiler]
-        public void abs_float3()
-        {
-            TestUtils.AreEqual(abs(float3(0.0f, -1.1f, 2.2f)), float3(0.0f, 1.1f, 2.2f));
-            TestUtils.AreEqual(abs(float3(float.NegativeInfinity, float.PositiveInfinity, -3.3f)), float3(float.PositiveInfinity, float.PositiveInfinity, 3.3f));
-        }
-
-        [TestCompiler]
-        public void abs_float4()
-        {
-            TestUtils.AreEqual(abs(float4(0.0f, -1.1f, 2.2f, float.NegativeInfinity)), float4(0.0f, 1.1f, 2.2f, float.PositiveInfinity));
-            TestUtils.AreEqual(abs(float4(float.PositiveInfinity, -3.3f, 5.5f, -6.6f)), float4(float.PositiveInfinity, 3.3f, 5.5f, 6.6f));
-        }
-
-        [TestCompiler]
-        public void abs_double()
-        {
-            TestUtils.AreEqual(abs(0.0), 0.0);
-            TestUtils.AreEqual(abs(-1.1), 1.1);
-            TestUtils.AreEqual(abs(2.2), 2.2);
-            TestUtils.AreEqual(abs(double.NegativeInfinity), double.PositiveInfinity);
-            TestUtils.AreEqual(abs(double.PositiveInfinity), double.PositiveInfinity);
-        }
-
-        [TestCompiler]
-        public void abs_double2()
-        {
-            TestUtils.AreEqual(abs(double2(0.0, -1.1)), double2(0.0, 1.1));
-            TestUtils.AreEqual(abs(double2(2.2, double.NegativeInfinity)), double2(2.2, double.PositiveInfinity));
-            TestUtils.AreEqual(abs(double2(double.PositiveInfinity, -3.3)), double2(double.PositiveInfinity, 3.3));
-        }
-
-        [TestCompiler]
-        public void abs_double3()
-        {
-            TestUtils.AreEqual(abs(double3(0.0, -1.1, 2.2)), double3(0.0, 1.1, 2.2));
-            TestUtils.AreEqual(abs(double3(double.NegativeInfinity, double.PositiveInfinity, -3.3)), double3(double.PositiveInfinity, double.PositiveInfinity, 3.3));
-        }
-
-        [TestCompiler]
-        public void abs_double4()
-        {
-            TestUtils.AreEqual(abs(double4(0.0, -1.1, 2.2, double.NegativeInfinity)), double4(0.0, 1.1, 2.2, double.PositiveInfinity));
-            TestUtils.AreEqual(abs(double4(double.PositiveInfinity, -3.3, 5.5, -6.6)), double4(double.PositiveInfinity, 3.3, 5.5, 6.6));
-        }
-
         [TestCompiler]
         public void asint_uint()
         {
@@ -440,304 +344,6 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void isfinite_float()
-        {
-            TestUtils.AreEqual(isfinite(-float.NaN), false);
-            TestUtils.AreEqual(isfinite(float.NegativeInfinity), false);
-            TestUtils.AreEqual(isfinite(float.MinValue), true);
-            TestUtils.AreEqual(isfinite(-1.0f), true);
-            TestUtils.AreEqual(isfinite(0.0f), true);
-            TestUtils.AreEqual(isfinite(1.0f), true);
-            TestUtils.AreEqual(isfinite(float.MaxValue), true);
-            TestUtils.AreEqual(isfinite(float.PositiveInfinity), false);
-            TestUtils.AreEqual(isfinite(float.NaN), false);
-        }
-
-        [TestCompiler]
-        public void isfinite_float2()
-        {
-            TestUtils.AreEqual(isfinite(float2(-float.NaN, float.MinValue)), bool2(false, true));
-            TestUtils.AreEqual(isfinite(float2(float.NegativeInfinity, -1.0f)), bool2(false, true));
-            TestUtils.AreEqual(isfinite(float2(0.0f, 1.0f)), bool2(true, true));
-            TestUtils.AreEqual(isfinite(float2(float.MaxValue, float.PositiveInfinity)), bool2(true, false));
-            TestUtils.AreEqual(isfinite(float2(float.NaN)), bool2(false));
-        }
-
-        [TestCompiler]
-        public void isfinite_float3()
-        {
-            TestUtils.AreEqual(isfinite(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, false, true));
-            TestUtils.AreEqual(isfinite(float3(-1.0f, 0.0f, 1.0f)), bool3(true, true, true));
-            TestUtils.AreEqual(isfinite(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(true, false, false));
-        }
-
-        [TestCompiler]
-        public void isfinite_float4()
-        {
-            TestUtils.AreEqual(isfinite(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1.0f)), bool4(false, false, true, true));
-            TestUtils.AreEqual(isfinite(float4(0.0f, 1.0f, float.MaxValue, float.PositiveInfinity)), bool4(true, true, true, false));
-            TestUtils.AreEqual(isfinite(float4(float.NaN)), bool4(false));
-        }
-
-        [TestCompiler]
-        public void isfinite_double()
-        {
-            TestUtils.AreEqual(isfinite(-double.NaN), false);
-            TestUtils.AreEqual(isfinite(double.NegativeInfinity), false);
-            TestUtils.AreEqual(isfinite(double.MinValue), true);
-            TestUtils.AreEqual(isfinite(-1.0), true);
-            TestUtils.AreEqual(isfinite(0.0), true);
-            TestUtils.AreEqual(isfinite(1.0), true);
-            TestUtils.AreEqual(isfinite(double.MaxValue), true);
-            TestUtils.AreEqual(isfinite(double.PositiveInfinity), false);
-            TestUtils.AreEqual(isfinite(double.NaN), false);
-        }
-
-        [TestCompiler]
-        public void isfinite_double2()
-        {
-            TestUtils.AreEqual(isfinite(double2(-double.NaN, double.MinValue)), bool2(false, true));
-            TestUtils.AreEqual(isfinite(double2(double.NegativeInfinity, -1.0)), bool2(false, true));
-            TestUtils.AreEqual(isfinite(double2(0.0, 1.0)), bool2(true, true));
-            TestUtils.AreEqual(isfinite(double2(double.MaxValue, double.PositiveInfinity)), bool2(true, false));
-            TestUtils.AreEqual(isfinite(double2(double.NaN)), bool2(false));
-        }
-
-        [TestCompiler]
-        public void isfinite_double3()
-        {
-            TestUtils.AreEqual(isfinite(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, false, true));
-            TestUtils.AreEqual(isfinite(double3(-1.0, 0.0, 1.0)), bool3(true, true, true));
-            TestUtils.AreEqual(isfinite(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(true, false, false));
-        }
-
-        [TestCompiler]
-        public void isfinite_double4()
-        {
-            TestUtils.AreEqual(isfinite(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, false, true, true));
-            TestUtils.AreEqual(isfinite(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(true, true, true, false));
-            TestUtils.AreEqual(isfinite(double4(double.NaN)), bool4(false));
-        }
-
-        [TestCompiler]
-        public void isinf_float()
-        {
-            TestUtils.AreEqual(isinf(-float.NaN), false);
-            TestUtils.AreEqual(isinf(float.NegativeInfinity), true);
-            TestUtils.AreEqual(isinf(float.MinValue), false);
-            TestUtils.AreEqual(isinf(-1.0f), false);
-            TestUtils.AreEqual(isinf(0.0f), false);
-            TestUtils.AreEqual(isinf(1.0f), false);
-            TestUtils.AreEqual(isinf(float.MaxValue), false);
-            TestUtils.AreEqual(isinf(float.PositiveInfinity), true);
-            TestUtils.AreEqual(isinf(float.NaN), false);
-        }
-
-        [TestCompiler]
-        public void isinf_float2()
-        {
-            TestUtils.AreEqual(isinf(float2(-float.NaN, float.NegativeInfinity)), bool2(false, true));
-            TestUtils.AreEqual(isinf(float2(float.MinValue, -1.0f)), bool2(false, false));
-            TestUtils.AreEqual(isinf(float2(0.0f, 1.0f)), bool2(false, false));
-            TestUtils.AreEqual(isinf(float2(float.MaxValue, float.PositiveInfinity)), bool2(false, true));
-            TestUtils.AreEqual(isinf(float2(float.NaN)), bool2(false));
-        }
-
-        [TestCompiler]
-        public void isinf_float3()
-        {
-            TestUtils.AreEqual(isinf(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, true, false));
-            TestUtils.AreEqual(isinf(float3(-1.0f, 0.0f, 1.0f)), bool3(false, false, false));
-            TestUtils.AreEqual(isinf(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(false, true, false));
-        }
-
-        [TestCompiler]
-        public void isinf_float4()
-        {
-            TestUtils.AreEqual(isinf(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1.0f)), bool4(false, true, false, false));
-            TestUtils.AreEqual(isinf(float4(0.0f, 1.0f, float.MaxValue, float.PositiveInfinity)), bool4(false, false, false, true));
-            TestUtils.AreEqual(isinf(float4(float.NaN)), bool4(false));
-        }
-
-        [TestCompiler]
-        public void isinf_double()
-        {
-            TestUtils.AreEqual(isinf(-double.NaN), false);
-            TestUtils.AreEqual(isinf(double.NegativeInfinity), true);
-            TestUtils.AreEqual(isinf(double.MinValue), false);
-            TestUtils.AreEqual(isinf(-1.0), false);
-            TestUtils.AreEqual(isinf(0.0), false);
-            TestUtils.AreEqual(isinf(1.0), false);
-            TestUtils.AreEqual(isinf(double.MaxValue), false);
-            TestUtils.AreEqual(isinf(double.PositiveInfinity), true);
-            TestUtils.AreEqual(isinf(double.NaN), false);
-        }
-
-        [TestCompiler]
-        public void isinf_double2()
-        {
-            TestUtils.AreEqual(isinf(double2(-double.NaN, double.NegativeInfinity)), bool2(false, true));
-            TestUtils.AreEqual(isinf(double2(double.MinValue, -1.0)), bool2(false, false));
-            TestUtils.AreEqual(isinf(double2(0.0, 1.0)), bool2(false, false));
-            TestUtils.AreEqual(isinf(double2(double.MaxValue, double.PositiveInfinity)), bool2(false, true));
-            TestUtils.AreEqual(isinf(double2(double.NaN)), bool2(false));
-        }
-
-        [TestCompiler]
-        public void isinf_double3()
-        {
-            TestUtils.AreEqual(isinf(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, true, false));
-            TestUtils.AreEqual(isinf(double3(-1.0, 0.0, 1.0)), bool3(false, false, false));
-            TestUtils.AreEqual(isinf(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(false, true, false));
-        }
-
-        [TestCompiler]
-        public void isinf_double4()
-        {
-            TestUtils.AreEqual(isinf(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, true, false, false));
-            TestUtils.AreEqual(isinf(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(false, false, false, true));
-            TestUtils.AreEqual(isinf(double4(double.NaN)), bool4(false));
-        }
-
-        [TestCompiler]
-        public void isnan_float()
-        {
-            TestUtils.AreEqual(isnan(-float.NaN), true);
-            TestUtils.AreEqual(isnan(float.NegativeInfinity), false);
-            TestUtils.AreEqual(isnan(float.MinValue), false);
-            TestUtils.AreEqual(isnan(-1.0f), false);
-            TestUtils.AreEqual(isnan(0.0f), false);
-            TestUtils.AreEqual(isnan(1.0f), false);
-            TestUtils.AreEqual(isnan(float.MaxValue), false);
-            TestUtils.AreEqual(isnan(float.PositiveInfinity), false);
-            TestUtils.AreEqual(isnan(float.NaN), true);
-        }
-
-        [TestCompiler]
-        public void isnan_float2()
-        {
-            TestUtils.AreEqual(isnan(float2(-float.NaN, float.NegativeInfinity)), bool2(true, false));
-            TestUtils.AreEqual(isnan(float2(float.MinValue, -1.0f)), bool2(false, false));
-            TestUtils.AreEqual(isnan(float2(0.0f, 1.0f)), bool2(false, false));
-            TestUtils.AreEqual(isnan(float2(float.MaxValue, float.PositiveInfinity)), bool2(false, false));
-            TestUtils.AreEqual(isnan(float2(float.NaN)), bool2(true));
-        }
-
-        [TestCompiler]
-        public void isnan_float3()
-        {
-            TestUtils.AreEqual(isnan(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(true, false, false));
-            TestUtils.AreEqual(isnan(float3(-1.0f, 0.0f, 1.0f)), bool3(false, false, false));
-            TestUtils.AreEqual(isnan(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(false, false, true));
-        }
-
-        [TestCompiler]
-        public void isnan_float4()
-        {
-            TestUtils.AreEqual(isnan(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1.0f)), bool4(true, false, false, false));
-            TestUtils.AreEqual(isnan(float4(0.0f, 1.0f, float.MaxValue, float.PositiveInfinity)), bool4(false, false, false, false));
-            TestUtils.AreEqual(isnan(float4(float.NaN)), bool4(true));
-        }
-
-        [TestCompiler]
-        public void isnan_double()
-        {
-            TestUtils.AreEqual(isnan(-double.NaN), true);
-            TestUtils.AreEqual(isnan(double.NegativeInfinity), false);
-            TestUtils.AreEqual(isnan(double.MinValue), false);
-            TestUtils.AreEqual(isnan(-1.0), false);
-            TestUtils.AreEqual(isnan(0.0), false);
-            TestUtils.AreEqual(isnan(1.0), false);
-            TestUtils.AreEqual(isnan(double.MaxValue), false);
-            TestUtils.AreEqual(isnan(double.PositiveInfinity), false);
-            TestUtils.AreEqual(isnan(double.NaN), true);
-        }
-
-        [TestCompiler]
-        public void isnan_double2()
-        {
-            TestUtils.AreEqual(isnan(double2(-double.NaN, double.NegativeInfinity)), bool2(true, false));
-            TestUtils.AreEqual(isnan(double2(double.MinValue, -1.0)), bool2(false, false));
-            TestUtils.AreEqual(isnan(double2(0.0, 1.0)), bool2(false, false));
-            TestUtils.AreEqual(isnan(double2(double.MaxValue, double.PositiveInfinity)), bool2(false, false));
-            TestUtils.AreEqual(isnan(double2(double.NaN)), bool2(true));
-        }
-
-        [TestCompiler]
-        public void isnan_double3()
-        {
-            TestUtils.AreEqual(isnan(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(true, false, false));
-            TestUtils.AreEqual(isnan(double3(-1.0, 0.0, 1.0)), bool3(false, false, false));
-            TestUtils.AreEqual(isnan(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(false, false, true));
-        }
-
-        [TestCompiler]
-        public void isnan_double4()
-        {
-            TestUtils.AreEqual(isnan(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(true, false, false, false));
-            TestUtils.AreEqual(isnan(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(false, false, false, false));
-            TestUtils.AreEqual(isnan(double4(double.NaN)), bool4(true));
-        }
-
-        [TestCompiler]
-        public void min_int()
-        {
-            TestUtils.AreEqual(min(5, 100), 5);
-            TestUtils.AreEqual(min(7, -77), -77);
-            TestUtils.AreEqual(min(int.MinValue, -100), int.MinValue);
-            TestUtils.AreEqual(min(int.MaxValue, 88), 88);
-        }
-
-        [TestCompiler]
-        public void min_int2()
-        {
-            TestUtils.AreEqual(min(int2(5, 7), int2(100, -77)), int2(5, -77));
-            TestUtils.AreEqual(min(int2(int.MinValue, int.MaxValue), int2(-100, 88)), int2(int.MinValue, 88));
-        }
-
-        [TestCompiler]
-        public void min_int3()
-        {
-            TestUtils.AreEqual(min(int3(5, 7, int.MinValue), int3(100, -77, int.MaxValue)), int3(5, -77, int.MinValue));
-            TestUtils.AreEqual(min(int3(int.MaxValue, 0, 0), int3(88, 0, 0)), int3(88, 0, 0));
-        }
-
-        [TestCompiler]
-        public void min_int4()
-        {
-            TestUtils.AreEqual(min(int4(5, 7, int.MinValue, int.MaxValue), int4(100, -77, -100, 88)), int4(5, -77, int.MinValue, 88));
-        }
-
-        [TestCompiler]
-        public void min_uint()
-        {
-            TestUtils.AreEqual(min(5u, 100u), 5u);
-            TestUtils.AreEqual(min(7u, 0xFFFFFF00u), 7u);
-            TestUtils.AreEqual(min(0xFFFFFFFFu, 77u), 77u);
-            TestUtils.AreEqual(min(0xFFFFFFFEu, 0xFFFFFFFFu), 0xFFFFFFFEu);
-        }
-
-        [TestCompiler]
-        public void min_uint2()
-        {
-            TestUtils.AreEqual(min(uint2(5u, 7u), uint2(100u, 0xFFFFFF00u)), uint2(5u, 7u));
-            TestUtils.AreEqual(min(uint2(0xFFFFFFFFu, 0xFFFFFFFEu), uint2(77u, 0xFFFFFFFFu)), uint2(77u, 0xFFFFFFFEu));
-        }
-
-        [TestCompiler]
-        public void min_uint3()
-        {
-            TestUtils.AreEqual(min(uint3(5u, 7u, 0xFFFFFFFFu), uint3(100u, 0xFFFFFF00u, 77u)), uint3(5u, 7u, 77u));
-            TestUtils.AreEqual(min(uint3(0xFFFFFFFEu, 0u, 0u), uint3(0xFFFFFFFFu, 0u, 0u)), uint3(0xFFFFFFFEu, 0u, 0u));
-        }
-
-        [TestCompiler]
-        public void min_uint4()
-        {
-            TestUtils.AreEqual(min(uint4(5u, 7u, 0xFFFFFFFFu, 0xFFFFFFFEu), uint4(100u, 0xFFFFFF00u, 77u, 0xFFFFFFFFu)), uint4(5u, 7u, 77u, 0xFFFFFFFEu));
-        }
-
-        [TestCompiler]
         public void faceforward_float2()
         {
             TestUtils.AreEqual(faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2( 3.0f, -4.0f)), float2(-3.5f,  4.5f));
@@ -882,51 +488,24 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void unlerp_float()
-        {
-            TestUtils.AreEqual(unlerp(-1.5f, 2.5f, 0.5f), 0.5f);
-            TestUtils.AreEqual(unlerp(-100.5f, 22.5f, lerp(-100.5f, 22.5f, 0.25f)), 0.25f);
-        }
-
-        [TestCompiler]
-        public void unlerp_double()
-        {
-            TestUtils.AreEqual(unlerp(-1.5, 2.5, 0.5), 0.5);
-            TestUtils.AreEqual(unlerp(-100.5, 22.5, lerp(-100.5, 22.5, 0.25)), 0.25);
-        }
-
-        [TestCompiler]
-        public void remap_float()
-        {
-            TestUtils.AreEqual(remap(-1.0f, 3.0f, -75.0f, 25.0f, 0.5f), -37.5f);
-        }
-
-        [TestCompiler]
-        public void remap_double()
-        {
-            TestUtils.AreEqual(remap(-1.0, 3.0, -75.0, 25.0, 0.5), -37.5);
-        }
-
-
-        [TestCompiler]
         public void normalize_float2()
         {
             TestUtils.AreEqual(normalize(float2(3.1f, -5.3f)), float2(0.504883f, -0.863188f), 0.0001f);
-            Assert.AreEqual(all(isnan(normalize(float2(0.0f, 0.0f)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(float2(0.0f, 0.0f)))), true);
         }
 
         [TestCompiler]
         public void normalize_float3()
         {
             TestUtils.AreEqual(normalizesafe(float3(3.1f, -5.3f, 2.6f)), float3(0.464916f, -0.794861f, 0.389932f), 0.0001f);
-            Assert.AreEqual(all(isnan(normalize(float3(0.0f, 0.0f, 0.0f)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(float3(0.0f, 0.0f, 0.0f)))), true);
         }
 
         [TestCompiler]
         public void normalize_float4()
         {
             TestUtils.AreEqual(normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
-            Assert.AreEqual(all(isnan(normalize(float4(0.0f, 0.0f, 0.0f, 0.0f)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(float4(0.0f, 0.0f, 0.0f, 0.0f)))), true);
         }
 
 
@@ -934,28 +513,28 @@ namespace Unity.Mathematics.Tests
         public void normalize_double2()
         {
             TestUtils.AreEqual(normalize(double2(3.1, -5.3)), double2(0.504883, -0.863188), 0.0001);
-            Assert.AreEqual(all(isnan(normalize(double2(0.0, 0.0)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(double2(0.0, 0.0)))), true);
         }
 
         [TestCompiler]
         public void normalize_double3()
         {
             TestUtils.AreEqual(normalizesafe(double3(3.1, -5.3, 2.6)), double3(0.464916, -0.794861, 0.389932), 0.0001);
-            Assert.AreEqual(all(isnan(normalize(double3(0.0, 0.0, 0.0)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(double3(0.0, 0.0, 0.0)))), true);
         }
 
         [TestCompiler]
         public void normalize_double4()
         {
             TestUtils.AreEqual(normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), double4(0.234727, -0.401308, 0.196868, 0.863191), 0.0001);
-            Assert.AreEqual(all(isnan(normalize(double4(0.0, 0.0, 0.0, 0.0f)))), true);
+            TestUtils.AreEqual(all(isnan(normalize(double4(0.0, 0.0, 0.0, 0.0f)))), true);
         }
 
         [TestCompiler]
         public void normalize_quaternion()
         {
             TestUtils.AreEqual(normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
-            Assert.AreEqual(all(isnan(normalize(quaternion(0.0f, 0.0f, 0.0f, 0.0f)).value)), true);
+            TestUtils.AreEqual(all(isnan(normalize(quaternion(0.0f, 0.0f, 0.0f, 0.0f)).value)), true);
         }
 
 
@@ -1038,14 +617,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(f16tof32(0x4321)), 0x40642000);
             TestUtils.AreEqual(asuint(f16tof32(0x7BFF)), 0x477FE000);
             TestUtils.AreEqual(asuint(f16tof32(0x7C00)), 0x7F800000);
-            Assert.AreEqual(isnan(f16tof32(0x7C01)), true);
+            TestUtils.AreEqual(isnan(f16tof32(0x7C01)), true);
 
             TestUtils.AreEqual(asuint(f16tof32(0x8000)), 0x80000000);
             TestUtils.AreEqual(asuint(f16tof32(0x8203)), 0xB800C000);
             TestUtils.AreEqual(asuint(f16tof32(0xC321)), 0xC0642000);
             TestUtils.AreEqual(asuint(f16tof32(0xFBFF)), 0xC77FE000);
             TestUtils.AreEqual(asuint(f16tof32(0xFC00)), 0xFF800000);
-            Assert.AreEqual(isnan(f16tof32(0xFC01)), true);
+            TestUtils.AreEqual(isnan(f16tof32(0xFC01)), true);
         }
 
         [TestCompiler]
@@ -1054,12 +633,12 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x0000, 0x0203))), uint2(0x00000000, 0x3800C000));
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x4321, 0x7BFF))), uint2(0x40642000, 0x477FE000));
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x7C00, 0x7C00))), uint2(0x7F800000, 0x7F800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint2(0x7C01, 0x7C01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint2(0x7C01, 0x7C01)))), true);
 
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x8000, 0x8203))), uint2(0x80000000, 0xB800C000));
             TestUtils.AreEqual(asuint(f16tof32(uint2(0xC321, 0xFBFF))), uint2(0xC0642000, 0xC77FE000));
             TestUtils.AreEqual(asuint(f16tof32(uint2(0xFC00, 0xFC00))), uint2(0xFF800000, 0xFF800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint2(0xFC01, 0xFC01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint2(0xFC01, 0xFC01)))), true);
         }
 
         [TestCompiler]
@@ -1067,11 +646,11 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(asuint(f16tof32(uint3(0x0000, 0x0203, 0x4321))), uint3(0x00000000, 0x3800C000, 0x40642000));
             TestUtils.AreEqual(asuint(f16tof32(uint3(0x7BFF, 0x7C00, 0x7C00))), uint3(0x477FE000, 0x7F800000, 0x7F800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint3(0x7C01, 0x7C01, 0x7C01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint3(0x7C01, 0x7C01, 0x7C01)))), true);
 
             TestUtils.AreEqual(asuint(f16tof32(uint3(0x8000, 0x8203, 0xC321))), uint3(0x80000000, 0xB800C000, 0xC0642000));
             TestUtils.AreEqual(asuint(f16tof32(uint3(0xFBFF, 0xFC00, 0xFC00))), uint3(0xC77FE000, 0xFF800000, 0xFF800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint3(0xFC01, 0xFC01, 0xFC01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint3(0xFC01, 0xFC01, 0xFC01)))), true);
         }
 
         [TestCompiler]
@@ -1079,11 +658,11 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(asuint(f16tof32(uint4(0x0000, 0x0203, 0x4321, 0x7BFF))), uint4(0x00000000, 0x3800C000, 0x40642000, 0x477FE000));
             TestUtils.AreEqual(asuint(f16tof32(uint4(0x7C00, 0x7C00, 0x7C00, 0x7C00))), uint4(0x7F800000, 0x7F800000, 0x7F800000, 0x7F800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint4(0x7C01, 0x7C01, 0x7C01, 0x7C01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint4(0x7C01, 0x7C01, 0x7C01, 0x7C01)))), true);
 
             TestUtils.AreEqual(asuint(f16tof32(uint4(0x8000, 0x8203, 0xC321, 0xFBFF))), uint4(0x80000000, 0xB800C000, 0xC0642000, 0xC77FE000));
             TestUtils.AreEqual(asuint(f16tof32(uint4(0xFC00, 0xFC00, 0xFC00, 0xFC00))), uint4(0xFF800000, 0xFF800000, 0xFF800000, 0xFF800000));
-            Assert.AreEqual(all(isnan(f16tof32(uint4(0xFC01, 0xFC01, 0xFC01, 0xFC01)))), true);
+            TestUtils.AreEqual(all(isnan(f16tof32(uint4(0xFC01, 0xFC01, 0xFC01, 0xFC01)))), true);
         }
 
         [TestCompiler]
@@ -1144,193 +723,5 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(f32tof16(float4(-0.0f, -2.98e-08f, -5.96046448e-08f, -123.4f)), uint4(0x8000, 0x8000, 0x8001, 0xD7B6));
             TestUtils.AreEqual(f32tof16(float4(-65504.0f, -65520.0f, float.NegativeInfinity, float.NegativeInfinity)), uint4(0xFBFF, 0xFC00, 0xFC00, 0xFC00));
         }
-
-        [TestCompiler]
-        public void sin_float()
-        {
-            TestUtils.AreEqual(sin(-1000000.0f), 0.349994f, 0.000001f);
-            TestUtils.AreEqual(sin(-1.2f), -0.932039f, 0.000001f);
-            TestUtils.AreEqual(sin(0.0f), 0.0f, 0.000001f);
-            TestUtils.AreEqual(sin(1.2f), 0.932039f, 0.000001f);
-            TestUtils.AreEqual(sin(1000000.0f), -0.349994f, 0.000001f);
-            TestUtils.AreEqual(asint(sin(float.NegativeInfinity)), asint(float.NaN));
-            TestUtils.AreEqual(asint(sin(float.NaN)), asint(float.NaN));
-            TestUtils.AreEqual(asint(sin(float.PositiveInfinity)), asint(float.NaN));
-        }
-
-        [TestCompiler]
-        public void sin_float2()
-        {
-            TestUtils.AreEqual(sin(float2(-1000000.0f, -1.2f)), float2(0.349994f, -0.932039f), 0.000001f);
-            TestUtils.AreEqual(sin(float2(0.0f, 1.2f)), float2(0.0f, 0.932039f), 0.000001f);
-            TestUtils.AreEqual(sin(float2(1000000.0f, 0.0f)), float2(-0.349994f, 0.0f), 0.000001f);
-
-            TestUtils.AreEqual(asint(sin(float2(float.NegativeInfinity, float.NaN))), asint(float2(float.NaN, float.NaN)));
-            TestUtils.AreEqual(asint(sin(float2(float.PositiveInfinity, float.NaN))), asint(float2(float.NaN, float.NaN)));
-        }
-
-        [TestCompiler]
-        public void sin_float3()
-        {
-            TestUtils.AreEqual(sin(float3(-1000000.0f, -1.2f, 0.0f)), float3(0.349994f, -0.932039f, 0.0f), 0.000001f);
-            TestUtils.AreEqual(sin(float3(1.2f, 1000000.0f, 0.0f)), float3(0.932039f, -0.349994f, 0.0f), 0.000001f);
-            TestUtils.AreEqual(asint(sin(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity))), asint(float3(float.NaN, float.NaN, float.NaN)));
-        }
-
-        [TestCompiler]
-        public void sin_float4()
-        {
-            TestUtils.AreEqual(sin(float4(-1000000.0f, -1.2f, 0.0f, 1.2f)), float4(0.349994f, -0.932039f, 0.0f, 0.932039f), 0.000001f);
-            TestUtils.AreEqual(sin(float4(1000000.0f, 0.0f, 0.0f, 0.0f)), float4(-0.349994f, 0.0f, 0.0f, 0.0f), 0.000001f);
-            TestUtils.AreEqual(asint(sin(float4(float.NegativeInfinity, float.NaN, float.PositiveInfinity, 0.0f))), asint(float4(float.NaN, float.NaN, float.NaN, 0.0f)));
-        }
-
-        [TestCompiler]
-        public void sin_double()
-        {
-            TestUtils.AreEqual(sin(-1000000.0), 0.349993502171293, 1e-14);
-            TestUtils.AreEqual(sin(-1.2), -0.932039085967226, 1e-14);
-            TestUtils.AreEqual(sin(0.0), 0.0, 1e-14);
-            TestUtils.AreEqual(sin(1.2), 0.932039085967226, 1e-14);
-            TestUtils.AreEqual(sin(1000000.0), -0.34999350217129295, 1e-14);
-            TestUtils.AreEqual(aslong(sin(double.NegativeInfinity)), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(sin(double.NaN)), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(sin(double.PositiveInfinity)), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void sin_double2()
-        {
-            TestUtils.AreEqual(sin(double2(-1000000.0, -1.2)), double2(0.349993502171293, -0.932039085967226), 1e-14);
-            TestUtils.AreEqual(sin(double2(0.0, 1.2)), double2(0.0, 0.932039085967226), 1e-14);
-            TestUtils.AreEqual(sin(double2(1000000.0, 0.0)), double2(-0.34999350217129295, 0.0), 1e-14);
-
-            double2 t0 = sin(double2(double.NegativeInfinity, double.NaN));
-            double2 t1 = sin(double2(double.PositiveInfinity, double.NaN));
-
-            TestUtils.AreEqual(aslong(t0.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t0.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t1.x), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void sin_double3()
-        {
-            TestUtils.AreEqual(sin(double3(-1000000.0, -1.2, 0.0)), double3(0.349993502171293, -0.932039085967226, 0.0), 1e-14);
-            TestUtils.AreEqual(sin(double3(1.2, 1000000.0, 0.0)), double3(0.932039085967226, -0.34999350217129295, 0.0), 1e-14);
-
-            double3 t = sin(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity));
-            TestUtils.AreEqual(aslong(t.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.z), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void sin_double4()
-        {
-            TestUtils.AreEqual(sin(double4(-1000000.0, -1.2, 0.0, 1.2)), double4(0.349993502171293, -0.932039085967226, 0.0, 0.932039085967226), 1e-14);
-            TestUtils.AreEqual(sin(double4(1000000.0, 0.0, 0.0, 0.0)), double4(-0.349993502171293, 0.0, 0.0, 0.0), 0.000001);
-
-            double4 t = sin(double4(double.NegativeInfinity, double.NaN, double.PositiveInfinity, double.NaN));
-            TestUtils.AreEqual(aslong(t.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.z), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.w), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void cos_float()
-        {
-            float t = cos(-1000000.0f);
-            TestUtils.AreEqual(cos(-1000000.0f), 0.936752f, 0.000001f);
-            TestUtils.AreEqual(cos(-1.2f), 0.362358f, 0.000001f);
-            TestUtils.AreEqual(cos(0.0f), 1.0f, 0.000001f);
-            TestUtils.AreEqual(cos(1.2f), 0.362358f, 0.000001f);
-            TestUtils.AreEqual(cos(1000000.0f), 0.936752f, 0.000001f);
-            TestUtils.AreEqual(asint(cos(float.NegativeInfinity)), asint(float.NaN));
-            TestUtils.AreEqual(asint(cos(float.NaN)), asint(float.NaN));
-            TestUtils.AreEqual(asint(cos(float.PositiveInfinity)), asint(float.NaN));
-        }
-
-        [TestCompiler]
-        public void cos_float2()
-        {
-            TestUtils.AreEqual(cos(float2(-1000000.0f, -1.2f)), float2(0.936752f, 0.362358f), 0.000001f);
-            TestUtils.AreEqual(cos(float2(0.0f, 1.2f)), float2(1.0f, 0.362358f), 0.000001f);
-            TestUtils.AreEqual(cos(float2(1000000.0f, 0.0f)), float2(0.936752f, 1.0f), 0.000001f);
-
-            TestUtils.AreEqual(asint(cos(float2(float.NegativeInfinity, float.NaN))), asint(float2(float.NaN, float.NaN)));
-            TestUtils.AreEqual(asint(cos(float2(float.PositiveInfinity, float.NaN))), asint(float2(float.NaN, float.NaN)));
-        }
-
-        [TestCompiler]
-        public void cos_float3()
-        {
-            TestUtils.AreEqual(cos(float3(-1000000.0f, -1.2f, 0.0f)), float3(0.936752f, 0.362358f, 1.0f), 0.000001f);
-            TestUtils.AreEqual(cos(float3(1.2f, 1000000.0f, 0.0f)), float3(0.362358f, 0.936752f, 1.0f), 0.000001f);
-            TestUtils.AreEqual(asint(cos(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity))), asint(float3(float.NaN, float.NaN, float.NaN)));
-        }
-
-        [TestCompiler]
-        public void cos_float4()
-        {
-            TestUtils.AreEqual(cos(float4(-1000000.0f, -1.2f, 0.0f, 1.2f)), float4(0.936752f, 0.362358f, 1.0f, 0.362358f), 0.000001f);
-            TestUtils.AreEqual(cos(float4(1000000.0f, 0.0f, 0.0f, 0.0f)), float4(0.936752f, 1.0f, 1.0f, 1.0f), 0.000001f);
-            TestUtils.AreEqual(asint(cos(float4(float.NegativeInfinity, float.NaN, float.PositiveInfinity, float.NaN))), asint(float4(float.NaN, float.NaN, float.NaN, float.NaN)));
-        }
-
-        [TestCompiler]
-        public void cos_double()
-        {
-            TestUtils.AreEqual(cos(-1000000.0), 0.936752127533145, 1e-14);
-            TestUtils.AreEqual(cos(-1.2), 0.362357754476674, 1e-14);
-            TestUtils.AreEqual(cos(0.0), 1.0, 1e-14);
-            TestUtils.AreEqual(cos(1.2), 0.362357754476674, 1e-14);
-            TestUtils.AreEqual(cos(1000000.0), 0.936752127533145, 1e-14);
-            TestUtils.AreEqual(aslong(cos(double.NegativeInfinity)), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(cos(double.NaN)), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(cos(double.PositiveInfinity)), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void cos_double2()
-        {
-            TestUtils.AreEqual(cos(double2(-1000000.0, -1.2)), double2(0.936752127533145, 0.362357754476674), 1e-14);
-            TestUtils.AreEqual(cos(double2(0.0, 1.2)), double2(1.0, 0.362357754476674), 1e-14);
-            TestUtils.AreEqual(cos(double2(1000000.0, 0.0)), double2(0.936752127533145, 1.0), 1e-14);
-
-            double2 t0 = cos(double2(double.NegativeInfinity, double.NaN));
-            double2 t1 = cos(double2(double.PositiveInfinity, double.NaN));
-
-            TestUtils.AreEqual(aslong(t0.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t0.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t1.x), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void cos_double3()
-        {
-            TestUtils.AreEqual(cos(double3(-1000000.0, -1.2, 0.0)), double3(0.936752127533145, 0.362357754476674, 1.0), 1e-14);
-            TestUtils.AreEqual(cos(double3(1.2, 1000000.0, 0.0)), double3(0.362357754476674, 0.936752127533145, 1.0), 1e-14);
-
-            double3 t = cos(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity));
-            TestUtils.AreEqual(aslong(t.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.z), aslong(double.NaN));
-        }
-
-        [TestCompiler]
-        public void cos_double4()
-        {
-            TestUtils.AreEqual(cos(double4(-1000000.0, -1.2, 0.0, 1.2)), double4(0.936752127533145, 0.362357754476674, 1.0, 0.362357754476674), 1e-14);
-            TestUtils.AreEqual(cos(double4(1000000.0, 0.0, 0.0, 0.0)), double4(0.936752127533145, 1.0, 1.0, 1.0), 1e-14);
-
-            double4 t = cos(double4(double.NegativeInfinity, double.NaN, double.PositiveInfinity, double.NaN));
-            TestUtils.AreEqual(aslong(t.x), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.y), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.z), aslong(double.NaN));
-            TestUtils.AreEqual(aslong(t.w), aslong(double.NaN));
-        }
-
     }
 }

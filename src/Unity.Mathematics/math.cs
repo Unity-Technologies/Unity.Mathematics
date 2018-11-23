@@ -344,7 +344,7 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Returns the minimum of two integers.</summary>
+        /// <summary>Returns the minimum of two int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int min(int x, int y) { return x < y ? x : y; }
 
@@ -361,7 +361,7 @@ namespace Unity.Mathematics
         public static int4 min(int4 x, int4 y) { return new int4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
 
 
-        /// <summary>Returns the minimum of two int values.</summary>
+        /// <summary>Returns the minimum of two uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint min(uint x, uint y) { return x < y ? x : y; }
 
@@ -376,6 +376,16 @@ namespace Unity.Mathematics
         /// <summary>Returns the componentwise minimum of two uint4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 min(uint4 x, uint4 y) { return new uint4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
+
+
+        /// <summary>Returns the minimum of two long values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long min(long x, long y) { return x < y ? x : y; }
+
+
+        /// <summary>Returns the minimum of two ulong values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong min(ulong x, ulong y) { return x < y ? x : y; }
 
 
         /// <summary>Returns the minimum of two float values.</summary>
@@ -444,6 +454,16 @@ namespace Unity.Mathematics
         /// <summary>Returns the componentwise maximum of two uint4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 max(uint4 x, uint4 y) { return new uint4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
+
+
+        /// <summary>Returns the maximum of two long values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long max(long x, long y) { return x > y ? x : y; }
+
+
+        /// <summary>Returns the maximum of two ulong values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong max(ulong x, ulong y) { return x > y ? x : y; }
 
 
         /// <summary>Returns the maximum of two float values.</summary>
@@ -642,6 +662,16 @@ namespace Unity.Mathematics
         public static uint4 mad(uint4 a, uint4 b, uint4 c) { return a * b + c; }
 
 
+        /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 long values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long mad(long a, long b, long c) { return a * b + c; }
+
+
+        /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 ulong values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong mad(ulong a, ulong b, ulong c) { return a * b + c; }
+
+
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float mad(float a, float b, float c) { return a * b + c; }
@@ -793,6 +823,10 @@ namespace Unity.Mathematics
         /// <summary>Returns the componentwise absolute value of a int4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 abs(int4 x) { return max(-x, x); }
+
+        /// <summary>Returns the absolute value of a long value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long abs(long x) { return max(-x, x); }
 
 
         /// <summary>Returns the absolute value of a float value.</summary>
@@ -1314,7 +1348,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
-        public static float sign(float x) { return x == 0.0f ? 0.0f : (x > 0.0f ? 1.0f : 0.0f) - (x < 0.0f ? 1.0f : 0.0f); }
+        public static float sign(float x) { return (x > 0.0f ? 1.0f : 0.0f) - (x < 0.0f ? 1.0f : 0.0f); }
 
         /// <summary>Returns the componentwise sign of a float2 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
         public static float2 sign(float2 x) { return new float2(sign(x.x), sign(x.y)); }
@@ -1339,7 +1373,7 @@ namespace Unity.Mathematics
         public static double4 sign(double4 x) { return new double4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
 
-        /// <summary>Returns x raised to the y power y.</summary>
+        /// <summary>Returns x raised to the power y.</summary>
         public static float pow(float x, float y) { return (float)System.Math.Pow((float)x, (float)y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
@@ -1352,7 +1386,7 @@ namespace Unity.Mathematics
         public static float4 pow(float4 x, float4 y) { return new float4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
-        /// <summary>Returns x raised to the y power y.</summary>
+        /// <summary>Returns x raised to the power y.</summary>
         public static double pow(double x, double y) { return System.Math.Pow(x, y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
@@ -1365,7 +1399,7 @@ namespace Unity.Mathematics
         public static double4 pow(double4 x, double4 y) { return new double4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
-        /// <summary>Returns x raised to the y power y. Assumes x is non-negative.</summary>
+        /// <summary>Returns x raised to the power y. Assumes x is non-negative.</summary>
         public static float powr(float x, float y) { return pow(x, y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
@@ -1378,7 +1412,7 @@ namespace Unity.Mathematics
         public static float4 powr(float4 x, float4 y) { return pow(x, y); }
 
 
-        /// <summary>Returns x raised to the y power y. Assumes x is non-negative.</summary>
+        /// <summary>Returns x raised to the power y. Assumes x is non-negative.</summary>
         public static double powr(double x, double y) { return pow(x, y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.</summary>
@@ -1418,7 +1452,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
-        public static float exp2(float x) { return (float)System.Math.Pow(2.0f, (float)x); }
+        public static float exp2(float x) { return (float)System.Math.Exp((float)x * 0.69314718f); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
         public static float2 exp2(float2 x) { return new float2(exp2(x.x), exp2(x.y)); }
@@ -1431,7 +1465,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
-        public static double exp2(double x) { return System.Math.Pow(2.0, x); }
+        public static double exp2(double x) { return System.Math.Exp(x * 0.693147180559945309); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
         public static double2 exp2(double2 x) { return new double2(exp2(x.x), exp2(x.y)); }
@@ -1444,7 +1478,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
-        public static float exp10(float x) { return (float)System.Math.Exp((float)x); }
+        public static float exp10(float x) { return (float)System.Math.Exp((float)x * 2.30258509f); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
         public static float2 exp10(float2 x) { return new float2(exp10(x.x), exp10(x.y)); }
@@ -1457,7 +1491,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
-        public static double exp10(double x) { return System.Math.Pow(10.0, x); }
+        public static double exp10(double x) { return System.Math.Exp(x * 2.302585092994045684); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
         public static double2 exp10(double2 x) { return new double2(exp10(x.x), exp10(x.y)); }
