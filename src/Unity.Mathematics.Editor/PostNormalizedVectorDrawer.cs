@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityObject = UnityEngine.Object;
@@ -17,69 +18,74 @@ namespace Unity.Mathematics.Editor
 
         class VectorPropertyGUIData
         {
+            const int k_MaxElements = 4;
+
             public readonly bool Valid;
 
             // parent property
             readonly SerializedProperty m_VectorProperty;
-            // per child property relative path; value is null if there are multiple different values
-            readonly KeyValuePair<string, double?>[] m_PreNormalizedValues = new KeyValuePair<string, double?>[4];
+            // relative paths of element child properties
+            readonly IReadOnlyList<string> m_ElementPaths;
+            // the number of element child properties
+            readonly int m_NumElements;
+            // per child property; value is null if there are multiple different values
+            readonly double?[] m_PreNormalizedValues;
             // per target; used to revert actual values for each object after displaying pre-normalized values
-            readonly Dictionary<SerializedObject, double4> m_PostNormalizedValues = new Dictionary<SerializedObject, double4>();
+            readonly Dictionary<SerializedProperty, double4> m_PostNormalizedValues = new Dictionary<SerializedProperty, double4>();
 
             public VectorPropertyGUIData(SerializedProperty property)
             {
                 m_VectorProperty = property;
-                if (Valid = TryUpdatePreNormalizedValues())
-                    UpdatePostNormalizedValues();
-            }
-
-            bool TryUpdatePreNormalizedValues()
-            {
-                var iterator = m_VectorProperty.Copy();
                 var parentPath = m_VectorProperty.propertyPath;
                 var i = 0;
+                var elementPaths = new List<string>(k_MaxElements);
+                var iterator = m_VectorProperty.Copy();
                 while (iterator.Next(true) && iterator.propertyPath.StartsWith(parentPath))
                 {
-                    if (i >= m_PreNormalizedValues.Length || iterator.propertyType != SerializedPropertyType.Float)
-                        return false;
-                    m_PreNormalizedValues[i] = new KeyValuePair<string, double?>(
-                        iterator.propertyPath.Substring(parentPath.Length + 1),
-                        iterator.hasMultipleDifferentValues ? (double?)null : iterator.doubleValue
-                    );
-                    ++i;
+                    if (i >= k_MaxElements || iterator.propertyType != SerializedPropertyType.Float)
+                        return;
+                    elementPaths.Add(iterator.propertyPath.Substring(parentPath.Length + 1));
+                    i++;
                 }
-                return true;
+
+                Valid = true;
+                m_NumElements = elementPaths.Count;
+                m_ElementPaths = elementPaths;
+                m_PreNormalizedValues = elementPaths.Select(p => (double?)null).ToArray();
+
+                UpdatePreNormalizedValues();
+                UpdatePostNormalizedValues();
             }
 
             void UpdatePostNormalizedValues()
             {
+                m_PostNormalizedValues.Clear();
                 foreach (var target in m_VectorProperty.serializedObject.targetObjects)
                 {
                     var postNormalizedValue = new double4();
                     var parentProperty = new SerializedObject(target).FindProperty(m_VectorProperty.propertyPath);
-                    for (var i = 0; i < 4; ++i)
-                    {
-                        if (string.IsNullOrEmpty(m_PreNormalizedValues[i].Key))
-                            break;
-                        postNormalizedValue[i] =
-                            parentProperty.FindPropertyRelative(m_PreNormalizedValues[i].Key).doubleValue;
-                    }
-                    m_PostNormalizedValues[parentProperty.serializedObject] = postNormalizedValue;
+                    for (var i = 0; i < m_NumElements; ++i)
+                        postNormalizedValue[i] = parentProperty.FindPropertyRelative(m_ElementPaths[i]).doubleValue;
+                    m_PostNormalizedValues[parentProperty] = postNormalizedValue;
                 }
             }
 
             public void UpdatePreNormalizedValues()
             {
-                TryUpdatePreNormalizedValues();
+                for (var i = 0; i < m_NumElements; ++i)
+                {
+                    var p = m_VectorProperty.FindPropertyRelative(m_ElementPaths[i]);
+                    m_PreNormalizedValues[i] = p.hasMultipleDifferentValues ? (double?)null : p.doubleValue;
+                }
             }
 
             public void ApplyPreNormalizedValues()
             {
                 m_VectorProperty.serializedObject.ApplyModifiedProperties();
-                foreach (var rawValue in m_PreNormalizedValues)
+                for (var i = 0; i < m_NumElements; ++i)
                 {
-                    if (rawValue.Value != null)
-                        m_VectorProperty.FindPropertyRelative(rawValue.Key).doubleValue = rawValue.Value.Value;
+                    if (m_PreNormalizedValues[i] != null)
+                        m_VectorProperty.FindPropertyRelative(m_ElementPaths[i]).doubleValue = m_PreNormalizedValues[i].Value;
                 }
             }
 
@@ -87,14 +93,11 @@ namespace Unity.Mathematics.Editor
             {
                 foreach (var target in m_PostNormalizedValues)
                 {
-                    target.Key.Update();
-                    var sp = target.Key.FindProperty(m_VectorProperty.propertyPath);
-                    for (var i = 0; i < 4; ++i)
+                    target.Key.serializedObject.Update();
+                    for (var i = 0; i < m_NumElements; ++i)
                     {
-                        if (string.IsNullOrEmpty(m_PreNormalizedValues[i].Key))
-                            break;
-                        sp.FindPropertyRelative(m_PreNormalizedValues[i].Key).doubleValue = target.Value[i];
-                        target.Key.ApplyModifiedProperties();
+                        target.Key.FindPropertyRelative(m_ElementPaths[i]).doubleValue = target.Value[i];
+                        target.Key.serializedObject.ApplyModifiedProperties();
                     }
                 }
                 m_VectorProperty.serializedObject.Update();
@@ -103,27 +106,37 @@ namespace Unity.Mathematics.Editor
             public void PostNormalize(Func<double4, double4> normalize)
             {
                 m_VectorProperty.serializedObject.ApplyModifiedProperties();
-                foreach (var target in m_VectorProperty.serializedObject.targetObjects)
+                foreach (var target in m_PostNormalizedValues)
                 {
+                    target.Key.serializedObject.Update();
                     var postNormalizedValue = new double4();
-                    var sp = new SerializedObject(target).FindProperty(m_VectorProperty.propertyPath);
-                    for (var i = 0; i < 4; ++i)
-                    {
-                        if (string.IsNullOrEmpty(m_PreNormalizedValues[i].Key))
-                            break;
-                        postNormalizedValue[i] = sp.FindPropertyRelative(m_PreNormalizedValues[i].Key).doubleValue;
-                    }
-                    postNormalizedValue = normalize(postNormalizedValue);
-                    for (var i = 0; i < 4; ++i)
-                    {
-                        if (string.IsNullOrEmpty(m_PreNormalizedValues[i].Key))
-                            break;
-                        sp.FindPropertyRelative(m_PreNormalizedValues[i].Key).doubleValue = postNormalizedValue[i];
-                    }
-                    sp.serializedObject.ApplyModifiedProperties();
+                    for (var i = 0; i < m_NumElements; ++i)
+                        postNormalizedValue[i] = target.Key.FindPropertyRelative(m_ElementPaths[i]).doubleValue;
+                    postNormalizedValue = normalize(normalize(postNormalizedValue));
+                    for (var i = 0; i < m_NumElements; ++i)
+                        target.Key.FindPropertyRelative(m_ElementPaths[i]).doubleValue = postNormalizedValue[i];
+                    target.Key.serializedObject.ApplyModifiedProperties();
                 }
                 UpdatePostNormalizedValues();
                 m_VectorProperty.serializedObject.Update();
+            }
+
+            public void RebuildIfDirty()
+            {
+                foreach (var target in m_PostNormalizedValues)
+                {
+                    target.Key.serializedObject.Update();
+                    for (var i = 0; i < m_NumElements; ++i)
+                    {
+                        var serialized = target.Key.FindPropertyRelative(m_ElementPaths[i]).doubleValue;
+                        if (target.Value[i] != serialized)
+                        {
+                            UpdatePreNormalizedValues();
+                            UpdatePostNormalizedValues();
+                            return;
+                        }
+                    }
+                }
             }
         }
 
@@ -139,7 +152,7 @@ namespace Unity.Mathematics.Editor
             return math.normalizesafe(value);
         }
 
-        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        VectorPropertyGUIData GetGUIData(SerializedProperty property)
         {
             VectorPropertyGUIData guiData;
             if (!m_GUIDataPerPropertyPath.TryGetValue(property.propertyPath, out guiData))
@@ -147,12 +160,17 @@ namespace Unity.Mathematics.Editor
                 guiData = new VectorPropertyGUIData(GetVectorProperty(property));
                 m_GUIDataPerPropertyPath[property.propertyPath] = guiData;
             }
-            return guiData.Valid ? base.GetPropertyHeight(property, label) : EditorGUIUtility.singleLineHeight;
+            return guiData;
+        }
+
+        public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
+        {
+            return GetGUIData(property).Valid ? base.GetPropertyHeight(property, label) : EditorGUIUtility.singleLineHeight;
         }
 
         public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
         {
-            var guiData = m_GUIDataPerPropertyPath[property.propertyPath];
+            var guiData = GetGUIData(property);
             if (!guiData.Valid)
             {
                 EditorGUI.HelpBox(
@@ -166,6 +184,7 @@ namespace Unity.Mathematics.Editor
             if (string.IsNullOrEmpty(label.tooltip))
                 label.tooltip = Content.tooltip;
 
+            guiData.RebuildIfDirty();
             guiData.ApplyPreNormalizedValues();
             EditorGUI.BeginChangeCheck();
             base.OnGUI(position, property, label);
