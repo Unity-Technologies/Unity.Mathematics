@@ -2845,5 +2845,63 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(distancesq(double4(1.3, double.NegativeInfinity, 5.7, 3.1), double4(-5.3, 4.3, 4.7, 0.3)), double.PositiveInfinity, 8, false);
         }
 
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_float_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(-0.0f), float.NegativeInfinity);
+            TestUtils.AreEqual(rcp(float.NegativeInfinity), -0.0f);
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_float2_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(float2(-0.0f, float.NegativeInfinity)), float2(float.NegativeInfinity, -0.0f));
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_float3_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(float3(-0.0f, float.NegativeInfinity, -0.0f)), float3(float.NegativeInfinity, -0.0f, float.NegativeInfinity));
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_float4_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(float4(-0.0f, float.NegativeInfinity, -0.0f, float.NegativeInfinity)), float4(float.NegativeInfinity, -0.0f, float.NegativeInfinity, -0.0f));
+        }
+
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_double_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(-0.0), double.NegativeInfinity);
+            TestUtils.AreEqual(rcp(double.NegativeInfinity), -0.0);
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_double2_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(double2(-0.0, double.NegativeInfinity)), double2(double.NegativeInfinity, -0.0));
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_double3_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(double3(-0.0, double.NegativeInfinity, -0.0)), double3(double.NegativeInfinity, -0.0, double.NegativeInfinity));
+        }
+
+        [TestCompiler]
+        [WindowsOnly("Mono on linux ignores signed zero.")]
+        public void rcp_double4_signed_zero()
+        {
+            TestUtils.AreEqual(rcp(double4(-0.0, double.NegativeInfinity, -0.0, double.NegativeInfinity)), double4(double.NegativeInfinity, -0.0, double.NegativeInfinity, -0.0));
+        }
     }
 }

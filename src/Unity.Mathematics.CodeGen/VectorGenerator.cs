@@ -2555,8 +2555,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateComponentWiseTestFloatAndDouble(str, "rsqrt", new double[,] { { -1.0 }, { 0.0 }, { 1e10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { double.NaN, double.PositiveInfinity, 1e-5, 0.0900024751020984295, double.NaN, double.NaN, 0.0, }, 1, 1);
 
-            GenerateComponentWiseTestFloatAndDouble(str, "rcp", new double[,] { { -123.45 }, { -0.0 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
-                                                                new double[] { -0.0081004455245038477, double.NegativeInfinity, double.PositiveInfinity, 0.0081004455245038477, -0.0, double.NaN, 0.0, }, 0, 0);
+            GenerateComponentWiseTestFloatAndDouble(str, "rcp", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NaN }, { double.PositiveInfinity } },
+                                                                new double[] { -0.0081004455245038477, double.PositiveInfinity, 0.0081004455245038477, double.NaN, 0.0, }, 0, 0);
 
             GenerateComponentWiseTestFloatAndDouble(str, "floor", new double[,] { { double.NegativeInfinity },  { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { double.PositiveInfinity }, { double.NaN } },
                                                                 new double[] { double.NegativeInfinity, -101.0, -101.0, -101.0, 0.0, 100.0, 100.0, 100.0, double.PositiveInfinity, double.NaN } );
