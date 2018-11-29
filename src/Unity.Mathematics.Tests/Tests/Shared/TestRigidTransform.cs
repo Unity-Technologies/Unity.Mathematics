@@ -128,10 +128,10 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q, r, 0.0001f);
         }
 
-        static internal readonly quaternion test_q0 = quaternion(0.3270836f, 0.8449658f, -0.1090279f, 0.4088545f);
-        static internal readonly quaternion test_q1 = quaternion(-0.05623216f, 0.731018f, -0.6747859f, -0.08434824f);
-        static internal readonly quaternion test_q2 = quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
-        static internal readonly quaternion test_q3 = quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
+        static internal readonly quaternion test_q0 = new quaternion(0.3270836f, 0.8449658f, -0.1090279f, 0.4088545f);
+        static internal readonly quaternion test_q1 = new quaternion(-0.05623216f, 0.731018f, -0.6747859f, -0.08434824f);
+        static internal readonly quaternion test_q2 = new quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
+        static internal readonly quaternion test_q3 = new quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
         
         [TestCompiler]
         public void rigid_transform_inverse()
