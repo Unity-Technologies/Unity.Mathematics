@@ -2832,31 +2832,31 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public void min_long()
         {
-            TestUtils.AreEqual(min(-9223372036854775808, -9223372036854775808), -9223372036854775808);
-            TestUtils.AreEqual(min(-9223372036854775808, -1), -9223372036854775808);
-            TestUtils.AreEqual(min(-1, -9223372036854775808), -9223372036854775808);
-            TestUtils.AreEqual(min(-1234, -3456), -3456);
-            TestUtils.AreEqual(min(-3456, -1234), -3456);
-            TestUtils.AreEqual(min(-1234, 3456), -1234);
-            TestUtils.AreEqual(min(3456, -1234), -1234);
-            TestUtils.AreEqual(min(1234, 3456), 1234);
-            TestUtils.AreEqual(min(3456, 1234), 1234);
-            TestUtils.AreEqual(min(1, 9223372036854775807), 1);
-            TestUtils.AreEqual(min(9223372036854775807, 1), 1);
-            TestUtils.AreEqual(min(9223372036854775807, -9223372036854775808), -9223372036854775808);
-            TestUtils.AreEqual(min(9223372036854775807, 9223372036854775807), 9223372036854775807);
+            TestUtils.AreEqual(min(-9223372036854775808L, -9223372036854775808L), -9223372036854775808L);
+            TestUtils.AreEqual(min(-9223372036854775808L, -1L), -9223372036854775808L);
+            TestUtils.AreEqual(min(-1L, -9223372036854775808L), -9223372036854775808L);
+            TestUtils.AreEqual(min(-1234L, -3456L), -3456L);
+            TestUtils.AreEqual(min(-3456L, -1234L), -3456L);
+            TestUtils.AreEqual(min(-1234L, 3456L), -1234L);
+            TestUtils.AreEqual(min(3456L, -1234L), -1234L);
+            TestUtils.AreEqual(min(1234L, 3456L), 1234L);
+            TestUtils.AreEqual(min(3456L, 1234L), 1234L);
+            TestUtils.AreEqual(min(1L, 9223372036854775807L), 1L);
+            TestUtils.AreEqual(min(9223372036854775807L, 1L), 1L);
+            TestUtils.AreEqual(min(9223372036854775807L, -9223372036854775808L), -9223372036854775808L);
+            TestUtils.AreEqual(min(9223372036854775807L, 9223372036854775807L), 9223372036854775807L);
         }
 
         [TestCompiler]
         public void min_ulong()
         {
-            TestUtils.AreEqual(min(1234, 3456), 1234);
-            TestUtils.AreEqual(min(3456, 1234), 1234);
-            TestUtils.AreEqual(min(18446744073709551360, 7), 7);
-            TestUtils.AreEqual(min(7, 18446744073709551360), 7);
-            TestUtils.AreEqual(min(1, 18446744073709551615), 1);
-            TestUtils.AreEqual(min(18446744073709551615, 1), 1);
-            TestUtils.AreEqual(min(18446744073709551615, 18446744073709551615), 18446744073709551615);
+            TestUtils.AreEqual(min(1234UL, 3456UL), 1234UL);
+            TestUtils.AreEqual(min(3456UL, 1234UL), 1234UL);
+            TestUtils.AreEqual(min(18446744073709551360UL, 7UL), 7UL);
+            TestUtils.AreEqual(min(7UL, 18446744073709551360UL), 7UL);
+            TestUtils.AreEqual(min(1UL, 18446744073709551615UL), 1UL);
+            TestUtils.AreEqual(min(18446744073709551615UL, 1UL), 1UL);
+            TestUtils.AreEqual(min(18446744073709551615UL, 18446744073709551615UL), 18446744073709551615UL);
         }
 
         [TestCompiler]
@@ -3055,31 +3055,31 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public void max_long()
         {
-            TestUtils.AreEqual(max(-9223372036854775808, -9223372036854775808), -9223372036854775808);
-            TestUtils.AreEqual(max(-9223372036854775808, -1), -1);
-            TestUtils.AreEqual(max(-1, -9223372036854775808), -1);
-            TestUtils.AreEqual(max(-1234, -3456), -1234);
-            TestUtils.AreEqual(max(-3456, -1234), -1234);
-            TestUtils.AreEqual(max(-1234, 3456), 3456);
-            TestUtils.AreEqual(max(3456, -1234), 3456);
-            TestUtils.AreEqual(max(1234, 3456), 3456);
-            TestUtils.AreEqual(max(3456, 1234), 3456);
-            TestUtils.AreEqual(max(1, 9223372036854775807), 9223372036854775807);
-            TestUtils.AreEqual(max(9223372036854775807, 1), 9223372036854775807);
-            TestUtils.AreEqual(max(9223372036854775807, -9223372036854775808), 9223372036854775807);
-            TestUtils.AreEqual(max(9223372036854775807, 9223372036854775807), 9223372036854775807);
+            TestUtils.AreEqual(max(-9223372036854775808L, -9223372036854775808L), -9223372036854775808L);
+            TestUtils.AreEqual(max(-9223372036854775808L, -1L), -1L);
+            TestUtils.AreEqual(max(-1L, -9223372036854775808L), -1L);
+            TestUtils.AreEqual(max(-1234L, -3456L), -1234L);
+            TestUtils.AreEqual(max(-3456L, -1234L), -1234L);
+            TestUtils.AreEqual(max(-1234L, 3456L), 3456L);
+            TestUtils.AreEqual(max(3456L, -1234L), 3456L);
+            TestUtils.AreEqual(max(1234L, 3456L), 3456L);
+            TestUtils.AreEqual(max(3456L, 1234L), 3456L);
+            TestUtils.AreEqual(max(1L, 9223372036854775807L), 9223372036854775807L);
+            TestUtils.AreEqual(max(9223372036854775807L, 1L), 9223372036854775807L);
+            TestUtils.AreEqual(max(9223372036854775807L, -9223372036854775808L), 9223372036854775807L);
+            TestUtils.AreEqual(max(9223372036854775807L, 9223372036854775807L), 9223372036854775807L);
         }
 
         [TestCompiler]
         public void max_ulong()
         {
-            TestUtils.AreEqual(max(1234, 3456), 3456);
-            TestUtils.AreEqual(max(3456, 1234), 3456);
-            TestUtils.AreEqual(max(18446744073709551360, 7), 18446744073709551360);
-            TestUtils.AreEqual(max(7, 18446744073709551360), 18446744073709551360);
-            TestUtils.AreEqual(max(1, 18446744073709551615), 18446744073709551615);
-            TestUtils.AreEqual(max(18446744073709551615, 1), 18446744073709551615);
-            TestUtils.AreEqual(max(18446744073709551615, 18446744073709551615), 18446744073709551615);
+            TestUtils.AreEqual(max(1234UL, 3456UL), 3456UL);
+            TestUtils.AreEqual(max(3456UL, 1234UL), 3456UL);
+            TestUtils.AreEqual(max(18446744073709551360UL, 7UL), 18446744073709551360UL);
+            TestUtils.AreEqual(max(7UL, 18446744073709551360UL), 18446744073709551360UL);
+            TestUtils.AreEqual(max(1UL, 18446744073709551615UL), 18446744073709551615UL);
+            TestUtils.AreEqual(max(18446744073709551615UL, 1UL), 18446744073709551615UL);
+            TestUtils.AreEqual(max(18446744073709551615UL, 18446744073709551615UL), 18446744073709551615UL);
         }
 
         [TestCompiler]
@@ -3362,29 +3362,29 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public void mad_long()
         {
-            TestUtils.AreEqual(mad(1234, 5678, 91011), 7097663);
-            TestUtils.AreEqual(mad(1234, 5678, -91011), 6915641);
-            TestUtils.AreEqual(mad(1234, -5678, 91011), -6915641);
-            TestUtils.AreEqual(mad(1234, -5678, -91011), -7097663);
-            TestUtils.AreEqual(mad(-1234, 5678, 91011), -6915641);
-            TestUtils.AreEqual(mad(-1234, 5678, -91011), -7097663);
-            TestUtils.AreEqual(mad(-1234, -5678, 91011), 7097663);
-            TestUtils.AreEqual(mad(-1234, -5678, -91011), 6915641);
-            TestUtils.AreEqual(mad(9876543210, 5678901234, 9101112134), 747681210895778426);
-            TestUtils.AreEqual(mad(9876543210, 5678901234, -9101112134), 747681192693554158);
-            TestUtils.AreEqual(mad(9876543210, -5678901234, 9101112134), -747681192693554158);
-            TestUtils.AreEqual(mad(9876543210, -5678901234, -9101112134), -747681210895778426);
-            TestUtils.AreEqual(mad(-9876543210, 5678901234, 9101112134), -747681192693554158);
-            TestUtils.AreEqual(mad(-9876543210, 5678901234, -9101112134), -747681210895778426);
-            TestUtils.AreEqual(mad(-9876543210, -5678901234, 9101112134), 747681210895778426);
-            TestUtils.AreEqual(mad(-9876543210, -5678901234, -9101112134), 747681192693554158);
+            TestUtils.AreEqual(mad(1234L, 5678L, 91011L), 7097663L);
+            TestUtils.AreEqual(mad(1234L, 5678L, -91011L), 6915641L);
+            TestUtils.AreEqual(mad(1234L, -5678L, 91011L), -6915641L);
+            TestUtils.AreEqual(mad(1234L, -5678L, -91011L), -7097663L);
+            TestUtils.AreEqual(mad(-1234L, 5678L, 91011L), -6915641L);
+            TestUtils.AreEqual(mad(-1234L, 5678L, -91011L), -7097663L);
+            TestUtils.AreEqual(mad(-1234L, -5678L, 91011L), 7097663L);
+            TestUtils.AreEqual(mad(-1234L, -5678L, -91011L), 6915641L);
+            TestUtils.AreEqual(mad(9876543210L, 5678901234L, 9101112134L), 747681210895778426L);
+            TestUtils.AreEqual(mad(9876543210L, 5678901234L, -9101112134L), 747681192693554158L);
+            TestUtils.AreEqual(mad(9876543210L, -5678901234L, 9101112134L), -747681192693554158L);
+            TestUtils.AreEqual(mad(9876543210L, -5678901234L, -9101112134L), -747681210895778426L);
+            TestUtils.AreEqual(mad(-9876543210L, 5678901234L, 9101112134L), -747681192693554158L);
+            TestUtils.AreEqual(mad(-9876543210L, 5678901234L, -9101112134L), -747681210895778426L);
+            TestUtils.AreEqual(mad(-9876543210L, -5678901234L, 9101112134L), 747681210895778426L);
+            TestUtils.AreEqual(mad(-9876543210L, -5678901234L, -9101112134L), 747681192693554158L);
         }
 
         [TestCompiler]
         public void mad_ulong()
         {
-            TestUtils.AreEqual(mad(1234, 5678, 91011), 7097663);
-            TestUtils.AreEqual(mad(9876543210, 5678901234, 9101112134), 747681210895778426);
+            TestUtils.AreEqual(mad(1234UL, 5678UL, 91011UL), 7097663L);
+            TestUtils.AreEqual(mad(9876543210UL, 5678901234UL, 9101112134UL), 747681210895778426L);
         }
 
         [TestCompiler]
@@ -3929,6 +3929,110 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(pow(double4(0.0, 3.4, double.PositiveInfinity, double.NaN), double4(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(0.0, double.PositiveInfinity, double.PositiveInfinity, double.NaN), 1, false);
             TestUtils.AreEqual(pow(double4(double.NegativeInfinity, -3.4, -0.0, 0.0), double4(double.NaN, double.NaN, double.NaN, double.NaN)), double4(double.NaN, double.NaN, double.NaN, double.NaN), 1, false);
             TestUtils.AreEqual(pow(double4(3.4, double.PositiveInfinity, double.NaN, double.NaN), double4(double.NaN, double.NaN, double.NaN, double.NaN)), double4(double.NaN, double.NaN, double.NaN, double.NaN), 1, false);
+        }
+
+        [TestCompiler]
+        public void ceilpow2_int()
+        {
+            TestUtils.AreEqual(ceilpow2(0), 0);
+            TestUtils.AreEqual(ceilpow2(1), 1);
+            TestUtils.AreEqual(ceilpow2(2), 2);
+            TestUtils.AreEqual(ceilpow2(3), 4);
+            TestUtils.AreEqual(ceilpow2(1019642234), 1073741824);
+            TestUtils.AreEqual(ceilpow2(1823423423), -2147483648);
+            TestUtils.AreEqual(ceilpow2(-2147483647), 0);
+        }
+
+        [TestCompiler]
+        public void ceilpow2_int2()
+        {
+            TestUtils.AreEqual(ceilpow2(int2(0, 1)), int2(0, 1));
+            TestUtils.AreEqual(ceilpow2(int2(2, 3)), int2(2, 4));
+            TestUtils.AreEqual(ceilpow2(int2(1019642234, 1823423423)), int2(1073741824, -2147483648));
+            TestUtils.AreEqual(ceilpow2(int2(-2147483647, -2147483647)), int2(0, 0));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_int3()
+        {
+            TestUtils.AreEqual(ceilpow2(int3(0, 1, 2)), int3(0, 1, 2));
+            TestUtils.AreEqual(ceilpow2(int3(3, 1019642234, 1823423423)), int3(4, 1073741824, -2147483648));
+            TestUtils.AreEqual(ceilpow2(int3(-2147483647, -2147483647, -2147483647)), int3(0, 0, 0));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_int4()
+        {
+            TestUtils.AreEqual(ceilpow2(int4(0, 1, 2, 3)), int4(0, 1, 2, 4));
+            TestUtils.AreEqual(ceilpow2(int4(1019642234, 1823423423, -2147483647, -2147483647)), int4(1073741824, -2147483648, 0, 0));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_uint()
+        {
+            TestUtils.AreEqual(ceilpow2(0u), 0u);
+            TestUtils.AreEqual(ceilpow2(1u), 1u);
+            TestUtils.AreEqual(ceilpow2(2u), 2u);
+            TestUtils.AreEqual(ceilpow2(3u), 4u);
+            TestUtils.AreEqual(ceilpow2(1019642234u), 1073741824u);
+            TestUtils.AreEqual(ceilpow2(1823423423u), 2147483648u);
+            TestUtils.AreEqual(ceilpow2(4294967295u), 0u);
+        }
+
+        [TestCompiler]
+        public void ceilpow2_uint2()
+        {
+            TestUtils.AreEqual(ceilpow2(uint2(0u, 1u)), uint2(0u, 1u));
+            TestUtils.AreEqual(ceilpow2(uint2(2u, 3u)), uint2(2u, 4u));
+            TestUtils.AreEqual(ceilpow2(uint2(1019642234u, 1823423423u)), uint2(1073741824u, 2147483648u));
+            TestUtils.AreEqual(ceilpow2(uint2(4294967295u, 4294967295u)), uint2(0u, 0u));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_uint3()
+        {
+            TestUtils.AreEqual(ceilpow2(uint3(0u, 1u, 2u)), uint3(0u, 1u, 2u));
+            TestUtils.AreEqual(ceilpow2(uint3(3u, 1019642234u, 1823423423u)), uint3(4u, 1073741824u, 2147483648u));
+            TestUtils.AreEqual(ceilpow2(uint3(4294967295u, 4294967295u, 4294967295u)), uint3(0u, 0u, 0u));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_uint4()
+        {
+            TestUtils.AreEqual(ceilpow2(uint4(0u, 1u, 2u, 3u)), uint4(0u, 1u, 2u, 4u));
+            TestUtils.AreEqual(ceilpow2(uint4(1019642234u, 1823423423u, 4294967295u, 4294967295u)), uint4(1073741824u, 2147483648u, 0u, 0u));
+        }
+
+        [TestCompiler]
+        public void ceilpow2_long()
+        {
+            TestUtils.AreEqual(ceilpow2(0L), 0L);
+            TestUtils.AreEqual(ceilpow2(1L), 1L);
+            TestUtils.AreEqual(ceilpow2(2L), 2L);
+            TestUtils.AreEqual(ceilpow2(3L), 4L);
+            TestUtils.AreEqual(ceilpow2(1019642234L), 1073741824L);
+            TestUtils.AreEqual(ceilpow2(1823423423L), 2147483648L);
+            TestUtils.AreEqual(ceilpow2(2147483648L), 2147483648L);
+            TestUtils.AreEqual(ceilpow2(4294967295L), 4294967296L);
+            TestUtils.AreEqual(ceilpow2(4294967296L), 4294967296L);
+            TestUtils.AreEqual(ceilpow2(7227372236554874814L), -9223372036854775808L);
+            TestUtils.AreEqual(ceilpow2(-100L), 0L);
+        }
+
+        [TestCompiler]
+        public void ceilpow2_ulong()
+        {
+            TestUtils.AreEqual(ceilpow2(0UL), 0UL);
+            TestUtils.AreEqual(ceilpow2(1UL), 1UL);
+            TestUtils.AreEqual(ceilpow2(2UL), 2UL);
+            TestUtils.AreEqual(ceilpow2(3UL), 4UL);
+            TestUtils.AreEqual(ceilpow2(1019642234UL), 1073741824UL);
+            TestUtils.AreEqual(ceilpow2(1823423423UL), 2147483648UL);
+            TestUtils.AreEqual(ceilpow2(2147483648UL), 2147483648UL);
+            TestUtils.AreEqual(ceilpow2(4294967295UL), 4294967296UL);
+            TestUtils.AreEqual(ceilpow2(4294967296UL), 4294967296UL);
+            TestUtils.AreEqual(ceilpow2(7227372236554874814UL), 9223372036854775808UL);
+            TestUtils.AreEqual(ceilpow2(10223372036854775808UL), 0UL);
         }
 
 

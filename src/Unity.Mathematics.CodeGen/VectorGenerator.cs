@@ -2365,6 +2365,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 return "" + value + "u";
             }
+            else if(typeof(T) == typeof(long))
+            {
+                return "" + value + "L";
+            }
+            else if(typeof(T) == typeof(ulong))
+            {
+                return "" + value + "UL";
+            }
             else if (typeof(T) == typeof(bool))
             {
                 return (bool)(object)value ? "true" : "false";
@@ -2753,7 +2761,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                                       double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, double.NaN,
                                                                                       double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN,
                                                                                     }, 1, 1);
-            
+
+
+            GenerateComponentWiseTest(str, "ceilpow2", new int[,] { { 0 }, { 1 }, { 2 }, { 3 }, { 1019642234 }, { 1823423423 }, { -2147483647 } },
+                                                       new int[] { 0, 1, 2, 4, 1073741824, -2147483648, 0 }, 4);
+
+            GenerateComponentWiseTest(str, "ceilpow2", new uint[,] { { 0u }, { 1u }, { 2u }, { 3u }, { 1019642234u }, { 1823423423u }, { 4294967295u } },
+                                                       new uint[] { 0u, 1u, 2u, 4u, 1073741824u, 2147483648u, 0u }, 4);
+
+
+            GenerateComponentWiseTest(str, "ceilpow2", new long[,] { { 0L }, { 1L }, { 2L }, { 3L }, { 1019642234L }, { 1823423423L }, { 2147483648L }, { 4294967295L }, { 4294967296L }, { 7227372236554874814L }, { -100L } },
+                                                       new long[] { 0L, 1L, 2L, 4L, 1073741824L, 2147483648L, 2147483648L, 4294967296L, 4294967296L, -9223372036854775808L, 0L }, 1);
+
+
+            GenerateComponentWiseTest(str, "ceilpow2", new ulong[,] { { 0UL }, { 1UL }, { 2UL }, { 3UL }, { 1019642234UL }, { 1823423423UL }, { 2147483648UL }, { 4294967295UL }, { 4294967296UL }, { 7227372236554874814UL }, { 10223372036854775808UL } },
+                                                       new ulong[] { 0UL, 1UL, 2UL, 4UL, 1073741824UL, 2147483648UL, 2147483648UL, 4294967296UL, 4294967296UL, 9223372036854775808UL, 0L }, 1);
 
             str.Append("\n\t}");
             str.Append("\n}\n");

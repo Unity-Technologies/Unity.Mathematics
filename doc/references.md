@@ -67,7 +67,6 @@ The following table shows the list of intrinsic functions exposed by the static 
 |normalizesafe       | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-normalize) | Returns a normalized version of a vector or quaternion x by scaling it by 1 / length(x). Returns a default value when 1 / length(x) does not produce a finite number.
 |orthogonalize   |   | Returns the result of orthogonalizing a matrix.
 |pow             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-pow) | Returns the componentwise result of raising x to the power y.
-|powr            |   | Returns the componentwise result of raising x to the power y. Assumes the components of x are non-negative.
 |radians         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-radians) | Returns the result of a componentwise conversion of a vector or scalar value from degrees to radians.
 |rcp             | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-rcp) | Returns the componentwise reciprocal of a scalar or vector value.
 |reflect         | [x](https://docs.microsoft.com/en-us/windows/desktop/direct3dhlsl/dx-graphics-hlsl-reflect) | Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2 * dot(i, n) * n.
