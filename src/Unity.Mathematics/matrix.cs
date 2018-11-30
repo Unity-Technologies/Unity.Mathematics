@@ -863,6 +863,19 @@ namespace Unity.Mathematics
                 0.0f,                       0.0f,                       -1.0f,                          0.0f
                 );
         }
+
+        /// <summary>
+        /// Returns a float4x4 matrix representing a combined scale-, rotation- and translation transform.
+        /// Equivalent to mul(translationTransform, mul(rotationTransform, scaleTransform)).
+        /// </summary>
+        public static float4x4 TRS(float3 translation, quaternion rotation, float3 scale)
+        {
+            float3x3 r = float3x3(rotation);
+            return float4x4(  float4(r.c0 * scale.x, 0.0f),
+                              float4(r.c1 * scale.y, 0.0f),
+                              float4(r.c2 * scale.z, 0.0f),
+                              float4(translation, 1.0f));
+        }
     }
 
     partial class math

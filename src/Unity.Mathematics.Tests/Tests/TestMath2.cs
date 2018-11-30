@@ -5,7 +5,7 @@ using Burst.Compiler.IL.Tests;
 namespace Unity.Mathematics.Tests
 {
     [TestFixture]
-    public class TestMath
+    public partial class TestMath
     {
         [TestCompiler]
         public unsafe void hash_blob()

@@ -1136,5 +1136,17 @@ namespace Unity.Mathematics.Tests
             float4 pp2 = p2 / p2.w;
             TestUtils.AreEqual(pp2.xyz, float3(-1.0f,  1.0f, 1.0f), 0.001f);
         }
+
+        [TestCompiler]
+        public void float4x4_TRS()
+        {
+            float3 scale = float3(1.2f, -0.4f, 2.3f);
+            quaternion rotation = TestQuaternion.test_q0;
+            float3 translation = float3(12.3f, -4.3f, 135.99f);
+            float4x4 r0 = mul(float4x4(quaternion.identity, translation), mul(float4x4(rotation, float3.zero), float4x4.Scale(scale)));
+            float4x4 m0 = float4x4.TRS(translation, rotation, scale);
+            TestUtils.AreEqual(m0, r0, 0.001f);
+        }
+
     }
 }
