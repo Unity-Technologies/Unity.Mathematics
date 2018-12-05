@@ -16,8 +16,7 @@ namespace Unity.Mathematics
         public static readonly float2x2 identity = new float2x2(1.0f, 0.0f,   0.0f, 1.0f);
 
         /// <summary>float2x2 zero value.</summary>
-        public static readonly float2x2 zero = new float2x2(0.0f, 0.0f,   0.0f, 0.0f);
-
+        public static readonly float2x2 zero;
 
         /// <summary>Constructs a float2x2 matrix from two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -450,8 +449,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x2 v)
         {
-            return csum(asuint(v.c0) * uint2(0xB4501269u, 0xE04B89FDu) + 
-                        asuint(v.c1) * uint2(0xDB3DE101u, 0x7B6D1B4Bu)) + 0x58399E77u;
+            return csum(asuint(v.c0) * uint2(0x9C9F0823u, 0x5A9CA13Bu) + 
+                        asuint(v.c1) * uint2(0xAFCDD5EFu, 0xA88D187Du)) + 0xCF6EBA1Du;
         }
 
         /// <summary>
@@ -462,8 +461,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2x2 v)
         {
-            return (asuint(v.c0) * uint2(0x5EAC29C9u, 0xFC6014F9u) + 
-                    asuint(v.c1) * uint2(0x6BF6693Fu, 0x9D1B1D9Bu)) + 0xF842F5C1u;
+            return (asuint(v.c0) * uint2(0x9D88E5A1u, 0xEADF0775u) + 
+                    asuint(v.c1) * uint2(0x747A9D7Bu, 0x4111F799u)) + 0xB5F05AF1u;
         }
 
     }

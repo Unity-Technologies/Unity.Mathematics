@@ -421,7 +421,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2 v)
         {
-            return csum(select(uint2(0xDCDD5341u, 0x94DDD769u), uint2(0xA1E92D39u, 0x4583C801u), v));
+            return csum(select(uint2(0x90A285BBu, 0x5D19E1D5u), uint2(0xFAAF07DDu, 0x625C45BDu), v));
         }
 
         /// <summary>
@@ -432,7 +432,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(bool2 v)
         {
-            return (select(uint2(0x9536A0F5u, 0xAF816615u), uint2(0x9AF8D62Du, 0xE3600729u), v));
+            return (select(uint2(0xC9F27FCBu, 0x6D2523B1u), uint2(0x6E2BF6A9u, 0xCC74B3B7u), v));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool2 vectors into a bool value.</summary>

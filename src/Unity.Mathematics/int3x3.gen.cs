@@ -17,8 +17,7 @@ namespace Unity.Mathematics
         public static readonly int3x3 identity = new int3x3(1, 0, 0,   0, 1, 0,   0, 0, 1);
 
         /// <summary>int3x3 zero value.</summary>
-        public static readonly int3x3 zero = new int3x3(0, 0, 0,   0, 0, 0,   0, 0, 0);
-
+        public static readonly int3x3 zero;
 
         /// <summary>Constructs a int3x3 matrix from three int3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -507,9 +506,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x3 v)
         {
-            return csum(asuint(v.c0) * uint3(0x7AA2C2BDu, 0xE16BC89Du, 0x7AA07CD3u) + 
-                        asuint(v.c1) * uint3(0xAF642BA9u, 0xA8F2213Bu, 0x9F3FDC37u) + 
-                        asuint(v.c2) * uint3(0xAC60D0C3u, 0x9263662Fu, 0xE69626FFu)) + 0xBD010EEBu;
+            return csum(asuint(v.c0) * uint3(0x93C30C2Bu, 0xDCAF0351u, 0x6E050B01u) + 
+                        asuint(v.c1) * uint3(0x750FDBF5u, 0x7F3DD499u, 0x52EAAEBBu) + 
+                        asuint(v.c2) * uint3(0x4599C793u, 0x83B5E729u, 0xC267163Fu)) + 0x67BC9149u;
         }
 
         /// <summary>
@@ -520,9 +519,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3x3 v)
         {
-            return (asuint(v.c0) * uint3(0x9CEDE1D1u, 0x43BE0B51u, 0xAF836EE1u) + 
-                    asuint(v.c1) * uint3(0xB130C137u, 0x54834775u, 0x7C022221u) + 
-                    asuint(v.c2) * uint3(0xA2D00EDFu, 0xA8977779u, 0x9F1C739Bu)) + 0x4B1BD187u;
+            return (asuint(v.c0) * uint3(0xAD7C5EC1u, 0x822A7D6Du, 0xB492BF15u) + 
+                    asuint(v.c1) * uint3(0xD37220E3u, 0x7AA2C2BDu, 0xE16BC89Du) + 
+                    asuint(v.c2) * uint3(0x7AA07CD3u, 0xAF642BA9u, 0xA8F2213Bu)) + 0x9F3FDC37u;
         }
 
     }

@@ -17,8 +17,7 @@ namespace Unity.Mathematics
         public double w;
 
         /// <summary>double4 zero value.</summary>
-        public static readonly double4 zero = new double4(0.0,   0.0,   0.0,   0.0);
-
+        public static readonly double4 zero;
 
         /// <summary>Constructs a double4 vector from four double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -170,6 +169,26 @@ namespace Unity.Mathematics
             this.w = v.w;
         }
 
+        /// <summary>Constructs a double4 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4(half v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+        /// <summary>Constructs a double4 vector from a half4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double4(half4 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+            this.w = v.w;
+        }
+
         /// <summary>Constructs a double4 vector from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(float v)
@@ -218,6 +237,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint4 vector to a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(uint4 v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a single half value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double4(half v) { return new double4(v); }
+
+        /// <summary>Implicitly converts a half4 vector to a double4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double4(half4 v) { return new double4(v); }
 
         /// <summary>Implicitly converts a single float value to a double4 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3329,6 +3356,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(uint4 v) { return new double4(v); }
 
+        /// <summary>Returns a double4 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 double4(half v) { return new double4(v); }
+
+        /// <summary>Return a double4 vector constructed from a half4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 double4(half4 v) { return new double4(v); }
+
         /// <summary>Returns a double4 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(float v) { return new double4(v); }
@@ -3341,7 +3376,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double4 v)
         {
-            return csum(fold_to_uint(v) * uint4(0x9E19BFC3u, 0x8196B06Fu, 0xD24EFA19u, 0x7D8048BBu)) + 0x713BD06Fu;
+            return csum(fold_to_uint(v) * uint4(0x9F1C739Bu, 0x4B1BD187u, 0x9DF50593u, 0xF18EEB85u)) + 0x9E19BFC3u;
         }
 
         /// <summary>
@@ -3352,7 +3387,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(double4 v)
         {
-            return (fold_to_uint(v) * uint4(0x753AD6ADu, 0xD19764C7u, 0xB5D0BF63u, 0xF9102C5Fu)) + 0x9881FB9Fu;
+            return (fold_to_uint(v) * uint4(0x8196B06Fu, 0xD24EFA19u, 0x7D8048BBu, 0x713BD06Fu)) + 0x753AD6ADu;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double4 vectors into a double value.</summary>

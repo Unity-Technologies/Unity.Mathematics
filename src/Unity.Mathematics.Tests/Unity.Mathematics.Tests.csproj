@@ -86,6 +86,7 @@
     <Compile Include="Tests\Shared\TestFloat4x2.gen.cs" />
     <Compile Include="Tests\Shared\TestFloat4x3.gen.cs" />
     <Compile Include="Tests\Shared\TestFloat4x4.gen.cs" />
+    <Compile Include="Tests\Shared\TestHalf.cs" />
     <Compile Include="Tests\Shared\TestInt2.gen.cs" />
     <Compile Include="Tests\Shared\TestInt2x2.gen.cs" />
     <Compile Include="Tests\Shared\TestInt2x3.gen.cs" />

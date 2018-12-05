@@ -16,8 +16,7 @@ namespace Unity.Mathematics
         public float z;
 
         /// <summary>float3 zero value.</summary>
-        public static readonly float3 zero = new float3(0.0f,   0.0f,   0.0f);
-
+        public static readonly float3 zero;
 
         /// <summary>Constructs a float3 vector from three float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -118,6 +117,24 @@ namespace Unity.Mathematics
             this.z = v.z;
         }
 
+        /// <summary>Constructs a float3 vector from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(half v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        /// <summary>Constructs a float3 vector from a half3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float3(half3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
         /// <summary>Constructs a float3 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(double v)
@@ -164,6 +181,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3(uint3 v) { return new float3(v); }
+
+        /// <summary>Implicitly converts a single half value to a float3 vector by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float3(half v) { return new float3(v); }
+
+        /// <summary>Implicitly converts a half3 vector to a float3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float3(half3 v) { return new float3(v); }
 
         /// <summary>Explicitly converts a single double value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1409,6 +1434,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(uint3 v) { return new float3(v); }
 
+        /// <summary>Returns a float3 vector constructed from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(half v) { return new float3(v); }
+
+        /// <summary>Return a float3 vector constructed from a half3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 float3(half3 v) { return new float3(v); }
+
         /// <summary>Returns a float3 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(double v) { return new float3(v); }
@@ -1421,7 +1454,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3 v)
         {
-            return csum(asuint(v) * uint3(0x97A65421u, 0x7809205Fu, 0x9C9F0823u)) + 0x5A9CA13Bu;
+            return csum(asuint(v) * uint3(0x9B13B92Du, 0x4ABF0813u, 0x86068063u)) + 0xD75513F9u;
         }
 
         /// <summary>
@@ -1432,7 +1465,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(float3 v)
         {
-            return (asuint(v) * uint3(0xAFCDD5EFu, 0xA88D187Du, 0xCF6EBA1Du)) + 0x9D88E5A1u;
+            return (asuint(v) * uint3(0x5AB3E8CDu, 0x676E8407u, 0xB36DE767u)) + 0x6FCA387Du;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float3 vectors into a float value.</summary>

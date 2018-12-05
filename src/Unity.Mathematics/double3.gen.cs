@@ -16,8 +16,7 @@ namespace Unity.Mathematics
         public double z;
 
         /// <summary>double3 zero value.</summary>
-        public static readonly double3 zero = new double3(0.0,   0.0,   0.0);
-
+        public static readonly double3 zero;
 
         /// <summary>Constructs a double3 vector from three double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -118,6 +117,24 @@ namespace Unity.Mathematics
             this.z = v.z;
         }
 
+        /// <summary>Constructs a double3 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(half v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+        }
+
+        /// <summary>Constructs a double3 vector from a half3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3(half3 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+        }
+
         /// <summary>Constructs a double3 vector from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(float v)
@@ -164,6 +181,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint3 vector to a double3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(uint3 v) { return new double3(v); }
+
+        /// <summary>Implicitly converts a single half value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(half v) { return new double3(v); }
+
+        /// <summary>Implicitly converts a half3 vector to a double3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double3(half3 v) { return new double3(v); }
 
         /// <summary>Implicitly converts a single float value to a double3 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1409,6 +1434,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(uint3 v) { return new double3(v); }
 
+        /// <summary>Returns a double3 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(half v) { return new double3(v); }
+
+        /// <summary>Return a double3 vector constructed from a half3 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 double3(half3 v) { return new double3(v); }
+
         /// <summary>Returns a double3 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(float v) { return new double3(v); }
@@ -1421,7 +1454,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3 v)
         {
-            return csum(fold_to_uint(v) * uint3(0xEADF0775u, 0x747A9D7Bu, 0x4111F799u)) + 0xB5F05AF1u;
+            return csum(fold_to_uint(v) * uint3(0xAF0F3103u, 0xE4A056C7u, 0x841D8225u)) + 0xC9393C7Du;
         }
 
         /// <summary>
@@ -1432,7 +1465,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3 v)
         {
-            return (fold_to_uint(v) * uint3(0xFD80290Bu, 0x8B65ADB7u, 0xDFF4F563u)) + 0x7069770Du;
+            return (fold_to_uint(v) * uint3(0xD42EAFA3u, 0xD9AFD06Du, 0x97A65421u)) + 0x7809205Fu;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double3 vectors into a double value.</summary>

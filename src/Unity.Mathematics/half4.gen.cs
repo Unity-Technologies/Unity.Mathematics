@@ -7,21 +7,20 @@ using System.Diagnostics;
 
 namespace Unity.Mathematics
 {
-    [DebuggerTypeProxy(typeof(uint4.DebuggerProxy))]
-    [System.Serializable]
-    public partial struct uint4 : System.IEquatable<uint4>, IFormattable
+    [DebuggerTypeProxy(typeof(half4.DebuggerProxy))]
+    public partial struct half4 : System.IEquatable<half4>, IFormattable
     {
-        public uint x;
-        public uint y;
-        public uint z;
-        public uint w;
+        public half x;
+        public half y;
+        public half z;
+        public half w;
 
-        /// <summary>uint4 zero value.</summary>
-        public static readonly uint4 zero;
+        /// <summary>half4 zero value.</summary>
+        public static readonly half4 zero;
 
-        /// <summary>Constructs a uint4 vector from four uint values.</summary>
+        /// <summary>Constructs a half4 vector from four half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint x, uint y, uint z, uint w)
+        public half4(half x, half y, half z, half w)
         { 
             this.x = x;
             this.y = y;
@@ -29,9 +28,9 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        /// <summary>Constructs a uint4 vector from two uint values and a uint2 vector.</summary>
+        /// <summary>Constructs a half4 vector from two half values and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint x, uint y, uint2 zw)
+        public half4(half x, half y, half2 zw)
         { 
             this.x = x;
             this.y = y;
@@ -39,9 +38,9 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
 
-        /// <summary>Constructs a uint4 vector from a uint value, a uint2 vector and a uint value.</summary>
+        /// <summary>Constructs a half4 vector from a half value, a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint x, uint2 yz, uint w)
+        public half4(half x, half2 yz, half w)
         { 
             this.x = x;
             this.y = yz.x;
@@ -49,9 +48,9 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        /// <summary>Constructs a uint4 vector from a uint value and a uint3 vector.</summary>
+        /// <summary>Constructs a half4 vector from a half value and a half3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint x, uint3 yzw)
+        public half4(half x, half3 yzw)
         { 
             this.x = x;
             this.y = yzw.x;
@@ -59,9 +58,9 @@ namespace Unity.Mathematics
             this.w = yzw.z;
         }
 
-        /// <summary>Constructs a uint4 vector from a uint2 vector and two uint values.</summary>
+        /// <summary>Constructs a half4 vector from a half2 vector and two half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint2 xy, uint z, uint w)
+        public half4(half2 xy, half z, half w)
         { 
             this.x = xy.x;
             this.y = xy.y;
@@ -69,9 +68,9 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        /// <summary>Constructs a uint4 vector from two uint2 vectors.</summary>
+        /// <summary>Constructs a half4 vector from two half2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint2 xy, uint2 zw)
+        public half4(half2 xy, half2 zw)
         { 
             this.x = xy.x;
             this.y = xy.y;
@@ -79,9 +78,9 @@ namespace Unity.Mathematics
             this.w = zw.y;
         }
 
-        /// <summary>Constructs a uint4 vector from a uint3 vector and a uint value.</summary>
+        /// <summary>Constructs a half4 vector from a half3 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint3 xyz, uint w)
+        public half4(half3 xyz, half w)
         { 
             this.x = xyz.x;
             this.y = xyz.y;
@@ -89,9 +88,9 @@ namespace Unity.Mathematics
             this.w = w;
         }
 
-        /// <summary>Constructs a uint4 vector from a uint4 vector.</summary>
+        /// <summary>Constructs a half4 vector from a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint4 xyzw)
+        public half4(half4 xyzw)
         { 
             this.x = xyzw.x;
             this.y = xyzw.y;
@@ -99,9 +98,9 @@ namespace Unity.Mathematics
             this.w = xyzw.w;
         }
 
-        /// <summary>Constructs a uint4 vector from a single uint value by assigning it to every component.</summary>
+        /// <summary>Constructs a half4 vector from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(uint v)
+        public half4(half v)
         {
             this.x = v;
             this.y = v;
@@ -109,3152 +108,2907 @@ namespace Unity.Mathematics
             this.w = v;
         }
 
-        /// <summary>Constructs a uint4 vector from a single bool value by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Constructs a half4 vector from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(bool v)
+        public half4(float v)
         {
-            this.x = v ? 1u : 0u;
-            this.y = v ? 1u : 0u;
-            this.z = v ? 1u : 0u;
-            this.w = v ? 1u : 0u;
+            this.x = (half)v;
+            this.y = (half)v;
+            this.z = (half)v;
+            this.w = (half)v;
         }
 
-        /// <summary>Constructs a uint4 vector from a bool4 vector by componentwise conversion.</summary>
+        /// <summary>Constructs a half4 vector from a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(bool4 v)
+        public half4(float4 v)
         {
-            this.x = v.x ? 1u : 0u;
-            this.y = v.y ? 1u : 0u;
-            this.z = v.z ? 1u : 0u;
-            this.w = v.w ? 1u : 0u;
+            this.x = (half)v.x;
+            this.y = (half)v.y;
+            this.z = (half)v.z;
+            this.w = (half)v.w;
         }
 
-        /// <summary>Constructs a uint4 vector from a single int value by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Constructs a half4 vector from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(int v)
+        public half4(double v)
         {
-            this.x = (uint)v;
-            this.y = (uint)v;
-            this.z = (uint)v;
-            this.w = (uint)v;
+            this.x = (half)v;
+            this.y = (half)v;
+            this.z = (half)v;
+            this.w = (half)v;
         }
 
-        /// <summary>Constructs a uint4 vector from a int4 vector by componentwise conversion.</summary>
+        /// <summary>Constructs a half4 vector from a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(int4 v)
+        public half4(double4 v)
         {
-            this.x = (uint)v.x;
-            this.y = (uint)v.y;
-            this.z = (uint)v.z;
-            this.w = (uint)v.w;
-        }
-
-        /// <summary>Constructs a uint4 vector from a single float value by converting it to uint and assigning it to every component.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(float v)
-        {
-            this.x = (uint)v;
-            this.y = (uint)v;
-            this.z = (uint)v;
-            this.w = (uint)v;
-        }
-
-        /// <summary>Constructs a uint4 vector from a float4 vector by componentwise conversion.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(float4 v)
-        {
-            this.x = (uint)v.x;
-            this.y = (uint)v.y;
-            this.z = (uint)v.z;
-            this.w = (uint)v.w;
-        }
-
-        /// <summary>Constructs a uint4 vector from a single double value by converting it to uint and assigning it to every component.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(double v)
-        {
-            this.x = (uint)v;
-            this.y = (uint)v;
-            this.z = (uint)v;
-            this.w = (uint)v;
-        }
-
-        /// <summary>Constructs a uint4 vector from a double4 vector by componentwise conversion.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint4(double4 v)
-        {
-            this.x = (uint)v.x;
-            this.y = (uint)v.y;
-            this.z = (uint)v.z;
-            this.w = (uint)v.w;
+            this.x = (half)v.x;
+            this.y = (half)v.y;
+            this.z = (half)v.z;
+            this.w = (half)v.w;
         }
 
 
-        /// <summary>Implicitly converts a single uint value to a uint4 vector by assigning it to every component.</summary>
+        /// <summary>Implicitly converts a single half value to a half4 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator uint4(uint v) { return new uint4(v); }
+        public static implicit operator half4(half v) { return new half4(v); }
 
-        /// <summary>Explicitly converts a single bool value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Explicitly converts a single float value to a half4 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(bool v) { return new uint4(v); }
+        public static explicit operator half4(float v) { return new half4(v); }
 
-        /// <summary>Explicitly converts a bool4 vector to a uint4 vector by componentwise conversion.</summary>
+        /// <summary>Explicitly converts a float4 vector to a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(bool4 v) { return new uint4(v); }
+        public static explicit operator half4(float4 v) { return new half4(v); }
 
-        /// <summary>Explicitly converts a single int value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Explicitly converts a single double value to a half4 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(int v) { return new uint4(v); }
+        public static explicit operator half4(double v) { return new half4(v); }
 
-        /// <summary>Explicitly converts a int4 vector to a uint4 vector by componentwise conversion.</summary>
+        /// <summary>Explicitly converts a double4 vector to a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(int4 v) { return new uint4(v); }
+        public static explicit operator half4(double4 v) { return new half4(v); }
 
-        /// <summary>Explicitly converts a single float value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
+
+        /// <summary>Returns the result of a componentwise equality operation on two half4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(float v) { return new uint4(v); }
+        public static bool4 operator == (half4 lhs, half4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
 
-        /// <summary>Explicitly converts a float4 vector to a uint4 vector by componentwise conversion.</summary>
+        /// <summary>Returns the result of a componentwise equality operation on a half4 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(float4 v) { return new uint4(v); }
+        public static bool4 operator == (half4 lhs, half rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
-        /// <summary>Explicitly converts a single double value to a uint4 vector by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Returns the result of a componentwise equality operation on a half value and a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(double v) { return new uint4(v); }
+        public static bool4 operator == (half lhs, half4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
-        /// <summary>Explicitly converts a double4 vector to a uint4 vector by componentwise conversion.</summary>
+
+        /// <summary>Returns the result of a componentwise not equal operation on two half4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint4(double4 v) { return new uint4(v); }
+        public static bool4 operator != (half4 lhs, half4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
 
-
-        /// <summary>Returns the result of a componentwise multiplication operation on two uint4 vectors.</summary>
+        /// <summary>Returns the result of a componentwise not equal operation on a half4 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator * (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
+        public static bool4 operator != (half4 lhs, half rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
-        /// <summary>Returns the result of a componentwise multiplication operation on a uint4 vector and a uint value.</summary>
+        /// <summary>Returns the result of a componentwise not equal operation on a half value and a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator * (uint4 lhs, uint rhs) { return new uint4 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs); }
-
-        /// <summary>Returns the result of a componentwise multiplication operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator * (uint lhs, uint4 rhs) { return new uint4 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise addition operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator + (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
-
-        /// <summary>Returns the result of a componentwise addition operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator + (uint4 lhs, uint rhs) { return new uint4 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs); }
-
-        /// <summary>Returns the result of a componentwise addition operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator + (uint lhs, uint4 rhs) { return new uint4 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise subtraction operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator - (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
-
-        /// <summary>Returns the result of a componentwise subtraction operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator - (uint4 lhs, uint rhs) { return new uint4 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs); }
-
-        /// <summary>Returns the result of a componentwise subtraction operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator - (uint lhs, uint4 rhs) { return new uint4 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise division operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator / (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w); }
-
-        /// <summary>Returns the result of a componentwise division operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator / (uint4 lhs, uint rhs) { return new uint4 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs); }
-
-        /// <summary>Returns the result of a componentwise division operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator / (uint lhs, uint4 rhs) { return new uint4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise modulus operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator % (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z, lhs.w % rhs.w); }
-
-        /// <summary>Returns the result of a componentwise modulus operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator % (uint4 lhs, uint rhs) { return new uint4 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs, lhs.w % rhs); }
-
-        /// <summary>Returns the result of a componentwise modulus operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator % (uint lhs, uint4 rhs) { return new uint4 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise increment operation on a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator ++ (uint4 val) { return new uint4 (++val.x, ++val.y, ++val.z, ++val.w); }
-
-
-        /// <summary>Returns the result of a componentwise decrement operation on a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator -- (uint4 val) { return new uint4 (--val.x, --val.y, --val.z, --val.w); }
-
-
-        /// <summary>Returns the result of a componentwise less than operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
-
-        /// <summary>Returns the result of a componentwise less than operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (uint4 lhs, uint rhs) { return new bool4 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs); }
-
-        /// <summary>Returns the result of a componentwise less than operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (uint lhs, uint4 rhs) { return new bool4 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise less or equal operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z, lhs.w <= rhs.w); }
-
-        /// <summary>Returns the result of a componentwise less or equal operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (uint4 lhs, uint rhs) { return new bool4 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs); }
-
-        /// <summary>Returns the result of a componentwise less or equal operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (uint lhs, uint4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise greater than operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
-
-        /// <summary>Returns the result of a componentwise greater than operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (uint4 lhs, uint rhs) { return new bool4 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs); }
-
-        /// <summary>Returns the result of a componentwise greater than operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (uint lhs, uint4 rhs) { return new bool4 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise greater or equal operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z, lhs.w >= rhs.w); }
-
-        /// <summary>Returns the result of a componentwise greater or equal operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (uint4 lhs, uint rhs) { return new bool4 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs); }
-
-        /// <summary>Returns the result of a componentwise greater or equal operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (uint lhs, uint4 rhs) { return new bool4 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise unary minus operation on a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator - (uint4 val) { return new uint4 ((uint)-val.x, (uint)-val.y, (uint)-val.z, (uint)-val.w); }
-
-
-        /// <summary>Returns the result of a componentwise unary plus operation on a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator + (uint4 val) { return new uint4 (+val.x, +val.y, +val.z, +val.w); }
-
-
-        /// <summary>Returns the result of a componentwise left shift operation on a uint4 vector by a number of bits specified by a single int.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator << (uint4 x, int n) { return new uint4 (x.x << n, x.y << n, x.z << n, x.w << n); }
-
-        /// <summary>Returns the result of a componentwise right shift operation on a uint4 vector by a number of bits specified by a single int.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator >> (uint4 x, int n) { return new uint4 (x.x >> n, x.y >> n, x.z >> n, x.w >> n); }
-
-        /// <summary>Returns the result of a componentwise equality operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
-
-        /// <summary>Returns the result of a componentwise equality operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (uint4 lhs, uint rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
-
-        /// <summary>Returns the result of a componentwise equality operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (uint lhs, uint4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise not equal operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
-
-        /// <summary>Returns the result of a componentwise not equal operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (uint4 lhs, uint rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
-
-        /// <summary>Returns the result of a componentwise not equal operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (uint lhs, uint4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise bitwise not operation on a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator ~ (uint4 val) { return new uint4 (~val.x, ~val.y, ~val.z, ~val.w); }
-
-
-        /// <summary>Returns the result of a componentwise bitwise and operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator & (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z, lhs.w & rhs.w); }
-
-        /// <summary>Returns the result of a componentwise bitwise and operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator & (uint4 lhs, uint rhs) { return new uint4 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs, lhs.w & rhs); }
-
-        /// <summary>Returns the result of a componentwise bitwise and operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator & (uint lhs, uint4 rhs) { return new uint4 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z, lhs & rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise bitwise or operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator | (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x | rhs.x, lhs.y | rhs.y, lhs.z | rhs.z, lhs.w | rhs.w); }
-
-        /// <summary>Returns the result of a componentwise bitwise or operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator | (uint4 lhs, uint rhs) { return new uint4 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs, lhs.w | rhs); }
-
-        /// <summary>Returns the result of a componentwise bitwise or operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator | (uint lhs, uint4 rhs) { return new uint4 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z, lhs | rhs.w); }
-
-
-        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two uint4 vectors.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator ^ (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x ^ rhs.x, lhs.y ^ rhs.y, lhs.z ^ rhs.z, lhs.w ^ rhs.w); }
-
-        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint4 vector and a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator ^ (uint4 lhs, uint rhs) { return new uint4 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs, lhs.w ^ rhs); }
-
-        /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint value and a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 operator ^ (uint lhs, uint4 rhs) { return new uint4 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z, lhs ^ rhs.w); }
+        public static bool4 operator != (half lhs, half4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
 
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxxx
+        public half4 xxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, x, x); }
+            get { return new half4(x, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxxy
+        public half4 xxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, x, y); }
+            get { return new half4(x, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxxz
+        public half4 xxxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, x, z); }
+            get { return new half4(x, x, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxxw
+        public half4 xxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, x, w); }
+            get { return new half4(x, x, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxyx
+        public half4 xxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, y, x); }
+            get { return new half4(x, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxyy
+        public half4 xxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, y, y); }
+            get { return new half4(x, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxyz
+        public half4 xxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, y, z); }
+            get { return new half4(x, x, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxyw
+        public half4 xxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, y, w); }
+            get { return new half4(x, x, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxzx
+        public half4 xxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, z, x); }
+            get { return new half4(x, x, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxzy
+        public half4 xxzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, z, y); }
+            get { return new half4(x, x, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxzz
+        public half4 xxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, z, z); }
+            get { return new half4(x, x, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxzw
+        public half4 xxzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, z, w); }
+            get { return new half4(x, x, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxwx
+        public half4 xxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, w, x); }
+            get { return new half4(x, x, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxwy
+        public half4 xxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, w, y); }
+            get { return new half4(x, x, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxwz
+        public half4 xxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, w, z); }
+            get { return new half4(x, x, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xxww
+        public half4 xxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, x, w, w); }
+            get { return new half4(x, x, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyxx
+        public half4 xyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, x, x); }
+            get { return new half4(x, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyxy
+        public half4 xyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, x, y); }
+            get { return new half4(x, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyxz
+        public half4 xyxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, x, z); }
+            get { return new half4(x, y, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyxw
+        public half4 xyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, x, w); }
+            get { return new half4(x, y, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyyx
+        public half4 xyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, y, x); }
+            get { return new half4(x, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyyy
+        public half4 xyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, y, y); }
+            get { return new half4(x, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyyz
+        public half4 xyyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, y, z); }
+            get { return new half4(x, y, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyyw
+        public half4 xyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, y, w); }
+            get { return new half4(x, y, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyzx
+        public half4 xyzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, z, x); }
+            get { return new half4(x, y, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyzy
+        public half4 xyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, z, y); }
+            get { return new half4(x, y, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyzz
+        public half4 xyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, z, z); }
+            get { return new half4(x, y, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyzw
+        public half4 xyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, z, w); }
+            get { return new half4(x, y, z, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; z = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xywx
+        public half4 xywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, w, x); }
+            get { return new half4(x, y, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xywy
+        public half4 xywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, w, y); }
+            get { return new half4(x, y, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xywz
+        public half4 xywz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, w, z); }
+            get { return new half4(x, y, w, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; w = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xyww
+        public half4 xyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, y, w, w); }
+            get { return new half4(x, y, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzxx
+        public half4 xzxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, x, x); }
+            get { return new half4(x, z, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzxy
+        public half4 xzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, x, y); }
+            get { return new half4(x, z, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzxz
+        public half4 xzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, x, z); }
+            get { return new half4(x, z, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzxw
+        public half4 xzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, x, w); }
+            get { return new half4(x, z, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzyx
+        public half4 xzyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, y, x); }
+            get { return new half4(x, z, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzyy
+        public half4 xzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, y, y); }
+            get { return new half4(x, z, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzyz
+        public half4 xzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, y, z); }
+            get { return new half4(x, z, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzyw
+        public half4 xzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, y, w); }
+            get { return new half4(x, z, y, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; z = value.y; y = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzzx
+        public half4 xzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, z, x); }
+            get { return new half4(x, z, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzzy
+        public half4 xzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, z, y); }
+            get { return new half4(x, z, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzzz
+        public half4 xzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, z, z); }
+            get { return new half4(x, z, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzzw
+        public half4 xzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, z, w); }
+            get { return new half4(x, z, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzwx
+        public half4 xzwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, w, x); }
+            get { return new half4(x, z, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzwy
+        public half4 xzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, w, y); }
+            get { return new half4(x, z, w, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; z = value.y; w = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzwz
+        public half4 xzwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, w, z); }
+            get { return new half4(x, z, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xzww
+        public half4 xzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, z, w, w); }
+            get { return new half4(x, z, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwxx
+        public half4 xwxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, x, x); }
+            get { return new half4(x, w, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwxy
+        public half4 xwxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, x, y); }
+            get { return new half4(x, w, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwxz
+        public half4 xwxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, x, z); }
+            get { return new half4(x, w, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwxw
+        public half4 xwxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, x, w); }
+            get { return new half4(x, w, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwyx
+        public half4 xwyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, y, x); }
+            get { return new half4(x, w, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwyy
+        public half4 xwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, y, y); }
+            get { return new half4(x, w, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwyz
+        public half4 xwyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, y, z); }
+            get { return new half4(x, w, y, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; w = value.y; y = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwyw
+        public half4 xwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, y, w); }
+            get { return new half4(x, w, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwzx
+        public half4 xwzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, z, x); }
+            get { return new half4(x, w, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwzy
+        public half4 xwzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, z, y); }
+            get { return new half4(x, w, z, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; w = value.y; z = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwzz
+        public half4 xwzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, z, z); }
+            get { return new half4(x, w, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwzw
+        public half4 xwzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, z, w); }
+            get { return new half4(x, w, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwwx
+        public half4 xwwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, w, x); }
+            get { return new half4(x, w, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwwy
+        public half4 xwwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, w, y); }
+            get { return new half4(x, w, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwwz
+        public half4 xwwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, w, z); }
+            get { return new half4(x, w, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 xwww
+        public half4 xwww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(x, w, w, w); }
+            get { return new half4(x, w, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxxx
+        public half4 yxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, x, x); }
+            get { return new half4(y, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxxy
+        public half4 yxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, x, y); }
+            get { return new half4(y, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxxz
+        public half4 yxxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, x, z); }
+            get { return new half4(y, x, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxxw
+        public half4 yxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, x, w); }
+            get { return new half4(y, x, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxyx
+        public half4 yxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, y, x); }
+            get { return new half4(y, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxyy
+        public half4 yxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, y, y); }
+            get { return new half4(y, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxyz
+        public half4 yxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, y, z); }
+            get { return new half4(y, x, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxyw
+        public half4 yxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, y, w); }
+            get { return new half4(y, x, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxzx
+        public half4 yxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, z, x); }
+            get { return new half4(y, x, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxzy
+        public half4 yxzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, z, y); }
+            get { return new half4(y, x, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxzz
+        public half4 yxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, z, z); }
+            get { return new half4(y, x, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxzw
+        public half4 yxzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, z, w); }
+            get { return new half4(y, x, z, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; z = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxwx
+        public half4 yxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, w, x); }
+            get { return new half4(y, x, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxwy
+        public half4 yxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, w, y); }
+            get { return new half4(y, x, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxwz
+        public half4 yxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, w, z); }
+            get { return new half4(y, x, w, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; w = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yxww
+        public half4 yxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, x, w, w); }
+            get { return new half4(y, x, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyxx
+        public half4 yyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, x, x); }
+            get { return new half4(y, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyxy
+        public half4 yyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, x, y); }
+            get { return new half4(y, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyxz
+        public half4 yyxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, x, z); }
+            get { return new half4(y, y, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyxw
+        public half4 yyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, x, w); }
+            get { return new half4(y, y, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyyx
+        public half4 yyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, y, x); }
+            get { return new half4(y, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyyy
+        public half4 yyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, y, y); }
+            get { return new half4(y, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyyz
+        public half4 yyyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, y, z); }
+            get { return new half4(y, y, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyyw
+        public half4 yyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, y, w); }
+            get { return new half4(y, y, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyzx
+        public half4 yyzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, z, x); }
+            get { return new half4(y, y, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyzy
+        public half4 yyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, z, y); }
+            get { return new half4(y, y, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyzz
+        public half4 yyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, z, z); }
+            get { return new half4(y, y, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyzw
+        public half4 yyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, z, w); }
+            get { return new half4(y, y, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yywx
+        public half4 yywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, w, x); }
+            get { return new half4(y, y, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yywy
+        public half4 yywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, w, y); }
+            get { return new half4(y, y, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yywz
+        public half4 yywz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, w, z); }
+            get { return new half4(y, y, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yyww
+        public half4 yyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, y, w, w); }
+            get { return new half4(y, y, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzxx
+        public half4 yzxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, x, x); }
+            get { return new half4(y, z, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzxy
+        public half4 yzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, x, y); }
+            get { return new half4(y, z, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzxz
+        public half4 yzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, x, z); }
+            get { return new half4(y, z, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzxw
+        public half4 yzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, x, w); }
+            get { return new half4(y, z, x, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; z = value.y; x = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzyx
+        public half4 yzyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, y, x); }
+            get { return new half4(y, z, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzyy
+        public half4 yzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, y, y); }
+            get { return new half4(y, z, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzyz
+        public half4 yzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, y, z); }
+            get { return new half4(y, z, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzyw
+        public half4 yzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, y, w); }
+            get { return new half4(y, z, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzzx
+        public half4 yzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, z, x); }
+            get { return new half4(y, z, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzzy
+        public half4 yzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, z, y); }
+            get { return new half4(y, z, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzzz
+        public half4 yzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, z, z); }
+            get { return new half4(y, z, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzzw
+        public half4 yzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, z, w); }
+            get { return new half4(y, z, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzwx
+        public half4 yzwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, w, x); }
+            get { return new half4(y, z, w, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; z = value.y; w = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzwy
+        public half4 yzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, w, y); }
+            get { return new half4(y, z, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzwz
+        public half4 yzwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, w, z); }
+            get { return new half4(y, z, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 yzww
+        public half4 yzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, z, w, w); }
+            get { return new half4(y, z, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywxx
+        public half4 ywxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, x, x); }
+            get { return new half4(y, w, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywxy
+        public half4 ywxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, x, y); }
+            get { return new half4(y, w, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywxz
+        public half4 ywxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, x, z); }
+            get { return new half4(y, w, x, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; w = value.y; x = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywxw
+        public half4 ywxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, x, w); }
+            get { return new half4(y, w, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywyx
+        public half4 ywyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, y, x); }
+            get { return new half4(y, w, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywyy
+        public half4 ywyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, y, y); }
+            get { return new half4(y, w, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywyz
+        public half4 ywyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, y, z); }
+            get { return new half4(y, w, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywyw
+        public half4 ywyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, y, w); }
+            get { return new half4(y, w, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywzx
+        public half4 ywzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, z, x); }
+            get { return new half4(y, w, z, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; w = value.y; z = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywzy
+        public half4 ywzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, z, y); }
+            get { return new half4(y, w, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywzz
+        public half4 ywzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, z, z); }
+            get { return new half4(y, w, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywzw
+        public half4 ywzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, z, w); }
+            get { return new half4(y, w, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywwx
+        public half4 ywwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, w, x); }
+            get { return new half4(y, w, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywwy
+        public half4 ywwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, w, y); }
+            get { return new half4(y, w, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywwz
+        public half4 ywwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, w, z); }
+            get { return new half4(y, w, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 ywww
+        public half4 ywww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(y, w, w, w); }
+            get { return new half4(y, w, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxxx
+        public half4 zxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, x, x); }
+            get { return new half4(z, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxxy
+        public half4 zxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, x, y); }
+            get { return new half4(z, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxxz
+        public half4 zxxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, x, z); }
+            get { return new half4(z, x, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxxw
+        public half4 zxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, x, w); }
+            get { return new half4(z, x, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxyx
+        public half4 zxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, y, x); }
+            get { return new half4(z, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxyy
+        public half4 zxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, y, y); }
+            get { return new half4(z, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxyz
+        public half4 zxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, y, z); }
+            get { return new half4(z, x, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxyw
+        public half4 zxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, y, w); }
+            get { return new half4(z, x, y, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; x = value.y; y = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxzx
+        public half4 zxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, z, x); }
+            get { return new half4(z, x, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxzy
+        public half4 zxzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, z, y); }
+            get { return new half4(z, x, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxzz
+        public half4 zxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, z, z); }
+            get { return new half4(z, x, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxzw
+        public half4 zxzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, z, w); }
+            get { return new half4(z, x, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxwx
+        public half4 zxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, w, x); }
+            get { return new half4(z, x, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxwy
+        public half4 zxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, w, y); }
+            get { return new half4(z, x, w, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; x = value.y; w = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxwz
+        public half4 zxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, w, z); }
+            get { return new half4(z, x, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zxww
+        public half4 zxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, x, w, w); }
+            get { return new half4(z, x, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyxx
+        public half4 zyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, x, x); }
+            get { return new half4(z, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyxy
+        public half4 zyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, x, y); }
+            get { return new half4(z, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyxz
+        public half4 zyxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, x, z); }
+            get { return new half4(z, y, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyxw
+        public half4 zyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, x, w); }
+            get { return new half4(z, y, x, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; y = value.y; x = value.z; w = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyyx
+        public half4 zyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, y, x); }
+            get { return new half4(z, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyyy
+        public half4 zyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, y, y); }
+            get { return new half4(z, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyyz
+        public half4 zyyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, y, z); }
+            get { return new half4(z, y, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyyw
+        public half4 zyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, y, w); }
+            get { return new half4(z, y, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyzx
+        public half4 zyzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, z, x); }
+            get { return new half4(z, y, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyzy
+        public half4 zyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, z, y); }
+            get { return new half4(z, y, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyzz
+        public half4 zyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, z, z); }
+            get { return new half4(z, y, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyzw
+        public half4 zyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, z, w); }
+            get { return new half4(z, y, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zywx
+        public half4 zywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, w, x); }
+            get { return new half4(z, y, w, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; y = value.y; w = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zywy
+        public half4 zywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, w, y); }
+            get { return new half4(z, y, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zywz
+        public half4 zywz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, w, z); }
+            get { return new half4(z, y, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zyww
+        public half4 zyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, y, w, w); }
+            get { return new half4(z, y, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzxx
+        public half4 zzxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, x, x); }
+            get { return new half4(z, z, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzxy
+        public half4 zzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, x, y); }
+            get { return new half4(z, z, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzxz
+        public half4 zzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, x, z); }
+            get { return new half4(z, z, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzxw
+        public half4 zzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, x, w); }
+            get { return new half4(z, z, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzyx
+        public half4 zzyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, y, x); }
+            get { return new half4(z, z, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzyy
+        public half4 zzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, y, y); }
+            get { return new half4(z, z, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzyz
+        public half4 zzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, y, z); }
+            get { return new half4(z, z, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzyw
+        public half4 zzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, y, w); }
+            get { return new half4(z, z, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzzx
+        public half4 zzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, z, x); }
+            get { return new half4(z, z, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzzy
+        public half4 zzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, z, y); }
+            get { return new half4(z, z, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzzz
+        public half4 zzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, z, z); }
+            get { return new half4(z, z, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzzw
+        public half4 zzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, z, w); }
+            get { return new half4(z, z, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzwx
+        public half4 zzwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, w, x); }
+            get { return new half4(z, z, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzwy
+        public half4 zzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, w, y); }
+            get { return new half4(z, z, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzwz
+        public half4 zzwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, w, z); }
+            get { return new half4(z, z, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zzww
+        public half4 zzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, z, w, w); }
+            get { return new half4(z, z, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwxx
+        public half4 zwxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, x, x); }
+            get { return new half4(z, w, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwxy
+        public half4 zwxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, x, y); }
+            get { return new half4(z, w, x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; w = value.y; x = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwxz
+        public half4 zwxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, x, z); }
+            get { return new half4(z, w, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwxw
+        public half4 zwxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, x, w); }
+            get { return new half4(z, w, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwyx
+        public half4 zwyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, y, x); }
+            get { return new half4(z, w, y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; w = value.y; y = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwyy
+        public half4 zwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, y, y); }
+            get { return new half4(z, w, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwyz
+        public half4 zwyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, y, z); }
+            get { return new half4(z, w, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwyw
+        public half4 zwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, y, w); }
+            get { return new half4(z, w, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwzx
+        public half4 zwzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, z, x); }
+            get { return new half4(z, w, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwzy
+        public half4 zwzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, z, y); }
+            get { return new half4(z, w, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwzz
+        public half4 zwzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, z, z); }
+            get { return new half4(z, w, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwzw
+        public half4 zwzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, z, w); }
+            get { return new half4(z, w, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwwx
+        public half4 zwwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, w, x); }
+            get { return new half4(z, w, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwwy
+        public half4 zwwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, w, y); }
+            get { return new half4(z, w, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwwz
+        public half4 zwwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, w, z); }
+            get { return new half4(z, w, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 zwww
+        public half4 zwww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(z, w, w, w); }
+            get { return new half4(z, w, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxxx
+        public half4 wxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, x, x); }
+            get { return new half4(w, x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxxy
+        public half4 wxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, x, y); }
+            get { return new half4(w, x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxxz
+        public half4 wxxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, x, z); }
+            get { return new half4(w, x, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxxw
+        public half4 wxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, x, w); }
+            get { return new half4(w, x, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxyx
+        public half4 wxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, y, x); }
+            get { return new half4(w, x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxyy
+        public half4 wxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, y, y); }
+            get { return new half4(w, x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxyz
+        public half4 wxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, y, z); }
+            get { return new half4(w, x, y, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; x = value.y; y = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxyw
+        public half4 wxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, y, w); }
+            get { return new half4(w, x, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxzx
+        public half4 wxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, z, x); }
+            get { return new half4(w, x, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxzy
+        public half4 wxzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, z, y); }
+            get { return new half4(w, x, z, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; x = value.y; z = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxzz
+        public half4 wxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, z, z); }
+            get { return new half4(w, x, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxzw
+        public half4 wxzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, z, w); }
+            get { return new half4(w, x, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxwx
+        public half4 wxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, w, x); }
+            get { return new half4(w, x, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxwy
+        public half4 wxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, w, y); }
+            get { return new half4(w, x, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxwz
+        public half4 wxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, w, z); }
+            get { return new half4(w, x, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wxww
+        public half4 wxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, x, w, w); }
+            get { return new half4(w, x, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyxx
+        public half4 wyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, x, x); }
+            get { return new half4(w, y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyxy
+        public half4 wyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, x, y); }
+            get { return new half4(w, y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyxz
+        public half4 wyxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, x, z); }
+            get { return new half4(w, y, x, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; y = value.y; x = value.z; z = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyxw
+        public half4 wyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, x, w); }
+            get { return new half4(w, y, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyyx
+        public half4 wyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, y, x); }
+            get { return new half4(w, y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyyy
+        public half4 wyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, y, y); }
+            get { return new half4(w, y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyyz
+        public half4 wyyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, y, z); }
+            get { return new half4(w, y, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyyw
+        public half4 wyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, y, w); }
+            get { return new half4(w, y, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyzx
+        public half4 wyzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, z, x); }
+            get { return new half4(w, y, z, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; y = value.y; z = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyzy
+        public half4 wyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, z, y); }
+            get { return new half4(w, y, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyzz
+        public half4 wyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, z, z); }
+            get { return new half4(w, y, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyzw
+        public half4 wyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, z, w); }
+            get { return new half4(w, y, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wywx
+        public half4 wywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, w, x); }
+            get { return new half4(w, y, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wywy
+        public half4 wywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, w, y); }
+            get { return new half4(w, y, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wywz
+        public half4 wywz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, w, z); }
+            get { return new half4(w, y, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wyww
+        public half4 wyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, y, w, w); }
+            get { return new half4(w, y, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzxx
+        public half4 wzxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, x, x); }
+            get { return new half4(w, z, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzxy
+        public half4 wzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, x, y); }
+            get { return new half4(w, z, x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; z = value.y; x = value.z; y = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzxz
+        public half4 wzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, x, z); }
+            get { return new half4(w, z, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzxw
+        public half4 wzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, x, w); }
+            get { return new half4(w, z, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzyx
+        public half4 wzyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, y, x); }
+            get { return new half4(w, z, y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; z = value.y; y = value.z; x = value.w; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzyy
+        public half4 wzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, y, y); }
+            get { return new half4(w, z, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzyz
+        public half4 wzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, y, z); }
+            get { return new half4(w, z, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzyw
+        public half4 wzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, y, w); }
+            get { return new half4(w, z, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzzx
+        public half4 wzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, z, x); }
+            get { return new half4(w, z, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzzy
+        public half4 wzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, z, y); }
+            get { return new half4(w, z, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzzz
+        public half4 wzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, z, z); }
+            get { return new half4(w, z, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzzw
+        public half4 wzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, z, w); }
+            get { return new half4(w, z, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzwx
+        public half4 wzwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, w, x); }
+            get { return new half4(w, z, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzwy
+        public half4 wzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, w, y); }
+            get { return new half4(w, z, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzwz
+        public half4 wzwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, w, z); }
+            get { return new half4(w, z, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wzww
+        public half4 wzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, z, w, w); }
+            get { return new half4(w, z, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwxx
+        public half4 wwxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, x, x); }
+            get { return new half4(w, w, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwxy
+        public half4 wwxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, x, y); }
+            get { return new half4(w, w, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwxz
+        public half4 wwxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, x, z); }
+            get { return new half4(w, w, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwxw
+        public half4 wwxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, x, w); }
+            get { return new half4(w, w, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwyx
+        public half4 wwyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, y, x); }
+            get { return new half4(w, w, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwyy
+        public half4 wwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, y, y); }
+            get { return new half4(w, w, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwyz
+        public half4 wwyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, y, z); }
+            get { return new half4(w, w, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwyw
+        public half4 wwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, y, w); }
+            get { return new half4(w, w, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwzx
+        public half4 wwzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, z, x); }
+            get { return new half4(w, w, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwzy
+        public half4 wwzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, z, y); }
+            get { return new half4(w, w, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwzz
+        public half4 wwzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, z, z); }
+            get { return new half4(w, w, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwzw
+        public half4 wwzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, z, w); }
+            get { return new half4(w, w, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwwx
+        public half4 wwwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, w, x); }
+            get { return new half4(w, w, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwwy
+        public half4 wwwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, w, y); }
+            get { return new half4(w, w, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwwz
+        public half4 wwwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, w, z); }
+            get { return new half4(w, w, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint4 wwww
+        public half4 wwww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint4(w, w, w, w); }
+            get { return new half4(w, w, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xxx
+        public half3 xxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, x, x); }
+            get { return new half3(x, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xxy
+        public half3 xxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, x, y); }
+            get { return new half3(x, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xxz
+        public half3 xxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, x, z); }
+            get { return new half3(x, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xxw
+        public half3 xxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, x, w); }
+            get { return new half3(x, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xyx
+        public half3 xyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, y, x); }
+            get { return new half3(x, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xyy
+        public half3 xyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, y, y); }
+            get { return new half3(x, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xyz
+        public half3 xyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, y, z); }
+            get { return new half3(x, y, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xyw
+        public half3 xyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, y, w); }
+            get { return new half3(x, y, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xzx
+        public half3 xzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, z, x); }
+            get { return new half3(x, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xzy
+        public half3 xzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, z, y); }
+            get { return new half3(x, z, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; z = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xzz
+        public half3 xzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, z, z); }
+            get { return new half3(x, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xzw
+        public half3 xzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, z, w); }
+            get { return new half3(x, z, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; z = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xwx
+        public half3 xwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, w, x); }
+            get { return new half3(x, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xwy
+        public half3 xwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, w, y); }
+            get { return new half3(x, w, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; w = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xwz
+        public half3 xwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, w, z); }
+            get { return new half3(x, w, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; w = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 xww
+        public half3 xww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(x, w, w); }
+            get { return new half3(x, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yxx
+        public half3 yxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, x, x); }
+            get { return new half3(y, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yxy
+        public half3 yxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, x, y); }
+            get { return new half3(y, x, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yxz
+        public half3 yxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, x, z); }
+            get { return new half3(y, x, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yxw
+        public half3 yxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, x, w); }
+            get { return new half3(y, x, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yyx
+        public half3 yyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, y, x); }
+            get { return new half3(y, y, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yyy
+        public half3 yyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, y, y); }
+            get { return new half3(y, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yyz
+        public half3 yyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, y, z); }
+            get { return new half3(y, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yyw
+        public half3 yyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, y, w); }
+            get { return new half3(y, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yzx
+        public half3 yzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, z, x); }
+            get { return new half3(y, z, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; z = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yzy
+        public half3 yzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, z, y); }
+            get { return new half3(y, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yzz
+        public half3 yzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, z, z); }
+            get { return new half3(y, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yzw
+        public half3 yzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, z, w); }
+            get { return new half3(y, z, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; z = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 ywx
+        public half3 ywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, w, x); }
+            get { return new half3(y, w, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; w = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 ywy
+        public half3 ywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, w, y); }
+            get { return new half3(y, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 ywz
+        public half3 ywz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, w, z); }
+            get { return new half3(y, w, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; w = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 yww
+        public half3 yww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(y, w, w); }
+            get { return new half3(y, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zxx
+        public half3 zxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, x, x); }
+            get { return new half3(z, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zxy
+        public half3 zxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, x, y); }
+            get { return new half3(z, x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; x = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zxz
+        public half3 zxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, x, z); }
+            get { return new half3(z, x, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zxw
+        public half3 zxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, x, w); }
+            get { return new half3(z, x, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; x = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zyx
+        public half3 zyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, y, x); }
+            get { return new half3(z, y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; y = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zyy
+        public half3 zyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, y, y); }
+            get { return new half3(z, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zyz
+        public half3 zyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, y, z); }
+            get { return new half3(z, y, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zyw
+        public half3 zyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, y, w); }
+            get { return new half3(z, y, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; y = value.y; w = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zzx
+        public half3 zzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, z, x); }
+            get { return new half3(z, z, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zzy
+        public half3 zzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, z, y); }
+            get { return new half3(z, z, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zzz
+        public half3 zzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, z, z); }
+            get { return new half3(z, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zzw
+        public half3 zzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, z, w); }
+            get { return new half3(z, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zwx
+        public half3 zwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, w, x); }
+            get { return new half3(z, w, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; w = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zwy
+        public half3 zwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, w, y); }
+            get { return new half3(z, w, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; w = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zwz
+        public half3 zwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, w, z); }
+            get { return new half3(z, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 zww
+        public half3 zww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(z, w, w); }
+            get { return new half3(z, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wxx
+        public half3 wxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, x, x); }
+            get { return new half3(w, x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wxy
+        public half3 wxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, x, y); }
+            get { return new half3(w, x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; x = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wxz
+        public half3 wxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, x, z); }
+            get { return new half3(w, x, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; x = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wxw
+        public half3 wxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, x, w); }
+            get { return new half3(w, x, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wyx
+        public half3 wyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, y, x); }
+            get { return new half3(w, y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; y = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wyy
+        public half3 wyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, y, y); }
+            get { return new half3(w, y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wyz
+        public half3 wyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, y, z); }
+            get { return new half3(w, y, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; y = value.y; z = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wyw
+        public half3 wyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, y, w); }
+            get { return new half3(w, y, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wzx
+        public half3 wzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, z, x); }
+            get { return new half3(w, z, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; z = value.y; x = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wzy
+        public half3 wzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, z, y); }
+            get { return new half3(w, z, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; z = value.y; y = value.z; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wzz
+        public half3 wzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, z, z); }
+            get { return new half3(w, z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wzw
+        public half3 wzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, z, w); }
+            get { return new half3(w, z, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wwx
+        public half3 wwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, w, x); }
+            get { return new half3(w, w, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wwy
+        public half3 wwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, w, y); }
+            get { return new half3(w, w, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 wwz
+        public half3 wwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, w, z); }
+            get { return new half3(w, w, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint3 www
+        public half3 www
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint3(w, w, w); }
+            get { return new half3(w, w, w); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 xx
+        public half2 xx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(x, x); }
+            get { return new half2(x, x); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 xy
+        public half2 xy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(x, y); }
+            get { return new half2(x, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; y = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 xz
+        public half2 xz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(x, z); }
+            get { return new half2(x, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; z = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 xw
+        public half2 xw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(x, w); }
+            get { return new half2(x, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { x = value.x; w = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 yx
+        public half2 yx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(y, x); }
+            get { return new half2(y, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; x = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 yy
+        public half2 yy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(y, y); }
+            get { return new half2(y, y); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 yz
+        public half2 yz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(y, z); }
+            get { return new half2(y, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; z = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 yw
+        public half2 yw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(y, w); }
+            get { return new half2(y, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { y = value.x; w = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 zx
+        public half2 zx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(z, x); }
+            get { return new half2(z, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; x = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 zy
+        public half2 zy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(z, y); }
+            get { return new half2(z, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; y = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 zz
+        public half2 zz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(z, z); }
+            get { return new half2(z, z); }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 zw
+        public half2 zw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(z, w); }
+            get { return new half2(z, w); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { z = value.x; w = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 wx
+        public half2 wx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(w, x); }
+            get { return new half2(w, x); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; x = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 wy
+        public half2 wy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(w, y); }
+            get { return new half2(w, y); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; y = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 wz
+        public half2 wz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(w, z); }
+            get { return new half2(w, z); }
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             set { w = value.x; z = value.y; }
         }
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
-        public uint2 ww
+        public half2 ww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return new uint2(w, w); }
+            get { return new half2(w, w); }
         }
 
 
 
-        /// <summary>Returns the uint element at a specified index.</summary>
-        unsafe public uint this[int index]
+        /// <summary>Returns the half element at a specified index.</summary>
+        unsafe public half this[int index]
         {
             get
             {
@@ -3262,7 +3016,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (uint4* array = &this) { return ((uint*)array)[index]; }
+                fixed (half4* array = &this) { return ((half*)array)[index]; }
             }
             set
             {
@@ -3270,44 +3024,44 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (uint* array = &x) { array[index] = value; }
+                fixed (half* array = &x) { array[index] = value; }
             }
         }
 
-        /// <summary>Returns true if the uint4 is equal to a given uint4, false otherwise.</summary>
+        /// <summary>Returns true if the half4 is equal to a given half4, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool Equals(uint4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
+        public bool Equals(half4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
-        /// <summary>Returns true if the uint4 is equal to a given uint4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((uint4)o); }
+        /// <summary>Returns true if the half4 is equal to a given half4, false otherwise.</summary>
+        public override bool Equals(object o) { return Equals((half4)o); }
 
 
-        /// <summary>Returns a hash code for the uint4.</summary>
+        /// <summary>Returns a hash code for the half4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
-        /// <summary>Returns a string representation of the uint4.</summary>
+        /// <summary>Returns a string representation of the half4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
-            return string.Format("uint4({0}, {1}, {2}, {3})", x, y, z, w);
+            return string.Format("half4({0}, {1}, {2}, {3})", x, y, z, w);
         }
 
-        /// <summary>Returns a string representation of the uint4 using a specified format and culture-specific format information.</summary>
+        /// <summary>Returns a string representation of the half4 using a specified format and culture-specific format information.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
-            return string.Format("uint4({0}, {1}, {2}, {3})", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
+            return string.Format("half4({0}, {1}, {2}, {3})", x.ToString(format, formatProvider), y.ToString(format, formatProvider), z.ToString(format, formatProvider), w.ToString(format, formatProvider));
         }
 
         internal sealed class DebuggerProxy
         {
-            public uint x;
-            public uint y;
-            public uint z;
-            public uint w;
-            public DebuggerProxy(uint4 v)
+            public half x;
+            public half y;
+            public half z;
+            public half w;
+            public DebuggerProxy(half4 v)
             {
                 x = v.x;
                 y = v.y;
@@ -3320,153 +3074,74 @@ namespace Unity.Mathematics
 
     public static partial class math
     {
-        /// <summary>Returns a uint4 vector constructed from four uint values.</summary>
+        /// <summary>Returns a half4 vector constructed from four half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint y, uint z, uint w) { return new uint4(x, y, z, w); }
+        public static half4 half4(half x, half y, half z, half w) { return new half4(x, y, z, w); }
 
-        /// <summary>Returns a uint4 vector constructed from two uint values and a uint2 vector.</summary>
+        /// <summary>Returns a half4 vector constructed from two half values and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint y, uint2 zw) { return new uint4(x, y, zw); }
+        public static half4 half4(half x, half y, half2 zw) { return new half4(x, y, zw); }
 
-        /// <summary>Returns a uint4 vector constructed from a uint value, a uint2 vector and a uint value.</summary>
+        /// <summary>Returns a half4 vector constructed from a half value, a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint2 yz, uint w) { return new uint4(x, yz, w); }
+        public static half4 half4(half x, half2 yz, half w) { return new half4(x, yz, w); }
 
-        /// <summary>Returns a uint4 vector constructed from a uint value and a uint3 vector.</summary>
+        /// <summary>Returns a half4 vector constructed from a half value and a half3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint x, uint3 yzw) { return new uint4(x, yzw); }
+        public static half4 half4(half x, half3 yzw) { return new half4(x, yzw); }
 
-        /// <summary>Returns a uint4 vector constructed from a uint2 vector and two uint values.</summary>
+        /// <summary>Returns a half4 vector constructed from a half2 vector and two half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint2 xy, uint z, uint w) { return new uint4(xy, z, w); }
+        public static half4 half4(half2 xy, half z, half w) { return new half4(xy, z, w); }
 
-        /// <summary>Returns a uint4 vector constructed from two uint2 vectors.</summary>
+        /// <summary>Returns a half4 vector constructed from two half2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint2 xy, uint2 zw) { return new uint4(xy, zw); }
+        public static half4 half4(half2 xy, half2 zw) { return new half4(xy, zw); }
 
-        /// <summary>Returns a uint4 vector constructed from a uint3 vector and a uint value.</summary>
+        /// <summary>Returns a half4 vector constructed from a half3 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint3 xyz, uint w) { return new uint4(xyz, w); }
+        public static half4 half4(half3 xyz, half w) { return new half4(xyz, w); }
 
-        /// <summary>Returns a uint4 vector constructed from a uint4 vector.</summary>
+        /// <summary>Returns a half4 vector constructed from a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint4 xyzw) { return new uint4(xyzw); }
+        public static half4 half4(half4 xyzw) { return new half4(xyzw); }
 
-        /// <summary>Returns a uint4 vector constructed from a single uint value by assigning it to every component.</summary>
+        /// <summary>Returns a half4 vector constructed from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(uint v) { return new uint4(v); }
+        public static half4 half4(half v) { return new half4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single bool value by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Returns a half4 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(bool v) { return new uint4(v); }
+        public static half4 half4(float v) { return new half4(v); }
 
-        /// <summary>Return a uint4 vector constructed from a bool4 vector by componentwise conversion.</summary>
+        /// <summary>Return a half4 vector constructed from a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(bool4 v) { return new uint4(v); }
+        public static half4 half4(float4 v) { return new half4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single int value by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Returns a half4 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(int v) { return new uint4(v); }
+        public static half4 half4(double v) { return new half4(v); }
 
-        /// <summary>Return a uint4 vector constructed from a int4 vector by componentwise conversion.</summary>
+        /// <summary>Return a half4 vector constructed from a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(int4 v) { return new uint4(v); }
+        public static half4 half4(double4 v) { return new half4(v); }
 
-        /// <summary>Returns a uint4 vector constructed from a single float value by converting it to uint and assigning it to every component.</summary>
+        /// <summary>Returns a uint hash code of a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(float v) { return new uint4(v); }
-
-        /// <summary>Return a uint4 vector constructed from a float4 vector by componentwise conversion.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(float4 v) { return new uint4(v); }
-
-        /// <summary>Returns a uint4 vector constructed from a single double value by converting it to uint and assigning it to every component.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(double v) { return new uint4(v); }
-
-        /// <summary>Return a uint4 vector constructed from a double4 vector by componentwise conversion.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 uint4(double4 v) { return new uint4(v); }
-
-        /// <summary>Returns a uint hash code of a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(uint4 v)
+        public static uint hash(half4 v)
         {
-            return csum(v * uint4(0xB492BF15u, 0xD37220E3u, 0x7AA2C2BDu, 0xE16BC89Du)) + 0x7AA07CD3u;
+            return csum(uint4(v.x.value, v.y.value, v.z.value, v.w.value) * uint4(0x745ED837u, 0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu)) + 0x68EEE0F5u;
         }
 
         /// <summary>
-        /// Returns a uint4 vector hash code of a uint4 vector.
+        /// Returns a uint4 vector hash code of a half4 vector.
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 hashwide(uint4 v)
+        public static uint4 hashwide(half4 v)
         {
-            return (v * uint4(0xAF642BA9u, 0xA8F2213Bu, 0x9F3FDC37u, 0xAC60D0C3u)) + 0x9263662Fu;
-        }
-
-        /// <summary>Returns the result of specified shuffling of the components from two uint4 vectors into a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint shuffle(uint4 a, uint4 b, ShuffleComponent x)
-        {
-            return select_shuffle_component(a, b, x);
-        }
-
-        /// <summary>Returns the result of specified shuffling of the components from two uint4 vectors into a uint2 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 shuffle(uint4 a, uint4 b, ShuffleComponent x, ShuffleComponent y)
-        {
-            return uint2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
-        }
-
-        /// <summary>Returns the result of specified shuffling of the components from two uint4 vectors into a uint3 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 shuffle(uint4 a, uint4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
-        {
-            return uint3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
-        }
-
-        /// <summary>Returns the result of specified shuffling of the components from two uint4 vectors into a uint4 vector.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 shuffle(uint4 a, uint4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
-        {
-            return uint4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static uint select_shuffle_component(uint4 a, uint4 b, ShuffleComponent component)
-        {
-            switch(component)
-            {
-                case ShuffleComponent.LeftX:
-                    return a.x;
-                case ShuffleComponent.LeftY:
-                    return a.y;
-                case ShuffleComponent.LeftZ:
-                    return a.z;
-                case ShuffleComponent.LeftW:
-                    return a.w;
-                case ShuffleComponent.RightX:
-                    return b.x;
-                case ShuffleComponent.RightY:
-                    return b.y;
-                case ShuffleComponent.RightZ:
-                    return b.z;
-                case ShuffleComponent.RightW:
-                    return b.w;
-                default:
-                    throw new System.ArgumentException("Invalid shuffle component: " + component);
-            }
+            return (uint4(v.x.value, v.y.value, v.z.value, v.w.value) * uint4(0xBC3B0A59u, 0x816EFB5Du, 0xA24E82B7u, 0x45A22087u)) + 0xFC104C3Bu;
         }
 
     }

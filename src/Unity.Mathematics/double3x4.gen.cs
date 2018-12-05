@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public double3 c3;
 
         /// <summary>double3x4 zero value.</summary>
-        public static readonly double3x4 zero = new double3x4(0.0, 0.0, 0.0, 0.0,   0.0, 0.0, 0.0, 0.0,   0.0, 0.0, 0.0, 0.0);
-
+        public static readonly double3x4 zero;
 
         /// <summary>Constructs a double3x4 matrix from four double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -467,10 +466,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x4 v)
         {
-            return csum(fold_to_uint(v.c0) * uint3(0xE7579997u, 0xEF7D56C7u, 0x66F38F0Bu) + 
-                        fold_to_uint(v.c1) * uint3(0x624256A3u, 0x5292ADE1u, 0xD2E590E5u) + 
-                        fold_to_uint(v.c2) * uint3(0xF25BE857u, 0x9BC17CE7u, 0xC8B86851u) + 
-                        fold_to_uint(v.c3) * uint3(0x64095221u, 0xADF428FFu, 0xA3977109u)) + 0x745ED837u;
+            return csum(fold_to_uint(v.c0) * uint3(0xEE390C97u, 0x9C8A2F05u, 0x4DDC6509u) + 
+                        fold_to_uint(v.c1) * uint3(0x7CF083CBu, 0x5C4D6CEDu, 0xF9137117u) + 
+                        fold_to_uint(v.c2) * uint3(0xE857DCE1u, 0xF62213C5u, 0x9CDAA959u) + 
+                        fold_to_uint(v.c3) * uint3(0xAA269ABFu, 0xD54BA36Fu, 0xFD0847B9u)) + 0x8189A683u;
         }
 
         /// <summary>
@@ -481,10 +480,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3x4 v)
         {
-            return (fold_to_uint(v.c0) * uint3(0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu) + 
-                    fold_to_uint(v.c1) * uint3(0x68EEE0F5u, 0xBC3B0A59u, 0x816EFB5Du) + 
-                    fold_to_uint(v.c2) * uint3(0xA24E82B7u, 0x45A22087u, 0xFC104C3Bu) + 
-                    fold_to_uint(v.c3) * uint3(0x5FFF6B19u, 0x5E6CBF3Bu, 0xB546F2A5u)) + 0xBBCF63E7u;
+            return (fold_to_uint(v.c0) * uint3(0xB139D651u, 0xE7579997u, 0xEF7D56C7u) + 
+                    fold_to_uint(v.c1) * uint3(0x66F38F0Bu, 0x624256A3u, 0x5292ADE1u) + 
+                    fold_to_uint(v.c2) * uint3(0xD2E590E5u, 0xF25BE857u, 0x9BC17CE7u) + 
+                    fold_to_uint(v.c3) * uint3(0xC8B86851u, 0x64095221u, 0xADF428FFu)) + 0xA3977109u;
         }
 
     }

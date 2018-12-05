@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public uint3 c3;
 
         /// <summary>uint3x4 zero value.</summary>
-        public static readonly uint3x4 zero = new uint3x4(0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u,   0u, 0u, 0u, 0u);
-
+        public static readonly uint3x4 zero;
 
         /// <summary>Constructs a uint3x4 matrix from four uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -502,10 +501,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint3x4 v)
         {
-            return csum(v.c0 * uint3(0xFC6014F9u, 0x6BF6693Fu, 0x9D1B1D9Bu) + 
-                        v.c1 * uint3(0xF842F5C1u, 0xA47EC335u, 0xA477DF57u) + 
-                        v.c2 * uint3(0xC4B1493Fu, 0xBA0966D3u, 0xAFBEE253u) + 
-                        v.c3 * uint3(0x5B419C01u, 0x515D90F5u, 0xEC9F68F3u)) + 0xF9EA92D5u;
+            return csum(v.c0 * uint3(0xD1224537u, 0xE99ED6F3u, 0x48125549u) + 
+                        v.c1 * uint3(0xEEE2123Bu, 0xE3AD9FE5u, 0xCE1CF8BFu) + 
+                        v.c2 * uint3(0x7BE39F3Bu, 0xFAB9913Fu, 0xB4501269u) + 
+                        v.c3 * uint3(0xE04B89FDu, 0xDB3DE101u, 0x7B6D1B4Bu)) + 0x58399E77u;
         }
 
         /// <summary>
@@ -516,10 +515,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(uint3x4 v)
         {
-            return (v.c0 * uint3(0xC2FAFCB9u, 0x616E9CA1u, 0xC5C5394Bu) + 
-                    v.c1 * uint3(0xCAE78587u, 0x7A1541C9u, 0xF83BD927u) + 
-                    v.c2 * uint3(0x6A243BCBu, 0x509B84C9u, 0x91D13847u) + 
-                    v.c3 * uint3(0x52F7230Fu, 0xCF286E83u, 0xE121E6ADu)) + 0xC9CA1249u;
+            return (v.c0 * uint3(0x5EAC29C9u, 0xFC6014F9u, 0x6BF6693Fu) + 
+                    v.c1 * uint3(0x9D1B1D9Bu, 0xF842F5C1u, 0xA47EC335u) + 
+                    v.c2 * uint3(0xA477DF57u, 0xC4B1493Fu, 0xBA0966D3u) + 
+                    v.c3 * uint3(0xAFBEE253u, 0x5B419C01u, 0x515D90F5u)) + 0xEC9F68F3u;
         }
 
     }

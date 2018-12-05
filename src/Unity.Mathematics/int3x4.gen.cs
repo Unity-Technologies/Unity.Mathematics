@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public int3 c3;
 
         /// <summary>int3x4 zero value.</summary>
-        public static readonly int3x4 zero = new int3x4(0, 0, 0, 0,   0, 0, 0, 0,   0, 0, 0, 0);
-
+        public static readonly int3x4 zero;
 
         /// <summary>Constructs a int3x4 matrix from four int3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -502,10 +501,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x4 v)
         {
-            return csum(asuint(v.c0) * uint3(0xAFCDD5EFu, 0xA88D187Du, 0xCF6EBA1Du) + 
-                        asuint(v.c1) * uint3(0x9D88E5A1u, 0xEADF0775u, 0x747A9D7Bu) + 
-                        asuint(v.c2) * uint3(0x4111F799u, 0xB5F05AF1u, 0xFD80290Bu) + 
-                        asuint(v.c3) * uint3(0x8B65ADB7u, 0xDFF4F563u, 0x7069770Du)) + 0xD1224537u;
+            return csum(asuint(v.c0) * uint3(0x5AB3E8CDu, 0x676E8407u, 0xB36DE767u) + 
+                        asuint(v.c1) * uint3(0x6FCA387Du, 0xAF0F3103u, 0xE4A056C7u) + 
+                        asuint(v.c2) * uint3(0x841D8225u, 0xC9393C7Du, 0xD42EAFA3u) + 
+                        asuint(v.c3) * uint3(0xD9AFD06Du, 0x97A65421u, 0x7809205Fu)) + 0x9C9F0823u;
         }
 
         /// <summary>
@@ -516,10 +515,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3x4 v)
         {
-            return (asuint(v.c0) * uint3(0xE99ED6F3u, 0x48125549u, 0xEEE2123Bu) + 
-                    asuint(v.c1) * uint3(0xE3AD9FE5u, 0xCE1CF8BFu, 0x7BE39F3Bu) + 
-                    asuint(v.c2) * uint3(0xFAB9913Fu, 0xB4501269u, 0xE04B89FDu) + 
-                    asuint(v.c3) * uint3(0xDB3DE101u, 0x7B6D1B4Bu, 0x58399E77u)) + 0x5EAC29C9u;
+            return (asuint(v.c0) * uint3(0x5A9CA13Bu, 0xAFCDD5EFu, 0xA88D187Du) + 
+                    asuint(v.c1) * uint3(0xCF6EBA1Du, 0x9D88E5A1u, 0xEADF0775u) + 
+                    asuint(v.c2) * uint3(0x747A9D7Bu, 0x4111F799u, 0xB5F05AF1u) + 
+                    asuint(v.c3) * uint3(0xFD80290Bu, 0x8B65ADB7u, 0xDFF4F563u)) + 0x7069770Du;
         }
 
     }
