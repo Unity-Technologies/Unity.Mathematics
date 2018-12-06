@@ -2435,6 +2435,106 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public void clamp_int()
+        {
+            TestUtils.AreEqual(clamp(-2147483648, -123, 439), -123);
+            TestUtils.AreEqual(clamp(-254, -123, 439), -123);
+            TestUtils.AreEqual(clamp(246, -123, 439), 246);
+            TestUtils.AreEqual(clamp(632, -123, 439), 439);
+            TestUtils.AreEqual(clamp(-254, 439, -123), 439);
+            TestUtils.AreEqual(clamp(246, 439, -123), 439);
+            TestUtils.AreEqual(clamp(632, 439, -123), 439);
+            TestUtils.AreEqual(clamp(2147483647, -123, 439), 439);
+        }
+
+        [TestCompiler]
+        public void clamp_int2()
+        {
+            TestUtils.AreEqual(clamp(int2(-2147483648, -254), int2(-123, -123), int2(439, 439)), int2(-123, -123));
+            TestUtils.AreEqual(clamp(int2(246, 632), int2(-123, -123), int2(439, 439)), int2(246, 439));
+            TestUtils.AreEqual(clamp(int2(-254, 246), int2(439, 439), int2(-123, -123)), int2(439, 439));
+            TestUtils.AreEqual(clamp(int2(632, 2147483647), int2(439, -123), int2(-123, 439)), int2(439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_int3()
+        {
+            TestUtils.AreEqual(clamp(int3(-2147483648, -254, 246), int3(-123, -123, -123), int3(439, 439, 439)), int3(-123, -123, 246));
+            TestUtils.AreEqual(clamp(int3(632, -254, 246), int3(-123, 439, 439), int3(439, -123, -123)), int3(439, 439, 439));
+            TestUtils.AreEqual(clamp(int3(632, 2147483647, 2147483647), int3(439, -123, -123), int3(-123, 439, 439)), int3(439, 439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_int4()
+        {
+            TestUtils.AreEqual(clamp(int4(-2147483648, -254, 246, 632), int4(-123, -123, -123, -123), int4(439, 439, 439, 439)), int4(-123, -123, 246, 439));
+            TestUtils.AreEqual(clamp(int4(-254, 246, 632, 2147483647), int4(439, 439, 439, -123), int4(-123, -123, -123, 439)), int4(439, 439, 439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_uint()
+        {
+            TestUtils.AreEqual(clamp(0u, 123u, 439u), 123u);
+            TestUtils.AreEqual(clamp(54u, 123u, 439u), 123u);
+            TestUtils.AreEqual(clamp(246u, 123u, 439u), 246u);
+            TestUtils.AreEqual(clamp(632u, 123u, 439u), 439u);
+            TestUtils.AreEqual(clamp(54u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(246u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(632u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(4294967295u, 123u, 439u), 439u);
+        }
+
+        [TestCompiler]
+        public void clamp_uint2()
+        {
+            TestUtils.AreEqual(clamp(uint2(0u, 54u), uint2(123u, 123u), uint2(439u, 439u)), uint2(123u, 123u));
+            TestUtils.AreEqual(clamp(uint2(246u, 632u), uint2(123u, 123u), uint2(439u, 439u)), uint2(246u, 439u));
+            TestUtils.AreEqual(clamp(uint2(54u, 246u), uint2(439u, 439u), uint2(123u, 123u)), uint2(439u, 439u));
+            TestUtils.AreEqual(clamp(uint2(632u, 4294967295u), uint2(439u, 123u), uint2(123u, 439u)), uint2(439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_uint3()
+        {
+            TestUtils.AreEqual(clamp(uint3(0u, 54u, 246u), uint3(123u, 123u, 123u), uint3(439u, 439u, 439u)), uint3(123u, 123u, 246u));
+            TestUtils.AreEqual(clamp(uint3(632u, 54u, 246u), uint3(123u, 439u, 439u), uint3(439u, 123u, 123u)), uint3(439u, 439u, 439u));
+            TestUtils.AreEqual(clamp(uint3(632u, 4294967295u, 4294967295u), uint3(439u, 123u, 123u), uint3(123u, 439u, 439u)), uint3(439u, 439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_uint4()
+        {
+            TestUtils.AreEqual(clamp(uint4(0u, 54u, 246u, 632u), uint4(123u, 123u, 123u, 123u), uint4(439u, 439u, 439u, 439u)), uint4(123u, 123u, 246u, 439u));
+            TestUtils.AreEqual(clamp(uint4(54u, 246u, 632u, 4294967295u), uint4(439u, 439u, 439u, 123u), uint4(123u, 123u, 123u, 439u)), uint4(439u, 439u, 439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_long()
+        {
+            TestUtils.AreEqual(clamp(-9223372036854775808L, -123L, 439L), -123L);
+            TestUtils.AreEqual(clamp(-254L, -123L, 439L), -123L);
+            TestUtils.AreEqual(clamp(246L, -123L, 439L), 246L);
+            TestUtils.AreEqual(clamp(632L, -123L, 439L), 439L);
+            TestUtils.AreEqual(clamp(-254L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(246L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(632L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(9223372036854775807L, -123L, 439L), 439L);
+        }
+
+        [TestCompiler]
+        public void clamp_ulong()
+        {
+            TestUtils.AreEqual(clamp(0UL, 123UL, 439UL), 123UL);
+            TestUtils.AreEqual(clamp(54UL, 123UL, 439UL), 123UL);
+            TestUtils.AreEqual(clamp(246UL, 123UL, 439UL), 246UL);
+            TestUtils.AreEqual(clamp(632UL, 123UL, 439UL), 439UL);
+            TestUtils.AreEqual(clamp(54UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(246UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(632UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(18446744073709551615UL, 123UL, 439UL), 439UL);
+        }
+
+        [TestCompiler]
         public void clamp_float()
         {
             TestUtils.AreEqual(clamp(float.NegativeInfinity, -123.45f, 439.43f), -123.45f);

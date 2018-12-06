@@ -740,6 +740,15 @@ namespace Unity.Mathematics
         public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
 
 
+        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are long values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long clamp(long x, long a, long b) { return max(a, min(b, x)); }
+
+        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are ulong values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong clamp(ulong x, ulong a, ulong b) { return max(a, min(b, x)); }
+
+
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float clamp(float x, float a, float b) { return max(a, min(b, x)); }

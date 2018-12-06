@@ -2615,6 +2615,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                                 double.NegativeInfinity, double.PositiveInfinity,
                                                                 }, 4, 4);
 
+
+            GenerateComponentWiseTest(str, "clamp", new int[,] {    { int.MinValue, -123, 439},
+                                                                    { -254, -123, 439}, { 246, -123, 439 }, { 632, -123, 439 },
+                                                                    { -254,  439,-123}, { 246,  439,-123 }, { 632,  439,-123 },
+                                                                    { int.MaxValue, -123, 439},
+                                                                },
+                                                    new int[] { -123, -123, 246, 439, 439, 439, 439, 439 }, 4);
+
+            GenerateComponentWiseTest(str, "clamp", new uint[,] {   { 0, 123, 439},
+                                                                    { 54, 123, 439}, { 246, 123, 439 }, { 632, 123, 439 },
+                                                                    { 54, 439, 123}, { 246, 439, 123 }, { 632, 439, 123 },
+                                                                    { uint.MaxValue, 123, 439},
+                                                                },
+                                                    new uint[] { 123, 123, 246, 439, 439, 439, 439, 439 }, 4);
+
+            GenerateComponentWiseTest(str, "clamp", new long[,] {   { long.MinValue, -123, 439},
+                                                                    { -254, -123, 439}, { 246, -123, 439 }, { 632, -123, 439 },
+                                                                    { -254,  439,-123}, { 246,  439,-123 }, { 632,  439,-123 },
+                                                                    { long.MaxValue, -123, 439},
+                                                                },
+                                                    new long[] { -123, -123, 246, 439, 439, 439, 439, 439 }, 1);
+
+            GenerateComponentWiseTest(str, "clamp", new ulong[,] {  { 0, 123, 439},
+                                                                    { 54, 123, 439}, { 246, 123, 439 }, { 632, 123, 439 },
+                                                                    { 54, 439, 123}, { 246, 439, 123 }, { 632, 439, 123 },
+                                                                    { ulong.MaxValue, 123, 439},
+                                                                },
+                                                    new ulong[] { 123, 123, 246, 439, 439, 439, 439, 439 }, 1);
+
             GenerateComponentWiseTestFloatAndDouble(str, "clamp", new double[,] {   { double.NegativeInfinity, -123.45, 439.43},
                                                                                     { -254.3, -123.45, 439.43}, { 246.3, -123.45, 439.43 }, { 632.1, -123.45, 439.43 },
                                                                                     { -254.3,  439.43,-123.45}, { 246.3,  439.43,-123.45 }, { 632.1,  439.43,-123.45 },
