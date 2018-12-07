@@ -42,29 +42,8 @@ namespace Unity.Mathematics
 
             value = float4(tr, u.y, w.x, v.z) + asfloat(asuint(float4(t, v.x, u.z, w.y)) ^ sign_flips);   // +---, +++-, ++-+, +-++
 
-            //value = select(value, value.zwxy, u_mask != 0);   // TODO: get this to work without the redundant compare
-            //value = select(value.wzyx, value, t_mask != 0);
             value = asfloat((asuint(value) & ~u_mask) | (asuint(value.zwxy) & u_mask));
             value = asfloat((asuint(value.wzyx) & ~t_mask) | (asuint(value) & t_mask));
-
-            /*
-            if (u.x >= 0f)
-            {
-                float t = v.y + w.z;
-                if (t >= 0f)
-                    value = float4(v.z - w.y, w.x - u.z, u.y - v.x, 1f + u.x + t);
-                else
-                    value = float4(1f + u.x - t, u.y + v.x, w.x + u.z, v.z - w.y);
-            }
-            else
-            {
-                float t = v.y - w.z;
-                if (t >= 0f)
-                    value = float4(u.y + v.x, 1f - u.x + t, v.z + w.y, w.x - u.z);
-                else
-                    value = float4(w.x + u.z, v.z + w.y, 1f - u.x - t, u.y - v.x);
-            }*/
-
             value = normalize(value);
         }
 

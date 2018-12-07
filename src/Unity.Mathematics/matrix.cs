@@ -49,32 +49,6 @@ namespace Unity.Mathematics
             c0 = v2.y * asfloat(asuint(v.yxw) ^ npn) - v2.z * asfloat(asuint(v.zwx) ^ pnn) + float3(1, 0, 0);
             c1 = v2.z * asfloat(asuint(v.wzy) ^ nnp) - v2.x * asfloat(asuint(v.yxw) ^ npn) + float3(0, 1, 0);
             c2 = v2.x * asfloat(asuint(v.zwx) ^ pnn) - v2.y * asfloat(asuint(v.wzy) ^ nnp) + float3(0, 0, 1);
-
-            /*
-            // TODO: This should be better, but it isn't currently because the input quaternion ends being loaded as scalars for some reason.
-            // Test again later.
-            float4 xv2 = v.x * v2;
-            float4 yv2 = v.y * v2;
-            float4 zv2 = v.z * v2;
-            float4 wv2 = v.w * v2;
-            uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
-            uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
-            uint3 pnn = uint3(0x00000000, 0x80000000, 0x80000000);
-            c0 = asfloat(asuint(yv2.yxw) ^ npn) - asfloat(asuint(zv2.zwx) ^ pnn) + float3(1, 0, 0);
-            c1 = asfloat(asuint(zv2.wzy) ^ nnp) - asfloat(asuint(xv2.yxw) ^ npn) + float3(0, 1, 0);
-            c2 = asfloat(asuint(xv2.zwx) ^ pnn) - asfloat(asuint(yv2.wzy) ^ nnp) + float3(0, 0, 1);
-            */
-
-            /*
-            // handles scale
-            float dt = dot(v,v);
-            uint3 npn = uint3(0x80000000, 0x00000000, 0x80000000);
-            uint3 nnp = uint3(0x80000000, 0x80000000, 0x00000000);
-            uint3 pnn = uint3(0x00000000, 0x80000000, 0x80000000);
-            c0 = v2.y * asfloat(asuint(v.yxw) ^ npn) - v2.z * asfloat(asuint(v.zwx) ^ pnn);
-            c1 = v2.z * asfloat(asuint(v.wzy) ^ nnp) - v2.x * asfloat(asuint(v.yxw) ^ npn);
-            c2 = v2.x * asfloat(asuint(v.zwx) ^ pnn) - v2.y * asfloat(asuint(v.wzy) ^ nnp);
-            */
         }
 
         /// <summary>
