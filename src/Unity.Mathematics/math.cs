@@ -3231,7 +3231,7 @@ namespace Unity.Mathematics
 
             uint ux = asuint(x);
             uint uux = ux & msk;
-            uint h = (uint)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            uint h = (uint)(asuint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
             h = select(h, select(0x7c00u, 0x7e00u, (int)uux > infinity_32), (int)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
             return h | (ux & ~msk) >> 16;
         }

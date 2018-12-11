@@ -20,28 +20,6 @@ namespace Unity.Mathematics
             value = x.value;
         }
 
-        /// <summary>Constructs a half value from a bool value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half(bool v)
-        {
-            half h = new half(1.0f);
-            this.value = v ? h.value : (ushort)0;
-        }
-
-        /// <summary>Constructs a half vector from an int value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half(int v)
-        {
-            this.value = (ushort)math.f32tof16((float)v);
-        }
-
-        /// <summary>Constructs a half vector from a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half(uint v)
-        {
-            this.value = (ushort)math.f32tof16((float)v);
-        }
-
         /// <summary>Constructs a half value from a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half(float v)
@@ -113,18 +91,6 @@ namespace Unity.Mathematics
         /// <summary>Returns a half value constructed from a half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half half(half x) { return new half(x); }
-
-        /// <summary>Returns a half value constructed from a bool value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half half(bool v) { return new half(v); }
-
-        /// <summary>Returns a half value constructed from an int value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half half(int v) { return new half(v); }
-
-        /// <summary>Returns a half value constructed from a uint value.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half half(uint v) { return new half(v); }
 
         /// <summary>Returns a half value constructed from a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
