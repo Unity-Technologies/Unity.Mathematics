@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public float y;
 
         /// <summary>float2 zero value.</summary>
-        public static readonly float2 zero = new float2(0.0f,   0.0f);
-
+        public static readonly float2 zero;
 
         /// <summary>Constructs a float2 vector from two float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -90,6 +89,22 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
+        /// <summary>Constructs a float2 vector from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(half v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        /// <summary>Constructs a float2 vector from a half2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float2(half2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+        }
+
         /// <summary>Constructs a float2 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(double v)
@@ -134,6 +149,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint2 vector to a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float2(uint2 v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a single half value to a float2 vector by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(half v) { return new float2(v); }
+
+        /// <summary>Implicitly converts a half2 vector to a float2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float2(half2 v) { return new float2(v); }
 
         /// <summary>Explicitly converts a single double value to a float2 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -637,6 +660,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(uint2 v) { return new float2(v); }
 
+        /// <summary>Returns a float2 vector constructed from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(half v) { return new float2(v); }
+
+        /// <summary>Return a float2 vector constructed from a half2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 float2(half2 v) { return new float2(v); }
+
         /// <summary>Returns a float2 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 float2(double v) { return new float2(v); }
@@ -649,7 +680,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2 v)
         {
-            return csum(asuint(v) * uint2(0x5BA2C50Bu, 0x8C455ACBu)) + 0xCD266C89u;
+            return csum(asuint(v) * uint2(0xFA3A3285u, 0xAD55999Du)) + 0xDCDD5341u;
         }
 
         /// <summary>
@@ -660,7 +691,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2 v)
         {
-            return (asuint(v) * uint2(0xF1852A33u, 0x77E35E77u)) + 0x863E3729u;
+            return (asuint(v) * uint2(0x94DDD769u, 0xA1E92D39u)) + 0x4583C801u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float2 vectors into a float value.</summary>

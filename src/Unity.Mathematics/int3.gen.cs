@@ -16,8 +16,7 @@ namespace Unity.Mathematics
         public int z;
 
         /// <summary>int3 zero value.</summary>
-        public static readonly int3 zero = new int3(0,   0,   0);
-
+        public static readonly int3 zero;
 
         /// <summary>Constructs a int3 vector from three int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1473,7 +1472,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3 v)
         {
-            return csum(asuint(v) * uint3(0xD4DFF6D3u, 0xCB634F4Du, 0x9B13B92Du)) + 0x4ABF0813u;
+            return csum(asuint(v) * uint3(0x4C7F6DD1u, 0x4822A3E9u, 0xAAC3C25Du)) + 0xD21D0945u;
         }
 
         /// <summary>
@@ -1484,7 +1483,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3 v)
         {
-            return (asuint(v) * uint3(0x86068063u, 0xD75513F9u, 0x5AB3E8CDu)) + 0x676E8407u;
+            return (asuint(v) * uint3(0x88FCAB2Du, 0x614DA60Du, 0x5BA2C50Bu)) + 0x8C455ACBu;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int3 vectors into an int value.</summary>

@@ -17,8 +17,7 @@ namespace Unity.Mathematics
         public float w;
 
         /// <summary>float4 zero value.</summary>
-        public static readonly float4 zero = new float4(0.0f,   0.0f,   0.0f,   0.0f);
-
+        public static readonly float4 zero;
 
         /// <summary>Constructs a float4 vector from four float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -170,6 +169,26 @@ namespace Unity.Mathematics
             this.w = v.w;
         }
 
+        /// <summary>Constructs a float4 vector from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(half v)
+        {
+            this.x = v;
+            this.y = v;
+            this.z = v;
+            this.w = v;
+        }
+
+        /// <summary>Constructs a float4 vector from a half4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public float4(half4 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+            this.z = v.z;
+            this.w = v.w;
+        }
+
         /// <summary>Constructs a float4 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(double v)
@@ -218,6 +237,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(uint4 v) { return new float4(v); }
+
+        /// <summary>Implicitly converts a single half value to a float4 vector by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(half v) { return new float4(v); }
+
+        /// <summary>Implicitly converts a half4 vector to a float4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float4(half4 v) { return new float4(v); }
 
         /// <summary>Explicitly converts a single double value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3329,6 +3356,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(uint4 v) { return new float4(v); }
 
+        /// <summary>Returns a float4 vector constructed from a single half value by converting it to float and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(half v) { return new float4(v); }
+
+        /// <summary>Return a float4 vector constructed from a half4 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 float4(half4 v) { return new float4(v); }
+
         /// <summary>Returns a float4 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 float4(double v) { return new float4(v); }
@@ -3341,7 +3376,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4 v)
         {
-            return csum(asuint(v) * uint4(0xAF836EE1u, 0xB130C137u, 0x54834775u, 0x7C022221u)) + 0xA2D00EDFu;
+            return csum(asuint(v) * uint4(0xE69626FFu, 0xBD010EEBu, 0x9CEDE1D1u, 0x43BE0B51u)) + 0xAF836EE1u;
         }
 
         /// <summary>
@@ -3352,7 +3387,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(float4 v)
         {
-            return (asuint(v) * uint4(0xA8977779u, 0x9F1C739Bu, 0x4B1BD187u, 0x9DF50593u)) + 0xF18EEB85u;
+            return (asuint(v) * uint4(0xB130C137u, 0x54834775u, 0x7C022221u, 0xA2D00EDFu)) + 0xA8977779u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float value.</summary>

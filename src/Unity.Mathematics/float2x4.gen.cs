@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public float2 c3;
 
         /// <summary>float2x4 zero value.</summary>
-        public static readonly float2x4 zero = new float2x4(0.0f, 0.0f, 0.0f, 0.0f,   0.0f, 0.0f, 0.0f, 0.0f);
-
+        public static readonly float2x4 zero;
 
         /// <summary>Constructs a float2x4 matrix from four float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -447,10 +446,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x4 v)
         {
-            return csum(asuint(v.c0) * uint2(0xFAAF07DDu, 0x625C45BDu) + 
-                        asuint(v.c1) * uint2(0xC9F27FCBu, 0x6D2523B1u) + 
-                        asuint(v.c2) * uint2(0x6E2BF6A9u, 0xCC74B3B7u) + 
-                        asuint(v.c3) * uint2(0x83B58237u, 0x833E3E29u)) + 0xA9D919BFu;
+            return csum(asuint(v.c0) * uint2(0xD35C9B2Du, 0xA10D9E27u) + 
+                        asuint(v.c1) * uint2(0x568DAAA9u, 0x7530254Fu) + 
+                        asuint(v.c2) * uint2(0x9F090439u, 0x5E9F85C9u) + 
+                        asuint(v.c3) * uint2(0x8C4CA03Fu, 0xB8D969EDu)) + 0xAC5DB57Bu;
         }
 
         /// <summary>
@@ -461,10 +460,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2x4 v)
         {
-            return (asuint(v.c0) * uint2(0xC3EC1D97u, 0xB8B208C7u) + 
-                    asuint(v.c1) * uint2(0x5D3ED947u, 0x4473BBB1u) + 
-                    asuint(v.c2) * uint2(0xCBA11D5Fu, 0x685835CFu) + 
-                    asuint(v.c3) * uint2(0xC3D32AE1u, 0xB966942Fu)) + 0xFE9856B3u;
+            return (asuint(v.c0) * uint2(0xA91A02EDu, 0xB3C49313u) + 
+                    asuint(v.c1) * uint2(0xF43A9ABBu, 0x84E7E01Bu) + 
+                    asuint(v.c2) * uint2(0x8E055BE5u, 0x6E624EB7u) + 
+                    asuint(v.c3) * uint2(0x7383ED49u, 0xDD49C23Bu)) + 0xEBD0D005u;
         }
 
     }

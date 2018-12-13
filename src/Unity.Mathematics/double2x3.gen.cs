@@ -14,8 +14,7 @@ namespace Unity.Mathematics
         public double2 c2;
 
         /// <summary>double2x3 zero value.</summary>
-        public static readonly double2x3 zero = new double2x3(0.0, 0.0, 0.0,   0.0, 0.0, 0.0);
-
+        public static readonly double2x3 zero;
 
         /// <summary>Constructs a double2x3 matrix from three double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -434,9 +433,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2x3 v)
         {
-            return csum(fold_to_uint(v.c0) * uint2(0xE133B0B3u, 0xC3E0A3B9u) + 
-                        fold_to_uint(v.c1) * uint2(0xFE31134Fu, 0x712A34D7u) + 
-                        fold_to_uint(v.c2) * uint2(0x9D77A59Bu, 0x4942CA39u)) + 0xB40EC62Du;
+            return csum(fold_to_uint(v.c0) * uint2(0xF25BE857u, 0x9BC17CE7u) + 
+                        fold_to_uint(v.c1) * uint2(0xC8B86851u, 0x64095221u) + 
+                        fold_to_uint(v.c2) * uint2(0xADF428FFu, 0xA3977109u)) + 0x745ED837u;
         }
 
         /// <summary>
@@ -447,9 +446,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(double2x3 v)
         {
-            return (fold_to_uint(v.c0) * uint2(0x565ED63Fu, 0x93C30C2Bu) + 
-                    fold_to_uint(v.c1) * uint2(0xDCAF0351u, 0x6E050B01u) + 
-                    fold_to_uint(v.c2) * uint2(0x750FDBF5u, 0x7F3DD499u)) + 0x52EAAEBBu;
+            return (fold_to_uint(v.c0) * uint2(0x9CDC88F5u, 0xFA62D721u) + 
+                    fold_to_uint(v.c1) * uint2(0x7E4DB1CFu, 0x68EEE0F5u) + 
+                    fold_to_uint(v.c2) * uint2(0xBC3B0A59u, 0x816EFB5Du)) + 0xA24E82B7u;
         }
 
     }

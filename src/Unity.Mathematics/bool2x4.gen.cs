@@ -200,10 +200,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2x4 v)
         {
-            return csum(select(uint2(0x4599C793u, 0x83B5E729u), uint2(0xC267163Fu, 0x67BC9149u), v.c0) + 
-                        select(uint2(0xAD7C5EC1u, 0x822A7D6Du), uint2(0xB492BF15u, 0xD37220E3u), v.c1) + 
-                        select(uint2(0x7AA2C2BDu, 0xE16BC89Du), uint2(0x7AA07CD3u, 0xAF642BA9u), v.c2) + 
-                        select(uint2(0xA8F2213Bu, 0x9F3FDC37u), uint2(0xAC60D0C3u, 0x9263662Fu), v.c3));
+            return csum(select(uint2(0x45A22087u, 0xFC104C3Bu), uint2(0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) + 
+                        select(uint2(0xB546F2A5u, 0xBBCF63E7u), uint2(0xC53F4755u, 0x6985C229u), v.c1) + 
+                        select(uint2(0xE133B0B3u, 0xC3E0A3B9u), uint2(0xFE31134Fu, 0x712A34D7u), v.c2) + 
+                        select(uint2(0x9D77A59Bu, 0x4942CA39u), uint2(0xB40EC62Du, 0x565ED63Fu), v.c3));
         }
 
         /// <summary>
@@ -214,10 +214,10 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(bool2x4 v)
         {
-            return (select(uint2(0xE69626FFu, 0xBD010EEBu), uint2(0x9CEDE1D1u, 0x43BE0B51u), v.c0) + 
-                    select(uint2(0xAF836EE1u, 0xB130C137u), uint2(0x54834775u, 0x7C022221u), v.c1) + 
-                    select(uint2(0xA2D00EDFu, 0xA8977779u), uint2(0x9F1C739Bu, 0x4B1BD187u), v.c2) + 
-                    select(uint2(0x9DF50593u, 0xF18EEB85u), uint2(0x9E19BFC3u, 0x8196B06Fu), v.c3));
+            return (select(uint2(0x93C30C2Bu, 0xDCAF0351u), uint2(0x6E050B01u, 0x750FDBF5u), v.c0) + 
+                    select(uint2(0x7F3DD499u, 0x52EAAEBBu), uint2(0x4599C793u, 0x83B5E729u), v.c1) + 
+                    select(uint2(0xC267163Fu, 0x67BC9149u), uint2(0xAD7C5EC1u, 0x822A7D6Du), v.c2) + 
+                    select(uint2(0xB492BF15u, 0xD37220E3u), uint2(0x7AA2C2BDu, 0xE16BC89Du), v.c3));
         }
 
     }

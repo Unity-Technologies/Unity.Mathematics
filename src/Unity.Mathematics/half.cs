@@ -1,83 +1,110 @@
+using System;
+using System.Runtime.CompilerServices;
+
 namespace Unity.Mathematics
 {
-    public struct half
+    public struct half : System.IEquatable<half>, IFormattable
     {
-        private short value;
+        public ushort value;
 
-        public static float MaxValue { get { return 65536.0F; } }
-        public static float MinValue { get { return -65536.0F; } }
+        /// <summary>half zero value.</summary>
+        public static readonly half zero = new half();
 
-        public static implicit operator half(float v)
+        public static float MaxValue { get { return 65504.0f; } }
+        public static float MinValue { get { return -65504.0f; } }
+
+        /// <summary>Constructs a half value from a half value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public half(half x)
         {
-            unchecked
-            {
-                v = math.clamp(v, -65536.0f, 65536.0f) * 1.925930e-34f;
-                int i = math.asint(v);
-                uint ui = (uint)i;
-                int h = ((i >> 16) & (int)0xffff8000) | ((int)(ui >> 13));
-                half value;
-                value.value = (short)h;
-                return value;
-            }
+            value = x.value;
         }
 
-        public static implicit operator float(half d)
+        /// <summary>Constructs a half value from a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public half(float v)
         {
-            int iv = d.value;
-            int i = (iv & 0x47fff) << 13;
-            return math.asfloat(i) * 5.192297e+33f;
+            value = (ushort)math.f32tof16(v);
+        }
+
+        /// <summary>Constructs a half value from a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public half(double v)
+        {
+            value = (ushort)math.f32tof16((float)v);
+        }
+
+        /// <summary>Explicitly converts a float value to a half value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator half(float v) { return new half(v); }
+
+        /// <summary>Explicitly converts a double value to a half value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static explicit operator half(double v) { return new half(v); }
+
+        /// <summary>Implicitly converts a half value to a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator float(half d) { return math.f16tof32(d.value); }
+
+        /// <summary>Implicitly converts a half value to a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double(half d) { return math.f16tof32(d.value); }
+
+
+        /// <summary>Returns whether two half values are equal.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool operator ==(half lhs, half rhs) { return lhs.value == rhs.value; }
+
+        /// <summary>Returns whether two half values are different.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool operator !=(half lhs, half rhs) { return lhs.value != rhs.value; }
+
+
+        /// <summary>Returns true if the half is equal to a given half, false otherwise.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public bool Equals(half rhs) { return value == rhs.value; }
+
+        /// <summary>Returns true if the half is equal to a given half, false otherwise.</summary>
+        public override bool Equals(object o) { return Equals((half)o); }
+
+        /// <summary>Returns a hash code for the half.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override int GetHashCode() { return (int)value; }
+
+        /// <summary>Returns a string representation of the half.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public override string ToString()
+        {
+            return math.f16tof32(value).ToString();
+        }
+
+        /// <summary>Returns a string representation of the half using a specified format and culture-specific format information.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public string ToString(string format, IFormatProvider formatProvider)
+        {
+            return math.f16tof32(value).ToString(format, formatProvider);
         }
     }
 
-    public struct half2
+    public static partial class math
     {
-        public half x;
-        public half y;
+        /// <summary>Returns a half value constructed from a half values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static half half(half x) { return new half(x); }
 
-        public half2(half x, half y)
+        /// <summary>Returns a half value constructed from a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static half half(float v) { return new half(v); }
+
+        /// <summary>Returns a half value constructed from a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static half half(double v) { return new half(v); }
+
+        /// <summary>Returns a uint hash code of a half value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint hash(half v)
         {
-            this.x = x;
-            this.y = y;
+            return v.value * 0x745ED837u + 0x816EFB5Du;
         }
-
-        public static implicit operator half2(float2 d) { return new half2(d.x, d.y); }
-        public static implicit operator float2(half2 d) { return new float2(d.x, d.y); }
-    }
-
-    public struct half3
-    {
-        public half x;
-        public half y;
-        public half z;
-
-        public half3(half x, half y, half z)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-        }
-
-        public static implicit operator half3(float3 d) { return new half3(d.x, d.y, d.z); }
-        public static implicit operator float3(half3 d) { return new float3(d.x, d.y, d.z); }
-    }
-
-    public struct half4
-    {
-        public half x;
-        public half y;
-        public half z;
-        public half w;
-
-        public half4(half x, half y, half z, half w)
-        {
-            this.x = x;
-            this.y = y;
-            this.z = z;
-            this.w = w;
-        }
-
-        public static implicit operator half4(float4 d) { return new half4(d.x, d.y, d.z, d.w); }
-        public static implicit operator float4(half4 d) { return new float4(d.x, d.y, d.z, d.w); }
-
     }
 }

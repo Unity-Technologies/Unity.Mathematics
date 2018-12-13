@@ -75,6 +75,9 @@
     <Compile Include="float4x3.gen.cs" />
     <Compile Include="float4x4.gen.cs" />
     <Compile Include="half.cs" />
+    <Compile Include="half2.gen.cs" />
+    <Compile Include="half3.gen.cs" />
+    <Compile Include="half4.gen.cs" />
     <Compile Include="int2x2.gen.cs" />
     <Compile Include="int2x3.gen.cs" />
     <Compile Include="int2x4.gen.cs" />

@@ -156,6 +156,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     return "" + value;
                 case "uint":
                     return "" + value + "u";
+                case "half":
                 case "float":
                     return "" + value + ".0f";
                 case "double":
@@ -202,10 +203,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             WriteFile(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", str.ToString());
             
 
-            // test
-            str = new StringBuilder();
-            GenerateTypeTests(str);
-            WriteFile(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", str.ToString());
+            if(m_BaseType != "half")
+            {
+                str = new StringBuilder();
+                GenerateTypeTests(str);
+                WriteFile(m_TestDirectory + "/Test" + UpperCaseFirstLetter(m_TypeName) + ".gen.cs", str.ToString());
+            }
         }
         private void WriteMath()
         {
@@ -220,15 +223,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             vectorGenerator.m_ImplementationDirectory = implementationDirectory;
             vectorGenerator.m_TestDirectory = testDirectory;
 
-            vectorGenerator.WriteType("bool", 3, 1, Features.BitwiseLogic);
-            vectorGenerator.WriteType("bool", 4, 1, Features.BitwiseLogic);
-
             for(int rows = 1; rows <= 4; rows++)
             {
                 for(int columns = 1; columns <= 4; columns++)
                 {
                     if (rows == 1 && columns == 1)  // don't generate type1x1
                         continue;
+
+                    if (columns == 1)
+                        vectorGenerator.WriteType("half", rows, columns, 0);
+
                     if (rows == 1)  // ignore row vectors for now
                         continue;
 
@@ -267,7 +271,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void GenerateStaticFields(StringBuilder str)
         {
-            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float" || m_BaseType == "double")
+            if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "half" || m_BaseType == "float" || m_BaseType == "double")
             {
                 string zeroStr = ToTypedLiteral(m_BaseType, 0);
 
@@ -293,20 +297,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 // zero
                 str.AppendFormat("\t\t/// <summary>{0} zero value.</summary>\n", m_TypeName);
-                str.AppendFormat("\t\tpublic static readonly {0} zero = new {0}(", m_TypeName);
-
-                for (int row = 0; row < m_Rows; row++)
-                {
-                    for (int column = 0; column < m_Columns; column++)
-                    {
-                        if (row != 0 || column != 0)
-                            str.Append(", ");
-                        if (row != 0 && column == 0)
-                            str.Append("  ");
-                        str.Append(zeroStr);
-                    }
-                }
-                str.Append(");\n\n");
+                str.AppendFormat("\t\tpublic static readonly {0} zero;\n", m_TypeName);
             }
 
             str.Append("\n");
@@ -431,6 +422,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "double", true, true);
                 GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
+            else if (m_BaseType == "half")
+            {
+                GenerateConversion(str, opStr, mathStr, "float", true, true);
+                GenerateConversion(str, opStr, mathStr, "float", true, false);
+                GenerateConversion(str, opStr, mathStr, "double", true, true);
+                GenerateConversion(str, opStr, mathStr, "double", true, false);
+            }
             else if (m_BaseType == "float")
             {
                 GenerateConversion(str, opStr, mathStr, "bool", true, true);
@@ -439,6 +437,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
                 GenerateConversion(str, opStr, mathStr, "uint", false, true);
                 GenerateConversion(str, opStr, mathStr, "uint", false, false);
+                if(m_Columns == 1)
+                {
+                    GenerateConversion(str, opStr, mathStr, "half", false, true);
+                    GenerateConversion(str, opStr, mathStr, "half", false, false);
+                }
+                
                 GenerateConversion(str, opStr, mathStr, "double", true, true);
                 GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
@@ -450,9 +454,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "int", false, false);
                 GenerateConversion(str, opStr, mathStr, "uint", false, true);
                 GenerateConversion(str, opStr, mathStr, "uint", false, false);
+                if (m_Columns == 1)
+                {
+                    GenerateConversion(str, opStr, mathStr, "half", false, true);
+                    GenerateConversion(str, opStr, mathStr, "half", false, false);
+                }
                 GenerateConversion(str, opStr, mathStr, "float", false, true);
                 GenerateConversion(str, opStr, mathStr, "float", false, false);
             }
+            
 
             str.Append("\n");
             str.Append(opStr);
@@ -477,7 +487,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_Columns == 1)
                 str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
-            str.Append("\t[System.Serializable]\n");
+            if(m_BaseType != "half")
+                str.Append("\t[System.Serializable]\n");
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>", m_TypeName);
             if (m_BaseType != "bool")
                 str.Append(", IFormattable");
@@ -536,7 +547,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             // Internal members last
-            if (m_Columns == 1)
+            if (m_Columns == 1 && m_BaseType != "half")
             {
                 GenerateSelectShuffleComponentImplementation(mathStr);
             }
@@ -577,7 +588,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         private void GenerateShuffleImplementation(StringBuilder str)
         {
-            if (m_Columns > 1)
+            if (m_Columns > 1 || m_BaseType == "half")
                 return;
 
             for (int resultComponents = 1; resultComponents <= 4; resultComponents++)
@@ -1467,6 +1478,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     {
                         if(m_BaseType == "double")
                             columnName = "fold_to_uint(" + columnName + ")";
+                        else if(m_BaseType == "half")
+                        {
+                            if (m_Rows == 1)
+                                columnName = "v.value";
+                            else if(m_Rows == 2)
+                                columnName = "uint2(v.x.value, v.y.value)";
+                            else if (m_Rows == 3)
+                                columnName = "uint3(v.x.value, v.y.value, v.z.value)";
+                            else if (m_Rows == 4)
+                                columnName = "uint4(v.x.value, v.y.value, v.z.value, v.w.value)";
+                        }
                         else
                             columnName = "asuint(" + columnName + ")";
                     }
@@ -2541,10 +2563,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                 new double[] { -8.92081875395237517, 0.0, 10.079181246047624, double.NaN, double.NaN, double.NaN, double.PositiveInfinity }, 1, 32);
 
             GenerateComponentWiseTestFloatAndDouble(str, "radians", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
-                                                                new double[] { -2.15460896158699986, 0.0, 2.15460896158699986, double.NegativeInfinity, double.NaN, double.PositiveInfinity });
+                                                                new double[] { -2.15460896158699986, 0.0, 2.15460896158699986, double.NegativeInfinity, double.NaN, double.PositiveInfinity }, 1, 1);
 
             GenerateComponentWiseTestFloatAndDouble(str, "degrees", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
-                                                                new double[] { -7073.1639808900125122, 0.0, 7073.1639808900125122, double.NegativeInfinity, double.NaN, double.PositiveInfinity });
+                                                                new double[] { -7073.1639808900125122, 0.0, 7073.1639808900125122, double.NegativeInfinity, double.NaN, double.PositiveInfinity}, 1, 1);
 
             GenerateComponentWiseTestFloatAndDouble(str, "sign",new double[,] { { -123.45 }, { -1e-20 }, { 0.0 }, { 1e-10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { -1.0, -1.0, 0.0, 1.0, 1.0, -1.0, 0.0, 1.0 });
@@ -2556,7 +2578,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                 new double[] { double.NaN, double.PositiveInfinity, 1e-5, 0.0900024751020984295, double.NaN, double.NaN, 0.0, }, 1, 1);
 
             GenerateComponentWiseTestFloatAndDouble(str, "rcp", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NaN }, { double.PositiveInfinity } },
-                                                                new double[] { -0.0081004455245038477, double.PositiveInfinity, 0.0081004455245038477, double.NaN, 0.0, }, 0, 0);
+                                                                new double[] { -0.0081004455245038477, double.PositiveInfinity, 0.0081004455245038477, double.NaN, 0.0, }, 1, 1);
 
             GenerateComponentWiseTestFloatAndDouble(str, "floor", new double[,] { { double.NegativeInfinity },  { -100.51 }, { -100.5 }, { -100.49 }, { 0.0 }, { 100.49 }, { 100.50 }, { 100.51 }, { double.PositiveInfinity }, { double.NaN } },
                                                                 new double[] { double.NegativeInfinity, -101.0, -101.0, -101.0, 0.0, 100.0, 100.0, 100.0, double.PositiveInfinity, double.NaN } );
@@ -2592,6 +2614,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                                 643.76693078453667, 627.74220082433201, 531.59382106310404,
                                                                                 double.NegativeInfinity, double.PositiveInfinity,
                                                                 }, 4, 4);
+
+
+            GenerateComponentWiseTest(str, "clamp", new int[,] {    { int.MinValue, -123, 439},
+                                                                    { -254, -123, 439}, { 246, -123, 439 }, { 632, -123, 439 },
+                                                                    { -254,  439,-123}, { 246,  439,-123 }, { 632,  439,-123 },
+                                                                    { int.MaxValue, -123, 439},
+                                                                },
+                                                    new int[] { -123, -123, 246, 439, 439, 439, 439, 439 }, 4);
+
+            GenerateComponentWiseTest(str, "clamp", new uint[,] {   { 0, 123, 439},
+                                                                    { 54, 123, 439}, { 246, 123, 439 }, { 632, 123, 439 },
+                                                                    { 54, 439, 123}, { 246, 439, 123 }, { 632, 439, 123 },
+                                                                    { uint.MaxValue, 123, 439},
+                                                                },
+                                                    new uint[] { 123, 123, 246, 439, 439, 439, 439, 439 }, 4);
+
+            GenerateComponentWiseTest(str, "clamp", new long[,] {   { long.MinValue, -123, 439},
+                                                                    { -254, -123, 439}, { 246, -123, 439 }, { 632, -123, 439 },
+                                                                    { -254,  439,-123}, { 246,  439,-123 }, { 632,  439,-123 },
+                                                                    { long.MaxValue, -123, 439},
+                                                                },
+                                                    new long[] { -123, -123, 246, 439, 439, 439, 439, 439 }, 1);
+
+            GenerateComponentWiseTest(str, "clamp", new ulong[,] {  { 0, 123, 439},
+                                                                    { 54, 123, 439}, { 246, 123, 439 }, { 632, 123, 439 },
+                                                                    { 54, 439, 123}, { 246, 439, 123 }, { 632, 439, 123 },
+                                                                    { ulong.MaxValue, 123, 439},
+                                                                },
+                                                    new ulong[] { 123, 123, 246, 439, 439, 439, 439, 439 }, 1);
 
             GenerateComponentWiseTestFloatAndDouble(str, "clamp", new double[,] {   { double.NegativeInfinity, -123.45, 439.43},
                                                                                     { -254.3, -123.45, 439.43}, { 246.3, -123.45, 439.43 }, { 632.1, -123.45, 439.43 },

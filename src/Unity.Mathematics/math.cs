@@ -740,6 +740,15 @@ namespace Unity.Mathematics
         public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
 
 
+        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are long values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static long clamp(long x, long a, long b) { return max(a, min(b, x)); }
+
+        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are ulong values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static ulong clamp(ulong x, ulong a, ulong b) { return max(a, min(b, x)); }
+
+
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float clamp(float x, float a, float b) { return max(a, min(b, x)); }
@@ -3222,7 +3231,7 @@ namespace Unity.Mathematics
 
             uint ux = asuint(x);
             uint uux = ux & msk;
-            uint h = (uint)(asint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
+            uint h = (uint)(asuint(min(asfloat(uux) * 1.92592994e-34f, 260042752.0f)) + 0x1000) >> 13;   // Clamp to signed infinity if overflowed
             h = select(h, select(0x7c00u, 0x7e00u, (int)uux > infinity_32), (int)uux >= infinity_32);   // NaN->qNaN and Inf->Inf
             return h | (ux & ~msk) >> 16;
         }

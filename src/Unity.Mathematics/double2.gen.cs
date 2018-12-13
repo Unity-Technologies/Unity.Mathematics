@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public double y;
 
         /// <summary>double2 zero value.</summary>
-        public static readonly double2 zero = new double2(0.0,   0.0);
-
+        public static readonly double2 zero;
 
         /// <summary>Constructs a double2 vector from two double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -90,6 +89,22 @@ namespace Unity.Mathematics
             this.y = v.y;
         }
 
+        /// <summary>Constructs a double2 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2(half v)
+        {
+            this.x = v;
+            this.y = v;
+        }
+
+        /// <summary>Constructs a double2 vector from a half2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double2(half2 v)
+        {
+            this.x = v.x;
+            this.y = v.y;
+        }
+
         /// <summary>Constructs a double2 vector from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(float v)
@@ -134,6 +149,14 @@ namespace Unity.Mathematics
         /// <summary>Implicitly converts a uint2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(uint2 v) { return new double2(v); }
+
+        /// <summary>Implicitly converts a single half value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double2(half v) { return new double2(v); }
+
+        /// <summary>Implicitly converts a half2 vector to a double2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static implicit operator double2(half2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single float value to a double2 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -637,6 +660,14 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(uint2 v) { return new double2(v); }
 
+        /// <summary>Returns a double2 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 double2(half v) { return new double2(v); }
+
+        /// <summary>Return a double2 vector constructed from a half2 vector by componentwise conversion.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 double2(half2 v) { return new double2(v); }
+
         /// <summary>Returns a double2 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(float v) { return new double2(v); }
@@ -649,7 +680,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2 v)
         {
-            return csum(fold_to_uint(v) * uint2(0xE191B035u, 0x68586FAFu)) + 0xD4DFF6D3u;
+            return csum(fold_to_uint(v) * uint2(0x9536A0F5u, 0xAF816615u)) + 0x9AF8D62Du;
         }
 
         /// <summary>
@@ -660,7 +691,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(double2 v)
         {
-            return (fold_to_uint(v) * uint2(0xCB634F4Du, 0x9B13B92Du)) + 0x4ABF0813u;
+            return (fold_to_uint(v) * uint2(0xE3600729u, 0x5F17300Du)) + 0x670D6809u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double value.</summary>

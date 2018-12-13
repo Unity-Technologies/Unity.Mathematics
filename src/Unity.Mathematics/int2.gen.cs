@@ -15,8 +15,7 @@ namespace Unity.Mathematics
         public int y;
 
         /// <summary>int2 zero value.</summary>
-        public static readonly int2 zero = new int2(0,   0);
-
+        public static readonly int2 zero;
 
         /// <summary>Constructs a int2 vector from two int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -701,7 +700,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int2 v)
         {
-            return csum(asuint(v) * uint2(0x5F17300Du, 0x670D6809u)) + 0x7AF32C49u;
+            return csum(asuint(v) * uint2(0x83B58237u, 0x833E3E29u)) + 0xA9D919BFu;
         }
 
         /// <summary>
@@ -712,7 +711,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(int2 v)
         {
-            return (asuint(v) * uint2(0xAE131389u, 0x5D1B165Bu)) + 0x87096CD7u;
+            return (asuint(v) * uint2(0xC3EC1D97u, 0xB8B208C7u)) + 0x5D3ED947u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int2 vectors into an int value.</summary>

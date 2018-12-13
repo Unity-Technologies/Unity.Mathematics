@@ -1388,11 +1388,11 @@ namespace Unity.Mathematics.Tests
         public void radians_float()
         {
             TestUtils.AreEqual(radians(-123.45f), -2.154609f, 1, false);
-            TestUtils.AreEqual(radians(0f), 0f, 0, false);
+            TestUtils.AreEqual(radians(0f), 0f, 1, false);
             TestUtils.AreEqual(radians(123.45f), 2.154609f, 1, false);
-            TestUtils.AreEqual(radians(float.NegativeInfinity), float.NegativeInfinity, 0, false);
-            TestUtils.AreEqual(radians(float.NaN), float.NaN, 0, false);
-            TestUtils.AreEqual(radians(float.PositiveInfinity), float.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(radians(float.NegativeInfinity), float.NegativeInfinity, 1, false);
+            TestUtils.AreEqual(radians(float.NaN), float.NaN, 1, false);
+            TestUtils.AreEqual(radians(float.PositiveInfinity), float.PositiveInfinity, 1, false);
         }
 
         [TestCompiler]
@@ -1400,14 +1400,14 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(radians(float2(-123.45f, 0f)), float2(-2.154609f, 0f), 1, false);
             TestUtils.AreEqual(radians(float2(123.45f, float.NegativeInfinity)), float2(2.154609f, float.NegativeInfinity), 1, false);
-            TestUtils.AreEqual(radians(float2(float.NaN, float.PositiveInfinity)), float2(float.NaN, float.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(radians(float2(float.NaN, float.PositiveInfinity)), float2(float.NaN, float.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void radians_float3()
         {
             TestUtils.AreEqual(radians(float3(-123.45f, 0f, 123.45f)), float3(-2.154609f, 0f, 2.154609f), 1, false);
-            TestUtils.AreEqual(radians(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity)), float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(radians(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity)), float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
@@ -1421,11 +1421,11 @@ namespace Unity.Mathematics.Tests
         public void radians_double()
         {
             TestUtils.AreEqual(radians(-123.45), -2.154608961587, 1, false);
-            TestUtils.AreEqual(radians(0.0), 0.0, 0, false);
+            TestUtils.AreEqual(radians(0.0), 0.0, 1, false);
             TestUtils.AreEqual(radians(123.45), 2.154608961587, 1, false);
-            TestUtils.AreEqual(radians(double.NegativeInfinity), double.NegativeInfinity, 0, false);
-            TestUtils.AreEqual(radians(double.NaN), double.NaN, 0, false);
-            TestUtils.AreEqual(radians(double.PositiveInfinity), double.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(radians(double.NegativeInfinity), double.NegativeInfinity, 1, false);
+            TestUtils.AreEqual(radians(double.NaN), double.NaN, 1, false);
+            TestUtils.AreEqual(radians(double.PositiveInfinity), double.PositiveInfinity, 1, false);
         }
 
         [TestCompiler]
@@ -1433,87 +1433,87 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(radians(double2(-123.45, 0.0)), double2(-2.154608961587, 0.0), 1, false);
             TestUtils.AreEqual(radians(double2(123.45, double.NegativeInfinity)), double2(2.154608961587, double.NegativeInfinity), 1, false);
-            TestUtils.AreEqual(radians(double2(double.NaN, double.PositiveInfinity)), double2(double.NaN, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(radians(double2(double.NaN, double.PositiveInfinity)), double2(double.NaN, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void radians_double3()
         {
             TestUtils.AreEqual(radians(double3(-123.45, 0.0, 123.45)), double3(-2.154608961587, 0.0, 2.154608961587), 1, false);
-            TestUtils.AreEqual(radians(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity)), double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(radians(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity)), double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void radians_double4()
         {
             TestUtils.AreEqual(radians(double4(-123.45, 0.0, 123.45, double.NegativeInfinity)), double4(-2.154608961587, 0.0, 2.154608961587, double.NegativeInfinity), 1, false);
-            TestUtils.AreEqual(radians(double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(radians(double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_float()
         {
-            TestUtils.AreEqual(degrees(-123.45f), -7073.164f, 0, false);
-            TestUtils.AreEqual(degrees(0f), 0f, 0, false);
-            TestUtils.AreEqual(degrees(123.45f), 7073.164f, 0, false);
-            TestUtils.AreEqual(degrees(float.NegativeInfinity), float.NegativeInfinity, 0, false);
-            TestUtils.AreEqual(degrees(float.NaN), float.NaN, 0, false);
-            TestUtils.AreEqual(degrees(float.PositiveInfinity), float.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(degrees(-123.45f), -7073.164f, 1, false);
+            TestUtils.AreEqual(degrees(0f), 0f, 1, false);
+            TestUtils.AreEqual(degrees(123.45f), 7073.164f, 1, false);
+            TestUtils.AreEqual(degrees(float.NegativeInfinity), float.NegativeInfinity, 1, false);
+            TestUtils.AreEqual(degrees(float.NaN), float.NaN, 1, false);
+            TestUtils.AreEqual(degrees(float.PositiveInfinity), float.PositiveInfinity, 1, false);
         }
 
         [TestCompiler]
         public void degrees_float2()
         {
-            TestUtils.AreEqual(degrees(float2(-123.45f, 0f)), float2(-7073.164f, 0f), 0, false);
-            TestUtils.AreEqual(degrees(float2(123.45f, float.NegativeInfinity)), float2(7073.164f, float.NegativeInfinity), 0, false);
-            TestUtils.AreEqual(degrees(float2(float.NaN, float.PositiveInfinity)), float2(float.NaN, float.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(float2(-123.45f, 0f)), float2(-7073.164f, 0f), 1, false);
+            TestUtils.AreEqual(degrees(float2(123.45f, float.NegativeInfinity)), float2(7073.164f, float.NegativeInfinity), 1, false);
+            TestUtils.AreEqual(degrees(float2(float.NaN, float.PositiveInfinity)), float2(float.NaN, float.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_float3()
         {
-            TestUtils.AreEqual(degrees(float3(-123.45f, 0f, 123.45f)), float3(-7073.164f, 0f, 7073.164f), 0, false);
-            TestUtils.AreEqual(degrees(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity)), float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(float3(-123.45f, 0f, 123.45f)), float3(-7073.164f, 0f, 7073.164f), 1, false);
+            TestUtils.AreEqual(degrees(float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity)), float3(float.NegativeInfinity, float.NaN, float.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_float4()
         {
-            TestUtils.AreEqual(degrees(float4(-123.45f, 0f, 123.45f, float.NegativeInfinity)), float4(-7073.164f, 0f, 7073.164f, float.NegativeInfinity), 0, false);
-            TestUtils.AreEqual(degrees(float4(float.NaN, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity)), float4(float.NaN, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(float4(-123.45f, 0f, 123.45f, float.NegativeInfinity)), float4(-7073.164f, 0f, 7073.164f, float.NegativeInfinity), 1, false);
+            TestUtils.AreEqual(degrees(float4(float.NaN, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity)), float4(float.NaN, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_double()
         {
-            TestUtils.AreEqual(degrees(-123.45), -7073.1639808900127, 0, false);
-            TestUtils.AreEqual(degrees(0.0), 0.0, 0, false);
-            TestUtils.AreEqual(degrees(123.45), 7073.1639808900127, 0, false);
-            TestUtils.AreEqual(degrees(double.NegativeInfinity), double.NegativeInfinity, 0, false);
-            TestUtils.AreEqual(degrees(double.NaN), double.NaN, 0, false);
-            TestUtils.AreEqual(degrees(double.PositiveInfinity), double.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(degrees(-123.45), -7073.1639808900127, 1, false);
+            TestUtils.AreEqual(degrees(0.0), 0.0, 1, false);
+            TestUtils.AreEqual(degrees(123.45), 7073.1639808900127, 1, false);
+            TestUtils.AreEqual(degrees(double.NegativeInfinity), double.NegativeInfinity, 1, false);
+            TestUtils.AreEqual(degrees(double.NaN), double.NaN, 1, false);
+            TestUtils.AreEqual(degrees(double.PositiveInfinity), double.PositiveInfinity, 1, false);
         }
 
         [TestCompiler]
         public void degrees_double2()
         {
-            TestUtils.AreEqual(degrees(double2(-123.45, 0.0)), double2(-7073.1639808900127, 0.0), 0, false);
-            TestUtils.AreEqual(degrees(double2(123.45, double.NegativeInfinity)), double2(7073.1639808900127, double.NegativeInfinity), 0, false);
-            TestUtils.AreEqual(degrees(double2(double.NaN, double.PositiveInfinity)), double2(double.NaN, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(double2(-123.45, 0.0)), double2(-7073.1639808900127, 0.0), 1, false);
+            TestUtils.AreEqual(degrees(double2(123.45, double.NegativeInfinity)), double2(7073.1639808900127, double.NegativeInfinity), 1, false);
+            TestUtils.AreEqual(degrees(double2(double.NaN, double.PositiveInfinity)), double2(double.NaN, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_double3()
         {
-            TestUtils.AreEqual(degrees(double3(-123.45, 0.0, 123.45)), double3(-7073.1639808900127, 0.0, 7073.1639808900127), 0, false);
-            TestUtils.AreEqual(degrees(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity)), double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(double3(-123.45, 0.0, 123.45)), double3(-7073.1639808900127, 0.0, 7073.1639808900127), 1, false);
+            TestUtils.AreEqual(degrees(double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity)), double3(double.NegativeInfinity, double.NaN, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
         public void degrees_double4()
         {
-            TestUtils.AreEqual(degrees(double4(-123.45, 0.0, 123.45, double.NegativeInfinity)), double4(-7073.1639808900127, 0.0, 7073.1639808900127, double.NegativeInfinity), 0, false);
-            TestUtils.AreEqual(degrees(double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity), 0, false);
+            TestUtils.AreEqual(degrees(double4(-123.45, 0.0, 123.45, double.NegativeInfinity)), double4(-7073.1639808900127, 0.0, 7073.1639808900127, double.NegativeInfinity), 1, false);
+            TestUtils.AreEqual(degrees(double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(double.NaN, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity), 1, false);
         }
 
         [TestCompiler]
@@ -1738,10 +1738,10 @@ namespace Unity.Mathematics.Tests
         public void rcp_float()
         {
             TestUtils.AreEqual(rcp(-123.45f), -0.008100445f, 1, false);
-            TestUtils.AreEqual(rcp(0f), float.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(rcp(0f), float.PositiveInfinity, 1, false);
             TestUtils.AreEqual(rcp(123.45f), 0.008100445f, 1, false);
-            TestUtils.AreEqual(rcp(float.NaN), float.NaN, 0, false);
-            TestUtils.AreEqual(rcp(float.PositiveInfinity), 0f, 0, false);
+            TestUtils.AreEqual(rcp(float.NaN), float.NaN, 1, false);
+            TestUtils.AreEqual(rcp(float.PositiveInfinity), 0f, 1, false);
         }
 
         [TestCompiler]
@@ -1749,31 +1749,31 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(rcp(float2(-123.45f, 0f)), float2(-0.008100445f, float.PositiveInfinity), 1, false);
             TestUtils.AreEqual(rcp(float2(123.45f, float.NaN)), float2(0.008100445f, float.NaN), 1, false);
-            TestUtils.AreEqual(rcp(float2(float.PositiveInfinity, float.PositiveInfinity)), float2(0f, 0f), 0, false);
+            TestUtils.AreEqual(rcp(float2(float.PositiveInfinity, float.PositiveInfinity)), float2(0f, 0f), 1, false);
         }
 
         [TestCompiler]
         public void rcp_float3()
         {
             TestUtils.AreEqual(rcp(float3(-123.45f, 0f, 123.45f)), float3(-0.008100445f, float.PositiveInfinity, 0.008100445f), 1, false);
-            TestUtils.AreEqual(rcp(float3(float.NaN, float.PositiveInfinity, float.PositiveInfinity)), float3(float.NaN, 0f, 0f), 0, false);
+            TestUtils.AreEqual(rcp(float3(float.NaN, float.PositiveInfinity, float.PositiveInfinity)), float3(float.NaN, 0f, 0f), 1, false);
         }
 
         [TestCompiler]
         public void rcp_float4()
         {
             TestUtils.AreEqual(rcp(float4(-123.45f, 0f, 123.45f, float.NaN)), float4(-0.008100445f, float.PositiveInfinity, 0.008100445f, float.NaN), 1, false);
-            TestUtils.AreEqual(rcp(float4(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity)), float4(0f, 0f, 0f, 0f), 0, false);
+            TestUtils.AreEqual(rcp(float4(float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity, float.PositiveInfinity)), float4(0f, 0f, 0f, 0f), 1, false);
         }
 
         [TestCompiler]
         public void rcp_double()
         {
             TestUtils.AreEqual(rcp(-123.45), -0.0081004455245038479, 1, false);
-            TestUtils.AreEqual(rcp(0.0), double.PositiveInfinity, 0, false);
+            TestUtils.AreEqual(rcp(0.0), double.PositiveInfinity, 1, false);
             TestUtils.AreEqual(rcp(123.45), 0.0081004455245038479, 1, false);
-            TestUtils.AreEqual(rcp(double.NaN), double.NaN, 0, false);
-            TestUtils.AreEqual(rcp(double.PositiveInfinity), 0.0, 0, false);
+            TestUtils.AreEqual(rcp(double.NaN), double.NaN, 1, false);
+            TestUtils.AreEqual(rcp(double.PositiveInfinity), 0.0, 1, false);
         }
 
         [TestCompiler]
@@ -1781,21 +1781,21 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(rcp(double2(-123.45, 0.0)), double2(-0.0081004455245038479, double.PositiveInfinity), 1, false);
             TestUtils.AreEqual(rcp(double2(123.45, double.NaN)), double2(0.0081004455245038479, double.NaN), 1, false);
-            TestUtils.AreEqual(rcp(double2(double.PositiveInfinity, double.PositiveInfinity)), double2(0.0, 0.0), 0, false);
+            TestUtils.AreEqual(rcp(double2(double.PositiveInfinity, double.PositiveInfinity)), double2(0.0, 0.0), 1, false);
         }
 
         [TestCompiler]
         public void rcp_double3()
         {
             TestUtils.AreEqual(rcp(double3(-123.45, 0.0, 123.45)), double3(-0.0081004455245038479, double.PositiveInfinity, 0.0081004455245038479), 1, false);
-            TestUtils.AreEqual(rcp(double3(double.NaN, double.PositiveInfinity, double.PositiveInfinity)), double3(double.NaN, 0.0, 0.0), 0, false);
+            TestUtils.AreEqual(rcp(double3(double.NaN, double.PositiveInfinity, double.PositiveInfinity)), double3(double.NaN, 0.0, 0.0), 1, false);
         }
 
         [TestCompiler]
         public void rcp_double4()
         {
             TestUtils.AreEqual(rcp(double4(-123.45, 0.0, 123.45, double.NaN)), double4(-0.0081004455245038479, double.PositiveInfinity, 0.0081004455245038479, double.NaN), 1, false);
-            TestUtils.AreEqual(rcp(double4(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(0.0, 0.0, 0.0, 0.0), 0, false);
+            TestUtils.AreEqual(rcp(double4(double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity, double.PositiveInfinity)), double4(0.0, 0.0, 0.0, 0.0), 1, false);
         }
 
         [TestCompiler]
@@ -2432,6 +2432,106 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(remap(double4(-123.45, -123.45, -123.45, 439.43), double4(439.43, 439.43, 439.43, -123.45), double4(541.3, 541.3, 541.3, 541.3), double4(631.5, 631.5, 631.5, 631.5), double4(-200.0, -100.0, 500.0, -200.0)), double4(529.03306921546334, 545.057799175668, 641.206178936896, 643.76693078453673), 4, false);
             TestUtils.AreEqual(remap(double4(439.43, 439.43, -123.45, -123.45), double4(-123.45, -123.45, 439.43, 439.43), double4(541.3, 541.3, 631.5, 631.5), double4(631.5, 631.5, 541.3, 541.3), double4(-100.0, 500.0, -200.0, -100.0)), double4(627.742200824332, 531.59382106310409, 643.76693078453673, 627.742200824332), 4, false);
             TestUtils.AreEqual(remap(double4(-123.45, -123.45, -123.45, -123.45), double4(439.43, -123.45, -123.45, -123.45), double4(631.5, 541.3, 541.3, 541.3), double4(541.3, 631.5, 631.5, 631.5), double4(500.0, -200.0, -100.0, -100.0)), double4(531.59382106310409, double.NegativeInfinity, double.PositiveInfinity, double.PositiveInfinity), 4, false);
+        }
+
+        [TestCompiler]
+        public void clamp_int()
+        {
+            TestUtils.AreEqual(clamp(-2147483648, -123, 439), -123);
+            TestUtils.AreEqual(clamp(-254, -123, 439), -123);
+            TestUtils.AreEqual(clamp(246, -123, 439), 246);
+            TestUtils.AreEqual(clamp(632, -123, 439), 439);
+            TestUtils.AreEqual(clamp(-254, 439, -123), 439);
+            TestUtils.AreEqual(clamp(246, 439, -123), 439);
+            TestUtils.AreEqual(clamp(632, 439, -123), 439);
+            TestUtils.AreEqual(clamp(2147483647, -123, 439), 439);
+        }
+
+        [TestCompiler]
+        public void clamp_int2()
+        {
+            TestUtils.AreEqual(clamp(int2(-2147483648, -254), int2(-123, -123), int2(439, 439)), int2(-123, -123));
+            TestUtils.AreEqual(clamp(int2(246, 632), int2(-123, -123), int2(439, 439)), int2(246, 439));
+            TestUtils.AreEqual(clamp(int2(-254, 246), int2(439, 439), int2(-123, -123)), int2(439, 439));
+            TestUtils.AreEqual(clamp(int2(632, 2147483647), int2(439, -123), int2(-123, 439)), int2(439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_int3()
+        {
+            TestUtils.AreEqual(clamp(int3(-2147483648, -254, 246), int3(-123, -123, -123), int3(439, 439, 439)), int3(-123, -123, 246));
+            TestUtils.AreEqual(clamp(int3(632, -254, 246), int3(-123, 439, 439), int3(439, -123, -123)), int3(439, 439, 439));
+            TestUtils.AreEqual(clamp(int3(632, 2147483647, 2147483647), int3(439, -123, -123), int3(-123, 439, 439)), int3(439, 439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_int4()
+        {
+            TestUtils.AreEqual(clamp(int4(-2147483648, -254, 246, 632), int4(-123, -123, -123, -123), int4(439, 439, 439, 439)), int4(-123, -123, 246, 439));
+            TestUtils.AreEqual(clamp(int4(-254, 246, 632, 2147483647), int4(439, 439, 439, -123), int4(-123, -123, -123, 439)), int4(439, 439, 439, 439));
+        }
+
+        [TestCompiler]
+        public void clamp_uint()
+        {
+            TestUtils.AreEqual(clamp(0u, 123u, 439u), 123u);
+            TestUtils.AreEqual(clamp(54u, 123u, 439u), 123u);
+            TestUtils.AreEqual(clamp(246u, 123u, 439u), 246u);
+            TestUtils.AreEqual(clamp(632u, 123u, 439u), 439u);
+            TestUtils.AreEqual(clamp(54u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(246u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(632u, 439u, 123u), 439u);
+            TestUtils.AreEqual(clamp(4294967295u, 123u, 439u), 439u);
+        }
+
+        [TestCompiler]
+        public void clamp_uint2()
+        {
+            TestUtils.AreEqual(clamp(uint2(0u, 54u), uint2(123u, 123u), uint2(439u, 439u)), uint2(123u, 123u));
+            TestUtils.AreEqual(clamp(uint2(246u, 632u), uint2(123u, 123u), uint2(439u, 439u)), uint2(246u, 439u));
+            TestUtils.AreEqual(clamp(uint2(54u, 246u), uint2(439u, 439u), uint2(123u, 123u)), uint2(439u, 439u));
+            TestUtils.AreEqual(clamp(uint2(632u, 4294967295u), uint2(439u, 123u), uint2(123u, 439u)), uint2(439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_uint3()
+        {
+            TestUtils.AreEqual(clamp(uint3(0u, 54u, 246u), uint3(123u, 123u, 123u), uint3(439u, 439u, 439u)), uint3(123u, 123u, 246u));
+            TestUtils.AreEqual(clamp(uint3(632u, 54u, 246u), uint3(123u, 439u, 439u), uint3(439u, 123u, 123u)), uint3(439u, 439u, 439u));
+            TestUtils.AreEqual(clamp(uint3(632u, 4294967295u, 4294967295u), uint3(439u, 123u, 123u), uint3(123u, 439u, 439u)), uint3(439u, 439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_uint4()
+        {
+            TestUtils.AreEqual(clamp(uint4(0u, 54u, 246u, 632u), uint4(123u, 123u, 123u, 123u), uint4(439u, 439u, 439u, 439u)), uint4(123u, 123u, 246u, 439u));
+            TestUtils.AreEqual(clamp(uint4(54u, 246u, 632u, 4294967295u), uint4(439u, 439u, 439u, 123u), uint4(123u, 123u, 123u, 439u)), uint4(439u, 439u, 439u, 439u));
+        }
+
+        [TestCompiler]
+        public void clamp_long()
+        {
+            TestUtils.AreEqual(clamp(-9223372036854775808L, -123L, 439L), -123L);
+            TestUtils.AreEqual(clamp(-254L, -123L, 439L), -123L);
+            TestUtils.AreEqual(clamp(246L, -123L, 439L), 246L);
+            TestUtils.AreEqual(clamp(632L, -123L, 439L), 439L);
+            TestUtils.AreEqual(clamp(-254L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(246L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(632L, 439L, -123L), 439L);
+            TestUtils.AreEqual(clamp(9223372036854775807L, -123L, 439L), 439L);
+        }
+
+        [TestCompiler]
+        public void clamp_ulong()
+        {
+            TestUtils.AreEqual(clamp(0UL, 123UL, 439UL), 123UL);
+            TestUtils.AreEqual(clamp(54UL, 123UL, 439UL), 123UL);
+            TestUtils.AreEqual(clamp(246UL, 123UL, 439UL), 246UL);
+            TestUtils.AreEqual(clamp(632UL, 123UL, 439UL), 439UL);
+            TestUtils.AreEqual(clamp(54UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(246UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(632UL, 439UL, 123UL), 439UL);
+            TestUtils.AreEqual(clamp(18446744073709551615UL, 123UL, 439UL), 439UL);
         }
 
         [TestCompiler]

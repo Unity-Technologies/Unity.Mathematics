@@ -14,8 +14,7 @@ namespace Unity.Mathematics
         public uint4 c2;
 
         /// <summary>uint4x3 zero value.</summary>
-        public static readonly uint4x3 zero = new uint4x3(0u, 0u, 0u,   0u, 0u, 0u,   0u, 0u, 0u,   0u, 0u, 0u);
-
+        public static readonly uint4x3 zero;
 
         /// <summary>Constructs a uint4x3 matrix from three uint4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -492,9 +491,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint4x3 v)
         {
-            return csum(v.c0 * uint4(0x5292ADE1u, 0xD2E590E5u, 0xF25BE857u, 0x9BC17CE7u) + 
-                        v.c1 * uint4(0xC8B86851u, 0x64095221u, 0xADF428FFu, 0xA3977109u) + 
-                        v.c2 * uint4(0x745ED837u, 0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu)) + 0x68EEE0F5u;
+            return csum(v.c0 * uint4(0xE7579997u, 0xEF7D56C7u, 0x66F38F0Bu, 0x624256A3u) + 
+                        v.c1 * uint4(0x5292ADE1u, 0xD2E590E5u, 0xF25BE857u, 0x9BC17CE7u) + 
+                        v.c2 * uint4(0xC8B86851u, 0x64095221u, 0xADF428FFu, 0xA3977109u)) + 0x745ED837u;
         }
 
         /// <summary>
@@ -505,9 +504,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(uint4x3 v)
         {
-            return (v.c0 * uint4(0xBC3B0A59u, 0x816EFB5Du, 0xA24E82B7u, 0x45A22087u) + 
-                    v.c1 * uint4(0xFC104C3Bu, 0x5FFF6B19u, 0x5E6CBF3Bu, 0xB546F2A5u) + 
-                    v.c2 * uint4(0xBBCF63E7u, 0xC53F4755u, 0x6985C229u, 0xE133B0B3u)) + 0xC3E0A3B9u;
+            return (v.c0 * uint4(0x9CDC88F5u, 0xFA62D721u, 0x7E4DB1CFu, 0x68EEE0F5u) + 
+                    v.c1 * uint4(0xBC3B0A59u, 0x816EFB5Du, 0xA24E82B7u, 0x45A22087u) + 
+                    v.c2 * uint4(0xFC104C3Bu, 0x5FFF6B19u, 0x5E6CBF3Bu, 0xB546F2A5u)) + 0xBBCF63E7u;
         }
 
     }
