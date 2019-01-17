@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     class TestRigidTransform
     {
         [TestCompiler]
-        public void rigid_transform_construct_from_matrix()
+        public static void rigid_transform_construct_from_matrix()
         {
             float4x4 m4x4 = TestMatrix.test4x4_zyx;
 
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void rigid_transform_axisAngle()
+        public static void rigid_transform_axisAngle()
         {
             RigidTransform q = RigidTransform.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
@@ -29,7 +29,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void rigid_transform_euler()
+        public static void rigid_transform_euler()
         {
             float3 test_angles = TestMatrix.test_angles;
             RigidTransform q0 = RigidTransform.Euler(test_angles);
@@ -99,7 +99,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void rigid_transform_rotateX()
+        public static void rigid_transform_rotateX()
         {
             float angle = 2.3f;
             RigidTransform q = RigidTransform.RotateX(angle);
@@ -109,7 +109,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void rigid_transform_rotateY()
+        public static void rigid_transform_rotateY()
         {
             float angle = 2.3f;
             RigidTransform q = RigidTransform.RotateY(angle);
@@ -119,7 +119,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void rigid_transform_rotateZ()
+        public static void rigid_transform_rotateZ()
         {
             float angle = 2.3f;
             RigidTransform q = RigidTransform.RotateZ(angle);
@@ -134,7 +134,7 @@ namespace Unity.Mathematics.Tests
         static internal readonly quaternion test_q3 = new quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
         
         [TestCompiler]
-        public void rigid_transform_inverse()
+        public static void rigid_transform_inverse()
         {
             RigidTransform q = RigidTransform(quaternion(1.0f, -2.0f, 3.0f, -4.0f), float3(1,2,3));
             RigidTransform iq = inverse(q);
@@ -144,7 +144,7 @@ namespace Unity.Mathematics.Tests
         }
         
         [TestCompiler]
-        public void rigid_transform_mul_vector()
+        public static void rigid_transform_mul_vector()
         {
             float4x4 m = TestMatrix.test4x4_xyz;
             RigidTransform q = RigidTransform(m);

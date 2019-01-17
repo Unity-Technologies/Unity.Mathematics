@@ -9,20 +9,20 @@ namespace Unity.Mathematics.Tests
     public partial class TestHalf
     {
         [TestCompiler]
-        public void half_zero()
+        public static void half_zero()
         {
             TestUtils.AreEqual(half.zero.value, 0x0000);
         }
 
         [TestCompiler]
-        public void half2_zero()
+        public static void half2_zero()
         {
             TestUtils.AreEqual(half2.zero.x.value, 0x0000);
             TestUtils.AreEqual(half2.zero.y.value, 0x0000);
         }
 
         [TestCompiler]
-        public void half3_zero()
+        public static void half3_zero()
         {
             TestUtils.AreEqual(half3.zero.x.value, 0x0000);
             TestUtils.AreEqual(half3.zero.y.value, 0x0000);
@@ -30,7 +30,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half4_zero()
+        public static void half4_zero()
         {
             TestUtils.AreEqual(half4.zero.x.value, 0x0000);
             TestUtils.AreEqual(half4.zero.y.value, 0x0000);
@@ -39,7 +39,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half_from_float_construction()
+        public static void half_from_float_construction()
         {
             TestUtils.AreEqual(half(0.0f).value, 0x0000);
             TestUtils.AreEqual(half(2.98e-08f).value, 0x0000);
@@ -60,13 +60,13 @@ namespace Unity.Mathematics.Tests
         
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half_from_float_construction_signed_zero()
+        public static void half_from_float_construction_signed_zero()
         {
             TestUtils.AreEqual(half(-0.0f).value, 0x8000);
         }
 
         [TestCompiler]
-        public void half2_from_float2_construction()
+        public static void half2_from_float2_construction()
         {
             half2 h0 = half2(float2(0.0f, 2.98e-08f));
             half2 h1 = half2(float2(5.96046448e-08f, 123.4f));
@@ -91,14 +91,14 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half2_from_float2_construction_signed_zero()
+        public static void half2_from_float2_construction_signed_zero()
         {
             half2 h0 = half2(float2(-0.0f, -0.0f));
             TestUtils.AreEqual(uint2(h0.x.value, h0.y.value), uint2(0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void half3_from_float3_construction()
+        public static void half3_from_float3_construction()
         {
             half3 h0 = half3(float3(0.0f, 2.98e-08f, 5.96046448e-08f));
             half3 h1 = half3(float3(123.4f, 65504.0f, 65520.0f));
@@ -116,14 +116,14 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half3_from_float3_construction_signed_zero()
+        public static void half3_from_float3_construction_signed_zero()
         {
             half3 h0 = half3(float3(-0.0f, -0.0f, -0.0f));
             TestUtils.AreEqual(uint3(h0.x.value, h0.y.value, h0.z.value), uint3(0x8000, 0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void half4_from_float4_construction()
+        public static void half4_from_float4_construction()
         {
             half4 h0 = half4(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f));
             half4 h1 = half4(float4(65504.0f, 65520.0f, float.PositiveInfinity, float.NaN));
@@ -138,7 +138,7 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half4_from_float4_construction_signed_zero()
+        public static void half4_from_float4_construction_signed_zero()
         {
             half4 h0 = half4(float4(-0.0f, -0.0f, -0.0f, -0.0f));
             TestUtils.AreEqual(uint4(h0.x.value, h0.y.value, h0.z.value, h0.w.value), uint4(0x8000, 0x8000, 0x8000, 0x8000));
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void half_from_double_construction()
+        public static void half_from_double_construction()
         {
             TestUtils.AreEqual(half(0.0).value, 0x0000);
             TestUtils.AreEqual(half(2.98e-08).value, 0x0000);
@@ -167,13 +167,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half_from_double_construction_signed_zero()
+        public static void half_from_double_construction_signed_zero()
         {
             TestUtils.AreEqual(half(-0.0).value, 0x8000);
         }
 
         [TestCompiler]
-        public void half2_from_double2_construction()
+        public static void half2_from_double2_construction()
         {
             half2 h0 = half2(double2(0.0, 2.98e-08));
             half2 h1 = half2(double2(5.96046448e-08, 123.4));
@@ -198,14 +198,14 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half2_from_double2_construction_signed_zero()
+        public static void half2_from_double2_construction_signed_zero()
         {
             half2 h0 = half2(double2(-0.0, -0.0));
             TestUtils.AreEqual(uint2(h0.x.value, h0.y.value), uint2(0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void half3_from_double3_construction()
+        public static void half3_from_double3_construction()
         {
             half3 h0 = half3(double3(0.0, 2.98e-08, 5.96046448e-08));
             half3 h1 = half3(double3(123.4, 65504.0, 65520.0));
@@ -223,14 +223,14 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half3_from_double3_construction_signed_zero()
+        public static void half3_from_double3_construction_signed_zero()
         {
             half3 h0 = half3(double3(-0.0, -0.0, -0.0));
             TestUtils.AreEqual(uint3(h0.x.value, h0.y.value, h0.z.value), uint3(0x8000, 0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void half4_from_double4_construction()
+        public static void half4_from_double4_construction()
         {
             half4 h0 = half4(double4(0.0, 2.98e-08, 5.96046448e-08, 123.4));
             half4 h1 = half4(double4(65504.0, 65520.0, double.PositiveInfinity, double.NaN));
@@ -245,14 +245,14 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void half4_from_double4_construction_signed_zero()
+        public static void half4_from_double4_construction_signed_zero()
         {
             half4 h0 = half4(double4(-0.0, -0.0, -0.0, -0.0));
             TestUtils.AreEqual(uint4(h0.x.value, h0.y.value, h0.z.value, h0.w.value), uint4(0x8000, 0x8000, 0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void half_to_float()
+        public static void half_to_float()
         {
             TestUtils.AreEqual(asuint(new half { value = 0x0000 }), 0x00000000);
             TestUtils.AreEqual(asuint(new half { value = 0x0203 }), 0x3800C000);
@@ -270,7 +270,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half2_to_float2()
+        public static void half2_to_float2()
         {
             half2 h0; h0.x.value = 0x0000; h0.y.value = 0x0203;
             half2 h1; h1.x.value = 0x4321; h1.y.value = 0x7BFF;
@@ -294,7 +294,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half3_to_float3()
+        public static void half3_to_float3()
         {
             half3 h0; h0.x.value = 0x0000; h0.y.value = 0x0203; h0.z.value = 0x4321;
             half3 h1; h1.x.value = 0x7BFF; h1.y.value = 0x7C00; h1.z.value = 0x7C00;
@@ -314,7 +314,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half4_to_float4()
+        public static void half4_to_float4()
         {
             half4 h0; h0.x.value = 0x0000; h0.y.value = 0x0203; h0.z.value = 0x4321; h0.w.value = 0x7BFF;
             half4 h1; h1.x.value = 0x7C00; h1.y.value = 0x7C00; h1.z.value = 0x7C00; h1.w.value = 0x7C00;
@@ -335,7 +335,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void half_to_double()
+        public static void half_to_double()
         {
             TestUtils.AreEqual(asulong((double)new half { value = 0x0000 }), 0x0000000000000000u);
             TestUtils.AreEqual(asulong((double)new half { value = 0x0203 }), 0x3F00180000000000u);
@@ -354,14 +354,14 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void half_from_float_explicit_conversion()
+        public static void half_from_float_explicit_conversion()
         {
             half h = (half)123.4f;
             TestUtils.AreEqual(h.value, 0x57B6);
         }
 
         [TestCompiler]
-        public void half2_from_float2_explicit_conversion()
+        public static void half2_from_float2_explicit_conversion()
         {
             half2 h = (half2)float2(123.4f, 5.96046448e-08f);
             TestUtils.AreEqual(h.x.value, 0x57B6);
@@ -369,7 +369,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half3_from_float3_explicit_conversion()
+        public static void half3_from_float3_explicit_conversion()
         {
             half3 h = (half3)float3(123.4f, 5.96046448e-08f, -65504.0f);
             TestUtils.AreEqual(h.x.value, 0x57B6);
@@ -378,7 +378,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half4_from_float4_explicit_conversion()
+        public static void half4_from_float4_explicit_conversion()
         {
             half4 h = (half4)float4(123.4f, 5.96046448e-08f, -65504.0f, float.PositiveInfinity);
             TestUtils.AreEqual(h.x.value, 0x57B6);
@@ -388,7 +388,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half_from_double_explicit_conversion()
+        public static void half_from_double_explicit_conversion()
         {
             half h = (half)123.4;
             TestUtils.AreEqual(h.value, 0x57B6);
@@ -396,7 +396,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void half_to_float_implicit_conversion()
+        public static void half_to_float_implicit_conversion()
         {
             half h; h.value = 0x0203;
             float f = h;
@@ -404,7 +404,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half2_to_float2_implicit_conversion()
+        public static void half2_to_float2_implicit_conversion()
         {
             half2 h; h.x.value = 0x0203;    h.y.value = 0x8203;
             float2 f = h;
@@ -413,7 +413,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half3_to_float3_implicit_conversion()
+        public static void half3_to_float3_implicit_conversion()
         {
             half3 h; h.x.value = 0x0203; h.y.value = 0x8203; h.z.value = 0x7BFF;
             float3 f = h;
@@ -423,7 +423,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half4_to_float4_implicit_conversion()
+        public static void half4_to_float4_implicit_conversion()
         {
             half4 h; h.x.value = 0x0203; h.y.value = 0x8203; h.z.value = 0x7BFF; h.w.value = 0x7C00;
             float4 f = h;
@@ -434,7 +434,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void half_to_double_implicit_conversion()
+        public static void half_to_double_implicit_conversion()
         {
             half h; h.value = 0x0203;
             double f = h;

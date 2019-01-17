@@ -9,7 +9,7 @@ namespace Unity.Mathematics.Tests
     public partial class TestMath
     {
         [TestCompiler]
-        public void asint_uint()
+        public static void asint_uint()
         {
             TestUtils.AreEqual(asint(0u), 0);
             TestUtils.AreEqual(asint(0x12345678u), 0x12345678);
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asint_uint2()
+        public static void asint_uint2()
         {
             TestUtils.AreEqual(asint(uint2(0u, 0x12345678u)), int2(0, 0x12345678));
             TestUtils.AreEqual(asint(uint2(0x7FFFFFFFu, 0x80000000u)), int2(0x7FFFFFFF, -2147483648));
@@ -28,21 +28,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asint_uint3()
+        public static void asint_uint3()
         {
             TestUtils.AreEqual(asint(uint3(0u, 0x12345678u, 0x7FFFFFFFu)), int3(0, 0x12345678, 0x7FFFFFFF));
             TestUtils.AreEqual(asint(uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu)), int3(-2147483648, -2023406815, -1));
         }
 
         [TestCompiler]
-        public void asint_uint4()
+        public static void asint_uint4()
         {
             TestUtils.AreEqual(asint(uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u)), int4(0, 0x12345678, 0x7FFFFFFF, -2147483648));
             TestUtils.AreEqual(asint(uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u)), int4(-2023406815, -1, 0, 0));
         }
 
         [TestCompiler]
-        public void asint_float()
+        public static void asint_float()
         {
             TestUtils.AreEqual(asint(0.0f), 0);
             TestUtils.AreEqual(asint(1.0f), 0x3F800000);
@@ -57,13 +57,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asint_float_signed_zero()
+        public static void asint_float_signed_zero()
         {
             TestUtils.AreEqual(asint(-0.0f), unchecked((int)0x80000000));
         }
 
         [TestCompiler]
-        public void asint_float2()
+        public static void asint_float2()
         {
             TestUtils.AreEqual(asint(float2(0.0f, 1.0f)), int2(0, 0x3F800000));
             TestUtils.AreEqual(asint(float2(1234.56f, float.PositiveInfinity)), int2(0x449A51EC, 0x7F800000));
@@ -75,13 +75,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asint_float2_signed_zero()
+        public static void asint_float2_signed_zero()
         {
             TestUtils.AreEqual(asint(float2(-0.0f, -0.0f)), int2(unchecked((int)0x80000000), unchecked((int)0x80000000)));
         }
 
         [TestCompiler]
-        public void asint_float3()
+        public static void asint_float3()
         {
             TestUtils.AreEqual(asint(float3(0.0f, 1.0f, 1234.56f)), int3(0, 0x3F800000, 0x449A51EC));
             TestUtils.AreEqual(asint(float3(float.PositiveInfinity, float.NaN, -1.0f)), int3(0x7F800000, unchecked((int)0xFFC00000), unchecked((int)0xBF800000)));
@@ -90,13 +90,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asint_float3_signed_zero()
+        public static void asint_float3_signed_zero()
         {
             TestUtils.AreEqual(asint(float3(-0.0f, -0.0f, -0.0f)), int3(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)));
         }
 
         [TestCompiler]
-        public void asint_float4()
+        public static void asint_float4()
         {
             TestUtils.AreEqual(asint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), int4(0, 0x3F800000, 0x449A51EC, 0x7F800000));
             TestUtils.AreEqual(asint(float4(float.NaN, -1.0f, -1234.56f, float.NegativeInfinity)), int4(unchecked((int)0xFFC00000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)));
@@ -104,13 +104,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asint_float4_signed_zero()
+        public static void asint_float4_signed_zero()
         {
             TestUtils.AreEqual(asint(float4(-0.0f, -0.0f, -0.0f, -0.0f)), int4(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)));
         }
 
         [TestCompiler]
-        public void asuint_int()
+        public static void asuint_int()
         {
             TestUtils.AreEqual(asuint(0), 0u);
             TestUtils.AreEqual(asuint(0x12345678), 0x12345678u);
@@ -121,7 +121,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asuint_int2()
+        public static void asuint_int2()
         {
             TestUtils.AreEqual(asuint(int2(0, 0x12345678)), uint2(0u, 0x12345678u));
             TestUtils.AreEqual(asuint(int2(0x7FFFFFFF, -2147483648)), uint2(0x7FFFFFFFu, 0x80000000u));
@@ -129,21 +129,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asuint_int3()
+        public static void asuint_int3()
         {
             TestUtils.AreEqual(asuint(int3(0, 0x12345678, 0x7FFFFFFF)), uint3(0u, 0x12345678u, 0x7FFFFFFFu));
             TestUtils.AreEqual(asuint(int3(-2147483648, -2023406815, -1)), uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu));
         }
 
         [TestCompiler]
-        public void asuint_int4()
+        public static void asuint_int4()
         {
             TestUtils.AreEqual(asuint(int4(0, 0x12345678, 0x7FFFFFFF, -2147483648)), uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u));
             TestUtils.AreEqual(asuint(int4(-2023406815, -1, 0, 0)), uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u));
         }
 
         [TestCompiler]
-        public void asuint_float()
+        public static void asuint_float()
         {
             TestUtils.AreEqual(asuint(0.0f), 0u);
             TestUtils.AreEqual(asuint(1.0f), 0x3F800000u);
@@ -158,13 +158,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asuint_float_signed_zero()
+        public static void asuint_float_signed_zero()
         {
             TestUtils.AreEqual(asuint(-0.0f), 0x80000000u);
         }
 
         [TestCompiler]
-        public void asuint_float2()
+        public static void asuint_float2()
         {
             TestUtils.AreEqual(asuint(float2(0.0f, 1.0f)), uint2(0u, 0x3F800000u));
             TestUtils.AreEqual(asuint(float2(1234.56f, float.PositiveInfinity)), uint2(0x449A51Ecu, 0x7F800000u));
@@ -175,13 +175,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asuint_float2_signed_zero()
+        public static void asuint_float2_signed_zero()
         {
             TestUtils.AreEqual(asuint(float2(-0.0f, -0.0f)), uint2(0x80000000u, 0x80000000u));
         }
 
         [TestCompiler]
-        public void asuint_float3()
+        public static void asuint_float3()
         {
             TestUtils.AreEqual(asuint(float3(0.0f, 1.0f, 1234.56f)), uint3(0u, 0x3F800000u, 0x449A51ECu));
             TestUtils.AreEqual(asuint(float3(float.PositiveInfinity, float.NaN, -1.0f)), uint3(0x7F800000u, 0xFFC00000u, 0xBF800000u));
@@ -190,13 +190,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asuint_float3_signed_zero()
+        public static void asuint_float3_signed_zero()
         {
             TestUtils.AreEqual(asuint(float3(-0.0f, -0.0f, -0.0f)), uint3(0x80000000u, 0x80000000u, 0x80000000u));
         }
 
         [TestCompiler]
-        public void asuint_float4()
+        public static void asuint_float4()
         {
             TestUtils.AreEqual(asuint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)), uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u));
             TestUtils.AreEqual(asuint(float4(float.NaN, -1.0f, -1234.56f, float.NegativeInfinity)), uint4(0xFFC00000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u));
@@ -204,13 +204,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asuint_float4_singed_zero()
+        public static void asuint_float4_singed_zero()
         {
             TestUtils.AreEqual(asuint(float4(-0.0f, -0.0f, -0.0f, -0.0f)), uint4(0x80000000u, 0x80000000u, 0x80000000u, 0x80000000u));
         }
 
         [TestCompiler]
-        public void aslong_ulong()
+        public static void aslong_ulong()
         {
             TestUtils.AreEqual(aslong(0ul), 0L);
             TestUtils.AreEqual(aslong(0x0123456789ABCDEFul), 0x0123456789ABCDEFL);
@@ -221,7 +221,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void aslong_double()
+        public static void aslong_double()
         {
             TestUtils.AreEqual(aslong(0.0), 0L);
             TestUtils.AreEqual(aslong(1.0), 0x3FF0000000000000L);
@@ -236,13 +236,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void aslong_double_signed_zero()
+        public static void aslong_double_signed_zero()
         {
             TestUtils.AreEqual(aslong(-0.0), unchecked((long)0x8000000000000000UL));
         }
 
         [TestCompiler]
-        public void asulong_long()
+        public static void asulong_long()
         {
             TestUtils.AreEqual(asulong(0L), 0ul);
             TestUtils.AreEqual(asulong(0x0123456789ABCDEFL), 0x0123456789ABCDEFul);
@@ -253,7 +253,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asulong_double()
+        public static void asulong_double()
         {
             TestUtils.AreEqual(asulong(0.0), 0UL);
             TestUtils.AreEqual(asulong(1.0), 0x3FF0000000000000UL);
@@ -268,13 +268,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void asulong_double_signed_zero()
+        public static void asulong_double_signed_zero()
         {
             TestUtils.AreEqual(asulong(-0.0), 0x8000000000000000UL);
         }
 
         [TestCompiler]
-        public void asfloat_int()
+        public static void asfloat_int()
         {
             TestUtils.AreEqual(asfloat(0), 0.0f);
             TestUtils.AreEqual(asfloat(0x3F800000), 1.0f);
@@ -289,7 +289,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_int2()
+        public static void asfloat_int2()
         {
             TestUtils.AreEqual(asfloat(int2(0, 0x3F800000)), float2(0.0f, 1.0f));
             TestUtils.AreEqual(asfloat(int2(0x449A51EC, 0x7F800000)), float2(1234.56f, float.PositiveInfinity));
@@ -300,7 +300,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_int3()
+        public static void asfloat_int3()
         {
             TestUtils.AreEqual(asfloat(int3(0, 0x3F800000, 0x449A51EC)), float3(0.0f, 1.0f, 1234.56f));
             TestUtils.AreEqual(asfloat(int3(0x7F800000, unchecked((int)0x80000000), unchecked((int)0xBF800000))), float3(float.PositiveInfinity, -0.0f, -1.0f));
@@ -310,7 +310,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_int4()
+        public static void asfloat_int4()
         {
             TestUtils.AreEqual(asfloat(int4(0, 0x3F800000, 0x449A51EC, 0x7F800000)), float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity));
             TestUtils.AreEqual(asfloat(int4(unchecked((int)0x80000000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000))), float4(-0.0f, -1.0f, -1234.56f, float.NegativeInfinity));
@@ -319,7 +319,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_uint()
+        public static void asfloat_uint()
         {
             TestUtils.AreEqual(asfloat(0u), 0.0f);
             TestUtils.AreEqual(asfloat(0x3F800000u), 1.0f);
@@ -334,7 +334,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_uint2()
+        public static void asfloat_uint2()
         {
             TestUtils.AreEqual(asfloat(uint2(0u, 0x3F800000u)), float2(0.0f, 1.0f));
             TestUtils.AreEqual(asfloat(uint2(0x449A51ECu, 0x7F800000u)), float2(1234.56f, float.PositiveInfinity));
@@ -345,7 +345,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_uint3()
+        public static void asfloat_uint3()
         {
             TestUtils.AreEqual(asfloat(uint3(0u, 0x3F800000u, 0x449A51ECu)), float3(0.0f, 1.0f, 1234.56f));
             TestUtils.AreEqual(asfloat(uint3(0x7F800000u, 0x80000000u, 0xBF800000u)), float3(float.PositiveInfinity, -0.0f, -1.0f));
@@ -355,7 +355,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asfloat_uint4()
+        public static void asfloat_uint4()
         {
             TestUtils.AreEqual(asfloat(uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u)), float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity));
             TestUtils.AreEqual(asfloat(uint4(0x80000000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u)), float4(-0.0f, -1.0f, -1234.56f, float.NegativeInfinity));
@@ -364,7 +364,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asdouble_long()
+        public static void asdouble_long()
         {
             TestUtils.AreEqual(asdouble(0L), 0.0);
             TestUtils.AreEqual(asdouble(0x3FF0000000000000L), 1.0);
@@ -379,7 +379,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void asdouble_ulong()
+        public static void asdouble_ulong()
         {
             TestUtils.AreEqual(asdouble(0UL), 0.0);
             TestUtils.AreEqual(asdouble(0x3FF0000000000000UL), 1.0);
@@ -394,7 +394,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_float2()
+        public static void faceforward_float2()
         {
             TestUtils.AreEqual(faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2(3.0f, -4.0f)), float2(-3.5f, 4.5f));
             TestUtils.AreEqual(faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2(-3.0f, 4.0f)), float2(3.5f, -4.5f));
@@ -402,7 +402,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_float3()
+        public static void faceforward_float3()
         {
             TestUtils.AreEqual(faceforward(float3(3.5f, -4.5f, 5.5f), float3(1.0f, -2.0f, 3.0f), float3(3.0f, -4.0f, 5.0f)), float3(-3.5f, 4.5f, -5.5f));
             TestUtils.AreEqual(faceforward(float3(3.5f, -4.5f, 5.5f), float3(1.0f, -2.0f, 3.0f), float3(-3.0f, 4.0f, -5.0f)), float3(3.5f, -4.5f, 5.5f));
@@ -410,7 +410,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_float4()
+        public static void faceforward_float4()
         {
             TestUtils.AreEqual(faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4(3.0f, -4.0f, 5.0f, -6.0f)), float4(-3.5f, 4.5f, -5.5f, 6.5f));
             TestUtils.AreEqual(faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4(-3.0f, 4.0f, -5.0f, 6.0f)), float4(3.5f, -4.5f, 5.5f, -6.5f));
@@ -418,7 +418,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_double2()
+        public static void faceforward_double2()
         {
             TestUtils.AreEqual(faceforward(double2(3.5, -4.5), double2(1.0, -2.0), double2(3.0, -4.0)), double2(-3.5, 4.5));
             TestUtils.AreEqual(faceforward(double2(3.5, -4.5), double2(1.0, -2.0), double2(-3.0, 4.0)), double2(3.5, -4.5));
@@ -426,7 +426,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_double3()
+        public static void faceforward_double3()
         {
             TestUtils.AreEqual(faceforward(double3(3.5, -4.5, 5.5), double3(1.0, -2.0, 3.0), double3(3.0, -4.0, 5.0)), double3(-3.5, 4.5, -5.5));
             TestUtils.AreEqual(faceforward(double3(3.5, -4.5, 5.5), double3(1.0, -2.0, 3.0), double3(-3.0, 4.0, -5.0)), double3(3.5, -4.5, 5.5));
@@ -434,7 +434,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void faceforward_double4()
+        public static void faceforward_double4()
         {
             TestUtils.AreEqual(faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4(3.0, -4.0, 5.0, -6.0)), double4(-3.5, 4.5, -5.5, 6.5));
             TestUtils.AreEqual(faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4(-3.0, 4.0, -5.0, 6.0)), double4(3.5, -4.5, 5.5, -6.5));
@@ -442,7 +442,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_float()
+        public static void modf_float()
         {
             float f, i;
             f = modf(313.75f, out i);
@@ -459,7 +459,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_float2()
+        public static void modf_float2()
         {
             float2 f, i;
             f = modf(float2(313.75f, -313.25f), out i);
@@ -472,7 +472,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_float3()
+        public static void modf_float3()
         {
             float3 f, i;
             f = modf(float3(313.75f, -313.25f, -314.0f), out i);
@@ -481,7 +481,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_float4()
+        public static void modf_float4()
         {
             float4 f, i;
             f = modf(float4(313.75f, -313.25f, -314.0f, 7.5f), out i);
@@ -490,7 +490,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_double()
+        public static void modf_double()
         {
             double f, i;
             f = modf(313.75, out i);
@@ -507,7 +507,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_double2()
+        public static void modf_double2()
         {
             double2 f, i;
             f = modf(double2(313.75, -313.25), out i);
@@ -520,7 +520,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_double3()
+        public static void modf_double3()
         {
             double3 f, i;
             f = modf(double3(313.75, -313.25, -314.0), out i);
@@ -529,7 +529,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void modf_double4()
+        public static void modf_double4()
         {
             double4 f, i;
             f = modf(double4(313.75, -313.25, -314.0, 7.5), out i);
@@ -538,21 +538,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalize_float2()
+        public static void normalize_float2()
         {
             TestUtils.AreEqual(normalize(float2(3.1f, -5.3f)), float2(0.504883f, -0.863188f), 0.0001f);
             TestUtils.AreEqual(all(isnan(normalize(float2(0.0f, 0.0f)))), true);
         }
 
         [TestCompiler]
-        public void normalize_float3()
+        public static void normalize_float3()
         {
             TestUtils.AreEqual(normalizesafe(float3(3.1f, -5.3f, 2.6f)), float3(0.464916f, -0.794861f, 0.389932f), 0.0001f);
             TestUtils.AreEqual(all(isnan(normalize(float3(0.0f, 0.0f, 0.0f)))), true);
         }
 
         [TestCompiler]
-        public void normalize_float4()
+        public static void normalize_float4()
         {
             TestUtils.AreEqual(normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
             TestUtils.AreEqual(all(isnan(normalize(float4(0.0f, 0.0f, 0.0f, 0.0f)))), true);
@@ -560,28 +560,28 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void normalize_double2()
+        public static void normalize_double2()
         {
             TestUtils.AreEqual(normalize(double2(3.1, -5.3)), double2(0.504883, -0.863188), 0.0001);
             TestUtils.AreEqual(all(isnan(normalize(double2(0.0, 0.0)))), true);
         }
 
         [TestCompiler]
-        public void normalize_double3()
+        public static void normalize_double3()
         {
             TestUtils.AreEqual(normalizesafe(double3(3.1, -5.3, 2.6)), double3(0.464916, -0.794861, 0.389932), 0.0001);
             TestUtils.AreEqual(all(isnan(normalize(double3(0.0, 0.0, 0.0)))), true);
         }
 
         [TestCompiler]
-        public void normalize_double4()
+        public static void normalize_double4()
         {
             TestUtils.AreEqual(normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), double4(0.234727, -0.401308, 0.196868, 0.863191), 0.0001);
             TestUtils.AreEqual(all(isnan(normalize(double4(0.0, 0.0, 0.0, 0.0f)))), true);
         }
 
         [TestCompiler]
-        public void normalize_quaternion()
+        public static void normalize_quaternion()
         {
             TestUtils.AreEqual(normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
             TestUtils.AreEqual(all(isnan(normalize(quaternion(0.0f, 0.0f, 0.0f, 0.0f)).value)), true);
@@ -589,7 +589,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void normalizesafe_float2()
+        public static void normalizesafe_float2()
         {
             TestUtils.AreEqual(normalizesafe(float2(3.1f, -5.3f)), float2(0.504883f, -0.863188f), 0.0001f);
             TestUtils.AreEqual(normalizesafe(float2(0.0f, 0.0f)), float2(0.0f, 0.0f));
@@ -599,7 +599,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalizesafe_float3()
+        public static void normalizesafe_float3()
         {
             TestUtils.AreEqual(normalizesafe(float3(3.1f, -5.3f, 2.6f)), float3(0.464916f, -0.794861f, 0.389932f), 0.0001f);
             TestUtils.AreEqual(normalizesafe(float3(0.0f, 0.0f, 0.0f)), float3(0.0f, 0.0f, 0.0f));
@@ -609,7 +609,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalizesafe_float4()
+        public static void normalizesafe_float4()
         {
             TestUtils.AreEqual(normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
             TestUtils.AreEqual(normalizesafe(float4(0.0f, 0.0f, 0.0f, 0.0f)), float4(0.0f, 0.0f, 0.0f, 0.0f));
@@ -620,7 +620,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void normalizesafe_double2()
+        public static void normalizesafe_double2()
         {
             TestUtils.AreEqual(normalizesafe(double2(3.1, -5.3)), double2(0.504883, -0.863188), 0.0001);
             TestUtils.AreEqual(normalizesafe(double2(0.0, 0.0)), double2(0.0, 0.0));
@@ -630,7 +630,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalizesafe_double3()
+        public static void normalizesafe_double3()
         {
             TestUtils.AreEqual(normalizesafe(double3(3.1, -5.3, 2.6)), double3(0.464916, -0.794861, 0.389932), 0.0001);
             TestUtils.AreEqual(normalizesafe(double3(0.0, 0.0, 0.0)), double3(0.0, 0.0, 0.0));
@@ -640,7 +640,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalizesafe_double4()
+        public static void normalizesafe_double4()
         {
             TestUtils.AreEqual(normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), double4(0.234727, -0.401308, 0.196868, 0.863191), 0.0001);
             TestUtils.AreEqual(normalizesafe(double4(0.0, 0.0, 0.0, 0.0)), double4(0.0, 0.0, 0.0, 0.0));
@@ -650,7 +650,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void normalizesafe_quaternion()
+        public static void normalizesafe_quaternion()
         {
             TestUtils.AreEqual(normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), 0.0001f);
             TestUtils.AreEqual(normalizesafe(quaternion(0.0f, 0.0f, 0.0f, 0.0f)), quaternion(0.0f, 0.0f, 0.0f, 1.0f));
@@ -660,7 +660,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void f16tof32_float()
+        public static void f16tof32_float()
         {
             TestUtils.AreEqual(asuint(f16tof32(0x0000)), 0x00000000);
             TestUtils.AreEqual(asuint(f16tof32(0x0203)), 0x3800C000);
@@ -678,7 +678,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void f16tof32_float2()
+        public static void f16tof32_float2()
         {
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x0000, 0x0203))), uint2(0x00000000, 0x3800C000));
             TestUtils.AreEqual(asuint(f16tof32(uint2(0x4321, 0x7BFF))), uint2(0x40642000, 0x477FE000));
@@ -692,7 +692,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void f16tof32_float3()
+        public static void f16tof32_float3()
         {
             TestUtils.AreEqual(asuint(f16tof32(uint3(0x0000, 0x0203, 0x4321))), uint3(0x00000000, 0x3800C000, 0x40642000));
             TestUtils.AreEqual(asuint(f16tof32(uint3(0x7BFF, 0x7C00, 0x7C00))), uint3(0x477FE000, 0x7F800000, 0x7F800000));
@@ -704,7 +704,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void f16tof32_float4()
+        public static void f16tof32_float4()
         {
             TestUtils.AreEqual(asuint(f16tof32(uint4(0x0000, 0x0203, 0x4321, 0x7BFF))), uint4(0x00000000, 0x3800C000, 0x40642000, 0x477FE000));
             TestUtils.AreEqual(asuint(f16tof32(uint4(0x7C00, 0x7C00, 0x7C00, 0x7C00))), uint4(0x7F800000, 0x7F800000, 0x7F800000, 0x7F800000));
@@ -716,7 +716,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void f32tof16_float()
+        public static void f32tof16_float()
         {
             TestUtils.AreEqual(f32tof16(0.0f), 0x0000);
             TestUtils.AreEqual(f32tof16(2.98e-08f), 0x0000);
@@ -737,13 +737,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void f32tof16_float_signed_zero()
+        public static void f32tof16_float_signed_zero()
         {
             TestUtils.AreEqual(f32tof16(-0.0f), 0x8000);
         }
 
         [TestCompiler]
-        public void f32tof16_float2()
+        public static void f32tof16_float2()
         {
             TestUtils.AreEqual(f32tof16(float2(0.0f, 2.98e-08f)), uint2(0x0000, 0x0000));
             TestUtils.AreEqual(f32tof16(float2(5.96046448e-08f, 123.4f)), uint2(0x0001, 0x57B6));
@@ -758,13 +758,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void f32tof16_float2_signed_zero()
+        public static void f32tof16_float2_signed_zero()
         {
             TestUtils.AreEqual(f32tof16(float2(-0.0f, -0.0f)), uint2(0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void f32tof16_float3()
+        public static void f32tof16_float3()
         {
             TestUtils.AreEqual(f32tof16(float3(0.0f, 2.98e-08f, 5.96046448e-08f)), uint3(0x0000, 0x0000, 0x0001));
             TestUtils.AreEqual(f32tof16(float3(123.4f, 65504.0f, 65520.0f)), uint3(0x57B6, 0x7BFF, 0x7C00));
@@ -776,13 +776,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void f32tof16_float3_signed_zero()
+        public static void f32tof16_float3_signed_zero()
         {
             TestUtils.AreEqual(f32tof16(float3(-0.0f, -0.0f, -0.0f)), uint3(0x8000, 0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void f32tof16_float4()
+        public static void f32tof16_float4()
         {
             TestUtils.AreEqual(f32tof16(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f)), uint4(0x0000, 0x0000, 0x0001, 0x57B6));
             TestUtils.AreEqual(f32tof16(float4(65504.0f, 65520.0f, float.PositiveInfinity, float.NaN)), uint4(0x7BFF, 0x7C00, 0x7C00, 0xFE00));
@@ -792,13 +792,13 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void f32tof16_float4_signed_zero()
+        public static void f32tof16_float4_signed_zero()
         {
             TestUtils.AreEqual(f32tof16(float4(-0.0f, -0.0f, -0.0f, -0.0f)), uint4(0x8000, 0x8000, 0x8000, 0x8000));
         }
 
         [TestCompiler]
-        public void reflect_float2()
+        public static void reflect_float2()
         {
             TestUtils.AreEqual(reflect(float2(1.2f, 3.6f), float2(1.5f, -1.3f)), float2(9.84f, -3.888f), 8, false);
             TestUtils.AreEqual(reflect(float2(-1.2f, 3.6f), float2(-1.5f, -1.3f)), float2(-9.84f, -3.888f), 8, false);
@@ -807,7 +807,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void reflect_float3()
+        public static void reflect_float3()
         {
             TestUtils.AreEqual(reflect(float3(1.2f, 3.6f, -2.8f), float3(1.5f, -1.3f, 3.1f)), float3(35.88f, -26.456f, 68.872f), 8, false);
             TestUtils.AreEqual(reflect(float3(-1.2f, 3.6f, -2.8f), float3(-1.5f, -1.3f, 3.1f)), float3(-35.88f, -26.456f, 68.872f), 8, false);
@@ -816,7 +816,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void reflect_float4()
+        public static void reflect_float4()
         {
             TestUtils.AreEqual(reflect(float4(1.2f, 3.6f, -2.8f, 0.3f), float4(1.5f, -1.3f, 3.1f, -0.7f)), float4(36.51f, -27.002f, 70.174f, -16.178f), 8, false);
             TestUtils.AreEqual(reflect(float4(-1.2f, 3.6f, -2.8f, 0.3f), float4(-1.5f, -1.3f, 3.1f, -0.7f)), float4(-36.51f, -27.002f, 70.174f, -16.178f), 8, false);
@@ -826,7 +826,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void reflect_double2()
+        public static void reflect_double2()
         {
             TestUtils.AreEqual(reflect(double2(1.2, 3.6), double2(1.5, -1.3)), double2(9.84, -3.888), 8, false);
             TestUtils.AreEqual(reflect(double2(-1.2, 3.6), double2(-1.5, -1.3)), double2(-9.84, -3.888), 8, false);
@@ -835,7 +835,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void reflect_double3()
+        public static void reflect_double3()
         {
             TestUtils.AreEqual(reflect(double3(1.2, 3.6, -2.8), double3(1.5, -1.3, 3.1)), double3(35.88, -26.456, 68.872), 8, false);
             TestUtils.AreEqual(reflect(double3(-1.2, 3.6, -2.8), double3(-1.5, -1.3, 3.1)), double3(-35.88, -26.456, 68.872), 8, false);
@@ -844,7 +844,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void reflect_double4()
+        public static void reflect_double4()
         {
             TestUtils.AreEqual(reflect(double4(1.2, 3.6, -2.8, 0.3), double4(1.5, -1.3, 3.1, -0.7)), double4(36.51, -27.002, 70.174, -16.178), 8, false);
             TestUtils.AreEqual(reflect(double4(-1.2, 3.6, -2.8, 0.3), double4(-1.5, -1.3, 3.1, -0.7)), double4(-36.51, -27.002, 70.174, -16.178), 8, false);
@@ -854,7 +854,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void refract_float2()
+        public static void refract_float2()
         {
             TestUtils.AreEqual(refract(float2(0.316228f, 0.948683f), float2(0.755689f, -0.654931f), 0.5f), float2(-0.3676186f, 0.9299768f), 8, false);
             TestUtils.AreEqual(refract(float2(0.316228f, 0.948683f), float2(0.755689f, -0.654931f), 1.05f), float2(0.4523711f, 0.8918296f), 8, false);
@@ -862,7 +862,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void refract_float3()
+        public static void refract_float3()
         {
             TestUtils.AreEqual(refract(float3(0.288375f, 0.865125f, -0.410365f), float3(0.662147f, -0.573861f, 0.481919f), 0.5f), float3(-0.2863437f, 0.8056898f, -0.5185286f), 8, false);
             TestUtils.AreEqual(refract(float3(0.288375f, 0.865125f, -0.410365f), float3(0.662147f, -0.573861f, 0.481919f), 1.05f), float3(0.3743219f, 0.8463902f, -0.3788242f), 8, false);
@@ -870,7 +870,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void refract_float4()
+        public static void refract_float4()
         {
             TestUtils.AreEqual(refract(float4(0.278154f, 0.834461f, -0.39582f, -0.26388f), float4(0.652208f, -0.565247f, 0.474685f, -0.1726139f), 0.5f), float4(-0.302029191645545f, 0.799522577847971f, -0.518952508802814f, -0.015196476378571f), 16, false);
             TestUtils.AreEqual(refract(float4(0.278154f, 0.834461f, -0.39582f, -0.26388f), float4(0.652208f, -0.565247f, 0.474685f, -0.172613f), 1.05f), float4(0.378159678850401f, 0.801565792862319f, -0.352947832589293f, -0.299860642333894f), 16, false);
@@ -879,7 +879,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void refract_double2()
+        public static void refract_double2()
         {
             TestUtils.AreEqual(refract(double2(0.316228, 0.948683), double2(0.755689, -0.654931), 0.5), double2(-0.367618540673032, 0.929976739623085), 8, false);
             TestUtils.AreEqual(refract(double2(0.316228, 0.948683), double2(0.755689, -0.654931), 1.05), double2(0.452371226326029, 0.891829482258995), 8, false);
@@ -887,7 +887,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void refract_double3()
+        public static void refract_double3()
         {
             TestUtils.AreEqual(refract(double3(0.288375, 0.865125, -0.410365), double3(0.662147, -0.573861, 0.481919), 0.5), double3(-0.286343746291412, 0.805689753507206, -0.518528611485079), 8, false);
             TestUtils.AreEqual(refract(double3(0.288375, 0.865125, -0.410365), double3(0.662147, -0.573861, 0.481919), 1.05), double3(0.374321889019825, 0.846390167376268, -0.378824161567529), 8, false);
@@ -895,7 +895,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void refract_double4()
+        public static void refract_double4()
         {
             TestUtils.AreEqual(refract(double4(0.278154, 0.834461, -0.39582, -0.26388), double4(0.652208, -0.565247, 0.474685, -0.1726139), 0.5), double4(-0.302029191645545, 0.799522577847971, -0.518952508802814, -0.015196476378571), 16, false);
             TestUtils.AreEqual(refract(double4(0.278154, 0.834461, -0.39582, -0.26388), double4(0.652208, -0.565247, 0.474685, -0.172613), 1.05), double4(0.378159678850401, 0.801565792862319, -0.352947832589293, -0.299860642333894), 16, false);
@@ -903,7 +903,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_float()
+        public static void sincos_float()
         {
             float s, c;
 
@@ -942,7 +942,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void sincos_float2()
+        public static void sincos_float2()
         {
             float2 s, c;
 
@@ -964,7 +964,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_float3()
+        public static void sincos_float3()
         {
             float3 s, c;
 
@@ -982,7 +982,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_float4()
+        public static void sincos_float4()
         {
             float4 s, c;
 
@@ -996,7 +996,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_double()
+        public static void sincos_double()
         {
             double s, c;
             sincos(-1000000.0, out s, out c);
@@ -1033,7 +1033,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_double2()
+        public static void sincos_double2()
         {
             double2 s, c;
             sincos(double2(-1000000.0, -1.2), out s, out c);
@@ -1054,7 +1054,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_double3()
+        public static void sincos_double3()
         {
             double3 s, c;
 
@@ -1072,7 +1072,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void sincos_double4()
+        public static void sincos_double4()
         {
             double4 s, c;
 
@@ -1086,14 +1086,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_int()
+        public static void select_int()
         {
             TestUtils.AreEqual(select(-123456789, 987654321, false), -123456789);
             TestUtils.AreEqual(select(-123456789, 987654321, true), 987654321);
         }
 
         [TestCompiler]
-        public void select_int2()
+        public static void select_int2()
         {
             TestUtils.AreEqual(select(int2(-123456789, -123456790), int2(987654321, 987654322), false), int2(-123456789, -123456790));
             TestUtils.AreEqual(select(int2(-123456789, -123456790), int2(987654321, 987654322), true), int2(987654321, 987654322));
@@ -1105,7 +1105,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_int3()
+        public static void select_int3()
         {
             TestUtils.AreEqual(select(int3(-123456789, -123456790, -123456791), int3(987654321, 987654322, 987654323), false), int3(-123456789, -123456790, -123456791));
             TestUtils.AreEqual(select(int3(-123456789, -123456790, -123456791), int3(987654321, 987654322, 987654323), true), int3(987654321, 987654322, 987654323));
@@ -1122,7 +1122,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_int4()
+        public static void select_int4()
         {
             TestUtils.AreEqual(select(int4(-123456789, -123456790, -123456791, -123456792), int4(987654321, 987654322, 987654323, 987654324), false), int4(-123456789, -123456790, -123456791, -123456792));
             TestUtils.AreEqual(select(int4(-123456789, -123456790, -123456791, -123456792), int4(987654321, 987654322, 987654323, 987654324), true), int4(987654321, 987654322, 987654323, 987654324));
@@ -1149,14 +1149,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_uint()
+        public static void select_uint()
         {
             TestUtils.AreEqual(select(123456789u, 987654321u, false), 123456789u);
             TestUtils.AreEqual(select(123456789u, 987654321u, true), 987654321u);
         }
 
         [TestCompiler]
-        public void select_uint2()
+        public static void select_uint2()
         {
             TestUtils.AreEqual(select(uint2(123456789u, 123456790u), uint2(987654321u, 987654322u), false), uint2(123456789u, 123456790u));
             TestUtils.AreEqual(select(uint2(123456789u, 123456790u), uint2(987654321u, 987654322u), true), uint2(987654321u, 987654322));
@@ -1168,7 +1168,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_uint3()
+        public static void select_uint3()
         {
             TestUtils.AreEqual(select(uint3(123456789u, 123456790u, 123456791u), uint3(987654321u, 987654322u, 987654323u), false), uint3(123456789u, 123456790u, 123456791u));
             TestUtils.AreEqual(select(uint3(123456789u, 123456790u, 123456791u), uint3(987654321u, 987654322u, 987654323u), true), uint3(987654321u, 987654322u, 987654323));
@@ -1185,7 +1185,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_uint4()
+        public static void select_uint4()
         {
             TestUtils.AreEqual(select(uint4(123456789u, 123456790u, 123456791u, 123456792u), uint4(987654321u, 987654322u, 987654323u, 987654324u), false), uint4(123456789u, 123456790u, 123456791u, 123456792u));
             TestUtils.AreEqual(select(uint4(123456789u, 123456790u, 123456791u, 123456792u), uint4(987654321u, 987654322u, 987654323u, 987654324u), true), uint4(987654321u, 987654322u, 987654323u, 987654324u));
@@ -1212,14 +1212,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_long()
+        public static void select_long()
         {
             TestUtils.AreEqual(select(-12345678910111314L, 987654321011121314L, false), -12345678910111314L);
             TestUtils.AreEqual(select(-12345678910111314L, 987654321011121314L, true), 987654321011121314L);
         }
 
         [TestCompiler]
-        public void select_ulong()
+        public static void select_ulong()
         {
             TestUtils.AreEqual(select(12345678910111314UL, 987654321011121314UL, false), 12345678910111314UL);
             TestUtils.AreEqual(select(12345678910111314UL, 987654321011121314UL, true), 987654321011121314UL);
@@ -1227,14 +1227,14 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void select_float()
+        public static void select_float()
         {
             TestUtils.AreEqual(select(-1234.5f, 9876.25f, false), -1234.5f);
             TestUtils.AreEqual(select(-1234.5f, 9876.25f, true), 9876.25f);
         }
 
         [TestCompiler]
-        public void select_float2()
+        public static void select_float2()
         {
             TestUtils.AreEqual(select(float2(-1234.5f, -1235.5f), float2(9876.25f, 9877.25f), false), float2(-1234.5f, -1235.5f));
             TestUtils.AreEqual(select(float2(-1234.5f, -1235.5f), float2(9876.25f, 9877.25f), true), float2(9876.25f, 9877.25f));
@@ -1246,7 +1246,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_float3()
+        public static void select_float3()
         {
             TestUtils.AreEqual(select(float3(-1234.5f, -1235.5f, -1236.5f), float3(9876.25f, 9877.25f, 9878.25f), false), float3(-1234.5f, -1235.5f, -1236.5f));
             TestUtils.AreEqual(select(float3(-1234.5f, -1235.5f, -1236.5f), float3(9876.25f, 9877.25f, 9878.25f), true), float3(9876.25f, 9877.25f, 9878.25f));
@@ -1263,7 +1263,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_float4()
+        public static void select_float4()
         {
             TestUtils.AreEqual(select(float4(-1234.5f, -1235.5f, -1236.5f, -1237.5f), float4(9876.25f, 9877.25f, 9878.25f, 9879.25f), false), float4(-1234.5f, -1235.5f, -1236.5f, -1237.5f));
             TestUtils.AreEqual(select(float4(-1234.5f, -1235.5f, -1236.5f, -1237.5f), float4(9876.25f, 9877.25f, 9878.25f, 9879.25f), true), float4(9876.25f, 9877.25f, 9878.25f, 9879.25f));
@@ -1291,14 +1291,14 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void select_double()
+        public static void select_double()
         {
             TestUtils.AreEqual(select(-1234.5, 9876.25, false), -1234.5);
             TestUtils.AreEqual(select(-1234.5, 9876.25, true), 9876.25);
         }
 
         [TestCompiler]
-        public void select_double2()
+        public static void select_double2()
         {
             TestUtils.AreEqual(select(double2(-1234.5, -1235.5), double2(9876.25, 9877.25), false), double2(-1234.5, -1235.5));
             TestUtils.AreEqual(select(double2(-1234.5, -1235.5), double2(9876.25, 9877.25), true), double2(9876.25, 9877.25));
@@ -1310,7 +1310,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_double3()
+        public static void select_double3()
         {
             TestUtils.AreEqual(select(double3(-1234.5, -1235.5, -1236.5), double3(9876.25, 9877.25, 9878.25), false), double3(-1234.5, -1235.5, -1236.5));
             TestUtils.AreEqual(select(double3(-1234.5, -1235.5, -1236.5), double3(9876.25, 9877.25, 9878.25), true), double3(9876.25, 9877.25, 9878.25));
@@ -1327,7 +1327,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void select_double4()
+        public static void select_double4()
         {
             TestUtils.AreEqual(select(double4(-1234.5, -1235.5, -1236.5, -1237.5), double4(9876.25, 9877.25, 9878.25, 9879.25), false), double4(-1234.5, -1235.5, -1236.5, -1237.5));
             TestUtils.AreEqual(select(double4(-1234.5, -1235.5, -1236.5, -1237.5), double4(9876.25, 9877.25, 9878.25, 9879.25), true), double4(9876.25, 9877.25, 9878.25, 9879.25));
@@ -1355,7 +1355,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void dot_int()
+        public static void dot_int()
         {
             TestUtils.AreEqual(dot(7, 19), 133);
             TestUtils.AreEqual(dot(-7, 19), -133);
@@ -1364,7 +1364,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_int2()
+        public static void dot_int2()
         {
             TestUtils.AreEqual(dot(int2(7, 9), int2(19, 21)), 322);
             TestUtils.AreEqual(dot(int2(-7, 9), int2(19, -21)), -322);
@@ -1373,7 +1373,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_int3()
+        public static void dot_int3()
         {
             TestUtils.AreEqual(dot(int3(7, 9, 13), int3(19, 21, 20)), 582);
             TestUtils.AreEqual(dot(int3(-7, 9, 13), int3(19, -21, -20)), -582);
@@ -1382,7 +1382,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_int4()
+        public static void dot_int4()
         {
             TestUtils.AreEqual(dot(int4(7, 9, 13, 17), int4(19, 21, 20, 24)), 990);
             TestUtils.AreEqual(dot(int4(-7, 9, 13, -17), int4(19, -21, -20, 24)), -990);
@@ -1392,28 +1392,28 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void dot_uint()
+        public static void dot_uint()
         {
             TestUtils.AreEqual(dot(7u, 19u), 133u);
             TestUtils.AreEqual(dot(61031u, 81312u), 667585376u);
         }
 
         [TestCompiler]
-        public void dot_uint2()
+        public static void dot_uint2()
         {
             TestUtils.AreEqual(dot(uint2(7u, 9u), uint2(19u, 21u)), 322);
             TestUtils.AreEqual(dot(uint2(61031u, 12534u), uint2(81312u, 5312u)), 734165984u);
         }
 
         [TestCompiler]
-        public void dot_uint3()
+        public static void dot_uint3()
         {
             TestUtils.AreEqual(dot(uint3(7u, 9u, 13u), uint3(19u, 21u, 20u)), 582u);
             TestUtils.AreEqual(dot(uint3(61031u, 12534u, 9211u), uint3(81312u, 5312u, 22123u)), 937940937u);
         }
 
         [TestCompiler]
-        public void dot_uint4()
+        public static void dot_uint4()
         {
             TestUtils.AreEqual(dot(uint4(7u, 9u, 13u, 17u), uint4(19u, 21u, 20u, 24u)), 990u);
             TestUtils.AreEqual(dot(uint4(61031u, 12534u, 9211u, 33122u), uint4(81312u, 5312u, 22123u, 65423u)), 3104881543u);
@@ -1421,7 +1421,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void dot_float()
+        public static void dot_float()
         {
             TestUtils.AreEqual(dot(1.2f, 6.1f), 7.32f, 1, false);
             TestUtils.AreEqual(dot(1.2f, -6.1f), -7.32f, 1, false);
@@ -1432,7 +1432,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_float2()
+        public static void dot_float2()
         {
             TestUtils.AreEqual(dot(float2(1.2f, 5.5f), float2(6.1f, 9.2f)), 57.92f, 1, false);
             TestUtils.AreEqual(dot(float2(-1.2f, 5.5f), float2(6.1f, -9.2f)), -57.92f, 1, false);
@@ -1443,7 +1443,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_float3()
+        public static void dot_float3()
         {
             TestUtils.AreEqual(dot(float3(1.2f, 5.5f, 3.4f), float3(6.1f, 9.2f, 2.7f)), 67.1f, 8, false);
             TestUtils.AreEqual(dot(float3(-1.2f, 5.5f, -3.4f), float3(6.1f, -9.2f, 2.7f)), -67.1f, 8, false);
@@ -1454,7 +1454,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_float4()
+        public static void dot_float4()
         {
             TestUtils.AreEqual(dot(float4(1.2f, 5.5f, 3.4f, 4.9f), float4(6.1f, 9.2f, 2.7f, 0.3f)), 68.57f, 8, false);
             TestUtils.AreEqual(dot(float4(-1.2f, 5.5f, -3.4f, 4.9f), float4(6.1f, -9.2f, 2.7f, -0.3f)), -68.57f, 8, false);
@@ -1465,7 +1465,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        public void dot_double()
+        public static void dot_double()
         {
             TestUtils.AreEqual(dot(1.2, 6.1), 7.32, 1, false);
             TestUtils.AreEqual(dot(1.2, -6.1), -7.32, 1, false);
@@ -1476,7 +1476,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_double2()
+        public static void dot_double2()
         {
             TestUtils.AreEqual(dot(double2(1.2, 5.5), double2(6.1, 9.2)), 57.92, 1, false);
             TestUtils.AreEqual(dot(double2(-1.2, 5.5), double2(6.1, -9.2)), -57.92, 1, false);
@@ -1487,7 +1487,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_double3()
+        public static void dot_double3()
         {
             TestUtils.AreEqual(dot(double3(1.2, 5.5, 3.4), double3(6.1, 9.2, 2.7)), 67.1, 8, false);
             TestUtils.AreEqual(dot(double3(-1.2, 5.5, -3.4), double3(6.1, -9.2, 2.7)), -67.1, 8, false);
@@ -1498,7 +1498,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void dot_double4()
+        public static void dot_double4()
         {
             TestUtils.AreEqual(dot(double4(1.2, 5.5, 3.4, 4.9), double4(6.1, 9.2, 2.7, 0.3)), 68.57, 8, false);
             TestUtils.AreEqual(dot(double4(-1.2, 5.5, -3.4, 4.9), double4(6.1, -9.2, 2.7, -0.3)), -68.57, 8, false);
@@ -1509,7 +1509,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_int2()
+        public static void cmin_int2()
         {
             TestUtils.AreEqual(cmin(int2(100, 200)), 100);
             TestUtils.AreEqual(cmin(int2(100, -200)), -200);
@@ -1520,7 +1520,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmin_int3()
+        public static void cmin_int3()
         {
             TestUtils.AreEqual(cmin(int3(100, 200, 300)), 100);
             TestUtils.AreEqual(cmin(int3(100, -200, 300)), -200);
@@ -1531,7 +1531,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmin_int4()
+        public static void cmin_int4()
         {
             TestUtils.AreEqual(cmin(int4(100, 200, 300, 400)), 100);
             TestUtils.AreEqual(cmin(int4(100, -200, 300, -400)), -400);
@@ -1541,7 +1541,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_uint2()
+        public static void cmin_uint2()
         {
             TestUtils.AreEqual(cmin(uint2(100u, 200u)), 100u);
             TestUtils.AreEqual(cmin(uint2(100u, uint.MaxValue)), 100u);
@@ -1550,7 +1550,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmin_uint3()
+        public static void cmin_uint3()
         {
             TestUtils.AreEqual(cmin(uint3(100u, 200u, 300u)), 100u);
             TestUtils.AreEqual(cmin(uint3(uint.MaxValue, 100u, 300u)), 100u);
@@ -1559,7 +1559,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmin_uint4()
+        public static void cmin_uint4()
         {
             TestUtils.AreEqual(cmin(uint4(100u, 200u, 300u, 400u)), 100u);
             TestUtils.AreEqual(cmin(uint4(300u, 100u, uint.MaxValue, 200u)), 100u);
@@ -1567,7 +1567,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_float2()
+        public static void cmin_float2()
         {
             TestUtils.AreEqual(cmin(float2(5.2f, -0.5f)), -0.5f);
             TestUtils.AreEqual(cmin(float2(float.NegativeInfinity, float.PositiveInfinity)), float.NegativeInfinity);
@@ -1586,7 +1586,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_float3()
+        public static void cmin_float3()
         {
             TestUtils.AreEqual(cmin(float3(5.2f, -0.5f, -1.2f)), -1.2f);
             TestUtils.AreEqual(cmin(float3(float.NegativeInfinity, float.PositiveInfinity, 100.0f)), float.NegativeInfinity);
@@ -1606,7 +1606,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_float4()
+        public static void cmin_float4()
         {
             TestUtils.AreEqual(cmin(float4(5.2f, -0.5f, -1.2f, 2.3f)), -1.2f);
             TestUtils.AreEqual(cmin(float4(float.NegativeInfinity, float.PositiveInfinity, 100.0f, float.NaN)), float.NegativeInfinity);
@@ -1629,7 +1629,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmin_double2()
+        public static void cmin_double2()
         {
             TestUtils.AreEqual(cmin(double2(5.2, -0.5)), -0.5);
             TestUtils.AreEqual(cmin(double2(5.2e100, -0.5e100)), -0.5e100);
@@ -1649,7 +1649,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_double3()
+        public static void cmin_double3()
         {
             TestUtils.AreEqual(cmin(double3(5.2, -0.5, -1.2)), -1.2);
             TestUtils.AreEqual(cmin(double3(5.2e100, -0.5e100, -1.2e100)), -1.2e100);
@@ -1670,7 +1670,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmin_double4()
+        public static void cmin_double4()
         {
             TestUtils.AreEqual(cmin(double4(5.2, -0.5, -1.2, 2.3)), -1.2);
             TestUtils.AreEqual(cmin(double4(5.2e100, -0.5e100, -1.2e100, 2.3e100)), -1.2e100);
@@ -1695,7 +1695,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_int2()
+        public static void cmax_int2()
         {
             TestUtils.AreEqual(cmax(int2(100, 200)), 200);
             TestUtils.AreEqual(cmax(int2(100, -200)), 100);
@@ -1706,7 +1706,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_int3()
+        public static void cmax_int3()
         {
             TestUtils.AreEqual(cmax(int3(100, 200, 300)), 300);
             TestUtils.AreEqual(cmax(int3(100, -200, 300)), 300);
@@ -1717,7 +1717,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_int4()
+        public static void cmax_int4()
         {
             TestUtils.AreEqual(cmax(int4(100, 200, 300, 400)), 400);
             TestUtils.AreEqual(cmax(int4(100, -200, 300, -400)), 300);
@@ -1727,7 +1727,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_uint2()
+        public static void cmax_uint2()
         {
             TestUtils.AreEqual(cmax(uint2(100u, 200u)), 200u);
             TestUtils.AreEqual(cmax(uint2(100u, uint.MaxValue)), uint.MaxValue);
@@ -1736,7 +1736,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_uint3()
+        public static void cmax_uint3()
         {
             TestUtils.AreEqual(cmax(uint3(100u, 200u, 300u)), 300u);
             TestUtils.AreEqual(cmax(uint3(uint.MaxValue, 100u, 300u)), uint.MaxValue);
@@ -1745,7 +1745,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_uint4()
+        public static void cmax_uint4()
         {
             TestUtils.AreEqual(cmax(uint4(100u, 200u, 300u, 400u)), 400u);
             TestUtils.AreEqual(cmax(uint4(300u, 100u, uint.MaxValue, 200u)), uint.MaxValue);
@@ -1753,7 +1753,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_float2()
+        public static void cmax_float2()
         {
             TestUtils.AreEqual(cmax(float2(5.2f, -0.5f)), 5.2f);
             TestUtils.AreEqual(cmax(float2(float.NegativeInfinity, float.PositiveInfinity)), float.PositiveInfinity);
@@ -1772,7 +1772,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_float3()
+        public static void cmax_float3()
         {
             TestUtils.AreEqual(cmax(float3(5.2f, -0.5f, -1.2f)), 5.2f);
             TestUtils.AreEqual(cmax(float3(float.NegativeInfinity, float.PositiveInfinity, 100.0f)), float.PositiveInfinity);
@@ -1792,7 +1792,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_float4()
+        public static void cmax_float4()
         {
             TestUtils.AreEqual(cmax(float4(5.2f, -0.5f, -1.2f, 2.3f)), 5.2f);
             TestUtils.AreEqual(cmax(float4(float.NegativeInfinity, float.PositiveInfinity, 100.0f, float.NaN)), float.PositiveInfinity);
@@ -1815,7 +1815,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void cmax_double2()
+        public static void cmax_double2()
         {
             TestUtils.AreEqual(cmax(double2(5.2, -0.5)), 5.2);
             TestUtils.AreEqual(cmax(double2(5.2e100, -0.5e100)), 5.2e100);
@@ -1835,7 +1835,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_double3()
+        public static void cmax_double3()
         {
             TestUtils.AreEqual(cmax(double3(5.2, -0.5, -1.2)), 5.2);
             TestUtils.AreEqual(cmax(double3(5.2e100, -0.5e100, -1.2e100)), 5.2e100);
@@ -1856,7 +1856,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void cmax_double4()
+        public static void cmax_double4()
         {
             TestUtils.AreEqual(cmax(double4(5.2, -0.5, -1.2, 2.3)), 5.2);
             TestUtils.AreEqual(cmax(double4(5.2e100, -0.5e100, -1.2e100, 2.3e100)), 5.2e100);
@@ -1880,7 +1880,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_int2()
+        public static void csum_int2()
         {
             TestUtils.AreEqual(csum(int2(100, 200)), 300);
             TestUtils.AreEqual(csum(int2(100, -200)), -100);
@@ -1891,7 +1891,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void csum_int3()
+        public static void csum_int3()
         {
             TestUtils.AreEqual(csum(int3(100, 200, 300)), 600);
             TestUtils.AreEqual(csum(int3(100, -200, -300)), -400);
@@ -1902,7 +1902,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void csum_int4()
+        public static void csum_int4()
         {
             TestUtils.AreEqual(csum(int4(100, 200, 300, 400)), 1000);
             TestUtils.AreEqual(csum(int4(100, -200, 300, -400)), -200);
@@ -1912,7 +1912,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_uint2()
+        public static void csum_uint2()
         {
             TestUtils.AreEqual(csum(uint2(100u, 200u)), 300u);
             TestUtils.AreEqual(csum(uint2(uint.MaxValue, 7u)), 6u);
@@ -1920,7 +1920,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void csum_uint3()
+        public static void csum_uint3()
         {
             TestUtils.AreEqual(csum(uint3(100u, 200u, 300u)), 600u);
             TestUtils.AreEqual(csum(uint3(uint.MaxValue, 7u, 19u)), 25u);
@@ -1928,14 +1928,14 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void csum_uint4()
+        public static void csum_uint4()
         {
             TestUtils.AreEqual(csum(uint4(100u, 200u, 300u, 400u)), 1000u);
             TestUtils.AreEqual(csum(uint4(uint.MaxValue, 7u, 11u, 19u)), 36u);
         }
 
         [TestCompiler]
-        public void csum_float2()
+        public static void csum_float2()
         {
             TestUtils.AreEqual(csum(float2(2.2f, -1.5f)), 0.7f, 4, false);
             TestUtils.AreEqual(csum(float2(-2.2e38f, 1.5e38f)), -7e37f, 4, false);
@@ -1958,7 +1958,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_float3()
+        public static void csum_float3()
         {
             TestUtils.AreEqual(csum(float3(2.2f, -1.5f, 1.2f)), 1.9f, 4, false);
             TestUtils.AreEqual(csum(float3(2.2e38f, -1.5e38f, 1.2e38f)), 1.9e38f, 4, false);
@@ -1982,7 +1982,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_float4()
+        public static void csum_float4()
         {
             TestUtils.AreEqual(csum(float4(2.2f, -1.5f, 1.2f, -0.7f)), 1.2f, 4, false);
             TestUtils.AreEqual(csum(float4(2.2e38f, -1.5e38f, 1.2e38f, -0.7e38f)), 1.2e38f, 4, false);
@@ -2009,7 +2009,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void csum_double2()
+        public static void csum_double2()
         {
             TestUtils.AreEqual(csum(double2(2.2, -1.5)), 0.7, 4, false);
             TestUtils.AreEqual(csum(double2(-2.2e307, 1.5e307)), -7e306, 4, false);
@@ -2032,7 +2032,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_double3()
+        public static void csum_double3()
         {
             TestUtils.AreEqual(csum(double3(2.2, -1.5, 1.2)), 1.9, 4, false);
             TestUtils.AreEqual(csum(double3(2.2e307, -1.5e307, 1.2e307)), 1.9e307, 4, false);
@@ -2056,7 +2056,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void csum_double4()
+        public static void csum_double4()
         {
             TestUtils.AreEqual(csum(double4(2.2, -1.5, 1.2, -0.7)), 1.2, 4, false);
             TestUtils.AreEqual(csum(double4(2.2e307, -1.5e307, 1.2e307, -0.7e307)), 1.2e307, 4, false);
@@ -2083,7 +2083,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_bool2()
+        public static void any_bool2()
         {
             TestUtils.AreEqual(any(bool2(false, false)), false);
             TestUtils.AreEqual(any(bool2(false, true)), true);
@@ -2092,7 +2092,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_bool3()
+        public static void any_bool3()
         {
             TestUtils.AreEqual(any(bool3(false, false, false)), false);
             TestUtils.AreEqual(any(bool3(false, false, true)), true);
@@ -2106,7 +2106,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_bool4()
+        public static void any_bool4()
         {
             TestUtils.AreEqual(any(bool4(false, false, false, false)), false);
             TestUtils.AreEqual(any(bool4(false, false, false, true)), true);
@@ -2130,7 +2130,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_int2()
+        public static void any_int2()
         {
             TestUtils.AreEqual(any(int2(0, 0)), false);
             TestUtils.AreEqual(any(int2(0, -1)), true);
@@ -2140,7 +2140,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_int3()
+        public static void any_int3()
         {
             TestUtils.AreEqual(any(int3(0, 0, 0)), false);
             TestUtils.AreEqual(any(int3(0, 0, 1)), true);
@@ -2154,7 +2154,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_int4()
+        public static void any_int4()
         {
             TestUtils.AreEqual(any(int4(0, 0, 0, 0)), false);
             TestUtils.AreEqual(any(int4(0, 0, 0, 1)), true);
@@ -2179,7 +2179,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_uint2()
+        public static void any_uint2()
         {
             TestUtils.AreEqual(any(uint2(0u, 0u)), false);
             TestUtils.AreEqual(any(uint2(0u, 0xFFFFFFFFu)), true);
@@ -2189,7 +2189,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_uint3()
+        public static void any_uint3()
         {
             TestUtils.AreEqual(any(uint3(0u, 0u, 0u)), false);
             TestUtils.AreEqual(any(uint3(0u, 0u, 1u)), true);
@@ -2203,7 +2203,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_uint4()
+        public static void any_uint4()
         {
             TestUtils.AreEqual(any(uint4(0u, 0u, 0u, 0u)), false);
             TestUtils.AreEqual(any(uint4(0u, 0u, 0u, 1u)), true);
@@ -2228,7 +2228,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_float2()
+        public static void any_float2()
         {
             //TestUtils.AreEqual(any(float2(0, float.NaN)), true);    // TODO: doesn't work with burst
 
@@ -2240,7 +2240,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_float3()
+        public static void any_float3()
         {
             //TestUtils.AreEqual(any(float3(0.0f, float.NaN, 0.0f)), true);    // TODO: doesn't work with burst
 
@@ -2256,7 +2256,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_float4()
+        public static void any_float4()
         {
             TestUtils.AreEqual(any(float4(0.0f, 0.0f, 0.0f, 0.0f)), false);
             //TestUtils.AreEqual(any(float4(0.0f, 0.0f, 0.0f, float.NaN)), true);    // TODO: doesn't work with burst
@@ -2280,7 +2280,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_double2()
+        public static void any_double2()
         {
             //TestUtils.AreEqual(any(double2(0, double.NaN)), true);    // TODO: doesn't work with burst.
 
@@ -2292,7 +2292,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void any_double3()
+        public static void any_double3()
         {
             //TestUtils.AreEqual(any(double3(0.0, double.NaN, 0.0)), true);    // TODO: doesn't work with burst
 
@@ -2308,7 +2308,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void any_double4()
+        public static void any_double4()
         {
             TestUtils.AreEqual(any(double4(0.0, 0.0, 0.0, 0.0)), false);
             //TestUtils.AreEqual(any(double4(0.0, 0.0, 0.0, double.NaN)), true);    // TODO: doesn't work with burst
@@ -2333,7 +2333,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_bool2()
+        public static void all_bool2()
         {
             TestUtils.AreEqual(all(bool2(false, false)), false);
             TestUtils.AreEqual(all(bool2(false, true)), false);
@@ -2342,7 +2342,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_bool3()
+        public static void all_bool3()
         {
             TestUtils.AreEqual(all(bool3(false, false, false)), false);
             TestUtils.AreEqual(all(bool3(false, false, true)), false);
@@ -2356,7 +2356,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_bool4()
+        public static void all_bool4()
         {
             TestUtils.AreEqual(all(bool4(false, false, false, false)), false);
             TestUtils.AreEqual(all(bool4(false, false, false, true)), false);
@@ -2380,7 +2380,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_int2()
+        public static void all_int2()
         {
             TestUtils.AreEqual(all(int2(0, 0)), false);
             TestUtils.AreEqual(all(int2(0, -1)), false);
@@ -2389,7 +2389,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_int3()
+        public static void all_int3()
         {
             TestUtils.AreEqual(all(int3(0, 0, 0)), false);
             TestUtils.AreEqual(all(int3(0, 0, 1)), false);
@@ -2403,7 +2403,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_int4()
+        public static void all_int4()
         {
             TestUtils.AreEqual(all(int4(0, 0, 0, 0)), false);
             TestUtils.AreEqual(all(int4(0, 0, 0, 1)), false);
@@ -2428,7 +2428,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_uint2()
+        public static void all_uint2()
         {
             TestUtils.AreEqual(all(uint2(0u, 0u)), false);
             TestUtils.AreEqual(all(uint2(0u, 0xFFFFFFFFu)), false);
@@ -2438,7 +2438,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_uint3()
+        public static void all_uint3()
         {
             TestUtils.AreEqual(all(uint3(0u, 0u, 0u)), false);
             TestUtils.AreEqual(all(uint3(0u, 0u, 1u)), false);
@@ -2452,7 +2452,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_uint4()
+        public static void all_uint4()
         {
             TestUtils.AreEqual(all(uint4(0u, 0u, 0u, 0u)), false);
             TestUtils.AreEqual(all(uint4(0u, 0u, 0u, 1u)), false);
@@ -2477,7 +2477,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_float2()
+        public static void all_float2()
         {
             TestUtils.AreEqual(all(float2(float.NaN, float.NaN)), true);
 
@@ -2489,7 +2489,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_float3()
+        public static void all_float3()
         {
             TestUtils.AreEqual(all(float3(float.NaN, float.NaN, float.NaN)), true);
 
@@ -2505,7 +2505,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_float4()
+        public static void all_float4()
         {
             TestUtils.AreEqual(all(float4(float.NaN, float.NaN, float.NaN, float.NaN)), true);
 
@@ -2531,7 +2531,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_double2()
+        public static void all_double2()
         {
             TestUtils.AreEqual(all(double2(double.NaN, double.NaN)), true);
 
@@ -2543,7 +2543,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void all_double3()
+        public static void all_double3()
         {
             TestUtils.AreEqual(all(double3(double.NaN, double.NaN, double.NaN)), true);
 
@@ -2559,7 +2559,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void all_double4()
+        public static void all_double4()
         {
             TestUtils.AreEqual(all(double4(double.NaN, double.NaN, double.NaN, double.NaN)), true);
 
@@ -2586,7 +2586,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void length_float2()
+        public static void length_float2()
         {
             TestUtils.AreEqual(length(float2(0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(length(float2(1.2f, -2.6f)), 2.86356421265527063f, 8, false);
@@ -2599,7 +2599,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void length_float3()
+        public static void length_float3()
         {
             TestUtils.AreEqual(length(float3(0.0f, 0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(length(float3(1.2f, -2.6f, 2.2f)), 3.611094f, 8, false);
@@ -2612,7 +2612,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void length_float4()
+        public static void length_float4()
         {
             TestUtils.AreEqual(length(float4(0.0f, 0.0f, 0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(length(float4(1.2f, -2.6f, 2.2f, -4.2f)), 5.538953f, 8, false);
@@ -2626,7 +2626,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void length_double2()
+        public static void length_double2()
         {
             TestUtils.AreEqual(length(double2(0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(length(double2(1.2, -2.6)), 2.86356421265527063, 8, false);
@@ -2638,7 +2638,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void length_double3()
+        public static void length_double3()
         {
             TestUtils.AreEqual(length(double3(0.0, 0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(length(double3(1.2, -2.6, 2.2)), 3.6110940170535577, 8, false);
@@ -2650,7 +2650,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void length_double4()
+        public static void length_double4()
         {
             TestUtils.AreEqual(length(double4(0.0, 0.0, 0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(length(double4(1.2, -2.6, 2.2, -4.2)), 5.5389529696504916, 8, false);
@@ -2663,7 +2663,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void lengthsq_float2()
+        public static void lengthsq_float2()
         {
             TestUtils.AreEqual(lengthsq(float2(0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(lengthsq(float2(1.2f, -2.6f)), 8.2f, 8, false);
@@ -2675,7 +2675,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void lengthsq_float3()
+        public static void lengthsq_float3()
         {
             TestUtils.AreEqual(lengthsq(float3(0.0f, 0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(lengthsq(float3(1.2f, -2.6f, 2.2f)), 13.04f, 8, false);
@@ -2688,7 +2688,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void lengthsq_float4()
+        public static void lengthsq_float4()
         {
             TestUtils.AreEqual(lengthsq(float4(0.0f, 0.0f, 0.0f, 0.0f)), 0.0f, 0, false);
             TestUtils.AreEqual(lengthsq(float4(1.2f, -2.6f, 2.2f, -4.2f)), 30.68f, 8, false);
@@ -2702,7 +2702,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void lengthsq_double2()
+        public static void lengthsq_double2()
         {
             TestUtils.AreEqual(lengthsq(double2(0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(lengthsq(double2(1.2, -2.6)), 8.2, 8, false);
@@ -2715,7 +2715,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void lengthsq_double3()
+        public static void lengthsq_double3()
         {
             TestUtils.AreEqual(lengthsq(double3(0.0, 0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(lengthsq(double3(1.2, -2.6, 2.2)), 13.04, 8, false);
@@ -2728,7 +2728,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void lengthsq_double4()
+        public static void lengthsq_double4()
         {
             TestUtils.AreEqual(lengthsq(double4(0.0, 0.0, 0.0, 0.0)), 0.0, 0, false);
             TestUtils.AreEqual(lengthsq(double4(1.2, -2.6, 2.2, -4.2)), 30.68, 8, false);
@@ -2744,7 +2744,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void distance_float2()
+        public static void distance_float2()
         {
             TestUtils.AreEqual(distance(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0.0f, 0, false);
 
@@ -2758,7 +2758,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distance_float3()
+        public static void distance_float3()
         {
             TestUtils.AreEqual(distance(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0.0f, 0, false);
 
@@ -2772,7 +2772,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distance_float4()
+        public static void distance_float4()
         {
             TestUtils.AreEqual(distance(float4(1.3f, -2.4f, 5.7f, 3.1f), float4(1.3f, -2.4f, 5.7f, 3.1f)), 0.0, 0, false);
 
@@ -2787,7 +2787,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void distance_double2()
+        public static void distance_double2()
         {
             TestUtils.AreEqual(distance(double2(1.3, -2.4), double2(1.3, -2.4)), 0.0, 0, false);
 
@@ -2800,7 +2800,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distance_double3()
+        public static void distance_double3()
         {
             TestUtils.AreEqual(distance(double2(1.3, -2.4), double2(1.3, -2.4)), 0.0, 0, false);
 
@@ -2813,7 +2813,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distance_double4()
+        public static void distance_double4()
         {
             TestUtils.AreEqual(distance(double4(1.3, -2.4, 5.7, 3.1), double4(1.3, -2.4, 5.7, 3.1)), 0.0, 0, false);
 
@@ -2826,7 +2826,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void distancesq_float2()
+        public static void distancesq_float2()
         {
             TestUtils.AreEqual(distancesq(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0.0f, 0, false);
 
@@ -2838,7 +2838,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distancesq_float3()
+        public static void distancesq_float3()
         {
             TestUtils.AreEqual(distancesq(float3(1.3f, -2.4f, 5.7f), float3(1.3f, -2.4f, 5.7f)), 0.0f, 0, false);
 
@@ -2851,7 +2851,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distancesq_float4()
+        public static void distancesq_float4()
         {
             TestUtils.AreEqual(distancesq(float4(1.3f, -2.4f, 5.7f, 3.1f), float4(1.3f, -2.4f, 5.7f, 3.1f)), 0.0f, 0, false);
 
@@ -2864,7 +2864,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void distancesq_double2()
+        public static void distancesq_double2()
         {
             TestUtils.AreEqual(distancesq(double2(1.3, -2.4), double2(1.3, -2.4)), 0.0, 0, false);
 
@@ -2878,7 +2878,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distancesq_double3()
+        public static void distancesq_double3()
         {
             TestUtils.AreEqual(distancesq(double3(1.3, -2.4, 5.7), double3(1.3, -2.4, 5.7)), 0.0, 0, false);
 
@@ -2892,7 +2892,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void distancesq_double4()
+        public static void distancesq_double4()
         {
             TestUtils.AreEqual(distancesq(double4(1.3, -2.4, 5.7, 3.1), double4(1.3, -2.4, 5.7, 3.1)), 0.0, 0, false);
 
@@ -2907,7 +2907,7 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_float_signed_zero()
+        public static void rcp_float_signed_zero()
         {
             TestUtils.AreEqual(rcp(-0.0f), float.NegativeInfinity);
             TestUtils.AreEqual(rcp(float.NegativeInfinity), -0.0f);
@@ -2915,21 +2915,21 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_float2_signed_zero()
+        public static void rcp_float2_signed_zero()
         {
             TestUtils.AreEqual(rcp(float2(-0.0f, float.NegativeInfinity)), float2(float.NegativeInfinity, -0.0f));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_float3_signed_zero()
+        public static void rcp_float3_signed_zero()
         {
             TestUtils.AreEqual(rcp(float3(-0.0f, float.NegativeInfinity, -0.0f)), float3(float.NegativeInfinity, -0.0f, float.NegativeInfinity));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_float4_signed_zero()
+        public static void rcp_float4_signed_zero()
         {
             TestUtils.AreEqual(rcp(float4(-0.0f, float.NegativeInfinity, -0.0f, float.NegativeInfinity)), float4(float.NegativeInfinity, -0.0f, float.NegativeInfinity, -0.0f));
         }
@@ -2937,7 +2937,7 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_double_signed_zero()
+        public static void rcp_double_signed_zero()
         {
             TestUtils.AreEqual(rcp(-0.0), double.NegativeInfinity);
             TestUtils.AreEqual(rcp(double.NegativeInfinity), -0.0);
@@ -2945,27 +2945,27 @@ namespace Unity.Mathematics.Tests
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_double2_signed_zero()
+        public static void rcp_double2_signed_zero()
         {
             TestUtils.AreEqual(rcp(double2(-0.0, double.NegativeInfinity)), double2(double.NegativeInfinity, -0.0));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_double3_signed_zero()
+        public static void rcp_double3_signed_zero()
         {
             TestUtils.AreEqual(rcp(double3(-0.0, double.NegativeInfinity, -0.0)), double3(double.NegativeInfinity, -0.0, double.NegativeInfinity));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
-        public void rcp_double4_signed_zero()
+        public static void rcp_double4_signed_zero()
         {
             TestUtils.AreEqual(rcp(double4(-0.0, double.NegativeInfinity, -0.0, double.NegativeInfinity)), double4(double.NegativeInfinity, -0.0, double.NegativeInfinity, -0.0));
         }
 
         [TestCompiler]
-        unsafe public void compress_test()
+        unsafe public static void compress_test()
         {
             int4 value = int4(0x12345678, 0x2468ACE0, 0x369BE147, 0x48C059D1);
 

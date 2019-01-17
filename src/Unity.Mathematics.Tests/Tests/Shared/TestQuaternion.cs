@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     class TestQuaternion
     {
         [TestCompiler]
-        public void quaternion_basic_constructors()
+        public static void quaternion_basic_constructors()
         {
             quaternion q = quaternion(1.0f, 2.0f, 3.0f, 4.0f);
             quaternion q2 = quaternion(float4(1.0f, 2.0f, 3.0f, 4.0f));
@@ -24,7 +24,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_construct_from_matrix()
+        public static void quaternion_construct_from_matrix()
         {
             TestUtils.AreEqual(TestMatrix.test3x3_xyz, float3x3(quaternion(TestMatrix.test3x3_xyz)), 0.0001f);
             TestUtils.AreEqual(TestMatrix.test4x4_xyz, float4x4(quaternion(TestMatrix.test4x4_xyz), float3.zero), 0.0001f);
@@ -46,7 +46,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void quaternion_construct_from_matrix3x3_torture()
+        public static void quaternion_construct_from_matrix3x3_torture()
         {
             Random rnd = new Random(0x12345678);
             for(int i = 0; i < 1000; i++)
@@ -59,7 +59,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_construct_from_matrix4x4_torture()
+        public static void quaternion_construct_from_matrix4x4_torture()
         {
             Random rnd = new Random(0x12345678);
             for (int i = 0; i < 1000; i++)
@@ -72,7 +72,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_axis_angle()
+        public static void quaternion_axis_angle()
         {
             quaternion q = quaternion.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
 
@@ -81,7 +81,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_axis_angle_consistency()
+        public static void quaternion_axis_angle_consistency()
         {
             TestUtils.AreEqual(quaternion.AxisAngle(float3(1, 0, 0), 1.0f), quaternion.RotateX(1.0f), 0.001f);
             TestUtils.AreEqual(quaternion.AxisAngle(float3(0, 1, 0), 1.0f), quaternion.RotateY(1.0f), 0.001f);
@@ -89,7 +89,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_euler()
+        public static void quaternion_euler()
         {
             float3 test_angles = TestMatrix.test_angles;
             quaternion q0 = quaternion.Euler(test_angles);
@@ -159,7 +159,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_rotateX()
+        public static void quaternion_rotateX()
         {
             float angle = 2.3f;
             quaternion q = quaternion.RotateX(angle);
@@ -169,7 +169,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_rotateY()
+        public static void quaternion_rotateY()
         {
             float angle = 2.3f;
             quaternion q = quaternion.RotateY(angle);
@@ -179,7 +179,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_rotateZ()
+        public static void quaternion_rotateZ()
         {
             float angle = 2.3f;
             quaternion q = quaternion.RotateZ(angle);
@@ -194,7 +194,7 @@ namespace Unity.Mathematics.Tests
         static internal readonly quaternion test_q3 = new quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
 
         [TestCompiler]
-        public void quaternion_conjugate()
+        public static void quaternion_conjugate()
         {
             quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
             quaternion cq = conjugate(q);
@@ -204,7 +204,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_inverse()
+        public static void quaternion_inverse()
         {
             quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
             quaternion iq = inverse(q);
@@ -214,7 +214,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_dot()
+        public static void quaternion_dot()
         {
             float dot01 = dot(test_q0, test_q1);
             float dot02 = dot(test_q0, test_q2);
@@ -224,7 +224,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_nlerp()
+        public static void quaternion_nlerp()
         {
             quaternion r0 = nlerp(test_q0, test_q1, 0.3f);
             quaternion r1 = nlerp(test_q0, test_q1, -4.3f);
@@ -236,7 +236,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_slerp()
+        public static void quaternion_slerp()
         {
             quaternion r0 = slerp(test_q0, test_q1, 0.3f);
             quaternion r1 = slerp(test_q0, test_q1, -4.3f);
@@ -248,7 +248,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_mul_vector()
+        public static void quaternion_mul_vector()
         {
             float3x3 m = TestMatrix.test3x3_xyz;
             quaternion q = quaternion(m);
@@ -262,7 +262,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_log_exp_identity()
+        public static void quaternion_log_exp_identity()
         {
             quaternion q = quaternion(1.2f, -2.6f, 3.1f, 6.0f);
             quaternion log_q = log(q);
@@ -271,7 +271,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_log_exp_rotation()
+        public static void quaternion_log_exp_rotation()
         {
             quaternion q = quaternion(TestMatrix.test3x3_xyz);
             quaternion q3 = mul(q, mul(q, q));
@@ -281,7 +281,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_unitlog_unitexp_rotation()
+        public static void quaternion_unitlog_unitexp_rotation()
         {
             quaternion q = quaternion(TestMatrix.test3x3_xyz);
             quaternion q3 = mul(q, mul(q, q));
@@ -291,7 +291,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_look_rotation()
+        public static void quaternion_look_rotation()
         {
             // Exercise the 4 cases
             float3 forward0 = normalize(float3(1.0f, 2.0f, 3.0f));
@@ -320,7 +320,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_look_rotation_safe()
+        public static void quaternion_look_rotation_safe()
         {
             float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
             float3 up0 = float3(1.0f, -3.2f, -1.5f) * 1e10f;

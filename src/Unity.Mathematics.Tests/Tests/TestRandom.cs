@@ -116,14 +116,14 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void bool_uniform()
+        public static void bool_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => rnd.NextBool() ? 0.75 : 0.25), 2);
         }
 
         [TestCompiler]
-        public void bool2_uniform()
+        public static void bool2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => rnd.NextBool2().x ? 0.75 : 0.25), 2);
@@ -131,14 +131,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void bool2_independent()
+        public static void bool2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool2().xy)));
         }
         
         [TestCompiler]
-        public void bool3_uniform()
+        public static void bool3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => rnd.NextBool3().x ? 0.75 : 0.25), 2);
@@ -147,7 +147,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void bool3_independent()
+        public static void bool3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool3().xy)));
@@ -156,7 +156,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void bool4_uniform()
+        public static void bool4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => rnd.NextBool4().x ? 0.75 : 0.25), 2);
@@ -166,7 +166,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void bool4_independent()
+        public static void bool4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().xy)));
@@ -178,21 +178,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int_uniform_low_bits()
+        public static void int_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextInt() & 255u) + 0.5) / 256.0), 256);
         }
 
         [TestCompiler]
-        public void int_uniform_high_bits()
+        public static void int_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => (((uint)rnd.NextInt() >> 24) + 0.5) / 256.0), 256);
         }
 
         [TestCompiler]
-        public void int_uniform_max()
+        public static void int_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int max = 17;
@@ -200,7 +200,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int_uniform_max_limit()
+        public static void int_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int max = 2147483647;
@@ -208,7 +208,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int_uniform_min_max()
+        public static void int_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int min = -7;
@@ -218,7 +218,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int_uniform_min_max_limit()
+        public static void int_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int min = -2147483648;
@@ -228,7 +228,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_uniform_low_bits()
+        public static void int2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextInt2().x & 255u) + 0.5) / 256.0), 256);
@@ -236,7 +236,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_uniform_high_bits()
+        public static void int2_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => (((uint)rnd.NextInt2().x >> 24) + 0.5) / 256.0), 256);
@@ -244,7 +244,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_uniform_max()
+        public static void int2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int max = 2147483647;
@@ -253,7 +253,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_uniform_min_max()
+        public static void int2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int2 min = int2(-7, 3);
@@ -264,7 +264,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_uniform_min_max_limit()
+        public static void int2_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int min = -2147483648;
@@ -275,21 +275,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int2_independent_low_bits()
+        public static void int2_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextInt2().xy & 255));
         }
 
         [TestCompiler]
-        public void int2_independent_high_bits()
+        public static void int2_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => ((uint2)rnd.NextInt2().xy >> 24));
         }
 
         [TestCompiler]
-        public void int3_uniform_low_bits()
+        public static void int3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextInt3().x & 255u) + 0.5) / 256.0), 256);
@@ -298,7 +298,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_uniform_high_bits()
+        public static void int3_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => (((uint)rnd.NextInt3().x >> 24) + 0.5) / 256.0), 256);
@@ -307,7 +307,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_uniform_max()
+        public static void int3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int3 max = int3(13, 17, 19);
@@ -317,7 +317,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_uniform_max_limit()
+        public static void int3_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int max = 2147483647;
@@ -327,7 +327,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_uniform_min_max()
+        public static void int3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int3 min = int3(-7, 3, -10);
@@ -339,7 +339,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_uniform_min_max_limit()
+        public static void int3_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int min = -2147483648;
@@ -351,7 +351,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_independent_low_bits()
+        public static void int3_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextInt3().xy & 255));
@@ -360,7 +360,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int3_independent_high_bits()
+        public static void int3_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => ((uint2)rnd.NextInt3().xy >> 24));
@@ -369,7 +369,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_low_bits()
+        public static void int4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextInt4().x & 255u) + 0.5) / 256.0), 256);
@@ -379,7 +379,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_high_bits()
+        public static void int4_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => (((uint)rnd.NextInt4().x >> 24) + 0.5) / 256.0), 256);
@@ -389,7 +389,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_max()
+        public static void int4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int4 max = int4(13, 17, 19, 23);
@@ -400,7 +400,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_max_limit()
+        public static void int4_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int max = 2147483647;
@@ -411,7 +411,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_min_max()
+        public static void int4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             int4 min = int4(-7, 3, -10, 1);
@@ -424,7 +424,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_uniform_min_max_limit()
+        public static void int4_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             int min = -2147483648;
@@ -437,7 +437,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_independent_low_bits()
+        public static void int4_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt4().xy & 255));
@@ -449,7 +449,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void int4_independent_high_bits()
+        public static void int4_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => ((uint2)rnd.NextUInt4().xy >> 24));
@@ -462,21 +462,21 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void uint_uniform_low_bits()
+        public static void uint_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt() & 255u) + 0.5) / 256.0), 256);
         }
 
         [TestCompiler]
-        public void uint_uniform_high_bits()
+        public static void uint_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt() >> 24) + 0.5) / 256.0), 256);
         }
 
         [TestCompiler]
-        public void uint_uniform_max()
+        public static void uint_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 17;
@@ -484,7 +484,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint_uniform_max_limit()
+        public static void uint_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -492,7 +492,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint_uniform_min_max()
+        public static void uint_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint min = 3;
@@ -502,7 +502,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint_uniform_min_max_limit()
+        public static void uint_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -510,7 +510,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_low_bits()
+        public static void uint2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt2().x & 255u) + 0.5) / 256.0), 256);
@@ -518,7 +518,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_high_bits()
+        public static void uint2_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt2().x >> 24) + 0.5) / 256.0), 256);
@@ -526,7 +526,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_max()
+        public static void uint2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint2 max = uint2(13, 17);
@@ -535,7 +535,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_max_limit()
+        public static void uint2_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -544,7 +544,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_min_max()
+        public static void uint2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint2 min = uint2(3, 101);
@@ -555,7 +555,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_uniform_min_max_limit()
+        public static void uint2_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -564,21 +564,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint2_independent_low_bits()
+        public static void uint2_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt2().xy & 255));
         }
 
         [TestCompiler]
-        public void uint2_independent_high_bits()
+        public static void uint2_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt2().xy >> 24));
         }
 
         [TestCompiler]
-        public void uint3_uniform_low_bits()
+        public static void uint3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt3().x & 255u) + 0.5) / 256.0), 256);
@@ -587,7 +587,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_uniform_high_bits()
+        public static void uint3_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt3().x >> 24) + 0.5) / 256.0), 256);
@@ -596,7 +596,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_uniform_max()
+        public static void uint3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint3 max = uint3(13, 17, 19);
@@ -606,7 +606,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_uniform_max_limit()
+        public static void uint3_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -616,7 +616,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_uniform_min_max()
+        public static void uint3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint3 min = uint3(3, 101, 0xFFFFFFF0);
@@ -628,7 +628,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_uniform_min_max_limit()
+        public static void uint3_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -638,7 +638,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_independent_low_bits()
+        public static void uint3_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt3().xy & 255));
@@ -647,7 +647,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint3_independent_high_bits()
+        public static void uint3_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt3().xy >> 24));
@@ -656,7 +656,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_low_bits()
+        public static void uint4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt4().x & 255u) + 0.5) / 256.0), 256);
@@ -666,7 +666,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_high_bits()
+        public static void uint4_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt4().x >> 24) + 0.5) / 256.0), 256);
@@ -676,7 +676,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_max()
+        public static void uint4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint4 max = uint4(13, 17, 19, 23);
@@ -687,7 +687,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_max_limit()
+        public static void uint4_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -698,7 +698,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_min_max()
+        public static void uint4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             uint4 min = uint4(3, 101, 0xFFFFFFF0, 100);
@@ -711,7 +711,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_uniform_min_max_limit()
+        public static void uint4_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
             uint max = 0xFFFFFFFF;
@@ -722,7 +722,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_independent_low_bits()
+        public static void uint4_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt4().xy & 255));
@@ -734,7 +734,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void uint4_independent_high_bits()
+        public static void uint4_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt4().xy >> 24));
@@ -746,21 +746,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float_uniform()
+        public static void float_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextFloat())));
         }
 
         [TestCompiler]
-        public void float_uniform_low_bits()
+        public static void float_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat() * 65536.0f)));
         }
 
         [TestCompiler]
-        public void float_uniform_max()
+        public static void float_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float max = 16.4f;
@@ -768,7 +768,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float_uniform_min_max()
+        public static void float_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float min = -3.1f;
@@ -778,7 +778,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_uniform()
+        public static void float2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextFloat2().x)));
@@ -786,7 +786,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_uniform_low_bits()
+        public static void float2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat2().x * 65536.0f)));
@@ -794,7 +794,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_uniform_max()
+        public static void float2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float2 max = float2(16.4f, 1001.33333333f);
@@ -803,7 +803,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_uniform_min_max()
+        public static void float2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float2 min = float2(-3.1f, 17.1f);
@@ -814,14 +814,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_independent()
+        public static void float2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextFloat2()));
         }
 
         [TestCompiler]
-        public void float3_uniform()
+        public static void float3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextFloat3().x)));
@@ -830,7 +830,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3_uniform_low_bits()
+        public static void float3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat3().x * 65536.0f)));
@@ -839,7 +839,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3_uniform_max()
+        public static void float3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float3 max = float3(16.4f, 1001.33333333f, 3.121f);
@@ -849,7 +849,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3_uniform_min_max()
+        public static void float3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float3 min = float3(-3.1f, 17.1f, -0.3f);
@@ -861,7 +861,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3_independent()
+        public static void float3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextFloat3().xy));
@@ -870,7 +870,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4_uniform()
+        public static void float4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextFloat4().x)));
@@ -880,7 +880,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4_uniform_low_bits()
+        public static void float4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat4().x * 65536.0f)));
@@ -890,7 +890,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4_uniform_max()
+        public static void float4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float4 max = float4(16.4f, 1001.33333333f, 3.121f, 1.3232e23f);
@@ -901,7 +901,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4_uniform_min_max()
+        public static void float4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             float4 min = float4(-3.1f, 17.1f, -0.3f, -22.6f);
@@ -914,7 +914,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4_independent()
+        public static void float4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextFloat4().xy));
@@ -926,21 +926,21 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double_uniform()
+        public static void double_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextDouble())));
         }
 
         [TestCompiler]
-        public void double_uniform_low_bits()
+        public static void double_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble() * 35184372088832.0)));
         }
 
         [TestCompiler]
-        public void double_uniform_max()
+        public static void double_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double max = 16.4;
@@ -948,7 +948,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double_uniform_min_max()
+        public static void double_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double min = -3.1;
@@ -958,7 +958,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_uniform()
+        public static void double2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextDouble2().x)));
@@ -966,7 +966,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_uniform_low_bits()
+        public static void double2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble2().x * 35184372088832.0)));
@@ -974,7 +974,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_uniform_max()
+        public static void double2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double2 max = double2(16.4, 1001.33333333);
@@ -983,7 +983,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_uniform_min_max()
+        public static void double2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double2 min = double2(-3.1, 17.1);
@@ -994,14 +994,14 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_independent()
+        public static void double2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextDouble2()));
         }
 
         [TestCompiler]
-        public void double3_uniform()
+        public static void double3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextDouble3().x)));
@@ -1010,7 +1010,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double3_uniform_low_bits()
+        public static void double3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble3().x * 35184372088832.0)));
@@ -1019,7 +1019,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double3_uniform_max()
+        public static void double3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double3 max = double3(16.4, 1001.33333333, 3.121);
@@ -1029,7 +1029,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double3_uniform_min_max()
+        public static void double3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double3 min = double3(-3.1, 17.1, -0.3);
@@ -1042,7 +1042,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void double3_independent()
+        public static void double3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextDouble3().xy));
@@ -1051,7 +1051,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double4_uniform()
+        public static void double4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextDouble4().x)));
@@ -1061,7 +1061,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double4_uniform_low_bits()
+        public static void double4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble4().x * 35184372088832.0)));
@@ -1071,7 +1071,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double4_uniform_max()
+        public static void double4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double4 max = double4(16.4f, 1001.33333333f, 3.121f, 1.3232e23f);
@@ -1082,7 +1082,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double4_uniform_min_max()
+        public static void double4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
             double4 min = double4(-3.1, 17.1, -0.3, -22.6);
@@ -1095,7 +1095,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double4_independent()
+        public static void double4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextDouble4().xy));
@@ -1107,7 +1107,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2_direction()
+        public static void float2_direction()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
@@ -1118,7 +1118,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double2_direction()
+        public static void double2_direction()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
@@ -1130,7 +1130,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float3_direction()
+        public static void float3_direction()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test(() =>
@@ -1146,7 +1146,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void double3_direction()
+        public static void double3_direction()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test(() =>
@@ -1162,7 +1162,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void quaternion_rotation()
+        public static void quaternion_rotation()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test(() =>

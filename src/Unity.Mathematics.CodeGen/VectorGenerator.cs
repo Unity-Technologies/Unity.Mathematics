@@ -1884,7 +1884,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private void BeginTest(StringBuilder str, string name)
         {
             str.Append("\t\t[TestCompiler]\n");
-            str.AppendFormat("\t\tpublic void {0}()\n", name);
+            str.AppendFormat("\t\tpublic static void {0}()\n", name);
             str.Append("\t\t{\n");
         }
 
