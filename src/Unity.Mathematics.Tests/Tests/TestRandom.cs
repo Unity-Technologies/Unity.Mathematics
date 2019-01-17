@@ -9,7 +9,7 @@ namespace Unity.Mathematics.Tests
     class TestRandom
     {
         // Kolmogorov–Smirnov test on lambda assuming the ideal distribution is uniform [0, 1]
-        private void ks_test(Func<double> func, int num_buckets = 256)
+        private static void ks_test(Func<double> func, int num_buckets = 256)
         {
             const int N = 8192;
             var histogram = new int[num_buckets];
@@ -37,14 +37,14 @@ namespace Unity.Mathematics.Tests
             Assert.Less(largest_delta, d);
         }
 
-        private void ks_test(Func<double2> func)
+        private static void ks_test(Func<double2> func)
         {
             ks_test(() => func().x);
             ks_test(() => func().y);
         }
 
         // Pearson's product-moment coefficient
-        private void r_test(Func<double2> func)
+        private static void r_test(Func<double2> func)
         {
             const int N = 4096;
 
@@ -72,42 +72,42 @@ namespace Unity.Mathematics.Tests
             Assert.Less(abs(r), 0.05);
         }
 
-        private float range_check01(float x)
+        private static float range_check01(float x)
         {
             Assert.GreaterOrEqual(x, 0.0f);
             Assert.Less(x, 1.0f);
             return x;
         }
 
-        private double range_check01(double x)
+        private static double range_check01(double x)
         {
             Assert.GreaterOrEqual(x, 0.0);
             Assert.Less(x, 1.0);
             return x;
         }
 
-        private int range_check(int x, int min, int max)
+        private static int range_check(int x, int min, int max)
         {
             Assert.GreaterOrEqual(x, min);
             Assert.Less(x, max);
             return x;
         }
 
-        private uint range_check(uint x, uint min, uint max)
+        private static uint range_check(uint x, uint min, uint max)
         {
             Assert.GreaterOrEqual(x, min);
             Assert.Less(x, max);
             return x;
         }
 
-        private float range_check(float x, float min, float max)
+        private static float range_check(float x, float min, float max)
         {
             Assert.GreaterOrEqual(x, min);
             Assert.Less(x, max);
             return x;
         }
 
-        private double range_check(double x, double min, double max)
+        private static double range_check(double x, double min, double max)
         {
             Assert.GreaterOrEqual(x, min);
             Assert.Less(x, max);

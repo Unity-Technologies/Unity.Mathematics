@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     class TestMatrix
     {
         [TestCompiler]
-        public void float2x2_constructor_columns()
+        public static void float2x2_constructor_columns()
         {
             float2x2 a = float2x2(float2(1.0f, 2.0f),
                                   float2(3.0f, 4.0f));
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_constructor_columns()
+        public static void float3x3_constructor_columns()
         {
             float3x3 a = float3x3(float3(1.0f, 2.0f, 3.0f),
                                   float3(4.0f, 5.0f, 6.0f),
@@ -38,7 +38,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_constructor_columns()
+        public static void float4x4_constructor_columns()
         {
             float4x4 a = float4x4(float4( 1.0f,  2.0f,  3.0f,  4.0f),
                                   float4( 5.0f,  6.0f,  7.0f,  8.0f),
@@ -64,7 +64,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_constructor_scalars()
+        public static void float2x2_constructor_scalars()
         {
             float2x2 a = float2x2(1.0f, 2.0f,
                                   3.0f, 4.0f);
@@ -76,7 +76,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_constructor_scalars()
+        public static void float3x3_constructor_scalars()
         {
             float3x3 a = float3x3(1.0f, 2.0f, 3.0f,
                                   4.0f, 5.0f, 6.0f,
@@ -94,7 +94,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_constructor_scalars()
+        public static void float4x4_constructor_scalars()
         {
             float4x4 a = float4x4( 1.0f,  2.0f,  3.0f,  4.0f,
                                    5.0f,  6.0f,  7.0f,  8.0f,
@@ -120,7 +120,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_constructor_float3x3()
+        public static void float4x4_constructor_float3x3()
         {
             float3x3 rot = float3x3(1.0f, 2.0f, 3.0f,
                                     4.0f, 5.0f, 6.0f,
@@ -137,7 +137,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float3x3_constructor_quaternion()
+        public static void float3x3_constructor_quaternion()
         {
             float3x3 m = float3x3(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)));
 
@@ -149,7 +149,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_constructor_quaternion_position()
+        public static void float4x4_constructor_quaternion_position()
         {
             float4x4 m = float4x4(normalize(quaternion(1.0f, 2.5f, 3.3f, 4.6f)), float3(1.0f, 2.0f, 3.0f));
 
@@ -162,7 +162,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_identity()
+        public static void float2x2_identity()
         {
             float2x2 a = float2x2.identity;
             TestUtils.AreEqual(a.c0.x, 1.0f);
@@ -172,7 +172,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_identity()
+        public static void float3x3_identity()
         {
             float3x3 a = float3x3.identity;
             TestUtils.AreEqual(a.c0.x, 1.0f);
@@ -187,7 +187,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_identity()
+        public static void float4x4_identity()
         {
             float4x4 a = float4x4.identity;
             TestUtils.AreEqual(a.c0.x, 1.0f);
@@ -209,7 +209,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_rotate()
+        public static void float2x2_rotate()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -221,7 +221,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_axis_angle()
+        public static void float3x3_axis_angle()
         {
             float3 axis = normalize(float3(1.1f, 2.3f, -3.6f));
             float angle = 2.7f;
@@ -232,7 +232,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_axis_angle_consistency()
+        public static void float3x3_axis_angle_consistency()
         {
             TestUtils.AreEqual(float3x3.AxisAngle(float3(1, 0, 0), 1.0f), float3x3.RotateX(1.0f), 0.001f);
             TestUtils.AreEqual(float3x3.AxisAngle(float3(0, 1, 0), 1.0f), float3x3.RotateY(1.0f), 0.001f);
@@ -240,7 +240,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_rotate_x()
+        public static void float3x3_rotate_x()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -257,7 +257,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_rotate_y()
+        public static void float3x3_rotate_y()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -274,7 +274,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_rotate_z()
+        public static void float3x3_rotate_z()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -291,7 +291,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_rotate_x_handedness()
+        public static void float3x3_rotate_x_handedness()
         {
             float3 a = float3(0.0f, 0.3f, 0.7f);
             float3x3 m = float3x3.RotateX(0.3f);
@@ -302,7 +302,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float3x3_rotate_y_handedness()
+        public static void float3x3_rotate_y_handedness()
         {
             float3 a = float3(0.3f, 0.0f, 0.7f);
             float3x3 m = float3x3.RotateY(0.3f);
@@ -312,7 +312,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_rotate_z_handedness()
+        public static void float3x3_rotate_z_handedness()
         {
             float3 a = float3(0.3f, 0.7f, 0.0f);
             float3x3 m = float3x3.RotateZ(0.3f);
@@ -322,7 +322,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_axis_angle()
+        public static void float4x4_axis_angle()
         {
             float3 axis = normalize(float3(1.1f, 2.3f, -3.6f));
             float angle = 2.7f;
@@ -333,7 +333,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_axis_angle_consistency()
+        public static void float4x4_axis_angle_consistency()
         {
             TestUtils.AreEqual(float4x4.AxisAngle(float3(1, 0, 0), 1.0f), float4x4.RotateX(1.0f), 0.001f);
             TestUtils.AreEqual(float4x4.AxisAngle(float3(0, 1, 0), 1.0f), float4x4.RotateY(1.0f), 0.001f);
@@ -341,7 +341,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_rotate_x()
+        public static void float4x4_rotate_x()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -365,7 +365,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_rotate_y()
+        public static void float4x4_rotate_y()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -389,7 +389,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_rotate_z()
+        public static void float4x4_rotate_z()
         {
             float epsilon = 0.0001f;
             float angle = 10.3f;
@@ -413,7 +413,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_rotate_x_handedness()
+        public static void float4x4_rotate_x_handedness()
         {
             float3 a = float3(0.0f, 0.3f, 0.7f);
             float4x4 m = float4x4.RotateX(0.3f);
@@ -424,7 +424,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float4x4_rotate_y_handedness()
+        public static void float4x4_rotate_y_handedness()
         {
             float3 a = float3(0.3f, 0.0f, 0.7f);
             float4x4 m = float4x4.RotateY(0.3f);
@@ -434,7 +434,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_rotate_z_handedness()
+        public static void float4x4_rotate_z_handedness()
         {
             float3 a = float3(0.3f, 0.7f, 0.0f);
             float4x4 m = float4x4.RotateZ(0.3f);
@@ -481,7 +481,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float3x3_euler()
+        public static void float3x3_euler()
         {
             float3x3 m0_xyz = float3x3.EulerXYZ(test_angles);
             float3x3 m0_xzy = float3x3.EulerXZY(test_angles);
@@ -548,7 +548,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_euler()
+        public static void float4x4_euler()
         {
             float4x4 m0_xyz = float4x4.EulerXYZ(test_angles);
             float4x4 m0_xzy = float4x4.EulerXZY(test_angles);
@@ -615,7 +615,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_scale()
+        public static void float2x2_scale()
         {
             float2x2 m = float2x2(1.0f, 2.0f,
                                   3.0f, 4.0f);
@@ -636,7 +636,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_scale()
+        public static void float3x3_scale()
         {
             float3x3 m = float3x3(1.0f, 2.0f, 3.0f,
                                   4.0f, 5.0f, 6.0f,
@@ -662,7 +662,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_scale()
+        public static void float4x4_scale()
         {
             float4x4 m = float4x4( 1.0f,  2.0f,  3.0f,  4.0f,
                                    5.0f,  6.0f,  7.0f,  8.0f,
@@ -689,7 +689,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_matrix_mul()
+        public static void float2x2_matrix_mul()
         {
             // http://www.wolframalpha.com/input/?i=%5B%5B1,2%5D,%5B3,4%5D%5D*%5B%5B21,22%5D,%5B23,24%5D%5D
             float2x2 a = float2x2(1.0f, 2.0f,
@@ -707,7 +707,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_matrix_mul()
+        public static void float3x3_matrix_mul()
         {
             // http://www.wolframalpha.com/input/?i=%5B%5B1,2,3%5D,%5B4,5,6%5D,%5B7,8,9%5D%5D*%5B%5B21,22,23%5D,%5B24,25,26%5D,%5B27,28,29%5D%5D
             float3x3 a = float3x3(1.0f, 2.0f, 3.0f,
@@ -733,7 +733,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_matrix_mul()
+        public static void float4x4_matrix_mul()
         {
             // https://fogbugz.unity3d.com/f/cases/1041176/
             // http://www.wolframalpha.com/input/?i=%5B%5B1,2,3,4%5D,%5B5,6,7,8%5D,%5B9,10,11,12%5D,%5B13,14,15,16%5D%5D*%5B%5B21,22,23,24%5D,%5B25,26,27,28%5D,%5B29,30,31,32%5D,%5B33,34,35,36%5D%5D
@@ -770,7 +770,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_transpose()
+        public static void float2x2_transpose()
         {
             float2x2 a = float2x2(1.0f, 2.0f,
                                   3.0f, 4.0f);
@@ -784,7 +784,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_transpose()
+        public static void float3x3_transpose()
         {
             float3x3 a = float3x3(1.0f, 2.0f, 3.0f,
                                   4.0f, 5.0f, 6.0f,
@@ -804,7 +804,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_transpose()
+        public static void float4x4_transpose()
         {
             float4x4 a = float4x4( 1.0f,  2.0f,  3.0f,  4.0f,
                                    5.0f,  6.0f,  7.0f,  8.0f,
@@ -832,7 +832,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_inverse()
+        public static void float2x2_inverse()
         {
             float2x2 a = float2x2( 0.542968f,  0.867379f,
                                   -0.270153f, -0.912324f);
@@ -851,7 +851,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_inverse()
+        public static void float3x3_inverse()
         {
             float3x3 a = float3x3( 0.542968f, 0.867379f, 0.526616f,
                                   -0.270153f,-0.912324f, 0.148933f,
@@ -878,7 +878,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_inverse()
+        public static void float4x4_inverse()
         {
             float4x4 a = float4x4( 0.542968f, 0.867379f, 0.526616f,-0.943083f,
                                   -0.270153f,-0.912324f, 0.148933f, 0.299995f,
@@ -915,7 +915,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x4_fastinverse()
+        public static void float3x4_fastinverse()
         {
             float4x4 a = test4x4_xyz;
             a.c3 = float4(1, 2, 3, 1);
@@ -932,7 +932,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_fastinverse()
+        public static void float4x4_fastinverse()
         {
             float4x4 a = test4x4_xyz;
             a.c3 = float4(1, 2, 3, 1);
@@ -944,7 +944,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float2x2_determinant()
+        public static void float2x2_determinant()
         {
             float2x2 a = float2x2(0.542968f, 0.867379f,
                                   -0.270153f, -0.912324f);
@@ -954,7 +954,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_determinant()
+        public static void float3x3_determinant()
         {
             float3x3 a = float3x3( 0.542968f,  0.867379f, 0.526616f,
                                   -0.270153f, -0.912324f, 0.148933f,
@@ -965,7 +965,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_determinant()
+        public static void float4x4_determinant()
         {
             float4x4 a = float4x4( 0.542968f,  0.867379f, 0.526616f, -0.943083f,
                                   -0.270153f, -0.912324f, 0.148933f,  0.299995f,
@@ -977,7 +977,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_look_rotation()
+        public static void float3x3_look_rotation()
         {
             float3 forward0 = normalize(float3(1.0f, 2.0f, 3.0f));
             float3 up0 = float3(0.0f, 1.0f, 0.0f);
@@ -1017,7 +1017,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float3x3_look_rotation_safe()
+        public static void float3x3_look_rotation_safe()
         {
             float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
             float3 up0 = float3(1.0f, -3.2f, -1.5f) * 1e10f;
@@ -1035,7 +1035,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float4x4_lookat()
+        public static void float4x4_lookat()
         {
             float4x4 m = float4x4.LookAt(float3(0.3f, -0.5f, 3.0f), float3(3.2f, -3.1f, 0.2f), normalize(float3(0.3f, 1.0f, -3.0f)));
             float4x4 r = float4x4(
@@ -1049,7 +1049,7 @@ namespace Unity.Mathematics.Tests
 
 
         [TestCompiler]
-        public void float4x4_ortho()
+        public static void float4x4_ortho()
         {
             float4x4 m = float4x4.Ortho(2.0f, 3.0f, -3.0f, 7.0f);
             float4x4 r = float4x4(
@@ -1062,7 +1062,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_orthoOffCenter()
+        public static void float4x4_orthoOffCenter()
         {
             float4x4 m = float4x4.OrthoOffCenter(-2.0f, 1.0f, -3.0f, -1.0f, -3.0f, 7.0f);
             float4x4 r = float4x4(
@@ -1075,7 +1075,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_perspective()
+        public static void float4x4_perspective()
         {
             float fovy = 1.6f;
             float aspect = 1.3333f;
@@ -1104,7 +1104,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_perspectiveOffCenter()
+        public static void float4x4_perspectiveOffCenter()
         {
             float fovy = 1.6f;
             float aspect = 1.3333f;
@@ -1138,7 +1138,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void float4x4_TRS()
+        public static void float4x4_TRS()
         {
             float3 scale = float3(1.2f, -0.4f, 2.3f);
             quaternion rotation = TestQuaternion.test_q0;
