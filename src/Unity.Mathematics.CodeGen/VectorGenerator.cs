@@ -516,6 +516,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateOperators(str);
 
+            var isMatrix = m_Rows > 1 && m_Columns > 1;
+
             if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
             {
                 
@@ -524,7 +526,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true,
                     string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
             }
-
 
             GenerateTransposeFunction(mathStr);
             GenerateInverseFunction(mathStr);
@@ -542,7 +543,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             str.Append("\n");
-            GenerateIndexOperator(str);
+            GenerateIndexOperator(str, isMatrix ? IndexerMode.ByRef : IndexerMode.ByValue);
 
             str.Append("\n");
             GenerateEquals(str);
@@ -1620,13 +1621,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("); }\n\n");
         }
 
-        void GenerateIndexOperator(StringBuilder str)
+        enum IndexerMode
+        {
+            ByValue,
+            ByRef
+        }
+
+        void GenerateIndexOperator(StringBuilder str, IndexerMode mode)
         {
             int count = m_Columns > 1 ? m_Columns : m_Rows;
             string returnType = ToTypeName(m_BaseType, m_Columns > 1 ? m_Rows : 1, 1);
 
+            var refPrefix = mode == IndexerMode.ByRef ? "ref " : "";
+
             str.AppendFormat("\t\t/// <summary>Returns the {0} element at a specified index.</summary>\n", returnType);
-            str.AppendFormat("\t\tunsafe public {0} this[int index]\n", returnType);
+            str.AppendFormat("\t\tunsafe public {1}{0} this[int index]\n", returnType, refPrefix);
             str.AppendLine("\t\t{");
             str.AppendLine("\t\t\tget");
             str.AppendLine("\t\t\t{");
@@ -1639,22 +1648,27 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // See issue https://github.com/dotnet/coreclr/issues/16210
             str.Append("\t\t\t\tfixed (");
             str.Append(m_TypeName);
-            str.Append("* array = &this) { return ((");
+            str.AppendFormat("* array = &this) {{ return {0}((", refPrefix);
             str.Append(returnType);
             str.Append("*)array)[index]; }\n");
             str.AppendLine("\t\t\t}");
-            str.AppendLine("\t\t\tset");
-            str.AppendLine("\t\t\t{");
-            str.AppendLine("#if ENABLE_UNITY_COLLECTIONS_CHECKS");
-            str.AppendFormat("\t\t\t\tif ((uint)index >= {0})\n", count);
-            str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
-            str.AppendLine("#endif");
-            str.Append("\t\t\t\tfixed (");
-            str.Append(returnType);
-            str.Append("* array = &");
-            str.Append(m_Columns > 1 ? "c0" : "x");
-            str.Append(") { array[index] = value; }\n");
-            str.AppendLine("\t\t\t}");
+
+            if (mode == IndexerMode.ByValue)
+            {
+                str.AppendLine("\t\t\tset");
+                str.AppendLine("\t\t\t{");
+                str.AppendLine("#if ENABLE_UNITY_COLLECTIONS_CHECKS");
+                str.AppendFormat("\t\t\t\tif ((uint)index >= {0})\n", count);
+                str.AppendFormat("\t\t\t\t\tthrow new System.ArgumentException(\"index must be between[0...{0}]\");\n", count - 1);
+                str.AppendLine("#endif");
+                str.Append("\t\t\t\tfixed (");
+                str.Append(returnType);
+                str.Append("* array = &");
+                str.Append(m_Columns > 1 ? "c0" : "x");
+                str.Append(") { array[index] = value; }\n");
+                str.AppendLine("\t\t\t}");
+            }
+
             str.AppendLine("\t\t}");
 
         }

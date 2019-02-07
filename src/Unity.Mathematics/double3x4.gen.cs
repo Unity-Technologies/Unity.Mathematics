@@ -339,7 +339,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the double3 element at a specified index.</summary>
-        unsafe public double3 this[int index]
+        unsafe public ref double3 this[int index]
         {
             get
             {
@@ -347,15 +347,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (double3x4* array = &this) { return ((double3*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 4)
-                    throw new System.ArgumentException("index must be between[0...3]");
-#endif
-                fixed (double3* array = &c0) { array[index] = value; }
+                fixed (double3x4* array = &this) { return ref ((double3*)array)[index]; }
             }
         }
 

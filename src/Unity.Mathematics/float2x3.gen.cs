@@ -326,7 +326,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the float2 element at a specified index.</summary>
-        unsafe public float2 this[int index]
+        unsafe public ref float2 this[int index]
         {
             get
             {
@@ -334,15 +334,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 3)
                     throw new System.ArgumentException("index must be between[0...2]");
 #endif
-                fixed (float2x3* array = &this) { return ((float2*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 3)
-                    throw new System.ArgumentException("index must be between[0...2]");
-#endif
-                fixed (float2* array = &c0) { array[index] = value; }
+                fixed (float2x3* array = &this) { return ref ((float2*)array)[index]; }
             }
         }
 
