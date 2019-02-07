@@ -1,12 +1,14 @@
 # Unity.Mathematics
 
-A prototype of a C# math library providing vector types and math functions with a shader like syntax. Used by the `burst` compiler to compile C#/IL to highly efficient native code.
+A C# math library providing vector types and math functions with a shader like
+syntax. Used by the Burst compiler to compile C#/IL to highly efficient
+native code.
 
 The main goal of this library is to provide a friendly Math API familiar to SIMD and graphic/shaders developers, using the well known `float4`, `float3` types...etc. with all intrinsics functions provided by a static class `math` that can be imported easily into your C# program with `using static Unity.Mathematics.math`.
 
-In addition to this, the `burst` compiler is able to recognize these types and provide the optimized SIMD type for the running CPU on all supported platforms (x64, ARMv7a...etc.)
+In addition to this, the Burst compiler is able to recognize these types and provide the optimized SIMD type for the running CPU on all supported platforms (x64, ARMv7a...etc.)
 
-> NOTICE: The API is a work in progress and we may introduce breaking changes (API and underlying behavior)
+NOTICE: The API is a work in progress and we may introduce breaking changes (API and underlying behavior)
 
 ## Usage
 
@@ -32,15 +34,6 @@ namespace MyNamespace
 
 Open the `src\Unity.Mathematics.sln` under Visual Studio 2015 or MonoDevelop and compile in Debug\Release.
 
-## Known issues
-
-- [ ] Remove `bool1` to `bool` (temporarily required by burst at some point, but this should no longer be required)
-- [ ] Lots of tests are missing. So far it was mainly a playground for prototyping the API
-- [ ] Complete the library (quaternions, matrices...etc.)
-- [ ] Provide double precision types
-- [ ] Provide static readonly values once the support for static is done in burst
-- [ ] Add the documentation on how to use this API
-
 ## Contributing
 
 We don't yet accept PR on this repository. See the FAQ below.
@@ -62,11 +55,11 @@ After years of feedback and experience with the previous API, we believe that pr
 ### Why not using `System.Numerics.Vectors`?
 
 Mainly for the reason mentioned above, `System.Numerics.Vectors` is in many ways similar to our previous Vector library (more object oriented than graphics programming oriented).
-Also the fact that our `burst` compiler is able to recognize a lot more patterns for SIMD types and math intrinsics makes it easier to work with a dedicated API that reflects this ability.
+Also the fact that our Burst compiler is able to recognize a lot more patterns for SIMD types and math intrinsics makes it easier to work with a dedicated API that reflects this ability.
 
 ### Naming convention
 
-In C# `int` and `float` are considered builtin types. `burst` extends this set of bultin types to also include vectors, matrices and quaternions. These types are bultin in the sense that `burst` knows about them and is be able to generate better code using these types than what would be possible with equivalent code using custom types.
+In C# `int` and `float` are considered builtin types. Burst extends this set of bultin types to also include vectors, matrices and quaternions. These types are bultin in the sense that Burst knows about them and is be able to generate better code using these types than what would be possible with equivalent code using custom types.
 
 To signify that these types are bultin their type names are in all lower case. The operators on these bultin types found in `Unity.Mathematics.math` are considered intrinsics and are thus always in lower case.
 
@@ -83,3 +76,4 @@ We are working on providing a Contributor License Agreement (CLA) with a sign-ov
 Unity Companion License (“License”) Software Copyright © 2017 Unity Technologies ApS
 
 For licensing details see [LICENSE.md](LICENSE.md)
+
