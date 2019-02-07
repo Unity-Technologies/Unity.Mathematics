@@ -367,7 +367,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the uint3 element at a specified index.</summary>
-        unsafe public uint3 this[int index]
+        unsafe public ref uint3 this[int index]
         {
             get
             {
@@ -375,15 +375,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (uint3x2* array = &this) { return ((uint3*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (uint3* array = &c0) { array[index] = value; }
+                fixed (uint3x2* array = &this) { return ref ((uint3*)array)[index]; }
             }
         }
 

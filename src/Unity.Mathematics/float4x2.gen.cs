@@ -316,7 +316,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the float4 element at a specified index.</summary>
-        unsafe public float4 this[int index]
+        unsafe public ref float4 this[int index]
         {
             get
             {
@@ -324,15 +324,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 2)
                     throw new System.ArgumentException("index must be between[0...1]");
 #endif
-                fixed (float4x2* array = &this) { return ((float4*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 2)
-                    throw new System.ArgumentException("index must be between[0...1]");
-#endif
-                fixed (float4* array = &c0) { array[index] = value; }
+                fixed (float4x2* array = &this) { return ref ((float4*)array)[index]; }
             }
         }
 

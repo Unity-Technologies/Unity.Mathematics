@@ -132,7 +132,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the bool3 element at a specified index.</summary>
-        unsafe public bool3 this[int index]
+        unsafe public ref bool3 this[int index]
         {
             get
             {
@@ -140,15 +140,7 @@ namespace Unity.Mathematics
                 if ((uint)index >= 4)
                     throw new System.ArgumentException("index must be between[0...3]");
 #endif
-                fixed (bool3x4* array = &this) { return ((bool3*)array)[index]; }
-            }
-            set
-            {
-#if ENABLE_UNITY_COLLECTIONS_CHECKS
-                if ((uint)index >= 4)
-                    throw new System.ArgumentException("index must be between[0...3]");
-#endif
-                fixed (bool3* array = &c0) { array[index] = value; }
+                fixed (bool3x4* array = &this) { return ref ((bool3*)array)[index]; }
             }
         }
 
