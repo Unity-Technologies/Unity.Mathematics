@@ -69,7 +69,9 @@ namespace Unity.Mathematics.Editor
             if (attribute is DoNotNormalizeAttribute && string.IsNullOrEmpty(label.tooltip))
                 label.tooltip = Content.doNotNormalizeTooltip;
 
+            EditorGUI.BeginProperty(position, label, property);
             EditorGUI.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
+            EditorGUI.EndProperty();
         }
     }
 }
