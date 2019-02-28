@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "com.unity.mathematics": "file:../../package",
+    "com.unity.properties": "0.4.0-preview"
+  },
+  "testables": [
+    "com.unity.mathematics"
+  ],
+  "registry": "https://staging-packages.unity.com"
+}
