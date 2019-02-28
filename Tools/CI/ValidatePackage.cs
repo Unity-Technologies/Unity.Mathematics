@@ -11,12 +11,12 @@ using UnityEngine;
 
 public class ValidatePackage
 {
-    static List<string> failuresWhitelist = new List<string>{ "Restricted File Type Validation", "Tests Validation" };
+    static List<string> failuresWhitelist = new List<string>{};// "Restricted File Type Validation", "Tests Validation" };
 
-    [MenuItem("Window/Validate Burst")]
-    public static void ValidateBurst()
+    [MenuItem("Window/Validate Mathematics")]
+    public static void ValidateMathematics()
     {
-        ValidateInternal("../install");
+        ValidateInternal("../package");
     }
 
     static void FilterWhitelistedFailures(string report)

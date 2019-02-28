@@ -1,5 +1,8 @@
 {
   "dependencies": {
-    "com.unity.mathematics": "file:../package"
-  }
+    "com.unity.mathematics": "file:../../package"
+  },
+  "testables": [
+    "com.unity.mathematics"
+  ]
 }
