@@ -54,6 +54,7 @@ validate_package:mac:
     - cd package
     - npm version $CI_COMMIT_TAG
     - jq --arg rev $CI_COMMIT_SHA '.repository.revision=$rev' package.json > temp_package && mv temp_package package.json
+    - cd ..
     - ./.UnityLauncher.Editor/osx.10.12-x64/publish/UnityLauncher.Editor -registryoverride https://bfartifactory.bf.unity3d.com/artifactory/api/npm/unity-upm-staging -timeout 1200 -unityexecutable ~/Editor/Unity.app/Contents/MacOS/Unity -executeMethod ValidatePackage.Validate ../package -projectpath Unity.Mathematics.TestProject -batchmode -silentcrashes -automated -logfile output-linux-validation.log -cleanedLogFile output-linux-validation-cleaned.log -quit -displayResolutionDialog disabled -addPackage com.unity.package-validation-suite@0.4.0-preview.15
   dependencies:
     - build_package:mac
