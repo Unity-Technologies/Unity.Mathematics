@@ -102,6 +102,7 @@
     <Compile Include="Tests\Shared\TestMath.cs" />
     <Compile Include="Tests\Shared\TestMath.gen.cs" />
     <Compile Include="Tests\Shared\TestMatrix.cs" />
+    <Compile Include="Tests\Shared\TestQuat4.cs" />
     <Compile Include="Tests\Shared\TestQuaternion.cs" />
     <Compile Include="Tests\Shared\TestRigidTransform.cs" />
     <Compile Include="Tests\TestMath2.cs" />
