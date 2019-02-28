@@ -4,5 +4,6 @@
   },
   "testables": [
     "com.unity.mathematics"
-  ]
+  ],
+  "registry": "https://staging-packages.unity.com"
 }
