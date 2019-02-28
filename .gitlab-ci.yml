@@ -65,7 +65,8 @@ validate_package:mac:
 publish_package:mac:
   stage: publish_package
   tags:
-    - mac
+    - gamecode
+    - macOS
   only:
     - tags
   script:
