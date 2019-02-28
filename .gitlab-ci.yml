@@ -38,7 +38,7 @@ run_package_tests:mac:
     - python Tools/CI/get_unity_launcher.py
   script:
     - tar xzvf src/com.unity.mathematics-0.0.1.tgz
-      #    - ./.UnityLauncher.Editor/osx.10.12-x64/publish/UnityLauncher.Editor -registryoverride https://bfartifactory.bf.unity3d.com/artifactory/api/npm/unity-upm-staging -timeout 1200 -scriptingBackend mono -unityexecutable ~/Editor/Unity.app/Contents/MacOS/Unity -projectpath Unity.Mathematics.TestProject -batchmode -silentcrashes -automated -logfile output-macOS-editmode-test.log -cleanedLogFile output-macOS-editmode-test-cleaned.log -runtests -testresults results.xml -testPlatform editmode --ignoreErrorsOnArtifactCreation
+    - ./.UnityLauncher.Editor/osx.10.12-x64/publish/UnityLauncher.Editor -registryoverride https://bfartifactory.bf.unity3d.com/artifactory/api/npm/unity-upm-staging -timeout 1200 -scriptingBackend mono -unityexecutable ~/Editor/Unity.app/Contents/MacOS/Unity -projectpath Unity.Mathematics.TestProject -batchmode -silentcrashes -automated -logfile output-macOS-editmode-test.log -cleanedLogFile output-macOS-editmode-test-cleaned.log -runtests -testresults results.xml -testPlatform editmode --ignoreErrorsOnArtifactCreation
 
 validate_package:mac:
   stage: validate_package
