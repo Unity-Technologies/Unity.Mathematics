@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "com.unity.mathematics": "file:../package"
+  }
+}
