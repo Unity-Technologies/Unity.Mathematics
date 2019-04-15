@@ -9,6 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.CodeGen",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{B11ECCE1-1A78-40B2-956F-CBE615FF5DF9}"
 	ProjectSection(SolutionItems) = preProject
+		package.json = package.json
 		..\readme.md = ..\readme.md
 	EndProjectSection
 EndProject

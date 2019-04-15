@@ -47,33 +47,53 @@ namespace Unity.Mathematics
             RightW
         };
 
-        /// <summary>The mathematical constant e also known as Euler's number. Approximately 2.72.</summary>
-        public static readonly double E = 2.71828182845904523536;
+        /// <summary>The mathematical constant e also known as Euler's number. Approximately 2.72. This is a f64/double precision constant.</summary>
+        public const double E_DBL = 2.71828182845904523536;
 
-        /// <summary>The base 2 logarithm of e. Approximately 1.44.</summary>
-        public static readonly double LOG2E = 1.44269504088896340736;
+        /// <summary>The base 2 logarithm of e. Approximately 1.44. This is a f64/double precision constant.</summary>
+        public const double LOG2E_DBL = 1.44269504088896340736;
 
-        /// <summary>The base 10 logarithm of e. Approximately 0.43.</summary>
-        public static readonly double LOG10E = 0.434294481903251827651;
+        /// <summary>The base 10 logarithm of e. Approximately 0.43. This is a f64/double precision constant.</summary>
+        public const double LOG10E_DBL = 0.434294481903251827651;
 
-        /// <summary>The natural logarithm of 2. Approximately 0.69.</summary>
-        public static readonly double LN2 = 0.693147180559945309417;
+        /// <summary>The natural logarithm of 2. Approximately 0.69. This is a f64/double precision constant.</summary>
+        public const double LN2_DBL = 0.693147180559945309417;
 
-        /// <summary>The natural logarithm of 10. Approximately 2.30.</summary>
-        public static readonly double LN10 = 2.30258509299404568402;
+        /// <summary>The natural logarithm of 10. Approximately 2.30. This is a f64/double precision constant.</summary>
+        public const double LN10_DBL = 2.30258509299404568402;
 
-        /// <summary>The mathematical constant pi. Approximately 3.14.</summary>
-        public static readonly double PI = 3.14159265358979323846;
+        /// <summary>The mathematical constant pi. Approximately 3.14. This is a f64/double precision constant.</summary>
+        public const double PI_DBL = 3.14159265358979323846;
 
-        /// <summary>The square root 2. Approximately 1.41.</summary>
-        public static readonly double SQRT2 = 1.41421356237309504880;
+        /// <summary>The square root 2. Approximately 1.41. This is a f64/double precision constant.</summary>
+        public const double SQRT2_DBL = 1.41421356237309504880;
 
         /// <summary>The smallest positive normal number representable in a float.</summary>
-        public static readonly float FLT_MIN_NORMAL = 1.175494351e-38F;
+        public const float FLT_MIN_NORMAL = 1.175494351e-38F;
 
-        /// <summary>The smallest positive normal number representable in a double.</summary>
-        public static readonly double DBL_MIN_NORMAL = 2.2250738585072014e-308;
+        /// <summary>The smallest positive normal number representable in a double. This is a f64/double precision constant.</summary>
+        public const double DBL_MIN_NORMAL = 2.2250738585072014e-308;
 
+        /// <summary>The mathematical constant e also known as Euler's number. Approximately 2.72.</summary>
+        public const float E = (float)E_DBL;
+
+        /// <summary>The base 2 logarithm of e. Approximately 1.44.</summary>
+        public const float LOG2E = (float)LOG2E_DBL;
+
+        /// <summary>The base 10 logarithm of e. Approximately 0.43.</summary>
+        public const float LOG10E = (float)LOG10E_DBL;
+
+        /// <summary>The natural logarithm of 2. Approximately 0.69.</summary>
+        public const float LN2 = (float)LN2_DBL;
+
+        /// <summary>The natural logarithm of 10. Approximately 2.30.</summary>
+        public const float LN10 = (float)LN10_DBL;
+
+        /// <summary>The mathematical constant pi. Approximately 3.14.</summary>
+        public const float PI = (float)PI_DBL;
+
+        /// <summary>The square root 2. Approximately 1.41.</summary>
+        public const float SQRT2 = (float)SQRT2_DBL;
 
         /// <summary>Returns the bit pattern of a uint as an int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

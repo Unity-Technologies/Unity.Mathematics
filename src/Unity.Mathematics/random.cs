@@ -446,7 +446,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2Direction()
         {
-            float angle = NextFloat() * (float)PI * 2.0f;
+            float angle = NextFloat() * PI * 2.0f;
             float s, c;
             sincos(angle, out s, out c);
             return float2(c, s);
@@ -456,7 +456,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2 NextDouble2Direction()
         {
-            double angle = NextDouble() * PI * 2.0;
+            double angle = NextDouble() * PI_DBL * 2.0;
             double s, c;
             sincos(angle, out s, out c);
             return double2(c, s);
@@ -469,7 +469,7 @@ namespace Unity.Mathematics
             float2 rnd = NextFloat2();
             float z = rnd.x * 2.0f - 1.0f;
             float r = sqrt(max(1.0f - z * z, 0.0f));
-            float angle = rnd.y * (float)PI * 2.0f;
+            float angle = rnd.y * PI * 2.0f;
             float s, c;
             sincos(angle, out s, out c);
             return float3(c*r, s*r, z);
@@ -482,7 +482,7 @@ namespace Unity.Mathematics
             double2 rnd = NextDouble2();
             double z = rnd.x * 2.0 - 1.0;
             double r = sqrt(max(1.0 - z * z, 0.0));
-            double angle = rnd.y * PI * 2.0;
+            double angle = rnd.y * PI_DBL * 2.0;
             double s, c;
             sincos(angle, out s, out c);
             return double3(c * r, s * r, z);
@@ -492,7 +492,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public quaternion NextQuaternionRotation()
         {
-            float3 rnd = NextFloat3(float3(2.0f * (float)PI, 2.0f * (float)PI, 1.0f));
+            float3 rnd = NextFloat3(float3(2.0f * PI, 2.0f * PI, 1.0f));
             float u1 = rnd.z;
             float2 theta_rho = rnd.xy;
             

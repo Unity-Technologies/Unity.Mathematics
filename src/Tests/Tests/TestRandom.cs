@@ -1113,7 +1113,7 @@ namespace Unity.Mathematics.Tests
             ks_test(() => {
                 float2 dir = rnd.NextFloat2Direction();
                 TestUtils.AreEqual(1.0f, length(dir), 0.001f);
-                return atan2(dir.x, dir.y) / (2.0f * (float)PI) + 0.5f;
+                return atan2(dir.x, dir.y) / (2.0f * PI) + 0.5f;
             });
         }
 
@@ -1124,7 +1124,7 @@ namespace Unity.Mathematics.Tests
             ks_test(() => {
                 double2 dir = rnd.NextFloat2Direction();
                 TestUtils.AreEqual(1.0, length(dir), 0.000001);
-                return atan2(dir.y, dir.x) / (2.0 * PI) + 0.5;
+                return atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
             });
         }
 
@@ -1139,7 +1139,7 @@ namespace Unity.Mathematics.Tests
                 float r = length(dir);
                 TestUtils.AreEqual(1.0f, r, 0.001f);
 
-                float phi = atan2(dir.y, dir.x) / (2.0f * (float)PI) + 0.5f;
+                float phi = atan2(dir.y, dir.x) / (2.0f * PI) + 0.5f;
                 float z = saturate(dir.z / r * 0.5f + 0.5f);
                 return double2(phi, z);
             });
@@ -1155,7 +1155,7 @@ namespace Unity.Mathematics.Tests
                 double r = length(dir);
                 TestUtils.AreEqual(1.0, r, 0.00001);
 
-                double phi = atan2(dir.y, dir.x) / (2.0 * PI) + 0.5;
+                double phi = atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
                 double z = saturate(dir.z / r * 0.5 + 0.5);
                 return double2(phi, z);
             });
@@ -1177,7 +1177,7 @@ namespace Unity.Mathematics.Tests
                 TestUtils.AreEqual(length(p), length(qp), 0.0001f);
                 float r = length(qp);
 
-                double phi = atan2(qp.y, qp.x) / (2.0 * PI) + 0.5;
+                double phi = atan2(qp.y, qp.x) / (2.0 * PI_DBL) + 0.5;
                 double z = saturate(qp.z / r * 0.5 + 0.5);
                 return double2(phi, z);
             });
