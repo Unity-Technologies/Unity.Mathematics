@@ -48,7 +48,7 @@ validate_mathematics_package_linux:
 
 
 run_editor_tests:
-  name: Pack
+  name: Unity Tests
   agent:
     name: mac
     type: Unity::VM::osx
@@ -124,4 +124,4 @@ commit_ci:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/package.yml#run_editor_tests
+  - .yamato/upm-ci.yml#run_editor_tests
