@@ -46,27 +46,6 @@ validate_mathematics_package_linux:
   - .yamato/upm-ci.yml#pack_mathematics
 
 
-run_editor_tests:
-  name: Unity Tests
-  agent:
-    name: mac
-    type: Unity::VM::osx
-    image: buildfarm/mac:latest
-    flavor:  m1.mac
-  commands:
-    - tar zxvf upm-ci~/packages/com.unity.mathematics*tgz -C .
-    - pip install unity-downloader-cli --extra-index-url https://artifactory.eu-cph-1.unityops.net/api/pypi/common-python/simple
-    - unity-downloader-cli -c Editor -c mono -u 2018.3 --wait
-    - git clone git@github.cds.internal.unity3d.com:unity/utr.git
-    - utr/utr --suite=editor --testproject=Unity.Mathematics.TestProject --editor-location=.Editor --artifacts_path=upm-ci~/test-results --stdout-filter=minimal --scripting-backend=mono
-  artifacts:
-    packages:
-      paths:
-        - "upm-ci~/packages/**/*"
-  dependencies:
-    - .yamato/upm-ci.yml#validate_mathematics_package_linux
-
-
 publish:
   name: Publish
   agent:
@@ -81,7 +60,7 @@ publish:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#run_editor_tests
+    - .yamato/upm-ci.yml#validate_mathematics_package_linux
 
 
 publish_ci:
@@ -123,4 +102,4 @@ commit_ci:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/upm-ci.yml#run_editor_tests
+  - .yamato/upm-ci.yml#validate_mathematics_package_linux
