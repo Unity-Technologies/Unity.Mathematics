@@ -1,10 +1,9 @@
 run_tests_on_mono:
-  name: all Tests NUnit
+  name: Tests NUnit
   commands:
-    - cd src/
-    - nuget restore
-    - msbuild Unity.Mathematics.sln
-    - mono packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
+    - nuget restore src
+    - msbuild src/Unity.Mathematics.sln
+    - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
   agent:
     name: mac
     type: Unity::VM::osx
