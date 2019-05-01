@@ -73,6 +73,6 @@ publish_package:mac:
   script:
     - python Tools/CI/validation.py --package-path package --commit-tag $CI_COMMIT_TAG
     - cd package
-    - npm publish --registry https://staging-packages.unity.com
+      #- npm publish --registry https://staging-packages.unity.com
   dependencies:
     - validate_package:mac
