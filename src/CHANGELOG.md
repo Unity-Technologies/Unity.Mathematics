@@ -1,5 +1,9 @@
 # Changelog
 
+## [0.0.11-preview.1] - 2019-05-01
+
+-Test
+
 ## [1.0.1] - 2019-04-15
 
 - Release stable version
