@@ -1,0 +1,105 @@
+run_tests_on_mono:
+  name: Tests NUnit
+  commands:
+    - nuget restore src
+    - msbuild src/Unity.Mathematics.sln
+    - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
+  agent:
+    name: mac
+    type: Unity::VM::osx
+    image: buildfarm/mac:latest
+    flavor:  m1.mac
+
+pack_mathematics:
+  name: Pack
+  agent:
+    name: mac
+    type: Unity::VM::osx
+    image: buildfarm/mac:latest
+    flavor:  m1.mac
+  commands:
+    - npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - upm-ci package pack --package-path src/
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+  - .yamato/upm-ci.yml#run_tests_on_mono
+
+
+validate_mathematics_package_linux:
+  name: Validate Package
+  agent:
+    name: linux
+    image: sdet/burst_linux:latest
+    type: Unity::VM
+    flavor: b1.large
+  commands:
+    - sudo npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+  - .yamato/upm-ci.yml#pack_mathematics
+
+
+publish:
+  name: Publish
+  agent:
+    type: Unity::VM
+    image: package-ci/win10:stable
+    flavor: m1.large
+  commands:
+    - npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - upm-ci package publish --package-path src/
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+    - .yamato/upm-ci.yml#validate_mathematics_package_linux
+
+
+publish_ci:
+  name: all Publish Pipeline
+  commands:
+    - echo "Hello world"
+  agent:
+    name: whatever
+    type: Unity::VM
+    image: cds-ops/ubuntu-18.04-agent:latest
+    flavor: b1.small
+  triggers:
+    tags:
+      only:
+        - /^(v|V)\d+\.\d+\.\d+(-preview(\.\d+)?)?$/
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+  - .yamato/upm-ci.yml#publish
+
+
+commit_ci:
+  name: all CI pipeline
+  commands:
+    - echo "Hello world"
+  agent:
+    name: whatever
+    type: Unity::VM
+    image: cds-ops/ubuntu-18.04-agent:latest
+    flavor: b1.small
+  triggers:
+    branches:
+      only:
+        - "/.*/"
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+  - .yamato/upm-ci.yml#validate_mathematics_package_linux

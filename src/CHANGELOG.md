@@ -1,5 +1,9 @@
 # Changelog
 
+## [1.0.2] - 2019-05-23
+
+- WIP
+
 ## [1.0.1] - 2019-04-15
 
 - Release stable version
