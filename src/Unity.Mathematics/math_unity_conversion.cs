@@ -1,3 +1,4 @@
+#if !UNITY_DOTSPLAYER
 using UnityEngine;
 
 #pragma warning disable 0660, 0661
@@ -34,3 +35,4 @@ namespace Unity.Mathematics
         public static implicit operator Matrix4x4(float4x4 m) { return new Matrix4x4(m.c0, m.c1, m.c2, m.c3); }
     }
 }
+#endif
