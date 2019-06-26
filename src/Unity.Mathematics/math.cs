@@ -232,6 +232,26 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
 
+        /// <summary>
+        /// Returns a bitmask representation of a bool4. Storing one 1 bit per component
+        /// in LSB order, from lower to higher bits (so 4 bits in total).
+        /// The component x is stored at bit 0,
+        /// The component y is stored at bit 1,
+        /// The component z is stored at bit 2,
+        /// The component w is stored at bit 3
+        /// The bool4(x = true, y = true, z = false, w = true) would produce the value 1011 = 0xB
+        /// </summary>
+        /// <param name="value">The input bool4 to calculate the bitmask for</param>
+        /// <returns>A bitmask representation of the bool4, in LSB order</returns>
+        public static int bitmask(bool4 value)
+        {
+            int mask = 0;
+            if (value.x) mask |= 0x01;
+            if (value.y) mask |= 0x02;
+            if (value.z) mask |= 0x04;
+            if (value.w) mask |= 0x08;
+            return mask;
+        }
 
         /// <summary>Returns the bit pattern of a long as a double.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
