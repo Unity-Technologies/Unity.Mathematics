@@ -1,8 +1,9 @@
 # Changelog
 
-## [1.0.2] - 2019-05-23
+## [1.1.0] - 2019-06-xx
 
 - WIP
+- Add new math.bitmask to return a bit mask from a bool4
 
 ## [1.0.1] - 2019-04-15
 

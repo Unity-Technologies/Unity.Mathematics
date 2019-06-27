@@ -8,6 +8,22 @@ namespace Unity.Mathematics.Tests
     public class TestBitmanipulation
     {
         [TestCompiler]
+        public static void bitmask_bool4()
+        {
+            TestUtils.AreEqual(0b0000, bitmask(new bool4(false, false, false, false)));
+            TestUtils.AreEqual(0b0001, bitmask(new bool4(true, false, false, false)));
+            TestUtils.AreEqual(0b0010, bitmask(new bool4(false, true, false, false)));
+            TestUtils.AreEqual(0b0100, bitmask(new bool4(false, false, true, false)));
+            TestUtils.AreEqual(0b1000, bitmask(new bool4(false, false, false, true)));
+
+            TestUtils.AreEqual(0b1111, bitmask(new bool4(true, true, true, true)));
+            TestUtils.AreEqual(0b1110, bitmask(new bool4(false, true, true, true)));
+            TestUtils.AreEqual(0b1101, bitmask(new bool4(true, false, true, true)));
+            TestUtils.AreEqual(0b1011, bitmask(new bool4(true, true, false, true)));
+            TestUtils.AreEqual(0b0111, bitmask(new bool4(true, true, true, false)));
+        }
+
+        [TestCompiler]
         public static void countbits_int1()
         {
             TestUtils.AreEqual(countbits( 0x01234567), 12);
@@ -392,7 +408,7 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(rol(int4(219257022, -1586446996, -279484078, -1692078607), 11), int4(-1933184920, -2048170741, -1152739462, 661621977));
         }
-        
+
         [TestCompiler]
         public static void rol_uint()
         {
@@ -414,7 +430,7 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(rol(uint3(219257022u, 2708520300u, 4015483218u), 11), uint3(2361782376u, 2246796555u, 3142227834u));
         }
-        
+
         [TestCompiler]
         public static void rol_uint4()
         {
