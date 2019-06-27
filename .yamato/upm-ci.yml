@@ -18,7 +18,7 @@ pack_mathematics:
     image: buildfarm/mac:latest
     flavor:  m1.mac
   commands:
-    - npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - upm-ci package pack --package-path src/
   artifacts:
     packages:
@@ -36,7 +36,7 @@ validate_mathematics_package_linux:
     type: Unity::VM
     flavor: b1.large
   commands:
-    - sudo npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
     packages:
@@ -53,7 +53,7 @@ publish:
     image: package-ci/win10:stable
     flavor: m1.large
   commands:
-    - npm install upm-ci-utils -g --registry https://api.bintray.com/npm/unity/unity-npm
+    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - upm-ci package publish --package-path src/
   artifacts:
     packages:
@@ -62,6 +62,21 @@ publish:
   dependencies:
     - .yamato/upm-ci.yml#validate_mathematics_package_linux
 
+promote:
+  name: Promote
+  agent:
+    type: Unity::VM
+    image: package-ci/win10:stable
+    flavor: m1.large
+  commands:
+    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - upm-ci package promote --package-path src/
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+    - .yamato/upm-ci.yml#publish
 
 publish_ci:
   name: all Publish Pipeline
@@ -75,7 +90,7 @@ publish_ci:
   triggers:
     tags:
       only:
-        - /^(v|V)\d+\.\d+\.\d+(-preview(\.\d+)?)?$/
+        - /^\d+\.\d+\.\d+(-preview(\.\d+)?)?$/
   artifacts:
     packages:
       paths:
