@@ -1,5 +1,5 @@
 Unity Companion License (“License”)
-Software Copyright © 2017 Unity Technologies ApS 
+Software Copyright © 2019 Unity Technologies ApS 
  
 Unity Technologies ApS (“Unity”) grants to you a worldwide, non-exclusive, no-charge, and royalty-free copyright license to reproduce, prepare derivative works of, publicly display, publicly perform, sublicense, and distribute the software that is made available under this License (“Software”), subject to the following terms and conditions: 
  
