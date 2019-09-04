@@ -4,6 +4,7 @@ using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
+    [Serializable]
     public struct RigidTransform
     {
         public quaternion rot;
