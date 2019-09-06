@@ -37,7 +37,11 @@ validate_mathematics_package_linux:
     flavor: b1.large
   commands:
     - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2018.4
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
+    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.2
+    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.3
+    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version trunk
   artifacts:
     packages:
       paths:
