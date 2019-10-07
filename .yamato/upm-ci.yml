@@ -1,3 +1,32 @@
+build_platforms:
+  - name: windows
+    type: Unity::VM
+    image: sdet/burst-devimage:stable
+    flavor: b1.large
+    npm_cmd: "npm"
+    upm_cmd: "upm-ci"
+  - name: linux
+    image: sdet/burst_linux:stable
+    type: Unity::VM
+    flavor: b1.large
+    npm_cmd: "sudo npm"
+    upm_cmd: "DISPLAY=:0.0 upm-ci"
+  - name: macOS
+    image: burst/burst_mac:stable
+    type: Unity::VM::osx
+    flavor: m1.mac
+    npm_cmd: "npm"
+    upm_cmd: "upm-ci"
+
+
+editor_versions:
+  - version: "2018.4"
+  - version: "2019.2"
+  - version: "2019.3"
+  - version: "trunk"
+---
+
+
 run_tests_on_mono:
   name: Tests NUnit
   commands:
@@ -10,8 +39,9 @@ run_tests_on_mono:
     image: buildfarm/mac:latest
     flavor:  m1.mac
 
-pack_mathematics:
-  name: Pack
+
+pack_package:
+  name: Pack package
   agent:
     name: mac
     type: Unity::VM::osx
@@ -25,29 +55,47 @@ pack_mathematics:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/upm-ci.yml#run_tests_on_mono
+    - .yamato/upm-ci.yml#run_tests_on_mono
 
 
-validate_mathematics_package_linux:
-  name: Validate Package
+validate_package_minimal:
+  name: Validate Package Linux Minimal
   agent:
     name: linux
-    image: sdet/burst_linux:latest
+    image: sdet/burst_linux:stable
     type: Unity::VM
     flavor: b1.large
   commands:
     - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2018.4
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.2
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.3
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version trunk
   artifacts:
     packages:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/upm-ci.yml#pack_mathematics
+    - .yamato/upm-ci.yml#pack_package
+
+  #multiVM multiPlatforms
+  {% for platform in build_platforms %}
+  {% for editor in editor_versions %}
+validate_package_{{platform.name}}_{{editor.version}}:
+  name: Validate package {{platform.name}} {{editor.version}}
+  agent:
+    name: {{platform.name}}
+    image: {{platform.image}}
+    type: {{platform.type}}
+    flavor: {{platform.flavor}}
+  commands:
+    - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - {{platform.upm.cmd}} package test --package-path src/ --unity-version {{ editor.version }}
+  artifacts:
+    packages:
+      paths:
+        - "upm-ci~/packages/**/*"
+  dependencies:
+    - .yamato/upm-ci.yml#pack_package
+  {% endfor %}
+  {% endfor %}
 
 
 publish:
@@ -64,7 +112,12 @@ publish:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#validate_mathematics_package_linux
+    {% for platform in build_platforms %}
+      {% for editor in editor_versions %}
+      - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
+      {% endfor %}
+      {% endfor %}
+
 
 promote:
   name: Promote
@@ -84,43 +137,35 @@ promote:
   dependencies:
     - .yamato/upm-ci.yml#publish
 
+
 publish_ci:
   name: all Publish Pipeline
-  commands:
-    - echo "Hello world"
-  agent:
-    name: whatever
-    type: Unity::VM
-    image: cds-ops/ubuntu-18.04-agent:latest
-    flavor: b1.small
   triggers:
     tags:
       only:
         - /^\d+\.\d+\.\d+(-preview(\.\d+)?)?$/
-  artifacts:
-    packages:
-      paths:
-        - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/upm-ci.yml#publish
+    - .yamato/upm-ci.yml#publish
+
+nightly_ci:
+  name: all Nightly Pipeline
+  triggers:
+    recurring:
+      - branch: master
+        frequency: daily
+  dependencies:
+    {% for platform in build_platforms %}
+      {% for editor in editor_versions %}
+      - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
+      {% endfor %}
+      {% endfor %}
 
 
 commit_ci:
   name: all CI pipeline
-  commands:
-    - echo "Hello world"
-  agent:
-    name: whatever
-    type: Unity::VM
-    image: cds-ops/ubuntu-18.04-agent:latest
-    flavor: b1.small
   triggers:
     branches:
       only:
         - "/.*/"
-  artifacts:
-    packages:
-      paths:
-        - "upm-ci~/packages/**/*"
   dependencies:
-  - .yamato/upm-ci.yml#validate_mathematics_package_linux
+    - .yamato/upm-ci.yml#validate_package_minimal
