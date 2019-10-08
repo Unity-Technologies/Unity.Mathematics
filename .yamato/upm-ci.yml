@@ -75,7 +75,6 @@ validate_package_minimal:
   dependencies:
     - .yamato/upm-ci.yml#pack_package
 
-  #multiVM multiPlatforms
   {% for platform in build_platforms %}
   {% for editor in editor_versions %}
 validate_package_{{platform.name}}_{{editor.version}}:
@@ -87,7 +86,7 @@ validate_package_{{platform.name}}_{{editor.version}}:
     flavor: {{platform.flavor}}
   commands:
     - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
-    - {{platform.upm.cmd}} package test --package-path src/ --unity-version {{ editor.version }}
+    - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
     packages:
       paths:
