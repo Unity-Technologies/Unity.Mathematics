@@ -31,8 +31,8 @@ run_tests_on_mono_{{platform.name}}:
   name: Tests NUnit on {{platform.name}}
   agent:
       name: {{platform.name}}
-      type: {{platform.image}}
-      image: {{platform.type}}
+      type: {{platform.type}}
+      image: {{platform.image}} 
       flavor: {{platform.flavor}}
   commands:
     - nuget restore src
