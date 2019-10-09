@@ -40,24 +40,6 @@ run_tests_on_mono:
     flavor:  m1.mac
 
 
-pack_package:
-  name: Pack package
-  agent:
-    name: mac
-    type: Unity::VM::osx
-    image: buildfarm/mac:latest
-    flavor:  m1.mac
-  commands:
-    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
-    - upm-ci package pack --package-path src/
-  artifacts:
-    packages:
-      paths:
-        - "upm-ci~/packages/**/*"
-  dependencies:
-    - .yamato/upm-ci.yml#run_tests_on_mono
-
-
 validate_package_minimal:
   name: Validate Package Linux Minimal
   agent:
@@ -67,6 +49,7 @@ validate_package_minimal:
     flavor: b1.large
   commands:
     - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - DISPLAY=:0.0 upm-ci package pack --package-path src/
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
     packages:
@@ -111,11 +94,12 @@ publish:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
+   - .yamato/upm-ci.yml#validate_package_minimal
     {% for platform in build_platforms %}
       {% for editor in editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
       {% endfor %}
-      {% endfor %}
+     {% endfor %}
 
 
 promote:
@@ -153,12 +137,12 @@ nightly_ci:
       - branch: master
         frequency: daily
   dependencies:
+    - .yamato/upm-ci.yml#validate_package_minimal
     {% for platform in build_platforms %}
       {% for editor in editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
       {% endfor %}
     {% endfor %}
-    -.yamato/upm-ci.yml#validate_package_minimal
 
 
 commit_ci:
