@@ -30,10 +30,10 @@ editor_versions:
 run_tests_on_mono_{{platform.name}}:
   name: Tests NUnit on {{platform.name}}
   agent:
-  name: {{platform.name}}
-  type: {{platform.image}}
-  image: {{platform.type}}
-  flavor: {{platform.flavor}}
+      name: {{platform.name}}
+      type: {{platform.image}}
+      image: {{platform.type}}
+      flavor: {{platform.flavor}}
   commands:
     - nuget restore src
     - msbuild src/Unity.Mathematics.sln
@@ -71,6 +71,7 @@ validate_package_{{platform.name}}_{{editor.version}}:
     flavor: {{platform.flavor}}
   commands:
     - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - {{platform.upm_cmd}} package pack --package-path src/
     - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
     packages_{{platform.name}}_{{editor.version}}:
