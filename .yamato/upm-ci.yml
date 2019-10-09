@@ -26,19 +26,19 @@ editor_versions:
   - version: "trunk"
 ---
 
-
-run_tests_on_mono:
-  name: Tests NUnit
+{% for platform in build_platforms %}
+run_tests_on_mono_{{platform.name}}:
+  name: Tests NUnit on {{platform.name}}
   commands:
     - nuget restore src
     - msbuild src/Unity.Mathematics.sln
     - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
   agent:
-    name: mac
-    type: Unity::VM::osx
-    image: buildfarm/mac:latest
-    flavor:  m1.mac
-
+    name: {{platform.name}}
+    type: {{platform.image}}
+    image: {{platform.type}}
+    flavor: {{platform.flavor}}
+{% endfor %}
 
 validate_package_minimal:
   name: Validate Package Linux Minimal
@@ -56,7 +56,9 @@ validate_package_minimal:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#pack_package
+    {% for platform in build_platforms %}
+    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
+    {% endfor %}
 
   {% for platform in build_platforms %}
   {% for editor in editor_versions %}
@@ -75,7 +77,9 @@ validate_package_{{platform.name}}_{{editor.version}}:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#pack_package
+    {% for platform in build_platforms %}
+    - .yamato/upm-ci#run_tests_on_mono_{{platform.name}}
+    {% endfor %}
   {% endfor %}
   {% endfor %}
 
@@ -95,11 +99,6 @@ publish:
         - "upm-ci~/packages/**/*"
   dependencies:
    - .yamato/upm-ci.yml#validate_package_minimal
-    {% for platform in build_platforms %}
-      {% for editor in editor_versions %}
-      - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
-      {% endfor %}
-     {% endfor %}
 
 
 promote:
@@ -137,7 +136,6 @@ nightly_ci:
       - branch: master
         frequency: daily
   dependencies:
-    - .yamato/upm-ci.yml#validate_package_minimal
     {% for platform in build_platforms %}
       {% for editor in editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
