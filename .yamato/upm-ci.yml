@@ -157,7 +157,8 @@ nightly_ci:
       {% for editor in editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
       {% endfor %}
-      {% endfor %}
+    {% endfor %}
+    -.yamato/upm-ci.yml#validate_package_minimal
 
 
 commit_ci:
