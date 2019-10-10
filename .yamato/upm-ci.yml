@@ -27,7 +27,7 @@ editor_versions:
 ---
 
 {% for platform in build_platforms %}
-{% unless platform.name == "linux"
+{% unless platform.name == "linux" %}
 run_tests_on_mono_{{platform.name}}:
   name: Tests NUnit on {{platform.name}}
   agent:
