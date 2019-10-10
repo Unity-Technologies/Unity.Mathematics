@@ -36,7 +36,10 @@ run_tests_on_mono_{{platform.name}}:
       image: {{platform.image}} 
       flavor: {{platform.flavor}}
   commands:
-    - nuget restore src -OutputDirectory src\packages
+  {% if platform.name == "windows" %}
+    - choco install nuget.commandline
+  {% endif %}
+    - nuget restore src
     - msbuild src/Unity.Mathematics.sln
     - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
 {% endunless %}
