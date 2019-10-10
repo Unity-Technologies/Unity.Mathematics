@@ -59,7 +59,9 @@ validate_package_minimal:
         - "upm-ci~/packages/**/*"
   dependencies:
     {% for platform in build_platforms %}
+    {% unless platform.name == "linux" %}
     - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
+    {% endunless %}
     {% endfor %}
 
   {% for platform in build_platforms %}
@@ -84,7 +86,9 @@ validate_package_{{platform.name}}_{{editor.version}}:
             - "upm-ci~/**/*"
   dependencies:
     {% for platform in build_platforms %}
+    {% unless platform.name == "linux" %}
     - .yamato/upm-ci#run_tests_on_mono_{{platform.name}}
+    {% endunless %}
     {% endfor %}
   {% endfor %}
   {% endfor %}
