@@ -26,37 +26,24 @@ editor_versions:
   - version: "trunk"
 ---
 
-
-run_tests_on_mono:
-  name: Tests NUnit
+{% for platform in build_platforms %}
+{% unless platform.name == "linux" %}
+run_tests_on_mono_{{platform.name}}:
+  name: Tests NUnit on {{platform.name}}
+  agent:
+      name: {{platform.name}}
+      type: {{platform.type}}
+      image: {{platform.image}} 
+      flavor: {{platform.flavor}}
   commands:
+  {% if platform.name == "windows" %}
+    - choco install nuget.commandline
+  {% endif %}
     - nuget restore src
     - msbuild src/Unity.Mathematics.sln
     - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
-  agent:
-    name: mac
-    type: Unity::VM::osx
-    image: buildfarm/mac:latest
-    flavor:  m1.mac
-
-
-pack_package:
-  name: Pack package
-  agent:
-    name: mac
-    type: Unity::VM::osx
-    image: buildfarm/mac:latest
-    flavor:  m1.mac
-  commands:
-    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
-    - upm-ci package pack --package-path src/
-  artifacts:
-    packages:
-      paths:
-        - "upm-ci~/packages/**/*"
-  dependencies:
-    - .yamato/upm-ci.yml#run_tests_on_mono
-
+{% endunless %}
+{% endfor %}
 
 validate_package_minimal:
   name: Validate Package Linux Minimal
@@ -67,13 +54,18 @@ validate_package_minimal:
     flavor: b1.large
   commands:
     - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - DISPLAY=:0.0 upm-ci package pack --package-path src/
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
     packages:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#pack_package
+    {% for platform in build_platforms %}
+    {% unless platform.name == "linux" %}
+    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
+    {% endunless %}
+    {% endfor %}
 
   {% for platform in build_platforms %}
   {% for editor in editor_versions %}
@@ -86,13 +78,21 @@ validate_package_{{platform.name}}_{{editor.version}}:
     flavor: {{platform.flavor}}
   commands:
     - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - {{platform.upm_cmd}} package pack --package-path src/
     - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
-    packages:
+    packages_{{platform.name}}_{{editor.version}}:
       paths:
         - "upm-ci~/packages/**/*"
+    results_{{platform.name}}_{{editor.version}}:
+        paths:
+            - "upm-ci~/**/*"
   dependencies:
-    - .yamato/upm-ci.yml#pack_package
+    {% for platform in build_platforms %}
+    {% unless platform.name == "linux" %}
+    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
+    {% endunless %}
+    {% endfor %}
   {% endfor %}
   {% endfor %}
 
@@ -111,11 +111,7 @@ publish:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    {% for platform in build_platforms %}
-      {% for editor in editor_versions %}
-      - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
-      {% endfor %}
-      {% endfor %}
+   - .yamato/upm-ci.yml#validate_package_minimal
 
 
 promote:
@@ -157,7 +153,7 @@ nightly_ci:
       {% for editor in editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.version}}
       {% endfor %}
-      {% endfor %}
+    {% endfor %}
 
 
 commit_ci:
