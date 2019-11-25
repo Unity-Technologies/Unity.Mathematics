@@ -140,32 +140,32 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the bit pattern of an int2 as a uint2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(int2 x) { return uint2((uint)x.x, (uint)x.y); }
+        public static unsafe uint2 asuint(int2 x) { return *(uint2*)&x; }
 
         /// <summary>Returns the bit pattern of an int3 as a uint3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(int3 x) { return uint3((uint)x.x, (uint)x.y, (uint)x.z); }
+        public static unsafe uint3 asuint(int3 x) { return *(uint3*)&x; }
 
         /// <summary>Returns the bit pattern of an int4 as a uint4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(int4 x) { return uint4((uint)x.x, (uint)x.y, (uint)x.z, (uint)x.w); }
+        public static unsafe uint4 asuint(int4 x) { return *(uint4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a float as a uint.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float x) { return (uint)asint(x); }
+        public static unsafe uint asuint(float x) { return *(uint*)&x; }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
+        public static unsafe uint2 asuint(float2 x) { return *(uint2*)&x; }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
+        public static unsafe uint3 asuint(float3 x) { return *(uint3*)&x; }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
+        public static unsafe uint4 asuint(float4 x) { return *(uint4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
@@ -205,32 +205,32 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the bit pattern of an int2 as a float2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(int2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static unsafe float2 asfloat(int2 x) { return *(float2*)&x; }
 
         /// <summary>Returns the bit pattern of an int3 as a float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(int3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static unsafe float3 asfloat(int3 x) { return *(float3*)&x; }
 
         /// <summary>Returns the bit pattern of an int4 as a float4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(int4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static unsafe float4 asfloat(int4 x) { return *(float4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a uint as a float.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float  asfloat(uint x) { return asfloat((int)x); }
+        public static unsafe float asfloat(uint x) { return *(float*)&x; }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static unsafe float2 asfloat(uint2 x) { return *(float2*)&x; }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static unsafe float3 asfloat(uint3 x) { return *(float3*)&x; }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static unsafe float4 asfloat(uint4 x) { return *(float4*)&x; }
 
         /// <summary>
         /// Returns a bitmask representation of a bool4. Storing one 1 bit per component
@@ -1984,7 +1984,7 @@ namespace Unity.Mathematics
             return t * t * (3.0 - (2.0 * t));
         }
 
- 
+
         /// <summary>Returns true if any component of the input bool2 vector is true, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(bool2 x) { return x.x || x.y; }
@@ -2740,90 +2740,90 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Returns the result of rotating the bits of an int left by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of an int left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int rol(int x, int n) { return (int)rol((uint)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int2 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int2 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 rol(int2 x, int n) { return (int2)rol((uint2)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int3 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int3 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 rol(int3 x, int n) { return (int3)rol((uint3)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int4 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int4 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 rol(int4 x, int n) { return (int4)rol((uint4)x, n); }
 
 
-        /// <summary>Returns the result of rotating the bits of a uint left by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a uint left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint rol(uint x, int n) { return (x << n) | (x >> (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint2 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint2 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 rol(uint2 x, int n) { return (x << n) | (x >> (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint3 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint3 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 rol(uint3 x, int n) { return (x << n) | (x >> (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint4 left by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint4 left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 rol(uint4 x, int n) { return (x << n) | (x >> (32 - n)); }
 
 
-        /// <summary>Returns the result of rotating the bits of a long left by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a long left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long rol(long x, int n) { return (long)rol((ulong)x, n); }
 
 
-        /// <summary>Returns the result of rotating the bits of a ulong left by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a ulong left by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong rol(ulong x, int n) { return (x << n) | (x >> (64 - n)); }
 
 
-        /// <summary>Returns the result of rotating the bits of an int right by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of an int right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ror(int x, int n) { return (int)ror((uint)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int2 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int2 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ror(int2 x, int n) { return (int2)ror((uint2)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int3 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int3 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ror(int3 x, int n) { return (int3)ror((uint3)x, n); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of an int4 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of an int4 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ror(int4 x, int n) { return (int4)ror((uint4)x, n); }
 
 
-        /// <summary>Returns the result of rotating the bits of a uint right by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a uint right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint ror(uint x, int n) { return (x >> n) | (x << (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint2 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint2 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 ror(uint2 x, int n) { return (x >> n) | (x << (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint3 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint3 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 ror(uint3 x, int n) { return (x >> n) | (x << (32 - n)); }
 
-        /// <summary>Returns the componentwise result of rotating the bits of a uint4 right by bits n.</summary> 
+        /// <summary>Returns the componentwise result of rotating the bits of a uint4 right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 ror(uint4 x, int n) { return (x >> n) | (x << (32 - n)); }
 
 
-        /// <summary>Returns the result of rotating the bits of a long right by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a long right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long ror(long x, int n) { return (long)ror((ulong)x, n); }
 
 
-        /// <summary>Returns the result of rotating the bits of a ulong right by bits n.</summary> 
+        /// <summary>Returns the result of rotating the bits of a ulong right by bits n.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong ror(ulong x, int n) { return (x >> n) | (x << (64 - n)); }
 

@@ -108,7 +108,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(float v)
+        public float4(in float v)
         {
             this.x = v;
             this.y = v;
@@ -118,7 +118,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(bool v)
+        public float4(in bool v)
         {
             this.x = v ? 1.0f : 0.0f;
             this.y = v ? 1.0f : 0.0f;
@@ -128,7 +128,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a bool4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(bool4 v)
+        public float4(in bool4 v)
         {
             this.x = v.x ? 1.0f : 0.0f;
             this.y = v.y ? 1.0f : 0.0f;
@@ -138,7 +138,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(int v)
+        public float4(in int v)
         {
             this.x = v;
             this.y = v;
@@ -148,7 +148,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a int4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(int4 v)
+        public float4(in int4 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -158,7 +158,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(uint v)
+        public float4(in uint v)
         {
             this.x = v;
             this.y = v;
@@ -168,7 +168,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a uint4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(uint4 v)
+        public float4(in uint4 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -178,7 +178,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single half value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(half v)
+        public float4(in half v)
         {
             this.x = v;
             this.y = v;
@@ -188,7 +188,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(half4 v)
+        public float4(in half4 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -198,7 +198,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(double v)
+        public float4(in double v)
         {
             this.x = (float)v;
             this.y = (float)v;
@@ -208,7 +208,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float4 vector from a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float4(double4 v)
+        public float4(in double4 v)
         {
             this.x = (float)v.x;
             this.y = (float)v.y;
@@ -219,112 +219,112 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single float value to a float4 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(float v) { return new float4(v); }
+        public static implicit operator float4(in float v) { return new float4(v); }
 
         /// <summary>Explicitly converts a single bool value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float4(bool v) { return new float4(v); }
+        public static explicit operator float4(in bool v) { return new float4(v); }
 
         /// <summary>Explicitly converts a bool4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float4(bool4 v) { return new float4(v); }
+        public static explicit operator float4(in bool4 v) { return new float4(v); }
 
         /// <summary>Implicitly converts a single int value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(int v) { return new float4(v); }
+        public static implicit operator float4(in int v) { return new float4(v); }
 
         /// <summary>Implicitly converts a int4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(int4 v) { return new float4(v); }
+        public static implicit operator float4(in int4 v) { return new float4(v); }
 
         /// <summary>Implicitly converts a single uint value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(uint v) { return new float4(v); }
+        public static implicit operator float4(in uint v) { return new float4(v); }
 
         /// <summary>Implicitly converts a uint4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(uint4 v) { return new float4(v); }
+        public static implicit operator float4(in uint4 v) { return new float4(v); }
 
         /// <summary>Implicitly converts a single half value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(half v) { return new float4(v); }
+        public static implicit operator float4(in half v) { return new float4(v); }
 
         /// <summary>Implicitly converts a half4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(half4 v) { return new float4(v); }
+        public static implicit operator float4(in half4 v) { return new float4(v); }
 
         /// <summary>Explicitly converts a single double value to a float4 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float4(double v) { return new float4(v); }
+        public static explicit operator float4(in double v) { return new float4(v); }
 
         /// <summary>Explicitly converts a double4 vector to a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float4(double4 v) { return new float4(v); }
+        public static explicit operator float4(in double4 v) { return new float4(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator * (float4 lhs, float4 rhs) { return new float4 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
+        public static float4 operator * (in float4 lhs, in float4 rhs) { return new float4 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator * (float4 lhs, float rhs) { return new float4 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs); }
+        public static float4 operator * (in float4 lhs, in float rhs) { return new float4 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator * (float lhs, float4 rhs) { return new float4 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w); }
+        public static float4 operator * (in float lhs, in float4 rhs) { return new float4 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator + (float4 lhs, float4 rhs) { return new float4 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
+        public static float4 operator + (in float4 lhs, in float4 rhs) { return new float4 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator + (float4 lhs, float rhs) { return new float4 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs); }
+        public static float4 operator + (in float4 lhs, in float rhs) { return new float4 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator + (float lhs, float4 rhs) { return new float4 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w); }
+        public static float4 operator + (in float lhs, in float4 rhs) { return new float4 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator - (float4 lhs, float4 rhs) { return new float4 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
+        public static float4 operator - (in float4 lhs, in float4 rhs) { return new float4 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator - (float4 lhs, float rhs) { return new float4 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs); }
+        public static float4 operator - (in float4 lhs, in float rhs) { return new float4 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator - (float lhs, float4 rhs) { return new float4 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w); }
+        public static float4 operator - (in float lhs, in float4 rhs) { return new float4 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator / (float4 lhs, float4 rhs) { return new float4 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w); }
+        public static float4 operator / (in float4 lhs, in float4 rhs) { return new float4 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w); }
 
         /// <summary>Returns the result of a componentwise division operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator / (float4 lhs, float rhs) { return new float4 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs); }
+        public static float4 operator / (in float4 lhs, in float rhs) { return new float4 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator / (float lhs, float4 rhs) { return new float4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
+        public static float4 operator / (in float lhs, in float4 rhs) { return new float4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator % (float4 lhs, float4 rhs) { return new float4 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z, lhs.w % rhs.w); }
+        public static float4 operator % (in float4 lhs, in float4 rhs) { return new float4 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z, lhs.w % rhs.w); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator % (float4 lhs, float rhs) { return new float4 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs, lhs.w % rhs); }
+        public static float4 operator % (in float4 lhs, in float rhs) { return new float4 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs, lhs.w % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 operator % (float lhs, float4 rhs) { return new float4 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w); }
+        public static float4 operator % (in float lhs, in float4 rhs) { return new float4 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a float4 vector.</summary>
@@ -339,54 +339,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (float4 lhs, float4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
+        public static bool4 operator < (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (float4 lhs, float rhs) { return new bool4 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs); }
+        public static bool4 operator < (in float4 lhs, in float rhs) { return new bool4 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator < (float lhs, float4 rhs) { return new bool4 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w); }
+        public static bool4 operator < (in float lhs, in float4 rhs) { return new bool4 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (float4 lhs, float4 rhs) { return new bool4 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z, lhs.w <= rhs.w); }
+        public static bool4 operator <= (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z, lhs.w <= rhs.w); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (float4 lhs, float rhs) { return new bool4 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs); }
+        public static bool4 operator <= (in float4 lhs, in float rhs) { return new bool4 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator <= (float lhs, float4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
+        public static bool4 operator <= (in float lhs, in float4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (float4 lhs, float4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
+        public static bool4 operator > (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (float4 lhs, float rhs) { return new bool4 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs); }
+        public static bool4 operator > (in float4 lhs, in float rhs) { return new bool4 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator > (float lhs, float4 rhs) { return new bool4 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w); }
+        public static bool4 operator > (in float lhs, in float4 rhs) { return new bool4 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (float4 lhs, float4 rhs) { return new bool4 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z, lhs.w >= rhs.w); }
+        public static bool4 operator >= (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z, lhs.w >= rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (float4 lhs, float rhs) { return new bool4 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs); }
+        public static bool4 operator >= (in float4 lhs, in float rhs) { return new bool4 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator >= (float lhs, float4 rhs) { return new bool4 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w); }
+        public static bool4 operator >= (in float lhs, in float4 rhs) { return new bool4 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a float4 vector.</summary>
@@ -401,28 +401,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (float4 lhs, float4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
+        public static bool4 operator == (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (float4 lhs, float rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
+        public static bool4 operator == (in float4 lhs, in float rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (float lhs, float4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
+        public static bool4 operator == (in float lhs, in float4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (float4 lhs, float4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
+        public static bool4 operator != (in float4 lhs, in float4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float4 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (float4 lhs, float rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
+        public static bool4 operator != (in float4 lhs, in float rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float value and a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (float lhs, float4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
+        public static bool4 operator != (in float lhs, in float4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
 
 
@@ -3337,51 +3337,51 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float4 vector constructed from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(float v) { return new float4(v); }
+        public static float4 float4(in float v) { return new float4(v); }
 
         /// <summary>Returns a float4 vector constructed from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(bool v) { return new float4(v); }
+        public static float4 float4(in bool v) { return new float4(v); }
 
         /// <summary>Return a float4 vector constructed from a bool4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(bool4 v) { return new float4(v); }
+        public static float4 float4(in bool4 v) { return new float4(v); }
 
         /// <summary>Returns a float4 vector constructed from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(int v) { return new float4(v); }
+        public static float4 float4(in int v) { return new float4(v); }
 
         /// <summary>Return a float4 vector constructed from a int4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(int4 v) { return new float4(v); }
+        public static float4 float4(in int4 v) { return new float4(v); }
 
         /// <summary>Returns a float4 vector constructed from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(uint v) { return new float4(v); }
+        public static float4 float4(in uint v) { return new float4(v); }
 
         /// <summary>Return a float4 vector constructed from a uint4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(uint4 v) { return new float4(v); }
+        public static float4 float4(in uint4 v) { return new float4(v); }
 
         /// <summary>Returns a float4 vector constructed from a single half value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(half v) { return new float4(v); }
+        public static float4 float4(in half v) { return new float4(v); }
 
         /// <summary>Return a float4 vector constructed from a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(half4 v) { return new float4(v); }
+        public static float4 float4(in half4 v) { return new float4(v); }
 
         /// <summary>Returns a float4 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(double v) { return new float4(v); }
+        public static float4 float4(in double v) { return new float4(v); }
 
         /// <summary>Return a float4 vector constructed from a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 float4(double4 v) { return new float4(v); }
+        public static float4 float4(in double4 v) { return new float4(v); }
 
         /// <summary>Returns a uint hash code of a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(float4 v)
+        public static uint hash(in float4 v)
         {
             return csum(asuint(v) * uint4(0xE69626FFu, 0xBD010EEBu, 0x9CEDE1D1u, 0x43BE0B51u)) + 0xAF836EE1u;
         }
@@ -3392,21 +3392,21 @@ namespace Unity.Mathematics
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 hashwide(float4 v)
+        public static uint4 hashwide(in float4 v)
         {
             return (asuint(v) * uint4(0xB130C137u, 0x54834775u, 0x7C022221u, 0xA2D00EDFu)) + 0xA8977779u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float shuffle(float4 a, float4 b, ShuffleComponent x)
+        public static float shuffle(in float4 a, in float4 b, ShuffleComponent x)
         {
             return select_shuffle_component(a, b, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 shuffle(float4 a, float4 b, ShuffleComponent x, ShuffleComponent y)
+        public static float2 shuffle(in float4 a, in float4 b, ShuffleComponent x, ShuffleComponent y)
         {
             return float2(
                 select_shuffle_component(a, b, x),
@@ -3415,7 +3415,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 shuffle(float4 a, float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static float3 shuffle(in float4 a, in float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return float3(
                 select_shuffle_component(a, b, x),
@@ -3425,7 +3425,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 shuffle(float4 a, float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static float4 shuffle(in float4 a, in float4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return float4(
                 select_shuffle_component(a, b, x),
@@ -3435,7 +3435,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static float select_shuffle_component(float4 a, float4 b, ShuffleComponent component)
+        internal static float select_shuffle_component(in float4 a, in float4 b, ShuffleComponent component)
         {
             switch(component)
             {

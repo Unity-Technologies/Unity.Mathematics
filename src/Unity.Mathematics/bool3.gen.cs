@@ -65,7 +65,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a bool3 vector from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool3(bool v)
+        public bool3(in bool v)
         {
             this.x = v;
             this.y = v;
@@ -75,33 +75,33 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool3 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator bool3(bool v) { return new bool3(v); }
+        public static implicit operator bool3(in bool v) { return new bool3(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
+        public static bool3 operator == (in bool3 lhs, in bool3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (bool3 lhs, bool rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
+        public static bool3 operator == (in bool3 lhs, in bool rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (bool lhs, bool3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
+        public static bool3 operator == (in bool lhs, in bool3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
+        public static bool3 operator != (in bool3 lhs, in bool3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (bool3 lhs, bool rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
+        public static bool3 operator != (in bool3 lhs, in bool rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (bool lhs, bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
+        public static bool3 operator != (in bool lhs, in bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool3 vector.</summary>
@@ -111,41 +111,41 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator & (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z); }
+        public static bool3 operator & (in bool3 lhs, in bool3 rhs) { return new bool3 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator & (bool3 lhs, bool rhs) { return new bool3 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs); }
+        public static bool3 operator & (in bool3 lhs, in bool rhs) { return new bool3 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator & (bool lhs, bool3 rhs) { return new bool3 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z); }
+        public static bool3 operator & (in bool lhs, in bool3 rhs) { return new bool3 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator | (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x | rhs.x, lhs.y | rhs.y, lhs.z | rhs.z); }
+        public static bool3 operator | (in bool3 lhs, in bool3 rhs) { return new bool3 (lhs.x | rhs.x, lhs.y | rhs.y, lhs.z | rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator | (bool3 lhs, bool rhs) { return new bool3 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs); }
+        public static bool3 operator | (in bool3 lhs, in bool rhs) { return new bool3 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator | (bool lhs, bool3 rhs) { return new bool3 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z); }
+        public static bool3 operator | (in bool lhs, in bool3 rhs) { return new bool3 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator ^ (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x ^ rhs.x, lhs.y ^ rhs.y, lhs.z ^ rhs.z); }
+        public static bool3 operator ^ (in bool3 lhs, in bool3 rhs) { return new bool3 (lhs.x ^ rhs.x, lhs.y ^ rhs.y, lhs.z ^ rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator ^ (bool3 lhs, bool rhs) { return new bool3 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs); }
+        public static bool3 operator ^ (in bool3 lhs, in bool rhs) { return new bool3 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator ^ (bool lhs, bool3 rhs) { return new bool3 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z); }
+        public static bool3 operator ^ (in bool lhs, in bool3 rhs) { return new bool3 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z); }
 
 
 
@@ -1187,11 +1187,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 bool3(bool v) { return new bool3(v); }
+        public static bool3 bool3(in bool v) { return new bool3(v); }
 
         /// <summary>Returns a uint hash code of a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(bool3 v)
+        public static uint hash(in bool3 v)
         {
             return csum(select(uint3(0xA1E92D39u, 0x4583C801u, 0x9536A0F5u), uint3(0xAF816615u, 0x9AF8D62Du, 0xE3600729u), v));
         }
@@ -1202,21 +1202,21 @@ namespace Unity.Mathematics
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 hashwide(bool3 v)
+        public static uint3 hashwide(in bool3 v)
         {
             return (select(uint3(0x5F17300Du, 0x670D6809u, 0x7AF32C49u), uint3(0xAE131389u, 0x5D1B165Bu, 0x87096CD7u), v));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool shuffle(bool3 a, bool3 b, ShuffleComponent x)
+        public static bool shuffle(in bool3 a, in bool3 b, ShuffleComponent x)
         {
             return select_shuffle_component(a, b, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y)
+        public static bool2 shuffle(in bool3 a, in bool3 b, ShuffleComponent x, ShuffleComponent y)
         {
             return bool2(
                 select_shuffle_component(a, b, x),
@@ -1225,7 +1225,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static bool3 shuffle(in bool3 a, in bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return bool3(
                 select_shuffle_component(a, b, x),
@@ -1235,7 +1235,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static bool4 shuffle(in bool3 a, in bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return bool4(
                 select_shuffle_component(a, b, x),
@@ -1245,7 +1245,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static bool select_shuffle_component(bool3 a, bool3 b, ShuffleComponent component)
+        internal static bool select_shuffle_component(in bool3 a, in bool3 b, ShuffleComponent component)
         {
             switch(component)
             {
