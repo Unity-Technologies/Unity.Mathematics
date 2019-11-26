@@ -1,3 +1,15 @@
-﻿{
-	"name": "Unity.Mathematics.PerformanceTests"
+{
+    "name": "Unity.Mathematics.PerformanceTests",
+    "references": [
+        "Unity.PerformanceTesting"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
