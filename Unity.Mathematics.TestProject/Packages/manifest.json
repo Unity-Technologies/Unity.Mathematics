@@ -2,8 +2,9 @@
   "dependencies": {
     "com.unity.ide.rider": "1.1.0",
     "com.unity.ide.vscode": "1.1.2",
+    "com.unity.mathematics": "file:../../src",
     "com.unity.test-framework": "1.1.2",
-    "com.unity.mathematics": "file:../../src"
+    "com.unity.test-framework.performance": "2.0.3-preview"
   },
   "testables": [
     "com.unity.mathematics"

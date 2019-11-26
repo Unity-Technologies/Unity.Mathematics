@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using static Unity.Mathematics.math;
 using Burst.Compiler.IL.Tests;
+using Unity.PerformanceTesting;
 
 namespace Unity.Mathematics.Tests
 {
@@ -8,6 +9,7 @@ namespace Unity.Mathematics.Tests
     public class TestBitmanipulation
     {
         [TestCompiler]
+        [Performance]
         public static void bitmask_bool4()
         {
             TestUtils.AreEqual(0b0000, bitmask(new bool4(false, false, false, false)));

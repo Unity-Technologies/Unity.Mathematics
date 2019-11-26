@@ -8,6 +8,7 @@
         "unity"
     ],
     "dependencies": {
+      "com.unity.test-framework.performance": "2.0.3-preview"
     },
     "repository": {
         "type": "git",
