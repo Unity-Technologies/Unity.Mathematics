@@ -63,7 +63,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in float v)
+        public float3(float v)
         {
             this.x = v;
             this.y = v;
@@ -72,7 +72,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in bool v)
+        public float3(bool v)
         {
             this.x = v ? 1.0f : 0.0f;
             this.y = v ? 1.0f : 0.0f;
@@ -90,7 +90,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in int v)
+        public float3(int v)
         {
             this.x = v;
             this.y = v;
@@ -108,7 +108,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in uint v)
+        public float3(uint v)
         {
             this.x = v;
             this.y = v;
@@ -126,7 +126,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single half value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in half v)
+        public float3(half v)
         {
             this.x = v;
             this.y = v;
@@ -144,7 +144,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float3 vector from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float3(in double v)
+        public float3(double v)
         {
             this.x = (float)v;
             this.y = (float)v;
@@ -163,11 +163,11 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single float value to a float3 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float3(in float v) { return new float3(v); }
+        public static implicit operator float3(float v) { return new float3(v); }
 
         /// <summary>Explicitly converts a single bool value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float3(in bool v) { return new float3(v); }
+        public static explicit operator float3(bool v) { return new float3(v); }
 
         /// <summary>Explicitly converts a bool3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -175,7 +175,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single int value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float3(in int v) { return new float3(v); }
+        public static implicit operator float3(int v) { return new float3(v); }
 
         /// <summary>Implicitly converts a int3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -183,7 +183,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single uint value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float3(in uint v) { return new float3(v); }
+        public static implicit operator float3(uint v) { return new float3(v); }
 
         /// <summary>Implicitly converts a uint3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -191,7 +191,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single half value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float3(in half v) { return new float3(v); }
+        public static implicit operator float3(half v) { return new float3(v); }
 
         /// <summary>Implicitly converts a half3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -199,7 +199,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a single double value to a float3 vector by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float3(in double v) { return new float3(v); }
+        public static explicit operator float3(double v) { return new float3(v); }
 
         /// <summary>Explicitly converts a double3 vector to a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -212,11 +212,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator * (in float3 lhs, in float rhs) { return new float3 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs); }
+        public static float3 operator * (in float3 lhs, float rhs) { return new float3 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator * (in float lhs, in float3 rhs) { return new float3 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z); }
+        public static float3 operator * (float lhs, in float3 rhs) { return new float3 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two float3 vectors.</summary>
@@ -225,11 +225,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise addition operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator + (in float3 lhs, in float rhs) { return new float3 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs); }
+        public static float3 operator + (in float3 lhs, float rhs) { return new float3 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator + (in float lhs, in float3 rhs) { return new float3 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z); }
+        public static float3 operator + (float lhs, in float3 rhs) { return new float3 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two float3 vectors.</summary>
@@ -238,11 +238,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator - (in float3 lhs, in float rhs) { return new float3 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs); }
+        public static float3 operator - (in float3 lhs, float rhs) { return new float3 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator - (in float lhs, in float3 rhs) { return new float3 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z); }
+        public static float3 operator - (float lhs, in float3 rhs) { return new float3 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two float3 vectors.</summary>
@@ -251,11 +251,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise division operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator / (in float3 lhs, in float rhs) { return new float3 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs); }
+        public static float3 operator / (in float3 lhs, float rhs) { return new float3 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator / (in float lhs, in float3 rhs) { return new float3 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z); }
+        public static float3 operator / (float lhs, in float3 rhs) { return new float3 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two float3 vectors.</summary>
@@ -264,11 +264,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise modulus operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator % (in float3 lhs, in float rhs) { return new float3 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs); }
+        public static float3 operator % (in float3 lhs, float rhs) { return new float3 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 operator % (in float lhs, in float3 rhs) { return new float3 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z); }
+        public static float3 operator % (float lhs, in float3 rhs) { return new float3 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a float3 vector.</summary>
@@ -287,11 +287,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator < (in float3 lhs, in float rhs) { return new bool3 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs); }
+        public static bool3 operator < (in float3 lhs, float rhs) { return new bool3 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator < (in float lhs, in float3 rhs) { return new bool3 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z); }
+        public static bool3 operator < (float lhs, in float3 rhs) { return new bool3 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two float3 vectors.</summary>
@@ -300,11 +300,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator <= (in float3 lhs, in float rhs) { return new bool3 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs); }
+        public static bool3 operator <= (in float3 lhs, float rhs) { return new bool3 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator <= (in float lhs, in float3 rhs) { return new bool3 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z); }
+        public static bool3 operator <= (float lhs, in float3 rhs) { return new bool3 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two float3 vectors.</summary>
@@ -313,11 +313,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise greater than operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator > (in float3 lhs, in float rhs) { return new bool3 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs); }
+        public static bool3 operator > (in float3 lhs, float rhs) { return new bool3 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator > (in float lhs, in float3 rhs) { return new bool3 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z); }
+        public static bool3 operator > (float lhs, in float3 rhs) { return new bool3 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two float3 vectors.</summary>
@@ -326,11 +326,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator >= (in float3 lhs, in float rhs) { return new bool3 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs); }
+        public static bool3 operator >= (in float3 lhs, float rhs) { return new bool3 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator >= (in float lhs, in float3 rhs) { return new bool3 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z); }
+        public static bool3 operator >= (float lhs, in float3 rhs) { return new bool3 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a float3 vector.</summary>
@@ -349,11 +349,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (in float3 lhs, in float rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
+        public static bool3 operator == (in float3 lhs, float rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (in float lhs, in float3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
+        public static bool3 operator == (float lhs, in float3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two float3 vectors.</summary>
@@ -362,11 +362,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (in float3 lhs, in float rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
+        public static bool3 operator != (in float3 lhs, float rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (in float lhs, in float3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
+        public static bool3 operator != (float lhs, in float3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
 
 
@@ -1415,11 +1415,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float3 vector constructed from a single float value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in float v) { return new float3(v); }
+        public static float3 float3(float v) { return new float3(v); }
 
         /// <summary>Returns a float3 vector constructed from a single bool value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in bool v) { return new float3(v); }
+        public static float3 float3(bool v) { return new float3(v); }
 
         /// <summary>Return a float3 vector constructed from a bool3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1427,7 +1427,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float3 vector constructed from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in int v) { return new float3(v); }
+        public static float3 float3(int v) { return new float3(v); }
 
         /// <summary>Return a float3 vector constructed from a int3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1435,7 +1435,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float3 vector constructed from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in uint v) { return new float3(v); }
+        public static float3 float3(uint v) { return new float3(v); }
 
         /// <summary>Return a float3 vector constructed from a uint3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1443,7 +1443,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float3 vector constructed from a single half value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in half v) { return new float3(v); }
+        public static float3 float3(half v) { return new float3(v); }
 
         /// <summary>Return a float3 vector constructed from a half3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1451,7 +1451,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float3 vector constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 float3(in double v) { return new float3(v); }
+        public static float3 float3(double v) { return new float3(v); }
 
         /// <summary>Return a float3 vector constructed from a double3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -44,7 +44,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a bool4x3 matrix from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool4x3(in bool v)
+        public bool4x3(bool v)
         {
             this.c0 = v;
             this.c1 = v;
@@ -54,7 +54,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool4x3 matrix by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator bool4x3(in bool v) { return new bool4x3(v); }
+        public static implicit operator bool4x3(bool v) { return new bool4x3(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool4x3 matrices.</summary>
@@ -63,11 +63,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a bool4x3 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator == (in bool4x3 lhs, in bool rhs) { return new bool4x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
+        public static bool4x3 operator == (in bool4x3 lhs, bool rhs) { return new bool4x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator == (in bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
+        public static bool4x3 operator == (bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool4x3 matrices.</summary>
@@ -76,11 +76,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool4x3 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator != (in bool4x3 lhs, in bool rhs) { return new bool4x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
+        public static bool4x3 operator != (in bool4x3 lhs, bool rhs) { return new bool4x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator != (in bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
+        public static bool4x3 operator != (bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool4x3 matrix.</summary>
@@ -94,11 +94,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool4x3 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator & (in bool4x3 lhs, in bool rhs) { return new bool4x3 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs); }
+        public static bool4x3 operator & (in bool4x3 lhs, bool rhs) { return new bool4x3 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator & (in bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2); }
+        public static bool4x3 operator & (bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool4x3 matrices.</summary>
@@ -107,11 +107,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool4x3 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator | (in bool4x3 lhs, in bool rhs) { return new bool4x3 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs); }
+        public static bool4x3 operator | (in bool4x3 lhs, bool rhs) { return new bool4x3 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator | (in bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2); }
+        public static bool4x3 operator | (bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool4x3 matrices.</summary>
@@ -120,11 +120,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool4x3 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator ^ (in bool4x3 lhs, in bool rhs) { return new bool4x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
+        public static bool4x3 operator ^ (in bool4x3 lhs, bool rhs) { return new bool4x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 operator ^ (in bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
+        public static bool4x3 operator ^ (bool lhs, in bool4x3 rhs) { return new bool4x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
 
 
 
@@ -184,7 +184,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool4x3 matrix constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4x3 bool4x3(in bool v) { return new bool4x3(v); }
+        public static bool4x3 bool4x3(bool v) { return new bool4x3(v); }
 
         /// <summary>Return the bool3x4 transpose of a bool4x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

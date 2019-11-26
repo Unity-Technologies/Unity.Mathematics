@@ -15,7 +15,7 @@ namespace Unity.Mathematics
     {
         /// <summary>Returns the float value result of a matrix multiplication between a float value and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float mul(in float a, in float b)
+        public static float mul(float a, float b)
         {
             return a * b;
         }
@@ -466,7 +466,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the double value result of a matrix multiplication between a double value and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double mul(in double a, in double b)
+        public static double mul(double a, double b)
         {
             return a * b;
         }
@@ -917,7 +917,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the int value result of a matrix multiplication between an int value and an int value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int mul(in int a, in int b)
+        public static int mul(int a, int b)
         {
             return a * b;
         }
@@ -1368,7 +1368,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the uint value result of a matrix multiplication between a uint value and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint mul(in uint a, in uint b)
+        public static uint mul(uint a, uint b)
         {
             return a * b;
         }

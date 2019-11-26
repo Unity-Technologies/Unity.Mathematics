@@ -62,7 +62,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half3(in half v)
+        public half3(half v)
         {
             this.x = v;
             this.y = v;
@@ -71,7 +71,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half3(in float v)
+        public half3(float v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -89,7 +89,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half3(in double v)
+        public half3(double v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -108,11 +108,11 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single half value to a half3 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator half3(in half v) { return new half3(v); }
+        public static implicit operator half3(half v) { return new half3(v); }
 
         /// <summary>Explicitly converts a single float value to a half3 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half3(in float v) { return new half3(v); }
+        public static explicit operator half3(float v) { return new half3(v); }
 
         /// <summary>Explicitly converts a float3 vector to a half3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -120,7 +120,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a single double value to a half3 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half3(in double v) { return new half3(v); }
+        public static explicit operator half3(double v) { return new half3(v); }
 
         /// <summary>Explicitly converts a double3 vector to a half3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -133,11 +133,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a half3 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (in half3 lhs, in half rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
+        public static bool3 operator == (in half3 lhs, half rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator == (in half lhs, in half3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
+        public static bool3 operator == (half lhs, in half3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half3 vectors.</summary>
@@ -146,11 +146,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a half3 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (in half3 lhs, in half rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
+        public static bool3 operator != (in half3 lhs, half rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 operator != (in half lhs, in half3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
+        public static bool3 operator != (half lhs, in half3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
 
 
@@ -1199,11 +1199,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half3 vector constructed from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half3 half3(in half v) { return new half3(v); }
+        public static half3 half3(half v) { return new half3(v); }
 
         /// <summary>Returns a half3 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half3 half3(in float v) { return new half3(v); }
+        public static half3 half3(float v) { return new half3(v); }
 
         /// <summary>Return a half3 vector constructed from a float3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1211,7 +1211,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half3 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half3 half3(in double v) { return new half3(v); }
+        public static half3 half3(double v) { return new half3(v); }
 
         /// <summary>Return a half3 vector constructed from a double3 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

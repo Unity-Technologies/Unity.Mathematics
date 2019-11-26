@@ -41,7 +41,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half2 vector from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half2(in half v)
+        public half2(half v)
         {
             this.x = v;
             this.y = v;
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half2 vector from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half2(in float v)
+        public half2(float v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -65,7 +65,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half2 vector from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half2(in double v)
+        public half2(double v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -82,11 +82,11 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single half value to a half2 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator half2(in half v) { return new half2(v); }
+        public static implicit operator half2(half v) { return new half2(v); }
 
         /// <summary>Explicitly converts a single float value to a half2 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half2(in float v) { return new half2(v); }
+        public static explicit operator half2(float v) { return new half2(v); }
 
         /// <summary>Explicitly converts a float2 vector to a half2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -94,7 +94,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a single double value to a half2 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half2(in double v) { return new half2(v); }
+        public static explicit operator half2(double v) { return new half2(v); }
 
         /// <summary>Explicitly converts a double2 vector to a half2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -107,11 +107,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in half2 lhs, in half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (in half2 lhs, half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in half lhs, in half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (half lhs, in half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half2 vectors.</summary>
@@ -120,11 +120,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in half2 lhs, in half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (in half2 lhs, half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in half lhs, in half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (half lhs, in half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
@@ -431,11 +431,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half2 vector constructed from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half2 half2(in half v) { return new half2(v); }
+        public static half2 half2(half v) { return new half2(v); }
 
         /// <summary>Returns a half2 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half2 half2(in float v) { return new half2(v); }
+        public static half2 half2(float v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -443,7 +443,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half2 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half2 half2(in double v) { return new half2(v); }
+        public static half2 half2(double v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

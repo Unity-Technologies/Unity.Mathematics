@@ -111,7 +111,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a bool4 vector from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool4(in bool v)
+        public bool4(bool v)
         {
             this.x = v;
             this.y = v;
@@ -122,7 +122,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool4 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator bool4(in bool v) { return new bool4(v); }
+        public static implicit operator bool4(bool v) { return new bool4(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool4 vectors.</summary>
@@ -131,11 +131,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a bool4 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (in bool4 lhs, in bool rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
+        public static bool4 operator == (in bool4 lhs, bool rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (in bool lhs, in bool4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
+        public static bool4 operator == (bool lhs, in bool4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool4 vectors.</summary>
@@ -144,11 +144,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool4 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (in bool4 lhs, in bool rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
+        public static bool4 operator != (in bool4 lhs, bool rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (in bool lhs, in bool4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
+        public static bool4 operator != (bool lhs, in bool4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool4 vector.</summary>
@@ -162,11 +162,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool4 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator & (in bool4 lhs, in bool rhs) { return new bool4 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs, lhs.w & rhs); }
+        public static bool4 operator & (in bool4 lhs, bool rhs) { return new bool4 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs, lhs.w & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator & (in bool lhs, in bool4 rhs) { return new bool4 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z, lhs & rhs.w); }
+        public static bool4 operator & (bool lhs, in bool4 rhs) { return new bool4 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z, lhs & rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool4 vectors.</summary>
@@ -175,11 +175,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool4 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator | (in bool4 lhs, in bool rhs) { return new bool4 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs, lhs.w | rhs); }
+        public static bool4 operator | (in bool4 lhs, bool rhs) { return new bool4 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs, lhs.w | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator | (in bool lhs, in bool4 rhs) { return new bool4 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z, lhs | rhs.w); }
+        public static bool4 operator | (bool lhs, in bool4 rhs) { return new bool4 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z, lhs | rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool4 vectors.</summary>
@@ -188,11 +188,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool4 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator ^ (in bool4 lhs, in bool rhs) { return new bool4 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs, lhs.w ^ rhs); }
+        public static bool4 operator ^ (in bool4 lhs, bool rhs) { return new bool4 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs, lhs.w ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator ^ (in bool lhs, in bool4 rhs) { return new bool4 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z, lhs ^ rhs.w); }
+        public static bool4 operator ^ (bool lhs, in bool4 rhs) { return new bool4 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z, lhs ^ rhs.w); }
 
 
 
@@ -3100,7 +3100,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool4 vector constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 bool4(in bool v) { return new bool4(v); }
+        public static bool4 bool4(bool v) { return new bool4(v); }
 
         /// <summary>Returns a uint hash code of a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

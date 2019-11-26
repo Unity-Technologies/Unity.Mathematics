@@ -7,6 +7,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 {
     class VectorGenerator
     {
+        public static string Param(string original)
+        {
+            var last = original[original.Length - 1];
+            if (Char.IsDigit(last))
+                return "in " + original;
+            return original;
+        }
+
         private string m_ImplementationDirectory;
         private string m_TestDirectory;
         private string m_BaseType;
@@ -374,7 +382,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic {0}(in {1} v)\n", m_TypeName, sourceType);
+            str.AppendFormat("\t\tpublic {0}({1} v)\n", m_TypeName, Param(sourceType));
             str.Append("\t\t{\n");
             for(int i = 0; i < fieldCount; i++)
             {
@@ -401,10 +409,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t\t}\n\n");
 
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            mathStr.AppendFormat("\t\tpublic static {0} {0}(in {1} v) {{ return new {0}(v); }}\n\n", m_TypeName, sourceType);
+            mathStr.AppendFormat("\t\tpublic static {0} {0}({1} v) {{ return new {0}(v); }}\n\n", m_TypeName, Param(sourceType));
 
             opStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            opStr.AppendFormat("\t\tpublic static {0} operator {1}(in {2} v) {{ return new {1}(v); }}\n\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
+            opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n\n", isExplicit ? "explicit" : "implicit", m_TypeName, Param(sourceType));
         }
 
         private void GenerateConversionConstructorsAndOperators(StringBuilder str, StringBuilder mathStr)
@@ -579,7 +587,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 return;
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tinternal static {0} select_shuffle_component(in {1} a, in {1} b, ShuffleComponent component)\n", m_BaseType, m_TypeName);
+            str.AppendFormat("\t\tinternal static {0} select_shuffle_component({1} a, {1} b, ShuffleComponent component)\n", m_BaseType, Param(m_TypeName));
             str.Append("\t\t{\n");
             str.Append("\t\t\tswitch(component)\n");
             str.Append("\t\t\t{\n");
@@ -611,7 +619,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.AppendFormat("\t\t/// <summary>Returns the result of specified shuffling of the components from {0} into {1}.</summary>\n",
                     ToValueDescription(m_BaseType, m_Rows, m_Columns, 2), ToValueDescription(m_BaseType, resultComponents, m_Columns, 1));
                 str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-                str.AppendFormat("\t\tpublic static {0} shuffle(in {1} a, in {2} b", resultType, m_TypeName, m_TypeName);
+                str.AppendFormat("\t\tpublic static {0} shuffle({1} a, {2} b", resultType, Param(m_TypeName), Param(m_TypeName));
                 for(int i = 0; i < resultComponents; i++)
                 {
                     str.AppendFormat(", ShuffleComponent {0}", vectorFields[i]);
@@ -667,7 +675,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {1} {0}(in {2} a, in {3} b)\n", name, resultType, lhsType, rhsType);
+            str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, Param(lhsType), Param(rhsType));
             str.Append("\t\t{\n");
 
             str.Append("\t\t\treturn ");
@@ -927,12 +935,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     mathStr.Append(", ");
                 }
 
-                constructorStr.Append("in ");
-                constructorStr.Append(columnType);
+                constructorStr.Append(Param(columnType));
                 constructorStr.Append(" ");
                 constructorStr.Append(matrixFields[column]);
-                mathStr.Append("in ");
-                mathStr.Append(columnType);
+                mathStr.Append(Param(columnType));
                 mathStr.Append(" ");
                 mathStr.Append(matrixFields[column]);
             }
@@ -1151,7 +1157,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string resultType = ToTypeName(m_BaseType, m_Columns, m_Rows);
             str.AppendFormat("\t\t/// <summary>Return the {0} transpose of a {1} matrix.</summary>\n", resultType, m_TypeName);
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} transpose(in {1} v)\n", resultType, m_TypeName);
+            str.AppendFormat("\t\tpublic static {0} transpose({1} v)\n", resultType, Param(m_TypeName));
             str.Append("\t\t{\n");
 
             str.AppendFormat("\t\t\treturn {0}(\n", resultType);
@@ -1458,7 +1464,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} {1}(in {2} v)\n", returnType, functionName, m_TypeName);
+            str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, Param(m_TypeName));
             str.Append("\t\t{\n");
 
             str.AppendFormat("\t\t\treturn ");
@@ -1585,7 +1591,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} and {2}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 1), ToValueDescription(m_BaseType, rhsRows, rhsColumns, 1));
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} (in {2} lhs, in {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, Param(ToTypeName(m_BaseType, lhsRows, lhsColumns)), Param(ToTypeName(m_BaseType, rhsRows, rhsColumns)));
             str.Append(" { ");
             str.AppendFormat("return new {0} (", ToTypeName(resultType, resultRows, resultColumns));
 
@@ -1716,7 +1722,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string resultType = ToTypeName(resultBaseType, resultCount, 1);
             str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} by a number of bits specified by a single int.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} (in {0} x, int n)", m_TypeName, op);
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} x, int n)", m_TypeName, op, Param(m_TypeName));
             str.Append(" { ");
             str.AppendFormat("return new {0} (", m_TypeName);
 

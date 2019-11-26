@@ -43,7 +43,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a bool2 vector from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public bool2(in bool v)
+        public bool2(bool v)
         {
             this.x = v;
             this.y = v;
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool2 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator bool2(in bool v) { return new bool2(v); }
+        public static implicit operator bool2(bool v) { return new bool2(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool2 vectors.</summary>
@@ -61,11 +61,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in bool2 lhs, in bool rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (in bool2 lhs, bool rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in bool lhs, in bool2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (bool lhs, in bool2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool2 vectors.</summary>
@@ -74,11 +74,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in bool2 lhs, in bool rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (in bool2 lhs, bool rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in bool lhs, in bool2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (bool lhs, in bool2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool2 vector.</summary>
@@ -92,11 +92,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator & (in bool2 lhs, in bool rhs) { return new bool2 (lhs.x & rhs, lhs.y & rhs); }
+        public static bool2 operator & (in bool2 lhs, bool rhs) { return new bool2 (lhs.x & rhs, lhs.y & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator & (in bool lhs, in bool2 rhs) { return new bool2 (lhs & rhs.x, lhs & rhs.y); }
+        public static bool2 operator & (bool lhs, in bool2 rhs) { return new bool2 (lhs & rhs.x, lhs & rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool2 vectors.</summary>
@@ -105,11 +105,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator | (in bool2 lhs, in bool rhs) { return new bool2 (lhs.x | rhs, lhs.y | rhs); }
+        public static bool2 operator | (in bool2 lhs, bool rhs) { return new bool2 (lhs.x | rhs, lhs.y | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator | (in bool lhs, in bool2 rhs) { return new bool2 (lhs | rhs.x, lhs | rhs.y); }
+        public static bool2 operator | (bool lhs, in bool2 rhs) { return new bool2 (lhs | rhs.x, lhs | rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool2 vectors.</summary>
@@ -118,11 +118,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator ^ (in bool2 lhs, in bool rhs) { return new bool2 (lhs.x ^ rhs, lhs.y ^ rhs); }
+        public static bool2 operator ^ (in bool2 lhs, bool rhs) { return new bool2 (lhs.x ^ rhs, lhs.y ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator ^ (in bool lhs, in bool2 rhs) { return new bool2 (lhs ^ rhs.x, lhs ^ rhs.y); }
+        public static bool2 operator ^ (bool lhs, in bool2 rhs) { return new bool2 (lhs ^ rhs.x, lhs ^ rhs.y); }
 
 
 
@@ -422,7 +422,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool2 vector constructed from a single bool value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 bool2(in bool v) { return new bool2(v); }
+        public static bool2 bool2(bool v) { return new bool2(v); }
 
         /// <summary>Returns a uint hash code of a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

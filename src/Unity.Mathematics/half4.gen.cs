@@ -107,7 +107,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half4 vector from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half4(in half v)
+        public half4(half v)
         {
             this.x = v;
             this.y = v;
@@ -117,7 +117,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half4 vector from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half4(in float v)
+        public half4(float v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -137,7 +137,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half4 vector from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public half4(in double v)
+        public half4(double v)
         {
             this.x = (half)v;
             this.y = (half)v;
@@ -158,11 +158,11 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single half value to a half4 vector by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator half4(in half v) { return new half4(v); }
+        public static implicit operator half4(half v) { return new half4(v); }
 
         /// <summary>Explicitly converts a single float value to a half4 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half4(in float v) { return new half4(v); }
+        public static explicit operator half4(float v) { return new half4(v); }
 
         /// <summary>Explicitly converts a float4 vector to a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -170,7 +170,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a single double value to a half4 vector by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator half4(in double v) { return new half4(v); }
+        public static explicit operator half4(double v) { return new half4(v); }
 
         /// <summary>Explicitly converts a double4 vector to a half4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -183,11 +183,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on a half4 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (in half4 lhs, in half rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
+        public static bool4 operator == (in half4 lhs, half rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator == (in half lhs, in half4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
+        public static bool4 operator == (half lhs, in half4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half4 vectors.</summary>
@@ -196,11 +196,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise not equal operation on a half4 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (in half4 lhs, in half rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
+        public static bool4 operator != (in half4 lhs, half rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 operator != (in half lhs, in half4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
+        public static bool4 operator != (half lhs, in half4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
 
 
@@ -3115,11 +3115,11 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half4 vector constructed from a single half value by assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half4 half4(in half v) { return new half4(v); }
+        public static half4 half4(half v) { return new half4(v); }
 
         /// <summary>Returns a half4 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half4 half4(in float v) { return new half4(v); }
+        public static half4 half4(float v) { return new half4(v); }
 
         /// <summary>Return a half4 vector constructed from a float4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3127,7 +3127,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half4 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static half4 half4(in double v) { return new half4(v); }
+        public static half4 half4(double v) { return new half4(v); }
 
         /// <summary>Return a half4 vector constructed from a double4 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
