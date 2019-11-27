@@ -1,8 +1,14 @@
-﻿using UnityEngine;
+﻿using NUnit.Framework;
+using Unity.PerformanceTesting;
 
 namespace Unity.Mathematics.PerformanceTests
 {
-    public class MonoBehaviour1 : MonoBehaviour
+    public class Wtf
     {
+        [Test, Performance]
+        public void Foo()
+        {
+        }
+
     }
 }
