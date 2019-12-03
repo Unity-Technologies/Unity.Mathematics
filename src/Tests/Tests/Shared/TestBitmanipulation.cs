@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using static Unity.Mathematics.math;
 using Burst.Compiler.IL.Tests;
-using Unity.PerformanceTesting;
 
 namespace Unity.Mathematics.Tests
 {
@@ -9,20 +8,22 @@ namespace Unity.Mathematics.Tests
     public class TestBitmanipulation
     {
         [TestCompiler]
-        [Performance]
         public static void bitmask_bool4()
         {
-            TestUtils.AreEqual(0b0000, bitmask(new bool4(false, false, false, false)));
-            TestUtils.AreEqual(0b0001, bitmask(new bool4(true, false, false, false)));
-            TestUtils.AreEqual(0b0010, bitmask(new bool4(false, true, false, false)));
-            TestUtils.AreEqual(0b0100, bitmask(new bool4(false, false, true, false)));
-            TestUtils.AreEqual(0b1000, bitmask(new bool4(false, false, false, true)));
+            for (int i = 0; i < 100000; ++i)
+            {
+                TestUtils.AreEqual(0b0000, bitmask(new bool4(false, false, false, false)));
+                TestUtils.AreEqual(0b0001, bitmask(new bool4(true, false, false, false)));
+                TestUtils.AreEqual(0b0010, bitmask(new bool4(false, true, false, false)));
+                TestUtils.AreEqual(0b0100, bitmask(new bool4(false, false, true, false)));
+                TestUtils.AreEqual(0b1000, bitmask(new bool4(false, false, false, true)));
 
-            TestUtils.AreEqual(0b1111, bitmask(new bool4(true, true, true, true)));
-            TestUtils.AreEqual(0b1110, bitmask(new bool4(false, true, true, true)));
-            TestUtils.AreEqual(0b1101, bitmask(new bool4(true, false, true, true)));
-            TestUtils.AreEqual(0b1011, bitmask(new bool4(true, true, false, true)));
-            TestUtils.AreEqual(0b0111, bitmask(new bool4(true, true, true, false)));
+                TestUtils.AreEqual(0b1111, bitmask(new bool4(true, true, true, true)));
+                TestUtils.AreEqual(0b1110, bitmask(new bool4(false, true, true, true)));
+                TestUtils.AreEqual(0b1101, bitmask(new bool4(true, false, true, true)));
+                TestUtils.AreEqual(0b1011, bitmask(new bool4(true, true, false, true)));
+                TestUtils.AreEqual(0b0111, bitmask(new bool4(true, true, true, false)));
+            }
         }
 
         [TestCompiler]

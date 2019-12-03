@@ -41,5 +41,23 @@ namespace Unity.Mathematics.PerformanceTests
                 .MeasurementCount(10)
                 .Run();
         }
+
+        [Test, Performance]
+        public void Quaternion_Quaternion()
+        {
+            var q1 = quaternion.identity;
+            var q2 = quaternion.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        q1 = math.mul(q1, q2);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
     }
 }
