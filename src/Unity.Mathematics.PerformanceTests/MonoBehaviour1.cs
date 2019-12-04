@@ -60,4 +60,26 @@ namespace Unity.Mathematics.PerformanceTests
                 .Run();
         }
     }
+
+    public class Conversions
+    {
+
+        [Test, Performance]
+        public void QuaternionToFloat3x3()
+        {
+            var q1 = quaternion.identity;
+            var f3x3 = new float3x3();
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f3x3 = new float3x3(q1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+    }
 }
