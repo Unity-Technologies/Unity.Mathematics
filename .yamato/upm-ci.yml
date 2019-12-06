@@ -38,7 +38,7 @@ run_tests_on_mono_{{platform.name}}:
   commands:
     - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - {{platform.upm_cmd}} package pack --package-path src/
-    - {{platform.upm_cmd}} package test --package-path src/ --unity-version 2019.3
+    - {{platform.upm_cmd}} project test --project-path Unity.Mathematics.TestProject --unity-version 2019.3 --type project-tests
 {% endunless %}
 {% endfor %}
 
