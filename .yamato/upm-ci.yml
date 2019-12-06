@@ -29,19 +29,16 @@ editor_versions:
 {% for platform in build_platforms %}
 {% unless platform.name == "linux" %}
 run_tests_on_mono_{{platform.name}}:
-  name: Tests NUnit on {{platform.name}}
+  name: Tests upm-ci on {{platform.name}}
   agent:
       name: {{platform.name}}
       type: {{platform.type}}
-      image: {{platform.image}} 
+      image: {{platform.image}}
       flavor: {{platform.flavor}}
   commands:
-  {% if platform.name == "windows" %}
-    - choco install nuget.commandline
-  {% endif %}
-    - nuget restore src
-    - msbuild src/Unity.Mathematics.sln
-    - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
+    - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - {{platform.upm_cmd}} package pack --package-path src/
+    - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
 {% endunless %}
 {% endfor %}
 
