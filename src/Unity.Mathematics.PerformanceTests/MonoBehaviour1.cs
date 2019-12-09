@@ -339,5 +339,41 @@ namespace Unity.Mathematics.PerformanceTests
                 .MeasurementCount(10)
                 .Run();
         }
+
+        [Test, Performance]
+        public void Float4ToHalf4()
+        {
+            var f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
+            var h4 = new half4();
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        h4 = new half4(f4);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Half4ToFloat4()
+        {
+            var f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
+            var h4 = new half4(math.half(1.0f), math.half(2.0f), math.half(3.0f), math.half(4.0f));
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f4 = new float4(h4);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
     }
 }
