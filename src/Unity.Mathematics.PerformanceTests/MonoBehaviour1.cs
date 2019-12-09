@@ -79,7 +79,157 @@ namespace Unity.Mathematics.PerformanceTests
         }
     }
 
-    public class Conversions
+    public class TestInverse
+    {
+        [Test, Performance]
+        public void Float4x4()
+        {
+            var m1 = float4x4.identity;
+            var m2 = float4x4.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Float3x3()
+        {
+            var m1 = float3x3.identity;
+            var m2 = float3x3.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Float2x2()
+        {
+            var m1 = float2x2.identity;
+            var m2 = float2x2.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Double4x4()
+        {
+            var m1 = double4x4.identity;
+            var m2 = double4x4.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Double3x3()
+        {
+            var m1 = double3x3.identity;
+            var m2 = double3x3.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Double2x2()
+        {
+            var m1 = double2x2.identity;
+            var m2 = double2x2.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.inverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+    }
+
+    public class TestFastInverse
+    {
+        [Test, Performance]
+        public void Float4x4()
+        {
+            var m1 = float4x4.identity;
+            var m2 = float4x4.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.fastinverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Double4x4()
+        {
+            var m1 = double4x4.identity;
+            var m2 = double4x4.identity;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2 = math.fastinverse(m1);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+    }
+
+    public class TestConversions
     {
         [Test, Performance]
         public void QuaternionToFloat3x3()
@@ -165,6 +315,24 @@ namespace Unity.Mathematics.PerformanceTests
                     for (int i = 0; i < 10000; ++i)
                     {
                         u4 = math.asuint(f4);
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void Uint4ToFloat4()
+        {
+            var f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
+            var u4 = new uint4();
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f4 = math.asfloat(u4);
                     }
                 })
                 .WarmupCount(1)
