@@ -26,10 +26,9 @@ editor_versions:
   - version: "trunk"
 ---
 
-{% for editor in editor_versions %}
 {% for platform in build_platforms %}
 {% unless platform.name == "linux" %}
-run_tests_on_mono_{{platform.name}}_{{editor.version}}:
+run_tests_on_mono_{{platform.name}}:
   name: Tests upm-ci on {{platform.name}}
   agent:
       name: {{platform.name}}
@@ -39,9 +38,8 @@ run_tests_on_mono_{{platform.name}}_{{editor.version}}:
   commands:
     - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - {{platform.upm_cmd}} package pack --package-path src/
-    - {{platform.upm_cmd}} project test --project-path Unity.Mathematics.TestProject --unity-version {{editor.version}} --type project-tests
+    - {{platform.upm_cmd}} project test --project-path Unity.Mathematics.TestProject --unity-version 2019.3 --type project-tests
 {% endunless %}
-{% endfor %}
 {% endfor %}
 
 validate_package_minimal:
@@ -60,12 +58,10 @@ validate_package_minimal:
       paths:
         - "upm-ci~/packages/**/*"
   dependencies:
-    {% for editor in editor_versions %}
     {% for platform in build_platforms %}
     {% unless platform.name == "linux" %}
-    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}_{{editor.version}}
+    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
     {% endunless %}
-    {% endfor %}
     {% endfor %}
 
   {% for platform in build_platforms %}
@@ -91,7 +87,7 @@ validate_package_{{platform.name}}_{{editor.version}}:
   dependencies:
     {% for platform in build_platforms %}
     {% unless platform.name == "linux" %}
-    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}_{{editor.version}}
+    - .yamato/upm-ci.yml#run_tests_on_mono_{{platform.name}}
     {% endunless %}
     {% endfor %}
   {% endfor %}
