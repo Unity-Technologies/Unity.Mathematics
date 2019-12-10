@@ -7,6 +7,9 @@
     "keywords": [
         "unity"
     ],
+    "dependencies": {
+      "com.unity.test-framework.performance": "2.0.3-preview"
+    },
     "repository": {
         "type": "git",
         "url": "https://github.com/Unity-Technologies/Unity.Mathematics",
