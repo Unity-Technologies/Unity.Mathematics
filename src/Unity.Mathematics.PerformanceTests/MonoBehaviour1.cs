@@ -475,5 +475,41 @@ namespace Unity.Mathematics.PerformanceTests
                 .MeasurementCount(10)
                 .Run();
         }
+
+        [Test, Performance]
+        public void NextUInt2()
+        {
+            var rng = new Unity.Mathematics.Random(1);
+            uint2 u;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u = rng.NextUInt2();
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [Test, Performance]
+        public void NextUInt3()
+        {
+            var rng = new Unity.Mathematics.Random(1);
+            uint3 u;
+
+            Measure.Method(() =>
+                {
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u = rng.NextUInt3();
+                    }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
     }
 }
