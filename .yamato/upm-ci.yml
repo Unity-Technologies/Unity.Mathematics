@@ -1,7 +1,7 @@
 build_platforms:
   - name: windows
     type: Unity::VM
-    image: sdet/burst-devimage:stable
+    image: package-ci:stable
     flavor: b1.large
     npm_cmd: "npm"
     upm_cmd: "upm-ci"
@@ -12,7 +12,7 @@ build_platforms:
     npm_cmd: "npm"
     upm_cmd: "DISPLAY=:0.0 upm-ci"
   - name: macOS
-    image: burst/burst_mac:stable
+    image: package-ci:stable
     type: Unity::VM::osx
     flavor: m1.mac
     npm_cmd: "npm"
