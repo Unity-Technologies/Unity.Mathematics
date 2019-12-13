@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
+using Unity.Burst;
 
 namespace Unity.Mathematics.PerformanceTests
 {
@@ -72,6 +73,38 @@ namespace Unity.Mathematics.PerformanceTests
                     {
                         m1 = math.mul(m1, m2);
                     }
+                })
+                .WarmupCount(1)
+                .MeasurementCount(10)
+                .Run();
+        }
+
+        [BurstCompile]
+        public class BurstFunctionPtr
+        {
+            [BurstCompile]
+            public static void Float4x4_Float4x4_burst(ref float4x4 m1)
+            {
+                var m2 = float4x4.identity;
+
+                for (int i = 0; i < 10000; ++i)
+                {
+                    m1 = math.mul(m1, m2);
+                }
+            }
+
+            public delegate void BurstedPerfTest(ref float4x4 m1);
+        }
+
+        [Test, Performance]
+        public void Float4x4_Float4x4_burst()
+        {
+            FunctionPointer<BurstFunctionPtr.BurstedPerfTest> functionPointer = BurstCompiler.CompileFunctionPointer<BurstFunctionPtr.BurstedPerfTest>(BurstFunctionPtr.Float4x4_Float4x4_burst);
+            var m1 = float4x4.identity;
+
+            Measure.Method(() =>
+                {
+                    functionPointer.Invoke(ref m1);
                 })
                 .WarmupCount(1)
                 .MeasurementCount(10)

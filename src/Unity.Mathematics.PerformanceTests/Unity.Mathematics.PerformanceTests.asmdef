@@ -2,7 +2,8 @@
     "name": "Unity.Mathematics.PerformanceTests",
     "references": [
         "Unity.Mathematics",
-        "Unity.PerformanceTesting"
+        "Unity.PerformanceTesting",
+        "Unity.Burst"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.burst": "1.1.2",
     "com.unity.ide.rider": "1.1.0",
     "com.unity.ide.vscode": "1.1.2",
     "com.unity.mathematics": "file:../../src",
