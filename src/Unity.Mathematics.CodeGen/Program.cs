@@ -10,7 +10,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         public static void Main (string[] args)
         {
             Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US");
-         
+
             var thisExeDir = Path.GetDirectoryName(typeof(MainClass).Assembly.Location);
             if (thisExeDir == null)
             {
@@ -34,14 +34,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 throw new InvalidOperationException($"The directory `{implementationDirectory.FullName}` must exist");
             }
 
-            var testDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Unity.Mathematics.Tests/Tests/Shared"));
-            if (!implementationDirectory.Exists)
+            var testDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Tests/Tests/Shared"));
+            if (!testDirectory.Exists)
             {
                 throw new InvalidOperationException($"The directory `{testDirectory.FullName}` must exist");
             }
 
+            var performanceTestDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Unity.Mathematics.PerformanceTests"));
+            if (!performanceTestDirectory.Exists)
+            {
+                throw new InvalidOperationException($"The directory `{performanceTestDirectory.FullName}` must exist");
+            }
+
             Console.WriteLine("Generating swizzle and operators: " + directory);
-            VectorGenerator.Write(implementationDirectory.FullName, testDirectory.FullName);
+            VectorGenerator.Write(implementationDirectory.FullName, testDirectory.FullName, performanceTestDirectory.FullName);
             Console.WriteLine("Done");
         }
     }
