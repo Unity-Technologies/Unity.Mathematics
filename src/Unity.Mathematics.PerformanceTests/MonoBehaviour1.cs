@@ -64,15 +64,12 @@ namespace Unity.Mathematics.PerformanceTests
         [Test, Performance]
         public void Float4x4_Float4x4()
         {
+            TestMul_float4x4_float4x4.TestFunction testFunction = TestMul_float4x4_float4x4.MonoTestFunction;
             var m1 = float4x4.identity;
-            var m2 = float4x4.identity;
 
             Measure.Method(() =>
                 {
-                    for (int i = 0; i < 10000; ++i)
-                    {
-                        m1 = math.mul(m1, m2);
-                    }
+                    testFunction.Invoke(ref m1);
                 })
                 .WarmupCount(1)
                 .MeasurementCount(10)
@@ -80,10 +77,9 @@ namespace Unity.Mathematics.PerformanceTests
         }
 
         [BurstCompile]
-        public class BurstFunctionPtr
+        public class TestMul_float4x4_float4x4
         {
-            [BurstCompile]
-            public static void Float4x4_Float4x4_burst(ref float4x4 m1)
+            public static void CommonTestFunction(ref float4x4 m1)
             {
                 var m2 = float4x4.identity;
 
@@ -93,18 +89,29 @@ namespace Unity.Mathematics.PerformanceTests
                 }
             }
 
-            public delegate void BurstedPerfTest(ref float4x4 m1);
+            public static void MonoTestFunction(ref float4x4 m1)
+            {
+                CommonTestFunction(ref m1);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref float4x4 m1)
+            {
+                CommonTestFunction(ref m1);
+            }
+
+            public delegate void TestFunction(ref float4x4 m1);
         }
 
         [Test, Performance]
         public void Float4x4_Float4x4_burst()
         {
-            FunctionPointer<BurstFunctionPtr.BurstedPerfTest> functionPointer = BurstCompiler.CompileFunctionPointer<BurstFunctionPtr.BurstedPerfTest>(BurstFunctionPtr.Float4x4_Float4x4_burst);
+            FunctionPointer<TestMul_float4x4_float4x4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_float4x4_float4x4.TestFunction>(TestMul_float4x4_float4x4.BurstTestFunction);
             var m1 = float4x4.identity;
 
             Measure.Method(() =>
                 {
-                    functionPointer.Invoke(ref m1);
+                    testFunction.Invoke(ref m1);
                 })
                 .WarmupCount(1)
                 .MeasurementCount(10)
