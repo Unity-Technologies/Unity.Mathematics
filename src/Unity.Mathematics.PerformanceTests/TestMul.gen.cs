@@ -18,39 +18,39 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile]
         public class TestMul_float4x4_float4x4
         {
-            public static void CommonTestFunction(ref float4x4 m1)
+            public static void CommonTestFunction(ref float4x4 m2)
             {
-                var m2 = float4x4.identity;
+                var m1 = float4x4.identity;
 
                 for (int i = 0; i < 10000; ++i)
                 {
-                    m1 = math.mul(m1, m2);
+                    m2 = math.mul(m1, m2);
                 }
             }
 
-            public static void MonoTestFunction(ref float4x4 m1)
+            public static void MonoTestFunction(ref float4x4 m2)
             {
-                CommonTestFunction(ref m1);
+                CommonTestFunction(ref m2);
             }
 
             [BurstCompile]
-            public static void BurstTestFunction(ref float4x4 m1)
+            public static void BurstTestFunction(ref float4x4 m2)
             {
-                CommonTestFunction(ref m1);
+                CommonTestFunction(ref m2);
             }
 
-            public delegate void TestFunction(ref float4x4 m1);
+            public delegate void TestFunction(ref float4x4 m2);
         }
 
         [Test, Performance]
         public void float4x4_float4x4_mono()
         {
             TestMul_float4x4_float4x4.TestFunction testFunction = TestMul_float4x4_float4x4.MonoTestFunction;
-            var m1 = float4x4.identity;
+            var m2 = float4x4.identity;
 
             Measure.Method(() =>
             {
-                testFunction.Invoke(ref m1);
+                testFunction.Invoke(ref m2);
             })
             .WarmupCount(1)
             .MeasurementCount(10)
@@ -61,11 +61,67 @@ namespace Unity.Mathematics.PerformanceTests
         public void float4x4_float4x4_burst()
         {
             FunctionPointer<TestMul_float4x4_float4x4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_float4x4_float4x4.TestFunction>(TestMul_float4x4_float4x4.BurstTestFunction);
-            var m1 = float4x4.identity;
+            var m2 = float4x4.identity;
 
             Measure.Method(() =>
             {
-                testFunction.Invoke(ref m1);
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class TestMul_float4x4_float4
+        {
+            public static void CommonTestFunction(ref float4 m2)
+            {
+                var m1 = float4x4.identity;
+
+                for (int i = 0; i < 10000; ++i)
+                {
+                    m2 = math.mul(m1, m2);
+                }
+            }
+
+            public static void MonoTestFunction(ref float4 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref float4 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            public delegate void TestFunction(ref float4 m2);
+        }
+
+        [Test, Performance]
+        public void float4x4_float4_mono()
+        {
+            TestMul_float4x4_float4.TestFunction testFunction = TestMul_float4x4_float4.MonoTestFunction;
+            var m2 = new float4(1.0f, 0.0f, 0.0f, 1.0f);
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void float4x4_float4_burst()
+        {
+            FunctionPointer<TestMul_float4x4_float4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_float4x4_float4.TestFunction>(TestMul_float4x4_float4.BurstTestFunction);
+            var m2 = new float4(1.0f, 0.0f, 0.0f, 1.0f);
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
             })
             .WarmupCount(1)
             .MeasurementCount(10)

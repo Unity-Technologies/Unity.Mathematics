@@ -2897,7 +2897,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("    {\n");
 
             // Two indents
-            GenerateMulPerformanceTest(str, "float4x4", "float4x4");
+            GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4x4", "float4x4.identity");
+            GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4", "new float4(1.0f, 0.0f, 0.0f, 1.0f)");
 
             str.Append("    }\n");
 
@@ -2905,40 +2906,40 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("}\n");
         }
 
-        void GenerateMulPerformanceTest(StringBuilder stringBuilder, string leftType, string rightType)
+        void GenerateMulPerformanceTest(StringBuilder stringBuilder, string leftType, string leftVarInitializer, string rightType, string rightVarInitializer)
         {
             stringBuilder.AppendFormat("        [BurstCompile]\n");
             stringBuilder.AppendFormat("        public class TestMul_{0}_{1}\n", leftType, rightType);
             stringBuilder.AppendFormat("        {{\n");
-            stringBuilder.AppendFormat("            public static void CommonTestFunction(ref {0} m1)\n", leftType);
+            stringBuilder.AppendFormat("            public static void CommonTestFunction(ref {0} m2)\n", rightType);
             stringBuilder.AppendFormat("            {{\n");
-            stringBuilder.AppendFormat("                var m2 = {0}.identity;\n", rightType);
+            stringBuilder.AppendFormat("                var m1 = {0};\n", leftVarInitializer);
             stringBuilder.AppendFormat("\n");
             stringBuilder.AppendFormat("                for (int i = 0; i < 10000; ++i)\n");
             stringBuilder.AppendFormat("                {{\n");
-            stringBuilder.AppendFormat("                    m1 = math.mul(m1, m2);\n");
+            stringBuilder.AppendFormat("                    m2 = math.mul(m1, m2);\n");
             stringBuilder.AppendFormat("                }}\n");
             stringBuilder.AppendFormat("            }}\n\n");
-            stringBuilder.AppendFormat("            public static void MonoTestFunction(ref {0} m1)\n", leftType);
+            stringBuilder.AppendFormat("            public static void MonoTestFunction(ref {0} m2)\n", rightType);
             stringBuilder.AppendFormat("            {{\n");
-            stringBuilder.AppendFormat("                CommonTestFunction(ref m1);\n");
+            stringBuilder.AppendFormat("                CommonTestFunction(ref m2);\n");
             stringBuilder.AppendFormat("            }}\n\n");
             stringBuilder.AppendFormat("            [BurstCompile]\n");
-            stringBuilder.AppendFormat("            public static void BurstTestFunction(ref {0} m1)\n", leftType);
+            stringBuilder.AppendFormat("            public static void BurstTestFunction(ref {0} m2)\n", rightType);
             stringBuilder.AppendFormat("            {{\n");
-            stringBuilder.AppendFormat("                CommonTestFunction(ref m1);\n");
+            stringBuilder.AppendFormat("                CommonTestFunction(ref m2);\n");
             stringBuilder.AppendFormat("            }}\n\n");
-            stringBuilder.AppendFormat("            public delegate void TestFunction(ref {0} m1);\n", leftType);
+            stringBuilder.AppendFormat("            public delegate void TestFunction(ref {0} m2);\n", rightType);
             stringBuilder.AppendFormat("        }}\n\n");
             stringBuilder.AppendFormat("        [Test, Performance]\n");
             stringBuilder.AppendFormat("        public void {0}_{1}_mono()\n", leftType, rightType);
             stringBuilder.AppendFormat("        {{\n");
             stringBuilder.AppendFormat("            TestMul_{0}_{1}.TestFunction testFunction = TestMul_{0}_{1}.MonoTestFunction;\n", leftType, rightType);
-            stringBuilder.AppendFormat("            var m1 = {0}.identity;\n", leftType);
+            stringBuilder.AppendFormat("            var m2 = {0};\n", rightVarInitializer);
             stringBuilder.AppendFormat("\n");
             stringBuilder.AppendFormat("            Measure.Method(() =>\n");
             stringBuilder.AppendFormat("            {{\n");
-            stringBuilder.AppendFormat("                testFunction.Invoke(ref m1);\n");
+            stringBuilder.AppendFormat("                testFunction.Invoke(ref m2);\n");
             stringBuilder.AppendFormat("            }})\n");
             stringBuilder.AppendFormat("            .WarmupCount(1)\n");
             stringBuilder.AppendFormat("            .MeasurementCount(10)\n");
@@ -2948,11 +2949,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             stringBuilder.AppendFormat("        public void {0}_{1}_burst()\n", leftType, rightType);
             stringBuilder.AppendFormat("        {{\n");
             stringBuilder.AppendFormat("            FunctionPointer<TestMul_{0}_{1}.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_{0}_{1}.TestFunction>(TestMul_{0}_{1}.BurstTestFunction);\n", leftType, rightType);
-            stringBuilder.AppendFormat("            var m1 = {0}.identity;\n", leftType);
+            stringBuilder.AppendFormat("            var m2 = {0};\n", rightVarInitializer);
             stringBuilder.AppendFormat("\n");
             stringBuilder.AppendFormat("            Measure.Method(() =>\n");
             stringBuilder.AppendFormat("            {{\n");
-            stringBuilder.AppendFormat("                testFunction.Invoke(ref m1);\n");
+            stringBuilder.AppendFormat("                testFunction.Invoke(ref m2);\n");
             stringBuilder.AppendFormat("            }})\n");
             stringBuilder.AppendFormat("            .WarmupCount(1)\n");
             stringBuilder.AppendFormat("            .MeasurementCount(10)\n");
