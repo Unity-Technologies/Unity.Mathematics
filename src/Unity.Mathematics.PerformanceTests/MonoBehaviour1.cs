@@ -5,7 +5,7 @@ using Unity.Burst;
 
 namespace Unity.Mathematics.PerformanceTests
 {
-    public class TestMul
+    public partial class TestMul
     {
         [Test, Performance]
         public void Float4x4_Float4()
@@ -61,6 +61,7 @@ namespace Unity.Mathematics.PerformanceTests
                 .Run();
         }
 
+        /*
         [Test, Performance]
         public void Float4x4_Float4x4()
         {
@@ -117,6 +118,7 @@ namespace Unity.Mathematics.PerformanceTests
                 .MeasurementCount(10)
                 .Run();
         }
+        */
     }
 
     public class TestInverse
