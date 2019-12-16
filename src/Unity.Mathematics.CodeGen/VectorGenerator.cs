@@ -2898,7 +2898,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("}}\n");
         }
 
-        void GenerateTestMulPerformanceTests(StringBuilder str)
+        void GenerateMulPerformanceTests(StringBuilder str)
         {
             BeginPerformanceTestCodeGen(str, "TestMul");
 
@@ -2930,6 +2930,38 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
                 new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "m2", m_MemberInitializer = "new float2(1.0f, 0.0f)" },
             }, "args.m2 = math.mul(args.m1, args.m2);");
+
+            EndPerformanceTestCodeGen(str);
+        }
+
+        void GenerateInversePerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestInverse");
+
+            GeneratePerformanceTest(str, "float4x4_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m2", m_MemberInitializer = "float4x4.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
+            GeneratePerformanceTest(str, "float3x3_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m2", m_MemberInitializer = "float3x3.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
+            GeneratePerformanceTest(str, "float2x2_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m2", m_MemberInitializer = "float2x2.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
+            GeneratePerformanceTest(str, "double4x4_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m1", m_MemberInitializer = "double4x4.identity" },
+                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m2", m_MemberInitializer = "double4x4.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
+            GeneratePerformanceTest(str, "double3x3_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m1", m_MemberInitializer = "double3x3.identity" },
+                new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m2", m_MemberInitializer = "double3x3.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
+            GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m1", m_MemberInitializer = "double2x2.identity" },
+                new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m2", m_MemberInitializer = "double2x2.identity" },
+            }, "args.m1 = math.inverse(args.m2);");
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3020,8 +3052,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         void WritePerformanceTests()
         {
             StringBuilder testMulStr = new StringBuilder();
-            GenerateTestMulPerformanceTests(testMulStr);
+            GenerateMulPerformanceTests(testMulStr);
             WriteFile(m_PerformanceTestDirectory + "/TestMul.gen.cs", testMulStr.ToString());
+
+            StringBuilder inverseStr = new StringBuilder();
+            GenerateInversePerformanceTests(inverseStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
         }
     }
 }
