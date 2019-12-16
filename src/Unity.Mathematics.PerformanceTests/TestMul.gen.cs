@@ -127,5 +127,173 @@ namespace Unity.Mathematics.PerformanceTests
             .MeasurementCount(10)
             .Run();
         }
+        [BurstCompile]
+        public class TestMul_quaternion_quaternion
+        {
+            public static void CommonTestFunction(ref quaternion m2)
+            {
+                var m1 = quaternion.identity;
+
+                for (int i = 0; i < 10000; ++i)
+                {
+                    m2 = math.mul(m1, m2);
+                }
+            }
+
+            public static void MonoTestFunction(ref quaternion m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref quaternion m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            public delegate void TestFunction(ref quaternion m2);
+        }
+
+        [Test, Performance]
+        public void quaternion_quaternion_mono()
+        {
+            TestMul_quaternion_quaternion.TestFunction testFunction = TestMul_quaternion_quaternion.MonoTestFunction;
+            var m2 = quaternion.identity;
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void quaternion_quaternion_burst()
+        {
+            FunctionPointer<TestMul_quaternion_quaternion.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_quaternion_quaternion.TestFunction>(TestMul_quaternion_quaternion.BurstTestFunction);
+            var m2 = quaternion.identity;
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class TestMul_float3x3_float3
+        {
+            public static void CommonTestFunction(ref float3 m2)
+            {
+                var m1 = float3x3.identity;
+
+                for (int i = 0; i < 10000; ++i)
+                {
+                    m2 = math.mul(m1, m2);
+                }
+            }
+
+            public static void MonoTestFunction(ref float3 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref float3 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            public delegate void TestFunction(ref float3 m2);
+        }
+
+        [Test, Performance]
+        public void float3x3_float3_mono()
+        {
+            TestMul_float3x3_float3.TestFunction testFunction = TestMul_float3x3_float3.MonoTestFunction;
+            var m2 = new float3(1.0f, 0.0f, 0.0f);
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void float3x3_float3_burst()
+        {
+            FunctionPointer<TestMul_float3x3_float3.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_float3x3_float3.TestFunction>(TestMul_float3x3_float3.BurstTestFunction);
+            var m2 = new float3(1.0f, 0.0f, 0.0f);
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class TestMul_float2x2_float2x2
+        {
+            public static void CommonTestFunction(ref float2x2 m2)
+            {
+                var m1 = float2x2.identity;
+
+                for (int i = 0; i < 10000; ++i)
+                {
+                    m2 = math.mul(m1, m2);
+                }
+            }
+
+            public static void MonoTestFunction(ref float2x2 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref float2x2 m2)
+            {
+                CommonTestFunction(ref m2);
+            }
+
+            public delegate void TestFunction(ref float2x2 m2);
+        }
+
+        [Test, Performance]
+        public void float2x2_float2x2_mono()
+        {
+            TestMul_float2x2_float2x2.TestFunction testFunction = TestMul_float2x2_float2x2.MonoTestFunction;
+            var m2 = float2x2.identity;
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void float2x2_float2x2_burst()
+        {
+            FunctionPointer<TestMul_float2x2_float2x2.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<TestMul_float2x2_float2x2.TestFunction>(TestMul_float2x2_float2x2.BurstTestFunction);
+            var m2 = float2x2.identity;
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref m2);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
     }
 }

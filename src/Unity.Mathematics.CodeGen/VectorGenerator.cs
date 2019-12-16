@@ -2880,9 +2880,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n}\n");
         }
 
-        int m_IndentSpaces = 0;
-
-
         void GenerateTestMulPerformanceTests(StringBuilder str)
         {
             str.Append("using System;\n");
@@ -2899,6 +2896,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Two indents
             GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4x4", "float4x4.identity");
             GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4", "new float4(1.0f, 0.0f, 0.0f, 1.0f)");
+            GenerateMulPerformanceTest(str, "quaternion", "quaternion.identity", "quaternion", "quaternion.identity");
+            GenerateMulPerformanceTest(str, "float3x3", "float3x3.identity", "float3", "new float3(1.0f, 0.0f, 0.0f)");
+            GenerateMulPerformanceTest(str, "float2x2", "float2x2.identity", "float2x2", "float2x2.identity");
 
             str.Append("    }\n");
 
