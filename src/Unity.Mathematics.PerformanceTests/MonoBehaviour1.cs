@@ -5,45 +5,6 @@ using Unity.Burst;
 
 namespace Unity.Mathematics.PerformanceTests
 {
-    public class TestFastInverse
-    {
-        [Test, Performance]
-        public void Float4x4()
-        {
-            var m1 = float4x4.identity;
-            var m2 = float4x4.identity;
-
-            Measure.Method(() =>
-                {
-                    for (int i = 0; i < 10000; ++i)
-                    {
-                        m2 = math.fastinverse(m1);
-                    }
-                })
-                .WarmupCount(1)
-                .MeasurementCount(10)
-                .Run();
-        }
-
-        [Test, Performance]
-        public void Double4x4()
-        {
-            var m1 = double4x4.identity;
-            var m2 = double4x4.identity;
-
-            Measure.Method(() =>
-                {
-                    for (int i = 0; i < 10000; ++i)
-                    {
-                        m2 = math.fastinverse(m1);
-                    }
-                })
-                .WarmupCount(1)
-                .MeasurementCount(10)
-                .Run();
-        }
-    }
-
     public class TestConversions
     {
         [Test, Performance]

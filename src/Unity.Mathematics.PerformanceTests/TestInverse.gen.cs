@@ -21,12 +21,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public float4x4 m1;
-                public float4x4 m2;
 
                 public void Init()
                 {
                     m1 = float4x4.identity;
-                    m2 = float4x4.identity;
                 }
             }
 
@@ -34,7 +32,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
@@ -89,12 +87,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public float3x3 m1;
-                public float3x3 m2;
 
                 public void Init()
                 {
                     m1 = float3x3.identity;
-                    m2 = float3x3.identity;
                 }
             }
 
@@ -102,7 +98,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
@@ -157,12 +153,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public float2x2 m1;
-                public float2x2 m2;
 
                 public void Init()
                 {
                     m1 = float2x2.identity;
-                    m2 = float2x2.identity;
                 }
             }
 
@@ -170,7 +164,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
@@ -225,12 +219,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public double4x4 m1;
-                public double4x4 m2;
 
                 public void Init()
                 {
                     m1 = double4x4.identity;
-                    m2 = double4x4.identity;
                 }
             }
 
@@ -238,7 +230,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
@@ -293,12 +285,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public double3x3 m1;
-                public double3x3 m2;
 
                 public void Init()
                 {
                     m1 = double3x3.identity;
-                    m2 = double3x3.identity;
                 }
             }
 
@@ -306,7 +296,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
@@ -361,12 +351,10 @@ namespace Unity.Mathematics.PerformanceTests
             public struct Arguments
             {
                 public double2x2 m1;
-                public double2x2 m2;
 
                 public void Init()
                 {
                     m1 = double2x2.identity;
-                    m2 = double2x2.identity;
                 }
             }
 
@@ -374,7 +362,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.inverse(args.m2);
+                    args.m1 = math.inverse(args.m1);
                 }
             }
 
