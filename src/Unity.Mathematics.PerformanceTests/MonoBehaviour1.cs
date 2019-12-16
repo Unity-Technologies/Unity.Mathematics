@@ -5,7 +5,7 @@ using Unity.Burst;
 
 namespace Unity.Mathematics.PerformanceTests
 {
-    public class TestConversions
+    public partial class TestConversions
     {
         [Test, Performance]
         public void QuaternionToFloat3x3()

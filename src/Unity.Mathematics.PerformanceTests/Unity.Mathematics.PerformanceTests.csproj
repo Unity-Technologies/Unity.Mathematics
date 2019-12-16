@@ -43,6 +43,10 @@
   <ItemGroup>
     <Compile Include="MonoBehaviour1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TestConversions.gen.cs" />
+    <Compile Include="TestFastInverse.gen.cs" />
+    <Compile Include="TestInverse.gen.cs" />
+    <Compile Include="TestMul.gen.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Unity.Mathematics\Unity.Mathematics.csproj">

@@ -10,6 +10,7 @@ using System;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 using Unity.Burst;
+using Unity.Collections;
 
 namespace Unity.Mathematics.PerformanceTests
 {
@@ -25,6 +26,10 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = float4x4.identity;
+                }
+
+                public void Dispose()
+                {
                 }
             }
 
@@ -64,6 +69,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -80,6 +86,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
         public class double4x4_fastinverse
@@ -91,6 +98,10 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = double4x4.identity;
+                }
+
+                public void Dispose()
+                {
                 }
             }
 
@@ -130,6 +141,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -146,6 +158,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
     }
 }

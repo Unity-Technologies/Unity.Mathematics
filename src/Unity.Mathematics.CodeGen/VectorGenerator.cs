@@ -2885,7 +2885,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("using System;\n");
             str.AppendFormat("using NUnit.Framework;\n");
             str.AppendFormat("using Unity.PerformanceTesting;\n");
-            str.AppendFormat("using Unity.Burst;\n\n");
+            str.AppendFormat("using Unity.Burst;\n");
+            str.AppendFormat("using Unity.Collections;\n\n");
             str.AppendFormat("namespace Unity.Mathematics.PerformanceTests\n");
             str.AppendFormat("{{\n");
             str.AppendFormat("    public partial class {0}\n", testSuiteName);
@@ -2905,31 +2906,31 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "float4x4_float4x4", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m2", m_MemberInitializer = "float4x4.identity" },
-            }, "args.m1 = math.mul(args.m1, args.m2);");
+            }, "args.m1 = math.mul(args.m1, args.m2);", 10000);
             GeneratePerformanceTest(str, "float4x4_float4", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
                 new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "m2", m_MemberInitializer = "new float4(1.0f, 0.0f, 0.0f, 1.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);");
+            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
             GeneratePerformanceTest(str, "quaternion_quaternion", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q1", m_MemberInitializer = "quaternion.identity" },
                 new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q2", m_MemberInitializer = "quaternion.identity" },
-            }, "args.q2 = math.mul(args.q1, args.q2);");
+            }, "args.q2 = math.mul(args.q1, args.q2);", 10000);
             GeneratePerformanceTest(str, "float3x3_float3x3", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
                 new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m2", m_MemberInitializer = "float3x3.identity" },
-            }, "args.m2 = math.mul(args.m1, args.m2);");
+            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
             GeneratePerformanceTest(str, "float2x2_float2x2", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
                 new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m2", m_MemberInitializer = "float2x2.identity" },
-            }, "args.m2 = math.mul(args.m1, args.m2);");
+            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
             GeneratePerformanceTest(str, "float3x3_float3", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
                 new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "m2", m_MemberInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);");
+            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
             GeneratePerformanceTest(str, "float2x2_float2", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
                 new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "m2", m_MemberInitializer = "new float2(1.0f, 0.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);");
+            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -2940,22 +2941,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "float4x4_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "float3x3_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "float2x2_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "double4x4_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m1", m_MemberInitializer = "double4x4.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "double3x3_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m1", m_MemberInitializer = "double3x3.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m1", m_MemberInitializer = "double2x2.identity" },
-            }, "args.m1 = math.inverse(args.m1);");
+            }, "args.m1 = math.inverse(args.m1);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -2966,10 +2967,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "float4x4_fastinverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
-            }, "args.m1 = math.fastinverse(args.m1);");
+            }, "args.m1 = math.fastinverse(args.m1);", 10000);
             GeneratePerformanceTest(str, "double4x4_fastinverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m1", m_MemberInitializer = "double4x4.identity" },
-            }, "args.m1 = math.fastinverse(args.m1);");
+            }, "args.m1 = math.fastinverse(args.m1);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
+        void GenerateConversionPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestConversions");
+
+            GeneratePerformanceTest(str, "quaternion_to_float3x3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "NativeArray<quaternion>", m_MemberName = "q", m_MemberInitializer = "new NativeArray<quaternion>(10000, Allocator.Persistent)", m_MemberHasDispose = true },
+                new PerformanceTestArgument { m_MemberType = "NativeArray<float3x3>", m_MemberName = "f3x3", m_MemberInitializer = "new NativeArray<float3x3>(10000, Allocator.Persistent)", m_MemberHasDispose = true },
+            }, "args.f3x3[i] = new float3x3(args.q[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -2979,9 +2992,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             public string m_MemberType;
             public string m_MemberName;
             public string m_MemberInitializer;
+            public bool m_MemberHasDispose;
         }
 
-        void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArgument[] testArguments, string loopBody)
+        void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArgument[] testArguments, string loopBody, int loopIterations)
         {
             str.AppendFormat("        [BurstCompile]\n");
             str.AppendFormat("        public class {0}\n", testName);
@@ -3003,13 +3017,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.AppendFormat("                    {0} = {1};\n", argument.m_MemberName, argument.m_MemberInitializer);
             }
 
+            str.AppendFormat("                }}\n\n");
+            str.AppendFormat("                public void Dispose()\n");
+            str.AppendFormat("                {{\n");
+
+            foreach (var argument in testArguments)
+            {
+                if (argument.m_MemberHasDispose)
+                {
+                    str.AppendFormat("                    {0}.Dispose();\n", argument.m_MemberName);
+                }
+            }
+
             str.AppendFormat("                }}\n");
             str.AppendFormat("            }}\n");
             str.AppendFormat("\n");
 
             str.AppendFormat("            public static void CommonTestFunction(ref Arguments args)\n");
             str.AppendFormat("            {{\n");
-            str.AppendFormat("                for (int i = 0; i < 10000; ++i)\n");
+            str.AppendFormat("                for (int i = 0; i < {0}; ++i)\n", loopIterations);
             str.AppendFormat("                {{\n");
             str.AppendFormat("                    {0}\n", loopBody);
             str.AppendFormat("                }}\n");
@@ -3039,6 +3065,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
+            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n\n");
             str.AppendFormat("        [Test, Performance]\n");
             str.AppendFormat("        public void {0}_burst()\n", testName);
@@ -3054,6 +3081,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
+            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n");
         }
 
@@ -3070,6 +3098,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder fastInverseStr = new StringBuilder();
             GenerateFastInversePerformanceTests(fastInverseStr);
             WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
+
+            StringBuilder conversionStr = new StringBuilder();
+            GenerateConversionPerformanceTests(conversionStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
         }
     }
 }
