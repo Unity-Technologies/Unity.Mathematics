@@ -67,23 +67,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_equal_wide_wide()
         {
-            uint4 a0 = uint4(790229414, 970783976, 1428432738, 1578747135);
-            uint4 b0 = uint4(612337669, 1214209108, 2120643427, 295461214);
+            uint4 a0 = uint4(1769459654, 197796492, 154243692, 952126595);
+            uint4 b0 = uint4(179132783, 1978336870, 1626004111, 424899921);
             bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            uint4 a1 = uint4(1733797753, 2001507228, 1446876437, 1777406370);
-            uint4 b1 = uint4(1510890331, 1893316566, 921816149, 1834958575);
+            uint4 a1 = uint4(689725190, 1225413740, 459892608, 693366823);
+            uint4 b1 = uint4(1894146793, 91777081, 256037971, 669679301);
             bool4 r1 = bool4(false, false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            uint4 a2 = uint4(1426387268, 1809275021, 1843770816, 1172185222);
-            uint4 b2 = uint4(1482011863, 2062852792, 226398742, 770290735);
+            uint4 a2 = uint4(1165697239, 2083074615, 1615698985, 1813156614);
+            uint4 b2 = uint4(1054971930, 362624852, 1293267305, 143644847);
             bool4 r2 = bool4(false, false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            uint4 a3 = uint4(1469608940, 869874758, 458603090, 581282460);
-            uint4 b3 = uint4(36812057, 543224481, 1565350150, 1909926604);
+            uint4 a3 = uint4(1222331884, 987584254, 22766760, 2058182171);
+            uint4 b3 = uint4(1825864659, 201852545, 776009920, 1868835168);
             bool4 r3 = bool4(false, false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -91,23 +91,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_equal_wide_scalar()
         {
-            uint4 a0 = uint4(1211464300, 1921862607, 508076684, 1249127920);
-            uint b0 = (746972502);
+            uint4 a0 = uint4(1759724257, 1997468592, 143140702, 1756461805);
+            uint b0 = (1791891760);
             bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            uint4 a1 = uint4(1394594555, 1733655277, 1884008277, 1682018538);
-            uint b1 = (746862310);
+            uint4 a1 = uint4(1986782555, 238163080, 1864507830, 2008027469);
+            uint b1 = (1196177899);
             bool4 r1 = bool4(false, false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            uint4 a2 = uint4(795585660, 927605411, 672785749, 1465584610);
-            uint b2 = (936027116);
+            uint4 a2 = uint4(1036427796, 339253087, 2017956782, 1105164108);
+            uint b2 = (880022489);
             bool4 r2 = bool4(false, false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            uint4 a3 = uint4(585324157, 969511077, 442746747, 1772925698);
-            uint b3 = (404448210);
+            uint4 a3 = uint4(15881823, 2027323810, 1680430470, 1822281633);
+            uint b3 = (1938793008);
             bool4 r3 = bool4(false, false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -115,23 +115,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_equal_scalar_wide()
         {
-            uint a0 = (1150044438);
-            uint4 b0 = uint4(233855098, 924242519, 1402948791, 601381975);
+            uint a0 = (1977155329);
+            uint4 b0 = uint4(162052257, 1291280073, 522114153, 602804987);
             bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 == b0, r0);
 
-            uint a1 = (2120518068);
-            uint4 b1 = uint4(629187703, 1971977031, 47183124, 1061805787);
+            uint a1 = (1501793202);
+            uint4 b1 = uint4(1485975269, 182962739, 2054056581, 978460589);
             bool4 r1 = bool4(false, false, false, false);
             TestUtils.AreEqual(a1 == b1, r1);
 
-            uint a2 = (1009011238);
-            uint4 b2 = uint4(312511148, 1460673064, 737210539, 1737844479);
+            uint a2 = (1363550636);
+            uint4 b2 = uint4(1453456227, 131668009, 370871984, 911283419);
             bool4 r2 = bool4(false, false, false, false);
             TestUtils.AreEqual(a2 == b2, r2);
 
-            uint a3 = (1892405453);
-            uint4 b3 = uint4(2133024000, 455818693, 2003197687, 1276241219);
+            uint a3 = (1300029560);
+            uint4 b3 = uint4(379685821, 831942423, 1586543452, 64013033);
             bool4 r3 = bool4(false, false, false, false);
             TestUtils.AreEqual(a3 == b3, r3);
         }
@@ -139,23 +139,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_not_equal_wide_wide()
         {
-            uint4 a0 = uint4(1660932106, 982847023, 97046264, 1739517447);
-            uint4 b0 = uint4(107139049, 75478496, 2055495054, 358586687);
+            uint4 a0 = uint4(1114120377, 1328200685, 2055858397, 628379191);
+            uint4 b0 = uint4(551411861, 1033798228, 1752427499, 1692279987);
             bool4 r0 = bool4(true, true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            uint4 a1 = uint4(1253499180, 1830584069, 1841470429, 1397841646);
-            uint4 b1 = uint4(942338347, 111564990, 113811950, 948912488);
+            uint4 a1 = uint4(212580972, 2138118298, 1183215634, 403403153);
+            uint4 b1 = uint4(40976337, 724601100, 1957052399, 1257584257);
             bool4 r1 = bool4(true, true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            uint4 a2 = uint4(1770890135, 1906548631, 169082967, 2099271786);
-            uint4 b2 = uint4(1080084121, 1400504872, 1032134499, 1061123400);
+            uint4 a2 = uint4(132317086, 1609292182, 925970858, 1034076747);
+            uint4 b2 = uint4(1480327454, 488028594, 1406169001, 1968460485);
             bool4 r2 = bool4(true, true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            uint4 a3 = uint4(1909317609, 46519139, 1433204003, 931492669);
-            uint4 b3 = uint4(221862069, 858950046, 989094643, 2023070999);
+            uint4 a3 = uint4(797706087, 1677878785, 1683421549, 1474891802);
+            uint4 b3 = uint4(225343558, 2081927683, 686858576, 1819164209);
             bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -163,23 +163,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_not_equal_wide_scalar()
         {
-            uint4 a0 = uint4(747758183, 1033001286, 1439973882, 2138928797);
-            uint b0 = (248693828);
+            uint4 a0 = uint4(197085580, 1559123934, 89174026, 874566733);
+            uint b0 = (641022627);
             bool4 r0 = bool4(true, true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            uint4 a1 = uint4(1197845089, 950170763, 238704450, 2105962247);
-            uint b1 = (1432672459);
+            uint4 a1 = uint4(285035719, 2107486277, 882200899, 1242391870);
+            uint b1 = (175911184);
             bool4 r1 = bool4(true, true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            uint4 a2 = uint4(727205263, 276313906, 2126300423, 791998981);
-            uint b2 = (1640688041);
+            uint4 a2 = uint4(812875165, 1816051923, 1432332427, 35870207);
+            uint b2 = (215397387);
             bool4 r2 = bool4(true, true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            uint4 a3 = uint4(2035077187, 1412347883, 1622176923, 768370497);
-            uint b3 = (1171827730);
+            uint4 a3 = uint4(1453358020, 1755116468, 1841089280, 1254194936);
+            uint b3 = (695883299);
             bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -187,23 +187,23 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_not_equal_scalar_wide()
         {
-            uint a0 = (2076921066);
-            uint4 b0 = uint4(2037494727, 1989050616, 48833929, 1897435904);
+            uint a0 = (1823145268);
+            uint4 b0 = uint4(1478442612, 395956316, 1021050384, 506455754);
             bool4 r0 = bool4(true, true, true, true);
             TestUtils.AreEqual(a0 != b0, r0);
 
-            uint a1 = (514354517);
-            uint4 b1 = uint4(1783749164, 364694471, 754315072, 124108032);
+            uint a1 = (120739710);
+            uint4 b1 = uint4(111528848, 497993131, 1341426941, 981702603);
             bool4 r1 = bool4(true, true, true, true);
             TestUtils.AreEqual(a1 != b1, r1);
 
-            uint a2 = (1512967900);
-            uint4 b2 = uint4(1178825850, 1854793298, 50286949, 2100802631);
+            uint a2 = (697361127);
+            uint4 b2 = uint4(2118726847, 373682311, 718299814, 767014928);
             bool4 r2 = bool4(true, true, true, true);
             TestUtils.AreEqual(a2 != b2, r2);
 
-            uint a3 = (1640811853);
-            uint4 b3 = uint4(82110247, 472172806, 266984506, 2003668365);
+            uint a3 = (1004475715);
+            uint4 b3 = uint4(1402457009, 475620317, 1050918856, 1617498576);
             bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 != b3, r3);
         }
@@ -211,119 +211,119 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_less_wide_wide()
         {
-            uint4 a0 = uint4(1182186063, 415538999, 1667335818, 1566618442);
-            uint4 b0 = uint4(524633529, 1032195686, 760723389, 1505751409);
-            bool4 r0 = bool4(false, true, false, false);
+            uint4 a0 = uint4(2096784746, 6455590, 1186728125, 2004430503);
+            uint4 b0 = uint4(2023955832, 814050279, 2107113757, 1984877677);
+            bool4 r0 = bool4(false, true, true, false);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            uint4 a1 = uint4(1166180837, 639095188, 1080836365, 771119973);
-            uint4 b1 = uint4(431962172, 1287906509, 1560084663, 1450178202);
-            bool4 r1 = bool4(false, true, true, true);
+            uint4 a1 = uint4(903707670, 1290095569, 33135516, 1136659156);
+            uint4 b1 = uint4(229711986, 65531143, 1739169538, 1442465278);
+            bool4 r1 = bool4(false, false, true, true);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            uint4 a2 = uint4(928263233, 789225474, 665243110, 1003542034);
-            uint4 b2 = uint4(2066166337, 1107069023, 1640077524, 2103263105);
-            bool4 r2 = bool4(true, true, true, true);
+            uint4 a2 = uint4(2103201294, 2092322432, 317443647, 145428344);
+            uint4 b2 = uint4(1706801427, 1236851354, 678269170, 2078986192);
+            bool4 r2 = bool4(false, false, true, true);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            uint4 a3 = uint4(1032480172, 1961336172, 923379558, 21210619);
-            uint4 b3 = uint4(684229139, 1234033624, 1278743281, 1953079347);
-            bool4 r3 = bool4(false, false, true, true);
+            uint4 a3 = uint4(421825315, 775702881, 797081946, 486711847);
+            uint4 b3 = uint4(248843346, 1119242408, 1391608859, 831566525);
+            bool4 r3 = bool4(false, true, true, true);
             TestUtils.AreEqual(a3 < b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_less_wide_scalar()
         {
-            uint4 a0 = uint4(608447185, 818840405, 869219329, 2080125385);
-            uint b0 = (1491216667);
-            bool4 r0 = bool4(true, true, true, false);
+            uint4 a0 = uint4(1111812659, 215280083, 1452878573, 685443717);
+            uint b0 = (1393181832);
+            bool4 r0 = bool4(true, true, false, true);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            uint4 a1 = uint4(1214500548, 1667165786, 1615392341, 840091491);
-            uint b1 = (1361741203);
-            bool4 r1 = bool4(true, false, false, true);
+            uint4 a1 = uint4(1552447661, 1631047060, 428772023, 2107896094);
+            uint b1 = (1334052403);
+            bool4 r1 = bool4(false, false, true, false);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            uint4 a2 = uint4(469591900, 315321650, 930950514, 1100560246);
-            uint b2 = (1247103789);
+            uint4 a2 = uint4(1150022920, 1253959696, 886316879, 996367814);
+            uint b2 = (1349894445);
             bool4 r2 = bool4(true, true, true, true);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            uint4 a3 = uint4(933855388, 1127696709, 1286331950, 380753337);
-            uint b3 = (908563901);
-            bool4 r3 = bool4(false, false, false, true);
+            uint4 a3 = uint4(43500883, 401266960, 1963622811, 250573340);
+            uint b3 = (667435667);
+            bool4 r3 = bool4(true, true, false, true);
             TestUtils.AreEqual(a3 < b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_less_scalar_wide()
         {
-            uint a0 = (548436837);
-            uint4 b0 = uint4(282703327, 14370648, 1862117300, 1304793311);
-            bool4 r0 = bool4(false, false, true, true);
+            uint a0 = (1947585822);
+            uint4 b0 = uint4(852724905, 257426229, 1931155895, 891206688);
+            bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 < b0, r0);
 
-            uint a1 = (826073259);
-            uint4 b1 = uint4(988910157, 445132446, 1139670255, 111349251);
-            bool4 r1 = bool4(true, false, true, false);
+            uint a1 = (1637228394);
+            uint4 b1 = uint4(87657529, 1642732032, 716549196, 745331149);
+            bool4 r1 = bool4(false, true, false, false);
             TestUtils.AreEqual(a1 < b1, r1);
 
-            uint a2 = (1102440676);
-            uint4 b2 = uint4(112183144, 1594415311, 1890019295, 2098715503);
-            bool4 r2 = bool4(false, true, true, true);
+            uint a2 = (1073136377);
+            uint4 b2 = uint4(1224927266, 959593884, 1475562958, 1850828896);
+            bool4 r2 = bool4(true, false, true, true);
             TestUtils.AreEqual(a2 < b2, r2);
 
-            uint a3 = (608933527);
-            uint4 b3 = uint4(183989010, 1596056507, 1027318999, 146281093);
-            bool4 r3 = bool4(false, true, true, false);
+            uint a3 = (1667723226);
+            uint4 b3 = uint4(312974729, 768604138, 1734617142, 1788513218);
+            bool4 r3 = bool4(false, false, true, true);
             TestUtils.AreEqual(a3 < b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_greater_wide_wide()
         {
-            uint4 a0 = uint4(592884447, 2133928932, 918957182, 1284069471);
-            uint4 b0 = uint4(138737040, 192863971, 1700841444, 1044631301);
-            bool4 r0 = bool4(true, true, false, true);
+            uint4 a0 = uint4(679407976, 1565104964, 955659700, 1579068177);
+            uint4 b0 = uint4(1037249636, 948878199, 1022811823, 1540122195);
+            bool4 r0 = bool4(false, true, false, true);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            uint4 a1 = uint4(194584707, 739120780, 241654068, 1340158550);
-            uint4 b1 = uint4(1391589821, 730837695, 253553987, 2078872742);
-            bool4 r1 = bool4(false, true, false, false);
+            uint4 a1 = uint4(2125437566, 437413511, 433042806, 86523161);
+            uint4 b1 = uint4(639273951, 1840348368, 1458722938, 1025338066);
+            bool4 r1 = bool4(true, false, false, false);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            uint4 a2 = uint4(2099542537, 1182623667, 1399607274, 789301637);
-            uint4 b2 = uint4(910845808, 976047676, 202633078, 1223618940);
-            bool4 r2 = bool4(true, true, true, false);
+            uint4 a2 = uint4(433920144, 1128363150, 1430252123, 28546361);
+            uint4 b2 = uint4(1780825559, 1442445808, 1055886580, 809782985);
+            bool4 r2 = bool4(false, false, true, false);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            uint4 a3 = uint4(180400925, 594688333, 1877031463, 1360073500);
-            uint4 b3 = uint4(641600530, 1830470354, 1570701388, 1104256103);
-            bool4 r3 = bool4(false, false, true, true);
+            uint4 a3 = uint4(1640272676, 1219827111, 729860988, 1646629509);
+            uint4 b3 = uint4(627348215, 1100285680, 1355127414, 860855759);
+            bool4 r3 = bool4(true, true, false, true);
             TestUtils.AreEqual(a3 > b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_greater_wide_scalar()
         {
-            uint4 a0 = uint4(1097138316, 211763648, 1883002501, 56406996);
-            uint b0 = (438688675);
-            bool4 r0 = bool4(true, false, true, false);
+            uint4 a0 = uint4(2057056127, 328369940, 977884645, 1927653020);
+            uint b0 = (1496952827);
+            bool4 r0 = bool4(true, false, false, true);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            uint4 a1 = uint4(43662641, 1437755186, 1219010035, 2125058448);
-            uint b1 = (1923456111);
+            uint4 a1 = uint4(1805071634, 187170445, 309800711, 1984248926);
+            uint b1 = (1951495065);
             bool4 r1 = bool4(false, false, false, true);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            uint4 a2 = uint4(304028799, 48044515, 711945018, 1035679270);
-            uint b2 = (893125636);
-            bool4 r2 = bool4(false, false, false, true);
+            uint4 a2 = uint4(538865160, 1870289210, 346150889, 819772244);
+            uint b2 = (1448725978);
+            bool4 r2 = bool4(false, true, false, false);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            uint4 a3 = uint4(577943770, 1016617211, 2063134811, 1577403353);
-            uint b3 = (572743717);
+            uint4 a3 = uint4(1418697328, 1990373394, 1106501347, 1510847950);
+            uint b3 = (480802003);
             bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 > b3, r3);
         }
@@ -331,95 +331,95 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_greater_scalar_wide()
         {
-            uint a0 = (2024896938);
-            uint4 b0 = uint4(599356784, 185671342, 1932327391, 2025591013);
-            bool4 r0 = bool4(true, true, true, false);
+            uint a0 = (1362109003);
+            uint4 b0 = uint4(142885648, 1660635591, 104009698, 485042379);
+            bool4 r0 = bool4(true, false, true, true);
             TestUtils.AreEqual(a0 > b0, r0);
 
-            uint a1 = (1257191721);
-            uint4 b1 = uint4(1312388500, 1443698859, 779217735, 691047512);
-            bool4 r1 = bool4(false, false, true, true);
+            uint a1 = (1326894883);
+            uint4 b1 = uint4(1007324999, 1835906302, 1625555804, 745829307);
+            bool4 r1 = bool4(true, false, false, true);
             TestUtils.AreEqual(a1 > b1, r1);
 
-            uint a2 = (741776730);
-            uint4 b2 = uint4(732565983, 668302204, 1556466996, 858599525);
-            bool4 r2 = bool4(true, true, false, false);
+            uint a2 = (1212896249);
+            uint4 b2 = uint4(438032966, 1953156077, 250146075, 279418367);
+            bool4 r2 = bool4(true, false, true, true);
             TestUtils.AreEqual(a2 > b2, r2);
 
-            uint a3 = (1896917159);
-            uint4 b3 = uint4(701542098, 1052151621, 1023307544, 1435392907);
-            bool4 r3 = bool4(true, true, true, true);
+            uint a3 = (238317957);
+            uint4 b3 = uint4(414643707, 1261501322, 1930233724, 1709921862);
+            bool4 r3 = bool4(false, false, false, false);
             TestUtils.AreEqual(a3 > b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_less_equal_wide_wide()
         {
-            uint4 a0 = uint4(1577248162, 2043073061, 1688380407, 176431985);
-            uint4 b0 = uint4(903445031, 2108974565, 210822256, 1281704747);
-            bool4 r0 = bool4(false, true, false, true);
+            uint4 a0 = uint4(1772193278, 1575696890, 1129461478, 1160757899);
+            uint4 b0 = uint4(1170485947, 280845724, 94836958, 710231911);
+            bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            uint4 a1 = uint4(223299035, 1502802140, 1691709825, 386789394);
-            uint4 b1 = uint4(453681718, 66138830, 1229799377, 1620922595);
-            bool4 r1 = bool4(true, false, false, true);
+            uint4 a1 = uint4(732614174, 505407897, 845181177, 1895996546);
+            uint4 b1 = uint4(62412740, 1458247289, 1910665214, 806067482);
+            bool4 r1 = bool4(false, true, true, false);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            uint4 a2 = uint4(117182003, 1665770435, 1958490731, 420032601);
-            uint4 b2 = uint4(1715833766, 1366430432, 13102000, 46919981);
-            bool4 r2 = bool4(true, false, false, false);
+            uint4 a2 = uint4(1733272281, 1510163679, 1157493614, 2035853300);
+            uint4 b2 = uint4(825865086, 382253253, 635819539, 1846095366);
+            bool4 r2 = bool4(false, false, false, false);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            uint4 a3 = uint4(1251092689, 2011681765, 749743684, 183784440);
-            uint4 b3 = uint4(486470891, 1709514236, 2145785285, 854254454);
-            bool4 r3 = bool4(false, false, true, true);
+            uint4 a3 = uint4(226335126, 1827437131, 1925038167, 102721882);
+            uint4 b3 = uint4(1218121558, 2022420424, 538861885, 1996724846);
+            bool4 r3 = bool4(true, true, false, true);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_less_equal_wide_scalar()
         {
-            uint4 a0 = uint4(1722165358, 1219858357, 860410743, 411099660);
-            uint b0 = (1688048545);
+            uint4 a0 = uint4(1331309222, 478791836, 467984397, 684816797);
+            uint b0 = (692177811);
             bool4 r0 = bool4(false, true, true, true);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            uint4 a1 = uint4(348104022, 212084836, 58924407, 1459242706);
-            uint b1 = (1963256951);
+            uint4 a1 = uint4(412606484, 406933135, 537773128, 300305325);
+            uint b1 = (1660050607);
             bool4 r1 = bool4(true, true, true, true);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            uint4 a2 = uint4(1745758438, 262559763, 690091301, 1806172431);
-            uint b2 = (532949158);
+            uint4 a2 = uint4(795892530, 384843721, 831822993, 669995206);
+            uint b2 = (639098736);
             bool4 r2 = bool4(false, true, false, false);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            uint4 a3 = uint4(2091514001, 1617221948, 2017733017, 804204255);
-            uint b3 = (1857173043);
-            bool4 r3 = bool4(false, true, false, true);
+            uint4 a3 = uint4(2026234386, 2143139650, 212683631, 587727929);
+            uint b3 = (993917104);
+            bool4 r3 = bool4(false, false, true, true);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_less_equal_scalar_wide()
         {
-            uint a0 = (1777585);
-            uint4 b0 = uint4(1181030049, 1787703989, 1729760948, 1816537388);
+            uint a0 = (368122142);
+            uint4 b0 = uint4(1602136857, 1025804484, 572719917, 1670730995);
             bool4 r0 = bool4(true, true, true, true);
             TestUtils.AreEqual(a0 <= b0, r0);
 
-            uint a1 = (1359786460);
-            uint4 b1 = uint4(874999193, 1678863148, 1711365839, 762067160);
-            bool4 r1 = bool4(false, true, true, false);
+            uint a1 = (322281926);
+            uint4 b1 = uint4(2056320987, 153014038, 660460911, 302838143);
+            bool4 r1 = bool4(true, false, true, false);
             TestUtils.AreEqual(a1 <= b1, r1);
 
-            uint a2 = (11953554);
-            uint4 b2 = uint4(1131583906, 1175393186, 1293698493, 48893340);
-            bool4 r2 = bool4(true, true, true, true);
+            uint a2 = (771971953);
+            uint4 b2 = uint4(260376717, 888694354, 1995147646, 50363690);
+            bool4 r2 = bool4(false, true, true, false);
             TestUtils.AreEqual(a2 <= b2, r2);
 
-            uint a3 = (66196247);
-            uint4 b3 = uint4(1958607116, 1576473309, 861890786, 478252419);
+            uint a3 = (248688945);
+            uint4 b3 = uint4(1910720377, 1839966465, 601850603, 432894977);
             bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 <= b3, r3);
         }
@@ -427,836 +427,836 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4_operator_greater_equal_wide_wide()
         {
-            uint4 a0 = uint4(263000030, 744235661, 1893760267, 237248);
-            uint4 b0 = uint4(1395535146, 1178373944, 1237373760, 1364855321);
-            bool4 r0 = bool4(false, false, true, false);
+            uint4 a0 = uint4(1374979366, 545879935, 1322414052, 1123804185);
+            uint4 b0 = uint4(215438260, 895664604, 2141461196, 945533420);
+            bool4 r0 = bool4(true, false, false, true);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            uint4 a1 = uint4(1062370984, 1676977687, 816766880, 1089431546);
-            uint4 b1 = uint4(600811864, 362060472, 290870624, 1839067862);
-            bool4 r1 = bool4(true, true, true, false);
+            uint4 a1 = uint4(1251232279, 768853165, 582070144, 1263454123);
+            uint4 b1 = uint4(1365701491, 1010346143, 1515687794, 1130396256);
+            bool4 r1 = bool4(false, false, false, true);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            uint4 a2 = uint4(1394493730, 1176473380, 1193988637, 1703862455);
-            uint4 b2 = uint4(396958580, 1336888643, 1019684398, 1697684196);
-            bool4 r2 = bool4(true, false, true, true);
+            uint4 a2 = uint4(1500629331, 1851742458, 939335967, 779085610);
+            uint4 b2 = uint4(2054544008, 641613525, 1303489788, 205583136);
+            bool4 r2 = bool4(false, true, false, true);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            uint4 a3 = uint4(1806186947, 1253571980, 589397635, 1951842887);
-            uint4 b3 = uint4(1227300220, 2044269675, 1898323839, 874509380);
-            bool4 r3 = bool4(true, false, false, true);
+            uint4 a3 = uint4(944458048, 2046650369, 902952345, 955539678);
+            uint4 b3 = uint4(1273778628, 39641088, 1767053835, 1298000488);
+            bool4 r3 = bool4(false, true, false, false);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_greater_equal_wide_scalar()
         {
-            uint4 a0 = uint4(2112791350, 1043657935, 101764761, 1529909067);
-            uint b0 = (1470533736);
-            bool4 r0 = bool4(true, false, false, true);
+            uint4 a0 = uint4(328496099, 1711908264, 1881414926, 520188393);
+            uint b0 = (781823478);
+            bool4 r0 = bool4(false, true, true, false);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            uint4 a1 = uint4(556026890, 1186600258, 815093894, 609211196);
-            uint b1 = (281734132);
-            bool4 r1 = bool4(true, true, true, true);
+            uint4 a1 = uint4(159789484, 1235245220, 598204379, 627782248);
+            uint b1 = (1339033201);
+            bool4 r1 = bool4(false, false, false, false);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            uint4 a2 = uint4(1604309397, 244604867, 1419295004, 471843809);
-            uint b2 = (829548642);
-            bool4 r2 = bool4(true, false, true, false);
+            uint4 a2 = uint4(207207443, 115326785, 815764965, 1663037383);
+            uint b2 = (1050513019);
+            bool4 r2 = bool4(false, false, false, true);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            uint4 a3 = uint4(1819986195, 1646290021, 196833647, 1596738181);
-            uint b3 = (1460027917);
-            bool4 r3 = bool4(true, true, false, true);
+            uint4 a3 = uint4(838304903, 1438292093, 720338718, 472236552);
+            uint b3 = (1877098280);
+            bool4 r3 = bool4(false, false, false, false);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_greater_equal_scalar_wide()
         {
-            uint a0 = (1525542481);
-            uint4 b0 = uint4(1503244746, 861711266, 817773856, 925984572);
-            bool4 r0 = bool4(true, true, true, true);
+            uint a0 = (557688741);
+            uint4 b0 = uint4(1371865141, 1033269674, 755002243, 1765845791);
+            bool4 r0 = bool4(false, false, false, false);
             TestUtils.AreEqual(a0 >= b0, r0);
 
-            uint a1 = (571221723);
-            uint4 b1 = uint4(683686810, 118252990, 1653952090, 1240253990);
-            bool4 r1 = bool4(false, true, false, false);
+            uint a1 = (602301797);
+            uint4 b1 = uint4(2020815501, 159421708, 1924937716, 394222366);
+            bool4 r1 = bool4(false, true, false, true);
             TestUtils.AreEqual(a1 >= b1, r1);
 
-            uint a2 = (1947039008);
-            uint4 b2 = uint4(1869136019, 152012637, 1214546726, 917376832);
-            bool4 r2 = bool4(true, true, true, true);
+            uint a2 = (1704680025);
+            uint4 b2 = uint4(357243706, 1806378360, 354479574, 1908040605);
+            bool4 r2 = bool4(true, false, true, false);
             TestUtils.AreEqual(a2 >= b2, r2);
 
-            uint a3 = (303549425);
-            uint4 b3 = uint4(2111728811, 945321577, 173706579, 625318949);
-            bool4 r3 = bool4(false, false, true, false);
+            uint a3 = (1835366305);
+            uint4 b3 = uint4(778033888, 435914601, 1740383551, 295481939);
+            bool4 r3 = bool4(true, true, true, true);
             TestUtils.AreEqual(a3 >= b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_add_wide_wide()
         {
-            uint4 a0 = uint4(2049228671, 1658660009, 491719392, 937013355);
-            uint4 b0 = uint4(2088751567, 645762023, 306868786, 4360271);
-            uint4 r0 = uint4(4137980238, 2304422032, 798588178, 941373626);
+            uint4 a0 = uint4(225914922, 622990175, 729236185, 1783579909);
+            uint4 b0 = uint4(1983696599, 1828130431, 1955603448, 200546650);
+            uint4 r0 = uint4(2209611521, 2451120606, 2684839633, 1984126559);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            uint4 a1 = uint4(81108663, 1063894558, 86954702, 843159721);
-            uint4 b1 = uint4(506047997, 2094559874, 1634712736, 1601474440);
-            uint4 r1 = uint4(587156660, 3158454432, 1721667438, 2444634161);
+            uint4 a1 = uint4(1708861806, 380354128, 1029189209, 1403268164);
+            uint4 b1 = uint4(731457904, 998973978, 1620597307, 1031552425);
+            uint4 r1 = uint4(2440319710, 1379328106, 2649786516, 2434820589);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            uint4 a2 = uint4(698977704, 192867135, 1683407172, 137301303);
-            uint4 b2 = uint4(1586485231, 908746788, 1812370320, 1247342357);
-            uint4 r2 = uint4(2285462935, 1101613923, 3495777492, 1384643660);
+            uint4 a2 = uint4(1141783501, 373364088, 48999294, 2090032850);
+            uint4 b2 = uint4(1402512585, 1734429792, 841221283, 289477406);
+            uint4 r2 = uint4(2544296086, 2107793880, 890220577, 2379510256);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            uint4 a3 = uint4(2103582820, 526139155, 447937230, 2127411006);
-            uint4 b3 = uint4(2043773873, 223363428, 175115707, 985928617);
-            uint4 r3 = uint4(4147356693, 749502583, 623052937, 3113339623);
+            uint4 a3 = uint4(772555923, 557651823, 793305044, 1662875947);
+            uint4 b3 = uint4(1099919690, 1277992402, 760042536, 101576399);
+            uint4 r3 = uint4(1872475613, 1835644225, 1553347580, 1764452346);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_add_wide_scalar()
         {
-            uint4 a0 = uint4(2038218457, 134923711, 875689667, 1338884463);
-            uint b0 = (2124409227);
-            uint4 r0 = uint4(4162627684, 2259332938, 3000098894, 3463293690);
+            uint4 a0 = uint4(395461163, 1754549897, 490977997, 82076982);
+            uint b0 = (420967776);
+            uint4 r0 = uint4(816428939, 2175517673, 911945773, 503044758);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            uint4 a1 = uint4(997710928, 1067888129, 70433301, 2003021861);
-            uint b1 = (340490871);
-            uint4 r1 = uint4(1338201799, 1408379000, 410924172, 2343512732);
+            uint4 a1 = uint4(111030504, 372298610, 1386457204, 259325464);
+            uint b1 = (1375953840);
+            uint4 r1 = uint4(1486984344, 1748252450, 2762411044, 1635279304);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            uint4 a2 = uint4(1635971971, 85446202, 1068152966, 1239387100);
-            uint b2 = (1160398286);
-            uint4 r2 = uint4(2796370257, 1245844488, 2228551252, 2399785386);
+            uint4 a2 = uint4(1709985405, 1012884785, 1168371570, 1287234389);
+            uint b2 = (1057574070);
+            uint4 r2 = uint4(2767559475, 2070458855, 2225945640, 2344808459);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            uint4 a3 = uint4(1497676888, 1095438654, 756559204, 1818718931);
-            uint b3 = (1727477485);
-            uint4 r3 = uint4(3225154373, 2822916139, 2484036689, 3546196416);
+            uint4 a3 = uint4(213037110, 673086186, 1322018946, 1096944220);
+            uint b3 = (1659776711);
+            uint4 r3 = uint4(1872813821, 2332862897, 2981795657, 2756720931);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_add_scalar_wide()
         {
-            uint a0 = (391092078);
-            uint4 b0 = uint4(519908870, 851424292, 328314822, 135622204);
-            uint4 r0 = uint4(911000948, 1242516370, 719406900, 526714282);
+            uint a0 = (1473943965);
+            uint4 b0 = uint4(1936000902, 925343902, 225370251, 1572924486);
+            uint4 r0 = uint4(3409944867, 2399287867, 1699314216, 3046868451);
             TestUtils.AreEqual(a0 + b0, r0);
 
-            uint a1 = (740923360);
-            uint4 b1 = uint4(655394201, 1451896269, 1781697072, 996031825);
-            uint4 r1 = uint4(1396317561, 2192819629, 2522620432, 1736955185);
+            uint a1 = (2001194555);
+            uint4 b1 = uint4(1391317668, 136118038, 444753975, 2074990818);
+            uint4 r1 = uint4(3392512223, 2137312593, 2445948530, 4076185373);
             TestUtils.AreEqual(a1 + b1, r1);
 
-            uint a2 = (1557774949);
-            uint4 b2 = uint4(779774940, 1111541302, 783046445, 1130163944);
-            uint4 r2 = uint4(2337549889, 2669316251, 2340821394, 2687938893);
+            uint a2 = (460687149);
+            uint4 b2 = uint4(1198135619, 279061028, 593775297, 424532120);
+            uint4 r2 = uint4(1658822768, 739748177, 1054462446, 885219269);
             TestUtils.AreEqual(a2 + b2, r2);
 
-            uint a3 = (288279584);
-            uint4 b3 = uint4(1397683861, 1636583489, 673263339, 1469300874);
-            uint4 r3 = uint4(1685963445, 1924863073, 961542923, 1757580458);
+            uint a3 = (908675040);
+            uint4 b3 = uint4(876636170, 709867944, 1792577509, 711770554);
+            uint4 r3 = uint4(1785311210, 1618542984, 2701252549, 1620445594);
             TestUtils.AreEqual(a3 + b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_sub_wide_wide()
         {
-            uint4 a0 = uint4(1353441118, 797269833, 659988112, 56022121);
-            uint4 b0 = uint4(1332656812, 1827794007, 972557431, 2078233689);
-            uint4 r0 = uint4(20784306, 3264443122, 3982397977, 2272755728);
+            uint4 a0 = uint4(1868671979, 1039843381, 1298473433, 1136791865);
+            uint4 b0 = uint4(1570102425, 1116042949, 1307533133, 57294526);
+            uint4 r0 = uint4(298569554, 4218767728, 4285907596, 1079497339);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            uint4 a1 = uint4(365847472, 2062899435, 1380988474, 799885138);
-            uint4 b1 = uint4(1508184327, 1372307701, 810327977, 936799885);
-            uint4 r1 = uint4(3152630441, 690591734, 570660497, 4158052549);
+            uint4 a1 = uint4(175240759, 1588860513, 1450399140, 2133595841);
+            uint4 b1 = uint4(134828678, 1111898564, 452675165, 1844730313);
+            uint4 r1 = uint4(40412081, 476961949, 997723975, 288865528);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            uint4 a2 = uint4(1306058185, 579775276, 1239163824, 344591081);
-            uint4 b2 = uint4(71562303, 1418723328, 1971342989, 1226053395);
-            uint4 r2 = uint4(1234495882, 3456019244, 3562788131, 3413504982);
+            uint4 a2 = uint4(1740046500, 657512959, 1423325650, 278864421);
+            uint4 b2 = uint4(512848031, 924453828, 552946403, 783934119);
+            uint4 r2 = uint4(1227198469, 4028026427, 870379247, 3789897598);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            uint4 a3 = uint4(86359575, 1049709943, 721529513, 1767221271);
-            uint4 b3 = uint4(136565478, 1979903295, 600719425, 837912956);
-            uint4 r3 = uint4(4244761393, 3364773944, 120810088, 929308315);
+            uint4 a3 = uint4(1771875899, 1407726279, 223564929, 980621018);
+            uint4 b3 = uint4(77913045, 495222828, 711207747, 922411382);
+            uint4 r3 = uint4(1693962854, 912503451, 3807324478, 58209636);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_sub_wide_scalar()
         {
-            uint4 a0 = uint4(1176369558, 1934521195, 309452150, 1417634074);
-            uint b0 = (462232403);
-            uint4 r0 = uint4(714137155, 1472288792, 4142187043, 955401671);
+            uint4 a0 = uint4(1288845994, 655887040, 1531244714, 1226406872);
+            uint b0 = (16195101);
+            uint4 r0 = uint4(1272650893, 639691939, 1515049613, 1210211771);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            uint4 a1 = uint4(108910717, 1502312334, 1451794815, 281174200);
-            uint b1 = (1306356714);
-            uint4 r1 = uint4(3097521299, 195955620, 145438101, 3269784782);
+            uint4 a1 = uint4(781343578, 1008186509, 500762411, 285218449);
+            uint b1 = (1101968049);
+            uint4 r1 = uint4(3974342825, 4201185756, 3693761658, 3478217696);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            uint4 a2 = uint4(87530840, 2041593336, 557239990, 1119051448);
-            uint b2 = (1913724431);
-            uint4 r2 = uint4(2468773705, 127868905, 2938482855, 3500294313);
+            uint4 a2 = uint4(2089960157, 809116994, 396220529, 1342637736);
+            uint b2 = (1323018452);
+            uint4 r2 = uint4(766941705, 3781065838, 3368169373, 19619284);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            uint4 a3 = uint4(1590376732, 816382635, 815920639, 1829033117);
-            uint b3 = (819090189);
-            uint4 r3 = uint4(771286543, 4292259742, 4291797746, 1009942928);
+            uint4 a3 = uint4(948654870, 990465709, 259130138, 1135876784);
+            uint b3 = (809677454);
+            uint4 r3 = uint4(138977416, 180788255, 3744419980, 326199330);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_sub_scalar_wide()
         {
-            uint a0 = (1691534405);
-            uint4 b0 = uint4(2022393810, 1612688515, 496689713, 887037586);
-            uint4 r0 = uint4(3964107891, 78845890, 1194844692, 804496819);
+            uint a0 = (1882219675);
+            uint4 b0 = uint4(1239052068, 981624121, 231031979, 368791143);
+            uint4 r0 = uint4(643167607, 900595554, 1651187696, 1513428532);
             TestUtils.AreEqual(a0 - b0, r0);
 
-            uint a1 = (2097630964);
-            uint4 b1 = uint4(374934538, 939035482, 935242277, 1789300421);
-            uint4 r1 = uint4(1722696426, 1158595482, 1162388687, 308330543);
+            uint a1 = (1127997491);
+            uint4 b1 = uint4(1469956291, 1352108415, 252406088, 798756155);
+            uint4 r1 = uint4(3953008496, 4070856372, 875591403, 329241336);
             TestUtils.AreEqual(a1 - b1, r1);
 
-            uint a2 = (264712893);
-            uint4 b2 = uint4(1231856067, 1818112748, 1428436109, 1258745460);
-            uint4 r2 = uint4(3327824122, 2741567441, 3131244080, 3300934729);
+            uint a2 = (1165664847);
+            uint4 b2 = uint4(490545685, 150040657, 286361006, 1473760294);
+            uint4 r2 = uint4(675119162, 1015624190, 879303841, 3986871849);
             TestUtils.AreEqual(a2 - b2, r2);
 
-            uint a3 = (1077380396);
-            uint4 b3 = uint4(1330722719, 518111829, 967128529, 344666254);
-            uint4 r3 = uint4(4041624973, 559268567, 110251867, 732714142);
+            uint a3 = (1837376960);
+            uint4 b3 = uint4(1807280648, 2106402623, 1329763512, 672191500);
+            uint4 r3 = uint4(30096312, 4025941633, 507613448, 1165185460);
             TestUtils.AreEqual(a3 - b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mul_wide_wide()
         {
-            uint4 a0 = uint4(245827027, 208934650, 1019478917, 568231809);
-            uint4 b0 = uint4(759663997, 350129201, 477450108, 1635735015);
-            uint4 r0 = uint4(3662155527, 1402281434, 332447596, 2361989735);
+            uint4 a0 = uint4(1175935609, 1626539723, 279996667, 2111031627);
+            uint4 b0 = uint4(1809898573, 1960664942, 44842581, 1244459472);
+            uint4 r0 = uint4(3819319909, 2972794938, 3265504599, 3816237040);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            uint4 a1 = uint4(877289039, 1585782440, 2111178729, 1186019069);
-            uint4 b1 = uint4(388710278, 757722665, 1509388321, 1841703980);
-            uint4 r1 = uint4(2624048730, 1455036648, 2128344329, 3700879228);
+            uint4 a1 = uint4(685568193, 1962710767, 1115395046, 152633925);
+            uint4 b1 = uint4(324583419, 1868551095, 1741309699, 1510309193);
+            uint4 r1 = uint4(4254600251, 1957159385, 1257473458, 462837421);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            uint4 a2 = uint4(571481445, 1570087048, 629447153, 619383734);
-            uint4 b2 = uint4(1826369331, 1524322467, 1605207974, 428419155);
-            uint4 r2 = uint4(2640799263, 2093463192, 3087460678, 3161406466);
+            uint4 a2 = uint4(1493478880, 699700164, 475889768, 1192754186);
+            uint4 b2 = uint4(1799116733, 761205650, 1688324641, 1962825503);
+            uint4 r2 = uint4(2953543264, 2041565640, 3502742888, 1551559478);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            uint4 a3 = uint4(2055121568, 700402816, 263414349, 187830569);
-            uint4 b3 = uint4(1460605791, 1968043860, 771161742, 2037340417);
-            uint4 r3 = uint4(990589280, 3356793344, 2953243830, 1156600361);
+            uint4 a3 = uint4(1163089838, 2065613335, 518297268, 490653429);
+            uint4 b3 = uint4(1185791083, 534381819, 1256982490, 1250343185);
+            uint4 r3 = uint4(47148474, 1120315533, 2226602312, 1160790853);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mul_wide_scalar()
         {
-            uint4 a0 = uint4(1762033447, 465343930, 1570757881, 1326409563);
-            uint b0 = (1476837906);
-            uint4 r0 = uint4(2981789374, 1326807828, 2156411778, 4018813542);
+            uint4 a0 = uint4(261135546, 971766724, 863155086, 735149234);
+            uint b0 = (1844253884);
+            uint4 r0 = uint4(77832344, 2171352048, 1857614920, 3328146104);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            uint4 a1 = uint4(1824319147, 72749215, 154616909, 975743632);
-            uint b1 = (1356578909);
-            uint4 r1 = uint4(4058582047, 130042307, 1244434425, 2313287248);
+            uint4 a1 = uint4(174946595, 1940866736, 620537339, 937000174);
+            uint b1 = (657836706);
+            uint4 r1 = uint4(1679509030, 4112620384, 1557141206, 326818460);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            uint4 a2 = uint4(573770299, 971327747, 1818877398, 1324050764);
-            uint b2 = (1958912969);
-            uint4 r2 = uint4(3595344211, 583613531, 2609540870, 377032876);
+            uint4 a2 = uint4(1113538456, 326741371, 1102277667, 1900656642);
+            uint b2 = (1262039542);
+            uint4 r2 = uint4(3012244496, 2860793650, 3471285410, 2273391596);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            uint4 a3 = uint4(660611671, 391009467, 1186856590, 890343818);
-            uint b3 = (1279757657);
-            uint4 r3 = uint4(4252425023, 1120105475, 4272141662, 1972017914);
+            uint4 a3 = uint4(174463170, 1268446779, 1797229909, 117429572);
+            uint b3 = (313110653);
+            uint4 r3 = uint4(1089566394, 652593871, 1185903233, 3748520500);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mul_scalar_wide()
         {
-            uint a0 = (99541948);
-            uint4 b0 = uint4(1764461774, 657072478, 1459784358, 1610646683);
-            uint4 r0 = uint4(3344568648, 4192918280, 1260585960, 1158730452);
+            uint a0 = (2057129833);
+            uint4 b0 = uint4(1333508928, 2103362674, 555404300, 702651820);
+            uint4 r0 = uint4(516459840, 2020065474, 3025233132, 2007875468);
             TestUtils.AreEqual(a0 * b0, r0);
 
-            uint a1 = (1632058826);
-            uint4 b1 = uint4(868441654, 1408757883, 335917146, 2105124483);
-            uint4 r1 = uint4(4237636764, 2735607822, 712546564, 3489634910);
+            uint a1 = (1875407260);
+            uint4 b1 = uint4(237922996, 1326594064, 521612288, 1229721086);
+            uint4 r1 = uint4(2315418032, 4133042624, 2357907456, 1291166920);
             TestUtils.AreEqual(a1 * b1, r1);
 
-            uint a2 = (1178393968);
-            uint4 b2 = uint4(1963904348, 1409533767, 243286231, 1336308795);
-            uint4 r2 = uint4(1196573760, 592673296, 209320208, 3942500560);
+            uint a2 = (423926724);
+            uint4 b2 = uint4(1922937387, 852227720, 1585292254, 461448775);
+            uint4 r2 = uint4(3255333356, 646780960, 2673926136, 1525304156);
             TestUtils.AreEqual(a2 * b2, r2);
 
-            uint a3 = (517963367);
-            uint4 b3 = uint4(1733623488, 459880225, 994616533, 1420531535);
-            uint4 r3 = uint4(3520397120, 3023465543, 652617651, 2505294537);
+            uint a3 = (879828777);
+            uint4 b3 = uint4(771011663, 1057882676, 532996060, 621007289);
+            uint4 r3 = uint4(2699391399, 1417061972, 1841266236, 2326461857);
             TestUtils.AreEqual(a3 * b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_div_wide_wide()
         {
-            uint4 a0 = uint4(1590198532, 507812502, 126627032, 1058247011);
-            uint4 b0 = uint4(1434703236, 911965201, 390415521, 128746927);
-            uint4 r0 = uint4(1, 0, 0, 8);
+            uint4 a0 = uint4(1088045904, 363581441, 2117293847, 43474130);
+            uint4 b0 = uint4(334000779, 1707521590, 48034914, 274954252);
+            uint4 r0 = uint4(3, 0, 44, 0);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            uint4 a1 = uint4(427387861, 290676154, 1829594484, 1127868739);
-            uint4 b1 = uint4(525835375, 816946613, 878264647, 146789678);
-            uint4 r1 = uint4(0, 0, 2, 7);
+            uint4 a1 = uint4(1437502728, 147730677, 1746963064, 986496120);
+            uint4 b1 = uint4(1681174571, 619550611, 467348233, 1491029983);
+            uint4 r1 = uint4(0, 0, 3, 0);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            uint4 a2 = uint4(499016351, 1341209632, 134906097, 785470242);
-            uint4 b2 = uint4(2089524057, 254213018, 1916850021, 1737806518);
-            uint4 r2 = uint4(0, 5, 0, 0);
+            uint4 a2 = uint4(989409859, 717654081, 697638750, 164833649);
+            uint4 b2 = uint4(459862277, 1092738758, 1011057052, 1614049909);
+            uint4 r2 = uint4(2, 0, 0, 0);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            uint4 a3 = uint4(788249865, 1099825433, 1552968283, 1822367139);
-            uint4 b3 = uint4(1906634983, 437754923, 825037958, 902508708);
-            uint4 r3 = uint4(0, 2, 1, 2);
+            uint4 a3 = uint4(181829127, 1777427895, 2030007248, 154284884);
+            uint4 b3 = uint4(360356960, 1144441486, 1664322899, 266992285);
+            uint4 r3 = uint4(0, 1, 1, 0);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_div_wide_scalar()
         {
-            uint4 a0 = uint4(560951562, 1218680769, 375341724, 1613542090);
-            uint b0 = (947861580);
-            uint4 r0 = uint4(0, 1, 0, 1);
+            uint4 a0 = uint4(698046988, 1172226457, 1341281323, 1895153499);
+            uint b0 = (877940369);
+            uint4 r0 = uint4(0, 1, 1, 2);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            uint4 a1 = uint4(1919409166, 1349573078, 524526253, 341995568);
-            uint b1 = (1397425408);
-            uint4 r1 = uint4(1, 0, 0, 0);
+            uint4 a1 = uint4(2041215936, 1112377468, 1428493086, 1152385720);
+            uint b1 = (1389479447);
+            uint4 r1 = uint4(1, 0, 1, 0);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            uint4 a2 = uint4(495895326, 1676971657, 2131487088, 2105094094);
-            uint b2 = (1515313790);
-            uint4 r2 = uint4(0, 1, 1, 1);
+            uint4 a2 = uint4(1329193933, 1908759590, 379583730, 28412292);
+            uint b2 = (1026467504);
+            uint4 r2 = uint4(1, 1, 0, 0);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            uint4 a3 = uint4(1017891310, 1646044372, 1447236569, 107215658);
-            uint b3 = (542666029);
-            uint4 r3 = uint4(1, 3, 2, 0);
+            uint4 a3 = uint4(2127153910, 671398601, 998364247, 299274353);
+            uint b3 = (382380097);
+            uint4 r3 = uint4(5, 1, 2, 0);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_div_scalar_wide()
         {
-            uint a0 = (1161272038);
-            uint4 b0 = uint4(187325733, 1594107378, 2016183849, 1589343709);
-            uint4 r0 = uint4(6, 0, 0, 0);
+            uint a0 = (2021328826);
+            uint4 b0 = uint4(874375696, 1507954497, 2127317467, 1203851704);
+            uint4 r0 = uint4(2, 1, 0, 1);
             TestUtils.AreEqual(a0 / b0, r0);
 
-            uint a1 = (388768753);
-            uint4 b1 = uint4(1417077283, 1773486938, 1154044032, 81831373);
-            uint4 r1 = uint4(0, 0, 0, 4);
+            uint a1 = (841281974);
+            uint4 b1 = uint4(376202331, 1544089754, 40402644, 1986071898);
+            uint4 r1 = uint4(2, 0, 20, 0);
             TestUtils.AreEqual(a1 / b1, r1);
 
-            uint a2 = (1476877645);
-            uint4 b2 = uint4(653688843, 45756703, 631027637, 396671391);
-            uint4 r2 = uint4(2, 32, 2, 3);
+            uint a2 = (2130326460);
+            uint4 b2 = uint4(1684745816, 1258341923, 1763081534, 1178620704);
+            uint4 r2 = uint4(1, 1, 1, 1);
             TestUtils.AreEqual(a2 / b2, r2);
 
-            uint a3 = (784365696);
-            uint4 b3 = uint4(1250594097, 1818363859, 1653451772, 270557729);
-            uint4 r3 = uint4(0, 0, 0, 2);
+            uint a3 = (4579859);
+            uint4 b3 = uint4(1407078950, 1217259005, 575524401, 1142938917);
+            uint4 r3 = uint4(0, 0, 0, 0);
             TestUtils.AreEqual(a3 / b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mod_wide_wide()
         {
-            uint4 a0 = uint4(146150818, 1846543305, 1071447756, 308965362);
-            uint4 b0 = uint4(983050390, 771341152, 942375212, 367361754);
-            uint4 r0 = uint4(146150818, 303861001, 129072544, 308965362);
+            uint4 a0 = uint4(1404166133, 2132673500, 1226848706, 260867443);
+            uint4 b0 = uint4(1451753818, 986752317, 426407306, 388266591);
+            uint4 r0 = uint4(1404166133, 159168866, 374034094, 260867443);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            uint4 a1 = uint4(659881575, 1002365460, 861198439, 1510617532);
-            uint4 b1 = uint4(749500619, 750718852, 2095151755, 88438806);
-            uint4 r1 = uint4(659881575, 251646608, 861198439, 7157830);
+            uint4 a1 = uint4(1657891933, 1665617201, 1193460322, 939577022);
+            uint4 b1 = uint4(1936904896, 1974281115, 2061811216, 1548000924);
+            uint4 r1 = uint4(1657891933, 1665617201, 1193460322, 939577022);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            uint4 a2 = uint4(778525078, 1458458044, 101987897, 1249565173);
-            uint4 b2 = uint4(769227442, 647214624, 1026513788, 1544950956);
-            uint4 r2 = uint4(9297636, 164028796, 101987897, 1249565173);
+            uint4 a2 = uint4(349660242, 275322117, 2059991300, 66464083);
+            uint4 b2 = uint4(1962740273, 442600258, 1214757164, 48882551);
+            uint4 r2 = uint4(349660242, 275322117, 845234136, 17581532);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            uint4 a3 = uint4(938026607, 1692541775, 1518877124, 1806965510);
-            uint4 b3 = uint4(160166322, 1099108075, 1158422232, 1798905209);
-            uint4 r3 = uint4(137194997, 593433700, 360454892, 8060301);
+            uint4 a3 = uint4(1210584015, 2128853048, 1886610218, 484061946);
+            uint4 b3 = uint4(150076096, 2140190639, 846749437, 1269758433);
+            uint4 r3 = uint4(9975247, 2128853048, 193111344, 484061946);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mod_wide_scalar()
         {
-            uint4 a0 = uint4(164800505, 1062177828, 1898749675, 1701653318);
-            uint b0 = (883951171);
-            uint4 r0 = uint4(164800505, 178226657, 130847333, 817702147);
+            uint4 a0 = uint4(1161974084, 1730255826, 1307617556, 1348913399);
+            uint b0 = (1619572929);
+            uint4 r0 = uint4(1161974084, 110682897, 1307617556, 1348913399);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            uint4 a1 = uint4(820393245, 128329633, 1464010899, 896587769);
-            uint b1 = (19002208);
-            uint4 r1 = uint4(3298301, 14316385, 840883, 3483993);
+            uint4 a1 = uint4(108127332, 608736703, 410222026, 1124457489);
+            uint b1 = (158366308);
+            uint4 r1 = uint4(108127332, 133637779, 93489410, 15893333);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            uint4 a2 = uint4(405208598, 959236935, 712321026, 172564850);
-            uint b2 = (1982762194);
-            uint4 r2 = uint4(405208598, 959236935, 712321026, 172564850);
+            uint4 a2 = uint4(572642899, 568679511, 1047748248, 753947810);
+            uint b2 = (1777547989);
+            uint4 r2 = uint4(572642899, 568679511, 1047748248, 753947810);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            uint4 a3 = uint4(1540068445, 1607489717, 165478511, 647846716);
-            uint b3 = (1085897743);
-            uint4 r3 = uint4(454170702, 521591974, 165478511, 647846716);
+            uint4 a3 = uint4(261245150, 965622832, 1450962286, 1106672888);
+            uint b3 = (570275397);
+            uint4 r3 = uint4(261245150, 395347435, 310411492, 536397491);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_mod_scalar_wide()
         {
-            uint a0 = (242383789);
-            uint4 b0 = uint4(740000543, 1556450291, 1104736385, 437976569);
-            uint4 r0 = uint4(242383789, 242383789, 242383789, 242383789);
+            uint a0 = (732019691);
+            uint4 b0 = uint4(1432618553, 1407625066, 2104173412, 787397289);
+            uint4 r0 = uint4(732019691, 732019691, 732019691, 732019691);
             TestUtils.AreEqual(a0 % b0, r0);
 
-            uint a1 = (1911837205);
-            uint4 b1 = uint4(1507212038, 1906405167, 247693265, 293460573);
-            uint4 r1 = uint4(404625167, 5432038, 177984350, 151073767);
+            uint a1 = (1250925010);
+            uint4 b1 = uint4(1942782982, 895419737, 1413458613, 1057786657);
+            uint4 r1 = uint4(1250925010, 355505273, 1250925010, 193138353);
             TestUtils.AreEqual(a1 % b1, r1);
 
-            uint a2 = (1495295166);
-            uint4 b2 = uint4(873323603, 530681233, 1298102643, 2057984657);
-            uint4 r2 = uint4(621971563, 433932700, 197192523, 1495295166);
+            uint a2 = (895014416);
+            uint4 b2 = uint4(1411050342, 581995078, 1314657708, 988705005);
+            uint4 r2 = uint4(895014416, 313019338, 895014416, 895014416);
             TestUtils.AreEqual(a2 % b2, r2);
 
-            uint a3 = (1000742091);
-            uint4 b3 = uint4(1461372131, 1859742342, 797184687, 821888842);
-            uint4 r3 = uint4(1000742091, 1000742091, 203557404, 178853249);
+            uint a3 = (893924184);
+            uint4 b3 = uint4(579424395, 788841281, 1894749534, 1578517841);
+            uint4 r3 = uint4(314499789, 105082903, 893924184, 893924184);
             TestUtils.AreEqual(a3 % b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_plus()
         {
-            uint4 a0 = uint4(1643476803, 907898539, 379615839, 1140483021);
-            uint4 r0 = uint4(1643476803, 907898539, 379615839, 1140483021);
+            uint4 a0 = uint4(1389572610, 784638699, 1994582731, 1916480804);
+            uint4 r0 = uint4(1389572610, 784638699, 1994582731, 1916480804);
             TestUtils.AreEqual(+a0, r0);
 
-            uint4 a1 = uint4(1735287433, 1472881565, 339091479, 401565897);
-            uint4 r1 = uint4(1735287433, 1472881565, 339091479, 401565897);
+            uint4 a1 = uint4(1916426865, 309068130, 2006066207, 790253154);
+            uint4 r1 = uint4(1916426865, 309068130, 2006066207, 790253154);
             TestUtils.AreEqual(+a1, r1);
 
-            uint4 a2 = uint4(1287765427, 174532915, 1864850812, 1566098441);
-            uint4 r2 = uint4(1287765427, 174532915, 1864850812, 1566098441);
+            uint4 a2 = uint4(1469244349, 702989834, 1214657768, 648913468);
+            uint4 r2 = uint4(1469244349, 702989834, 1214657768, 648913468);
             TestUtils.AreEqual(+a2, r2);
 
-            uint4 a3 = uint4(1145639744, 2049663954, 1723005749, 409076474);
-            uint4 r3 = uint4(1145639744, 2049663954, 1723005749, 409076474);
+            uint4 a3 = uint4(898592517, 1848004046, 2025735104, 1679257084);
+            uint4 r3 = uint4(898592517, 1848004046, 2025735104, 1679257084);
             TestUtils.AreEqual(+a3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_neg()
         {
-            uint4 a0 = uint4(1955022112, 662160019, 370300775, 2141283773);
-            uint4 r0 = uint4(2339945184, 3632807277, 3924666521, 2153683523);
+            uint4 a0 = uint4(718733484, 283062622, 1150527221, 531874537);
+            uint4 r0 = uint4(3576233812, 4011904674, 3144440075, 3763092759);
             TestUtils.AreEqual(-a0, r0);
 
-            uint4 a1 = uint4(1004505619, 33894270, 505708349, 1115028238);
-            uint4 r1 = uint4(3290461677, 4261073026, 3789258947, 3179939058);
+            uint4 a1 = uint4(2059224113, 1809777681, 1443055648, 2110619134);
+            uint4 r1 = uint4(2235743183, 2485189615, 2851911648, 2184348162);
             TestUtils.AreEqual(-a1, r1);
 
-            uint4 a2 = uint4(1636274969, 1542206286, 213087293, 243937487);
-            uint4 r2 = uint4(2658692327, 2752761010, 4081880003, 4051029809);
+            uint4 a2 = uint4(1495661305, 1731996287, 1872831707, 1759886927);
+            uint4 r2 = uint4(2799305991, 2562971009, 2422135589, 2535080369);
             TestUtils.AreEqual(-a2, r2);
 
-            uint4 a3 = uint4(341522275, 574159094, 1687250035, 2057919693);
-            uint4 r3 = uint4(3953445021, 3720808202, 2607717261, 2237047603);
+            uint4 a3 = uint4(1686881016, 2014670666, 1785634485, 1269836738);
+            uint4 r3 = uint4(2608086280, 2280296630, 2509332811, 3025130558);
             TestUtils.AreEqual(-a3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_prefix_inc()
         {
-            uint4 a0 = uint4(864455342, 2035793213, 1275443862, 971919915);
-            uint4 r0 = uint4(864455343, 2035793214, 1275443863, 971919916);
+            uint4 a0 = uint4(1255324487, 1412620214, 2004729755, 364341497);
+            uint4 r0 = uint4(1255324488, 1412620215, 2004729756, 364341498);
             TestUtils.AreEqual(++a0, r0);
 
-            uint4 a1 = uint4(411610189, 395072276, 115573442, 913293639);
-            uint4 r1 = uint4(411610190, 395072277, 115573443, 913293640);
+            uint4 a1 = uint4(1001267099, 1826916366, 1377883623, 1403483584);
+            uint4 r1 = uint4(1001267100, 1826916367, 1377883624, 1403483585);
             TestUtils.AreEqual(++a1, r1);
 
-            uint4 a2 = uint4(432884105, 1385544935, 1835605516, 831396561);
-            uint4 r2 = uint4(432884106, 1385544936, 1835605517, 831396562);
+            uint4 a2 = uint4(1126929701, 1799441336, 1874383402, 1586837356);
+            uint4 r2 = uint4(1126929702, 1799441337, 1874383403, 1586837357);
             TestUtils.AreEqual(++a2, r2);
 
-            uint4 a3 = uint4(388229350, 1786514683, 993189311, 752093909);
-            uint4 r3 = uint4(388229351, 1786514684, 993189312, 752093910);
+            uint4 a3 = uint4(1178543239, 1531710577, 1423227601, 751290927);
+            uint4 r3 = uint4(1178543240, 1531710578, 1423227602, 751290928);
             TestUtils.AreEqual(++a3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_postfix_inc()
         {
-            uint4 a0 = uint4(1751003569, 2063707595, 1500486291, 969189211);
-            uint4 r0 = uint4(1751003569, 2063707595, 1500486291, 969189211);
+            uint4 a0 = uint4(482801952, 1525347232, 1327121509, 391425724);
+            uint4 r0 = uint4(482801952, 1525347232, 1327121509, 391425724);
             TestUtils.AreEqual(a0++, r0);
 
-            uint4 a1 = uint4(1007848192, 1643023524, 1190630527, 1396179607);
-            uint4 r1 = uint4(1007848192, 1643023524, 1190630527, 1396179607);
+            uint4 a1 = uint4(696835538, 286946275, 1479259080, 1764804294);
+            uint4 r1 = uint4(696835538, 286946275, 1479259080, 1764804294);
             TestUtils.AreEqual(a1++, r1);
 
-            uint4 a2 = uint4(708474528, 1524860667, 1408994706, 375284401);
-            uint4 r2 = uint4(708474528, 1524860667, 1408994706, 375284401);
+            uint4 a2 = uint4(358290724, 1655297583, 1041844812, 312666038);
+            uint4 r2 = uint4(358290724, 1655297583, 1041844812, 312666038);
             TestUtils.AreEqual(a2++, r2);
 
-            uint4 a3 = uint4(1580130369, 717006530, 506142468, 732199129);
-            uint4 r3 = uint4(1580130369, 717006530, 506142468, 732199129);
+            uint4 a3 = uint4(2081962534, 795715545, 982844920, 1207902920);
+            uint4 r3 = uint4(2081962534, 795715545, 982844920, 1207902920);
             TestUtils.AreEqual(a3++, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_prefix_dec()
         {
-            uint4 a0 = uint4(200904609, 871077500, 968578728, 638967721);
-            uint4 r0 = uint4(200904608, 871077499, 968578727, 638967720);
+            uint4 a0 = uint4(1786777392, 2114077793, 1678527347, 1458977374);
+            uint4 r0 = uint4(1786777391, 2114077792, 1678527346, 1458977373);
             TestUtils.AreEqual(--a0, r0);
 
-            uint4 a1 = uint4(1995396216, 1782514098, 1589827826, 1434377580);
-            uint4 r1 = uint4(1995396215, 1782514097, 1589827825, 1434377579);
+            uint4 a1 = uint4(332157813, 569184702, 1105870615, 1653790314);
+            uint4 r1 = uint4(332157812, 569184701, 1105870614, 1653790313);
             TestUtils.AreEqual(--a1, r1);
 
-            uint4 a2 = uint4(596759698, 1758478358, 1914114460, 71237375);
-            uint4 r2 = uint4(596759697, 1758478357, 1914114459, 71237374);
+            uint4 a2 = uint4(1727873646, 510891085, 1806004859, 2055285618);
+            uint4 r2 = uint4(1727873645, 510891084, 1806004858, 2055285617);
             TestUtils.AreEqual(--a2, r2);
 
-            uint4 a3 = uint4(389120307, 1310293956, 356565557, 18299409);
-            uint4 r3 = uint4(389120306, 1310293955, 356565556, 18299408);
+            uint4 a3 = uint4(878587021, 727840634, 1657883130, 774572143);
+            uint4 r3 = uint4(878587020, 727840633, 1657883129, 774572142);
             TestUtils.AreEqual(--a3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_postfix_dec()
         {
-            uint4 a0 = uint4(283970262, 1109329936, 1073216143, 649439137);
-            uint4 r0 = uint4(283970262, 1109329936, 1073216143, 649439137);
+            uint4 a0 = uint4(763128954, 1604006255, 851112563, 1351926085);
+            uint4 r0 = uint4(763128954, 1604006255, 851112563, 1351926085);
             TestUtils.AreEqual(a0--, r0);
 
-            uint4 a1 = uint4(1932646215, 484207852, 524156737, 691209285);
-            uint4 r1 = uint4(1932646215, 484207852, 524156737, 691209285);
+            uint4 a1 = uint4(296277768, 400225071, 2018722301, 1767809423);
+            uint4 r1 = uint4(296277768, 400225071, 2018722301, 1767809423);
             TestUtils.AreEqual(a1--, r1);
 
-            uint4 a2 = uint4(2017728859, 377162390, 526366486, 1504625034);
-            uint4 r2 = uint4(2017728859, 377162390, 526366486, 1504625034);
+            uint4 a2 = uint4(1966343832, 729159102, 1564789209, 401130734);
+            uint4 r2 = uint4(1966343832, 729159102, 1564789209, 401130734);
             TestUtils.AreEqual(a2--, r2);
 
-            uint4 a3 = uint4(590919177, 1867810045, 2095777993, 670715645);
-            uint4 r3 = uint4(590919177, 1867810045, 2095777993, 670715645);
+            uint4 a3 = uint4(366935840, 448523825, 2023756724, 121892713);
+            uint4 r3 = uint4(366935840, 448523825, 2023756724, 121892713);
             TestUtils.AreEqual(a3--, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_and_wide_wide()
         {
-            uint4 a0 = uint4(779935043, 1097962163, 1939593304, 800599247);
-            uint4 b0 = uint4(307705143, 1710882162, 866836769, 532490608);
-            uint4 r0 = uint4(39064835, 1097961522, 864731136, 263727168);
+            uint4 a0 = uint4(2092051178, 1746770686, 1029274525, 1475004282);
+            uint4 b0 = uint4(272703892, 1322639335, 892833749, 1144239790);
+            uint4 r0 = uint4(268443776, 1209375462, 890309525, 1143113258);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            uint4 a1 = uint4(952140918, 782792558, 1608557706, 396446406);
-            uint4 b1 = uint4(679371720, 1794035877, 1439832202, 519529812);
-            uint4 r1 = uint4(675283008, 715673636, 1438646410, 379666500);
+            uint4 a1 = uint4(612016978, 797870200, 1438448989, 1307881465);
+            uint4 b1 = uint4(1616750127, 886768760, 151903875, 437958142);
+            uint4 r1 = uint4(542679554, 613023864, 17619969, 135308792);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            uint4 a2 = uint4(2039894114, 1286974642, 442394124, 1759739564);
-            uint4 b2 = uint4(23633139, 1209152681, 646737179, 1255867027);
-            uint4 r2 = uint4(16781410, 1209017504, 34366472, 1220739712);
+            uint4 a2 = uint4(1061841715, 758104536, 792659253, 1952707562);
+            uint4 b2 = uint4(1601934447, 709021151, 1161272974, 87355212);
+            uint4 r2 = uint4(524943395, 671269336, 87491588, 69264200);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            uint4 a3 = uint4(233435438, 665207770, 1942050241, 1022352952);
-            uint4 b3 = uint4(1900854122, 413173763, 1409138251, 2087190272);
-            uint4 r3 = uint4(21541162, 10485762, 1405162561, 1013440000);
+            uint4 a3 = uint4(591786804, 18587383, 2137260293, 1938728741);
+            uint4 b3 = uint4(2003092747, 1175201405, 1818376664, 627815462);
+            uint4 r3 = uint4(591708416, 525941, 1818231040, 554345508);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_and_wide_scalar()
         {
-            uint4 a0 = uint4(443615469, 490057985, 2042441263, 1524760558);
-            uint b0 = (93423598);
-            uint4 r0 = uint4(1114348, 85033216, 26281518, 8488942);
+            uint4 a0 = uint4(1539818086, 1174036358, 829722249, 278534026);
+            uint b0 = (1429236654);
+            uint4 r0 = uint4(1358971430, 1160792966, 288361096, 269484938);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            uint4 a1 = uint4(1405175110, 1941875181, 1236735839, 1365509729);
-            uint b1 = (510212004);
-            uint4 r1 = uint4(306251012, 304619940, 136386308, 274728480);
+            uint4 a1 = uint4(1883523687, 479408214, 1980474728, 1129809064);
+            uint b1 = (972630451);
+            uint4 r1 = uint4(809502755, 412164114, 805904672, 22085792);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            uint4 a2 = uint4(428270198, 650270920, 1249238550, 814629680);
-            uint b2 = (607982857);
-            uint4 r2 = uint4(262144, 603983880, 3478528, 537657600);
+            uint4 a2 = uint4(1581024627, 241631718, 710874038, 1975155852);
+            uint b2 = (182089936);
+            uint4 r2 = uint4(169345104, 172097728, 173674640, 10123392);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            uint4 a3 = uint4(1862276471, 861733033, 1408932942, 957693145);
-            uint b3 = (143502472);
-            uint4 r3 = uint4(134218752, 852104, 8948744, 134556808);
+            uint4 a3 = uint4(1449409653, 1334047680, 2064480518, 1322285560);
+            uint b3 = (1337613880);
+            uint4 r3 = uint4(1176509488, 1333940736, 1258838016, 1318082616);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_and_scalar_wide()
         {
-            uint a0 = (1144543590);
-            uint4 b0 = uint4(420346723, 562416448, 1393127318, 1560699552);
-            uint4 r0 = uint4(547170, 18752, 1074284806, 1140867104);
+            uint a0 = (1464480071);
+            uint4 b0 = uint4(880300166, 1801631129, 2146929359, 134501242);
+            uint4 r0 = uint4(340267014, 1128411393, 1463943239, 4418);
             TestUtils.AreEqual(a0 & b0, r0);
 
-            uint a1 = (851218057);
-            uint4 b1 = uint4(703880958, 1159378889, 2031211279, 1089518981);
-            uint4 r1 = uint4(548671112, 1607305, 806388233, 11570305);
+            uint a1 = (560052329);
+            uint4 b1 = uint4(1883977874, 1013494998, 1922782264, 691181116);
+            uint4 r1 = uint4(541145088, 543207488, 536940584, 555782184);
             TestUtils.AreEqual(a1 & b1, r1);
 
-            uint a2 = (270607307);
-            uint4 b2 = uint4(1349288930, 520199596, 1763483957, 1248975349);
-            uint4 r2 = uint4(270533570, 268501384, 8449, 2163137);
+            uint a2 = (462206052);
+            uint4 b2 = uint4(446227614, 733622820, 154650269, 1040709037);
+            uint4 r2 = uint4(445162500, 193474596, 151290884, 436515876);
             TestUtils.AreEqual(a2 & b2, r2);
 
-            uint a3 = (236938635);
-            uint4 b3 = uint4(185023291, 1085233038, 1845693112, 946052961);
-            uint4 r3 = uint4(168239371, 1000842, 235077768, 134415617);
+            uint a3 = (872751594);
+            uint4 b3 = uint4(1748058103, 515699587, 1854871563, 684039719);
+            uint4 r3 = uint4(536945122, 335815042, 604307466, 537198626);
             TestUtils.AreEqual(a3 & b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_or_wide_wide()
         {
-            uint4 a0 = uint4(1731159103, 659068416, 382702471, 1821032196);
-            uint4 b0 = uint4(1583847161, 692672727, 1161585489, 1756207130);
-            uint4 r0 = uint4(2138044159, 793370327, 1476391895, 1823457054);
+            uint4 a0 = uint4(734971681, 170686390, 1266964099, 1460491362);
+            uint4 b0 = uint4(855541034, 1662326443, 1355326851, 2034950208);
+            uint4 r0 = uint4(1006552875, 1799190463, 1540159363, 2135946338);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            uint4 a1 = uint4(1565773438, 1004000514, 948501377, 600951835);
-            uint4 b1 = uint4(1321374429, 1287357212, 2075767170, 1273513430);
-            uint4 r1 = uint4(1607720703, 2147473182, 2075786115, 1811533279);
+            uint4 a1 = uint4(1803179461, 768462149, 987469872, 438875025);
+            uint4 b1 = uint4(350174433, 267121140, 1311095923, 1505207657);
+            uint4 r1 = uint4(2147450341, 804257269, 2130689139, 1539291129);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            uint4 a2 = uint4(669346222, 396691477, 2108560248, 2117522137);
-            uint4 b2 = uint4(1610830169, 1316929125, 511625048, 573925879);
-            uint4 r2 = uint4(1743223295, 1610595957, 2147407736, 2117598207);
+            uint4 a2 = uint4(1128872651, 795335618, 1529817033, 741387702);
+            uint4 b2 = uint4(504611275, 741405442, 29985341, 1349904874);
+            uint4 r2 = uint4(1599863755, 796392386, 1542434813, 2088103422);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            uint4 a3 = uint4(330307355, 818676817, 1774459567, 1117506257);
-            uint4 b3 = uint4(1502255628, 1841676448, 1682928938, 1115131952);
-            uint4 r3 = uint4(1538957087, 2110637297, 1842315183, 1124063985);
+            uint4 a3 = uint4(1220165008, 1338127916, 1489866234, 179365479);
+            uint4 b3 = uint4(2075459701, 1867309176, 1329238130, 1905614698);
+            uint4 r3 = uint4(2076130805, 1875834492, 1610587642, 2075524975);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_or_wide_scalar()
         {
-            uint4 a0 = uint4(961259683, 471103264, 1733389229, 1591585258);
-            uint b0 = (1666102508);
-            uint4 r0 = uint4(2068823279, 2136930284, 1734344685, 2145369582);
+            uint4 a0 = uint4(1734012999, 667885144, 1145828203, 697078394);
+            uint b0 = (724265524);
+            uint4 r0 = uint4(1870396023, 804224636, 1869347711, 732953214);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            uint4 a1 = uint4(386953869, 1048929715, 1814263250, 860336789);
-            uint b1 = (1148351449);
-            uint4 r1 = uint4(1467118557, 2130147323, 1819506651, 2004349917);
+            uint4 a1 = uint4(548056872, 982993821, 1923524974, 1721498502);
+            uint b1 = (1693193261);
+            uint4 r1 = uint4(1693368109, 2130665405, 1995357551, 1728053167);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            uint4 a2 = uint4(1637162093, 774029856, 879300408, 1179087439);
-            uint b2 = (1227888278);
-            uint4 r2 = uint4(1773477631, 1865602742, 2105089982, 1333229279);
+            uint4 a2 = uint4(629916984, 1103396649, 629860201, 748158308);
+            uint b2 = (1306607927);
+            uint4 r2 = uint4(1844167999, 1306885951, 1844176767, 1844968823);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            uint4 a3 = uint4(797240690, 46921989, 1980838747, 284225881);
-            uint b3 = (1977614655);
-            uint4 r3 = uint4(2145709439, 2011953471, 2012296063, 1978724735);
+            uint4 a3 = uint4(1434379189, 591994749, 1915156047, 1655990044);
+            uint b3 = (1149265831);
+            uint4 r3 = uint4(1442768823, 1741258751, 1990653935, 1723099071);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_or_scalar_wide()
         {
-            uint a0 = (1213433101);
-            uint4 b0 = uint4(1212928242, 1614462616, 936937728, 764766995);
-            uint4 r0 = uint4(1213978111, 1752940445, 2145094925, 1842867999);
+            uint a0 = (1944842696);
+            uint4 b0 = uint4(1797946902, 1995080562, 1009785533, 2078864395);
+            uint4 r0 = uint4(2079064030, 2011952122, 2147220477, 2079061451);
             TestUtils.AreEqual(a0 | b0, r0);
 
-            uint a1 = (306352095);
-            uint4 b1 = uint4(574719481, 1283571271, 2109131012, 979469710);
-            uint4 r1 = uint4(843288575, 1589886943, 2146881503, 979603423);
+            uint a1 = (1738258290);
+            uint4 b1 = uint4(2078839688, 182771906, 331104563, 1016101895);
+            uint4 r1 = uint4(2147203066, 1879046130, 2009069427, 2140929911);
             TestUtils.AreEqual(a1 | b1, r1);
 
-            uint a2 = (1348323481);
-            uint4 b2 = uint4(1407542578, 697517649, 1059093741, 627815046);
-            uint4 r2 = uint4(1409150395, 2044710617, 2138963197, 1971321503);
+            uint a2 = (1555585463);
+            uint4 b2 = uint4(344959457, 1773844766, 2065533499, 930917837);
+            uint4 r2 = uint4(1556085239, 2109405631, 2143148991, 2147286527);
             TestUtils.AreEqual(a2 | b2, r2);
 
-            uint a3 = (418822515);
-            uint4 b3 = uint4(83214352, 424663473, 447949225, 527022375);
-            uint4 r3 = uint4(486013299, 436206067, 452442619, 536852855);
+            uint a3 = (660708795);
+            uint4 b3 = uint4(294373756, 677858240, 1983817531, 2008476971);
+            uint4 r3 = uint4(938204671, 795336699, 2004860859, 2012741051);
             TestUtils.AreEqual(a3 | b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_xor_wide_wide()
         {
-            uint4 a0 = uint4(1556324760, 207002929, 1843444873, 1632079131);
-            uint4 b0 = uint4(1054997548, 1523759632, 251164872, 110472397);
-            uint4 r0 = uint4(1646419380, 1451501345, 1662567489, 1741824470);
+            uint4 a0 = uint4(1451207246, 1326937873, 1723637117, 1703580819);
+            uint4 b0 = uint4(973506398, 229917169, 115811768, 824430321);
+            uint4 r0 = uint4(1819880720, 1117992672, 1616623813, 1420384866);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            uint4 a1 = uint4(1460334334, 1607815585, 220623650, 38668553);
-            uint4 b1 = uint4(384031112, 1109163205, 535118981, 179106262);
-            uint4 r1 = uint4(1105803126, 499723620, 314783655, 149092575);
+            uint4 a1 = uint4(248456219, 102413373, 1112748052, 786343099);
+            uint4 b1 = uint4(1106935191, 1150807945, 1096766695, 405353279);
+            uint4 r1 = uint4(1328896396, 1116560308, 51143923, 922195844);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            uint4 a2 = uint4(47193340, 643663548, 1371932564, 94957188);
-            uint4 b2 = uint4(1523031711, 1713313372, 1294118730, 520360641);
-            uint4 r2 = uint4(1477935715, 1078104288, 484747486, 447544389);
+            uint4 a2 = uint4(1705703147, 1153897995, 706969967, 856434388);
+            uint4 b2 = uint4(1241418803, 1943592644, 817552063, 980538734);
+            uint4 r2 = uint4(743733976, 924829903, 446258128, 159249338);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            uint4 a3 = uint4(700973621, 370621508, 2087573076, 351476570);
-            uint4 b3 = uint4(1040688781, 1020757245, 1143954843, 1281933464);
-            uint4 r3 = uint4(399484088, 717273273, 943885263, 1486609346);
+            uint4 a3 = uint4(1429965951, 206758510, 530227784, 30367516);
+            uint4 b3 = uint4(1055597865, 93654543, 1866100663, 428258142);
+            uint4 r3 = uint4(1808836950, 164097121, 1889586687, 407497794);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_xor_wide_scalar()
         {
-            uint4 a0 = uint4(2124666952, 177397845, 574879617, 1937385541);
-            uint b0 = (493665894);
-            uint4 r0 = uint4(1674536494, 402546227, 1060063719, 1846973987);
+            uint4 a0 = uint4(1168710170, 1910166247, 770450475, 137053244);
+            uint b0 = (1652551354);
+            uint4 r0 = uint4(668398752, 329595997, 1335085713, 1783933574);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            uint4 a1 = uint4(1136545648, 535061373, 289301586, 1305234431);
-            uint b1 = (213863690);
-            uint4 r1 = uint4(1325466234, 324742775, 495003992, 1098057461);
+            uint4 a1 = uint4(294543551, 1818436467, 1927634471, 1868775761);
+            uint b1 = (1408449906);
+            uint4 r1 = uint4(1115512269, 1066409473, 555115349, 1016101923);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            uint4 a2 = uint4(353786540, 1267729267, 125659640, 1315625690);
-            uint b2 = (1308626970);
-            uint4 r2 = uint4(1528187574, 93328233, 1232959970, 6998720);
+            uint4 a2 = uint4(2129912193, 1128536481, 137121619, 217103701);
+            uint b2 = (2002455346);
+            uint4 r2 = uint4(162065075, 874451603, 2138522721, 2074850919);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            uint4 a3 = uint4(1730088797, 375757978, 491079274, 191750702);
-            uint b3 = (116862046);
-            uint4 r3 = uint4(1642603267, 278048964, 464677428, 228249200);
+            uint4 a3 = uint4(2089471351, 1736096264, 792848316, 1734728632);
+            uint b3 = (672445107);
+            uint4 r3 = uint4(1419673540, 1332611259, 123032847, 1332832523);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_xor_scalar_wide()
         {
-            uint a0 = (1288453276);
-            uint4 b0 = uint4(1077599928, 884741329, 212164516, 1585020328);
-            uint4 r0 = uint4(217506340, 2020616269, 1080648504, 313868596);
+            uint a0 = (1194539731);
+            uint4 b0 = uint4(1838033352, 576935253, 399395950, 250856040);
+            uint4 r0 = uint4(717034267, 1699770246, 1358788285, 1237383355);
             TestUtils.AreEqual(a0 ^ b0, r0);
 
-            uint a1 = (152985454);
-            uint4 b1 = uint4(1775851275, 1416249064, 1309317737, 1773918217);
-            uint4 r1 = uint4(1623656549, 1567908230, 1192543495, 1621460839);
+            uint a1 = (1425907707);
+            uint4 b1 = uint4(1076687299, 983484392, 2124473834, 2078261486);
+            uint4 r1 = uint4(349269560, 1852004371, 710769169, 790781717);
             TestUtils.AreEqual(a1 ^ b1, r1);
 
-            uint a2 = (1509843030);
-            uint4 b2 = uint4(1206045972, 1154916424, 1947871003, 1774252400);
-            uint4 r2 = uint4(505195842, 489209886, 769935181, 809406758);
+            uint a2 = (1921195479);
+            uint4 b2 = uint4(95097761, 573992422, 1605464512, 619598441);
+            uint4 r2 = uint4(1999113846, 1354068017, 758279191, 1450004414);
             TestUtils.AreEqual(a2 ^ b2, r2);
 
-            uint a3 = (1946113778);
-            uint4 b3 = uint4(1079717492, 290620937, 1382343363, 939045099);
-            uint4 r3 = uint4(866416774, 1655558395, 563852337, 1141368345);
+            uint a3 = (2142716785);
+            uint4 b3 = uint4(1152008011, 2146366522, 1906443135, 1183476844);
+            uint4 r3 = uint4(991788090, 5879627, 236273678, 960311069);
             TestUtils.AreEqual(a3 ^ b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_left_shift()
         {
-            uint4 a0 = uint4(197771193, 622182602, 1283988958, 1327917304);
-            int b0 = (1321149625);
-            uint4 r0 = uint4(1912602624, 2483027968, 3154116608, 4026531840);
+            uint4 a0 = uint4(931909748, 24051129, 764104297, 615327136);
+            int b0 = (633406437);
+            uint4 r0 = uint4(4051308160, 769636128, 2976501024, 2510599168);
             TestUtils.AreEqual(a0 << b0, r0);
 
-            uint4 a1 = uint4(473415985, 870301196, 2058433484, 1200694230);
-            int b1 = (432425717);
-            uint4 r1 = uint4(639631360, 3246391296, 2038431744, 2059403264);
+            uint4 a1 = uint4(915651018, 1053065817, 1251270776, 258942729);
+            int b1 = (778230483);
+            uint4 r1 = uint4(3461349376, 315097088, 62914560, 944242688);
             TestUtils.AreEqual(a1 << b1, r1);
 
-            uint4 a2 = uint4(1531607705, 1008296534, 1447702302, 1079614371);
-            int b2 = (1360008038);
-            uint4 r2 = uint4(3533612608, 106468736, 2458634112, 375843008);
+            uint4 a2 = uint4(1285562176, 32966442, 1409592718, 538213441);
+            int b2 = (1971396937);
+            uint4 r2 = uint4(1077837824, 3993916416, 156965888, 687374848);
             TestUtils.AreEqual(a2 << b2, r2);
 
-            uint4 a3 = uint4(35667343, 2045594989, 2077023268, 592678686);
-            int b3 = (1664454606);
-            uint4 r3 = uint4(258195456, 1398489088, 923336704, 3821502464);
+            uint4 a3 = uint4(2054530579, 624466118, 1111935176, 465262380);
+            int b3 = (524937488);
+            uint4 r3 = uint4(2786263040, 2563112960, 3368550400, 1462501376);
             TestUtils.AreEqual(a3 << b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_right_shift()
         {
-            uint4 a0 = uint4(548167301, 1161338299, 1617625829, 1860731847);
-            int b0 = (1266801540);
-            uint4 r0 = uint4(34260456, 72583643, 101101614, 116295740);
+            uint4 a0 = uint4(1366397886, 1724049991, 102473945, 171782889);
+            int b0 = (1757774778);
+            uint4 r0 = uint4(20, 25, 1, 2);
             TestUtils.AreEqual(a0 >> b0, r0);
 
-            uint4 a1 = uint4(713958715, 770466193, 1265099998, 572763124);
-            int b1 = (196552656);
-            uint4 r1 = uint4(10894, 11756, 19303, 8739);
+            uint4 a1 = uint4(1292455651, 56874046, 1261184742, 1893257536);
+            int b1 = (86277781);
+            uint4 r1 = uint4(616, 27, 601, 902);
             TestUtils.AreEqual(a1 >> b1, r1);
 
-            uint4 a2 = uint4(506619530, 2031319045, 701927980, 917785020);
-            int b2 = (426807581);
-            uint4 r2 = uint4(0, 3, 1, 1);
+            uint4 a2 = uint4(2046727266, 1264893071, 1265324047, 993515717);
+            int b2 = (1170864679);
+            uint4 r2 = uint4(15990056, 9881977, 9885344, 7761841);
             TestUtils.AreEqual(a2 >> b2, r2);
 
-            uint4 a3 = uint4(569504877, 1102123711, 334005460, 1624751550);
-            int b3 = (185593382);
-            uint4 r3 = uint4(8898513, 17220682, 5218835, 25386742);
+            uint4 a3 = uint4(320091418, 562082206, 452386814, 338639704);
+            int b3 = (186426076);
+            uint4 r3 = uint4(1, 2, 1, 1);
             TestUtils.AreEqual(a3 >> b3, r3);
         }
 
         [TestCompiler]
         public static void uint4_operator_bitwise_not()
         {
-            uint4 a0 = uint4(1403358969, 831360921, 2088190243, 976721016);
-            uint4 r0 = uint4(2891608326, 3463606374, 2206777052, 3318246279);
+            uint4 a0 = uint4(1581459784, 813914639, 1110317406, 876503210);
+            uint4 r0 = uint4(2713507511, 3481052656, 3184649889, 3418464085);
             TestUtils.AreEqual(~a0, r0);
 
-            uint4 a1 = uint4(878283189, 1935567517, 1420884856, 472965491);
-            uint4 r1 = uint4(3416684106, 2359399778, 2874082439, 3822001804);
+            uint4 a1 = uint4(707106370, 813009756, 678126530, 1610491464);
+            uint4 r1 = uint4(3587860925, 3481957539, 3616840765, 2684475831);
             TestUtils.AreEqual(~a1, r1);
 
-            uint4 a2 = uint4(771711426, 2061524024, 753208488, 2097179283);
-            uint4 r2 = uint4(3523255869, 2233443271, 3541758807, 2197788012);
+            uint4 a2 = uint4(214532408, 776399159, 22668443, 246932821);
+            uint4 r2 = uint4(4080434887, 3518568136, 4272298852, 4048034474);
             TestUtils.AreEqual(~a2, r2);
 
-            uint4 a3 = uint4(1303022493, 1289372466, 1635981125, 1951018596);
-            uint4 r3 = uint4(2991944802, 3005594829, 2658986170, 2343948699);
+            uint4 a3 = uint4(1612087198, 1596002861, 620656125, 1531048177);
+            uint4 r3 = uint4(2682880097, 2698964434, 3674311170, 2763919118);
             TestUtils.AreEqual(~a3, r3);
         }
 
