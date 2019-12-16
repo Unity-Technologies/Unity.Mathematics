@@ -2888,22 +2888,105 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("using Unity.Burst;\n\n");
             str.Append("namespace Unity.Mathematics.PerformanceTests\n");
             str.Append("{\n");
-
-            // One indent
             str.Append("    public partial class TestMul\n");
             str.Append("    {\n");
 
-            // Two indents
             GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4x4", "float4x4.identity");
             GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4", "new float4(1.0f, 0.0f, 0.0f, 1.0f)");
             GenerateMulPerformanceTest(str, "quaternion", "quaternion.identity", "quaternion", "quaternion.identity");
             GenerateMulPerformanceTest(str, "float3x3", "float3x3.identity", "float3", "new float3(1.0f, 0.0f, 0.0f)");
             GenerateMulPerformanceTest(str, "float2x2", "float2x2.identity", "float2x2", "float2x2.identity");
 
-            str.Append("    }\n");
+            GeneratePerformanceTest(str, "testwtf_float4x4_float4x4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m2", m_MemberInitializer = "float4x4.identity" },
+            }, "args.m1 = math.mul(args.m1, args.m2);");
 
-            // One indent
+            str.Append("    }\n");
             str.Append("}\n");
+        }
+
+        public struct PerformanceTestArgument
+        {
+            public string m_MemberType;
+            public string m_MemberName;
+            public string m_MemberInitializer;
+        }
+
+        void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArgument[] testArguments, string loopBody)
+        {
+            str.AppendFormat("        [BurstCompile]\n");
+            str.AppendFormat("        public class {0}\n", testName);
+            str.AppendFormat("        {{\n");
+            str.AppendFormat("            public struct Arguments\n");
+            str.AppendFormat("            {{\n");
+
+            foreach (var argument in testArguments)
+            {
+                str.AppendFormat("                public {0} {1};\n", argument.m_MemberType, argument.m_MemberName);
+            }
+
+            str.AppendFormat("\n");
+            str.AppendFormat("                public void Init()\n");
+            str.AppendFormat("                {{\n");
+
+            foreach (var argument in testArguments)
+            {
+                str.AppendFormat("                    {0} = {1};\n", argument.m_MemberName, argument.m_MemberInitializer);
+            }
+
+            str.AppendFormat("                }}\n");
+            str.AppendFormat("            }}\n");
+            str.AppendFormat("\n");
+
+            str.AppendFormat("            public static void CommonTestFunction(ref Arguments args)\n");
+            str.AppendFormat("            {{\n");
+            str.AppendFormat("                for (int i = 0; i < 10000; ++i)\n");
+            str.AppendFormat("                {{\n");
+            str.AppendFormat("                    {0}\n", loopBody);
+            str.AppendFormat("                }}\n");
+            str.AppendFormat("            }}\n\n");
+            str.AppendFormat("            public static void MonoTestFunction(ref Arguments args)\n");
+            str.AppendFormat("            {{\n");
+            str.AppendFormat("                CommonTestFunction(ref args);\n");
+            str.AppendFormat("            }}\n\n");
+            str.AppendFormat("            [BurstCompile]\n");
+            str.AppendFormat("            public static void BurstTestFunction(ref Arguments args)\n");
+            str.AppendFormat("            {{\n");
+            str.AppendFormat("                CommonTestFunction(ref args);\n");
+            str.AppendFormat("            }}\n\n");
+            str.AppendFormat("            public delegate void TestFunction(ref Arguments args);\n");
+            str.AppendFormat("        }}\n\n");
+            str.AppendFormat("        [Test, Performance]\n");
+            str.AppendFormat("        public void {0}_mono()\n", testName);
+            str.AppendFormat("        {{\n");
+            str.AppendFormat("            {0}.TestFunction testFunction = {0}.MonoTestFunction;\n", testName);
+            str.AppendFormat("            var args = new {0}.Arguments();\n", testName);
+            str.AppendFormat("            args.Init();\n");
+            str.AppendFormat("\n");
+            str.AppendFormat("            Measure.Method(() =>\n");
+            str.AppendFormat("            {{\n");
+            str.AppendFormat("                testFunction.Invoke(ref args);\n");
+            str.AppendFormat("            }})\n");
+            str.AppendFormat("            .WarmupCount(1)\n");
+            str.AppendFormat("            .MeasurementCount(10)\n");
+            str.AppendFormat("            .Run();\n");
+            str.AppendFormat("        }}\n\n");
+            str.AppendFormat("        [Test, Performance]\n");
+            str.AppendFormat("        public void {0}_burst()\n", testName);
+            str.AppendFormat("        {{\n");
+            str.AppendFormat("            FunctionPointer<{0}.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<{0}.TestFunction>({0}.BurstTestFunction);\n", testName);
+            str.AppendFormat("            var args = new {0}.Arguments();\n", testName);
+            str.AppendFormat("            args.Init();\n");
+            str.AppendFormat("\n");
+            str.AppendFormat("            Measure.Method(() =>\n");
+            str.AppendFormat("            {{\n");
+            str.AppendFormat("                testFunction.Invoke(ref args);\n");
+            str.AppendFormat("            }})\n");
+            str.AppendFormat("            .WarmupCount(1)\n");
+            str.AppendFormat("            .MeasurementCount(10)\n");
+            str.AppendFormat("            .Run();\n");
+            str.AppendFormat("        }}\n");
         }
 
         void GenerateMulPerformanceTest(StringBuilder stringBuilder, string leftType, string leftVarInitializer, string rightType, string rightVarInitializer)

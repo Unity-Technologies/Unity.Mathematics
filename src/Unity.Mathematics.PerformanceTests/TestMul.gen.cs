@@ -295,5 +295,73 @@ namespace Unity.Mathematics.PerformanceTests
             .MeasurementCount(10)
             .Run();
         }
+        [BurstCompile]
+        public class testwtf_float4x4_float4x4
+        {
+            public struct Arguments
+            {
+                public float4x4 m1;
+                public float4x4 m2;
+
+                public void Init()
+                {
+                    m1 = float4x4.identity;
+                    m2 = float4x4.identity;
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.m1 = math.mul(args.m1, args.m2);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void testwtf_float4x4_float4x4_mono()
+        {
+            testwtf_float4x4_float4x4.TestFunction testFunction = testwtf_float4x4_float4x4.MonoTestFunction;
+            var args = new testwtf_float4x4_float4x4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void testwtf_float4x4_float4x4_burst()
+        {
+            FunctionPointer<testwtf_float4x4_float4x4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<testwtf_float4x4_float4x4.TestFunction>(testwtf_float4x4_float4x4.BurstTestFunction);
+            var args = new testwtf_float4x4_float4x4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
     }
 }
