@@ -2891,16 +2891,34 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("    public partial class TestMul\n");
             str.Append("    {\n");
 
-            GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4x4", "float4x4.identity");
-            GenerateMulPerformanceTest(str, "float4x4", "float4x4.identity", "float4", "new float4(1.0f, 0.0f, 0.0f, 1.0f)");
-            GenerateMulPerformanceTest(str, "quaternion", "quaternion.identity", "quaternion", "quaternion.identity");
-            GenerateMulPerformanceTest(str, "float3x3", "float3x3.identity", "float3", "new float3(1.0f, 0.0f, 0.0f)");
-            GenerateMulPerformanceTest(str, "float2x2", "float2x2.identity", "float2x2", "float2x2.identity");
-
-            GeneratePerformanceTest(str, "testwtf_float4x4_float4x4", new PerformanceTestArgument[] {
+            GeneratePerformanceTest(str, "float4x4_float4x4", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m2", m_MemberInitializer = "float4x4.identity" },
             }, "args.m1 = math.mul(args.m1, args.m2);");
+            GeneratePerformanceTest(str, "float4x4_float4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "m2", m_MemberInitializer = "new float4(1.0f, 0.0f, 0.0f, 1.0f)" },
+            }, "args.m2 = math.mul(args.m1, args.m2);");
+            GeneratePerformanceTest(str, "quaternion_quaternion", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q1", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q2", m_MemberInitializer = "quaternion.identity" },
+            }, "args.q2 = math.mul(args.q1, args.q2);");
+            GeneratePerformanceTest(str, "float3x3_float3x3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m2", m_MemberInitializer = "float3x3.identity" },
+            }, "args.m2 = math.mul(args.m1, args.m2);");
+            GeneratePerformanceTest(str, "float2x2_float2x2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m2", m_MemberInitializer = "float2x2.identity" },
+            }, "args.m2 = math.mul(args.m1, args.m2);");
+            GeneratePerformanceTest(str, "float3x3_float3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "m2", m_MemberInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+            }, "args.m2 = math.mul(args.m1, args.m2);");
+            GeneratePerformanceTest(str, "float2x2_float2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
+                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "m2", m_MemberInitializer = "new float2(1.0f, 0.0f)" },
+            }, "args.m2 = math.mul(args.m1, args.m2);");
 
             str.Append("    }\n");
             str.Append("}\n");
