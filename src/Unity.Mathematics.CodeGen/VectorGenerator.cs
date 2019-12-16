@@ -2880,16 +2880,27 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n}\n");
         }
 
+        void BeginPerformanceTestCodeGen(StringBuilder str, string testSuiteName)
+        {
+            str.AppendFormat("using System;\n");
+            str.AppendFormat("using NUnit.Framework;\n");
+            str.AppendFormat("using Unity.PerformanceTesting;\n");
+            str.AppendFormat("using Unity.Burst;\n\n");
+            str.AppendFormat("namespace Unity.Mathematics.PerformanceTests\n");
+            str.AppendFormat("{{\n");
+            str.AppendFormat("    public partial class {0}\n", testSuiteName);
+            str.AppendFormat("    {{\n");
+        }
+
+        void EndPerformanceTestCodeGen(StringBuilder str)
+        {
+            str.AppendFormat("    }}\n");
+            str.AppendFormat("}}\n");
+        }
+
         void GenerateTestMulPerformanceTests(StringBuilder str)
         {
-            str.Append("using System;\n");
-            str.Append("using NUnit.Framework;\n");
-            str.Append("using Unity.PerformanceTesting;\n");
-            str.Append("using Unity.Burst;\n\n");
-            str.Append("namespace Unity.Mathematics.PerformanceTests\n");
-            str.Append("{\n");
-            str.Append("    public partial class TestMul\n");
-            str.Append("    {\n");
+            BeginPerformanceTestCodeGen(str, "TestMul");
 
             GeneratePerformanceTest(str, "float4x4_float4x4", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
@@ -2920,8 +2931,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "m2", m_MemberInitializer = "new float2(1.0f, 0.0f)" },
             }, "args.m2 = math.mul(args.m1, args.m2);");
 
-            str.Append("    }\n");
-            str.Append("}\n");
+            EndPerformanceTestCodeGen(str);
         }
 
         public struct PerformanceTestArgument
