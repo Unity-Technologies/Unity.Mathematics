@@ -3047,6 +3047,40 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u", m_MemberInitializer = "0" },
             }, "args.u = args.rng.NextUInt4();", 10000);
 
+            GeneratePerformanceTest(str, "Random_NextFloat", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "f", m_MemberInitializer = "0.0f" },
+            }, "args.f = args.rng.NextFloat();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "f", m_MemberInitializer = "new float2(0.0f)" },
+            }, "args.f = args.rng.NextFloat2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "f", m_MemberInitializer = "new float3(0.0f)" },
+            }, "args.f = args.rng.NextFloat3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f", m_MemberInitializer = "new float4(0.0f)" },
+            }, "args.f = args.rng.NextFloat4();", 10000);
+
+            GeneratePerformanceTest(str, "Random_NextDouble", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "double", m_MemberName = "f", m_MemberInitializer = "0.0" },
+            }, "args.f = args.rng.NextDouble();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "double2", m_MemberName = "f", m_MemberInitializer = "new double2(0.0)" },
+            }, "args.f = args.rng.NextDouble2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "double3", m_MemberName = "f", m_MemberInitializer = "new double3(0.0)" },
+            }, "args.f = args.rng.NextDouble3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "double4", m_MemberName = "f", m_MemberInitializer = "new double4(0.0)" },
+            }, "args.f = args.rng.NextDouble4();", 10000);
+
             EndPerformanceTestCodeGen(str);
         }
 

@@ -288,5 +288,549 @@ namespace Unity.Mathematics.PerformanceTests
             .MeasurementCount(10)
             .Run();
         }
+        [BurstCompile]
+        public class Random_NextFloat
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public float f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = 0.0f;
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextFloat();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat_mono()
+        {
+            Random_NextFloat.TestFunction testFunction = Random_NextFloat.MonoTestFunction;
+            var args = new Random_NextFloat.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat_burst()
+        {
+            FunctionPointer<Random_NextFloat.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextFloat.TestFunction>(Random_NextFloat.BurstTestFunction);
+            var args = new Random_NextFloat.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextFloat2
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public float2 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new float2(0.0f);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextFloat2();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat2_mono()
+        {
+            Random_NextFloat2.TestFunction testFunction = Random_NextFloat2.MonoTestFunction;
+            var args = new Random_NextFloat2.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat2_burst()
+        {
+            FunctionPointer<Random_NextFloat2.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextFloat2.TestFunction>(Random_NextFloat2.BurstTestFunction);
+            var args = new Random_NextFloat2.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextFloat3
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public float3 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new float3(0.0f);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextFloat3();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat3_mono()
+        {
+            Random_NextFloat3.TestFunction testFunction = Random_NextFloat3.MonoTestFunction;
+            var args = new Random_NextFloat3.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat3_burst()
+        {
+            FunctionPointer<Random_NextFloat3.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextFloat3.TestFunction>(Random_NextFloat3.BurstTestFunction);
+            var args = new Random_NextFloat3.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextFloat4
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public float4 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new float4(0.0f);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextFloat4();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat4_mono()
+        {
+            Random_NextFloat4.TestFunction testFunction = Random_NextFloat4.MonoTestFunction;
+            var args = new Random_NextFloat4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextFloat4_burst()
+        {
+            FunctionPointer<Random_NextFloat4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextFloat4.TestFunction>(Random_NextFloat4.BurstTestFunction);
+            var args = new Random_NextFloat4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextDouble
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public double f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = 0.0;
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextDouble();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble_mono()
+        {
+            Random_NextDouble.TestFunction testFunction = Random_NextDouble.MonoTestFunction;
+            var args = new Random_NextDouble.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble_burst()
+        {
+            FunctionPointer<Random_NextDouble.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextDouble.TestFunction>(Random_NextDouble.BurstTestFunction);
+            var args = new Random_NextDouble.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextDouble2
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public double2 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new double2(0.0);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextDouble2();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble2_mono()
+        {
+            Random_NextDouble2.TestFunction testFunction = Random_NextDouble2.MonoTestFunction;
+            var args = new Random_NextDouble2.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble2_burst()
+        {
+            FunctionPointer<Random_NextDouble2.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextDouble2.TestFunction>(Random_NextDouble2.BurstTestFunction);
+            var args = new Random_NextDouble2.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextDouble3
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public double3 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new double3(0.0);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextDouble3();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble3_mono()
+        {
+            Random_NextDouble3.TestFunction testFunction = Random_NextDouble3.MonoTestFunction;
+            var args = new Random_NextDouble3.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble3_burst()
+        {
+            FunctionPointer<Random_NextDouble3.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextDouble3.TestFunction>(Random_NextDouble3.BurstTestFunction);
+            var args = new Random_NextDouble3.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+        [BurstCompile]
+        public class Random_NextDouble4
+        {
+            public struct Arguments
+            {
+                public Random rng;
+                public double4 f;
+
+                public void Init()
+                {
+                    rng = new Unity.Mathematics.Random(1);
+                    f = new double4(0.0);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.f = args.rng.NextDouble4();
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble4_mono()
+        {
+            Random_NextDouble4.TestFunction testFunction = Random_NextDouble4.MonoTestFunction;
+            var args = new Random_NextDouble4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void Random_NextDouble4_burst()
+        {
+            FunctionPointer<Random_NextDouble4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<Random_NextDouble4.TestFunction>(Random_NextDouble4.BurstTestFunction);
+            var args = new Random_NextDouble4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
     }
 }
