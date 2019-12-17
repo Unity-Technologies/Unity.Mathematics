@@ -2979,10 +2979,46 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestConversions");
 
+            // Most of these tests will need to write to an output array to ensure
+            // burst doesn't optimize away to just one loop iteration.
             GeneratePerformanceTest(str, "quaternion_to_float3x3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "NativeArray<quaternion>", m_MemberName = "q", m_MemberInitializer = "new NativeArray<quaternion>(10000, Allocator.Persistent)", m_MemberHasDispose = true },
-                new PerformanceTestArgument { m_MemberType = "NativeArray<float3x3>", m_MemberName = "f3x3", m_MemberInitializer = "new NativeArray<float3x3>(10000, Allocator.Persistent)", m_MemberHasDispose = true },
-            }, "args.f3x3[i] = new float3x3(args.q[i]);", 10000);
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "f3x3", m_MemberInitializer = "float3x3.identity" },
+            }, "args.f3x3 = new float3x3(args.q);", 10000);
+            GeneratePerformanceTest(str, "float3x3_to_quaternion", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "f3x3", m_MemberInitializer = "float3x3.identity" },
+            }, "args.q = new quaternion(args.f3x3);", 10000);
+            GeneratePerformanceTest(str, "float4_to_half4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArgument { m_MemberType = "half4", m_MemberName = "h4", m_MemberInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
+            }, "args.h4 = new half4(args.f4);", 10000);
+            GeneratePerformanceTest(str, "half4_to_float4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArgument { m_MemberType = "half4", m_MemberName = "h4", m_MemberInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
+            }, "args.f4 = new float4(args.h4);", 10000);
+            GeneratePerformanceTest(str, "quaternion_to_RigidTransform", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "RigidTransform", m_MemberName = "rt", m_MemberInitializer = "RigidTransform.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "pos", m_MemberInitializer = "new float3()" },
+            }, "args.rt = new RigidTransform(args.q, args.pos);", 10000);
+            GeneratePerformanceTest(str, "quaternion_to_float4x4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "f4x4", m_MemberInitializer = "float4x4.identity" },
+            }, "args.q = new quaternion(args.f4x4);", 10000);
+            GeneratePerformanceTest(str, "float4x4_to_quaternion", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "f4x4", m_MemberInitializer = "float4x4.identity" },
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "f3", m_MemberInitializer = "new float3()" },
+            }, "args.f4x4 = new float4x4(args.q, args.f3);", 10000);
+            GeneratePerformanceTest(str, "float4_to_uint4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u4", m_MemberInitializer = "new uint4(100, 101, 102, 103)" },
+            }, "args.u4 = new uint4(args.f4);", 10000);
+            GeneratePerformanceTest(str, "uint4_to_float4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u4", m_MemberInitializer = "new uint4(100, 101, 102, 103)" },
+            }, "args.f4 = new float4(args.u4);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
