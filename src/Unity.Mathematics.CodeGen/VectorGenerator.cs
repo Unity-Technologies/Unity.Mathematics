@@ -3023,6 +3023,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateRandomPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestRandom");
+
+            GeneratePerformanceTest(str, "Random_NextUint", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "uint", m_MemberName = "u", m_MemberInitializer = "0" },
+            }, "args.u = args.rng.NextUInt();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "uint2", m_MemberName = "u", m_MemberInitializer = "0" },
+            }, "args.u = args.rng.NextUInt2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "uint3", m_MemberName = "u", m_MemberInitializer = "0" },
+            }, "args.u = args.rng.NextUInt3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u", m_MemberInitializer = "0" },
+            }, "args.u = args.rng.NextUInt4();", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArgument
         {
             public string m_MemberType;
@@ -3138,6 +3162,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder conversionStr = new StringBuilder();
             GenerateConversionPerformanceTests(conversionStr);
             WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
+
+            StringBuilder randomStr = new StringBuilder();
+            GenerateRandomPerformanceTests(randomStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestRandom.gen.cs", randomStr.ToString());
         }
     }
 }
