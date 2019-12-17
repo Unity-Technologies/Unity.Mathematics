@@ -3137,6 +3137,32 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateTransposePerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestTranspose");
+
+            GeneratePerformanceTest(str, "transpose_float4x4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m", m_MemberInitializer = "float4x4.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+            GeneratePerformanceTest(str, "transpose_float3x3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m", m_MemberInitializer = "float3x3.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+            GeneratePerformanceTest(str, "transpose_float2x2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m", m_MemberInitializer = "float2x2.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+            GeneratePerformanceTest(str, "transpose_double4x4", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m", m_MemberInitializer = "double4x4.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+            GeneratePerformanceTest(str, "transpose_double3x3", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m", m_MemberInitializer = "double3x3.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+            GeneratePerformanceTest(str, "transpose_double2x2", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m", m_MemberInitializer = "double2x2.identity" },
+            }, "args.m = math.transpose(args.m);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArgument
         {
             public string m_MemberType;
@@ -3249,6 +3275,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder noiseStr = new StringBuilder();
             GenerateNoisePerformanceTests(noiseStr);
             WriteFile(m_PerformanceTestDirectory + "/TestNoise.gen.cs", noiseStr.ToString());
+
+            StringBuilder transposeStr = new StringBuilder();
+            GenerateTransposePerformanceTests(transposeStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
         }
     }
 }
