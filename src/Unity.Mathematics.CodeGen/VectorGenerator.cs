@@ -3047,6 +3047,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateTrigPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestTrig");
+
+            GeneratePerformanceTest(str, "float_sincos", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "sin", m_MemberInitializer = "0.0f" },
+                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "cos", m_MemberInitializer = "1.0f" },
+            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            GeneratePerformanceTest(str, "float2_sincos", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "sin", m_MemberInitializer = "new float2(0.0f)" },
+                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "cos", m_MemberInitializer = "new float2(1.0f)" },
+            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            GeneratePerformanceTest(str, "float3_sincos", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "sin", m_MemberInitializer = "new float3(0.0f)" },
+                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "cos", m_MemberInitializer = "new float3(1.0f)" },
+            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            GeneratePerformanceTest(str, "float4_sincos", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "sin", m_MemberInitializer = "new float4(0.0f)" },
+                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "cos", m_MemberInitializer = "new float4(1.0f)" },
+            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArgument
         {
             public string m_MemberType;
@@ -3166,6 +3190,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder randomStr = new StringBuilder();
             GenerateRandomPerformanceTests(randomStr);
             WriteFile(m_PerformanceTestDirectory + "/TestRandom.gen.cs", randomStr.ToString());
+
+            StringBuilder trigStr = new StringBuilder();
+            GenerateTrigPerformanceTests(trigStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
         }
     }
 }
