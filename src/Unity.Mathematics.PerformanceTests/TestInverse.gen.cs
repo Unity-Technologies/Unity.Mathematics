@@ -27,10 +27,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float4x4.identity;
                 }
-
-                public void Dispose()
-                {
-                }
             }
 
             public static void CommonTestFunction(ref Arguments args)
@@ -69,7 +65,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -86,7 +81,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float3x3_inverse
@@ -98,10 +92,6 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = float3x3.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -141,7 +131,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -158,7 +147,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float2x2_inverse
@@ -170,10 +158,6 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = float2x2.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -213,7 +197,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -230,7 +213,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class double4x4_inverse
@@ -242,10 +224,6 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = double4x4.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -285,7 +263,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -302,7 +279,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class double3x3_inverse
@@ -314,10 +290,6 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = double3x3.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -357,7 +329,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -374,7 +345,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class double2x2_inverse
@@ -386,10 +356,6 @@ namespace Unity.Mathematics.PerformanceTests
                 public void Init()
                 {
                     m1 = double2x2.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -429,7 +395,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -446,7 +411,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
     }
 }

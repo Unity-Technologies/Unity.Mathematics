@@ -29,10 +29,6 @@ namespace Unity.Mathematics.PerformanceTests
                     m1 = float4x4.identity;
                     m2 = float4x4.identity;
                 }
-
-                public void Dispose()
-                {
-                }
             }
 
             public static void CommonTestFunction(ref Arguments args)
@@ -71,7 +67,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -88,7 +83,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float4x4_float4
@@ -102,10 +96,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float4x4.identity;
                     m2 = new float4(1.0f, 0.0f, 0.0f, 1.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -145,7 +135,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -162,7 +151,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class quaternion_quaternion
@@ -176,10 +164,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     q1 = quaternion.identity;
                     q2 = quaternion.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -219,7 +203,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -236,7 +219,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float3x3_float3x3
@@ -250,10 +232,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float3x3.identity;
                     m2 = float3x3.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -293,7 +271,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -310,7 +287,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float2x2_float2x2
@@ -324,10 +300,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float2x2.identity;
                     m2 = float2x2.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -367,7 +339,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -384,7 +355,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float3x3_float3
@@ -398,10 +368,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float3x3.identity;
                     m2 = new float3(1.0f, 0.0f, 0.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -441,7 +407,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -458,7 +423,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float2x2_float2
@@ -472,10 +436,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     m1 = float2x2.identity;
                     m2 = new float2(1.0f, 0.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -515,7 +475,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -532,7 +491,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
     }
 }

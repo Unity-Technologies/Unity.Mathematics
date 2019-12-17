@@ -3076,7 +3076,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             public string m_MemberType;
             public string m_MemberName;
             public string m_MemberInitializer;
-            public bool m_MemberHasDispose;
         }
 
         void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArgument[] testArguments, string loopBody, int loopIterations)
@@ -3099,18 +3098,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             foreach (var argument in testArguments)
             {
                 str.AppendFormat("                    {0} = {1};\n", argument.m_MemberName, argument.m_MemberInitializer);
-            }
-
-            str.AppendFormat("                }}\n\n");
-            str.AppendFormat("                public void Dispose()\n");
-            str.AppendFormat("                {{\n");
-
-            foreach (var argument in testArguments)
-            {
-                if (argument.m_MemberHasDispose)
-                {
-                    str.AppendFormat("                    {0}.Dispose();\n", argument.m_MemberName);
-                }
             }
 
             str.AppendFormat("                }}\n");
@@ -3149,7 +3136,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
-            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n\n");
             str.AppendFormat("        [Test, Performance]\n");
             str.AppendFormat("        public void {0}_burst()\n", testName);
@@ -3165,7 +3151,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
-            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n");
         }
 

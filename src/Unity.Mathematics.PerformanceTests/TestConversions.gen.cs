@@ -29,10 +29,6 @@ namespace Unity.Mathematics.PerformanceTests
                     q = quaternion.identity;
                     f3x3 = float3x3.identity;
                 }
-
-                public void Dispose()
-                {
-                }
             }
 
             public static void CommonTestFunction(ref Arguments args)
@@ -71,7 +67,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -88,7 +83,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float3x3_to_quaternion
@@ -102,10 +96,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     q = quaternion.identity;
                     f3x3 = float3x3.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -145,7 +135,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -162,7 +151,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float4_to_half4
@@ -176,10 +164,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     h4 = new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f));
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -219,7 +203,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -236,7 +219,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class half4_to_float4
@@ -250,10 +232,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     h4 = new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f));
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -293,7 +271,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -310,7 +287,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class quaternion_to_RigidTransform
@@ -326,10 +302,6 @@ namespace Unity.Mathematics.PerformanceTests
                     q = quaternion.identity;
                     rt = RigidTransform.identity;
                     pos = new float3();
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -369,7 +341,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -386,7 +357,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class quaternion_to_float4x4
@@ -400,10 +370,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     q = quaternion.identity;
                     f4x4 = float4x4.identity;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -443,7 +409,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -460,7 +425,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float4x4_to_quaternion
@@ -476,10 +440,6 @@ namespace Unity.Mathematics.PerformanceTests
                     q = quaternion.identity;
                     f4x4 = float4x4.identity;
                     f3 = new float3();
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -519,7 +479,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -536,7 +495,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float4_to_uint4
@@ -550,10 +508,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     u4 = new uint4(100, 101, 102, 103);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -593,7 +547,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -610,7 +563,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class uint4_to_float4
@@ -624,10 +576,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     f4 = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     u4 = new uint4(100, 101, 102, 103);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -667,7 +615,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -684,7 +631,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
     }
 }

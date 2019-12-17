@@ -29,10 +29,6 @@ namespace Unity.Mathematics.PerformanceTests
                     rng = new Unity.Mathematics.Random(1);
                     u = 0;
                 }
-
-                public void Dispose()
-                {
-                }
             }
 
             public static void CommonTestFunction(ref Arguments args)
@@ -71,7 +67,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -88,7 +83,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class Random_NextUint2
@@ -102,10 +96,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     rng = new Unity.Mathematics.Random(1);
                     u = 0;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -145,7 +135,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -162,7 +151,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class Random_NextUint3
@@ -176,10 +164,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     rng = new Unity.Mathematics.Random(1);
                     u = 0;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -219,7 +203,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -236,7 +219,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class Random_NextUint4
@@ -250,10 +232,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     rng = new Unity.Mathematics.Random(1);
                     u = 0;
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -293,7 +271,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -310,7 +287,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
     }
 }

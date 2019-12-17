@@ -29,10 +29,6 @@ namespace Unity.Mathematics.PerformanceTests
                     sin = 0.0f;
                     cos = 1.0f;
                 }
-
-                public void Dispose()
-                {
-                }
             }
 
             public static void CommonTestFunction(ref Arguments args)
@@ -71,7 +67,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -88,7 +83,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float2_sincos
@@ -102,10 +96,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     sin = new float2(0.0f);
                     cos = new float2(1.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -145,7 +135,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -162,7 +151,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float3_sincos
@@ -176,10 +164,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     sin = new float3(0.0f);
                     cos = new float3(1.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -219,7 +203,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -236,7 +219,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
         [BurstCompile]
         public class float4_sincos
@@ -250,10 +232,6 @@ namespace Unity.Mathematics.PerformanceTests
                 {
                     sin = new float4(0.0f);
                     cos = new float4(1.0f);
-                }
-
-                public void Dispose()
-                {
                 }
             }
 
@@ -293,7 +271,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
 
         [Test, Performance]
@@ -310,7 +287,6 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
-            args.Dispose();
         }
     }
 }
