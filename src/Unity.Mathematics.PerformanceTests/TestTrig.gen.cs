@@ -37,7 +37,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < 10000; ++i)
                 {
                     math.sincos(args.sin, out args.sin, out args.cos);
                 }
@@ -111,7 +111,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < 10000; ++i)
                 {
                     math.sincos(args.sin, out args.sin, out args.cos);
                 }
@@ -185,7 +185,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < 10000; ++i)
                 {
                     math.sincos(args.sin, out args.sin, out args.cos);
                 }
@@ -259,7 +259,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < 10000; ++i)
                 {
                     math.sincos(args.sin, out args.sin, out args.cos);
                 }
