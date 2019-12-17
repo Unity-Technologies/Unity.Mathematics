@@ -412,5 +412,71 @@ namespace Unity.Mathematics.PerformanceTests
             .MeasurementCount(10)
             .Run();
         }
+        [BurstCompile]
+        public class quaternion_inverse
+        {
+            public struct Arguments
+            {
+                public quaternion q;
+
+                public void Init()
+                {
+                    q = quaternion.identity;
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.q = math.inverse(args.q);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void quaternion_inverse_mono()
+        {
+            quaternion_inverse.TestFunction testFunction = quaternion_inverse.MonoTestFunction;
+            var args = new quaternion_inverse.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
+
+        [Test, Performance]
+        public void quaternion_inverse_burst()
+        {
+            FunctionPointer<quaternion_inverse.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<quaternion_inverse.TestFunction>(quaternion_inverse.BurstTestFunction);
+            var args = new quaternion_inverse.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+        }
     }
 }

@@ -2957,6 +2957,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArgument[] {
                 new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m1", m_MemberInitializer = "double2x2.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
+            GeneratePerformanceTest(str, "quaternion_inverse", new PerformanceTestArgument[] {
+                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+            }, "args.q = math.inverse(args.q);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
