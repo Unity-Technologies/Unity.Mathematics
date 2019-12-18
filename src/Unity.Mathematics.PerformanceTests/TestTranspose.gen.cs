@@ -62,6 +62,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -78,6 +79,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -128,6 +130,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -144,6 +147,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -194,6 +198,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -210,6 +215,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -260,6 +266,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -276,6 +283,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -326,6 +334,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -342,6 +351,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -392,6 +402,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -408,6 +419,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 testFunction.Invoke(ref args);
             })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();

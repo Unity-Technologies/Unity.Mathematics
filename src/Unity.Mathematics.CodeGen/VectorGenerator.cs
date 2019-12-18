@@ -3259,6 +3259,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            {{\n");
             str.AppendFormat("                testFunction.Invoke(ref args);\n");
             str.AppendFormat("            }})\n");
+            str.AppendFormat("            .Definition(sampleUnit: SampleUnit.Microsecond)\n");
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
@@ -3274,6 +3275,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            {{\n");
             str.AppendFormat("                testFunction.Invoke(ref args);\n");
             str.AppendFormat("            }})\n");
+            str.AppendFormat("            .Definition(sampleUnit: SampleUnit.Microsecond)\n");
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
