@@ -10,7 +10,6 @@ using System;
 using NUnit.Framework;
 using Unity.PerformanceTesting;
 using Unity.Burst;
-using Unity.Collections;
 
 namespace Unity.Mathematics.PerformanceTests
 {

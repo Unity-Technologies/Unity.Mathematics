@@ -2885,8 +2885,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("using System;\n");
             str.AppendFormat("using NUnit.Framework;\n");
             str.AppendFormat("using Unity.PerformanceTesting;\n");
-            str.AppendFormat("using Unity.Burst;\n");
-            str.AppendFormat("using Unity.Collections;\n\n");
+            str.AppendFormat("using Unity.Burst;\n\n");
             str.AppendFormat("namespace Unity.Mathematics.PerformanceTests\n");
             str.AppendFormat("{{\n");
             str.AppendFormat("    public partial class {0}\n", testSuiteName);
