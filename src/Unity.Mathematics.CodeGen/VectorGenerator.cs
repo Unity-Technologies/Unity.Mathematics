@@ -3092,19 +3092,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "float_sincos", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "sin", m_ElementInitializer = "0.0f" },
                 new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "cos", m_ElementInitializer = "1.0f" },
-            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            }, "math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);", 10000);
             GeneratePerformanceTest(str, "float2_sincos", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "sin", m_ElementInitializer = "new float2(0.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "cos", m_ElementInitializer = "new float2(1.0f)" },
-            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            }, "math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);", 10000);
             GeneratePerformanceTest(str, "float3_sincos", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "sin", m_ElementInitializer = "new float3(0.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "cos", m_ElementInitializer = "new float3(1.0f)" },
-            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            }, "math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);", 10000);
             GeneratePerformanceTest(str, "float4_sincos", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "sin", m_ElementInitializer = "new float4(0.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "cos", m_ElementInitializer = "new float4(1.0f)" },
-            }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
+            }, "math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3319,10 +3319,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder randomStr = new StringBuilder();
             GenerateRandomPerformanceTests(randomStr);
             WriteFile(m_PerformanceTestDirectory + "/TestRandom.gen.cs", randomStr.ToString());
-//
-//            StringBuilder trigStr = new StringBuilder();
-//            GenerateTrigPerformanceTests(trigStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
+
+            StringBuilder trigStr = new StringBuilder();
+            GenerateTrigPerformanceTests(trigStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
 //
 //            StringBuilder noiseStr = new StringBuilder();
 //            GenerateNoisePerformanceTests(noiseStr);
