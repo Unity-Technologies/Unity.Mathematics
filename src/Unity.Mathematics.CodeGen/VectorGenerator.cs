@@ -2971,10 +2971,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "float4x4_fastinverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
-            }, "args.m1 = math.fastinverse(args.m1);", 10000);
+            }, "args.m1[i] = math.fastinverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "double4x4_fastinverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m1", m_ElementInitializer = "double4x4.identity" },
-            }, "args.m1 = math.fastinverse(args.m1);", 10000);
+            }, "args.m1[i] = math.fastinverse(args.m1[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3307,10 +3307,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder inverseStr = new StringBuilder();
             GenerateInversePerformanceTests(inverseStr);
             WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
-//
-//            StringBuilder fastInverseStr = new StringBuilder();
-//            GenerateFastInversePerformanceTests(fastInverseStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
+
+            StringBuilder fastInverseStr = new StringBuilder();
+            GenerateFastInversePerformanceTests(fastInverseStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
 //
 //            StringBuilder conversionStr = new StringBuilder();
 //            GenerateConversionPerformanceTests(conversionStr);
