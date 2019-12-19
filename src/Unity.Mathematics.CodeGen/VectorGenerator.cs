@@ -2942,25 +2942,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "float4x4_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "float3x3_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m1", m_ElementInitializer = "float3x3.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "float2x2_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m1", m_ElementInitializer = "float2x2.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "double4x4_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m1", m_ElementInitializer = "double4x4.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "double3x3_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double3x3", m_MemberName = "m1", m_ElementInitializer = "double3x3.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double2x2", m_MemberName = "m1", m_ElementInitializer = "double2x2.identity" },
-            }, "args.m1 = math.inverse(args.m1);", 10000);
+            }, "args.m1[i] = math.inverse(args.m1[i]);", 10000);
             GeneratePerformanceTest(str, "quaternion_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
-            }, "args.q = math.inverse(args.q);", 10000);
+            }, "args.q[i] = math.inverse(args.q[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3303,10 +3303,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder testMulStr = new StringBuilder();
             GenerateMulPerformanceTests(testMulStr);
             WriteFile(m_PerformanceTestDirectory + "/TestMul.gen.cs", testMulStr.ToString());
-//
-//            StringBuilder inverseStr = new StringBuilder();
-//            GenerateInversePerformanceTests(inverseStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
+
+            StringBuilder inverseStr = new StringBuilder();
+            GenerateInversePerformanceTests(inverseStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
 //
 //            StringBuilder fastInverseStr = new StringBuilder();
 //            GenerateFastInversePerformanceTests(fastInverseStr);
