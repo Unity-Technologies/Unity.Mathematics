@@ -8,6 +8,8 @@
 //------------------------------------------------------------------------------
 using System;
 using NUnit.Framework;
+using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.PerformanceTesting;
 using Unity.Burst;
 
@@ -16,17 +18,33 @@ namespace Unity.Mathematics.PerformanceTests
     public partial class TestMul
     {
         [BurstCompile]
-        public class float4x4_float4x4
+        public unsafe class float4x4_float4x4
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float4x4 m1;
-                public float4x4 m2;
+                public float4x4* m1;
+                public float4x4* m2;
 
                 public void Init()
                 {
-                    m1 = float4x4.identity;
-                    m2 = float4x4.identity;
+                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float4x4.identity;
+                    }
+
+                    m2 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = float4x4.identity;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -34,7 +52,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m1 = math.mul(args.m1, args.m2);
+                    args.m1[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -67,6 +85,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -84,19 +103,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class float4x4_float4
+        public unsafe class float4x4_float4
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float4x4 m1;
-                public float4 m2;
+                public float4x4* m1;
+                public float4* m2;
 
                 public void Init()
                 {
-                    m1 = float4x4.identity;
-                    m2 = new float4(1.0f, 0.0f, 0.0f, 1.0f);
+                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float4x4.identity;
+                    }
+
+                    m2 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = new float4(1.0f, 0.0f, 0.0f, 1.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -104,7 +140,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m2 = math.mul(args.m1, args.m2);
+                    args.m2[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -137,6 +173,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -154,19 +191,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class quaternion_quaternion
+        public unsafe class quaternion_quaternion
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public quaternion q1;
-                public quaternion q2;
+                public quaternion* q1;
+                public quaternion* q2;
 
                 public void Init()
                 {
-                    q1 = quaternion.identity;
-                    q2 = quaternion.identity;
+                    q1 = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        q1[i] = quaternion.identity;
+                    }
+
+                    q2 = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        q2[i] = quaternion.identity;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(q1, Allocator.Persistent);
+                    UnsafeUtility.Free(q2, Allocator.Persistent);
                 }
             }
 
@@ -174,7 +228,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.q2 = math.mul(args.q1, args.q2);
+                    args.q2[i] = math.mul(args.q1[i], args.q2[i]);
                 }
             }
 
@@ -207,6 +261,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -224,19 +279,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class float3x3_float3x3
+        public unsafe class float3x3_float3x3
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float3x3 m1;
-                public float3x3 m2;
+                public float3x3* m1;
+                public float3x3* m2;
 
                 public void Init()
                 {
-                    m1 = float3x3.identity;
-                    m2 = float3x3.identity;
+                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float3x3.identity;
+                    }
+
+                    m2 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = float3x3.identity;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -244,7 +316,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m2 = math.mul(args.m1, args.m2);
+                    args.m2[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -277,6 +349,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -294,19 +367,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class float2x2_float2x2
+        public unsafe class float2x2_float2x2
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float2x2 m1;
-                public float2x2 m2;
+                public float2x2* m1;
+                public float2x2* m2;
 
                 public void Init()
                 {
-                    m1 = float2x2.identity;
-                    m2 = float2x2.identity;
+                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float2x2.identity;
+                    }
+
+                    m2 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = float2x2.identity;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -314,7 +404,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m2 = math.mul(args.m1, args.m2);
+                    args.m2[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -347,6 +437,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -364,19 +455,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class float3x3_float3
+        public unsafe class float3x3_float3
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float3x3 m1;
-                public float3 m2;
+                public float3x3* m1;
+                public float3* m2;
 
                 public void Init()
                 {
-                    m1 = float3x3.identity;
-                    m2 = new float3(1.0f, 0.0f, 0.0f);
+                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float3x3.identity;
+                    }
+
+                    m2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = new float3(1.0f, 0.0f, 0.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -384,7 +492,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m2 = math.mul(args.m1, args.m2);
+                    args.m2[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -417,6 +525,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -434,19 +543,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class float2x2_float2
+        public unsafe class float2x2_float2
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public float2x2 m1;
-                public float2 m2;
+                public float2x2* m1;
+                public float2* m2;
 
                 public void Init()
                 {
-                    m1 = float2x2.identity;
-                    m2 = new float2(1.0f, 0.0f);
+                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m1[i] = float2x2.identity;
+                    }
+
+                    m2 = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m2[i] = new float2(1.0f, 0.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m1, Allocator.Persistent);
+                    UnsafeUtility.Free(m2, Allocator.Persistent);
                 }
             }
 
@@ -454,7 +580,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.m2 = math.mul(args.m1, args.m2);
+                    args.m2[i] = math.mul(args.m1[i], args.m2[i]);
                 }
             }
 
@@ -487,6 +613,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -504,6 +631,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
     }
 }

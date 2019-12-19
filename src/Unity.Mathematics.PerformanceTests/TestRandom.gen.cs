@@ -8,6 +8,8 @@
 //------------------------------------------------------------------------------
 using System;
 using NUnit.Framework;
+using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
 using Unity.PerformanceTesting;
 using Unity.Burst;
 
@@ -16,17 +18,33 @@ namespace Unity.Mathematics.PerformanceTests
     public partial class TestRandom
     {
         [BurstCompile]
-        public class Random_NextUint
+        public unsafe class Random_NextUint
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public uint u;
+                public Random* rng;
+                public uint* u;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    u = 0;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    u = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 10000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u[i] = 0;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(u, Allocator.Persistent);
                 }
             }
 
@@ -34,7 +52,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.u = args.rng.NextUInt();
+                    args.u[i] = args.rng[i].NextUInt();
                 }
             }
 
@@ -67,6 +85,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -84,19 +103,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextUint2
+        public unsafe class Random_NextUint2
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public uint2 u;
+                public Random* rng;
+                public uint2* u;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    u = 0;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    u = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * 10000, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u[i] = 0;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(u, Allocator.Persistent);
                 }
             }
 
@@ -104,7 +140,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.u = args.rng.NextUInt2();
+                    args.u[i] = args.rng[i].NextUInt2();
                 }
             }
 
@@ -137,6 +173,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -154,19 +191,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextUint3
+        public unsafe class Random_NextUint3
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public uint3 u;
+                public Random* rng;
+                public uint3* u;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    u = 0;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    u = (uint3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint3>() * 10000, UnsafeUtility.AlignOf<uint3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u[i] = 0;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(u, Allocator.Persistent);
                 }
             }
 
@@ -174,7 +228,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.u = args.rng.NextUInt3();
+                    args.u[i] = args.rng[i].NextUInt3();
                 }
             }
 
@@ -207,6 +261,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -224,19 +279,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextUint4
+        public unsafe class Random_NextUint4
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public uint4 u;
+                public Random* rng;
+                public uint4* u;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    u = 0;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    u = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * 10000, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        u[i] = 0;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(u, Allocator.Persistent);
                 }
             }
 
@@ -244,7 +316,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.u = args.rng.NextUInt4();
+                    args.u[i] = args.rng[i].NextUInt4();
                 }
             }
 
@@ -277,6 +349,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -294,19 +367,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextFloat
+        public unsafe class Random_NextFloat
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public float f;
+                public Random* rng;
+                public float* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = 0.0f;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * 10000, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = 0.0f;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -314,7 +404,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextFloat();
+                    args.f[i] = args.rng[i].NextFloat();
                 }
             }
 
@@ -347,6 +437,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -364,19 +455,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextFloat2
+        public unsafe class Random_NextFloat2
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public float2 f;
+                public Random* rng;
+                public float2* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new float2(0.0f);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new float2(0.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -384,7 +492,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextFloat2();
+                    args.f[i] = args.rng[i].NextFloat2();
                 }
             }
 
@@ -417,6 +525,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -434,19 +543,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextFloat3
+        public unsafe class Random_NextFloat3
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public float3 f;
+                public Random* rng;
+                public float3* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new float3(0.0f);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new float3(0.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -454,7 +580,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextFloat3();
+                    args.f[i] = args.rng[i].NextFloat3();
                 }
             }
 
@@ -487,6 +613,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -504,19 +631,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextFloat4
+        public unsafe class Random_NextFloat4
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public float4 f;
+                public Random* rng;
+                public float4* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new float4(0.0f);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new float4(0.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -524,7 +668,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextFloat4();
+                    args.f[i] = args.rng[i].NextFloat4();
                 }
             }
 
@@ -557,6 +701,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -574,19 +719,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextDouble
+        public unsafe class Random_NextDouble
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public double f;
+                public Random* rng;
+                public double* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = 0.0;
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (double*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double>() * 10000, UnsafeUtility.AlignOf<double>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = 0.0;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -594,7 +756,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextDouble();
+                    args.f[i] = args.rng[i].NextDouble();
                 }
             }
 
@@ -627,6 +789,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -644,19 +807,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextDouble2
+        public unsafe class Random_NextDouble2
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public double2 f;
+                public Random* rng;
+                public double2* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new double2(0.0);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (double2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2>() * 10000, UnsafeUtility.AlignOf<double2>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new double2(0.0);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -664,7 +844,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextDouble2();
+                    args.f[i] = args.rng[i].NextDouble2();
                 }
             }
 
@@ -697,6 +877,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -714,19 +895,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextDouble3
+        public unsafe class Random_NextDouble3
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public double3 f;
+                public Random* rng;
+                public double3* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new double3(0.0);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * 10000, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new double3(0.0);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -734,7 +932,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextDouble3();
+                    args.f[i] = args.rng[i].NextDouble3();
                 }
             }
 
@@ -767,6 +965,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -784,19 +983,36 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
         [BurstCompile]
-        public class Random_NextDouble4
+        public unsafe class Random_NextDouble4
         {
-            public struct Arguments
+            public struct Arguments : IDisposable
             {
-                public Random rng;
-                public double4 f;
+                public Random* rng;
+                public double4* f;
 
                 public void Init()
                 {
-                    rng = new Unity.Mathematics.Random(1);
-                    f = new double4(0.0);
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 10000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        rng[i] = new Unity.Mathematics.Random(1);
+                    }
+
+                    f = (double4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4>() * 10000, UnsafeUtility.AlignOf<double4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        f[i] = new double4(0.0);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(rng, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
                 }
             }
 
@@ -804,7 +1020,7 @@ namespace Unity.Mathematics.PerformanceTests
             {
                 for (int i = 0; i < 10000; ++i)
                 {
-                    args.f = args.rng.NextDouble4();
+                    args.f[i] = args.rng[i].NextDouble4();
                 }
             }
 
@@ -837,6 +1053,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
 
         [Test, Performance]
@@ -854,6 +1071,7 @@ namespace Unity.Mathematics.PerformanceTests
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
+            args.Dispose();
         }
     }
 }

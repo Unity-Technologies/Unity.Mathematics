@@ -2884,6 +2884,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             str.AppendFormat("using System;\n");
             str.AppendFormat("using NUnit.Framework;\n");
+            str.AppendFormat("using Unity.Collections;\n");
+            str.AppendFormat("using Unity.Collections.LowLevel.Unsafe;\n");
             str.AppendFormat("using Unity.PerformanceTesting;\n");
             str.AppendFormat("using Unity.Burst;\n\n");
             str.AppendFormat("namespace Unity.Mathematics.PerformanceTests\n");
@@ -2902,34 +2904,34 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestMul");
 
-            GeneratePerformanceTest(str, "float4x4_float4x4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m2", m_MemberInitializer = "float4x4.identity" },
-            }, "args.m1 = math.mul(args.m1, args.m2);", 10000);
-            GeneratePerformanceTest(str, "float4x4_float4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "m2", m_MemberInitializer = "new float4(1.0f, 0.0f, 0.0f, 1.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
-            GeneratePerformanceTest(str, "quaternion_quaternion", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q1", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q2", m_MemberInitializer = "quaternion.identity" },
-            }, "args.q2 = math.mul(args.q1, args.q2);", 10000);
-            GeneratePerformanceTest(str, "float3x3_float3x3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m2", m_MemberInitializer = "float3x3.identity" },
-            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
-            GeneratePerformanceTest(str, "float2x2_float2x2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
-                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m2", m_MemberInitializer = "float2x2.identity" },
-            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
-            GeneratePerformanceTest(str, "float3x3_float3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "m2", m_MemberInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
-            GeneratePerformanceTest(str, "float2x2_float2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "m2", m_MemberInitializer = "new float2(1.0f, 0.0f)" },
-            }, "args.m2 = math.mul(args.m1, args.m2);", 10000);
+            GeneratePerformanceTest(str, "float4x4_float4x4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m2", m_ElementInitializer = "float4x4.identity" },
+            }, "args.m1[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
+            GeneratePerformanceTest(str, "float4x4_float4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "m2", m_ElementInitializer = "new float4(1.0f, 0.0f, 0.0f, 1.0f)" },
+            }, "args.m2[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
+            GeneratePerformanceTest(str, "quaternion_quaternion", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q1", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q2", m_ElementInitializer = "quaternion.identity" },
+            }, "args.q2[i] = math.mul(args.q1[i], args.q2[i]);", 10000);
+            GeneratePerformanceTest(str, "float3x3_float3x3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m1", m_ElementInitializer = "float3x3.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m2", m_ElementInitializer = "float3x3.identity" },
+            }, "args.m2[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
+            GeneratePerformanceTest(str, "float2x2_float2x2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m1", m_ElementInitializer = "float2x2.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m2", m_ElementInitializer = "float2x2.identity" },
+            }, "args.m2[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
+            GeneratePerformanceTest(str, "float3x3_float3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m1", m_ElementInitializer = "float3x3.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "m2", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+            }, "args.m2[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
+            GeneratePerformanceTest(str, "float2x2_float2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m1", m_ElementInitializer = "float2x2.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "m2", m_ElementInitializer = "new float2(1.0f, 0.0f)" },
+            }, "args.m2[i] = math.mul(args.m1[i], args.m2[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -2938,26 +2940,26 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestInverse");
 
-            GeneratePerformanceTest(str, "float4x4_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
+            GeneratePerformanceTest(str, "float4x4_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "float3x3_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m1", m_MemberInitializer = "float3x3.identity" },
+            GeneratePerformanceTest(str, "float3x3_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m1", m_ElementInitializer = "float3x3.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "float2x2_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m1", m_MemberInitializer = "float2x2.identity" },
+            GeneratePerformanceTest(str, "float2x2_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m1", m_ElementInitializer = "float2x2.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "double4x4_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m1", m_MemberInitializer = "double4x4.identity" },
+            GeneratePerformanceTest(str, "double4x4_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m1", m_ElementInitializer = "double4x4.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "double3x3_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m1", m_MemberInitializer = "double3x3.identity" },
+            GeneratePerformanceTest(str, "double3x3_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double3x3", m_MemberName = "m1", m_ElementInitializer = "double3x3.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m1", m_MemberInitializer = "double2x2.identity" },
+            GeneratePerformanceTest(str, "double2x2_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double2x2", m_MemberName = "m1", m_ElementInitializer = "double2x2.identity" },
             }, "args.m1 = math.inverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "quaternion_inverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
+            GeneratePerformanceTest(str, "quaternion_inverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
             }, "args.q = math.inverse(args.q);", 10000);
 
             EndPerformanceTestCodeGen(str);
@@ -2967,11 +2969,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestFastInverse");
 
-            GeneratePerformanceTest(str, "float4x4_fastinverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m1", m_MemberInitializer = "float4x4.identity" },
+            GeneratePerformanceTest(str, "float4x4_fastinverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m1", m_ElementInitializer = "float4x4.identity" },
             }, "args.m1 = math.fastinverse(args.m1);", 10000);
-            GeneratePerformanceTest(str, "double4x4_fastinverse", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m1", m_MemberInitializer = "double4x4.identity" },
+            GeneratePerformanceTest(str, "double4x4_fastinverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m1", m_ElementInitializer = "double4x4.identity" },
             }, "args.m1 = math.fastinverse(args.m1);", 10000);
 
             EndPerformanceTestCodeGen(str);
@@ -2983,43 +2985,43 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             // Most of these tests will need to write to an output array to ensure
             // burst doesn't optimize away to just one loop iteration.
-            GeneratePerformanceTest(str, "quaternion_to_float3x3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "f3x3", m_MemberInitializer = "float3x3.identity" },
+            GeneratePerformanceTest(str, "quaternion_to_float3x3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "f3x3", m_ElementInitializer = "float3x3.identity" },
             }, "args.f3x3 = new float3x3(args.q);", 10000);
-            GeneratePerformanceTest(str, "float3x3_to_quaternion", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "f3x3", m_MemberInitializer = "float3x3.identity" },
+            GeneratePerformanceTest(str, "float3x3_to_quaternion", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "f3x3", m_ElementInitializer = "float3x3.identity" },
             }, "args.q = new quaternion(args.f3x3);", 10000);
-            GeneratePerformanceTest(str, "float4_to_half4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
-                new PerformanceTestArgument { m_MemberType = "half4", m_MemberName = "h4", m_MemberInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
+            GeneratePerformanceTest(str, "float4_to_half4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "half4", m_MemberName = "h4", m_ElementInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
             }, "args.h4 = new half4(args.f4);", 10000);
-            GeneratePerformanceTest(str, "half4_to_float4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
-                new PerformanceTestArgument { m_MemberType = "half4", m_MemberName = "h4", m_MemberInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
+            GeneratePerformanceTest(str, "half4_to_float4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "half4", m_MemberName = "h4", m_ElementInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
             }, "args.f4 = new float4(args.h4);", 10000);
-            GeneratePerformanceTest(str, "quaternion_to_RigidTransform", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "RigidTransform", m_MemberName = "rt", m_MemberInitializer = "RigidTransform.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "pos", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "quaternion_to_RigidTransform", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "RigidTransform", m_MemberName = "rt", m_ElementInitializer = "RigidTransform.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "pos", m_ElementInitializer = "new float3()" },
             }, "args.rt = new RigidTransform(args.q, args.pos);", 10000);
-            GeneratePerformanceTest(str, "quaternion_to_float4x4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "f4x4", m_MemberInitializer = "float4x4.identity" },
+            GeneratePerformanceTest(str, "quaternion_to_float4x4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "f4x4", m_ElementInitializer = "float4x4.identity" },
             }, "args.q = new quaternion(args.f4x4);", 10000);
-            GeneratePerformanceTest(str, "float4x4_to_quaternion", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "quaternion", m_MemberName = "q", m_MemberInitializer = "quaternion.identity" },
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "f4x4", m_MemberInitializer = "float4x4.identity" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "f3", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "float4x4_to_quaternion", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "f4x4", m_ElementInitializer = "float4x4.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f3", m_ElementInitializer = "new float3()" },
             }, "args.f4x4 = new float4x4(args.q, args.f3);", 10000);
-            GeneratePerformanceTest(str, "float4_to_uint4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
-                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u4", m_MemberInitializer = "new uint4(100, 101, 102, 103)" },
+            GeneratePerformanceTest(str, "float4_to_uint4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "u4", m_ElementInitializer = "new uint4(100, 101, 102, 103)" },
             }, "args.u4 = new uint4(args.f4);", 10000);
-            GeneratePerformanceTest(str, "uint4_to_float4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f4", m_MemberInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
-                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u4", m_MemberInitializer = "new uint4(100, 101, 102, 103)" },
+            GeneratePerformanceTest(str, "uint4_to_float4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "u4", m_ElementInitializer = "new uint4(100, 101, 102, 103)" },
             }, "args.f4 = new float4(args.u4);", 10000);
 
             EndPerformanceTestCodeGen(str);
@@ -3029,56 +3031,56 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestRandom");
 
-            GeneratePerformanceTest(str, "Random_NextUint", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "uint", m_MemberName = "u", m_MemberInitializer = "0" },
-            }, "args.u = args.rng.NextUInt();", 10000);
-            GeneratePerformanceTest(str, "Random_NextUint2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "uint2", m_MemberName = "u", m_MemberInitializer = "0" },
-            }, "args.u = args.rng.NextUInt2();", 10000);
-            GeneratePerformanceTest(str, "Random_NextUint3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "uint3", m_MemberName = "u", m_MemberInitializer = "0" },
-            }, "args.u = args.rng.NextUInt3();", 10000);
-            GeneratePerformanceTest(str, "Random_NextUint4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "uint4", m_MemberName = "u", m_MemberInitializer = "0" },
-            }, "args.u = args.rng.NextUInt4();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "u", m_ElementInitializer = "0" },
+            }, "args.u[i] = args.rng[i].NextUInt();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "u", m_ElementInitializer = "0" },
+            }, "args.u[i] = args.rng[i].NextUInt2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint3", m_MemberName = "u", m_ElementInitializer = "0" },
+            }, "args.u[i] = args.rng[i].NextUInt3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextUint4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "u", m_ElementInitializer = "0" },
+            }, "args.u[i] = args.rng[i].NextUInt4();", 10000);
 
-            GeneratePerformanceTest(str, "Random_NextFloat", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "f", m_MemberInitializer = "0.0f" },
-            }, "args.f = args.rng.NextFloat();", 10000);
-            GeneratePerformanceTest(str, "Random_NextFloat2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "f", m_MemberInitializer = "new float2(0.0f)" },
-            }, "args.f = args.rng.NextFloat2();", 10000);
-            GeneratePerformanceTest(str, "Random_NextFloat3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "f", m_MemberInitializer = "new float3(0.0f)" },
-            }, "args.f = args.rng.NextFloat3();", 10000);
-            GeneratePerformanceTest(str, "Random_NextFloat4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "f", m_MemberInitializer = "new float4(0.0f)" },
-            }, "args.f = args.rng.NextFloat4();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "f", m_ElementInitializer = "0.0f" },
+            }, "args.f[i] = args.rng[i].NextFloat();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "f", m_ElementInitializer = "new float2(0.0f)" },
+            }, "args.f[i] = args.rng[i].NextFloat2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f", m_ElementInitializer = "new float3(0.0f)" },
+            }, "args.f[i] = args.rng[i].NextFloat3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextFloat4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f", m_ElementInitializer = "new float4(0.0f)" },
+            }, "args.f[i] = args.rng[i].NextFloat4();", 10000);
 
-            GeneratePerformanceTest(str, "Random_NextDouble", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "double", m_MemberName = "f", m_MemberInitializer = "0.0" },
-            }, "args.f = args.rng.NextDouble();", 10000);
-            GeneratePerformanceTest(str, "Random_NextDouble2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "double2", m_MemberName = "f", m_MemberInitializer = "new double2(0.0)" },
-            }, "args.f = args.rng.NextDouble2();", 10000);
-            GeneratePerformanceTest(str, "Random_NextDouble3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "double3", m_MemberName = "f", m_MemberInitializer = "new double3(0.0)" },
-            }, "args.f = args.rng.NextDouble3();", 10000);
-            GeneratePerformanceTest(str, "Random_NextDouble4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "Random", m_MemberName = "rng", m_MemberInitializer = "new Unity.Mathematics.Random(1)" },
-                new PerformanceTestArgument { m_MemberType = "double4", m_MemberName = "f", m_MemberInitializer = "new double4(0.0)" },
-            }, "args.f = args.rng.NextDouble4();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "f", m_ElementInitializer = "0.0" },
+            }, "args.f[i] = args.rng[i].NextDouble();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "double2", m_MemberName = "f", m_ElementInitializer = "new double2(0.0)" },
+            }, "args.f[i] = args.rng[i].NextDouble2();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "f", m_ElementInitializer = "new double3(0.0)" },
+            }, "args.f[i] = args.rng[i].NextDouble3();", 10000);
+            GeneratePerformanceTest(str, "Random_NextDouble4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Unity.Mathematics.Random(1)" },
+                new PerformanceTestArrayArgument { m_ElementType = "double4", m_MemberName = "f", m_ElementInitializer = "new double4(0.0)" },
+            }, "args.f[i] = args.rng[i].NextDouble4();", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3087,21 +3089,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestTrig");
 
-            GeneratePerformanceTest(str, "float_sincos", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "sin", m_MemberInitializer = "0.0f" },
-                new PerformanceTestArgument { m_MemberType = "float", m_MemberName = "cos", m_MemberInitializer = "1.0f" },
+            GeneratePerformanceTest(str, "float_sincos", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "sin", m_ElementInitializer = "0.0f" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "cos", m_ElementInitializer = "1.0f" },
             }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
-            GeneratePerformanceTest(str, "float2_sincos", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "sin", m_MemberInitializer = "new float2(0.0f)" },
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "cos", m_MemberInitializer = "new float2(1.0f)" },
+            GeneratePerformanceTest(str, "float2_sincos", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "sin", m_ElementInitializer = "new float2(0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "cos", m_ElementInitializer = "new float2(1.0f)" },
             }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
-            GeneratePerformanceTest(str, "float3_sincos", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "sin", m_MemberInitializer = "new float3(0.0f)" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "cos", m_MemberInitializer = "new float3(1.0f)" },
+            GeneratePerformanceTest(str, "float3_sincos", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "sin", m_ElementInitializer = "new float3(0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "cos", m_ElementInitializer = "new float3(1.0f)" },
             }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
-            GeneratePerformanceTest(str, "float4_sincos", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "sin", m_MemberInitializer = "new float4(0.0f)" },
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "cos", m_MemberInitializer = "new float4(1.0f)" },
+            GeneratePerformanceTest(str, "float4_sincos", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "sin", m_ElementInitializer = "new float4(0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "cos", m_ElementInitializer = "new float4(1.0f)" },
             }, "math.sincos(args.sin, out args.sin, out args.cos);", 10000);
 
             EndPerformanceTestCodeGen(str);
@@ -3111,60 +3113,60 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestNoise");
 
-            GeneratePerformanceTest(str, "snoise2D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "snoise2D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v.x = noise.snoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "snoise3D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "snoise3D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
             }, "args.v.x = noise.snoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "snoise4D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "v", m_MemberInitializer = "new float4()" },
+            GeneratePerformanceTest(str, "snoise4D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
             }, "args.v.x = noise.snoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "snoise3Dgrad", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "gradient", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "snoise3Dgrad", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "gradient", m_ElementInitializer = "new float3()" },
             }, "args.v.x = noise.snoise(args.v, out args.gradient);", 10000);
-            GeneratePerformanceTest(str, "cnoise2D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "cnoise2D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v.x = noise.cnoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "cnoise3D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "cnoise3D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
             }, "args.v.x = noise.cnoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "cnoise4D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "v", m_MemberInitializer = "new float4()" },
+            GeneratePerformanceTest(str, "cnoise4D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
             }, "args.v.x = noise.cnoise(args.v);", 10000);
-            GeneratePerformanceTest(str, "pnoise2D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "pnoise2D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
-            GeneratePerformanceTest(str, "pnoise3D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "pnoise3D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
             }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
-            GeneratePerformanceTest(str, "pnoise4D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4", m_MemberName = "v", m_MemberInitializer = "new float4()" },
+            GeneratePerformanceTest(str, "pnoise4D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
             }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
-            GeneratePerformanceTest(str, "cellular2D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "cellular2D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v = noise.cellular(args.v);", 10000);
-            GeneratePerformanceTest(str, "cellular3D", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "cellular3D", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
             }, "args.v.xy = noise.cellular(args.v);", 10000);
-            GeneratePerformanceTest(str, "cellular2x2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "cellular2x2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v = noise.cellular2x2(args.v);", 10000);
-            GeneratePerformanceTest(str, "cellular2x2x2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3", m_MemberName = "v", m_MemberInitializer = "new float3()" },
+            GeneratePerformanceTest(str, "cellular2x2x2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
             }, "args.v.xy = noise.cellular2x2x2(args.v);", 10000);
-            GeneratePerformanceTest(str, "psrdnoise", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "psrdnoise", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v = noise.psrdnoise(args.v, args.v, args.v.y).xy;", 10000);
-            GeneratePerformanceTest(str, "psrnoise", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "psrnoise", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v.x = noise.psrnoise(args.v, args.v, args.v.y);", 10000);
-            GeneratePerformanceTest(str, "srdnoise", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "srdnoise", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v = noise.srdnoise(args.v, args.v.y).xy;", 10000);
-            GeneratePerformanceTest(str, "srnoise", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2", m_MemberName = "v", m_MemberInitializer = "new float2()" },
+            GeneratePerformanceTest(str, "srnoise", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
             }, "args.v.x = noise.srnoise(args.v, args.v.y);", 10000);
 
             EndPerformanceTestCodeGen(str);
@@ -3174,46 +3176,46 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             BeginPerformanceTestCodeGen(str, "TestTranspose");
 
-            GeneratePerformanceTest(str, "transpose_float4x4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float4x4", m_MemberName = "m", m_MemberInitializer = "float4x4.identity" },
+            GeneratePerformanceTest(str, "transpose_float4x4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
-            GeneratePerformanceTest(str, "transpose_float3x3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float3x3", m_MemberName = "m", m_MemberInitializer = "float3x3.identity" },
+            GeneratePerformanceTest(str, "transpose_float3x3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
-            GeneratePerformanceTest(str, "transpose_float2x2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "float2x2", m_MemberName = "m", m_MemberInitializer = "float2x2.identity" },
+            GeneratePerformanceTest(str, "transpose_float2x2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m", m_ElementInitializer = "float2x2.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
-            GeneratePerformanceTest(str, "transpose_double4x4", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double4x4", m_MemberName = "m", m_MemberInitializer = "double4x4.identity" },
+            GeneratePerformanceTest(str, "transpose_double4x4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m", m_ElementInitializer = "double4x4.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
-            GeneratePerformanceTest(str, "transpose_double3x3", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double3x3", m_MemberName = "m", m_MemberInitializer = "double3x3.identity" },
+            GeneratePerformanceTest(str, "transpose_double3x3", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double3x3", m_MemberName = "m", m_ElementInitializer = "double3x3.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
-            GeneratePerformanceTest(str, "transpose_double2x2", new PerformanceTestArgument[] {
-                new PerformanceTestArgument { m_MemberType = "double2x2", m_MemberName = "m", m_MemberInitializer = "double2x2.identity" },
+            GeneratePerformanceTest(str, "transpose_double2x2", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double2x2", m_MemberName = "m", m_ElementInitializer = "double2x2.identity" },
             }, "args.m = math.transpose(args.m);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
 
-        public struct PerformanceTestArgument
+        public struct PerformanceTestArrayArgument
         {
-            public string m_MemberType;
+            public string m_ElementType;
             public string m_MemberName;
-            public string m_MemberInitializer;
+            public string m_ElementInitializer;
         }
 
-        void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArgument[] testArguments, string loopBody, int loopIterations)
+        void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArrayArgument[] testArguments, string loopBody, int loopIterations)
         {
             str.AppendFormat("        [BurstCompile]\n");
-            str.AppendFormat("        public class {0}\n", testName);
+            str.AppendFormat("        public unsafe class {0}\n", testName);
             str.AppendFormat("        {{\n");
-            str.AppendFormat("            public struct Arguments\n");
+            str.AppendFormat("            public struct Arguments : IDisposable\n");
             str.AppendFormat("            {{\n");
 
             foreach (var argument in testArguments)
             {
-                str.AppendFormat("                public {0} {1};\n", argument.m_MemberType, argument.m_MemberName);
+                str.AppendFormat("                public {0}* {1};\n", argument.m_ElementType, argument.m_MemberName);
             }
 
             str.AppendFormat("\n");
@@ -3222,7 +3224,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             foreach (var argument in testArguments)
             {
-                str.AppendFormat("                    {0} = {1};\n", argument.m_MemberName, argument.m_MemberInitializer);
+                str.AppendFormat("                    {0} = ({1}*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<{1}>() * {2}, UnsafeUtility.AlignOf<{1}>(), Allocator.Persistent);\n", argument.m_MemberName, argument.m_ElementType, loopIterations);
+                str.AppendFormat("                    for (int i = 0; i < {0}; ++i)\n", loopIterations);
+                str.AppendFormat("                    {{\n");
+                str.AppendFormat("                        {0}[i] = {1};\n", argument.m_MemberName, argument.m_ElementInitializer);
+                str.AppendFormat("                    }}\n\n");
+            }
+
+            str.AppendFormat("                }}\n\n");
+            str.AppendFormat("                public void Dispose()\n");
+            str.AppendFormat("                {{\n");
+
+            foreach (var argument in testArguments)
+            {
+                str.AppendFormat("                    UnsafeUtility.Free({0}, Allocator.Persistent);\n", argument.m_MemberName);
             }
 
             str.AppendFormat("                }}\n");
@@ -3262,6 +3277,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
+            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n\n");
             str.AppendFormat("        [Test, Performance]\n");
             str.AppendFormat("        public void {0}_burst()\n", testName);
@@ -3278,6 +3294,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            .WarmupCount(1)\n");
             str.AppendFormat("            .MeasurementCount(10)\n");
             str.AppendFormat("            .Run();\n");
+            str.AppendFormat("            args.Dispose();\n");
             str.AppendFormat("        }}\n");
         }
 
@@ -3286,34 +3303,34 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder testMulStr = new StringBuilder();
             GenerateMulPerformanceTests(testMulStr);
             WriteFile(m_PerformanceTestDirectory + "/TestMul.gen.cs", testMulStr.ToString());
-
-            StringBuilder inverseStr = new StringBuilder();
-            GenerateInversePerformanceTests(inverseStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
-
-            StringBuilder fastInverseStr = new StringBuilder();
-            GenerateFastInversePerformanceTests(fastInverseStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
-
-            StringBuilder conversionStr = new StringBuilder();
-            GenerateConversionPerformanceTests(conversionStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
+//
+//            StringBuilder inverseStr = new StringBuilder();
+//            GenerateInversePerformanceTests(inverseStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestInverse.gen.cs", inverseStr.ToString());
+//
+//            StringBuilder fastInverseStr = new StringBuilder();
+//            GenerateFastInversePerformanceTests(fastInverseStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
+//
+//            StringBuilder conversionStr = new StringBuilder();
+//            GenerateConversionPerformanceTests(conversionStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
 
             StringBuilder randomStr = new StringBuilder();
             GenerateRandomPerformanceTests(randomStr);
             WriteFile(m_PerformanceTestDirectory + "/TestRandom.gen.cs", randomStr.ToString());
-
-            StringBuilder trigStr = new StringBuilder();
-            GenerateTrigPerformanceTests(trigStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
-
-            StringBuilder noiseStr = new StringBuilder();
-            GenerateNoisePerformanceTests(noiseStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestNoise.gen.cs", noiseStr.ToString());
-
-            StringBuilder transposeStr = new StringBuilder();
-            GenerateTransposePerformanceTests(transposeStr);
-            WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
+//
+//            StringBuilder trigStr = new StringBuilder();
+//            GenerateTrigPerformanceTests(trigStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
+//
+//            StringBuilder noiseStr = new StringBuilder();
+//            GenerateNoisePerformanceTests(noiseStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestNoise.gen.cs", noiseStr.ToString());
+//
+//            StringBuilder transposeStr = new StringBuilder();
+//            GenerateTransposePerformanceTests(transposeStr);
+//            WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
         }
     }
 }
