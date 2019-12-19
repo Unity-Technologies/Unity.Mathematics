@@ -3115,59 +3115,59 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "snoise2D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v.x = noise.snoise(args.v);", 10000);
+            }, "args.v[i].x = noise.snoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "snoise3D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
-            }, "args.v.x = noise.snoise(args.v);", 10000);
+            }, "args.v[i].x = noise.snoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "snoise4D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
-            }, "args.v.x = noise.snoise(args.v);", 10000);
+            }, "args.v[i].x = noise.snoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "snoise3Dgrad", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "gradient", m_ElementInitializer = "new float3()" },
-            }, "args.v.x = noise.snoise(args.v, out args.gradient);", 10000);
+            }, "args.v[i].x = noise.snoise(args.v[i], out args.gradient[i]);", 10000);
             GeneratePerformanceTest(str, "cnoise2D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v.x = noise.cnoise(args.v);", 10000);
+            }, "args.v[i].x = noise.cnoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cnoise3D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
-            }, "args.v.x = noise.cnoise(args.v);", 10000);
+            }, "args.v[i].x = noise.cnoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cnoise4D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
-            }, "args.v.x = noise.cnoise(args.v);", 10000);
+            }, "args.v[i].x = noise.cnoise(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "pnoise2D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
+            }, "args.v[i].x = noise.pnoise(args.v[i], args.v[i]);", 10000);
             GeneratePerformanceTest(str, "pnoise3D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
-            }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
+            }, "args.v[i].x = noise.pnoise(args.v[i], args.v[i]);", 10000);
             GeneratePerformanceTest(str, "pnoise4D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4()" },
-            }, "args.v.x = noise.pnoise(args.v, args.v);", 10000);
+            }, "args.v[i].x = noise.pnoise(args.v[i], args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cellular2D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v = noise.cellular(args.v);", 10000);
+            }, "args.v[i] = noise.cellular(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cellular3D", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
-            }, "args.v.xy = noise.cellular(args.v);", 10000);
+            }, "args.v[i].xy = noise.cellular(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cellular2x2", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v = noise.cellular2x2(args.v);", 10000);
+            }, "args.v[i] = noise.cellular2x2(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "cellular2x2x2", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3()" },
-            }, "args.v.xy = noise.cellular2x2x2(args.v);", 10000);
+            }, "args.v[i].xy = noise.cellular2x2x2(args.v[i]);", 10000);
             GeneratePerformanceTest(str, "psrdnoise", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v = noise.psrdnoise(args.v, args.v, args.v.y).xy;", 10000);
+            }, "args.v[i] = noise.psrdnoise(args.v[i], args.v[i], args.v[i].y).xy;", 10000);
             GeneratePerformanceTest(str, "psrnoise", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v.x = noise.psrnoise(args.v, args.v, args.v.y);", 10000);
+            }, "args.v[i].x = noise.psrnoise(args.v[i], args.v[i], args.v[i].y);", 10000);
             GeneratePerformanceTest(str, "srdnoise", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v = noise.srdnoise(args.v, args.v.y).xy;", 10000);
+            }, "args.v[i] = noise.srdnoise(args.v[i], args.v[i].y).xy;", 10000);
             GeneratePerformanceTest(str, "srnoise", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2()" },
-            }, "args.v.x = noise.srnoise(args.v, args.v.y);", 10000);
+            }, "args.v[i].x = noise.srnoise(args.v[i], args.v[i].y);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3178,22 +3178,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GeneratePerformanceTest(str, "transpose_float4x4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_float3x3", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_float2x2", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "m", m_ElementInitializer = "float2x2.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_double4x4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double4x4", m_MemberName = "m", m_ElementInitializer = "double4x4.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_double3x3", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double3x3", m_MemberName = "m", m_ElementInitializer = "double3x3.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_double2x2", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "double2x2", m_MemberName = "m", m_ElementInitializer = "double2x2.identity" },
-            }, "args.m = math.transpose(args.m);", 10000);
+            }, "args.m[i] = math.transpose(args.m[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3323,14 +3323,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder trigStr = new StringBuilder();
             GenerateTrigPerformanceTests(trigStr);
             WriteFile(m_PerformanceTestDirectory + "/TestTrig.gen.cs", trigStr.ToString());
-//
-//            StringBuilder noiseStr = new StringBuilder();
-//            GenerateNoisePerformanceTests(noiseStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestNoise.gen.cs", noiseStr.ToString());
-//
-//            StringBuilder transposeStr = new StringBuilder();
-//            GenerateTransposePerformanceTests(transposeStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
+
+            StringBuilder noiseStr = new StringBuilder();
+            GenerateNoisePerformanceTests(noiseStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestNoise.gen.cs", noiseStr.ToString());
+
+            StringBuilder transposeStr = new StringBuilder();
+            GenerateTransposePerformanceTests(transposeStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
         }
     }
 }
