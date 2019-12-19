@@ -2988,41 +2988,41 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "quaternion_to_float3x3", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "f3x3", m_ElementInitializer = "float3x3.identity" },
-            }, "args.f3x3 = new float3x3(args.q);", 10000);
+            }, "args.f3x3[i] = new float3x3(args.q[i]);", 10000);
             GeneratePerformanceTest(str, "float3x3_to_quaternion", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "f3x3", m_ElementInitializer = "float3x3.identity" },
-            }, "args.q = new quaternion(args.f3x3);", 10000);
+            }, "args.q[i] = new quaternion(args.f3x3[i]);", 10000);
             GeneratePerformanceTest(str, "float4_to_half4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "half4", m_MemberName = "h4", m_ElementInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
-            }, "args.h4 = new half4(args.f4);", 10000);
+            }, "args.h4[i] = new half4(args.f4[i]);", 10000);
             GeneratePerformanceTest(str, "half4_to_float4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "half4", m_MemberName = "h4", m_ElementInitializer = "new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f))" },
-            }, "args.f4 = new float4(args.h4);", 10000);
+            }, "args.f4[i] = new float4(args.h4[i]);", 10000);
             GeneratePerformanceTest(str, "quaternion_to_RigidTransform", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "RigidTransform", m_MemberName = "rt", m_ElementInitializer = "RigidTransform.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "pos", m_ElementInitializer = "new float3()" },
-            }, "args.rt = new RigidTransform(args.q, args.pos);", 10000);
+            }, "args.rt[i] = new RigidTransform(args.q[i], args.pos[i]);", 10000);
             GeneratePerformanceTest(str, "quaternion_to_float4x4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "f4x4", m_ElementInitializer = "float4x4.identity" },
-            }, "args.q = new quaternion(args.f4x4);", 10000);
+            }, "args.q[i] = new quaternion(args.f4x4[i]);", 10000);
             GeneratePerformanceTest(str, "float4x4_to_quaternion", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "f4x4", m_ElementInitializer = "float4x4.identity" },
                 new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f3", m_ElementInitializer = "new float3()" },
-            }, "args.f4x4 = new float4x4(args.q, args.f3);", 10000);
+            }, "args.f4x4[i] = new float4x4(args.q[i], args.f3[i]);", 10000);
             GeneratePerformanceTest(str, "float4_to_uint4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "u4", m_ElementInitializer = "new uint4(100, 101, 102, 103)" },
-            }, "args.u4 = new uint4(args.f4);", 10000);
+            }, "args.u4[i] = new uint4(args.f4[i]);", 10000);
             GeneratePerformanceTest(str, "uint4_to_float4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f4", m_ElementInitializer = "new float4(1.0f, 2.0f, 3.0f, 4.0f)" },
                 new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "u4", m_ElementInitializer = "new uint4(100, 101, 102, 103)" },
-            }, "args.f4 = new float4(args.u4);", 10000);
+            }, "args.f4[i] = new float4(args.u4[i]);", 10000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3311,10 +3311,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder fastInverseStr = new StringBuilder();
             GenerateFastInversePerformanceTests(fastInverseStr);
             WriteFile(m_PerformanceTestDirectory + "/TestFastInverse.gen.cs", fastInverseStr.ToString());
-//
-//            StringBuilder conversionStr = new StringBuilder();
-//            GenerateConversionPerformanceTests(conversionStr);
-//            WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
+
+            StringBuilder conversionStr = new StringBuilder();
+            GenerateConversionPerformanceTests(conversionStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestConversions.gen.cs", conversionStr.ToString());
 
             StringBuilder randomStr = new StringBuilder();
             GenerateRandomPerformanceTests(randomStr);
