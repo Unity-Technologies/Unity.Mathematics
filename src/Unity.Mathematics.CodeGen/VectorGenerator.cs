@@ -3198,6 +3198,53 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateNormalizePerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestNormalize");
+
+            GeneratePerformanceTest(str, "float4_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "float3_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "float2_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+
+            GeneratePerformanceTest(str, "double4_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double4", m_MemberName = "v", m_ElementInitializer = "new double4(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "double3_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v", m_ElementInitializer = "new double3(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "double2_normalize", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double2", m_MemberName = "v", m_ElementInitializer = "new double2(1.0f)" },
+            }, "args.v[i] = math.normalize(args.v[i]);", 10000);
+
+            GeneratePerformanceTest(str, "float4_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "float3_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "float2_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+
+            GeneratePerformanceTest(str, "double4_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double4", m_MemberName = "v", m_ElementInitializer = "new double4(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "double3_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v", m_ElementInitializer = "new double3(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "double2_normalizesafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "double2", m_MemberName = "v", m_ElementInitializer = "new double2(1.0f)" },
+            }, "args.v[i] = math.normalizesafe(args.v[i]);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3331,6 +3378,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder transposeStr = new StringBuilder();
             GenerateTransposePerformanceTests(transposeStr);
             WriteFile(m_PerformanceTestDirectory + "/TestTranspose.gen.cs", transposeStr.ToString());
+
+            StringBuilder normalizeStr = new StringBuilder();
+            GenerateNormalizePerformanceTests(normalizeStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestNormalize.gen.cs", normalizeStr.ToString());
         }
     }
 }
