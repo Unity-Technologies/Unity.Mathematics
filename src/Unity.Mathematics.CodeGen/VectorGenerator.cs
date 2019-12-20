@@ -3317,6 +3317,83 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateHashPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestHash");
+
+            GeneratePerformanceTest(str, "float2_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float3_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float4_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v", m_ElementInitializer = "new float4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+
+            GeneratePerformanceTest(str, "double2_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "double2", m_MemberName = "v", m_ElementInitializer = "new double2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "double3_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v", m_ElementInitializer = "new double3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "double4_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "double4", m_MemberName = "v", m_ElementInitializer = "new double4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+
+            GeneratePerformanceTest(str, "float2x2_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "v", m_ElementInitializer = "new float2x2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float3x3_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "v", m_ElementInitializer = "new float3x3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float4x4_hash", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "v", m_ElementInitializer = "new float4x4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hash(args.v[i]);", 100000);
+
+            GeneratePerformanceTest(str, "float2x2_hashwide", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2x2", m_MemberName = "v", m_ElementInitializer = "new float2x2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hashwide(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float3x3_hashwide", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "v", m_ElementInitializer = "new float3x3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint3", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hashwide(args.v[i]);", 100000);
+            GeneratePerformanceTest(str, "float4x4_hashwide", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "v", m_ElementInitializer = "new float4x4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "hash", m_ElementInitializer = "0" },
+            }, "args.hash[i] = math.hashwide(args.v[i]);", 100000);
+
+            GeneratePerformanceTest(str, "float2_hashwide", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v", m_ElementInitializer = "new float2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "hash", m_ElementInitializer = "new uint2()" },
+            }, "args.hash[i] = math.hashwide(args.v[i]);", 100000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3462,6 +3539,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder shuffleStr = new StringBuilder();
             GenerateShufflePerformanceTests(shuffleStr);
             WriteFile(m_PerformanceTestDirectory + "/TestShuffle.gen.cs", shuffleStr.ToString());
+
+            StringBuilder hashStr = new StringBuilder();
+            GenerateHashPerformanceTests(hashStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestHash.gen.cs", hashStr.ToString());
         }
     }
 }
