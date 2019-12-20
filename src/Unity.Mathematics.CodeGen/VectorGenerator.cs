@@ -3289,6 +3289,34 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateShufflePerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestShuffle");
+
+            GeneratePerformanceTest(str, "float2_shuffle", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v1", m_ElementInitializer = "new float2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "v2", m_ElementInitializer = "new float2(2.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "result", m_ElementInitializer = "new float2(1.0f)" },
+            }, "args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftY);", 100000);
+
+            GeneratePerformanceTest(str, "float3_shuffle", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3(2.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "result", m_ElementInitializer = "new float3(1.0f)" },
+            }, "args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftZ, math.ShuffleComponent.LeftX);", 100000);
+
+            GeneratePerformanceTest(str, "float4_shuffle", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v1", m_ElementInitializer = "new float4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "v2", m_ElementInitializer = "new float4(2.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "result", m_ElementInitializer = "new float4(1.0f)" },
+            }, "args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftZ, math.ShuffleComponent.LeftX, math.ShuffleComponent.RightY);", 100000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3430,6 +3458,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder rotationStr = new StringBuilder();
             GenerateRotationPerformanceTests(rotationStr);
             WriteFile(m_PerformanceTestDirectory + "/TestRotation.gen.cs", rotationStr.ToString());
+
+            StringBuilder shuffleStr = new StringBuilder();
+            GenerateShufflePerformanceTests(shuffleStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestShuffle.gen.cs", shuffleStr.ToString());
         }
     }
 }
