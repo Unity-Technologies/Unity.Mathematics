@@ -3245,6 +3245,50 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GenerateRotationPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestRotation");
+
+            GeneratePerformanceTest(str, "float4x4_EulerXYZ", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
+            }, "args.m[i] = float4x4.EulerXYZ(args.v[i]);", 10000);
+            GeneratePerformanceTest(str, "float3x3_EulerXYZ", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
+            }, "args.m[i] = float3x3.EulerXYZ(args.v[i]);", 10000);
+
+            GeneratePerformanceTest(str, "float4x4_AxisAngle", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "math.normalize(new float3(1.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "angle", m_ElementInitializer = "1.0f" },
+            }, "args.m[i] = float4x4.AxisAngle(args.v[i], args.angle[i]);", 10000);
+            GeneratePerformanceTest(str, "float3x3_AxisAngle", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v", m_ElementInitializer = "math.normalize(new float3(1.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "angle", m_ElementInitializer = "1.0f" },
+            }, "args.m[i] = float3x3.AxisAngle(args.v[i], args.angle[i]);", 10000);
+
+            GeneratePerformanceTest(str, "float3x3_LookRotation", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "forward", m_ElementInitializer = "math.normalize(new float3(1.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "up", m_ElementInitializer = "math.normalize(new float3(0.0f, 1.0f, 0.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
+            }, "args.m[i] = float3x3.LookRotation(args.forward[i], args.up[i]);", 10000);
+            GeneratePerformanceTest(str, "float3x3_LookRotationSafe", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "forward", m_ElementInitializer = "math.normalize(new float3(1.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "up", m_ElementInitializer = "math.normalize(new float3(0.0f, 1.0f, 0.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
+            }, "args.m[i] = float3x3.LookRotationSafe(args.forward[i], args.up[i]);", 10000);
+            GeneratePerformanceTest(str, "float4x4_LookAt", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "eye", m_ElementInitializer = "math.normalize(new float3(1.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "target", m_ElementInitializer = "math.normalize(new float3(0.0f, 1.0f, 0.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "up", m_ElementInitializer = "math.normalize(new float3(-5.0f, 2.0f, 3.0f))" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
+            }, "args.m[i] = float4x4.LookAt(args.eye[i], args.target[i], args.up[i]);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3382,6 +3426,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder normalizeStr = new StringBuilder();
             GenerateNormalizePerformanceTests(normalizeStr);
             WriteFile(m_PerformanceTestDirectory + "/TestNormalize.gen.cs", normalizeStr.ToString());
+
+            StringBuilder rotationStr = new StringBuilder();
+            GenerateRotationPerformanceTests(rotationStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestRotation.gen.cs", rotationStr.ToString());
         }
     }
 }
