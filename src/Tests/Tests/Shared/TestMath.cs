@@ -1941,7 +1941,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(csum(float2(-2.2e38f, 1.5e38f)), -7e37f, 4, false);
             TestUtils.AreEqual(csum(float2(-2.2e38f, -1.5e38f)), float.NegativeInfinity, 0, false);
             TestUtils.AreEqual(csum(float2( 2.2e38f, 1.5e38f)), float.PositiveInfinity, 0, false);
-            
+
             TestUtils.AreEqual(csum(float2(float.NegativeInfinity, float.PositiveInfinity)), float.NaN, 0, false);
             TestUtils.AreEqual(csum(float2(float.NegativeInfinity, float.NaN)), float.NaN, 0, false);
             TestUtils.AreEqual(csum(float2(float.NegativeInfinity, 100.0f)), float.NegativeInfinity, 0, false);
@@ -2832,7 +2832,7 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(distancesq(float2(1.3f, -2.4f), float2(-5.3f, 4.3f)), 88.45f, 8, false);
             TestUtils.AreEqual(distancesq(float2(1.3e18f, -2.4e18f), float2(-5.3e18f, 4.3e18f)), 8.845e37f, 8, false);
-            
+
             TestUtils.AreEqual(distancesq(float2(1.3f, -2.4f), float2(float.NaN, 4.3f)), float.NaN, 0, false);
             TestUtils.AreEqual(distancesq(float2(1.3f, -2.4f), float2(-5.3f, float.PositiveInfinity)), float.PositiveInfinity, 0, false);
         }
@@ -2903,6 +2903,24 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(distancesq(double4(1.3, -2.4, 5.7, 3.1), double4(double.NaN, 4.3, 4.7, 0.3)), double.NaN, 0, false);
             TestUtils.AreEqual(distancesq(double4(1.3, -2.4, 5.7, 3.1), double4(-5.3, double.PositiveInfinity, 4.7, 0.3)), double.PositiveInfinity, 8, false);
             TestUtils.AreEqual(distancesq(double4(1.3, double.NegativeInfinity, 5.7, 3.1), double4(-5.3, 4.3, 4.7, 0.3)), double.PositiveInfinity, 8, false);
+        }
+
+        [TestCompiler]
+        public static void epsilon_float()
+        {
+            float next = asfloat(asuint(1.0f) + 1);
+            float computed_epsilon = next - 1.0f;
+            Assert.AreEqual(computed_epsilon, EPSILON, 0.0f);
+            Assert.AreNotEqual(Single.Epsilon, EPSILON);
+        }
+
+        [TestCompiler]
+        public static void epsilon_double()
+        {
+            double next = asdouble(aslong(1.0) + 1);
+            double computed_epsilon = next - 1.0;
+            Assert.AreEqual(computed_epsilon, EPSILON_DBL, 0.0);
+            Assert.AreNotEqual(Double.Epsilon, EPSILON_DBL);
         }
 
         [TestCompiler]
