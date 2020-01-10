@@ -1,18 +1,18 @@
 build_platforms:
   - name: windows
     type: Unity::VM
-    image: sdet/burst-devimage:stable
+    image: package-ci/win10:stable
     flavor: b1.large
     npm_cmd: "npm"
     upm_cmd: "upm-ci"
   - name: linux
-    image: sdet/burst_linux:stable
+    image: package-ci/ubuntu:stable
     type: Unity::VM
     flavor: b1.large
-    npm_cmd: "sudo npm"
+    npm_cmd: "npm"
     upm_cmd: "DISPLAY=:0.0 upm-ci"
   - name: macOS
-    image: burst/burst_mac:stable
+    image: package-ci/mac:stable
     type: Unity::VM::osx
     flavor: m1.mac
     npm_cmd: "npm"
