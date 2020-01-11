@@ -53,7 +53,7 @@ validate_package_minimal:
     type: Unity::VM
     flavor: b1.large
   commands:
-    - sudo npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
     - DISPLAY=:0.0 upm-ci package pack --package-path src/
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
