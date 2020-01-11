@@ -49,7 +49,7 @@ validate_package_minimal:
   name: Validate Package Linux Minimal
   agent:
     name: linux
-    image: sdet/burst_linux:stable
+    image: package-ci/ubuntu:stable
     type: Unity::VM
     flavor: b1.large
   commands:
