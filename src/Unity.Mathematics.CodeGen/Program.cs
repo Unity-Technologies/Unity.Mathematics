@@ -35,7 +35,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             var testDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Tests/Tests/Shared"));
-            if (!implementationDirectory.Exists)
+            if (!testDirectory.Exists)
             {
                 throw new InvalidOperationException($"The directory `{testDirectory.FullName}` must exist");
             }
