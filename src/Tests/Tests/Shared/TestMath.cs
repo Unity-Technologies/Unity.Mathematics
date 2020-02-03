@@ -2924,6 +2924,42 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public static void nan_float()
+        {
+            Assert.AreNotEqual(0.0f, NAN);
+            Assert.AreNotEqual(INFINITY, NAN);
+            Assert.IsFalse(NAN == NAN);
+            Assert.IsFalse(isfinite(NAN));
+            Assert.IsTrue(isnan(NAN));
+        }
+
+        [TestCompiler]
+        public static void nan_double()
+        {
+            Assert.AreNotEqual(0.0, NAN_DBL);
+            Assert.AreNotEqual(INFINITY_DBL, NAN_DBL);
+            Assert.IsFalse(NAN_DBL == NAN_DBL);
+            Assert.IsFalse(isfinite(NAN_DBL));
+            Assert.IsTrue(isnan(NAN_DBL));
+        }
+
+        [TestCompiler]
+        public static void infinity_float()
+        {
+            Assert.AreNotEqual(-INFINITY, INFINITY);
+            Assert.IsTrue(isinf(INFINITY));
+            Assert.IsFalse(isfinite(INFINITY));
+        }
+
+        [TestCompiler]
+        public static void infinity_double()
+        {
+            Assert.AreNotEqual(-INFINITY_DBL, INFINITY_DBL);
+            Assert.IsTrue(isinf(INFINITY_DBL));
+            Assert.IsFalse(isfinite(INFINITY_DBL));
+        }
+
+        [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float_signed_zero()
         {
