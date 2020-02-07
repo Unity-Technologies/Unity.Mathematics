@@ -68,6 +68,27 @@ namespace Unity.Mathematics
         /// <summary>The square root 2. Approximately 1.41. This is a f64/double precision constant.</summary>
         public const double SQRT2_DBL = 1.41421356237309504880;
 
+        /// <summary>
+        /// The difference between 1.0 and the next representable f64/double precision number.
+        ///
+        /// Beware:
+        /// This value is different from System.Double.Epsilon, which is the smallest, positive, denormalized f64/double.
+        /// </summary>
+        public const double EPSILON_DBL = 2.22044604925031308085e-16;
+
+        /// <summary>
+        /// Double precision constant for positive infinity.
+        /// </summary>
+        public const double INFINITY_DBL = Double.PositiveInfinity;
+
+        /// <summary>
+        /// Double precision constant for Not a Number.
+        ///
+        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
+        /// Use isnan() if you must test if a number is NaN.
+        /// </summary>
+        public const double NAN_DBL = Double.NaN;
+
         /// <summary>The smallest positive normal number representable in a float.</summary>
         public const float FLT_MIN_NORMAL = 1.175494351e-38F;
 
@@ -94,6 +115,27 @@ namespace Unity.Mathematics
 
         /// <summary>The square root 2. Approximately 1.41.</summary>
         public const float SQRT2 = (float)SQRT2_DBL;
+
+        /// <summary>
+        /// The difference between 1.0f and the next representable f32/single precision number.
+        ///
+        /// Beware:
+        /// This value is different from System.Single.Epsilon, which is the smallest, positive, denormalized f32/single.
+        /// </summary>
+        public const float EPSILON = 1.1920928955078125e-7f;
+
+        /// <summary>
+        /// Single precision constant for positive infinity.
+        /// </summary>
+        public const float INFINITY = Single.PositiveInfinity;
+
+        /// <summary>
+        /// Single precision constant for Not a Number.
+        ///
+        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
+        /// Use isnan() if you must test if a number is NaN.
+        /// </summary>
+        public const float NAN = Single.NaN;
 
         /// <summary>Returns the bit pattern of a uint as an int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
