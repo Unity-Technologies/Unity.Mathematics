@@ -49,6 +49,7 @@
   <ItemGroup>
     <Compile Include="TestCompilerAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Shared\TestAABB.cs" />
     <Compile Include="Tests\Shared\TestBitmanipulation.cs" />
     <Compile Include="Tests\Shared\TestBool2.gen.cs" />
     <Compile Include="Tests\Shared\TestBool2x2.gen.cs" />
