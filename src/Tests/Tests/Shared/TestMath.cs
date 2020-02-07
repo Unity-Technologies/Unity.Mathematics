@@ -2928,9 +2928,12 @@ namespace Unity.Mathematics.Tests
         {
             Assert.AreNotEqual(0.0f, NAN);
             Assert.AreNotEqual(INFINITY, NAN);
-            Assert.IsFalse(NAN == NAN);
             Assert.IsFalse(isfinite(NAN));
             Assert.IsTrue(isnan(NAN));
+
+            float nan1 = NAN;
+            float nan2 = NAN;
+            Assert.IsFalse(nan1 == nan2);
         }
 
         [TestCompiler]
@@ -2938,9 +2941,12 @@ namespace Unity.Mathematics.Tests
         {
             Assert.AreNotEqual(0.0, NAN_DBL);
             Assert.AreNotEqual(INFINITY_DBL, NAN_DBL);
-            Assert.IsFalse(NAN_DBL == NAN_DBL);
             Assert.IsFalse(isfinite(NAN_DBL));
             Assert.IsTrue(isnan(NAN_DBL));
+
+            double nan1 = NAN_DBL;
+            double nan2 = NAN_DBL;
+            Assert.IsFalse(nan1 == nan2);
         }
 
         [TestCompiler]
