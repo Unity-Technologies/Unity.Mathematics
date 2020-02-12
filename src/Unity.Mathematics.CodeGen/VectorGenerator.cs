@@ -3179,6 +3179,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "transpose_float4x4", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
             }, "args.m[i] = math.transpose(args.m[i]);", 10000);
+            GeneratePerformanceTest(str, "transpose_simd_float4x4", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float4x4", m_MemberName = "m", m_ElementInitializer = "float4x4.identity" },
+            }, "args.m[i] = math.transpose_simd(args.m[i]);", 10000);
             GeneratePerformanceTest(str, "transpose_float3x3", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "float3x3.identity" },
             }, "args.m[i] = math.transpose(args.m[i]);", 10000);

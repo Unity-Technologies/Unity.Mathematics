@@ -98,6 +98,86 @@ namespace Unity.Mathematics.PerformanceTests
             args.Dispose();
         }
         [BurstCompile]
+        public unsafe class transpose_simd_float4x4
+        {
+            public struct Arguments : IDisposable
+            {
+                public float4x4* m;
+
+                public void Init()
+                {
+                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < 10000; ++i)
+                    {
+                        m[i] = float4x4.identity;
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < 10000; ++i)
+                {
+                    args.m[i] = math.transpose_simd(args.m[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void transpose_simd_float4x4_mono()
+        {
+            transpose_simd_float4x4.TestFunction testFunction = transpose_simd_float4x4.MonoTestFunction;
+            var args = new transpose_simd_float4x4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void transpose_simd_float4x4_burst()
+        {
+            FunctionPointer<transpose_simd_float4x4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<transpose_simd_float4x4.TestFunction>(transpose_simd_float4x4.BurstTestFunction);
+            var args = new transpose_simd_float4x4.Arguments();
+            args.Init();
+
+            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .Definition(sampleUnit: SampleUnit.Microsecond)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile]
         public unsafe class transpose_float3x3
         {
             public struct Arguments : IDisposable
