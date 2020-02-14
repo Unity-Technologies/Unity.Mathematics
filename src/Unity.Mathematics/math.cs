@@ -1625,7 +1625,6 @@ namespace Unity.Mathematics
         /// <summary>Returns the componentwise base-2 logarithm of a double4 vector.</summary>
         public static double4 log2(double4 x) { return new double4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
-
         /// <summary>Returns the base-10 logarithm of a float value.</summary>
         public static float log10(float x) { return (float)System.Math.Log10((float)x); }
 
@@ -3009,6 +3008,62 @@ namespace Unity.Mathematics
             x |= x >> 16;
             x |= x >> 32;
             return x + 1;
+        }
+
+        /// <summary>Returns the ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>x must be > 0, otherwise the result is undefined.</remarks>
+        public static int ceillog2(int x)
+        {
+            return 32 - lzcnt((uint)x - 1);
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int2 ceillog2(int2 x)
+        {
+            return new int2(ceillog2(x.x), ceillog2(x.y));
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int3 ceillog2(int3 x)
+        {
+            return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int4 ceillog2(int4 x)
+        {
+            return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
+        }
+
+        /// <summary>Returns the ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>x must be > 0, otherwise the result is undefined.</remarks>
+        public static int ceillog2(uint x)
+        {
+            return 32 - lzcnt(x - 1);
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int2 ceillog2(uint2 x)
+        {
+            return new int2(ceillog2(x.x), ceillog2(x.y));
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int3 ceillog2(uint3 x)
+        {
+            return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
+        }
+
+        /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
+        /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        public static int4 ceillog2(uint4 x)
+        {
+            return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
         }
 
         /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
