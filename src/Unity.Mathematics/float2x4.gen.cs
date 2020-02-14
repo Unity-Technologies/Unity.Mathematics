@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float2x4 matrix from four float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x4(float2 c0, float2 c1, float2 c2, float2 c3)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x4(float m00, float m01, float m02, float m03,
                         float m10, float m11, float m12, float m13)
-        { 
+        {
             this.c0 = new float2(m00, m10);
             this.c1 = new float2(m01, m11);
             this.c2 = new float2(m02, m12);
@@ -445,9 +445,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x4 v)
         {
-            return csum(asuint(v.c0) * uint2(0xD35C9B2Du, 0xA10D9E27u) + 
-                        asuint(v.c1) * uint2(0x568DAAA9u, 0x7530254Fu) + 
-                        asuint(v.c2) * uint2(0x9F090439u, 0x5E9F85C9u) + 
+            return csum(asuint(v.c0) * uint2(0xD35C9B2Du, 0xA10D9E27u) +
+                        asuint(v.c1) * uint2(0x568DAAA9u, 0x7530254Fu) +
+                        asuint(v.c2) * uint2(0x9F090439u, 0x5E9F85C9u) +
                         asuint(v.c3) * uint2(0x8C4CA03Fu, 0xB8D969EDu)) + 0xAC5DB57Bu;
         }
 
@@ -459,9 +459,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2x4 v)
         {
-            return (asuint(v.c0) * uint2(0xA91A02EDu, 0xB3C49313u) + 
-                    asuint(v.c1) * uint2(0xF43A9ABBu, 0x84E7E01Bu) + 
-                    asuint(v.c2) * uint2(0x8E055BE5u, 0x6E624EB7u) + 
+            return (asuint(v.c0) * uint2(0xA91A02EDu, 0xB3C49313u) +
+                    asuint(v.c1) * uint2(0xF43A9ABBu, 0x84E7E01Bu) +
+                    asuint(v.c2) * uint2(0x8E055BE5u, 0x6E624EB7u) +
                     asuint(v.c3) * uint2(0x7383ED49u, 0xDD49C23Bu)) + 0xEBD0D005u;
         }
 

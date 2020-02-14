@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double2 vector from two double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double x, double y)
-        { 
+        {
             this.x = x;
             this.y = y;
         }
@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double2 vector from a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double2 xy)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
         }

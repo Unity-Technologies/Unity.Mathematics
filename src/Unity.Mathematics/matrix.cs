@@ -10,7 +10,7 @@ namespace Unity.Mathematics
         {
             float s, c;
             sincos(angle, out s, out c);
-            return float2x2(c, -s, 
+            return float2x2(c, -s,
                             s,  c);
         }
 
@@ -372,7 +372,7 @@ namespace Unity.Mathematics
         {
             float forwardLengthSq = dot(forward, forward);
             float upLengthSq = dot(up, up);
-            
+
             forward *= rsqrt(forwardLengthSq);
             up *= rsqrt(upLengthSq);
 

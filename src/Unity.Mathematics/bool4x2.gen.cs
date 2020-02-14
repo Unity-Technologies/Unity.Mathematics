@@ -23,7 +23,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4x2 matrix from two bool4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4x2(bool4 c0, bool4 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -34,7 +34,7 @@ namespace Unity.Mathematics
                        bool m10, bool m11,
                        bool m20, bool m21,
                        bool m30, bool m31)
-        { 
+        {
             this.c0 = new bool4(m00, m10, m20, m30);
             this.c1 = new bool4(m01, m11, m21, m31);
         }
@@ -195,7 +195,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool4x2 v)
         {
-            return csum(select(uint4(0xD19764C7u, 0xB5D0BF63u, 0xF9102C5Fu, 0x9881FB9Fu), uint4(0x56A1530Du, 0x804B722Du, 0x738E50E5u, 0x4FC93C25u), v.c0) + 
+            return csum(select(uint4(0xD19764C7u, 0xB5D0BF63u, 0xF9102C5Fu, 0x9881FB9Fu), uint4(0x56A1530Du, 0x804B722Du, 0x738E50E5u, 0x4FC93C25u), v.c0) +
                         select(uint4(0xCD0445A5u, 0xD2B90D9Bu, 0xD35C9B2Du, 0xA10D9E27u), uint4(0x568DAAA9u, 0x7530254Fu, 0x9F090439u, 0x5E9F85C9u), v.c1));
         }
 
@@ -207,7 +207,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(bool4x2 v)
         {
-            return (select(uint4(0x8C4CA03Fu, 0xB8D969EDu, 0xAC5DB57Bu, 0xA91A02EDu), uint4(0xB3C49313u, 0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u), v.c0) + 
+            return (select(uint4(0x8C4CA03Fu, 0xB8D969EDu, 0xAC5DB57Bu, 0xA91A02EDu), uint4(0xB3C49313u, 0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u), v.c0) +
                     select(uint4(0x6E624EB7u, 0x7383ED49u, 0xDD49C23Bu, 0xEBD0D005u), uint4(0x91475DF7u, 0x55E84827u, 0x90A285BBu, 0x5D19E1D5u), v.c1));
         }
 

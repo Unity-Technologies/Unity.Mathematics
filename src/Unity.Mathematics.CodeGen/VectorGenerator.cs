@@ -214,7 +214,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder str = new StringBuilder();
             GenerateTypeImplementation(str);
             WriteFile(m_ImplementationDirectory + "/" + m_TypeName + ".gen.cs", str.ToString());
-            
+
 
             if(m_BaseType != "half")
             {
@@ -372,7 +372,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     opStr.AppendFormat("\t\t/// <summary>{0} converts a {1} {2} to a {3} {2} by componentwise conversion.</summary>\n", plicitlyString, sourceType, dstTypeCategory, m_TypeName);
                 }
             }
-            
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic {0}({1} v)\n", m_TypeName, sourceType);
             str.Append("\t\t{\n");
@@ -390,11 +390,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         else
                             rhs = rhs + " ? " + ToTypedLiteral(m_BaseType, 1) + " : " + ToTypedLiteral(m_BaseType, 0);
                     }
-                        
+
                     else
                         rhs = "(" + dstFieldType + ")" + rhs;
                 }
-                    
+
 
                 str.AppendFormat("\t\t\tthis.{0} = {1};\n", fields[i], rhs);
             }
@@ -455,7 +455,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     GenerateConversion(str, opStr, mathStr, "half", false, true);
                     GenerateConversion(str, opStr, mathStr, "half", false, false);
                 }
-                
+
                 GenerateConversion(str, opStr, mathStr, "double", true, true);
                 GenerateConversion(str, opStr, mathStr, "double", true, false);
             }
@@ -475,7 +475,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateConversion(str, opStr, mathStr, "float", false, true);
                 GenerateConversion(str, opStr, mathStr, "float", false, false);
             }
-            
+
 
             str.Append("\n");
             str.Append(opStr);
@@ -520,7 +520,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
             {
-                
+
                 GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false,
                     string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
                 GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true,
@@ -596,7 +596,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t\t\t\tdefault:\n");
             str.Append("\t\t\t\t\tthrow new System.ArgumentException(\"Invalid shuffle component: \" + component);\n");
             str.Append("\t\t\t}\n");
-            str.Append("\t\t}\n\n");    
+            str.Append("\t\t}\n\n");
         }
 
         private void GenerateShuffleImplementation(StringBuilder str)
@@ -623,7 +623,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.AppendFormat("\t\t\treturn {0}(\n", resultType);
                 else
                     str.AppendFormat("\t\t\treturn ", resultType);
-                            
+
                 for(int i = 0; i < resultComponents; i++)
                 {
                     if (resultComponents != 1)
@@ -665,7 +665,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 str.AppendFormat("\t\t/// <summary>{0}</summary>\n", desc);
             }
-            
+
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, lhsType, rhsType);
             str.Append("\t\t{\n");
@@ -678,7 +678,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append(resultType);
             if (needsParen)
                 str.Append("(");
-            
+
             for (int i = 0; i < rhsColumns; i++)
             {
                 if (i > 0 || rhsColumns > 1)
@@ -709,7 +709,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                 str.Append("b." + matrixFields[i] + "." + vectorFields[j]);
                         }
                     }
-                    
+
                 }
 
                 if (i != rhsColumns - 1)
@@ -764,7 +764,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t}\n");
             str.Append("}\n");
         }
-        
+
         private string GenerateComponentRangeString(int componentIndex, int numComponents)
         {
             string result = "";
@@ -789,7 +789,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 {
                     int paramComponents = parameterComponents[idx];
                     string paramType = ToTypeName(m_BaseType, paramComponents, 1);
-                    
+
                     int n = 1;
                     while(idx + 1 < numParameters && parameterComponents[idx + 1] == paramComponents)
                     {
@@ -808,7 +808,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     first = false;
                 }
             }
-            
+
 
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
@@ -847,7 +847,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             constructorStr.Append(")\n");
             mathStr.Append(")");
-            
+
             // Generate function bodies
             constructorStr.Append("\t\t{ ");
             mathStr.Append(" { return new ");
@@ -892,7 +892,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 GenerateVectorConstructor(numComponents, numParameters, parameterComponents, constructorStr, mathStr);
             }
-            
+
             for(int i = 1; i <= numRemainingComponents; i++)
             {
                 parameterComponents[numParameters] = i;
@@ -1004,7 +1004,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     mathStr.Append(separator);
                 }
             }
-            
+
             string columnType = ToTypeName(m_BaseType, m_Rows, 1);
 
             // constructor body
@@ -1012,11 +1012,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             for (int column = 0; column < m_Columns; column++)
             {
                 constructorStr.AppendFormat("\n\t\t\tthis.{0} = new {1}(", matrixFields[column], columnType);
-                
+
                 for (int row = 0; row < m_Rows; row++)
                 {
                     constructorStr.Append("m" + row + column);
-                    
+
                     if (row != m_Rows - 1)
                     {
                         constructorStr.Append(", ");
@@ -1066,12 +1066,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 GenerateMatrixConstructors(constructorStr, mathStr);
             }
         }
-        
+
         public void GenerateOperators(StringBuilder str)
         {
             string resultType = m_BaseType;
             string resultBoolType = "bool";
-            
+
             if (0 != (m_Features & Features.Arithmetic))
             {
                 GenerateBinaryOperator(m_Rows, m_Columns, "*", resultType, str, "multiplication");
@@ -1461,7 +1461,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.AppendFormat("\t\t\treturn ");
             str.Append(wide ? "(" : "csum(");
-            
+
             if (m_BaseType == "bool")
             {
                 for (int column = 0; column < m_Columns; column++)
@@ -1504,14 +1504,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         else
                             columnName = "asuint(" + columnName + ")";
                     }
-                        
+
                     str.Append(columnName);
                     str.Append(" * ");
                     GeneratePrimeUIntVector(str, m_Rows);
                 }
                 str.AppendFormat(") + 0x{0:X}u;\n", NextPrime());
             }
-            
+
             str.Append("\t\t}\n\n");
         }
 
@@ -1546,7 +1546,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
             }
             str.Append(")\", ");
-            
+
             for (int row = 0; row < m_Rows; row++)
             {
                 for (int column = 0; column < m_Columns; column++)
@@ -1681,7 +1681,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
-            
+
             for (int i = 0; i < resultCount; i++)
             {
                 if (m_Columns == 1)
@@ -1993,7 +1993,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], values[row]);
                     }
                 }
-                
+
 
                 EndTest(str);
             }
@@ -2042,7 +2042,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     string lhsValue = "";
                     string rhsValue = "";
                     string resultValue = "";
-                        
+
                     if (m_BaseType == "bool")
                     {
                         if (i == 0 || lhsWide) bool_a = (rnd.Next(2) == 1);
@@ -2065,7 +2065,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     {
                         if (i == 0 || lhsWide) int_a = rnd.Next();
                         if (i == 0 || rhsWide) int_b = rnd.Next();
-                            
+
 
                         lhsValue = "" + int_a;
                         rhsValue = "" + int_b;
@@ -2184,7 +2184,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     if (i == 0 || rhsWide) rhsValues[i] = rhsValue;
                     resultValues[i] = resultValue;
                 }
-                    
+
                 str.AppendFormat("\t\t\t{0} a{1} = ", lhsType, pass);
                 if (lhsWide) str.Append(lhsType);
                 AddParenthesized(str, lhsValues);
@@ -2270,7 +2270,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         for (int i = 0; i < resultComponents; i++)
                             shuffleIndices[i] = rnd.Next(m_Rows * 2);
                     }
-                    
+
                     str.Append("\t\t\tTestUtils.AreEqual(shuffle(a, b");
                     for(int i = 0; i < resultComponents; i++)
                     {
@@ -2309,7 +2309,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             TestBinaryOperator(str, boolResultType, "==", "equal");
             TestBinaryOperator(str, boolResultType, "!=", "not_equal");
-            
+
             if (m_BaseType == "int" || m_BaseType == "uint" || m_BaseType == "float" || m_BaseType == "double")
             {
                 TestBinaryOperator(str, boolResultType, "<", "less");
@@ -2406,7 +2406,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         s += ".0";
                     return s;
                 }
-                    
+
             }
             else if (typeof(T) == typeof(uint))
             {
@@ -2517,7 +2517,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\t{\n");
 
             GenerateComponentWiseTest(str, "abs", new int[,] { { 0 }, { -7 }, { 11 }, { -2147483647 }, { -2147483648 } }, new int[] { 0, 7, 11, 2147483647, -2147483648 }, 4);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "abs", new double[,] { { 0.0 }, { -1.1 }, { 2.2 }, { double.NegativeInfinity }, { double.PositiveInfinity } }, new double[] { 0.0, 1.1, 2.2, double.PositiveInfinity, double.PositiveInfinity }, 0, 0, false);
 
             GenerateComponentWiseTest(str, "isfinite", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
@@ -2532,19 +2532,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
             GenerateComponentWiseTest(str, "isnan", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "sin", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { 0.34999350217129295, -0.93203908596722635, 0.0, 0.93203908596722635, -0.34999350217129295, double.NaN, double.NaN, double.NaN }, 1, 32);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "cos", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 },  { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { 0.93675212753314479,  0.36235775447667358, 1.0, 0.36235775447667358,  0.93675212753314479, double.NaN, double.NaN, double.NaN }, 8, 32);
 
             GenerateComponentWiseTestFloatAndDouble(str, "tan", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { 0.373624453987599, -2.57215162212632, 0.0, 2.57215162212632, -0.373624453987599, double.NaN, double.NaN, double.NaN }, 1, 32);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "atan",new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { -1.570795326794897, -0.8760580505981934, 0.0, 0.8760580505981934, 1.570795326794897, -1.570796326794897, double.NaN, 1.570796326794897 }, 1, 32);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "atan2", new double[,] { { 3.1, 2.4 }, { 3.1, -2.4 }, { -3.1, 2.4 }, { -3.1, -2.4 }, { 0.0, 0.0 },
                                                                 { 1.0, double.NegativeInfinity },   { 1.0, double.PositiveInfinity }, { double.NegativeInfinity, 1.0 },   { double.PositiveInfinity, 1.0 },
                                                                 // { double.NegativeInfinity, double.PositiveInfinity }, // TODO: fails with burst
@@ -2597,7 +2597,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTestFloatAndDouble(str, "sqrt", new double[,] { { -1.0}, { 0.0 }, { 1e-10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { double.NaN, 0.0, 1e-5, 11.11080555135405, double.NaN, double.NaN, double.PositiveInfinity, }, 1, 1);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "rsqrt", new double[,] { { -1.0 }, { 0.0 }, { 1e10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { double.NaN, double.PositiveInfinity, 1e-5, 0.0900024751020984295, double.NaN, double.NaN, 0.0, }, 1, 1);
 
@@ -2675,7 +2675,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                                     { double.NaN, -123.45, 439.43},
                                                                                     },
                                                     new double[] { -123.45, -123.45, 246.3, 439.43, 439.43, 439.43, 439.43, 439.43, 439.43 });
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "saturate", new double[,] { { double.NegativeInfinity }, { -123.45 }, { 0.0 }, { 0.5 }, { 1.0 }, { 123.45 }, { double.PositiveInfinity }, { double.NaN } },
                                                     new double[] { 0.0, 0.0, 0.0, 0.5, 1.0, 1.0, 1.0, 1.0 });
 
@@ -2812,27 +2812,27 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                                                                     double.NaN, -76.2, -0.0, 0.0, 76.2, double.NaN, double.NaN,
                                                                                     double.NaN, -323.4, -0.0, 0.0, 323.4, double.NaN, double.NaN,
                                                                                     double.NaN, double.NaN,double.NaN,double.NaN,double.NaN,double.NaN,double.NaN}, 1, 1);
-            
+
             GenerateComponentWiseTestFloatAndDouble(str, "pow", new double[,] {     { double.NegativeInfinity, double.NegativeInfinity }, { -3.4, double.NegativeInfinity }, { -0.0, double.NegativeInfinity}, { 0.0, double.NegativeInfinity}, { 3.4, double.NegativeInfinity}, { double.PositiveInfinity, double.NegativeInfinity}, { double.NaN, double.NegativeInfinity},
-                                                                                    
+
                                                                                     { double.NegativeInfinity, -2.6}, { -3.4, -2.6}, { -0.0, -2.6}, { 0.0, -2.6}, { 3.4, -2.6}, { double.PositiveInfinity, -2.6}, { double.NaN, -2.6},
-                                                                                    
+
                                                                                     { double.NegativeInfinity, -0.0}, { -3.4, -0.0}, { -0.0, -0.0}, { 0.0, -0.0}, { 3.4, -0.0}, { double.PositiveInfinity, -0.0}, // { double.NaN, -0.0}, // TODO: fails with burst
                                                                                     { double.NegativeInfinity, 0.0}, { -3.4, 0.0}, { -0.0, 0.0}, { 0.0, 0.0}, { 3.4, 0.0}, { double.PositiveInfinity, 0.0}, // { double.NaN, 0.0}, // TODO: fails with burst
-                                                                                    
+
                                                                                     { double.NegativeInfinity, 2.6}, { -3.4, 2.6}, { -0.0, 2.6}, { 0.0, 2.6}, { 3.4, 2.6}, { double.PositiveInfinity, 2.6}, { double.NaN, 2.6},
                                                                                     { double.NegativeInfinity, double.PositiveInfinity}, { -3.4, double.PositiveInfinity}, { -0.0, double.PositiveInfinity}, { 0.0, double.PositiveInfinity}, { 3.4, double.PositiveInfinity}, { double.PositiveInfinity, double.PositiveInfinity}, { double.NaN, double.PositiveInfinity},
                                                                                     { double.NegativeInfinity, double.NaN}, { -3.4, double.NaN}, { -0.0, double.NaN}, { 0.0, double.NaN}, { 3.4, double.NaN}, { double.PositiveInfinity, double.NaN}, { double.NaN, double.NaN},
-                                                                                    
+
                                                                                     },
                                                                  new double[]       {
                                                                                       0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.NaN,
                                                                                       0.0, double.NaN, double.PositiveInfinity, double.PositiveInfinity, 0.041510199028461224, 0.0, double.NaN,
                                                                                       1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
                                                                                       1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
-                                                                                      
+
                                                                                       double.PositiveInfinity, double.NaN, 0.0, 0.0, 24.090465076169736, double.PositiveInfinity, double.NaN,
-                                                                                      
+
                                                                                       double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, double.NaN,
                                                                                       double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN,
                                                                                     }, 1, 1);
@@ -2859,7 +2859,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         private void GenerateTypeTests(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
-            
+
             str.Append("using NUnit.Framework;\n");
             str.Append("using static Unity.Mathematics.math;\n");
             str.Append("using Burst.Compiler.IL.Tests;\n\n");

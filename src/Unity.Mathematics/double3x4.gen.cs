@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3x4 matrix from four double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(double3 c0, double3 c1, double3 c2, double3 c3)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         public double3x4(double m00, double m01, double m02, double m03,
                          double m10, double m11, double m12, double m13,
                          double m20, double m21, double m22, double m23)
-        { 
+        {
             this.c0 = new double3(m00, m10, m20);
             this.c1 = new double3(m01, m11, m21);
             this.c2 = new double3(m02, m12, m22);
@@ -465,9 +465,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x4 v)
         {
-            return csum(fold_to_uint(v.c0) * uint3(0xEE390C97u, 0x9C8A2F05u, 0x4DDC6509u) + 
-                        fold_to_uint(v.c1) * uint3(0x7CF083CBu, 0x5C4D6CEDu, 0xF9137117u) + 
-                        fold_to_uint(v.c2) * uint3(0xE857DCE1u, 0xF62213C5u, 0x9CDAA959u) + 
+            return csum(fold_to_uint(v.c0) * uint3(0xEE390C97u, 0x9C8A2F05u, 0x4DDC6509u) +
+                        fold_to_uint(v.c1) * uint3(0x7CF083CBu, 0x5C4D6CEDu, 0xF9137117u) +
+                        fold_to_uint(v.c2) * uint3(0xE857DCE1u, 0xF62213C5u, 0x9CDAA959u) +
                         fold_to_uint(v.c3) * uint3(0xAA269ABFu, 0xD54BA36Fu, 0xFD0847B9u)) + 0x8189A683u;
         }
 
@@ -479,9 +479,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3x4 v)
         {
-            return (fold_to_uint(v.c0) * uint3(0xB139D651u, 0xE7579997u, 0xEF7D56C7u) + 
-                    fold_to_uint(v.c1) * uint3(0x66F38F0Bu, 0x624256A3u, 0x5292ADE1u) + 
-                    fold_to_uint(v.c2) * uint3(0xD2E590E5u, 0xF25BE857u, 0x9BC17CE7u) + 
+            return (fold_to_uint(v.c0) * uint3(0xB139D651u, 0xE7579997u, 0xEF7D56C7u) +
+                    fold_to_uint(v.c1) * uint3(0x66F38F0Bu, 0x624256A3u, 0x5292ADE1u) +
+                    fold_to_uint(v.c2) * uint3(0xD2E590E5u, 0xF25BE857u, 0x9BC17CE7u) +
                     fold_to_uint(v.c3) * uint3(0xC8B86851u, 0x64095221u, 0xADF428FFu)) + 0xA3977109u;
         }
 
