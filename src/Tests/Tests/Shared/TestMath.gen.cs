@@ -114,7 +114,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_float()
         {
-            TestUtils.AreEqual(isfinite(-float.NaN), false);
+            TestUtils.AreEqual(isfinite(float.NaN), false);
             TestUtils.AreEqual(isfinite(float.NegativeInfinity), false);
             TestUtils.AreEqual(isfinite(float.MinValue), true);
             TestUtils.AreEqual(isfinite(-1f), true);
@@ -128,7 +128,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_float2()
         {
-            TestUtils.AreEqual(isfinite(float2(-float.NaN, float.NegativeInfinity)), bool2(false, false));
+            TestUtils.AreEqual(isfinite(float2(float.NaN, float.NegativeInfinity)), bool2(false, false));
             TestUtils.AreEqual(isfinite(float2(float.MinValue, -1f)), bool2(true, true));
             TestUtils.AreEqual(isfinite(float2(0f, 1f)), bool2(true, true));
             TestUtils.AreEqual(isfinite(float2(float.MaxValue, float.PositiveInfinity)), bool2(true, false));
@@ -138,7 +138,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_float3()
         {
-            TestUtils.AreEqual(isfinite(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, false, true));
+            TestUtils.AreEqual(isfinite(float3(float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, false, true));
             TestUtils.AreEqual(isfinite(float3(-1f, 0f, 1f)), bool3(true, true, true));
             TestUtils.AreEqual(isfinite(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(true, false, false));
         }
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_float4()
         {
-            TestUtils.AreEqual(isfinite(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(false, false, true, true));
+            TestUtils.AreEqual(isfinite(float4(float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(false, false, true, true));
             TestUtils.AreEqual(isfinite(float4(0f, 1f, float.MaxValue, float.PositiveInfinity)), bool4(true, true, true, false));
             TestUtils.AreEqual(isfinite(float4(float.NaN, float.NaN, float.NaN, float.NaN)), bool4(false, false, false, false));
         }
@@ -154,7 +154,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_double()
         {
-            TestUtils.AreEqual(isfinite(-double.NaN), false);
+            TestUtils.AreEqual(isfinite(double.NaN), false);
             TestUtils.AreEqual(isfinite(double.NegativeInfinity), false);
             TestUtils.AreEqual(isfinite(double.MinValue), true);
             TestUtils.AreEqual(isfinite(-1.0), true);
@@ -168,7 +168,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_double2()
         {
-            TestUtils.AreEqual(isfinite(double2(-double.NaN, double.NegativeInfinity)), bool2(false, false));
+            TestUtils.AreEqual(isfinite(double2(double.NaN, double.NegativeInfinity)), bool2(false, false));
             TestUtils.AreEqual(isfinite(double2(double.MinValue, -1.0)), bool2(true, true));
             TestUtils.AreEqual(isfinite(double2(0.0, 1.0)), bool2(true, true));
             TestUtils.AreEqual(isfinite(double2(double.MaxValue, double.PositiveInfinity)), bool2(true, false));
@@ -178,7 +178,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_double3()
         {
-            TestUtils.AreEqual(isfinite(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, false, true));
+            TestUtils.AreEqual(isfinite(double3(double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, false, true));
             TestUtils.AreEqual(isfinite(double3(-1.0, 0.0, 1.0)), bool3(true, true, true));
             TestUtils.AreEqual(isfinite(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(true, false, false));
         }
@@ -186,7 +186,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isfinite_double4()
         {
-            TestUtils.AreEqual(isfinite(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, false, true, true));
+            TestUtils.AreEqual(isfinite(double4(double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, false, true, true));
             TestUtils.AreEqual(isfinite(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(true, true, true, false));
             TestUtils.AreEqual(isfinite(double4(double.NaN, double.NaN, double.NaN, double.NaN)), bool4(false, false, false, false));
         }
@@ -194,7 +194,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_float()
         {
-            TestUtils.AreEqual(isinf(-float.NaN), false);
+            TestUtils.AreEqual(isinf(float.NaN), false);
             TestUtils.AreEqual(isinf(float.NegativeInfinity), true);
             TestUtils.AreEqual(isinf(float.MinValue), false);
             TestUtils.AreEqual(isinf(-1f), false);
@@ -208,7 +208,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_float2()
         {
-            TestUtils.AreEqual(isinf(float2(-float.NaN, float.NegativeInfinity)), bool2(false, true));
+            TestUtils.AreEqual(isinf(float2(float.NaN, float.NegativeInfinity)), bool2(false, true));
             TestUtils.AreEqual(isinf(float2(float.MinValue, -1f)), bool2(false, false));
             TestUtils.AreEqual(isinf(float2(0f, 1f)), bool2(false, false));
             TestUtils.AreEqual(isinf(float2(float.MaxValue, float.PositiveInfinity)), bool2(false, true));
@@ -218,7 +218,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_float3()
         {
-            TestUtils.AreEqual(isinf(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, true, false));
+            TestUtils.AreEqual(isinf(float3(float.NaN, float.NegativeInfinity, float.MinValue)), bool3(false, true, false));
             TestUtils.AreEqual(isinf(float3(-1f, 0f, 1f)), bool3(false, false, false));
             TestUtils.AreEqual(isinf(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(false, true, false));
         }
@@ -226,7 +226,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_float4()
         {
-            TestUtils.AreEqual(isinf(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(false, true, false, false));
+            TestUtils.AreEqual(isinf(float4(float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(false, true, false, false));
             TestUtils.AreEqual(isinf(float4(0f, 1f, float.MaxValue, float.PositiveInfinity)), bool4(false, false, false, true));
             TestUtils.AreEqual(isinf(float4(float.NaN, float.NaN, float.NaN, float.NaN)), bool4(false, false, false, false));
         }
@@ -234,7 +234,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_double()
         {
-            TestUtils.AreEqual(isinf(-double.NaN), false);
+            TestUtils.AreEqual(isinf(double.NaN), false);
             TestUtils.AreEqual(isinf(double.NegativeInfinity), true);
             TestUtils.AreEqual(isinf(double.MinValue), false);
             TestUtils.AreEqual(isinf(-1.0), false);
@@ -248,7 +248,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_double2()
         {
-            TestUtils.AreEqual(isinf(double2(-double.NaN, double.NegativeInfinity)), bool2(false, true));
+            TestUtils.AreEqual(isinf(double2(double.NaN, double.NegativeInfinity)), bool2(false, true));
             TestUtils.AreEqual(isinf(double2(double.MinValue, -1.0)), bool2(false, false));
             TestUtils.AreEqual(isinf(double2(0.0, 1.0)), bool2(false, false));
             TestUtils.AreEqual(isinf(double2(double.MaxValue, double.PositiveInfinity)), bool2(false, true));
@@ -258,7 +258,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_double3()
         {
-            TestUtils.AreEqual(isinf(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, true, false));
+            TestUtils.AreEqual(isinf(double3(double.NaN, double.NegativeInfinity, double.MinValue)), bool3(false, true, false));
             TestUtils.AreEqual(isinf(double3(-1.0, 0.0, 1.0)), bool3(false, false, false));
             TestUtils.AreEqual(isinf(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(false, true, false));
         }
@@ -266,7 +266,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isinf_double4()
         {
-            TestUtils.AreEqual(isinf(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, true, false, false));
+            TestUtils.AreEqual(isinf(double4(double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(false, true, false, false));
             TestUtils.AreEqual(isinf(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(false, false, false, true));
             TestUtils.AreEqual(isinf(double4(double.NaN, double.NaN, double.NaN, double.NaN)), bool4(false, false, false, false));
         }
@@ -274,7 +274,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_float()
         {
-            TestUtils.AreEqual(isnan(-float.NaN), true);
+            TestUtils.AreEqual(isnan(float.NaN), true);
             TestUtils.AreEqual(isnan(float.NegativeInfinity), false);
             TestUtils.AreEqual(isnan(float.MinValue), false);
             TestUtils.AreEqual(isnan(-1f), false);
@@ -288,7 +288,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_float2()
         {
-            TestUtils.AreEqual(isnan(float2(-float.NaN, float.NegativeInfinity)), bool2(true, false));
+            TestUtils.AreEqual(isnan(float2(float.NaN, float.NegativeInfinity)), bool2(true, false));
             TestUtils.AreEqual(isnan(float2(float.MinValue, -1f)), bool2(false, false));
             TestUtils.AreEqual(isnan(float2(0f, 1f)), bool2(false, false));
             TestUtils.AreEqual(isnan(float2(float.MaxValue, float.PositiveInfinity)), bool2(false, false));
@@ -298,7 +298,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_float3()
         {
-            TestUtils.AreEqual(isnan(float3(-float.NaN, float.NegativeInfinity, float.MinValue)), bool3(true, false, false));
+            TestUtils.AreEqual(isnan(float3(float.NaN, float.NegativeInfinity, float.MinValue)), bool3(true, false, false));
             TestUtils.AreEqual(isnan(float3(-1f, 0f, 1f)), bool3(false, false, false));
             TestUtils.AreEqual(isnan(float3(float.MaxValue, float.PositiveInfinity, float.NaN)), bool3(false, false, true));
         }
@@ -306,7 +306,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_float4()
         {
-            TestUtils.AreEqual(isnan(float4(-float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(true, false, false, false));
+            TestUtils.AreEqual(isnan(float4(float.NaN, float.NegativeInfinity, float.MinValue, -1f)), bool4(true, false, false, false));
             TestUtils.AreEqual(isnan(float4(0f, 1f, float.MaxValue, float.PositiveInfinity)), bool4(false, false, false, false));
             TestUtils.AreEqual(isnan(float4(float.NaN, float.NaN, float.NaN, float.NaN)), bool4(true, true, true, true));
         }
@@ -314,7 +314,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_double()
         {
-            TestUtils.AreEqual(isnan(-double.NaN), true);
+            TestUtils.AreEqual(isnan(double.NaN), true);
             TestUtils.AreEqual(isnan(double.NegativeInfinity), false);
             TestUtils.AreEqual(isnan(double.MinValue), false);
             TestUtils.AreEqual(isnan(-1.0), false);
@@ -328,7 +328,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_double2()
         {
-            TestUtils.AreEqual(isnan(double2(-double.NaN, double.NegativeInfinity)), bool2(true, false));
+            TestUtils.AreEqual(isnan(double2(double.NaN, double.NegativeInfinity)), bool2(true, false));
             TestUtils.AreEqual(isnan(double2(double.MinValue, -1.0)), bool2(false, false));
             TestUtils.AreEqual(isnan(double2(0.0, 1.0)), bool2(false, false));
             TestUtils.AreEqual(isnan(double2(double.MaxValue, double.PositiveInfinity)), bool2(false, false));
@@ -338,7 +338,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_double3()
         {
-            TestUtils.AreEqual(isnan(double3(-double.NaN, double.NegativeInfinity, double.MinValue)), bool3(true, false, false));
+            TestUtils.AreEqual(isnan(double3(double.NaN, double.NegativeInfinity, double.MinValue)), bool3(true, false, false));
             TestUtils.AreEqual(isnan(double3(-1.0, 0.0, 1.0)), bool3(false, false, false));
             TestUtils.AreEqual(isnan(double3(double.MaxValue, double.PositiveInfinity, double.NaN)), bool3(false, false, true));
         }
@@ -346,7 +346,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void isnan_double4()
         {
-            TestUtils.AreEqual(isnan(double4(-double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(true, false, false, false));
+            TestUtils.AreEqual(isnan(double4(double.NaN, double.NegativeInfinity, double.MinValue, -1.0)), bool4(true, false, false, false));
             TestUtils.AreEqual(isnan(double4(0.0, 1.0, double.MaxValue, double.PositiveInfinity)), bool4(false, false, false, false));
             TestUtils.AreEqual(isnan(double4(double.NaN, double.NaN, double.NaN, double.NaN)), bool4(true, true, true, true));
         }
