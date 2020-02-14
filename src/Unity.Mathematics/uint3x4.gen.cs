@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint3x4 matrix from four uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x4(uint3 c0, uint3 c1, uint3 c2, uint3 c3)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         public uint3x4(uint m00, uint m01, uint m02, uint m03,
                        uint m10, uint m11, uint m12, uint m13,
                        uint m20, uint m21, uint m22, uint m23)
-        { 
+        {
             this.c0 = new uint3(m00, m10, m20);
             this.c1 = new uint3(m01, m11, m21);
             this.c2 = new uint3(m02, m12, m22);
@@ -500,9 +500,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(uint3x4 v)
         {
-            return csum(v.c0 * uint3(0xD1224537u, 0xE99ED6F3u, 0x48125549u) + 
-                        v.c1 * uint3(0xEEE2123Bu, 0xE3AD9FE5u, 0xCE1CF8BFu) + 
-                        v.c2 * uint3(0x7BE39F3Bu, 0xFAB9913Fu, 0xB4501269u) + 
+            return csum(v.c0 * uint3(0xD1224537u, 0xE99ED6F3u, 0x48125549u) +
+                        v.c1 * uint3(0xEEE2123Bu, 0xE3AD9FE5u, 0xCE1CF8BFu) +
+                        v.c2 * uint3(0x7BE39F3Bu, 0xFAB9913Fu, 0xB4501269u) +
                         v.c3 * uint3(0xE04B89FDu, 0xDB3DE101u, 0x7B6D1B4Bu)) + 0x58399E77u;
         }
 
@@ -514,9 +514,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(uint3x4 v)
         {
-            return (v.c0 * uint3(0x5EAC29C9u, 0xFC6014F9u, 0x6BF6693Fu) + 
-                    v.c1 * uint3(0x9D1B1D9Bu, 0xF842F5C1u, 0xA47EC335u) + 
-                    v.c2 * uint3(0xA477DF57u, 0xC4B1493Fu, 0xBA0966D3u) + 
+            return (v.c0 * uint3(0x5EAC29C9u, 0xFC6014F9u, 0x6BF6693Fu) +
+                    v.c1 * uint3(0x9D1B1D9Bu, 0xF842F5C1u, 0xA47EC335u) +
+                    v.c2 * uint3(0xA477DF57u, 0xC4B1493Fu, 0xBA0966D3u) +
                     v.c3 * uint3(0xAFBEE253u, 0x5B419C01u, 0x515D90F5u)) + 0xEC9F68F3u;
         }
 

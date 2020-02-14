@@ -26,7 +26,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4x3 matrix from three float4 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x3(float4 c0, float4 c1, float4 c2)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -38,7 +38,7 @@ namespace Unity.Mathematics
                         float m10, float m11, float m12,
                         float m20, float m21, float m22,
                         float m30, float m31, float m32)
-        { 
+        {
             this.c0 = new float4(m00, m10, m20, m30);
             this.c1 = new float4(m01, m11, m21, m31);
             this.c2 = new float4(m02, m12, m22, m32);
@@ -438,8 +438,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float4x3 v)
         {
-            return csum(asuint(v.c0) * uint4(0xC53F4755u, 0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u) + 
-                        asuint(v.c1) * uint4(0xFE31134Fu, 0x712A34D7u, 0x9D77A59Bu, 0x4942CA39u) + 
+            return csum(asuint(v.c0) * uint4(0xC53F4755u, 0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u) +
+                        asuint(v.c1) * uint4(0xFE31134Fu, 0x712A34D7u, 0x9D77A59Bu, 0x4942CA39u) +
                         asuint(v.c2) * uint4(0xB40EC62Du, 0x565ED63Fu, 0x93C30C2Bu, 0xDCAF0351u)) + 0x6E050B01u;
         }
 
@@ -451,8 +451,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(float4x3 v)
         {
-            return (asuint(v.c0) * uint4(0x750FDBF5u, 0x7F3DD499u, 0x52EAAEBBu, 0x4599C793u) + 
-                    asuint(v.c1) * uint4(0x83B5E729u, 0xC267163Fu, 0x67BC9149u, 0xAD7C5EC1u) + 
+            return (asuint(v.c0) * uint4(0x750FDBF5u, 0x7F3DD499u, 0x52EAAEBBu, 0x4599C793u) +
+                    asuint(v.c1) * uint4(0x83B5E729u, 0xC267163Fu, 0x67BC9149u, 0xAD7C5EC1u) +
                     asuint(v.c2) * uint4(0x822A7D6Du, 0xB492BF15u, 0xD37220E3u, 0x7AA2C2BDu)) + 0xE16BC89Du;
         }
 

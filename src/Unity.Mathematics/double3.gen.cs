@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3 vector from three double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double x, double y, double z)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3 vector from a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double x, double2 yz)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3 vector from a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double2 xy, double z)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -55,7 +55,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3 vector from a double3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double3 xyz)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;

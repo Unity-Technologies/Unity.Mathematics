@@ -57,7 +57,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(half(-65520.0f).value, 0xFC00);
             TestUtils.AreEqual(half(float.NegativeInfinity).value, 0xFC00);
         }
-        
+
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half_from_float_construction_signed_zero()

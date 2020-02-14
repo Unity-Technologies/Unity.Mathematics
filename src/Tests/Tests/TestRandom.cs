@@ -49,7 +49,7 @@ namespace Unity.Mathematics.Tests
             const int N = 4096;
 
             double2 sum = 0.0;
-            var values = new double2[N]; 
+            var values = new double2[N];
             for(int i = 0; i < N; i++)
             {
                 values[i] = func();
@@ -136,7 +136,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool2().xy)));
         }
-        
+
         [TestCompiler]
         public static void bool3_uniform()
         {

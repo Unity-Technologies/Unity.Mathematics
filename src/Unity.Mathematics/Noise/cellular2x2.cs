@@ -21,7 +21,7 @@ namespace Unity.Mathematics
             const float K = 0.142857142857f; // 1/7
             const float K2 = 0.0714285714285f; // K/2
             const float jitter = 0.8f; // jitter 1.0 makes F1 wrong more often
-            
+
             float2 Pi = mod289(floor(P));
             float2 Pf = frac(P);
             float4 Pfx = Pf.x + float4(-0.5f, -1.5f, -0.5f, -1.5f);

@@ -7,7 +7,7 @@
 //               Distributed under the MIT License. See LICENSE file.
 //               https://github.com/ashima/webgl-noise
 //               https://github.com/stegu/webgl-noise
-// 
+//
 
 using static Unity.Mathematics.math;
 
@@ -57,11 +57,11 @@ namespace Unity.Mathematics
             m *= 1.79284291400159f - 0.85373472095314f * (a0 * a0 + h * h);
 
             // Compute final noise value at P
-            
+
             float  gx = a0.x * x0.x + h.x * x0.y;
             float2 gyz = a0.yz * x12.xz + h.yz * x12.yw;
             float3 g = float3(gx,gyz);
-            
+
             return 130.0f * dot(m, g);
         }
     }

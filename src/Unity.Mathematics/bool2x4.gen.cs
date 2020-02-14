@@ -25,7 +25,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool2x4 matrix from four bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x4(bool2 c0, bool2 c1, bool2 c2, bool2 c3)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -36,7 +36,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x4(bool m00, bool m01, bool m02, bool m03,
                        bool m10, bool m11, bool m12, bool m13)
-        { 
+        {
             this.c0 = new bool2(m00, m10);
             this.c1 = new bool2(m01, m11);
             this.c2 = new bool2(m02, m12);
@@ -199,9 +199,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool2x4 v)
         {
-            return csum(select(uint2(0x45A22087u, 0xFC104C3Bu), uint2(0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) + 
-                        select(uint2(0xB546F2A5u, 0xBBCF63E7u), uint2(0xC53F4755u, 0x6985C229u), v.c1) + 
-                        select(uint2(0xE133B0B3u, 0xC3E0A3B9u), uint2(0xFE31134Fu, 0x712A34D7u), v.c2) + 
+            return csum(select(uint2(0x45A22087u, 0xFC104C3Bu), uint2(0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) +
+                        select(uint2(0xB546F2A5u, 0xBBCF63E7u), uint2(0xC53F4755u, 0x6985C229u), v.c1) +
+                        select(uint2(0xE133B0B3u, 0xC3E0A3B9u), uint2(0xFE31134Fu, 0x712A34D7u), v.c2) +
                         select(uint2(0x9D77A59Bu, 0x4942CA39u), uint2(0xB40EC62Du, 0x565ED63Fu), v.c3));
         }
 
@@ -213,9 +213,9 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(bool2x4 v)
         {
-            return (select(uint2(0x93C30C2Bu, 0xDCAF0351u), uint2(0x6E050B01u, 0x750FDBF5u), v.c0) + 
-                    select(uint2(0x7F3DD499u, 0x52EAAEBBu), uint2(0x4599C793u, 0x83B5E729u), v.c1) + 
-                    select(uint2(0xC267163Fu, 0x67BC9149u), uint2(0xAD7C5EC1u, 0x822A7D6Du), v.c2) + 
+            return (select(uint2(0x93C30C2Bu, 0xDCAF0351u), uint2(0x6E050B01u, 0x750FDBF5u), v.c0) +
+                    select(uint2(0x7F3DD499u, 0x52EAAEBBu), uint2(0x4599C793u, 0x83B5E729u), v.c1) +
+                    select(uint2(0xC267163Fu, 0x67BC9149u), uint2(0xAD7C5EC1u, 0x822A7D6Du), v.c2) +
                     select(uint2(0xB492BF15u, 0xD37220E3u), uint2(0x7AA2C2BDu, 0xE16BC89Du), v.c3));
         }
 

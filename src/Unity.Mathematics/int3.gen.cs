@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a int3 vector from three int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int y, int z)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a int3 vector from an int value and an int2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int2 yz)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a int3 vector from an int2 vector and an int value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int2 xy, int z)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -55,7 +55,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a int3 vector from an int3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int3 xyz)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
