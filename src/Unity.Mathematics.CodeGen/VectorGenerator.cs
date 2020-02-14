@@ -2011,9 +2011,36 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
+        static int StableStringHash(in string str)
+        {
+            unsafe
+            {
+                fixed (char* src = str)
+                {
+                    int hash1 = (5381 << 16) + 5381;
+                    int hash2 = hash1;
+
+                    int* pint = (int*)src;
+                    int len = str.Length;
+                    while (len > 2)
+                    {
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+                        hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ pint[1];
+                        pint += 2;
+                        len -= 4;
+                    }
+
+                    if (len > 0)
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+
+                    return hash1 + (hash2 * 1566083941);
+                }
+            }
+        }
+
         private void TestOperator(StringBuilder str, bool lhsWide, bool rhsWide, string lhsType, string rhsType, string returnType, string op, string opName, bool isBinary, bool isPrefix)
         {
-            var rnd = new Random(opName.GetHashCode());
+            var rnd = new Random(StableStringHash(opName));
 
             BeginTest(str, m_TypeName + "_operator_" + opName);
 
