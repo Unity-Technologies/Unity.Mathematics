@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3x3 matrix from three float3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x3(float3 c0, float3 c1, float3 c2)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -40,7 +40,7 @@ namespace Unity.Mathematics
         public float3x3(float m00, float m01, float m02,
                         float m10, float m11, float m12,
                         float m20, float m21, float m22)
-        { 
+        {
             this.c0 = new float3(m00, m10, m20);
             this.c1 = new float3(m01, m11, m21);
             this.c2 = new float3(m02, m12, m22);
@@ -472,8 +472,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float3x3 v)
         {
-            return csum(asuint(v.c0) * uint3(0x713BD06Fu, 0x753AD6ADu, 0xD19764C7u) + 
-                        asuint(v.c1) * uint3(0xB5D0BF63u, 0xF9102C5Fu, 0x9881FB9Fu) + 
+            return csum(asuint(v.c0) * uint3(0x713BD06Fu, 0x753AD6ADu, 0xD19764C7u) +
+                        asuint(v.c1) * uint3(0xB5D0BF63u, 0xF9102C5Fu, 0x9881FB9Fu) +
                         asuint(v.c2) * uint3(0x56A1530Du, 0x804B722Du, 0x738E50E5u)) + 0x4FC93C25u;
         }
 
@@ -485,8 +485,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(float3x3 v)
         {
-            return (asuint(v.c0) * uint3(0xCD0445A5u, 0xD2B90D9Bu, 0xD35C9B2Du) + 
-                    asuint(v.c1) * uint3(0xA10D9E27u, 0x568DAAA9u, 0x7530254Fu) + 
+            return (asuint(v.c0) * uint3(0xCD0445A5u, 0xD2B90D9Bu, 0xD35C9B2Du) +
+                    asuint(v.c1) * uint3(0xA10D9E27u, 0x568DAAA9u, 0x7530254Fu) +
                     asuint(v.c2) * uint3(0x9F090439u, 0x5E9F85C9u, 0x8C4CA03Fu)) + 0xB8D969EDu;
         }
 

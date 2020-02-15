@@ -87,6 +87,7 @@
     <Compile Include="double4x2.gen.cs" />
     <Compile Include="double4x3.gen.cs" />
     <Compile Include="double4x4.gen.cs" />
+    <Compile Include="Extras\MinMaxAABB.cs" />
     <Compile Include="float2.gen.cs" />
     <Compile Include="float2x2.gen.cs" />
     <Compile Include="float2x3.gen.cs" />
@@ -118,6 +119,7 @@
     <Compile Include="int4.gen.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="matrix.gen.cs" />
+    <Compile Include="Extras\AABB.cs" />
     <Compile Include="Noise\cellular2D.cs" />
     <Compile Include="Noise\cellular2x2.cs" />
     <Compile Include="Noise\cellular2x2x2.cs" />
@@ -148,7 +150,6 @@
     <Compile Include="uint4x3.gen.cs" />
     <Compile Include="uint4x4.gen.cs" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.

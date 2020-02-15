@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3 vector from three float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float y, float z)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3 vector from a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float2 yz)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3 vector from a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float2 xy, float z)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -55,7 +55,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float3 vector from a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float3 xyz)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;

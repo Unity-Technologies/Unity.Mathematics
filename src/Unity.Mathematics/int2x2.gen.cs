@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a int2x2 matrix from two int2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x2(int2 c0, int2 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x2(int m00, int m01,
                       int m10, int m11)
-        { 
+        {
             this.c0 = new int2(m00, m10);
             this.c1 = new int2(m01, m11);
         }
@@ -486,7 +486,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int2x2 v)
         {
-            return csum(asuint(v.c0) * uint2(0xE191B035u, 0x68586FAFu) + 
+            return csum(asuint(v.c0) * uint2(0xE191B035u, 0x68586FAFu) +
                         asuint(v.c1) * uint2(0xD4DFF6D3u, 0xCB634F4Du)) + 0x9B13B92Du;
         }
 
@@ -498,7 +498,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(int2x2 v)
         {
-            return (asuint(v.c0) * uint2(0x4ABF0813u, 0x86068063u) + 
+            return (asuint(v.c0) * uint2(0x4ABF0813u, 0x86068063u) +
                     asuint(v.c1) * uint2(0xD75513F9u, 0x5AB3E8CDu)) + 0x676E8407u;
         }
 

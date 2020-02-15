@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float2x2 matrix from two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float2 c0, float2 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float m00, float m01,
                         float m10, float m11)
-        { 
+        {
             this.c0 = new float2(m00, m10);
             this.c1 = new float2(m01, m11);
         }
@@ -448,7 +448,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(float2x2 v)
         {
-            return csum(asuint(v.c0) * uint2(0x9C9F0823u, 0x5A9CA13Bu) + 
+            return csum(asuint(v.c0) * uint2(0x9C9F0823u, 0x5A9CA13Bu) +
                         asuint(v.c1) * uint2(0xAFCDD5EFu, 0xA88D187Du)) + 0xCF6EBA1Du;
         }
 
@@ -460,7 +460,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(float2x2 v)
         {
-            return (asuint(v.c0) * uint2(0x9D88E5A1u, 0xEADF0775u) + 
+            return (asuint(v.c0) * uint2(0x9D88E5A1u, 0xEADF0775u) +
                     asuint(v.c1) * uint2(0x747A9D7Bu, 0x4111F799u)) + 0xB5F05AF1u;
         }
 

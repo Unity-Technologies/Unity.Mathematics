@@ -565,7 +565,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m1_zxy = float4x4.Euler(test_angles, RotationOrder.ZXY);
             float4x4 m1_zyx = float4x4.Euler(test_angles, RotationOrder.ZYX);
 
-            
+
             float4x4 m2_xyz = float4x4.EulerXYZ(test_angles.x, test_angles.y, test_angles.z);
             float4x4 m2_xzy = float4x4.EulerXZY(test_angles.x, test_angles.y, test_angles.z);
             float4x4 m2_yxz = float4x4.EulerYXZ(test_angles.x, test_angles.y, test_angles.z);
@@ -581,7 +581,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m3_zxy = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
             float4x4 m3_zyx = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
-            
+
             TestUtils.AreEqual(m0_xyz, test4x4_xyz, 0.0001f);
             TestUtils.AreEqual(m0_yzx, test4x4_yzx, 0.0001f);
             TestUtils.AreEqual(m0_zxy, test4x4_zxy, 0.0001f);
@@ -597,7 +597,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m1_yxz, test4x4_yxz, 0.0001f);
             TestUtils.AreEqual(m1_zyx, test4x4_zyx, 0.0001f);
 
-            
+
             TestUtils.AreEqual(m2_xyz, test4x4_xyz, 0.0001f);
             TestUtils.AreEqual(m2_yzx, test4x4_yzx, 0.0001f);
             TestUtils.AreEqual(m2_zxy, test4x4_zxy, 0.0001f);
@@ -1110,7 +1110,7 @@ namespace Unity.Mathematics.Tests
             float aspect = 1.3333f;
             float near = 0.1f;
             float far = 100.0f;
-            
+
             float4x4 r0 = float4x4.PerspectiveFov(fovy, aspect, near, far);
 
             float height = tan(fovy * 0.5f) * near;
@@ -1118,7 +1118,7 @@ namespace Unity.Mathematics.Tests
 
             float4x4 m0 = float4x4.PerspectiveOffCenter(-width, width, -height, height, 0.1f, 100.0f);
             TestUtils.AreEqual(m0, r0, 0.001f);
-            
+
             float left = -0.3f;
             float right = -0.1f;
             float bottom = -0.2f;

@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float2 vector from two float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float x, float y)
-        { 
+        {
             this.x = x;
             this.y = y;
         }
@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float2 vector from a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2(float2 xy)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
         }

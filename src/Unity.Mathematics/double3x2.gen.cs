@@ -25,7 +25,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3x2 matrix from two double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x2(double3 c0, double3 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         public double3x2(double m00, double m01,
                          double m10, double m11,
                          double m20, double m21)
-        { 
+        {
             this.c0 = new double3(m00, m10, m20);
             this.c1 = new double3(m01, m11, m21);
         }
@@ -422,7 +422,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x2 v)
         {
-            return csum(fold_to_uint(v.c0) * uint3(0xEE390C97u, 0x9C8A2F05u, 0x4DDC6509u) + 
+            return csum(fold_to_uint(v.c0) * uint3(0xEE390C97u, 0x9C8A2F05u, 0x4DDC6509u) +
                         fold_to_uint(v.c1) * uint3(0x7CF083CBu, 0x5C4D6CEDu, 0xF9137117u)) + 0xE857DCE1u;
         }
 
@@ -434,7 +434,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3x2 v)
         {
-            return (fold_to_uint(v.c0) * uint3(0xF62213C5u, 0x9CDAA959u, 0xAA269ABFu) + 
+            return (fold_to_uint(v.c0) * uint3(0xF62213C5u, 0x9CDAA959u, 0xAA269ABFu) +
                     fold_to_uint(v.c1) * uint3(0xD54BA36Fu, 0xFD0847B9u, 0x8189A683u)) + 0xB139D651u;
         }
 
