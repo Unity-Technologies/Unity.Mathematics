@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "com.unity.burst": "1.1.2",
+    "com.unity.burst": "1.2.3",
     "com.unity.collections": "0.1.1-preview",
     "com.unity.ide.rider": "1.1.0",
     "com.unity.ide.vscode": "1.1.2",
