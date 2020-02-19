@@ -61,13 +61,13 @@ namespace Unity.Mathematics.Tests
         {
             AABB aabb = new AABB();
 
-            Assert.IsTrue(aabb.Contains(float3.zero));
-            Assert.IsFalse(aabb.Contains(new float3(FLT_MIN_NORMAL, 0.0f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(-FLT_MIN_NORMAL, 0.0f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, FLT_MIN_NORMAL, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, -FLT_MIN_NORMAL, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, FLT_MIN_NORMAL)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, -FLT_MIN_NORMAL)));
+            TestUtils.IsTrue(aabb.Contains(float3.zero));
+            TestUtils.IsFalse(aabb.Contains(new float3(FLT_MIN_NORMAL, 0.0f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(-FLT_MIN_NORMAL, 0.0f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, FLT_MIN_NORMAL, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, -FLT_MIN_NORMAL, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, FLT_MIN_NORMAL)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, -FLT_MIN_NORMAL)));
         }
 
         [TestCompiler]
@@ -76,9 +76,9 @@ namespace Unity.Mathematics.Tests
             var center = new float3(1.0f, -1.0f, 1.0f);
             AABB aabb = new AABB { Center = center };
 
-            Assert.IsFalse(aabb.Contains(float3.zero));
-            Assert.IsFalse(aabb.Contains(-center));
-            Assert.IsTrue(aabb.Contains(center));
+            TestUtils.IsFalse(aabb.Contains(float3.zero));
+            TestUtils.IsFalse(aabb.Contains(-center));
+            TestUtils.IsTrue(aabb.Contains(center));
         }
 
         [TestCompiler]
@@ -87,20 +87,20 @@ namespace Unity.Mathematics.Tests
             var extents = new float3(0.5f, 0.5f, 0.5f);
             AABB aabb = new AABB { Extents = extents };
 
-            Assert.IsTrue(aabb.Contains(float3.zero));
-            Assert.IsTrue(aabb.Contains(new float3(0.5f, 0.0f, 0.0f)));
-            Assert.IsTrue(aabb.Contains(new float3(-0.5f, 0.0f, 0.0f)));
-            Assert.IsTrue(aabb.Contains(new float3(0.0f, 0.5f, 0.0f)));
-            Assert.IsTrue(aabb.Contains(new float3(0.0f, -0.5f, 0.0f)));
-            Assert.IsTrue(aabb.Contains(new float3(0.0f, 0.0f, 0.5f)));
-            Assert.IsTrue(aabb.Contains(new float3(0.0f, 0.0f, -0.5f)));
+            TestUtils.IsTrue(aabb.Contains(float3.zero));
+            TestUtils.IsTrue(aabb.Contains(new float3(0.5f, 0.0f, 0.0f)));
+            TestUtils.IsTrue(aabb.Contains(new float3(-0.5f, 0.0f, 0.0f)));
+            TestUtils.IsTrue(aabb.Contains(new float3(0.0f, 0.5f, 0.0f)));
+            TestUtils.IsTrue(aabb.Contains(new float3(0.0f, -0.5f, 0.0f)));
+            TestUtils.IsTrue(aabb.Contains(new float3(0.0f, 0.0f, 0.5f)));
+            TestUtils.IsTrue(aabb.Contains(new float3(0.0f, 0.0f, -0.5f)));
 
-            Assert.IsFalse(aabb.Contains(new float3(0.6f, 0.0f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(-0.6f, 0.0f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, 0.6f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, -0.6f, 0.0f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, 0.6f)));
-            Assert.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, -0.6f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.6f, 0.0f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(-0.6f, 0.0f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, 0.6f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, -0.6f, 0.0f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, 0.6f)));
+            TestUtils.IsFalse(aabb.Contains(new float3(0.0f, 0.0f, -0.6f)));
         }
 
         [TestCompiler]
@@ -109,8 +109,8 @@ namespace Unity.Mathematics.Tests
             var aabb1 = new AABB();
             var aabb2 = new AABB();
 
-            Assert.IsTrue(aabb1.Contains(aabb2));
-            Assert.IsTrue(aabb2.Contains(aabb1));
+            TestUtils.IsTrue(aabb1.Contains(aabb2));
+            TestUtils.IsTrue(aabb2.Contains(aabb1));
         }
 
         [TestCompiler]
@@ -119,8 +119,8 @@ namespace Unity.Mathematics.Tests
             var aabb_outer = new AABB { Extents = new float3(0.5f, 0.5f, 0.5f) };
             var aabb_inner = new AABB();
 
-            Assert.IsTrue(aabb_outer.Contains(aabb_inner));
-            Assert.IsFalse(aabb_inner.Contains(aabb_outer));
+            TestUtils.IsTrue(aabb_outer.Contains(aabb_inner));
+            TestUtils.IsFalse(aabb_inner.Contains(aabb_outer));
         }
 
         [TestCompiler]
@@ -129,8 +129,8 @@ namespace Unity.Mathematics.Tests
             var aabb1 = new AABB { Extents = new float3(0.5f, 0.5f, 0.5f) };
             var aabb2 = new AABB { Center = new float3(0.5f, 0.5f, 0.5f), Extents = new float3(0.5f)};
 
-            Assert.IsFalse(aabb1.Contains(aabb2));
-            Assert.IsFalse(aabb2.Contains(aabb1));
+            TestUtils.IsFalse(aabb1.Contains(aabb2));
+            TestUtils.IsFalse(aabb2.Contains(aabb1));
         }
 
         [TestCompiler]

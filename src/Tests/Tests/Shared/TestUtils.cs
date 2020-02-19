@@ -703,5 +703,15 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.rot, b.rot, delta);
             AreEqual(a.pos, b.pos, delta);
         }
+
+        public static void IsTrue(bool condition)
+        {
+            AreEqual(true, condition);
+        }
+
+        public static void IsFalse(bool condition)
+        {
+            AreEqual(false, condition);
+        }
     }
 }
