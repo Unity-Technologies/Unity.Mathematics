@@ -2931,9 +2931,21 @@ namespace Unity.Mathematics.Tests
             Assert.IsFalse(isfinite(NAN));
             Assert.IsTrue(isnan(NAN));
 
+            Assert.IsFalse(NAN < 0.0f);
+            Assert.IsFalse(NAN <= 0.0f);
+            Assert.IsFalse(NAN == 0.0f);
+            Assert.IsFalse(NAN >= 0.0f);
+            Assert.IsFalse(NAN > 0.0f);
+            Assert.IsTrue(NAN != 0.0f);
+
             float nan1 = NAN;
             float nan2 = NAN;
+            Assert.IsFalse(nan1 < nan2);
+            Assert.IsFalse(nan1 <= nan2);
             Assert.IsFalse(nan1 == nan2);
+            Assert.IsFalse(nan1 >= nan2);
+            Assert.IsFalse(nan1 > nan2);
+            Assert.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
@@ -2944,9 +2956,22 @@ namespace Unity.Mathematics.Tests
             Assert.IsFalse(isfinite(NAN_DBL));
             Assert.IsTrue(isnan(NAN_DBL));
 
+
+            Assert.IsFalse(NAN_DBL < 0.0);
+            Assert.IsFalse(NAN_DBL <= 0.0);
+            Assert.IsFalse(NAN_DBL == 0.0);
+            Assert.IsFalse(NAN_DBL >= 0.0);
+            Assert.IsFalse(NAN_DBL > 0.0);
+            Assert.IsTrue(NAN_DBL != 0.0);
+
             double nan1 = NAN_DBL;
             double nan2 = NAN_DBL;
+            Assert.IsFalse(nan1 < nan2);
+            Assert.IsFalse(nan1 <= nan2);
             Assert.IsFalse(nan1 == nan2);
+            Assert.IsFalse(nan1 >= nan2);
+            Assert.IsFalse(nan1 > nan2);
+            Assert.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
