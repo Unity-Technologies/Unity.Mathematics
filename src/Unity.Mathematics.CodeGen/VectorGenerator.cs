@@ -2423,7 +2423,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (d == double.MinValue)
                     return "double.MinValue";
                 else if (double.IsNaN(d))
-                    return ud >= 0x8000000000000000ul ? "TestUtils.UnsignedDoubleQNaN()" : "TestUtils.SignedDoubleQNaN()";
+                    return ud < 0x8000000000000000ul ? "TestUtils.UnsignedDoubleQNaN()" : "TestUtils.SignedDoubleQNaN()";
                 else if (ud == 0x8000000000000000ul)
                     return "-0.0";
                 else
