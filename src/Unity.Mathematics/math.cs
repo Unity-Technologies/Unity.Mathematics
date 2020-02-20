@@ -84,8 +84,11 @@ namespace Unity.Mathematics
         /// <summary>
         /// Double precision constant for Not a Number.
         ///
-        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
-        /// Use isnan() if you must test if a number is NaN.
+        /// NAN_DBL is considered unordered, which means all comparisons involving it are false except for not equal (operator !=).
+        /// As a consequence, NAN_DBL == NAN_DBL is false but NAN_DBL != NAN_DBL is true.
+        ///
+        /// Additionally, there are multiple bit representations for Not a Number, so if you must test if your value
+        /// is NAN_DBL, use isnan().
         /// </summary>
         public const double NAN_DBL = Double.NaN;
 
@@ -132,8 +135,11 @@ namespace Unity.Mathematics
         /// <summary>
         /// Single precision constant for Not a Number.
         ///
-        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
-        /// Use isnan() if you must test if a number is NaN.
+        /// NAN is considered unordered, which means all comparisons involving it are false except for not equal (operator !=).
+        /// As a consequence, NAN == NAN is false but NAN != NAN is true.
+        ///
+        /// Additionally, there are multiple bit representations for Not a Number, so if you must test if your value
+        /// is NAN, use isnan().
         /// </summary>
         public const float NAN = Single.NaN;
 

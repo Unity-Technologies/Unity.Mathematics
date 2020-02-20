@@ -2931,9 +2931,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(isfinite(NAN));
             TestUtils.IsTrue(isnan(NAN));
 
+            TestUtils.IsFalse(NAN < 0.0f);
+            TestUtils.IsFalse(NAN <= 0.0f);
+            TestUtils.IsFalse(NAN == 0.0f);
+            TestUtils.IsFalse(NAN >= 0.0f);
+            TestUtils.IsFalse(NAN > 0.0f);
+            TestUtils.IsTrue(NAN != 0.0f);
+
             float nan1 = NAN;
             float nan2 = NAN;
+            TestUtils.IsFalse(nan1 < nan2);
+            TestUtils.IsFalse(nan1 <= nan2);
             TestUtils.IsFalse(nan1 == nan2);
+            TestUtils.IsFalse(nan1 >= nan2);
+            TestUtils.IsFalse(nan1 > nan2);
+            TestUtils.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
@@ -2944,9 +2956,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(isfinite(NAN_DBL));
             TestUtils.IsTrue(isnan(NAN_DBL));
 
+            TestUtils.IsFalse(NAN_DBL < 0.0);
+            TestUtils.IsFalse(NAN_DBL <= 0.0);
+            TestUtils.IsFalse(NAN_DBL == 0.0);
+            TestUtils.IsFalse(NAN_DBL >= 0.0);
+            TestUtils.IsFalse(NAN_DBL > 0.0);
+            TestUtils.IsTrue(NAN_DBL != 0.0);
+
             double nan1 = NAN_DBL;
             double nan2 = NAN_DBL;
+            TestUtils.IsFalse(nan1 < nan2);
+            TestUtils.IsFalse(nan1 <= nan2);
             TestUtils.IsFalse(nan1 == nan2);
+            TestUtils.IsFalse(nan1 >= nan2);
+            TestUtils.IsFalse(nan1 > nan2);
+            TestUtils.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
