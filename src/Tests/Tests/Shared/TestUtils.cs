@@ -703,5 +703,25 @@ namespace Unity.Mathematics.Tests
             AreEqual(a.rot, b.rot, delta);
             AreEqual(a.pos, b.pos, delta);
         }
+
+        public static float UnsignedFloatQNaN()
+        {
+            return asfloat(0x7fc0_0000u);
+        }
+
+        public static double UnsignedDoubleQNaN()
+        {
+            return asdouble(0x7ff8_0000_0000_0000ul);
+        }
+
+        public static float SignedFloatQNaN()
+        {
+            return asfloat(0xffc0_0000u);
+        }
+
+        public static double SignedDoubleQNaN()
+        {
+            return asdouble(0xfff8_0000_0000_0000ul);
+        }
     }
 }
