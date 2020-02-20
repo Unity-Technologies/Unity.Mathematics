@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from four double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double z, double w)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from two double values and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double2 zw)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = zw.x;
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from a double value, a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double2 yz, double w)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -59,7 +59,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from a double value and a double3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double3 yzw)
-        { 
+        {
             this.x = x;
             this.y = yzw.x;
             this.z = yzw.y;
@@ -69,7 +69,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from a double2 vector and two double values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double z, double w)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -79,7 +79,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double2 zw)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = zw.x;
@@ -89,7 +89,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from a double3 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double3 xyz, double w)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
@@ -99,7 +99,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double4 vector from a double4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double4 xyzw)
-        { 
+        {
             this.x = xyzw.x;
             this.y = xyzw.y;
             this.z = xyzw.z;

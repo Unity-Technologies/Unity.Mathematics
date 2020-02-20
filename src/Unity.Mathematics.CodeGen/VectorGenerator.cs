@@ -192,6 +192,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Generate auto generated comment
             text = s_AutoGenHeader + text;
 
+            // Trim trailing spaces that could have come from code gen.
+            char[] trim = { ' ' };
+            var lines = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            for (int i = 0; i < lines.Length; ++i)
+            {
+                lines[i] = lines[i].TrimEnd(trim);
+            }
+
+            text = string.Join(Environment.NewLine, lines);
+
             System.IO.File.WriteAllText(filename, text);
         }
 

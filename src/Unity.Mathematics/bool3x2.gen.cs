@@ -23,7 +23,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3x2 matrix from two bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x2(bool3 c0, bool3 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -33,7 +33,7 @@ namespace Unity.Mathematics
         public bool3x2(bool m00, bool m01,
                        bool m10, bool m11,
                        bool m20, bool m21)
-        { 
+        {
             this.c0 = new bool3(m00, m10, m20);
             this.c1 = new bool3(m01, m11, m21);
         }
@@ -192,7 +192,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3x2 v)
         {
-            return csum(select(uint3(0x9C9F0823u, 0x5A9CA13Bu, 0xAFCDD5EFu), uint3(0xA88D187Du, 0xCF6EBA1Du, 0x9D88E5A1u), v.c0) + 
+            return csum(select(uint3(0x9C9F0823u, 0x5A9CA13Bu, 0xAFCDD5EFu), uint3(0xA88D187Du, 0xCF6EBA1Du, 0x9D88E5A1u), v.c0) +
                         select(uint3(0xEADF0775u, 0x747A9D7Bu, 0x4111F799u), uint3(0xB5F05AF1u, 0xFD80290Bu, 0x8B65ADB7u), v.c1));
         }
 
@@ -204,7 +204,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3x2 v)
         {
-            return (select(uint3(0xDFF4F563u, 0x7069770Du, 0xD1224537u), uint3(0xE99ED6F3u, 0x48125549u, 0xEEE2123Bu), v.c0) + 
+            return (select(uint3(0xDFF4F563u, 0x7069770Du, 0xD1224537u), uint3(0xE99ED6F3u, 0x48125549u, 0xEEE2123Bu), v.c0) +
                     select(uint3(0xE3AD9FE5u, 0xCE1CF8BFu, 0x7BE39F3Bu), uint3(0xFAB9913Fu, 0xB4501269u, 0xE04B89FDu), v.c1));
         }
 

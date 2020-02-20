@@ -24,7 +24,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3x3 matrix from three bool3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool3 c0, bool3 c1, bool3 c2)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         public bool3x3(bool m00, bool m01, bool m02,
                        bool m10, bool m11, bool m12,
                        bool m20, bool m21, bool m22)
-        { 
+        {
             this.c0 = new bool3(m00, m10, m20);
             this.c1 = new bool3(m01, m11, m21);
             this.c2 = new bool3(m02, m12, m22);
@@ -197,8 +197,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3x3 v)
         {
-            return csum(select(uint3(0xE7579997u, 0xEF7D56C7u, 0x66F38F0Bu), uint3(0x624256A3u, 0x5292ADE1u, 0xD2E590E5u), v.c0) + 
-                        select(uint3(0xF25BE857u, 0x9BC17CE7u, 0xC8B86851u), uint3(0x64095221u, 0xADF428FFu, 0xA3977109u), v.c1) + 
+            return csum(select(uint3(0xE7579997u, 0xEF7D56C7u, 0x66F38F0Bu), uint3(0x624256A3u, 0x5292ADE1u, 0xD2E590E5u), v.c0) +
+                        select(uint3(0xF25BE857u, 0x9BC17CE7u, 0xC8B86851u), uint3(0x64095221u, 0xADF428FFu, 0xA3977109u), v.c1) +
                         select(uint3(0x745ED837u, 0x9CDC88F5u, 0xFA62D721u), uint3(0x7E4DB1CFu, 0x68EEE0F5u, 0xBC3B0A59u), v.c2));
         }
 
@@ -210,8 +210,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3x3 v)
         {
-            return (select(uint3(0x816EFB5Du, 0xA24E82B7u, 0x45A22087u), uint3(0xFC104C3Bu, 0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) + 
-                    select(uint3(0xB546F2A5u, 0xBBCF63E7u, 0xC53F4755u), uint3(0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u), v.c1) + 
+            return (select(uint3(0x816EFB5Du, 0xA24E82B7u, 0x45A22087u), uint3(0xFC104C3Bu, 0x5FFF6B19u, 0x5E6CBF3Bu), v.c0) +
+                    select(uint3(0xB546F2A5u, 0xBBCF63E7u, 0xC53F4755u), uint3(0x6985C229u, 0xE133B0B3u, 0xC3E0A3B9u), v.c1) +
                     select(uint3(0xFE31134Fu, 0x712A34D7u, 0x9D77A59Bu), uint3(0x4942CA39u, 0xB40EC62Du, 0x565ED63Fu), v.c2));
         }
 

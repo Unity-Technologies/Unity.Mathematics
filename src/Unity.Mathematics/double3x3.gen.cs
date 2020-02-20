@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a double3x3 matrix from three double3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(double3 c0, double3 c1, double3 c2)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -40,7 +40,7 @@ namespace Unity.Mathematics
         public double3x3(double m00, double m01, double m02,
                          double m10, double m11, double m12,
                          double m20, double m21, double m22)
-        { 
+        {
             this.c0 = new double3(m00, m10, m20);
             this.c1 = new double3(m01, m11, m21);
             this.c2 = new double3(m02, m12, m22);
@@ -472,8 +472,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double3x3 v)
         {
-            return csum(fold_to_uint(v.c0) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u) + 
-                        fold_to_uint(v.c1) * uint3(0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u) + 
+            return csum(fold_to_uint(v.c0) * uint3(0xAC5DB57Bu, 0xA91A02EDu, 0xB3C49313u) +
+                        fold_to_uint(v.c1) * uint3(0xF43A9ABBu, 0x84E7E01Bu, 0x8E055BE5u) +
                         fold_to_uint(v.c2) * uint3(0x6E624EB7u, 0x7383ED49u, 0xDD49C23Bu)) + 0xEBD0D005u;
         }
 
@@ -485,8 +485,8 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(double3x3 v)
         {
-            return (fold_to_uint(v.c0) * uint3(0x91475DF7u, 0x55E84827u, 0x90A285BBu) + 
-                    fold_to_uint(v.c1) * uint3(0x5D19E1D5u, 0xFAAF07DDu, 0x625C45BDu) + 
+            return (fold_to_uint(v.c0) * uint3(0x91475DF7u, 0x55E84827u, 0x90A285BBu) +
+                    fold_to_uint(v.c1) * uint3(0x5D19E1D5u, 0xFAAF07DDu, 0x625C45BDu) +
                     fold_to_uint(v.c2) * uint3(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u)) + 0xCC74B3B7u;
         }
 
