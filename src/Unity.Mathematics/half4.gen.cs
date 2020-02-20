@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from four half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half y, half z, half w)
-        {
+        { 
             this.x = x;
             this.y = y;
             this.z = z;
@@ -38,7 +38,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from two half values and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half y, half2 zw)
-        {
+        { 
             this.x = x;
             this.y = y;
             this.z = zw.x;
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from a half value, a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half2 yz, half w)
-        {
+        { 
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -58,7 +58,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from a half value and a half3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half3 yzw)
-        {
+        { 
             this.x = x;
             this.y = yzw.x;
             this.z = yzw.y;
@@ -68,7 +68,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from a half2 vector and two half values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half2 xy, half z, half w)
-        {
+        { 
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -78,7 +78,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from two half2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half2 xy, half2 zw)
-        {
+        { 
             this.x = xy.x;
             this.y = xy.y;
             this.z = zw.x;
@@ -88,7 +88,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from a half3 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half3 xyz, half w)
-        {
+        { 
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
@@ -98,7 +98,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a half4 vector from a half4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half4 xyzw)
-        {
+        { 
             this.x = xyzw.x;
             this.y = xyzw.y;
             this.z = xyzw.z;

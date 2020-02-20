@@ -2011,9 +2011,36 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
+        static int StableStringHash(string str)
+        {
+            unsafe
+            {
+                fixed (char* src = str)
+                {
+                    int hash1 = (5381 << 16) + 5381;
+                    int hash2 = hash1;
+
+                    int* pint = (int*)src;
+                    int len = str.Length;
+                    while (len > 2)
+                    {
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+                        hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ pint[1];
+                        pint += 2;
+                        len -= 4;
+                    }
+
+                    if (len > 0)
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+
+                    return hash1 + (hash2 * 1566083941);
+                }
+            }
+        }
+
         private void TestOperator(StringBuilder str, bool lhsWide, bool rhsWide, string lhsType, string rhsType, string returnType, string op, string opName, bool isBinary, bool isPrefix)
         {
-            var rnd = new Random(opName.GetHashCode());
+            var rnd = new Random(StableStringHash(opName));
 
             BeginTest(str, m_TypeName + "_operator_" + opName);
 
@@ -2377,7 +2404,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (f == float.MinValue)
                     return "float.MinValue";
                 else if (float.IsNaN(f))
-                    return uf >= 0x80000000u ? "float.NaN" : "-float.NaN";
+                    return uf < 0x80000000u ? "TestUtils.UnsignedFloatQNaN()" : "TestUtils.SignedFloatQNaN()";
                 else if (uf == 0x80000000u)
                     return "-0.0f";
                 else
@@ -2396,7 +2423,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (d == double.MinValue)
                     return "double.MinValue";
                 else if (double.IsNaN(d))
-                    return ud >= 0x8000000000000000ul ? "double.NaN" : "-double.NaN";
+                    return ud < 0x8000000000000000ul ? "TestUtils.UnsignedDoubleQNaN()" : "TestUtils.SignedDoubleQNaN()";
                 else if (ud == 0x8000000000000000ul)
                     return "-0.0";
                 else
@@ -2505,6 +2532,43 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateComponentWiseTest(str, functionName, inputFloat, outputFloat, 4, floatMaxEps, signedZeroEqual);
             GenerateComponentWiseTest(str, functionName, input, output, 4, doubleMaxEps, signedZeroEqual);
         }
+
+        static float UnsignedFloatQNaN()
+        {
+            UIntFloatUnion u;
+            u.floatValue = 0.0f;
+            u.uintValue = 0x7fc0_0000u;
+
+            return u.floatValue;
+        }
+
+        static double UnsignedDoubleQNaN()
+        {
+            ULongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.ulongValue = 0x7ff8_0000_0000_0000ul;
+
+            return u.doubleValue;
+        }
+
+        static float SignedFloatQNaN()
+        {
+            UIntFloatUnion u;
+            u.floatValue = 0.0f;
+            u.uintValue = 0xffc0_0000u;
+
+            return u.floatValue;
+        }
+
+        static double SignedDoubleQNaN()
+        {
+            ULongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.ulongValue = 0xfff8_0000_0000_0000ul;
+
+            return u.doubleValue;
+        }
+
         private void GenerateMathTests(StringBuilder str)
         {
             str.Append("using NUnit.Framework;\n");
@@ -2520,17 +2584,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTestFloatAndDouble(str, "abs", new double[,] { { 0.0 }, { -1.1 }, { 2.2 }, { double.NegativeInfinity }, { double.PositiveInfinity } }, new double[] { 0.0, 1.1, 2.2, double.PositiveInfinity, double.PositiveInfinity }, 0, 0, false);
 
-            GenerateComponentWiseTest(str, "isfinite", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isfinite", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { false, false, true, true, true, true, true, false, false }, 4);
-            GenerateComponentWiseTest(str, "isfinite", new double[,] { { -float.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isfinite", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { false, false, true, true, true, true, true, false, false }, 4);
-            GenerateComponentWiseTest(str, "isinf", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isinf", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { false, true, false, false, false, false, false, true, false }, 4);
-            GenerateComponentWiseTest(str, "isinf", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isinf", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { false, true, false, false, false, false, false, true, false }, 4);
-            GenerateComponentWiseTest(str, "isnan", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isnan", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
-            GenerateComponentWiseTest(str, "isnan", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isnan", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
 
             GenerateComponentWiseTestFloatAndDouble(str, "sin", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
