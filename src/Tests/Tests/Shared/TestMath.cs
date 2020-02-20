@@ -2910,8 +2910,8 @@ namespace Unity.Mathematics.Tests
         {
             float next = asfloat(asuint(1.0f) + 1);
             float computed_epsilon = next - 1.0f;
-            Assert.AreEqual(computed_epsilon, EPSILON, 0.0f);
-            Assert.AreNotEqual(Single.Epsilon, EPSILON);
+            TestUtils.AreEqual(computed_epsilon, EPSILON, 0.0f);
+            TestUtils.IsTrue(Single.Epsilon != EPSILON);
         }
 
         [TestCompiler]
@@ -2919,75 +2919,74 @@ namespace Unity.Mathematics.Tests
         {
             double next = asdouble(aslong(1.0) + 1);
             double computed_epsilon = next - 1.0;
-            Assert.AreEqual(computed_epsilon, EPSILON_DBL, 0.0);
-            Assert.AreNotEqual(Double.Epsilon, EPSILON_DBL);
+            TestUtils.AreEqual(computed_epsilon, EPSILON_DBL, 0.0);
+            TestUtils.IsTrue(Double.Epsilon != EPSILON_DBL);
         }
 
         [TestCompiler]
         public static void nan_float()
         {
-            Assert.AreNotEqual(0.0f, NAN);
-            Assert.AreNotEqual(INFINITY, NAN);
-            Assert.IsFalse(isfinite(NAN));
-            Assert.IsTrue(isnan(NAN));
+            TestUtils.IsFalse(0.0f == NAN);
+            TestUtils.IsFalse(INFINITY == NAN);
+            TestUtils.IsFalse(isfinite(NAN));
+            TestUtils.IsTrue(isnan(NAN));
 
-            Assert.IsFalse(NAN < 0.0f);
-            Assert.IsFalse(NAN <= 0.0f);
-            Assert.IsFalse(NAN == 0.0f);
-            Assert.IsFalse(NAN >= 0.0f);
-            Assert.IsFalse(NAN > 0.0f);
-            Assert.IsTrue(NAN != 0.0f);
+            TestUtils.IsFalse(NAN < 0.0f);
+            TestUtils.IsFalse(NAN <= 0.0f);
+            TestUtils.IsFalse(NAN == 0.0f);
+            TestUtils.IsFalse(NAN >= 0.0f);
+            TestUtils.IsFalse(NAN > 0.0f);
+            TestUtils.IsTrue(NAN != 0.0f);
 
             float nan1 = NAN;
             float nan2 = NAN;
-            Assert.IsFalse(nan1 < nan2);
-            Assert.IsFalse(nan1 <= nan2);
-            Assert.IsFalse(nan1 == nan2);
-            Assert.IsFalse(nan1 >= nan2);
-            Assert.IsFalse(nan1 > nan2);
-            Assert.IsTrue(nan1 != nan2);
+            TestUtils.IsFalse(nan1 < nan2);
+            TestUtils.IsFalse(nan1 <= nan2);
+            TestUtils.IsFalse(nan1 == nan2);
+            TestUtils.IsFalse(nan1 >= nan2);
+            TestUtils.IsFalse(nan1 > nan2);
+            TestUtils.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
         public static void nan_double()
         {
-            Assert.AreNotEqual(0.0, NAN_DBL);
-            Assert.AreNotEqual(INFINITY_DBL, NAN_DBL);
-            Assert.IsFalse(isfinite(NAN_DBL));
-            Assert.IsTrue(isnan(NAN_DBL));
+            TestUtils.IsFalse(0.0 == NAN_DBL);
+            TestUtils.IsFalse(INFINITY_DBL == NAN_DBL);
+            TestUtils.IsFalse(isfinite(NAN_DBL));
+            TestUtils.IsTrue(isnan(NAN_DBL));
 
-
-            Assert.IsFalse(NAN_DBL < 0.0);
-            Assert.IsFalse(NAN_DBL <= 0.0);
-            Assert.IsFalse(NAN_DBL == 0.0);
-            Assert.IsFalse(NAN_DBL >= 0.0);
-            Assert.IsFalse(NAN_DBL > 0.0);
-            Assert.IsTrue(NAN_DBL != 0.0);
+            TestUtils.IsFalse(NAN_DBL < 0.0);
+            TestUtils.IsFalse(NAN_DBL <= 0.0);
+            TestUtils.IsFalse(NAN_DBL == 0.0);
+            TestUtils.IsFalse(NAN_DBL >= 0.0);
+            TestUtils.IsFalse(NAN_DBL > 0.0);
+            TestUtils.IsTrue(NAN_DBL != 0.0);
 
             double nan1 = NAN_DBL;
             double nan2 = NAN_DBL;
-            Assert.IsFalse(nan1 < nan2);
-            Assert.IsFalse(nan1 <= nan2);
-            Assert.IsFalse(nan1 == nan2);
-            Assert.IsFalse(nan1 >= nan2);
-            Assert.IsFalse(nan1 > nan2);
-            Assert.IsTrue(nan1 != nan2);
+            TestUtils.IsFalse(nan1 < nan2);
+            TestUtils.IsFalse(nan1 <= nan2);
+            TestUtils.IsFalse(nan1 == nan2);
+            TestUtils.IsFalse(nan1 >= nan2);
+            TestUtils.IsFalse(nan1 > nan2);
+            TestUtils.IsTrue(nan1 != nan2);
         }
 
         [TestCompiler]
         public static void infinity_float()
         {
-            Assert.AreNotEqual(-INFINITY, INFINITY);
-            Assert.IsTrue(isinf(INFINITY));
-            Assert.IsFalse(isfinite(INFINITY));
+            TestUtils.IsTrue(-INFINITY != INFINITY);
+            TestUtils.IsTrue(isinf(INFINITY));
+            TestUtils.IsFalse(isfinite(INFINITY));
         }
 
         [TestCompiler]
         public static void infinity_double()
         {
-            Assert.AreNotEqual(-INFINITY_DBL, INFINITY_DBL);
-            Assert.IsTrue(isinf(INFINITY_DBL));
-            Assert.IsFalse(isfinite(INFINITY_DBL));
+            TestUtils.IsTrue(-INFINITY_DBL != INFINITY_DBL);
+            TestUtils.IsTrue(isinf(INFINITY_DBL));
+            TestUtils.IsFalse(isfinite(INFINITY_DBL));
         }
 
         [TestCompiler]
