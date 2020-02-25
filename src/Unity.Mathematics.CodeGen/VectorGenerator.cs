@@ -1945,7 +1945,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 BeginTest(str, m_TypeName + "_zero");
                 for (int row = 0; row < m_Rows; row++)
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.{1}, {2});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual({2}, {0}.zero.{1});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
             }
             else
@@ -1953,7 +1953,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 BeginTest(str, m_TypeName + "_zero");
                 for(int column = 0; column < m_Columns; column++)
                     for (int row = 0; row < m_Rows; row++)
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({3}, {0}.zero.c{1}.{2});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
 
                 if(m_Columns == m_Rows)
@@ -1961,7 +1961,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     BeginTest(str, m_TypeName + "_identity");
                     for (int column = 0; column < m_Columns; column++)
                         for (int row = 0; row < m_Rows; row++)
-                            str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.identity.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
+                            str.AppendFormat("\t\t\tTestUtils.AreEqual({3}, {0}.identity.c{1}.{2});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
                     EndTest(str);
                 }
             }
@@ -1990,7 +1990,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], value);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({1}, a.{0});\n", components[row], value);
                     }
                 }
                 else
@@ -2001,7 +2001,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], values[row]);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({1}, a.{0});\n", components[row], values[row]);
                     }
                 }
 
@@ -2239,7 +2239,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     AddParenthesized(str, resultValues);
                     str.Append(";\n");
 
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1} {0} b{1}, r{1});\n", op, pass);
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, a{1} {0} b{1});\n", op, pass);
                 }
                 else
                 {
@@ -2248,9 +2248,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(";\n");
 
                     if (isPrefix)
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}a{1}, r{1});\n", op, pass);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, {0}a{1});\n", op, pass);
                     else
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1}{0}, r{1});\n", op, pass);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, a{1}{0});\n", op, pass);
                 }
 
                 if (pass != numPasses - 1)
@@ -2309,19 +2309,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             shuffleIndices[i] = rnd.Next(m_Rows * 2);
                     }
 
-                    str.Append("\t\t\tTestUtils.AreEqual(shuffle(a, b");
+                    str.Append("\t\t\tTestUtils.AreEqual(");
+                    if (resultComponents > 1)
+                        str.Append(resultType);
+
                     for(int i = 0; i < resultComponents; i++)
                     {
                         int t = shuffleIndices[i];
                         shuffleValues[i] = t >= m_Rows ? b_data[t - m_Rows] : a_data[t];
-                        str.AppendFormat(", ShuffleComponent.{0}", shuffleComponents[t >= m_Rows ? (t - m_Rows + 4) : t]);
                     }
-                    str.Append("), ");
-                    if (resultComponents > 1)
-                        str.Append(resultType);
 
                     AddParenthesized(str, shuffleValues);
-                    str.Append(");\n");
+                    str.Append(", shuffle(a, b");
+                    for(int i = 0; i < resultComponents; i++)
+                    {
+                        int t = shuffleIndices[i];
+                        str.AppendFormat(", ShuffleComponent.{0}", shuffleComponents[t >= m_Rows ? (t - m_Rows + 4) : t]);
+                    }
+                    str.Append("));\n");
                 }
 
 
@@ -2510,15 +2515,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 BeginTest(str, functionName + "_" + inputTypeName + (numComponents > 1 ? ("" + numComponents) : ""));
                 for (int test = 0; test < numTests; test += numComponents)
                 {
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}(", functionName);
+                    str.Append("\t\t\tTestUtils.AreEqual(");
+                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+                    str.Append(", ");
+                    str.AppendFormat("{0}(", functionName);
                     for (int param = 0; param < numParams; param++)
                     {
                         if (param > 0)
                             str.Append(", ");
                         GenerateComponentWiseParam<I>(str, inputTypeName, numComponents, GetColumn(input, param), test);
                     }
-                    str.Append("), ");
-                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+
+                    str.Append(")");
 
                     if((typeof(O) == typeof(float) || typeof(O) == typeof(double)) && maxUps > 0)
                     {

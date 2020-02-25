@@ -19,32 +19,32 @@ namespace Unity.Mathematics.Tests
         public static void bool2_constructor()
         {
             bool2 a = new bool2(false, true);
-            TestUtils.AreEqual(a.x, false);
-            TestUtils.AreEqual(a.y, true);
+            TestUtils.AreEqual(false, a.x);
+            TestUtils.AreEqual(true, a.y);
         }
 
         [TestCompiler]
         public static void bool2_scalar_constructor()
         {
             bool2 a = new bool2(true);
-            TestUtils.AreEqual(a.x, true);
-            TestUtils.AreEqual(a.y, true);
+            TestUtils.AreEqual(true, a.x);
+            TestUtils.AreEqual(true, a.y);
         }
 
         [TestCompiler]
         public static void bool2_static_constructor()
         {
             bool2 a = bool2(false, true);
-            TestUtils.AreEqual(a.x, false);
-            TestUtils.AreEqual(a.y, true);
+            TestUtils.AreEqual(false, a.x);
+            TestUtils.AreEqual(true, a.y);
         }
 
         [TestCompiler]
         public static void bool2_static_scalar_constructor()
         {
             bool2 a = bool2(true);
-            TestUtils.AreEqual(a.x, true);
-            TestUtils.AreEqual(a.y, true);
+            TestUtils.AreEqual(true, a.x);
+            TestUtils.AreEqual(true, a.y);
         }
 
         [TestCompiler]
@@ -53,22 +53,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, false);
             bool2 b0 = bool2(true, false);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
             bool2 a1 = bool2(true, false);
             bool2 b1 = bool2(false, false);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
             bool2 a2 = bool2(false, true);
             bool2 b2 = bool2(true, false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
             bool2 a3 = bool2(false, false);
             bool2 b3 = bool2(false, true);
             bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
@@ -77,22 +77,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(false, true);
             bool b0 = (true);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
             bool2 a1 = bool2(false, false);
             bool b1 = (false);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
             bool2 a2 = bool2(false, false);
             bool b2 = (true);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
             bool2 a3 = bool2(false, true);
             bool b3 = (false);
             bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
@@ -101,22 +101,22 @@ namespace Unity.Mathematics.Tests
             bool a0 = (false);
             bool2 b0 = bool2(true, false);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
             bool a1 = (true);
             bool2 b1 = bool2(false, false);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
             bool a2 = (true);
             bool2 b2 = bool2(false, false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
             bool a3 = (true);
             bool2 b3 = bool2(false, true);
             bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
@@ -125,22 +125,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, true);
             bool2 b0 = bool2(true, false);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
             bool2 a1 = bool2(true, false);
             bool2 b1 = bool2(false, false);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
             bool2 a2 = bool2(false, true);
             bool2 b2 = bool2(true, false);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
             bool2 a3 = bool2(false, false);
             bool2 b3 = bool2(false, false);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
@@ -149,22 +149,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(false, true);
             bool b0 = (false);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
             bool2 a1 = bool2(false, true);
             bool b1 = (true);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
             bool2 a2 = bool2(false, false);
             bool b2 = (false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
             bool2 a3 = bool2(false, false);
             bool b3 = (false);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
@@ -173,22 +173,22 @@ namespace Unity.Mathematics.Tests
             bool a0 = (true);
             bool2 b0 = bool2(false, false);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
             bool a1 = (true);
             bool2 b1 = bool2(false, false);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
             bool a2 = (false);
             bool2 b2 = bool2(true, true);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
             bool a3 = (true);
             bool2 b3 = bool2(false, false);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
@@ -197,22 +197,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(false, false);
             bool2 b0 = bool2(false, false);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 & b0, r0);
+            TestUtils.AreEqual(r0, a0 & b0);
 
             bool2 a1 = bool2(true, true);
             bool2 b1 = bool2(true, false);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 & b1, r1);
+            TestUtils.AreEqual(r1, a1 & b1);
 
             bool2 a2 = bool2(false, false);
             bool2 b2 = bool2(true, true);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 & b2, r2);
+            TestUtils.AreEqual(r2, a2 & b2);
 
             bool2 a3 = bool2(true, true);
             bool2 b3 = bool2(false, false);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 & b3, r3);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
@@ -221,22 +221,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, false);
             bool b0 = (true);
             bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 & b0, r0);
+            TestUtils.AreEqual(r0, a0 & b0);
 
             bool2 a1 = bool2(false, true);
             bool b1 = (true);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 & b1, r1);
+            TestUtils.AreEqual(r1, a1 & b1);
 
             bool2 a2 = bool2(false, false);
             bool b2 = (false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 & b2, r2);
+            TestUtils.AreEqual(r2, a2 & b2);
 
             bool2 a3 = bool2(false, true);
             bool b3 = (false);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 & b3, r3);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
@@ -245,22 +245,22 @@ namespace Unity.Mathematics.Tests
             bool a0 = (false);
             bool2 b0 = bool2(false, false);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 & b0, r0);
+            TestUtils.AreEqual(r0, a0 & b0);
 
             bool a1 = (true);
             bool2 b1 = bool2(true, true);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 & b1, r1);
+            TestUtils.AreEqual(r1, a1 & b1);
 
             bool a2 = (false);
             bool2 b2 = bool2(true, false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 & b2, r2);
+            TestUtils.AreEqual(r2, a2 & b2);
 
             bool a3 = (false);
             bool2 b3 = bool2(false, true);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 & b3, r3);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
@@ -269,22 +269,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, true);
             bool2 b0 = bool2(false, false);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 | b0, r0);
+            TestUtils.AreEqual(r0, a0 | b0);
 
             bool2 a1 = bool2(true, false);
             bool2 b1 = bool2(false, false);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 | b1, r1);
+            TestUtils.AreEqual(r1, a1 | b1);
 
             bool2 a2 = bool2(true, false);
             bool2 b2 = bool2(true, true);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 | b2, r2);
+            TestUtils.AreEqual(r2, a2 | b2);
 
             bool2 a3 = bool2(true, true);
             bool2 b3 = bool2(true, false);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 | b3, r3);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
@@ -293,22 +293,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, true);
             bool b0 = (true);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 | b0, r0);
+            TestUtils.AreEqual(r0, a0 | b0);
 
             bool2 a1 = bool2(false, true);
             bool b1 = (true);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 | b1, r1);
+            TestUtils.AreEqual(r1, a1 | b1);
 
             bool2 a2 = bool2(true, false);
             bool b2 = (true);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 | b2, r2);
+            TestUtils.AreEqual(r2, a2 | b2);
 
             bool2 a3 = bool2(true, false);
             bool b3 = (false);
             bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 | b3, r3);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
@@ -317,22 +317,22 @@ namespace Unity.Mathematics.Tests
             bool a0 = (true);
             bool2 b0 = bool2(true, true);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 | b0, r0);
+            TestUtils.AreEqual(r0, a0 | b0);
 
             bool a1 = (false);
             bool2 b1 = bool2(false, true);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 | b1, r1);
+            TestUtils.AreEqual(r1, a1 | b1);
 
             bool a2 = (true);
             bool2 b2 = bool2(true, false);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 | b2, r2);
+            TestUtils.AreEqual(r2, a2 | b2);
 
             bool a3 = (false);
             bool2 b3 = bool2(true, true);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 | b3, r3);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
@@ -341,22 +341,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(true, false);
             bool2 b0 = bool2(true, true);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
             bool2 a1 = bool2(false, true);
             bool2 b1 = bool2(false, true);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
             bool2 a2 = bool2(false, false);
             bool2 b2 = bool2(false, true);
             bool2 r2 = bool2(false, true);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
             bool2 a3 = bool2(false, true);
             bool2 b3 = bool2(false, true);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
@@ -365,22 +365,22 @@ namespace Unity.Mathematics.Tests
             bool2 a0 = bool2(false, false);
             bool b0 = (false);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
             bool2 a1 = bool2(true, false);
             bool b1 = (true);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
             bool2 a2 = bool2(false, false);
             bool b2 = (false);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
             bool2 a3 = bool2(false, false);
             bool b3 = (false);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
@@ -389,22 +389,22 @@ namespace Unity.Mathematics.Tests
             bool a0 = (true);
             bool2 b0 = bool2(true, false);
             bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
             bool a1 = (true);
             bool2 b1 = bool2(true, false);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
             bool a2 = (true);
             bool2 b2 = bool2(true, false);
             bool2 r2 = bool2(false, true);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
             bool a3 = (false);
             bool2 b3 = bool2(true, true);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
@@ -412,19 +412,19 @@ namespace Unity.Mathematics.Tests
         {
             bool2 a0 = bool2(true, true);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(!a0, r0);
+            TestUtils.AreEqual(r0, !a0);
 
             bool2 a1 = bool2(false, true);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(!a1, r1);
+            TestUtils.AreEqual(r1, !a1);
 
             bool2 a2 = bool2(false, false);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(!a2, r2);
+            TestUtils.AreEqual(r2, !a2);
 
             bool2 a3 = bool2(true, false);
             bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(!a3, r3);
+            TestUtils.AreEqual(r3, !a3);
         }
 
 
