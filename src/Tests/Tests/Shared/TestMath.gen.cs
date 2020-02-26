@@ -4134,6 +4134,86 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0UL, ceilpow2(10223372036854775808UL));
         }
 
+        [TestCompiler]
+        public static void floorlog2_int()
+        {
+            TestUtils.AreEqual(0, floorlog2(1));
+            TestUtils.AreEqual(1, floorlog2(2));
+            TestUtils.AreEqual(1, floorlog2(3));
+            TestUtils.AreEqual(2, floorlog2(4));
+            TestUtils.AreEqual(2, floorlog2(5));
+            TestUtils.AreEqual(14, floorlog2(32767));
+            TestUtils.AreEqual(15, floorlog2(32768));
+            TestUtils.AreEqual(15, floorlog2(32769));
+            TestUtils.AreEqual(30, floorlog2(2147483647));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_int2()
+        {
+            TestUtils.AreEqual(int2(0, 1), floorlog2(int2(1, 2)));
+            TestUtils.AreEqual(int2(1, 2), floorlog2(int2(3, 4)));
+            TestUtils.AreEqual(int2(2, 14), floorlog2(int2(5, 32767)));
+            TestUtils.AreEqual(int2(15, 15), floorlog2(int2(32768, 32769)));
+            TestUtils.AreEqual(int2(30, 30), floorlog2(int2(2147483647, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_int3()
+        {
+            TestUtils.AreEqual(int3(0, 1, 1), floorlog2(int3(1, 2, 3)));
+            TestUtils.AreEqual(int3(2, 2, 14), floorlog2(int3(4, 5, 32767)));
+            TestUtils.AreEqual(int3(15, 15, 30), floorlog2(int3(32768, 32769, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_int4()
+        {
+            TestUtils.AreEqual(int4(0, 1, 1, 2), floorlog2(int4(1, 2, 3, 4)));
+            TestUtils.AreEqual(int4(2, 14, 15, 15), floorlog2(int4(5, 32767, 32768, 32769)));
+            TestUtils.AreEqual(int4(30, 30, 30, 30), floorlog2(int4(2147483647, 2147483647, 2147483647, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_uint()
+        {
+            TestUtils.AreEqual(0, floorlog2(1u));
+            TestUtils.AreEqual(1, floorlog2(2u));
+            TestUtils.AreEqual(1, floorlog2(3u));
+            TestUtils.AreEqual(2, floorlog2(4u));
+            TestUtils.AreEqual(2, floorlog2(5u));
+            TestUtils.AreEqual(14, floorlog2(32767u));
+            TestUtils.AreEqual(15, floorlog2(32768u));
+            TestUtils.AreEqual(15, floorlog2(32769u));
+            TestUtils.AreEqual(30, floorlog2(2147483647u));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_uint2()
+        {
+            TestUtils.AreEqual(int2(0, 1), floorlog2(uint2(1u, 2u)));
+            TestUtils.AreEqual(int2(1, 2), floorlog2(uint2(3u, 4u)));
+            TestUtils.AreEqual(int2(2, 14), floorlog2(uint2(5u, 32767u)));
+            TestUtils.AreEqual(int2(15, 15), floorlog2(uint2(32768u, 32769u)));
+            TestUtils.AreEqual(int2(30, 30), floorlog2(uint2(2147483647u, 2147483647u)));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_uint3()
+        {
+            TestUtils.AreEqual(int3(0, 1, 1), floorlog2(uint3(1u, 2u, 3u)));
+            TestUtils.AreEqual(int3(2, 2, 14), floorlog2(uint3(4u, 5u, 32767u)));
+            TestUtils.AreEqual(int3(15, 15, 30), floorlog2(uint3(32768u, 32769u, 2147483647u)));
+        }
+
+        [TestCompiler]
+        public static void floorlog2_uint4()
+        {
+            TestUtils.AreEqual(int4(0, 1, 1, 2), floorlog2(uint4(1u, 2u, 3u, 4u)));
+            TestUtils.AreEqual(int4(2, 14, 15, 15), floorlog2(uint4(5u, 32767u, 32768u, 32769u)));
+            TestUtils.AreEqual(int4(30, 30, 30, 30), floorlog2(uint4(2147483647u, 2147483647u, 2147483647u, 2147483647u)));
+        }
+
 
     }
 }
