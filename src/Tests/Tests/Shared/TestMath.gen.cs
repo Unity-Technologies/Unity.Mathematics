@@ -4214,6 +4214,104 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int4(30, 30, 30, 30), floorlog2(uint4(2147483647u, 2147483647u, 2147483647u, 2147483647u)));
         }
 
+        [TestCompiler]
+        public static void ceillog2_int()
+        {
+            TestUtils.AreEqual(0, ceillog2(1));
+            TestUtils.AreEqual(1, ceillog2(2));
+            TestUtils.AreEqual(2, ceillog2(3));
+            TestUtils.AreEqual(2, ceillog2(4));
+            TestUtils.AreEqual(3, ceillog2(5));
+            TestUtils.AreEqual(6, ceillog2(63));
+            TestUtils.AreEqual(6, ceillog2(64));
+            TestUtils.AreEqual(7, ceillog2(65));
+            TestUtils.AreEqual(24, ceillog2(16777215));
+            TestUtils.AreEqual(24, ceillog2(16777216));
+            TestUtils.AreEqual(25, ceillog2(16777217));
+            TestUtils.AreEqual(31, ceillog2(2147483646));
+            TestUtils.AreEqual(31, ceillog2(2147483647));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_int2()
+        {
+            TestUtils.AreEqual(int2(0, 1), ceillog2(int2(1, 2)));
+            TestUtils.AreEqual(int2(2, 2), ceillog2(int2(3, 4)));
+            TestUtils.AreEqual(int2(3, 6), ceillog2(int2(5, 63)));
+            TestUtils.AreEqual(int2(6, 7), ceillog2(int2(64, 65)));
+            TestUtils.AreEqual(int2(24, 24), ceillog2(int2(16777215, 16777216)));
+            TestUtils.AreEqual(int2(25, 31), ceillog2(int2(16777217, 2147483646)));
+            TestUtils.AreEqual(int2(31, 31), ceillog2(int2(2147483647, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_int3()
+        {
+            TestUtils.AreEqual(int3(0, 1, 2), ceillog2(int3(1, 2, 3)));
+            TestUtils.AreEqual(int3(2, 3, 6), ceillog2(int3(4, 5, 63)));
+            TestUtils.AreEqual(int3(6, 7, 24), ceillog2(int3(64, 65, 16777215)));
+            TestUtils.AreEqual(int3(24, 25, 31), ceillog2(int3(16777216, 16777217, 2147483646)));
+            TestUtils.AreEqual(int3(31, 31, 31), ceillog2(int3(2147483647, 2147483647, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_int4()
+        {
+            TestUtils.AreEqual(int4(0, 1, 2, 2), ceillog2(int4(1, 2, 3, 4)));
+            TestUtils.AreEqual(int4(3, 6, 6, 7), ceillog2(int4(5, 63, 64, 65)));
+            TestUtils.AreEqual(int4(24, 24, 25, 31), ceillog2(int4(16777215, 16777216, 16777217, 2147483646)));
+            TestUtils.AreEqual(int4(31, 31, 31, 31), ceillog2(int4(2147483647, 2147483647, 2147483647, 2147483647)));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_uint()
+        {
+            TestUtils.AreEqual(0, ceillog2(1u));
+            TestUtils.AreEqual(1, ceillog2(2u));
+            TestUtils.AreEqual(2, ceillog2(3u));
+            TestUtils.AreEqual(2, ceillog2(4u));
+            TestUtils.AreEqual(3, ceillog2(5u));
+            TestUtils.AreEqual(6, ceillog2(63u));
+            TestUtils.AreEqual(6, ceillog2(64u));
+            TestUtils.AreEqual(7, ceillog2(65u));
+            TestUtils.AreEqual(24, ceillog2(16777215u));
+            TestUtils.AreEqual(24, ceillog2(16777216u));
+            TestUtils.AreEqual(25, ceillog2(16777217u));
+            TestUtils.AreEqual(32, ceillog2(4294967294u));
+            TestUtils.AreEqual(32, ceillog2(4294967295u));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_uint2()
+        {
+            TestUtils.AreEqual(int2(0, 1), ceillog2(uint2(1u, 2u)));
+            TestUtils.AreEqual(int2(2, 2), ceillog2(uint2(3u, 4u)));
+            TestUtils.AreEqual(int2(3, 6), ceillog2(uint2(5u, 63u)));
+            TestUtils.AreEqual(int2(6, 7), ceillog2(uint2(64u, 65u)));
+            TestUtils.AreEqual(int2(24, 24), ceillog2(uint2(16777215u, 16777216u)));
+            TestUtils.AreEqual(int2(25, 32), ceillog2(uint2(16777217u, 4294967294u)));
+            TestUtils.AreEqual(int2(32, 32), ceillog2(uint2(4294967295u, 4294967295u)));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_uint3()
+        {
+            TestUtils.AreEqual(int3(0, 1, 2), ceillog2(uint3(1u, 2u, 3u)));
+            TestUtils.AreEqual(int3(2, 3, 6), ceillog2(uint3(4u, 5u, 63u)));
+            TestUtils.AreEqual(int3(6, 7, 24), ceillog2(uint3(64u, 65u, 16777215u)));
+            TestUtils.AreEqual(int3(24, 25, 32), ceillog2(uint3(16777216u, 16777217u, 4294967294u)));
+            TestUtils.AreEqual(int3(32, 32, 32), ceillog2(uint3(4294967295u, 4294967295u, 4294967295u)));
+        }
+
+        [TestCompiler]
+        public static void ceillog2_uint4()
+        {
+            TestUtils.AreEqual(int4(0, 1, 2, 2), ceillog2(uint4(1u, 2u, 3u, 4u)));
+            TestUtils.AreEqual(int4(3, 6, 6, 7), ceillog2(uint4(5u, 63u, 64u, 65u)));
+            TestUtils.AreEqual(int4(24, 24, 25, 32), ceillog2(uint4(16777215u, 16777216u, 16777217u, 4294967294u)));
+            TestUtils.AreEqual(int4(32, 32, 32, 32), ceillog2(uint4(4294967295u, 4294967295u, 4294967295u, 4294967295u)));
+        }
+
 
     }
 }

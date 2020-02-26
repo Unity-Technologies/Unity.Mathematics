@@ -2938,6 +2938,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateComponentWiseTest(str, "floorlog2", new uint[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { (1 << 15) - 1 }, { 1 << 15 }, { (1 << 15) + 1 }, { Int32.MaxValue } }, new int[] { 0, 1, 1, 2, 2, 14, 15, 15, 30 }, 4);
 
 
+            GenerateComponentWiseTest(str, "ceillog2", new int[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { 63 }, { 64 }, { 65 }, { (1 << 24) - 1 }, { 1 << 24 }, { (1 << 24) + 1 }, { 2147483646 }, { 2147483647 } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24, 25, 31, 31 }, 4);
+            GenerateComponentWiseTest(str, "ceillog2", new uint[,] { { 1u }, { 2u }, { 3u }, { 4u }, { 5u }, { 63u }, { 64u }, { 65u }, { (1u << 24) - 1u }, { 1u << 24 }, { (1u << 24) + 1u }, { 4294967294u }, { 4294967295u } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24 ,25, 32, 32 }, 4);
+
+
             str.Append("\n\t}");
             str.Append("\n}\n");
         }
