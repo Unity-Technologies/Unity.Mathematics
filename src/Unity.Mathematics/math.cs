@@ -3014,7 +3014,7 @@ namespace Unity.Mathematics
         /// Computes the ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// x must be > 0, otherwise the result is undefined.
+        /// x must be greater than 0, otherwise the result is undefined.
         /// </remarks>
         /// <param name="x">Integer to be used as input.</param>
         /// <returns>Ceiling of the base-2 logarithm of x, as an integer.</returns>
@@ -3028,7 +3028,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="int2"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
@@ -3042,7 +3042,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="int3"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
@@ -3056,7 +3056,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="int4"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
@@ -3070,7 +3070,7 @@ namespace Unity.Mathematics
         /// Computes the ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// x must be > 0, otherwise the result is undefined.
+        /// x must be greater than 0, otherwise the result is undefined.
         /// </remarks>
         /// <param name="x">Unsigned integer to be used as input.</param>
         /// <returns>Ceiling of the base-2 logarithm of x, as an integer.</returns>
@@ -3084,7 +3084,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="uint2"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
@@ -3098,7 +3098,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="uint3"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
@@ -3112,7 +3112,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise ceiling of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>
-        /// Components of x must be > 0, otherwise the result for that component is undefined.
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
         /// <param name="x"><see cref="uint4"/> to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
