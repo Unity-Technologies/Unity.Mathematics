@@ -3012,6 +3012,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>x must be > 0, otherwise the result is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ceillog2(int x)
         {
             return 32 - lzcnt((uint)x - 1);
@@ -3019,6 +3020,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ceillog2(int2 x)
         {
             return new int2(ceillog2(x.x), ceillog2(x.y));
@@ -3026,6 +3028,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ceillog2(int3 x)
         {
             return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
@@ -3033,6 +3036,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ceillog2(int4 x)
         {
             return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
@@ -3040,6 +3044,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>x must be > 0, otherwise the result is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ceillog2(uint x)
         {
             return 32 - lzcnt(x - 1);
@@ -3047,6 +3052,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ceillog2(uint2 x)
         {
             return new int2(ceillog2(x.x), ceillog2(x.y));
@@ -3054,6 +3060,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ceillog2(uint3 x)
         {
             return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
@@ -3061,6 +3068,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the componentwise ceiling of the base-2 logarithm of x.</summary>
         /// <remarks>Components of x must be > 0, otherwise the result for that component is undefined.</remarks>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ceillog2(uint4 x)
         {
             return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
