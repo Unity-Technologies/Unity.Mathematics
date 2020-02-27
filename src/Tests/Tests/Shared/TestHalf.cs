@@ -441,5 +441,85 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(0x3F00180000000000u, asulong(f));
         }
+
+        [TestCompiler]
+        public static void half_minvalue()
+        {
+            half min = new half(half.MinValue);
+            TestUtils.AreEqual(0xfbff, min.value);
+        }
+
+        [TestCompiler]
+        public static void half_maxvalue()
+        {
+            half max = new half(half.MaxValue);
+            TestUtils.AreEqual(0x7bff, max.value);
+        }
+
+        [TestCompiler]
+        public static void half_minvalueashalf()
+        {
+            TestUtils.AreEqual(0xfbff, half.MinValueAsHalf.value);
+        }
+
+        [TestCompiler]
+        public static void half_maxvalueashalf()
+        {
+            TestUtils.AreEqual(0x7bff, half.MaxValueAsHalf.value);
+        }
+
+        [TestCompiler]
+        public static void half2_minvalue()
+        {
+            half2 min = half.MinValueAsHalf;
+            TestUtils.AreEqual(0xfbff, min.x.value);
+            TestUtils.AreEqual(0xfbff, min.y.value);
+        }
+
+        [TestCompiler]
+        public static void half2_maxvalue()
+        {
+            half2 max = half.MaxValueAsHalf;
+            TestUtils.AreEqual(0x7bff, max.x.value);
+            TestUtils.AreEqual(0x7bff, max.y.value);
+        }
+
+        [TestCompiler]
+        public static void half3_minvalue()
+        {
+            half3 min = half.MinValueAsHalf;
+            TestUtils.AreEqual(0xfbff, min.x.value);
+            TestUtils.AreEqual(0xfbff, min.y.value);
+            TestUtils.AreEqual(0xfbff, min.z.value);
+        }
+
+        [TestCompiler]
+        public static void half3_maxvalue()
+        {
+            half3 max = half.MaxValueAsHalf;
+            TestUtils.AreEqual(0x7bff, max.x.value);
+            TestUtils.AreEqual(0x7bff, max.y.value);
+            TestUtils.AreEqual(0x7bff, max.z.value);
+        }
+
+        [TestCompiler]
+        public static void half4_minvalue()
+        {
+            half4 min = half.MinValueAsHalf;
+            TestUtils.AreEqual(0xfbff, min.x.value);
+            TestUtils.AreEqual(0xfbff, min.y.value);
+            TestUtils.AreEqual(0xfbff, min.z.value);
+            TestUtils.AreEqual(0xfbff, min.w.value);
+        }
+
+        [TestCompiler]
+        public static void half4_maxvalue()
+        {
+            half4 max = half.MaxValueAsHalf;
+            TestUtils.AreEqual(0x7bff, max.x.value);
+            TestUtils.AreEqual(0x7bff, max.y.value);
+            TestUtils.AreEqual(0x7bff, max.z.value);
+            TestUtils.AreEqual(0x7bff, max.w.value);
+        }
     }
 }
