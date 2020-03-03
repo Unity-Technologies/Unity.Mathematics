@@ -2510,19 +2510,19 @@ namespace Unity.Mathematics
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of an int2 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">int2 value in which to count bits for each component.</param>
-        /// <returns>uint2 containing number of bits set to 1 within each component of x.</returns>
+        /// <returns>int2 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 countbits(int2 x) { return countbits((uint2)x); }
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of an int3 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">Number in which to count bits.</param>
-        /// <returns>Number of bits set to 1 within x.</returns>
+        /// <returns>int3 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 countbits(int3 x) { return countbits((uint3)x); }
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of an int4 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">Number in which to count bits.</param>
-        /// <returns>Number of bits set to 1 within x.</returns>
+        /// <returns>int4 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 countbits(int4 x) { return countbits((uint4)x); }
 
@@ -2540,7 +2540,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint2 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">Number in which to count bits.</param>
-        /// <returns>Number of bits set to 1 within x.</returns>
+        /// <returns>int2 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 countbits(uint2 x)
         {
@@ -2551,7 +2551,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint3 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">Number in which to count bits.</param>
-        /// <returns>Number of bits set to 1 within x.</returns>
+        /// <returns>int3 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 countbits(uint3 x)
         {
@@ -2562,7 +2562,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint4 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
         /// <param name="x">Number in which to count bits.</param>
-        /// <returns>Number of bits set to 1 within x.</returns>
+        /// <returns>int4 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 countbits(uint4 x)
         {
