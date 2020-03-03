@@ -2934,6 +2934,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTest(str, "ceilpow2", new ulong[,] { { 0UL }, { 1UL }, { 2UL }, { 3UL }, { 1019642234UL }, { 1823423423UL }, { 2147483648UL }, { 4294967295UL }, { 4294967296UL }, { 7227372236554874814UL }, { 10223372036854775808UL } },
                                                        new ulong[] { 0UL, 1UL, 2UL, 4UL, 1073741824UL, 2147483648UL, 2147483648UL, 4294967296UL, 4294967296UL, 9223372036854775808UL, 0L }, 1);
+            GenerateComponentWiseTest(str, "floorlog2", new int[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { (1 << 15) - 1 }, { 1 << 15 }, { (1 << 15) + 1 }, { Int32.MaxValue } }, new int[] { 0, 1, 1, 2, 2, 14, 15, 15, 30 }, 4);
+            GenerateComponentWiseTest(str, "floorlog2", new uint[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { (1 << 15) - 1 }, { 1 << 15 }, { (1 << 15) + 1 }, { Int32.MaxValue } }, new int[] { 0, 1, 1, 2, 2, 14, 15, 15, 30 }, 4);
+
 
             GenerateComponentWiseTest(str, "ceillog2", new int[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { 63 }, { 64 }, { 65 }, { (1 << 24) - 1 }, { 1 << 24 }, { (1 << 24) + 1 }, { 2147483646 }, { 2147483647 } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24, 25, 31, 31 }, 4);
             GenerateComponentWiseTest(str, "ceillog2", new uint[,] { { 1u }, { 2u }, { 3u }, { 4u }, { 5u }, { 63u }, { 64u }, { 65u }, { (1u << 24) - 1u }, { 1u << 24 }, { (1u << 24) + 1u }, { 4294967294u }, { 4294967295u } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24 ,25, 32, 32 }, 4);

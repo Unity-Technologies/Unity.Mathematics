@@ -3217,6 +3217,102 @@ namespace Unity.Mathematics
             return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
         }
 
+        /// <summary>
+        /// Computes the floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>x must be greater than zero, otherwise the result is undefined.</remarks>
+        /// <param name="x">Integer to be used as input.</param>
+        /// <returns>Floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int floorlog2(int x)
+        {
+            return 31 - lzcnt((uint)x);
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int2"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 floorlog2(int2 x)
+        {
+            return new int2(floorlog2(x.x), floorlog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int3"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 floorlog2(int3 x)
+        {
+            return new int3(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int4"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 floorlog2(int4 x)
+        {
+            return new int4(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z), floorlog2(x.w));
+        }
+
+        /// <summary>
+        /// Computes the floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>x must be greater than zero, otherwise the result is undefined.</remarks>
+        /// <param name="x">Unsigned integer to be used as input.</param>
+        /// <returns>Floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int floorlog2(uint x)
+        {
+            return 31 - lzcnt(x);
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint2"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 floorlog2(uint2 x)
+        {
+            return new int2(floorlog2(x.x), floorlog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint3"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 floorlog2(uint3 x)
+        {
+            return new int3(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint4"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 floorlog2(uint4 x)
+        {
+            return new int4(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z), floorlog2(x.w));
+        }
+
         /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float radians(float x) { return x * 0.0174532925f; }
