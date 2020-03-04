@@ -2990,6 +2990,17 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public static void helper_axes()
+        {
+            TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), right());
+            TestUtils.AreEqual(float3(-1.0f, 0.0f, 0.0f), left());
+            TestUtils.AreEqual(float3(0.0f, 1.0f, 0.0f), up());
+            TestUtils.AreEqual(float3(0.0f, -1.0f, 0.0f), down());
+            TestUtils.AreEqual(float3(0.0f, 0.0f, 1.0f), forward());
+            TestUtils.AreEqual(float3(0.0f, 0.0f, -1.0f), back());
+        }
+
+        [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float_signed_zero()
         {
