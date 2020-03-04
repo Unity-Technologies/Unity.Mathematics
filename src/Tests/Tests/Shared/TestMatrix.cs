@@ -1143,5 +1143,31 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r0, m0, 0.001f);
         }
 
+        [TestCompiler]
+        public static void float3x3_constructor_float4x4()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, new float3x3(f4x4));
+        }
+
+        [TestCompiler]
+        public static void float3x3_explicit_cast_float4x4()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, (float3x3)f4x4);
+        }
+
+        [TestCompiler]
+        public static void float3x3_from_float4x4_without_new()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, float3x3(f4x4));
+        }
     }
 }
