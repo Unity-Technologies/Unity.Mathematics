@@ -4312,6 +4312,101 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int4(32, 32, 32, 32), ceillog2(uint4(4294967295u, 4294967295u, 4294967295u, 4294967295u)));
         }
 
+        [TestCompiler]
+        public static void ispow2_int()
+        {
+            TestUtils.AreEqual(false, ispow2(-3));
+            TestUtils.AreEqual(false, ispow2(-2));
+            TestUtils.AreEqual(false, ispow2(-1));
+            TestUtils.AreEqual(false, ispow2(0));
+            TestUtils.AreEqual(true, ispow2(1));
+            TestUtils.AreEqual(true, ispow2(2));
+            TestUtils.AreEqual(false, ispow2(3));
+            TestUtils.AreEqual(true, ispow2(4));
+            TestUtils.AreEqual(false, ispow2(32767));
+            TestUtils.AreEqual(true, ispow2(32768));
+            TestUtils.AreEqual(false, ispow2(32769));
+            TestUtils.AreEqual(false, ispow2(2097151));
+            TestUtils.AreEqual(true, ispow2(2097152));
+            TestUtils.AreEqual(false, ispow2(268431360));
+        }
+
+        [TestCompiler]
+        public static void ispow2_int2()
+        {
+            TestUtils.AreEqual(bool2(false, false), ispow2(int2(-3, -2)));
+            TestUtils.AreEqual(bool2(false, false), ispow2(int2(-1, 0)));
+            TestUtils.AreEqual(bool2(true, true), ispow2(int2(1, 2)));
+            TestUtils.AreEqual(bool2(false, true), ispow2(int2(3, 4)));
+            TestUtils.AreEqual(bool2(false, true), ispow2(int2(32767, 32768)));
+            TestUtils.AreEqual(bool2(false, false), ispow2(int2(32769, 2097151)));
+            TestUtils.AreEqual(bool2(true, false), ispow2(int2(2097152, 268431360)));
+        }
+
+        [TestCompiler]
+        public static void ispow2_int3()
+        {
+            TestUtils.AreEqual(bool3(false, false, false), ispow2(int3(-3, -2, -1)));
+            TestUtils.AreEqual(bool3(false, true, true), ispow2(int3(0, 1, 2)));
+            TestUtils.AreEqual(bool3(false, true, false), ispow2(int3(3, 4, 32767)));
+            TestUtils.AreEqual(bool3(true, false, false), ispow2(int3(32768, 32769, 2097151)));
+            TestUtils.AreEqual(bool3(true, false, false), ispow2(int3(2097152, 268431360, 268431360)));
+        }
+
+        [TestCompiler]
+        public static void ispow2_int4()
+        {
+            TestUtils.AreEqual(bool4(false, false, false, false), ispow2(int4(-3, -2, -1, 0)));
+            TestUtils.AreEqual(bool4(true, true, false, true), ispow2(int4(1, 2, 3, 4)));
+            TestUtils.AreEqual(bool4(false, true, false, false), ispow2(int4(32767, 32768, 32769, 2097151)));
+            TestUtils.AreEqual(bool4(true, false, false, false), ispow2(int4(2097152, 268431360, 268431360, 268431360)));
+        }
+
+        [TestCompiler]
+        public static void ispow2_uint()
+        {
+            TestUtils.AreEqual(false, ispow2(0u));
+            TestUtils.AreEqual(true, ispow2(1u));
+            TestUtils.AreEqual(true, ispow2(2u));
+            TestUtils.AreEqual(false, ispow2(3u));
+            TestUtils.AreEqual(true, ispow2(4u));
+            TestUtils.AreEqual(false, ispow2(32767u));
+            TestUtils.AreEqual(true, ispow2(32768u));
+            TestUtils.AreEqual(false, ispow2(32769u));
+            TestUtils.AreEqual(false, ispow2(2097151u));
+            TestUtils.AreEqual(true, ispow2(2097152u));
+            TestUtils.AreEqual(false, ispow2(2097153u));
+            TestUtils.AreEqual(false, ispow2(268431360u));
+        }
+
+        [TestCompiler]
+        public static void ispow2_uint2()
+        {
+            TestUtils.AreEqual(bool2(false, true), ispow2(uint2(0u, 1u)));
+            TestUtils.AreEqual(bool2(true, false), ispow2(uint2(2u, 3u)));
+            TestUtils.AreEqual(bool2(true, false), ispow2(uint2(4u, 32767u)));
+            TestUtils.AreEqual(bool2(true, false), ispow2(uint2(32768u, 32769u)));
+            TestUtils.AreEqual(bool2(false, true), ispow2(uint2(2097151u, 2097152u)));
+            TestUtils.AreEqual(bool2(false, false), ispow2(uint2(2097153u, 268431360u)));
+        }
+
+        [TestCompiler]
+        public static void ispow2_uint3()
+        {
+            TestUtils.AreEqual(bool3(false, true, true), ispow2(uint3(0u, 1u, 2u)));
+            TestUtils.AreEqual(bool3(false, true, false), ispow2(uint3(3u, 4u, 32767u)));
+            TestUtils.AreEqual(bool3(true, false, false), ispow2(uint3(32768u, 32769u, 2097151u)));
+            TestUtils.AreEqual(bool3(true, false, false), ispow2(uint3(2097152u, 2097153u, 268431360u)));
+        }
+
+        [TestCompiler]
+        public static void ispow2_uint4()
+        {
+            TestUtils.AreEqual(bool4(false, true, true, false), ispow2(uint4(0u, 1u, 2u, 3u)));
+            TestUtils.AreEqual(bool4(true, false, true, false), ispow2(uint4(4u, 32767u, 32768u, 32769u)));
+            TestUtils.AreEqual(bool4(false, true, false, false), ispow2(uint4(2097151u, 2097152u, 2097153u, 268431360u)));
+        }
+
 
     }
 }

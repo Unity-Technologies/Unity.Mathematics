@@ -431,6 +431,101 @@ namespace Unity.Mathematics
                          (asulong(x.w) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
         }
 
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(int x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(int2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(int3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(int4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
+
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Unsigned integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(uint x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(uint2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(uint3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(uint4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
 
         /// <summary>Returns the minimum of two int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
