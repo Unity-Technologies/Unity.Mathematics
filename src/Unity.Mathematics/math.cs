@@ -431,6 +431,101 @@ namespace Unity.Mathematics
                          (asulong(x.w) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
         }
 
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(int x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(int2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(int3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(int4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
+
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Unsigned integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(uint x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(uint2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(uint3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(uint4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
 
         /// <summary>Returns the minimum of two int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3631,8 +3726,53 @@ namespace Unity.Mathematics
             }
         }
 
+        /// <summary>
+        /// Unity's up axis (0, 1, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-up.html](https://docs.unity3d.com/ScriptReference/Vector3-up.html)</remarks>
+        /// <returns>The up axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f, 1.0f, 0.0f); }  // for compatibility
+
+        /// <summary>
+        /// Unity's down axis (0, -1, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-down.html](https://docs.unity3d.com/ScriptReference/Vector3-down.html)</remarks>
+        /// <returns>The down axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 down() { return new float3(0.0f, -1.0f, 0.0f); }
+
+        /// <summary>
+        /// Unity's forward axis (0, 0, 1).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-forward.html](https://docs.unity3d.com/ScriptReference/Vector3-forward.html)</remarks>
+        /// <returns>The forward axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 forward() { return new float3(0.0f, 0.0f, 1.0f); }
+
+        /// <summary>
+        /// Unity's back axis (0, 0, -1).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-back.html](https://docs.unity3d.com/ScriptReference/Vector3-back.html)</remarks>
+        /// <returns>The back axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 back() { return new float3(0.0f, 0.0f, -1.0f); }
+
+        /// <summary>
+        /// Unity's left axis (-1, 0, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-left.html](https://docs.unity3d.com/ScriptReference/Vector3-left.html)</remarks>
+        /// <returns>The left axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 left() { return new float3(-1.0f, 0.0f, 0.0f); }
+
+        /// <summary>
+        /// Unity's right axis (1, 0, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-right.html](https://docs.unity3d.com/ScriptReference/Vector3-right.html)</remarks>
+        /// <returns>The right axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 right() { return new float3(1.0f, 0.0f, 0.0f); }
 
 
         // Internal
