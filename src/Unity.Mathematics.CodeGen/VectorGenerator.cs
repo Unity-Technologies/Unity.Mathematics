@@ -510,8 +510,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if (m_Columns == 1)
                 str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
-            if(m_BaseType != "half")
-                str.Append("\t[System.Serializable]\n");
+            str.Append("\t[System.Serializable]\n");
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>", m_TypeName);
             if (m_BaseType != "bool")
                 str.Append(", IFormattable");

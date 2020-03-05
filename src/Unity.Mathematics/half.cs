@@ -3,6 +3,7 @@ using System.Runtime.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    [Serializable]
     public struct half : System.IEquatable<half>, IFormattable
     {
         public ushort value;
