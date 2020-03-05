@@ -18,957 +18,957 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void double3_zero()
         {
-            TestUtils.AreEqual(double3.zero.x, 0.0);
-            TestUtils.AreEqual(double3.zero.y, 0.0);
-            TestUtils.AreEqual(double3.zero.z, 0.0);
+            TestUtils.AreEqual(0.0, double3.zero.x);
+            TestUtils.AreEqual(0.0, double3.zero.y);
+            TestUtils.AreEqual(0.0, double3.zero.z);
         }
 
         [TestCompiler]
         public static void double3_constructor()
         {
             double3 a = new double3(1, 2, 3);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
-            TestUtils.AreEqual(a.z, 3);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
+            TestUtils.AreEqual(3, a.z);
         }
 
         [TestCompiler]
         public static void double3_scalar_constructor()
         {
             double3 a = new double3(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
-            TestUtils.AreEqual(a.z, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
+            TestUtils.AreEqual(17.0, a.z);
         }
 
         [TestCompiler]
         public static void double3_static_constructor()
         {
             double3 a = double3(1, 2, 3);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
-            TestUtils.AreEqual(a.z, 3);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
+            TestUtils.AreEqual(3, a.z);
         }
 
         [TestCompiler]
         public static void double3_static_scalar_constructor()
         {
             double3 a = double3(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
-            TestUtils.AreEqual(a.z, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
+            TestUtils.AreEqual(17.0, a.z);
         }
 
         [TestCompiler]
         public static void double3_operator_equal_wide_wide()
         {
-            double3 a0 = double3(331.74411336134381, -417.68328280825324, -438.45087620171296);
-            double3 b0 = double3(-426.58283277348744, 431.34453149854414, 263.33917987688403);
+            double3 a0 = double3(492.15758275061728, -495.20632027797694, 227.45765195947968);
+            double3 b0 = double3(192.56880888369346, -235.61102472786376, -254.04311740307281);
             bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double3 a1 = double3(-57.990659979167674, -183.11340030613979, 72.322805676759572);
-            double3 b1 = double3(-309.39192905528091, 391.19957441426789, -468.23727748740339);
+            double3 a1 = double3(-147.37405950733182, -222.68201909897942, 64.093720704360749);
+            double3 b1 = double3(-412.62472052715009, 471.90480945627428, -6.4727852374654162);
             bool3 r1 = bool3(false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double3 a2 = double3(-292.70611562053955, -181.37693437439248, 43.847759028825749);
-            double3 b2 = double3(-389.91158145941404, -192.67202505500615, -8.9501826804830671);
+            double3 a2 = double3(-23.890404473939157, -16.8197190839889, 163.23210890741655);
+            double3 b2 = double3(-339.10237447316865, 488.1875700839737, -379.5965842584132);
             bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double3 a3 = double3(481.28738020420417, 258.42531287783072, 352.58044759956215);
-            double3 b3 = double3(-339.08699599797228, 104.67790680037717, -443.50479933410173);
+            double3 a3 = double3(-165.27101071424363, 470.87767980568003, -423.94255967808078);
+            double3 b3 = double3(-308.41700258311675, -82.333374300195544, -102.92108087563935);
             bool3 r3 = bool3(false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double3_operator_equal_wide_scalar()
         {
-            double3 a0 = double3(327.10191431972282, 440.46724745280449, -443.74519440333603);
-            double b0 = (342.44057504387604);
+            double3 a0 = double3(-303.2300766926399, 451.52631327674089, -253.65587413201848);
+            double b0 = (123.5445759871717);
             bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double3 a1 = double3(325.54625597854431, 58.382070330149531, -398.43499369101369);
-            double b1 = (435.37174793489828);
+            double3 a1 = double3(-105.20363502632995, -426.19248338518315, 159.87609656149334);
+            double b1 = (-500.6910920090466);
             bool3 r1 = bool3(false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double3 a2 = double3(377.06661551867921, -17.79271484249864, -92.372576994994915);
-            double b2 = (445.50211235764539);
+            double3 a2 = double3(-59.558379439431405, -182.04973968400139, 406.51375861024189);
+            double b2 = (-57.477391031327386);
             bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double3 a3 = double3(-350.23152200795312, 14.983312852207291, -504.42695665006852);
-            double b3 = (450.23677775367946);
+            double3 a3 = double3(370.88599866017978, 455.40001198993991, -11.338988547836891);
+            double b3 = (-172.03530629539642);
             bool3 r3 = bool3(false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double3_operator_equal_scalar_wide()
         {
-            double a0 = (430.78112884554139);
-            double3 b0 = double3(-434.72746225573468, 103.73032074036553, -263.03657090991578);
+            double a0 = (-253.39728534100453);
+            double3 b0 = double3(19.952187785856495, -185.79199346610903, 407.8136052600172);
             bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double a1 = (-224.56018291439869);
-            double3 b1 = double3(204.11080298391676, 196.56822476003697, -424.75656743755405);
+            double a1 = (-87.2766969610363);
+            double3 b1 = double3(-206.27469382354741, 160.503138855334, -274.77081478516141);
             bool3 r1 = bool3(false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double a2 = (467.45050332855919);
-            double3 b2 = double3(-45.433633110222218, 138.19161063907279, 181.06193717804831);
+            double a2 = (-2.6315281403397535);
+            double3 b2 = double3(448.35453602688131, -410.03524251004461, 247.32901465489022);
             bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double a3 = (-449.21580073294035);
-            double3 b3 = double3(-335.15445700993507, -77.466203964066779, 107.90240125912351);
+            double a3 = (355.53915350303942);
+            double3 b3 = double3(-298.06671180299793, 414.10151429385951, -481.30262707234482);
             bool3 r3 = bool3(false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double3_operator_not_equal_wide_wide()
         {
-            double3 a0 = double3(19.253994712258645, 121.33544045376379, 468.30967615000418);
-            double3 b0 = double3(-249.06633507882538, -19.04659057550441, 323.62254896928675);
+            double3 a0 = double3(430.8425316432689, 104.69001798736394, 225.80243478799355);
+            double3 b0 = double3(210.02470622305975, -55.203330304102678, -269.92533672504373);
             bool3 r0 = bool3(true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double3 a1 = double3(-212.3654521500531, -410.63349337625948, 507.53425359517996);
-            double3 b1 = double3(294.94198026086292, -492.46095990224785, -166.48327048424784);
+            double3 a1 = double3(-310.57017841496048, -418.61945815506363, 304.12820281839379);
+            double3 b1 = double3(-234.54673372700194, 25.917412054686565, -63.726991444699024);
             bool3 r1 = bool3(true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double3 a2 = double3(52.201180720795492, -319.64238682372604, -448.90629670066119);
-            double3 b2 = double3(421.19530482832124, 87.662903588108179, 193.87513670412602);
+            double3 a2 = double3(-509.32682561749908, -160.53807719076895, -203.30197606016975);
+            double3 b2 = double3(-484.55371092471933, -425.333599050219, -53.274394775402925);
             bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double3 a3 = double3(255.3703111407209, -70.462687286763753, -18.913782366976989);
-            double3 b3 = double3(-279.28983200680921, 158.5136307023995, 426.63510413963115);
+            double3 a3 = double3(-505.76325368590807, 162.17220623892365, 1.1561973100324394);
+            double3 b3 = double3(328.1944192984115, 15.963139303011417, 461.71412417931208);
             bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double3_operator_not_equal_wide_scalar()
         {
-            double3 a0 = double3(-418.02227206622354, 231.44822632123169, -469.47851083682781);
-            double b0 = (-206.33659205508258);
+            double3 a0 = double3(-16.914588697680529, 168.83411486858233, -462.71352145760949);
+            double b0 = (-145.37277109239847);
             bool3 r0 = bool3(true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double3 a1 = double3(-94.974084183096011, -428.11901088623284, 492.92776774471986);
-            double b1 = (-376.08437770236486);
+            double3 a1 = double3(130.30776959765137, -440.26328178879959, -197.12796053529155);
+            double b1 = (214.50161443208424);
             bool3 r1 = bool3(true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double3 a2 = double3(-91.333830160709965, -124.3909161670091, -409.29052205071343);
-            double b2 = (80.418608941332764);
+            double3 a2 = double3(-169.09985860115842, -281.02101362916687, -270.26885593601912);
+            double b2 = (-386.61117595555783);
             bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double3 a3 = double3(353.96103851588487, -494.89575242199737, 181.01510843123083);
-            double b3 = (170.98932441090665);
+            double3 a3 = double3(-403.96372313236992, 299.65422763473089, -71.750904831919286);
+            double b3 = (-269.80570877241234);
             bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double3_operator_not_equal_scalar_wide()
         {
-            double a0 = (357.34340898941434);
-            double3 b0 = double3(192.97637400076553, -323.1933154180615, -25.125236284511743);
+            double a0 = (275.79582823244664);
+            double3 b0 = double3(-57.196896341255353, -382.4325279586169, 97.820359990848374);
             bool3 r0 = bool3(true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double a1 = (-270.50307739456326);
-            double3 b1 = double3(-454.42681977452094, -458.81890103724731, -274.53837049870674);
+            double a1 = (-161.46364529499022);
+            double3 b1 = double3(-458.39563367254829, -499.61786364932448, 327.92217818271467);
             bool3 r1 = bool3(true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double a2 = (127.64221078140758);
-            double3 b2 = double3(-43.887720366887606, -179.47230180514617, 498.28768920259904);
+            double a2 = (367.57121699283425);
+            double3 b2 = double3(59.7863667289663, -209.58068118318016, -62.580453186566217);
             bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double a3 = (-333.81438866900953);
-            double3 b3 = double3(-169.48795779491212, -146.25878126279395, -33.0286543523095);
+            double a3 = (-479.97497604786184);
+            double3 b3 = double3(-49.494519495169868, -114.68521338081229, 109.93924599044919);
             bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_wide_wide()
         {
-            double3 a0 = double3(487.82488011188104, -508.92173480844207, 53.876066948229436);
-            double3 b0 = double3(453.09734770893, -123.83057814642348, 492.75013636646338);
-            bool3 r0 = bool3(false, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double3 a0 = double3(196.84256825076534, 336.40979997087732, 251.96372115424072);
+            double3 b0 = double3(-465.34502313348696, -256.15239751346053, -314.814018634527);
+            bool3 r0 = bool3(false, false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double3 a1 = double3(443.78694531125336, -81.078602590169112, 103.16550521886234);
-            double3 b1 = double3(434.4634313222316, -402.46478933955768, -480.75231598352656);
-            bool3 r1 = bool3(false, false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double3 a1 = double3(257.65591466503963, 430.04588647840819, -62.419644146421774);
+            double3 b1 = double3(364.56673662949663, 100.21050290959442, 182.56098636545289);
+            bool3 r1 = bool3(true, false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double3 a2 = double3(-496.19975470760824, 30.001322044991525, 490.88452862709971);
-            double3 b2 = double3(317.30066051953509, 175.82104428849232, 301.86634244670461);
-            bool3 r2 = bool3(true, true, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double3 a2 = double3(8.8392293494376872, -333.81671563434259, 164.67880662003472);
+            double3 b2 = double3(3.116978885194726, -259.43047893207074, -437.33490749696966);
+            bool3 r2 = bool3(false, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double3 a3 = double3(485.69708298412013, -360.6310734043974, -442.65436169256191);
-            double3 b3 = double3(77.7766850356835, -188.5760563298017, 479.33786819844408);
-            bool3 r3 = bool3(false, true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double3 a3 = double3(-350.94487516532877, 3.84143662631584, 125.40972024081725);
+            double3 b3 = double3(-456.0437321402336, -394.2559718537405, 401.91369099259077);
+            bool3 r3 = bool3(false, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_wide_scalar()
         {
-            double3 a0 = double3(18.15358901869206, -409.34645695674533, 180.78649028613529);
-            double b0 = (152.320865940452);
-            bool3 r0 = bool3(true, true, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double3 a0 = double3(-132.05731708000292, -192.46500477216438, -66.834607870706634);
+            double b0 = (-156.01021845452965);
+            bool3 r0 = bool3(false, true, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double3 a1 = double3(-185.15496572533385, 124.1257570367892, 265.74384534812714);
-            double b1 = (228.26473127504096);
-            bool3 r1 = bool3(true, true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double3 a1 = double3(-379.01750081545561, 20.927834282129879, -158.24074537970159);
+            double b1 = (-360.28242199508588);
+            bool3 r1 = bool3(true, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double3 a2 = double3(-307.54556694046858, 36.373661296616206, 131.67983132772144);
-            double b2 = (493.12318371847425);
-            bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double3 a2 = double3(437.34587522845061, 225.29148517609178, 307.48418607725023);
+            double b2 = (-20.452607402788772);
+            bool3 r2 = bool3(false, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double3 a3 = double3(85.934578220329513, -36.894802825942065, -491.25716256129425);
-            double b3 = (-89.371177953375138);
-            bool3 r3 = bool3(false, false, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double3 a3 = double3(274.01523292903562, 398.52368301829495, 105.0301654827922);
+            double b3 = (373.54965584983563);
+            bool3 r3 = bool3(true, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_scalar_wide()
         {
-            double a0 = (416.68128915162822);
-            double3 b0 = double3(-105.38907938142728, -389.249608459533, 408.84688944781522);
-            bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double a0 = (-423.117411095238);
+            double3 b0 = double3(385.09483617595151, -123.93348532725753, 86.376572887588509);
+            bool3 r0 = bool3(true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double a1 = (-87.039535324573308);
-            double3 b1 = double3(268.69133508796403, -470.20163295706811, 271.31567419288479);
-            bool3 r1 = bool3(true, false, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double a1 = (133.44217378154497);
+            double3 b1 = double3(161.45794947513286, 229.75426660746064, 222.57159934871436);
+            bool3 r1 = bool3(true, true, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double a2 = (-170.32271750752011);
-            double3 b2 = double3(-156.5984128250733, -0.288699388638463, 72.090836796951862);
-            bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double a2 = (315.53116360098647);
+            double3 b2 = double3(-447.20351883731945, 271.83385790131695, -393.60531324595462);
+            bool3 r2 = bool3(false, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double a3 = (-54.429979111268153);
-            double3 b3 = double3(191.60324797015789, 370.54399149983374, 283.23240412549694);
-            bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double a3 = (317.48689737798964);
+            double3 b3 = double3(-164.6051085761772, -282.87605370342544, 296.97953071118309);
+            bool3 r3 = bool3(false, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_wide_wide()
         {
-            double3 a0 = double3(-188.03303131276419, 234.30020367088741, -56.305944230549926);
-            double3 b0 = double3(-17.400830992218516, -59.539615897247415, -24.285316717012449);
-            bool3 r0 = bool3(false, true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double3 a0 = double3(483.50140141113729, 310.81563415695712, 106.9661896726891);
+            double3 b0 = double3(-471.39802454011425, -371.98528617060992, 36.900723236101044);
+            bool3 r0 = bool3(true, true, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double3 a1 = double3(240.95838248029281, 501.48760938154885, -303.42498435798336);
-            double3 b1 = double3(222.38749109133494, -207.17042574992888, 365.54648630951829);
+            double3 a1 = double3(295.73526038589671, 116.95757179938141, -478.29977653841479);
+            double3 b1 = double3(-316.76360407320954, 19.683055648432628, 207.3091381561519);
             bool3 r1 = bool3(true, true, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double3 a2 = double3(-305.509098910498, -470.74254177079655, -305.09075155159962);
-            double3 b2 = double3(183.57330068553483, -23.080710183400981, 337.16379920447423);
+            double3 a2 = double3(-14.897393471979228, -33.817441717636484, -24.740548383789417);
+            double3 b2 = double3(362.79748861994483, 324.95341816775192, 340.94807140014507);
             bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double3 a3 = double3(26.045478117673383, 169.99735816288614, -498.38803433738093);
-            double3 b3 = double3(175.81176026901778, -8.5140435735294773, -125.86538249154825);
-            bool3 r3 = bool3(false, true, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double3 a3 = double3(319.78262701620474, -120.15856581561201, -289.00857962714906);
+            double3 b3 = double3(25.986035120666997, -114.2111352021858, 240.80346428640348);
+            bool3 r3 = bool3(true, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_wide_scalar()
         {
-            double3 a0 = double3(468.88079831976484, -355.42101089815657, -45.708264610594256);
-            double b0 = (201.80273232320451);
-            bool3 r0 = bool3(true, false, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double3 a0 = double3(64.317918092160426, -397.70346445483318, 431.87690826499693);
+            double b0 = (305.85991992888034);
+            bool3 r0 = bool3(false, false, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double3 a1 = double3(407.1765884864966, 418.54536147534168, -422.75017686502554);
-            double b1 = (348.72522871043782);
-            bool3 r1 = bool3(true, true, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double3 a1 = double3(85.702980796668157, 197.49155602114809, 286.1994608781298);
+            double b1 = (246.26305233978803);
+            bool3 r1 = bool3(false, false, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double3 a2 = double3(-364.27550928866282, -255.04906833127563, 178.80637868624478);
-            double b2 = (434.16361948203462);
-            bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double3 a2 = double3(280.81334818564972, 171.56538661362856, -241.80727326209063);
+            double b2 = (-405.78459210218148);
+            bool3 r2 = bool3(true, true, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double3 a3 = double3(379.82339232965535, -121.10213261521523, 164.48760254890078);
-            double b3 = (-346.9423937028937);
-            bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double3 a3 = double3(333.57817498481745, -413.70138116073861, -356.5923551789449);
+            double b3 = (370.27919524269146);
+            bool3 r3 = bool3(false, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_scalar_wide()
         {
-            double a0 = (137.5041864558608);
-            double3 b0 = double3(-443.866813627941, 279.85275639214217, -462.40431115701995);
-            bool3 r0 = bool3(true, false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double a0 = (-282.67049635698572);
+            double3 b0 = double3(358.09997360692353, -72.5964134077525, -232.16380106292843);
+            bool3 r0 = bool3(false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double a1 = (-280.71377028185583);
-            double3 b1 = double3(120.71278553861794, -31.670009866203202, 363.42834418054122);
+            double a1 = (-60.706723956720282);
+            double3 b1 = double3(75.156642710397364, 150.88350040786133, 339.53917924479538);
             bool3 r1 = bool3(false, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double a2 = (263.125410440902);
-            double3 b2 = double3(-156.36087257990653, 66.354000837706963, -303.12960519601108);
-            bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double a2 = (-498.19602965665797);
+            double3 b2 = double3(459.74610326241054, -227.96872316485678, 335.86213485145106);
+            bool3 r2 = bool3(false, false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double a3 = (419.33739371753177);
-            double3 b3 = double3(-392.72105640579065, -378.76293986791882, -398.36114258242822);
-            bool3 r3 = bool3(true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double a3 = (76.178844248959308);
+            double3 b3 = double3(296.85993899817572, 177.49000390688423, -281.20120657663847);
+            bool3 r3 = bool3(false, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_equal_wide_wide()
         {
-            double3 a0 = double3(333.04760686170664, 239.35082756697705, 26.569201720212163);
-            double3 b0 = double3(46.131192944073632, -378.08232301198052, -466.77821443359284);
-            bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double3 a0 = double3(-438.52313753521219, 210.48942837980087, 4.8773329280677444);
+            double3 b0 = double3(-474.8141498392514, 304.3710555063426, 234.8241737982371);
+            bool3 r0 = bool3(false, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double3 a1 = double3(41.492498178729988, -162.66233904783724, -271.00273454887918);
-            double3 b1 = double3(-173.33503373588206, -482.23928640887107, 183.34649356796706);
+            double3 a1 = double3(-137.29793817237857, 156.09410174009111, -363.92412035722475);
+            double3 b1 = double3(-390.48543209139513, -297.17535295019638, -326.29239121372461);
             bool3 r1 = bool3(false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double3 a2 = double3(-108.98620920487969, 392.08160537857634, 314.48862924915204);
-            double3 b2 = double3(399.07617134557859, -127.63707238418846, -118.19683914920171);
+            double3 a2 = double3(-97.948485181642923, 437.29539009430232, 458.53029153241323);
+            double3 b2 = double3(107.2538764976216, -413.13107342884462, 67.094432623635271);
             bool3 r2 = bool3(true, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double3 a3 = double3(208.10215745125993, 39.935965795040147, 458.77050254250435);
-            double3 b3 = double3(-329.72744504070255, -208.8176177520387, 368.28686850531346);
-            bool3 r3 = bool3(false, false, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double3 a3 = double3(-294.06474675520542, 23.622613679441884, -34.284056441059363);
+            double3 b3 = double3(470.07522724106684, -84.499104777583455, 392.78422683886447);
+            bool3 r3 = bool3(true, false, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_equal_wide_scalar()
         {
-            double3 a0 = double3(122.81770640370326, -283.69426144459021, -288.84764994720354);
-            double b0 = (-181.94389947780587);
-            bool3 r0 = bool3(false, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double3 a0 = double3(193.4958237118534, 168.91555197952107, -313.9930695565385);
+            double b0 = (443.85054299042122);
+            bool3 r0 = bool3(true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double3 a1 = double3(-185.45390447669376, 279.57381428385793, -317.9591602375541);
-            double b1 = (-315.2538966216398);
-            bool3 r1 = bool3(false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double3 a1 = double3(81.826965131716292, -0.35819602029312136, 241.36115776810846);
+            double b1 = (18.503590830836288);
+            bool3 r1 = bool3(false, true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double3 a2 = double3(-255.569789767065, -132.48886758298096, -207.25397477264238);
-            double b2 = (-368.80326216705294);
-            bool3 r2 = bool3(false, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double3 a2 = double3(-463.81641242644582, -268.89945591096739, 398.9919504593089);
+            double b2 = (-1.3577692515020203);
+            bool3 r2 = bool3(true, true, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double3 a3 = double3(-328.49221364059122, -192.52138981247384, 454.18384692360826);
-            double b3 = (-115.35588770516023);
-            bool3 r3 = bool3(true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double3 a3 = double3(-471.253072242836, 82.258299150624453, 11.246050124636895);
+            double b3 = (-264.93778264938749);
+            bool3 r3 = bool3(true, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_less_equal_scalar_wide()
         {
-            double a0 = (-336.46568385533322);
-            double3 b0 = double3(251.95838630011235, -22.858304749642627, -238.90586220422102);
-            bool3 r0 = bool3(true, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double a0 = (393.60626644343427);
+            double3 b0 = double3(-75.688363825757222, -44.2638714519627, 125.86491566797019);
+            bool3 r0 = bool3(false, false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double a1 = (284.66662014865619);
-            double3 b1 = double3(-358.3240021943692, 468.53025625112014, -439.03722092091908);
-            bool3 r1 = bool3(false, true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double a1 = (191.96488174794467);
+            double3 b1 = double3(13.543054825413492, -197.0519259893577, -423.945100743298);
+            bool3 r1 = bool3(false, false, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double a2 = (-197.06769594786118);
-            double3 b2 = double3(-367.5955204291248, -143.89508754755144, -387.84270614564548);
-            bool3 r2 = bool3(false, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double a2 = (-330.04861680141119);
+            double3 b2 = double3(420.16553779140372, 105.54730777887039, 174.82126363311954);
+            bool3 r2 = bool3(true, true, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double a3 = (-88.237509530148259);
-            double3 b3 = double3(439.36053415730623, -487.98472117259388, -393.41587013444672);
-            bool3 r3 = bool3(true, false, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double a3 = (296.71757831085358);
+            double3 b3 = double3(-469.70041845259277, 123.26718979853536, 112.9969695140594);
+            bool3 r3 = bool3(false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_equal_wide_wide()
         {
-            double3 a0 = double3(143.64125377668131, -251.70416295328374, 118.57615881719448);
-            double3 b0 = double3(-409.2710322855371, -84.9138353266352, 509.12827157840513);
-            bool3 r0 = bool3(true, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double3 a0 = double3(-507.92858409692, 504.49748181947393, -385.43449205226938);
+            double3 b0 = double3(-81.346509732933043, 297.66615047010885, 171.06540616371922);
+            bool3 r0 = bool3(false, true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double3 a1 = double3(23.871594201713606, 84.634044448209011, -145.38224155520192);
-            double3 b1 = double3(-61.134530811167565, 139.21721822545737, -30.229416146049914);
+            double3 a1 = double3(-262.32340944107784, -37.550928848586466, -111.59527759980193);
+            double3 b1 = double3(-431.03805538222105, -6.859075311040101, 319.72570362674333);
             bool3 r1 = bool3(true, false, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double3 a2 = double3(-234.44732653091069, 90.461873811884743, 203.55582604350332);
-            double3 b2 = double3(210.73626075067386, 27.014938605490556, 467.6829266341789);
-            bool3 r2 = bool3(false, true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            double3 a2 = double3(-463.70202157632542, 387.44885772627265, 456.96878573716094);
+            double3 b2 = double3(254.079170106947, 396.5724000393285, 178.83927615864172);
+            bool3 r2 = bool3(false, false, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double3 a3 = double3(370.97961180795892, -64.089706689161119, -140.50303155766011);
-            double3 b3 = double3(-206.05482993184347, 109.55236654614669, -413.97032160962482);
-            bool3 r3 = bool3(true, false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double3 a3 = double3(-211.01015506079892, 182.41135391146474, -53.596053863687473);
+            double3 b3 = double3(-447.06336304501787, 288.49268569075161, 474.88929460704765);
+            bool3 r3 = bool3(true, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_equal_wide_scalar()
         {
-            double3 a0 = double3(-355.36085359908679, 304.30147209032509, 385.1285471325408);
-            double b0 = (-139.19751436039689);
-            bool3 r0 = bool3(false, true, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double3 a0 = double3(465.15218732559686, -424.8860745024337, -209.22109685150025);
+            double b0 = (-5.5998842742293391);
+            bool3 r0 = bool3(true, false, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double3 a1 = double3(-263.95484483612461, 126.50078660179895, 77.010820663073446);
-            double b1 = (-435.80643650321588);
+            double3 a1 = double3(58.779852656079356, 140.12558252183976, 16.353385694489475);
+            double b1 = (-302.26910533675414);
             bool3 r1 = bool3(true, true, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double3 a2 = double3(-226.75392376014679, -413.1957916753347, -11.07635713139382);
-            double b2 = (-212.65009675391491);
+            double3 a2 = double3(-344.55997316192838, -315.70155086913218, 441.0115565923096);
+            double b2 = (393.27804846003562);
             bool3 r2 = bool3(false, false, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double3 a3 = double3(-457.00790355028954, 280.99802006455047, -112.26507215959253);
-            double b3 = (-123.01295214659206);
-            bool3 r3 = bool3(false, true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double3 a3 = double3(-509.78156757251435, 494.82028865014217, -164.97393830352183);
+            double b3 = (-36.994287269652943);
+            bool3 r3 = bool3(false, true, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_greater_equal_scalar_wide()
         {
-            double a0 = (-246.0732854558496);
-            double3 b0 = double3(142.15627557698463, -19.29862476293863, -151.98687584325057);
-            bool3 r0 = bool3(false, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double a0 = (374.82703393270594);
+            double3 b0 = double3(-1.609757185731894, 338.61524049314448, -116.18140392945213);
+            bool3 r0 = bool3(true, true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double a1 = (330.020889197486);
-            double3 b1 = double3(-224.80012260414668, 451.59992119837545, -435.98180576599287);
-            bool3 r1 = bool3(true, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double a1 = (-332.15732375353451);
+            double3 b1 = double3(-355.9793509710484, -468.90144107719021, 38.579884785497484);
+            bool3 r1 = bool3(true, true, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double a2 = (405.88183064287614);
-            double3 b2 = double3(-324.02012720891281, 300.85477914514706, -341.6529263656833);
-            bool3 r2 = bool3(true, true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            double a2 = (-332.34754697063357);
+            double3 b2 = double3(2.8901150240051265, 467.77776477661814, 121.40638762405445);
+            bool3 r2 = bool3(false, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double a3 = (349.34832422311808);
-            double3 b3 = double3(-342.97096721407536, 397.82466024804148, 363.17085354550318);
-            bool3 r3 = bool3(true, false, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double a3 = (-305.02337303060267);
+            double3 b3 = double3(-58.428812292604164, -226.51955209789776, -47.020994446715804);
+            bool3 r3 = bool3(false, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double3_operator_add_wide_wide()
         {
-            double3 a0 = double3(-404.27537054767618, -214.93513522620088, -164.2730897237887);
-            double3 b0 = double3(433.90024944483309, 359.72051994862056, 420.50439115078393);
-            double3 r0 = double3(29.624878897156918, 144.78538472241968, 256.23130142699523);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double3 a0 = double3(506.12905263627374, -501.77980803967444, 420.08479638587903);
+            double3 b0 = double3(-28.757987751047096, -337.135153689019, -340.676816860529);
+            double3 r0 = double3(477.37106488522664, -838.91496172869347, 79.407979525350015);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double3 a1 = double3(338.47717563178264, 302.84880771434348, -330.63301840919678);
-            double3 b1 = double3(-416.371905282313, -163.21369154900952, -35.65208698979211);
-            double3 r1 = double3(-77.894729650530337, 139.63511616533395, -366.28510539898889);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double3 a1 = double3(-186.03206476291274, -9.3123953385801883, 328.51179686585056);
+            double3 b1 = double3(152.31202633320913, 423.66745420157326, 90.374096674087468);
+            double3 r1 = double3(-33.720038429703607, 414.35505886299308, 418.885893539938);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double3 a2 = double3(-21.244342098592028, 157.13040383026487, 32.444800153581809);
-            double3 b2 = double3(260.76101482136221, -20.117472896407094, 156.77011568693911);
-            double3 r2 = double3(239.51667272277018, 137.01293093385777, 189.21491584052092);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double3 a2 = double3(424.34407659263536, 87.791079800478656, 462.41368148402012);
+            double3 b2 = double3(376.18866246574964, 1.7671887882831925, -120.18586045139745);
+            double3 r2 = double3(800.532739058385, 89.558268588761848, 342.22782103262267);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double3 a3 = double3(-333.966129220075, -488.63531588420051, 484.60532520925869);
-            double3 b3 = double3(315.04057350523794, -110.87443380750454, -373.96641629467086);
-            double3 r3 = double3(-18.92555571483706, -599.50974969170511, 110.63890891458783);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double3 a3 = double3(-46.178705952213477, 401.17006296718966, -454.12414643453627);
+            double3 b3 = double3(-279.62936628965167, -344.66710273580026, 242.8391956029642);
+            double3 r3 = double3(-325.80807224186515, 56.502960231389409, -211.28495083157208);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double3_operator_add_wide_scalar()
         {
-            double3 a0 = double3(-323.42942276756719, 324.634587200654, -277.88344706123854);
-            double b0 = (-311.26692190359665);
-            double3 r0 = double3(-634.69634467116384, 13.367665297057329, -589.15036896483525);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double3 a0 = double3(-194.51420387742769, 338.54838696985894, 246.97140252169754);
+            double b0 = (124.121678171736);
+            double3 r0 = double3(-70.3925257056917, 462.67006514159493, 371.09308069343354);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double3 a1 = double3(-472.86264513100622, 144.10591918980049, -334.47418872195954);
-            double b1 = (-459.05652997412557);
-            double3 r1 = double3(-931.91917510513179, -314.95061078432508, -793.53071869608516);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double3 a1 = double3(100.51093797595752, -478.11131094308166, 30.916145577522116);
+            double b1 = (-45.724677822424439);
+            double3 r1 = double3(54.786260153533078, -523.835988765506, -14.808532244902324);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double3 a2 = double3(149.11431343346567, 303.38458146871278, -7.709385637058574);
-            double b2 = (-388.34398263895139);
-            double3 r2 = double3(-239.22966920548572, -84.9594011702386, -396.05336827600996);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double3 a2 = double3(60.37435224483454, 82.50134495762245, 6.7993848355483806);
+            double b2 = (-242.1187475855084);
+            double3 r2 = double3(-181.74439534067386, -159.61740262788595, -235.31936274996002);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double3 a3 = double3(-29.018897308511157, 101.80118827791944, -410.41598982848973);
-            double b3 = (45.12297942355417);
-            double3 r3 = double3(16.104082115043013, 146.92416770147361, -365.29301040493556);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double3 a3 = double3(-484.69981287638649, -213.52673087526426, -267.78430688929944);
+            double b3 = (-188.26501068298938);
+            double3 r3 = double3(-672.96482355937587, -401.79174155825365, -456.04931757228883);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double3_operator_add_scalar_wide()
         {
-            double a0 = (190.83125194852767);
-            double3 b0 = double3(411.15716881824528, -70.761643204261361, -404.53508991959279);
-            double3 r0 = double3(601.988420766773, 120.0696087442663, -213.70383797106513);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double a0 = (-340.35468284243473);
+            double3 b0 = double3(511.36225652665007, -146.21663791789518, -106.21042661844308);
+            double3 r0 = double3(171.00757368421534, -486.57132076032991, -446.56510946087781);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double a1 = (238.02884232161045);
-            double3 b1 = double3(442.24392506212178, 151.43196327585349, -447.09386154967075);
-            double3 r1 = double3(680.27276738373223, 389.46080559746395, -209.06501922806029);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double a1 = (-363.45024960276214);
+            double3 b1 = double3(199.08958325120136, -27.108407271610758, 419.84900041103788);
+            double3 r1 = double3(-164.36066635156078, -390.5586568743729, 56.398750808275736);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double a2 = (-299.92477836270109);
-            double3 b2 = double3(477.43272541343822, -292.32724894784729, 59.315583971941692);
-            double3 r2 = double3(177.50794705073713, -592.25202731054833, -240.6091943907594);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double a2 = (284.95503748811552);
+            double3 b2 = double3(-164.92418129971446, -249.19032561461921, 150.92817718858282);
+            double3 r2 = double3(120.03085618840106, 35.76471187349631, 435.88321467669834);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double a3 = (-378.93333238127332);
-            double3 b3 = double3(-228.86587463545885, -309.56731023898692, -78.709975994522665);
-            double3 r3 = double3(-607.79920701673223, -688.50064262026024, -457.643308375796);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double a3 = (298.17509784278229);
+            double3 b3 = double3(-457.15341803857751, 424.71807094324288, -301.85750283946163);
+            double3 r3 = double3(-158.97832019579522, 722.89316878602517, -3.6824049966793382);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double3_operator_sub_wide_wide()
         {
-            double3 a0 = double3(379.05223649509821, -16.164036996739014, 107.16038208229486);
-            double3 b0 = double3(236.68317877346794, 20.170748481606438, 111.4803836864794);
-            double3 r0 = double3(142.36905772163027, -36.334785478345452, -4.32000160418454);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double3 a0 = double3(160.4922617229131, 11.223957305412682, 359.20010607279846);
+            double3 b0 = double3(115.46876078260539, -130.98230630298252, 241.54083716196044);
+            double3 r0 = double3(45.023500940307713, 142.2062636083952, 117.65926891083802);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double3 a1 = double3(30.064602627449062, -428.43869443817005, 245.62773215287723);
-            double3 b1 = double3(-484.679841028843, -447.70867630825785, 18.1945517147866);
-            double3 r1 = double3(514.74444365629211, 19.269981870087804, 227.43318043809063);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double3 a1 = double3(-498.22830485656311, -355.25362913462038, -94.534852787170053);
+            double3 b1 = double3(9.9870860623135513, 419.89512582304656, 59.124466208333388);
+            double3 r1 = double3(-508.21539091887666, -775.14875495766694, -153.65931899550344);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double3 a2 = double3(179.60420449990977, 505.37777805019994, 317.71882858766185);
-            double3 b2 = double3(-296.14766063175523, 367.63596051169372, -267.45500219401674);
-            double3 r2 = double3(475.751865131665, 137.74181753850621, 585.17383078167859);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double3 a2 = double3(-410.46404786150163, -401.38464398001537, 317.70681944382693);
+            double3 b2 = double3(-402.38163847587145, -75.370143687059226, 320.97960796997859);
+            double3 r2 = double3(-8.0824093856301715, -326.01450029295614, -3.2727885261516576);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double3 a3 = double3(-198.47338900271495, 166.69455845965751, -379.02708190447981);
-            double3 b3 = double3(-71.1860635612095, -248.33460843206132, -138.19108230350122);
-            double3 r3 = double3(-127.28732544150546, 415.02916689171883, -240.8359996009786);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double3 a3 = double3(447.0604133303558, -489.07414482956477, -230.00838218909149);
+            double3 b3 = double3(-73.908757482612884, -31.444742455819949, -389.25194734579509);
+            double3 r3 = double3(520.96917081296874, -457.62940237374482, 159.2435651567036);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double3_operator_sub_wide_scalar()
         {
-            double3 a0 = double3(102.56966142662316, -199.24868759850443, 218.15437827732148);
-            double b0 = (-504.27757405875138);
-            double3 r0 = double3(606.84723548537454, 305.02888646024695, 722.43195233607287);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double3 a0 = double3(207.38960108877609, 248.45773684627272, -384.82393211164697);
+            double b0 = (-36.112476604111691);
+            double3 r0 = double3(243.50207769288778, 284.57021345038441, -348.71145550753528);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double3 a1 = double3(72.79636791758071, 13.459313160488023, -31.259209885848293);
-            double b1 = (-139.42634851272516);
-            double3 r1 = double3(212.22271643030587, 152.88566167321318, 108.16713862687686);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double3 a1 = double3(-205.34476122881506, 191.64204820973896, 18.856238135535364);
+            double b1 = (-374.81156152058929);
+            double3 r1 = double3(169.46680029177423, 566.45360973032825, 393.66779965612466);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double3 a2 = double3(-273.21787489262312, 484.57066248570129, 118.8643591957466);
-            double b2 = (-375.99724524840587);
-            double3 r2 = double3(102.77937035578276, 860.56790773410717, 494.86160444415248);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double3 a2 = double3(-44.96160151667965, 16.338193185784917, -366.86545269883493);
+            double b2 = (480.85798738936796);
+            double3 r2 = double3(-525.81958890604756, -464.51979420358305, -847.72344008820289);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double3 a3 = double3(-126.18295174752501, 128.219562828643, -59.646107463001329);
-            double b3 = (-323.06732884192252);
-            double3 r3 = double3(196.88437709439751, 451.28689167056552, 263.42122137892119);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double3 a3 = double3(-35.523088233323335, 439.07729336203886, 490.2222661870635);
+            double b3 = (349.39776460705218);
+            double3 r3 = double3(-384.92085284037552, 89.679528754986677, 140.82450158001132);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double3_operator_sub_scalar_wide()
         {
-            double a0 = (385.51228135894621);
-            double3 b0 = double3(78.826067245950071, -43.925143500755155, -401.83536762829652);
-            double3 r0 = double3(306.68621411299614, 429.43742485970137, 787.34764898724279);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double a0 = (-86.008225719448262);
+            double3 b0 = double3(466.42511413359318, 298.48694219183506, -300.95010652251085);
+            double3 r0 = double3(-552.43333985304139, -384.49516791128332, 214.94188080306259);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double a1 = (-336.14667931950964);
-            double3 b1 = double3(25.871118319160814, 188.92978080964167, 132.73553449136);
-            double3 r1 = double3(-362.01779763867046, -525.07646012915131, -468.88221381086964);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double a1 = (315.38003006362362);
+            double3 b1 = double3(-381.09218543632522, -125.00837546447684, 58.466194418476107);
+            double3 r1 = double3(696.47221549994879, 440.38840552810046, 256.91383564514751);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double a2 = (-391.64339822886672);
-            double3 b2 = double3(-131.12338477518568, 43.832313319590071, -278.08958948687166);
-            double3 r2 = double3(-260.52001345368103, -435.47571154845679, -113.55380874199506);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double a2 = (214.74609361158036);
+            double3 b2 = double3(-257.54942739082009, 480.22459505508868, -443.35507723472784);
+            double3 r2 = double3(472.29552100240045, -265.47850144350832, 658.10117084630815);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double a3 = (-440.45503946787449);
-            double3 b3 = double3(-375.45243161518704, 190.74367079080253, 364.12960856227653);
-            double3 r3 = double3(-65.002607852687447, -631.198710258677, -804.584648030151);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double a3 = (260.79503858312728);
+            double3 b3 = double3(29.681931747906788, 139.85773164586055, -247.78996216868512);
+            double3 r3 = double3(231.11310683522049, 120.93730693726673, 508.5850007518124);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mul_wide_wide()
         {
-            double3 a0 = double3(48.729794286531273, 263.59457958098244, -378.48718493920154);
-            double3 b0 = double3(351.02689258708938, 422.91789956713, -490.61739109950952);
-            double3 r0 = double3(17105.468264809177, 111478.86593366979, 185692.39523946863);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double3 a0 = double3(-482.71381710596097, -407.29348559272171, 137.70058995937029);
+            double3 b0 = double3(-236.36788355389979, 260.72759139757954, -416.38629718142852);
+            double3 r0 = double3(114098.04331156026, -106192.64949051509, -57336.638772880389);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double3 a1 = double3(494.61832236434259, -185.09561094320173, 423.89342494676509);
-            double3 b1 = double3(81.404518403766929, -357.22656481211379, 378.99459451203916);
-            double3 r1 = double3(40264.166325748447, 66121.069259039446, 160653.31670401874);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double3 a1 = double3(208.54113278563182, 194.296573967811, -484.24241684574747);
+            double3 b1 = double3(-364.49561541364324, -253.14750897751537, -369.20287220981106);
+            double3 r1 = double3(-76012.328533757158, -49185.69370281692, 178783.69114527057);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double3 a2 = double3(19.861804256151345, -439.21847292371956, 200.14622530720487);
-            double3 b2 = double3(318.32116880934745, 208.1715439335311, 345.88571063889458);
-            double3 r2 = double3(6322.432745480568, -91432.787632658525, 69227.719372074862);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double3 a2 = double3(183.98730739578014, -241.33547770294149, 45.868758938214114);
+            double3 b2 = double3(193.54791531038836, 169.08491976982214, 201.96966442930034);
+            double3 r2 = double3(35610.359790024842, -40806.189885013562, 9264.0978505395742);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double3 a3 = double3(-178.35696204861483, -285.07807530326681, 56.749516751966212);
-            double3 b3 = double3(-149.02886087681577, 293.05592431363459, 423.94813533497427);
-            double3 r3 = double3(26580.334883554529, -83543.818859550782, 24058.85180815696);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double3 a3 = double3(363.32610266438041, -328.11893692990714, -471.02307413100408);
+            double3 b3 = double3(249.45608317547294, -308.19319810913555, -385.57964843585137);
+            double3 r3 = double3(90633.9064860661, 101124.02453259782, 181616.91132860651);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mul_wide_scalar()
         {
-            double3 a0 = double3(-387.48086828155482, -48.625516675703921, -100.41558151152708);
-            double b0 = (367.40878146114233);
-            double3 r0 = double3(-142363.87365483146, -17865.441829738833, -36893.566442862175);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double3 a0 = double3(-96.318821236639678, -277.14229239017811, -239.93690191951436);
+            double b0 = (-301.20720424373042);
+            double3 r0 = double3(29011.922860739887, 83477.255068544036, 72270.723422079071);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double3 a1 = double3(-161.4535282409999, -198.31901440318626, 413.47737927617379);
-            double b1 = (-428.578962764041);
-            double3 r1 = double3(69195.585668122541, 84995.357489304486, -177207.70633657655);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double3 a1 = double3(509.53140544776409, 215.73149667295229, -455.50827500573746);
+            double b1 = (255.85810172551226);
+            double3 r1 = double3(130367.73816739726, 55196.651221145235, -116545.48256323059);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double3 a2 = double3(-216.10473857452382, 18.976513156190776, 89.787349027482492);
-            double b2 = (-65.20349958595051);
-            double3 r2 = double3(14090.785232165907, -1237.3350677224696, -5854.4493751370483);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double3 a2 = double3(-389.24327367788334, 53.796284939067618, 243.75734459783757);
+            double b2 = (-338.29248658674419);
+            double3 r2 = double3(131678.07493965575, -18198.879001166202, -82461.278227784351);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double3 a3 = double3(-356.19757311241585, 394.30371231320487, -428.80947776735269);
-            double b3 = (13.606950527805338);
-            double3 r3 = double3(-4846.7627554649671, 5365.271106375767, -5834.789349834411);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double3 a3 = double3(135.35469991311186, -383.93960946795517, -31.425238862366086);
+            double b3 = (-207.35010275959507);
+            double3 r3 = double3(-28065.810935977897, 79609.9174766593, 6516.0265073564287);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mul_scalar_wide()
         {
-            double a0 = (468.91594407936373);
-            double3 b0 = double3(123.86660796211413, 490.96148060772634, -247.16259181087958);
-            double3 r0 = double3(58083.027412463176, 230219.66618577423, -115898.48008010101);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double a0 = (37.432166355397612);
+            double3 b0 = double3(96.747546479454058, 492.18539427788244, -274.05458534604617);
+            double3 r0 = double3(3621.4702542954869, 18423.565556306661, -10258.456829132712);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double a1 = (-176.94950278892622);
-            double3 b1 = double3(382.26386874833327, -398.549474663357, 120.56934386145758);
-            double3 r1 = double3(-67641.401509188931, 70523.131378468766, -21334.685447871994);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double a1 = (-452.87096926796761);
+            double3 b1 = double3(420.85330434369541, 102.18292694081686, -114.94887762654054);
+            double3 r1 = double3(-190592.24385775632, -46275.681166325652, 52057.009626996405);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double a2 = (-263.27587879042881);
-            double3 b2 = double3(74.376708303753617, -309.85598554734884, 404.92799944660067);
-            double3 r2 = double3(-19581.593240210117, 81577.60689345267, -106607.77490115406);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double a2 = (-351.12003843445336);
+            double3 b2 = double3(-464.66496799172131, 444.08484646495663, 447.10525605040846);
+            double3 r2 = double3(163153.18142039722, -155927.08835893389, -156987.61468866552);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double a3 = (-105.62615566403889);
-            double3 b3 = double3(243.92625367079222, -291.96407737022457, -92.46494607462779);
-            double3 r3 = double3(-25764.992440776936, 30839.043084614834, 9766.7167875455962);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double a3 = (130.82935124767448);
+            double3 b3 = double3(-321.41334191030512, 445.30131861441828, 478.24357317306271);
+            double3 r3 = double3(-42050.2990044722, 58258.482624058335, 62568.296416601537);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double3_operator_div_wide_wide()
         {
-            double3 a0 = double3(6.8207170995049182, -338.63085881743154, 497.60438155457587);
-            double3 b0 = double3(-352.73601762984697, 302.20974292522749, -489.09516810304262);
-            double3 r0 = double3(-0.019336605162511136, -1.1205160215539951, -1.0173978685672489);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double3 a0 = double3(-353.13144390337703, -102.79985456485292, 51.319128298814917);
+            double3 b0 = double3(-178.73954805114283, -302.09628381491467, -199.40583739029518);
+            double3 r0 = double3(1.97567604793504, 0.34028837848212429, -0.25736021056579439);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double3 a1 = double3(-491.26991938579357, 173.45471604794955, -441.55652376709344);
-            double3 b1 = double3(-380.891595779402, 289.64650525229354, -216.57524715018235);
-            double3 r1 = double3(1.2897893385663424, 0.59884967677018452, 2.038813435872012);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double3 a1 = double3(-191.87167868012176, 8.0418245829836223, -128.73764210973758);
+            double3 b1 = double3(278.85077561012042, 502.33758782890516, -361.48483078623417);
+            double3 r1 = double3(-0.68808013268139567, 0.016008805189634039, 0.35613566917796119);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double3 a2 = double3(321.01690331148768, -41.6019933417449, -40.212614316592294);
-            double3 b2 = double3(-289.15099658125592, 198.97850022044895, -292.72057856839177);
-            double3 r2 = double3(-1.1102050731520718, -0.20907783150266945, 0.137375426467316);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double3 a2 = double3(-136.05959779399427, -370.4710053738537, -237.69456326109105);
+            double3 b2 = double3(353.121059820578, -38.894930142394685, -75.764737402910725);
+            double3 r2 = double3(-0.3853058151307277, 9.5249176182488586, 3.1372716570909582);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double3 a3 = double3(-169.79586728373351, -179.33992084271273, -433.40119119798817);
-            double3 b3 = double3(9.0584442657690261, -29.890428318591034, 257.63897216396356);
-            double3 r3 = double3(-18.744484406155202, 5.9999113740089225, -1.6822035407056666);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double3 a3 = double3(-432.54687496300176, 200.26549181727012, 361.44157068871039);
+            double3 b3 = double3(-195.21784719974636, -405.03399224068687, -394.2300085473014);
+            double3 r3 = double3(2.2157137842034547, -0.49444119667433889, -0.9168291678773689);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double3_operator_div_wide_scalar()
         {
-            double3 a0 = double3(-179.14525779483154, 46.961132786684288, 127.57277470807207);
-            double b0 = (-93.365409179295114);
-            double3 r0 = double3(1.9187540585915315, -0.50298213438450257, -1.3663815735342255);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double3 a0 = double3(171.34242184988341, 0.10338377957384637, 57.888263967767443);
+            double b0 = (171.79682191265601);
+            double3 r0 = double3(0.99735501473360411, 0.00060177934855167557, 0.33695771157628673);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double3 a1 = double3(391.67960924267754, 150.55543119765605, 18.422910937305005);
-            double b1 = (461.32760665441288);
-            double3 r1 = double3(0.84902703326855167, 0.326352529148422, 0.039934551220356239);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double3 a1 = double3(-256.13074529177078, -290.38690461329509, -127.44869118903239);
+            double b1 = (95.6696842162263);
+            double3 r1 = double3(-2.6772404172766056, -3.0353074434423948, -1.332174264325795);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double3 a2 = double3(169.15858395824148, 121.80905800769528, -22.542152176863567);
-            double b2 = (37.5003321345431);
-            double3 r2 = double3(4.5108556199272307, 3.2482127777074257, -0.60111873398846682);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double3 a2 = double3(-79.7448890580539, -499.84355687529012, 58.686315802245531);
+            double b2 = (146.46688110496234);
+            double3 r2 = double3(-0.54445679771733813, -3.4126729066968249, 0.400679767053886);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double3 a3 = double3(398.16749901239177, -498.45196341837379, 502.30602597738891);
-            double b3 = (-331.00037280237319);
-            double3 r3 = double3(-1.2029216029014, 1.5058954743715021, -1.5175391547890955);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double3 a3 = double3(-453.20579859856787, 481.73814247629514, 464.47907159499778);
+            double b3 = (-205.03382143985192);
+            double3 r3 = double3(2.2103953163235506, -2.3495545227284187, -2.2653778207575179);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double3_operator_div_scalar_wide()
         {
-            double a0 = (451.8446936327241);
-            double3 b0 = double3(-95.065177723330066, 207.048737383936, 502.38401603250952);
-            double3 r0 = double3(-4.7529989892590958, 2.1823107899221643, 0.89940101438952824);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double a0 = (-264.44250095283729);
+            double3 b0 = double3(105.58908157497137, -142.34910137129441, -288.94890679463231);
+            double3 r0 = double3(-2.5044492954044237, 1.85770404172122, 0.915187753732487);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double a1 = (62.0412257006584);
-            double3 b1 = double3(-110.84549408352257, -332.61274949303493, 224.27937065077913);
-            double3 r1 = double3(-0.5597090455829451, -0.18652690191587973, 0.27662475385336061);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double a1 = (39.644133824689334);
+            double3 b1 = double3(-363.99138396046658, -149.71822006521666, -395.72912306139671);
+            double3 r1 = double3(-0.10891503362891446, -0.26479164531491561, -0.10017997542864343);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double a2 = (-492.73451804217626);
-            double3 b2 = double3(435.03288027040333, 503.81881570435075, 291.34940757013362);
-            double3 r2 = double3(-1.1326374175117691, -0.9779994368676399, -1.691215102002791);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double a2 = (258.71868693955184);
+            double3 b2 = double3(-9.6662514254759344, 117.72553282497711, -331.38655797177296);
+            double3 r2 = double3(-26.765151820661792, 2.1976429473815986, -0.78071569505721816);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double a3 = (88.024186890583564);
-            double3 b3 = double3(328.70278874444909, 50.010147356432981, -509.81615304845207);
-            double3 r3 = double3(0.26779263792318542, 1.7601265251873068, -0.17265868561488654);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double a3 = (-509.98602676297821);
+            double3 b3 = double3(427.8964666928614, 467.61712882836218, -407.12461943511136);
+            double3 r3 = double3(-1.1918444447662142, -1.0906059579998137, 1.2526533705345255);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mod_wide_wide()
         {
-            double3 a0 = double3(157.55858881657878, 504.93797158866096, 73.007050786636341);
-            double3 b0 = double3(180.25016530801088, -41.479829092267835, -308.6731518752282);
-            double3 r0 = double3(157.55858881657878, 7.18002248144694, 73.007050786636341);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double3 a0 = double3(-388.81249422059045, 181.68118842955732, -167.07872470052854);
+            double3 b0 = double3(436.94417187056695, 58.940049437312382, -201.11623368091705);
+            double3 r0 = double3(-388.81249422059045, 4.8610401176201776, -167.07872470052854);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double3 a1 = double3(-387.60870975424007, 278.54447830773165, 282.22817314892461);
-            double3 b1 = double3(-326.86006203613249, 411.58822674843861, 429.41059680907551);
-            double3 r1 = double3(-60.748647718107577, 278.54447830773165, 282.22817314892461);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double3 a1 = double3(432.82015319951813, -258.43895995730486, -170.11079629236406);
+            double3 b1 = double3(279.2893537391393, -397.07975954426445, 377.89994758083481);
+            double3 r1 = double3(153.53079946037883, -258.43895995730486, -170.11079629236406);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double3 a2 = double3(57.086228635667908, -63.974762707936918, -345.26900379046288);
-            double3 b2 = double3(471.14820144658358, 226.1443618396969, 423.90749450396163);
-            double3 r2 = double3(57.086228635667908, -63.974762707936918, -345.26900379046288);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double3 a2 = double3(283.318293464984, 122.71651297561664, 335.27101413126616);
+            double3 b2 = double3(174.69386657266591, -228.17652736798698, -317.06019106370405);
+            double3 r2 = double3(108.62442689231807, 122.71651297561664, 18.210823067562103);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double3 a3 = double3(-380.71618407811792, 470.28039787257114, -480.3074555249454);
-            double3 b3 = double3(-300.951750657033, 67.241354258377783, -488.69098328458659);
-            double3 r3 = double3(-79.7644334210849, 66.832272322304448, -480.3074555249454);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double3 a3 = double3(-503.60851668920765, 191.02251848532933, 289.74269379756538);
+            double3 b3 = double3(-417.48011107811709, -249.9759434433542, -397.57157177364991);
+            double3 r3 = double3(-86.128405611090557, 191.02251848532933, 289.74269379756538);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mod_wide_scalar()
         {
-            double3 a0 = double3(42.072420378249376, 313.0502714184347, 111.52063970990514);
-            double b0 = (260.27255332668892);
-            double3 r0 = double3(42.072420378249376, 52.777718091745783, 111.52063970990514);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double3 a0 = double3(-244.49962889612635, -211.81931958525411, -145.92677576184587);
+            double b0 = (39.634963769295723);
+            double3 r0 = double3(-6.6898462803520147, -13.644500738775491, -27.021884453958705);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double3 a1 = double3(131.21203214079696, -436.48505970299482, -221.73172031237357);
-            double b1 = (-460.44087026102511);
-            double3 r1 = double3(131.21203214079696, -436.48505970299482, -221.73172031237357);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double3 a1 = double3(-304.91822090042672, -133.90778428591221, 281.30965412841624);
+            double b1 = (155.47946436492703);
+            double3 r1 = double3(-149.43875653549969, -133.90778428591221, 125.83018976348922);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double3 a2 = double3(-316.39089479874394, -238.94258724848862, 335.60093203913459);
-            double b2 = (24.183113824661405);
-            double3 r2 = double3(-2.0104150781456838, -21.29456282653598, 21.220452318536331);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double3 a2 = double3(-226.53575311719243, 101.70649032560482, 319.47152033423606);
+            double b2 = (335.16613046041039);
+            double3 r2 = double3(-226.53575311719243, 101.70649032560482, 319.47152033423606);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double3 a3 = double3(-240.83247792014504, -152.48966867872031, -387.4286050216428);
-            double b3 = (-12.394702678730084);
-            double3 r3 = double3(-5.3331270242734377, -3.7532365339592957, -3.1928219810101837);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double3 a3 = double3(-285.40231646476423, 259.37800061860025, -330.87193957477433);
+            double b3 = (-355.84685985923136);
+            double3 r3 = double3(-285.40231646476423, 259.37800061860025, -330.87193957477433);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double3_operator_mod_scalar_wide()
         {
-            double a0 = (-162.94581063228929);
-            double3 b0 = double3(171.12575991969823, 159.20793659948185, 491.34807061187371);
-            double3 r0 = double3(-162.94581063228929, -3.73787403280744, -162.94581063228929);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double a0 = (-66.945025236785909);
+            double3 b0 = double3(-249.77609479137516, -396.07375664081133, 386.49204582091977);
+            double3 r0 = double3(-66.945025236785909, -66.945025236785909, -66.945025236785909);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double a1 = (-136.53971416155792);
-            double3 b1 = double3(84.487527171376883, 414.39111657365743, -85.030597011107318);
-            double3 r1 = double3(-52.052186990181042, -136.53971416155792, -51.509117150450606);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double a1 = (168.93948109864232);
+            double3 b1 = double3(-199.4182442163202, 261.7517141130528, 16.127438791155555);
+            double3 r1 = double3(168.93948109864232, 168.93948109864232, 7.665093187086768);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double a2 = (161.98958857450145);
-            double3 b2 = double3(-7.6080162560604663, -85.22386912499735, 160.84123547414379);
-            double3 r2 = double3(2.2212471972316621, 76.7657194495041, 1.1483531003576672);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double a2 = (257.66814744550186);
+            double3 b2 = double3(-75.788451945310669, 170.95630439136005, -242.85828005655588);
+            double3 r2 = double3(30.302791609569852, 86.711843054141809, 14.809867388945975);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double a3 = (-234.48312078904507);
-            double3 b3 = double3(114.87764578446638, -40.548714895056889, -85.743732253901555);
-            double3 r3 = double3(-4.7278292201123122, -31.739546313760627, -62.995656281241963);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double a3 = (425.94531913564788);
+            double3 b3 = double3(303.27240409668184, 3.033060790520608, -505.74352788633831);
+            double3 r3 = double3(122.67291503896604, 1.316808462762765, 425.94531913564788);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double3_operator_plus()
         {
-            double3 a0 = double3(150.59985477784642, -137.85511237841803, 439.0911616939544);
-            double3 r0 = double3(150.59985477784642, -137.85511237841803, 439.0911616939544);
-            TestUtils.AreEqual(+a0, r0);
+            double3 a0 = double3(-418.82956357432045, -405.79894823851015, -34.041791216489742);
+            double3 r0 = double3(-418.82956357432045, -405.79894823851015, -34.041791216489742);
+            TestUtils.AreEqual(r0, +a0);
 
-            double3 a1 = double3(401.84926075574447, -299.61462010984059, -364.62483113101905);
-            double3 r1 = double3(401.84926075574447, -299.61462010984059, -364.62483113101905);
-            TestUtils.AreEqual(+a1, r1);
+            double3 a1 = double3(236.99924456188421, 210.8614223985287, 293.74197902052754);
+            double3 r1 = double3(236.99924456188421, 210.8614223985287, 293.74197902052754);
+            TestUtils.AreEqual(r1, +a1);
 
-            double3 a2 = double3(444.56690975863808, 188.5903004093982, -458.63783023256707);
-            double3 r2 = double3(444.56690975863808, 188.5903004093982, -458.63783023256707);
-            TestUtils.AreEqual(+a2, r2);
+            double3 a2 = double3(-373.015422279488, 4.9544198536101476, -418.64524932328857);
+            double3 r2 = double3(-373.015422279488, 4.9544198536101476, -418.64524932328857);
+            TestUtils.AreEqual(r2, +a2);
 
-            double3 a3 = double3(-176.78832515365832, -202.57394585505779, -83.51769761159909);
-            double3 r3 = double3(-176.78832515365832, -202.57394585505779, -83.51769761159909);
-            TestUtils.AreEqual(+a3, r3);
+            double3 a3 = double3(504.47483062393724, 439.55937572920664, -478.74939916969714);
+            double3 r3 = double3(504.47483062393724, 439.55937572920664, -478.74939916969714);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void double3_operator_neg()
         {
-            double3 a0 = double3(-169.28116782441788, -377.02522366914206, 36.614130752447068);
-            double3 r0 = double3(169.28116782441788, 377.02522366914206, -36.614130752447068);
-            TestUtils.AreEqual(-a0, r0);
+            double3 a0 = double3(148.46174890755753, -467.12267873581624, 132.04719954917539);
+            double3 r0 = double3(-148.46174890755753, 467.12267873581624, -132.04719954917539);
+            TestUtils.AreEqual(r0, -a0);
 
-            double3 a1 = double3(-258.38245713821726, 388.94596380225664, 350.96924678933306);
-            double3 r1 = double3(258.38245713821726, -388.94596380225664, -350.96924678933306);
-            TestUtils.AreEqual(-a1, r1);
+            double3 a1 = double3(183.52262290917463, -407.99109024926605, -54.958759571872065);
+            double3 r1 = double3(-183.52262290917463, 407.99109024926605, 54.958759571872065);
+            TestUtils.AreEqual(r1, -a1);
 
-            double3 a2 = double3(176.10255464171178, 201.18688664268086, -60.813943175978011);
-            double3 r2 = double3(-176.10255464171178, -201.18688664268086, 60.813943175978011);
-            TestUtils.AreEqual(-a2, r2);
+            double3 a2 = double3(-382.98981803608581, -383.01406377508027, 407.70980305583669);
+            double3 r2 = double3(382.98981803608581, 383.01406377508027, -407.70980305583669);
+            TestUtils.AreEqual(r2, -a2);
 
-            double3 a3 = double3(313.88018789602449, 327.17948142028388, 292.367550270803);
-            double3 r3 = double3(-313.88018789602449, -327.17948142028388, -292.367550270803);
-            TestUtils.AreEqual(-a3, r3);
+            double3 a3 = double3(168.73550351370852, 171.90249474900895, -280.55831564616335);
+            double3 r3 = double3(-168.73550351370852, -171.90249474900895, 280.55831564616335);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void double3_operator_prefix_inc()
         {
-            double3 a0 = double3(86.5853612826138, 161.589808777715, 443.92963978458647);
-            double3 r0 = double3(87.5853612826138, 162.589808777715, 444.92963978458647);
-            TestUtils.AreEqual(++a0, r0);
+            double3 a0 = double3(-139.84208137348389, -56.743654039103376, -381.955324589254);
+            double3 r0 = double3(-138.84208137348389, -55.743654039103376, -380.955324589254);
+            TestUtils.AreEqual(r0, ++a0);
 
-            double3 a1 = double3(-338.26843587414754, -368.56747858997784, 359.14160864387713);
-            double3 r1 = double3(-337.26843587414754, -367.56747858997784, 360.14160864387713);
-            TestUtils.AreEqual(++a1, r1);
+            double3 a1 = double3(509.79634380237962, 210.31986556310198, -392.73151058365193);
+            double3 r1 = double3(510.79634380237962, 211.31986556310198, -391.73151058365193);
+            TestUtils.AreEqual(r1, ++a1);
 
-            double3 a2 = double3(145.02611143189768, 25.361956369766062, -484.20042751925087);
-            double3 r2 = double3(146.02611143189768, 26.361956369766062, -483.20042751925087);
-            TestUtils.AreEqual(++a2, r2);
+            double3 a2 = double3(-300.19410218866267, 401.614830919362, 130.90919429199266);
+            double3 r2 = double3(-299.19410218866267, 402.614830919362, 131.90919429199266);
+            TestUtils.AreEqual(r2, ++a2);
 
-            double3 a3 = double3(346.04049341103087, 244.66301571794929, 49.973209165955495);
-            double3 r3 = double3(347.04049341103087, 245.66301571794929, 50.973209165955495);
-            TestUtils.AreEqual(++a3, r3);
+            double3 a3 = double3(-450.23016402229212, 46.19202735190845, -41.497298975241051);
+            double3 r3 = double3(-449.23016402229212, 47.19202735190845, -40.497298975241051);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void double3_operator_postfix_inc()
         {
-            double3 a0 = double3(-281.78208912619488, 215.34223971857796, 120.82084923648313);
-            double3 r0 = double3(-281.78208912619488, 215.34223971857796, 120.82084923648313);
-            TestUtils.AreEqual(a0++, r0);
+            double3 a0 = double3(-396.6697396695007, 511.20749378167443, 249.11127030528678);
+            double3 r0 = double3(-396.6697396695007, 511.20749378167443, 249.11127030528678);
+            TestUtils.AreEqual(r0, a0++);
 
-            double3 a1 = double3(-325.35367003332533, 44.563681384811048, -375.17335360831271);
-            double3 r1 = double3(-325.35367003332533, 44.563681384811048, -375.17335360831271);
-            TestUtils.AreEqual(a1++, r1);
+            double3 a1 = double3(-128.81731301584153, 278.00817764830219, -81.393423356764686);
+            double3 r1 = double3(-128.81731301584153, 278.00817764830219, -81.393423356764686);
+            TestUtils.AreEqual(r1, a1++);
 
-            double3 a2 = double3(193.36569628183065, -341.15366927774329, -130.47432786341494);
-            double3 r2 = double3(193.36569628183065, -341.15366927774329, -130.47432786341494);
-            TestUtils.AreEqual(a2++, r2);
+            double3 a2 = double3(66.719732554033271, 147.94395048354932, -326.10758486674524);
+            double3 r2 = double3(66.719732554033271, 147.94395048354932, -326.10758486674524);
+            TestUtils.AreEqual(r2, a2++);
 
-            double3 a3 = double3(277.30739582577132, -362.90921490402388, 480.75709866022555);
-            double3 r3 = double3(277.30739582577132, -362.90921490402388, 480.75709866022555);
-            TestUtils.AreEqual(a3++, r3);
+            double3 a3 = double3(41.033564825092185, 73.155582223625629, -60.132380275117384);
+            double3 r3 = double3(41.033564825092185, 73.155582223625629, -60.132380275117384);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void double3_operator_prefix_dec()
         {
-            double3 a0 = double3(340.00185433961542, 496.07084750387389, 288.38421048241867);
-            double3 r0 = double3(339.00185433961542, 495.07084750387389, 287.38421048241867);
-            TestUtils.AreEqual(--a0, r0);
+            double3 a0 = double3(123.12869626056806, 256.8437465433235, 156.33078844674435);
+            double3 r0 = double3(122.12869626056806, 255.8437465433235, 155.33078844674435);
+            TestUtils.AreEqual(r0, --a0);
 
-            double3 a1 = double3(183.6946252247759, 398.28191751906741, -240.59158407924303);
-            double3 r1 = double3(182.6946252247759, 397.28191751906741, -241.59158407924303);
-            TestUtils.AreEqual(--a1, r1);
+            double3 a1 = double3(461.73742530389563, 392.01561731473339, 187.87412580655609);
+            double3 r1 = double3(460.73742530389563, 391.01561731473339, 186.87412580655609);
+            TestUtils.AreEqual(r1, --a1);
 
-            double3 a2 = double3(15.320201642494794, 311.9143594763774, -305.80371084148237);
-            double3 r2 = double3(14.320201642494794, 310.9143594763774, -306.80371084148237);
-            TestUtils.AreEqual(--a2, r2);
+            double3 a2 = double3(-236.2252043393558, 469.8447313112415, 45.536655685648611);
+            double3 r2 = double3(-237.2252043393558, 468.8447313112415, 44.536655685648611);
+            TestUtils.AreEqual(r2, --a2);
 
-            double3 a3 = double3(-268.38814676384823, 468.03655383923865, -93.05706147712516);
-            double3 r3 = double3(-269.38814676384823, 467.03655383923865, -94.05706147712516);
-            TestUtils.AreEqual(--a3, r3);
+            double3 a3 = double3(376.04684680329956, -22.028951416736902, 248.79012667797042);
+            double3 r3 = double3(375.04684680329956, -23.028951416736902, 247.79012667797042);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void double3_operator_postfix_dec()
         {
-            double3 a0 = double3(-148.11175806266806, 252.84978473039803, -106.15790395911688);
-            double3 r0 = double3(-148.11175806266806, 252.84978473039803, -106.15790395911688);
-            TestUtils.AreEqual(a0--, r0);
+            double3 a0 = double3(379.68831723727669, 302.69287814884115, -176.07134040448409);
+            double3 r0 = double3(379.68831723727669, 302.69287814884115, -176.07134040448409);
+            TestUtils.AreEqual(r0, a0--);
 
-            double3 a1 = double3(132.64859277226435, 343.31118575824019, -321.15781441384826);
-            double3 r1 = double3(132.64859277226435, 343.31118575824019, -321.15781441384826);
-            TestUtils.AreEqual(a1--, r1);
+            double3 a1 = double3(-291.25267066212962, -402.92594666170231, -63.655158787805192);
+            double3 r1 = double3(-291.25267066212962, -402.92594666170231, -63.655158787805192);
+            TestUtils.AreEqual(r1, a1--);
 
-            double3 a2 = double3(450.60180565835992, 425.62580533773905, 269.75451553508378);
-            double3 r2 = double3(450.60180565835992, 425.62580533773905, 269.75451553508378);
-            TestUtils.AreEqual(a2--, r2);
+            double3 a2 = double3(355.26110069605568, -100.76183824462902, 156.14034969924967);
+            double3 r2 = double3(355.26110069605568, -100.76183824462902, 156.14034969924967);
+            TestUtils.AreEqual(r2, a2--);
 
-            double3 a3 = double3(-164.30984576247158, -320.72596064243743, -337.03135673004732);
-            double3 r3 = double3(-164.30984576247158, -320.72596064243743, -337.03135673004732);
-            TestUtils.AreEqual(a3--, r3);
+            double3 a3 = double3(479.94519613680677, -445.0269393609031, 407.42034907239508);
+            double3 r3 = double3(479.94519613680677, -445.0269393609031, 407.42034907239508);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
@@ -977,12 +977,12 @@ namespace Unity.Mathematics.Tests
             double3 a = double3(0, 1, 2);
             double3 b = double3(3, 4, 5);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX), (0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY), (1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ), (2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX), (3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY), (4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ), (5));
+            TestUtils.AreEqual((0), shuffle(a, b, ShuffleComponent.LeftX));
+            TestUtils.AreEqual((1), shuffle(a, b, ShuffleComponent.LeftY));
+            TestUtils.AreEqual((2), shuffle(a, b, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual((3), shuffle(a, b, ShuffleComponent.RightX));
+            TestUtils.AreEqual((4), shuffle(a, b, ShuffleComponent.RightY));
+            TestUtils.AreEqual((5), shuffle(a, b, ShuffleComponent.RightZ));
         }
 
         [TestCompiler]
@@ -991,22 +991,22 @@ namespace Unity.Mathematics.Tests
             double3 a = double3(0, 1, 2);
             double3 b = double3(3, 4, 5);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY), double2(4, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), double2(4, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX), double2(1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftZ), double2(5, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY), double2(5, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ), double2(1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftZ), double2(3, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX), double2(5, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ), double2(5, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY), double2(4, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightZ), double2(4, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX), double2(5, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), double2(4, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY), double2(5, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX), double2(3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ), double2(1, 2));
+            TestUtils.AreEqual(double2(4, 4), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(4, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(1, 3), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(5, 2), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double2(5, 1), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(1, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double2(3, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double2(5, 0), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(5, 5), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double2(4, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(4, 5), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double2(5, 0), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(4, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(5, 4), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(3, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(1, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ));
         }
 
         [TestCompiler]
@@ -1015,22 +1015,22 @@ namespace Unity.Mathematics.Tests
             double3 a = double3(0, 1, 2);
             double3 b = double3(3, 4, 5);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightZ, ShuffleComponent.RightX), double3(1, 5, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftZ), double3(4, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX), double3(2, 5, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftY), double3(4, 0, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY, ShuffleComponent.LeftZ), double3(5, 4, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.LeftY), double3(2, 0, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightX), double3(2, 4, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftY, ShuffleComponent.RightZ), double3(2, 1, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightZ), double3(4, 4, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY), double3(4, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX), double3(5, 5, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightX), double3(5, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightZ), double3(4, 1, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.RightY), double3(2, 3, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY), double3(4, 0, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightZ), double3(4, 0, 5));
+            TestUtils.AreEqual(double3(1, 5, 3), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightZ, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(4, 0, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double3(2, 5, 3), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(4, 0, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(5, 4, 2), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double3(2, 0, 1), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(2, 4, 3), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(2, 1, 5), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double3(4, 4, 5), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double3(4, 3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(5, 5, 0), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double3(5, 1, 3), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(4, 1, 5), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double3(2, 3, 4), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(4, 0, 4), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(4, 0, 5), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightZ));
         }
 
         [TestCompiler]
@@ -1039,22 +1039,22 @@ namespace Unity.Mathematics.Tests
             double3 a = double3(0, 1, 2);
             double3 b = double3(3, 4, 5);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.LeftY), double4(1, 2, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightY), double4(4, 2, 5, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightZ, ShuffleComponent.LeftY), double4(4, 4, 5, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double4(3, 3, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftX), double4(4, 1, 1, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightZ), double4(3, 4, 3, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightZ), double4(1, 5, 0, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX), double4(4, 0, 0, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightZ, ShuffleComponent.LeftZ, ShuffleComponent.LeftX), double4(3, 5, 2, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX), double4(4, 3, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX), double4(0, 2, 5, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightZ, ShuffleComponent.RightZ), double4(1, 4, 5, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX), double4(2, 3, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftZ), double4(3, 0, 1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(5, 3, 0, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(2, 5, 0, 4));
+            TestUtils.AreEqual(double4(1, 2, 3, 1), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(4, 2, 5, 4), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(4, 4, 5, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightZ, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(3, 3, 1, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(4, 1, 1, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(3, 4, 3, 5), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double4(1, 5, 0, 5), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double4(4, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(3, 5, 2, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightZ, ShuffleComponent.LeftZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(4, 3, 1, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(0, 2, 5, 0), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(1, 4, 5, 5), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightZ, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double4(2, 3, 1, 3), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(3, 0, 1, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double4(5, 3, 0, 4), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(2, 5, 0, 4), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightY));
         }
 
 

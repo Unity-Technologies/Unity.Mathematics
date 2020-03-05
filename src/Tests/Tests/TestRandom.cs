@@ -1112,7 +1112,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
                 float2 dir = rnd.NextFloat2Direction();
-                TestUtils.AreEqual(1.0f, length(dir), 0.001f);
+                TestUtils.AreEqual(length(dir), 1.0f, 0.001f);
                 return atan2(dir.x, dir.y) / (2.0f * PI) + 0.5f;
             });
         }
@@ -1123,7 +1123,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
                 double2 dir = rnd.NextFloat2Direction();
-                TestUtils.AreEqual(1.0, length(dir), 0.000001);
+                TestUtils.AreEqual(length(dir), 1.0, 0.000001);
                 return atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
             });
         }
@@ -1137,7 +1137,7 @@ namespace Unity.Mathematics.Tests
             {
                 float3 dir = rnd.NextFloat3Direction();
                 float r = length(dir);
-                TestUtils.AreEqual(1.0f, r, 0.001f);
+                TestUtils.AreEqual(r, 1.0f, 0.001f);
 
                 float phi = atan2(dir.y, dir.x) / (2.0f * PI) + 0.5f;
                 float z = saturate(dir.z / r * 0.5f + 0.5f);
@@ -1153,7 +1153,7 @@ namespace Unity.Mathematics.Tests
             {
                 double3 dir = rnd.NextDouble3Direction();
                 double r = length(dir);
-                TestUtils.AreEqual(1.0, r, 0.00001);
+                TestUtils.AreEqual(r, 1.0, 0.00001);
 
                 double phi = atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
                 double z = saturate(dir.z / r * 0.5 + 0.5);
@@ -1168,13 +1168,13 @@ namespace Unity.Mathematics.Tests
             ks_test(() =>
             {
                 quaternion q = rnd.NextQuaternionRotation();
-                TestUtils.AreEqual(1.0, dot(q, q), 0.00001f);
+                TestUtils.AreEqual(dot(q, q), 1.0, 0.00001f);
                 Assert.GreaterOrEqual(q.value.w, 0.0f);
                 float3 p = float3(1.0f, 2.0f, 3.0f);
 
                 float3 qp = mul(q, p);
 
-                TestUtils.AreEqual(length(p), length(qp), 0.0001f);
+                TestUtils.AreEqual(length(qp), length(p), 0.0001f);
                 float r = length(qp);
 
                 double phi = atan2(qp.y, qp.x) / (2.0 * PI_DBL) + 0.5;

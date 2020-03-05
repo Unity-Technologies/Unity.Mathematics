@@ -13,25 +13,25 @@ namespace Unity.Mathematics.Tests
         public static void IsEmpty_trivial()
         {
             var aabb = new MinMaxAABB();
-            Assert.IsFalse(aabb.IsEmpty);
+            TestUtils.IsFalse(aabb.IsEmpty);
         }
 
         [TestCompiler]
         public static void IsEmpty_empty()
         {
             var aabb = MinMaxAABB.Empty;
-            Assert.IsTrue(aabb.IsEmpty);
+            TestUtils.IsTrue(aabb.IsEmpty);
 
             aabb.Min = new float3(1.0f);
             aabb.Max = new float3(-1.0f);
-            Assert.IsFalse(aabb.IsEmpty);
+            TestUtils.IsFalse(aabb.IsEmpty);
         }
 
         [TestCompiler]
         public static void IsEmpty_min_gt_max()
         {
             var aabb = new MinMaxAABB { Min = new float3(1.0f), Max = new float3(-1.0f) };
-            Assert.IsFalse(aabb.IsEmpty);
+            TestUtils.IsFalse(aabb.IsEmpty);
         }
 
         [TestCompiler]
@@ -202,7 +202,7 @@ namespace Unity.Mathematics.Tests
         public static void Equals_trivial()
         {
             MinMaxAABB aabb = new MinMaxAABB();
-            Assert.IsTrue(aabb.Equals(aabb));
+            TestUtils.IsTrue(aabb.Equals(aabb));
         }
 
         [TestCompiler]
@@ -210,8 +210,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB { Min = new float3(-123.0f, 0.5182f, 20.0f), Max = new float3(1.0f, -1.0f, 0.99191f) };
             MinMaxAABB aabb2 = aabb1;
-            Assert.IsTrue(aabb1.Equals(aabb2));
-            Assert.IsTrue(aabb2.Equals(aabb1));
+            TestUtils.IsTrue(aabb1.Equals(aabb2));
+            TestUtils.IsTrue(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -219,8 +219,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Min = new float3(1.0f, 0.0f, 0.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -228,8 +228,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Min = new float3(0.0f, 1.0f, 0.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -237,8 +237,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Min = new float3(0.0f, 0.0f, 1.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -246,8 +246,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Max = new float3(1.0f, 0.0f, 0.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -255,8 +255,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Max = new float3(0.0f, 1.0f, 0.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
         [TestCompiler]
@@ -264,8 +264,8 @@ namespace Unity.Mathematics.Tests
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
             MinMaxAABB aabb2 = new MinMaxAABB { Max = new float3(0.0f, 0.0f, 1.0f) };
-            Assert.IsFalse(aabb1.Equals(aabb2));
-            Assert.IsFalse(aabb2.Equals(aabb1));
+            TestUtils.IsFalse(aabb1.Equals(aabb2));
+            TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
     }
 }

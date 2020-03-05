@@ -18,952 +18,952 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void float2_zero()
         {
-            TestUtils.AreEqual(float2.zero.x, 0.0f);
-            TestUtils.AreEqual(float2.zero.y, 0.0f);
+            TestUtils.AreEqual(0.0f, float2.zero.x);
+            TestUtils.AreEqual(0.0f, float2.zero.y);
         }
 
         [TestCompiler]
         public static void float2_constructor()
         {
             float2 a = new float2(1, 2);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
         }
 
         [TestCompiler]
         public static void float2_scalar_constructor()
         {
             float2 a = new float2(17.0f);
-            TestUtils.AreEqual(a.x, 17.0f);
-            TestUtils.AreEqual(a.y, 17.0f);
+            TestUtils.AreEqual(17.0f, a.x);
+            TestUtils.AreEqual(17.0f, a.y);
         }
 
         [TestCompiler]
         public static void float2_static_constructor()
         {
             float2 a = float2(1, 2);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
         }
 
         [TestCompiler]
         public static void float2_static_scalar_constructor()
         {
             float2 a = float2(17.0f);
-            TestUtils.AreEqual(a.x, 17.0f);
-            TestUtils.AreEqual(a.y, 17.0f);
+            TestUtils.AreEqual(17.0f, a.x);
+            TestUtils.AreEqual(17.0f, a.y);
         }
 
         [TestCompiler]
         public static void float2_operator_equal_wide_wide()
         {
-            float2 a0 = float2(331.744141f, -417.6833f);
-            float2 b0 = float2(-426.582825f, 431.344543f);
+            float2 a0 = float2(492.1576f, -495.206329f);
+            float2 b0 = float2(192.568787f, -235.611023f);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float2 a1 = float2(-438.450867f, -57.99066f);
-            float2 b1 = float2(263.339172f, -309.3919f);
+            float2 a1 = float2(227.457642f, -147.374054f);
+            float2 b1 = float2(-254.043121f, -412.624725f);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float2 a2 = float2(-183.1134f, 72.3228149f);
-            float2 b2 = float2(391.1996f, -468.237274f);
+            float2 a2 = float2(-222.682f, 64.09375f);
+            float2 b2 = float2(471.9048f, -6.47277832f);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float2 a3 = float2(-292.706116f, -181.376923f);
-            float2 b3 = float2(-389.9116f, -192.672028f);
+            float2 a3 = float2(-23.8904114f, -16.8197327f);
+            float2 b3 = float2(-339.102356f, 488.187561f);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float2_operator_equal_wide_scalar()
         {
-            float2 a0 = float2(327.101929f, 440.467224f);
-            float b0 = (342.440552f);
+            float2 a0 = float2(-303.230072f, 451.5263f);
+            float b0 = (123.544556f);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float2 a1 = float2(-443.745178f, 435.371765f);
-            float b1 = (325.546265f);
+            float2 a1 = float2(-253.655884f, -500.6911f);
+            float b1 = (-105.203644f);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float2 a2 = float2(58.38208f, 377.0666f);
-            float b2 = (-398.435f);
+            float2 a2 = float2(-426.192474f, -59.55838f);
+            float b2 = (159.8761f);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float2 a3 = float2(445.502136f, -92.37259f);
-            float b3 = (-17.7927246f);
+            float2 a3 = float2(-57.4773865f, 406.513733f);
+            float b3 = (-182.049744f);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float2_operator_equal_scalar_wide()
         {
-            float a0 = (430.781128f);
-            float2 b0 = float2(-434.727478f, 103.730347f);
+            float a0 = (-253.397278f);
+            float2 b0 = float2(19.95221f, -185.791992f);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float a1 = (-263.03656f);
-            float2 b1 = float2(-224.560181f, 204.110779f);
+            float a1 = (407.8136f);
+            float2 b1 = float2(-87.2767f, -206.274689f);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float a2 = (196.568237f);
-            float2 b2 = float2(-424.756561f, 467.4505f);
+            float a2 = (160.503113f);
+            float2 b2 = float2(-274.7708f, -2.63153076f);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float a3 = (-45.4336243f);
-            float2 b3 = float2(138.191589f, 181.061951f);
+            float a3 = (448.354553f);
+            float2 b3 = float2(-410.035248f, 247.329041f);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float2_operator_not_equal_wide_wide()
         {
-            float2 a0 = float2(19.2539673f, 121.335449f);
-            float2 b0 = float2(-249.066345f, -19.0466f);
+            float2 a0 = float2(430.842529f, 104.69f);
+            float2 b0 = float2(210.024719f, -55.20334f);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float2 a1 = float2(468.3097f, -212.365448f);
-            float2 b1 = float2(323.622559f, 294.941956f);
+            float2 a1 = float2(225.802429f, -310.5702f);
+            float2 b1 = float2(-269.925354f, -234.546722f);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float2 a2 = float2(-410.633484f, 507.534241f);
-            float2 b2 = float2(-492.460968f, -166.483276f);
+            float2 a2 = float2(-418.619446f, 304.128174f);
+            float2 b2 = float2(25.91742f, -63.72699f);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float2 a3 = float2(52.20117f, -319.6424f);
-            float2 b3 = float2(421.1953f, 87.6629f);
+            float2 a3 = float2(-509.3268f, -160.538086f);
+            float2 b3 = float2(-484.5537f, -425.3336f);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float2_operator_not_equal_wide_scalar()
         {
-            float2 a0 = float2(-418.022278f, 231.448242f);
-            float b0 = (-206.336578f);
+            float2 a0 = float2(-16.9145813f, 168.8341f);
+            float b0 = (-145.372772f);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float2 a1 = float2(-469.478516f, -376.084381f);
-            float b1 = (-94.97409f);
+            float2 a1 = float2(-462.713531f, 214.501587f);
+            float b1 = (130.307739f);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float2 a2 = float2(-428.119019f, -91.33383f);
-            float b2 = (492.9278f);
+            float2 a2 = float2(-440.263275f, -169.099854f);
+            float b2 = (-197.12796f);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float2 a3 = float2(80.41858f, -409.290527f);
-            float b3 = (-124.39093f);
+            float2 a3 = float2(-386.611176f, -270.26886f);
+            float b3 = (-281.021f);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float2_operator_not_equal_scalar_wide()
         {
-            float a0 = (357.343384f);
-            float2 b0 = float2(192.976379f, -323.1933f);
+            float a0 = (275.795837f);
+            float2 b0 = float2(-57.1969f, -382.432526f);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float a1 = (-25.1252441f);
-            float2 b1 = float2(-270.503082f, -454.426819f);
+            float a1 = (97.82037f);
+            float2 b1 = float2(-161.463654f, -458.39563f);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float a2 = (-458.8189f);
-            float2 b2 = float2(-274.5384f, 127.642212f);
+            float a2 = (-499.617859f);
+            float2 b2 = float2(327.92218f, 367.571228f);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float a3 = (-43.8877258f);
-            float2 b3 = float2(-179.47229f, 498.287659f);
+            float a3 = (59.786377f);
+            float2 b3 = float2(-209.580688f, -62.5804443f);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_wide_wide()
         {
-            float2 a0 = float2(487.8249f, -508.921722f);
-            float2 b0 = float2(453.097351f, -123.830566f);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float2 a0 = float2(196.84259f, 336.4098f);
+            float2 b0 = float2(-465.345032f, -256.1524f);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float2 a1 = float2(53.8760376f, 443.786926f);
-            float2 b1 = float2(492.750122f, 434.46344f);
-            bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            float2 a1 = float2(251.963745f, 257.655945f);
+            float2 b1 = float2(-314.814026f, 364.5667f);
+            bool2 r1 = bool2(false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float2 a2 = float2(-81.07861f, 103.165527f);
-            float2 b2 = float2(-402.464783f, -480.752319f);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float2 a2 = float2(430.0459f, -62.4196472f);
+            float2 b2 = float2(100.21051f, 182.560974f);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float2 a3 = float2(-496.199768f, 30.0013428f);
-            float2 b3 = float2(317.300659f, 175.821045f);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            float2 a3 = float2(8.839233f, -333.8167f);
+            float2 b3 = float2(3.11700439f, -259.430481f);
+            bool2 r3 = bool2(false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_wide_scalar()
         {
-            float2 a0 = float2(18.1535645f, -409.346466f);
-            float b0 = (152.320862f);
-            bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float2 a0 = float2(-132.057312f, -192.465f);
+            float b0 = (-156.010223f);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float2 a1 = float2(180.7865f, 228.264709f);
-            float b1 = (-185.154968f);
+            float2 a1 = float2(-66.8345947f, -360.2824f);
+            float b1 = (-379.017517f);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float2 a2 = float2(124.125732f, -307.545563f);
-            float b2 = (265.743835f);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float2 a2 = float2(20.9278564f, 437.3459f);
+            float b2 = (-158.240753f);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float2 a3 = float2(493.123169f, 131.67981f);
-            float b3 = (36.3736572f);
-            bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            float2 a3 = float2(-20.4526062f, 307.4842f);
+            float b3 = (225.2915f);
+            bool2 r3 = bool2(true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_scalar_wide()
         {
-            float a0 = (416.681274f);
-            float2 b0 = float2(-105.389069f, -389.2496f);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float a0 = (-423.1174f);
+            float2 b0 = float2(385.094849f, -123.933472f);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float a1 = (408.846863f);
-            float2 b1 = float2(-87.03952f, 268.691345f);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            float a1 = (86.37659f);
+            float2 b1 = float2(133.4422f, 161.457947f);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float a2 = (-470.20163f);
-            float2 b2 = float2(271.315674f, -170.322723f);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float a2 = (229.754272f);
+            float2 b2 = float2(222.5716f, 315.5312f);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float a3 = (-156.598419f);
-            float2 b3 = float2(-0.2886963f, 72.09082f);
+            float a3 = (-447.203522f);
+            float2 b3 = float2(271.833862f, -393.605316f);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_wide_wide()
         {
-            float2 a0 = float2(-188.03302f, 234.300232f);
-            float2 b0 = float2(-17.4008179f, -59.53961f);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float2 a0 = float2(483.5014f, 310.8156f);
+            float2 b0 = float2(-471.398f, -371.9853f);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float2 a1 = float2(-56.30594f, 240.958374f);
-            float2 b1 = float2(-24.2853088f, 222.387512f);
-            bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            float2 a1 = float2(106.966187f, 295.7353f);
+            float2 b1 = float2(36.9006958f, -316.7636f);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float2 a2 = float2(501.4876f, -303.425f);
-            float2 b2 = float2(-207.170441f, 365.5465f);
+            float2 a2 = float2(116.957581f, -478.299774f);
+            float2 b2 = float2(19.6830444f, 207.309143f);
             bool2 r2 = bool2(true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float2 a3 = float2(-305.5091f, -470.742554f);
-            float2 b3 = float2(183.5733f, -23.080719f);
+            float2 a3 = float2(-14.8974f, -33.8174438f);
+            float2 b3 = float2(362.7975f, 324.95343f);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_wide_scalar()
         {
-            float2 a0 = float2(468.8808f, -355.421021f);
-            float b0 = (201.802734f);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float2 a0 = float2(64.31793f, -397.703461f);
+            float b0 = (305.859924f);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float2 a1 = float2(-45.708252f, 348.72522f);
-            float b1 = (407.176575f);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            float2 a1 = float2(431.8769f, 246.263062f);
+            float b1 = (85.703f);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float2 a2 = float2(418.545349f, -364.2755f);
-            float b2 = (-422.750183f);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            float2 a2 = float2(197.491577f, 280.813354f);
+            float b2 = (286.199463f);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float2 a3 = float2(434.163635f, 178.8064f);
-            float b3 = (-255.049072f);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            float2 a3 = float2(-405.7846f, -241.807281f);
+            float b3 = (171.565369f);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_scalar_wide()
         {
-            float a0 = (137.504211f);
-            float2 b0 = float2(-443.866821f, 279.852783f);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float a0 = (-282.6705f);
+            float2 b0 = float2(358.099976f, -72.596405f);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float a1 = (-462.4043f);
-            float2 b1 = float2(-280.713776f, 120.712769f);
+            float a1 = (-232.163788f);
+            float2 b1 = float2(-60.7067261f, 75.15662f);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float a2 = (-31.6700134f);
-            float2 b2 = float2(363.428345f, 263.125427f);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            float a2 = (150.883484f);
+            float2 b2 = float2(339.539185f, -498.196045f);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float a3 = (-156.36087f);
-            float2 b3 = float2(66.3540039f, -303.1296f);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            float a3 = (459.7461f);
+            float2 b3 = float2(-227.968719f, 335.862122f);
+            bool2 r3 = bool2(true, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_equal_wide_wide()
         {
-            float2 a0 = float2(333.0476f, 239.35083f);
-            float2 b0 = float2(46.1311646f, -378.082336f);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float2 a0 = float2(-438.523132f, 210.489441f);
+            float2 b0 = float2(-474.814148f, 304.371033f);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float2 a1 = float2(26.5692139f, 41.4924927f);
-            float2 b1 = float2(-466.7782f, -173.335022f);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            float2 a1 = float2(4.87731934f, -137.297943f);
+            float2 b1 = float2(234.824158f, -390.485443f);
+            bool2 r1 = bool2(true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float2 a2 = float2(-162.662354f, -271.002747f);
-            float2 b2 = float2(-482.2393f, 183.3465f);
+            float2 a2 = float2(156.094116f, -363.924133f);
+            float2 b2 = float2(-297.175354f, -326.2924f);
             bool2 r2 = bool2(false, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float2 a3 = float2(-108.986206f, 392.0816f);
-            float2 b3 = float2(399.076172f, -127.637085f);
+            float2 a3 = float2(-97.94849f, 437.2954f);
+            float2 b3 = float2(107.253906f, -413.131073f);
             bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_equal_wide_scalar()
         {
-            float2 a0 = float2(122.817688f, -283.694275f);
-            float b0 = (-181.943909f);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float2 a0 = float2(193.49585f, 168.915527f);
+            float b0 = (443.850525f);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float2 a1 = float2(-288.847656f, -315.2539f);
-            float b1 = (-185.453918f);
+            float2 a1 = float2(-313.993073f, 18.5036011f);
+            float b1 = (81.8269653f);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float2 a2 = float2(279.5738f, -255.5698f);
-            float b2 = (-317.959167f);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            float2 a2 = float2(-0.3581848f, -463.8164f);
+            float b2 = (241.361145f);
+            bool2 r2 = bool2(true, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float2 a3 = float2(-368.803284f, -207.253967f);
-            float b3 = (-132.488861f);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            float2 a3 = float2(-1.35775757f, 398.991943f);
+            float b3 = (-268.899475f);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_less_equal_scalar_wide()
         {
-            float a0 = (-336.4657f);
-            float2 b0 = float2(251.958374f, -22.8583069f);
-            bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float a0 = (393.606262f);
+            float2 b0 = float2(-75.6883545f, -44.2638855f);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float a1 = (-238.905853f);
-            float2 b1 = float2(284.666626f, -358.324f);
+            float a1 = (125.864929f);
+            float2 b1 = float2(191.9649f, 13.54303f);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float a2 = (468.530273f);
-            float2 b2 = float2(-439.037231f, -197.067688f);
+            float a2 = (-197.051941f);
+            float2 b2 = float2(-423.9451f, -330.0486f);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float a3 = (-367.59552f);
-            float2 b3 = float2(-143.895081f, -387.8427f);
-            bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            float a3 = (420.165527f);
+            float2 b3 = float2(105.5473f, 174.821289f);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_equal_wide_wide()
         {
-            float2 a0 = float2(143.641235f, -251.704163f);
-            float2 b0 = float2(-409.271027f, -84.91385f);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float2 a0 = float2(-507.9286f, 504.4975f);
+            float2 b0 = float2(-81.3465f, 297.666138f);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float2 a1 = float2(118.576172f, 23.871582f);
-            float2 b1 = float2(509.1283f, -61.13452f);
+            float2 a1 = float2(-385.4345f, -262.323425f);
+            float2 b1 = float2(171.06543f, -431.038055f);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float2 a2 = float2(84.63403f, -145.382233f);
-            float2 b2 = float2(139.217224f, -30.2294312f);
+            float2 a2 = float2(-37.5509338f, -111.595276f);
+            float2 b2 = float2(-6.85907f, 319.7257f);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float2 a3 = float2(-234.447327f, 90.46185f);
-            float2 b3 = float2(210.736267f, 27.0149536f);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            float2 a3 = float2(-463.702026f, 387.448853f);
+            float2 b3 = float2(254.079163f, 396.5724f);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_equal_wide_scalar()
         {
-            float2 a0 = float2(-355.36084f, 304.301453f);
-            float b0 = (-139.19751f);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float2 a0 = float2(465.152161f, -424.886078f);
+            float b0 = (-5.599884f);
+            bool2 r0 = bool2(true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float2 a1 = float2(385.12854f, -435.806427f);
-            float b1 = (-263.954834f);
-            bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            float2 a1 = float2(-209.2211f, -302.2691f);
+            float b1 = (58.7798462f);
+            bool2 r1 = bool2(false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float2 a2 = float2(126.500793f, -226.753937f);
-            float b2 = (77.0108f);
+            float2 a2 = float2(140.12561f, -344.559967f);
+            float b2 = (16.3533936f);
             bool2 r2 = bool2(true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float2 a3 = float2(-212.650085f, -11.076355f);
-            float b3 = (-413.1958f);
+            float2 a3 = float2(393.278076f, 441.011536f);
+            float b3 = (-315.701538f);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_greater_equal_scalar_wide()
         {
-            float a0 = (-246.073273f);
-            float2 b0 = float2(142.15625f, -19.2986145f);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float a0 = (374.827026f);
+            float2 b0 = float2(-1.60977173f, 338.615234f);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float a1 = (-151.986877f);
-            float2 b1 = float2(330.020874f, -224.80011f);
-            bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            float a1 = (-116.1814f);
+            float2 b1 = float2(-332.157318f, -355.97937f);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float a2 = (451.5999f);
-            float2 b2 = float2(-435.9818f, 405.881836f);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            float a2 = (-468.901428f);
+            float2 b2 = float2(38.579895f, -332.347534f);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float a3 = (-324.020142f);
-            float2 b3 = float2(300.8548f, -341.652924f);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            float a3 = (2.89013672f);
+            float2 b3 = float2(467.777771f, 121.406372f);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float2_operator_add_wide_wide()
         {
-            float2 a0 = float2(-404.27536f, -214.93515f);
-            float2 b0 = float2(433.900269f, 359.72052f);
-            float2 r0 = float2(29.6249084f, 144.78537f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float2 a0 = float2(506.129028f, -501.779816f);
+            float2 b0 = float2(-28.7579956f, -337.135132f);
+            float2 r0 = float2(477.371033f, -838.9149f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float2 a1 = float2(-164.2731f, 338.477173f);
-            float2 b1 = float2(420.5044f, -416.3719f);
-            float2 r1 = float2(256.2313f, -77.8947144f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float2 a1 = float2(420.084778f, -186.032074f);
+            float2 b1 = float2(-340.676819f, 152.312012f);
+            float2 r1 = float2(79.40796f, -33.7200623f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float2 a2 = float2(302.848816f, -330.633f);
-            float2 b2 = float2(-163.213684f, -35.6521f);
-            float2 r2 = float2(139.635132f, -366.2851f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float2 a2 = float2(-9.312408f, 328.51178f);
+            float2 b2 = float2(423.66748f, 90.3740845f);
+            float2 r2 = float2(414.355072f, 418.885864f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float2 a3 = float2(-21.2443542f, 157.130432f);
-            float2 b3 = float2(260.761f, -20.1174622f);
-            float2 r3 = float2(239.516632f, 137.01297f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float2 a3 = float2(424.344055f, 87.79108f);
+            float2 b3 = float2(376.18866f, 1.76721191f);
+            float2 r3 = float2(800.5327f, 89.55829f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float2_operator_add_wide_scalar()
         {
-            float2 a0 = float2(-323.429443f, 324.634583f);
-            float b0 = (-311.2669f);
-            float2 r0 = float2(-634.69635f, 13.3676758f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float2 a0 = float2(-194.514191f, 338.5484f);
+            float b0 = (124.121704f);
+            float2 r0 = float2(-70.39249f, 462.6701f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float2 a1 = float2(-277.883453f, -459.056519f);
-            float b1 = (-472.86264f);
-            float2 r1 = float2(-750.7461f, -931.9192f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float2 a1 = float2(246.971375f, -45.72467f);
+            float b1 = (100.510925f);
+            float2 r1 = float2(347.4823f, 54.7862549f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float2 a2 = float2(144.1059f, 149.114319f);
-            float b2 = (-334.474182f);
-            float2 r2 = float2(-190.368286f, -185.359863f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float2 a2 = float2(-478.1113f, 60.37433f);
+            float b2 = (30.9161377f);
+            float2 r2 = float2(-447.19516f, 91.29047f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float2 a3 = float2(-388.344f, -7.709381f);
-            float b3 = (303.384583f);
-            float2 r3 = float2(-84.95941f, 295.6752f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float2 a3 = float2(-242.118744f, 6.79937744f);
+            float b3 = (82.50134f);
+            float2 r3 = float2(-159.6174f, 89.30072f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float2_operator_add_scalar_wide()
         {
-            float a0 = (190.831238f);
-            float2 b0 = float2(411.157166f, -70.76166f);
-            float2 r0 = float2(601.9884f, 120.06958f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float a0 = (-340.354675f);
+            float2 b0 = float2(511.362244f, -146.216644f);
+            float2 r0 = float2(171.007568f, -486.57132f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float a1 = (-404.5351f);
-            float2 b1 = float2(238.02887f, 442.2439f);
-            float2 r1 = float2(-166.506226f, 37.7088f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float a1 = (-106.210419f);
+            float2 b1 = float2(-363.450256f, 199.0896f);
+            float2 r1 = float2(-469.660675f, 92.87918f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float a2 = (151.431946f);
-            float2 b2 = float2(-447.093872f, -299.924774f);
-            float2 r2 = float2(-295.661926f, -148.492828f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float a2 = (-27.1083984f);
+            float2 b2 = float2(419.849f, 284.955017f);
+            float2 r2 = float2(392.7406f, 257.846619f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float a3 = (477.432739f);
-            float2 b3 = float2(-292.327271f, 59.3156128f);
-            float2 r3 = float2(185.105469f, 536.748352f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float a3 = (-164.9242f);
+            float2 b3 = float2(-249.190338f, 150.928162f);
+            float2 r3 = float2(-414.114532f, -13.9960327f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float2_operator_sub_wide_wide()
         {
-            float2 a0 = float2(379.052246f, -16.164032f);
-            float2 b0 = float2(236.683167f, 20.1707764f);
-            float2 r0 = float2(142.36908f, -36.33481f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float2 a0 = float2(160.492249f, 11.223938f);
+            float2 b0 = float2(115.46875f, -130.9823f);
+            float2 r0 = float2(45.0235f, 142.206238f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float2 a1 = float2(107.1604f, 30.0645752f);
-            float2 b1 = float2(111.480408f, -484.67984f);
-            float2 r1 = float2(-4.32000732f, 514.7444f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float2 a1 = float2(359.200134f, -498.2283f);
+            float2 b1 = float2(241.540833f, 9.987061f);
+            float2 r1 = float2(117.6593f, -508.215363f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float2 a2 = float2(-428.4387f, 245.627747f);
-            float2 b2 = float2(-447.708679f, 18.19458f);
-            float2 r2 = float2(19.269989f, 227.433167f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float2 a2 = float2(-355.253632f, -94.53485f);
+            float2 b2 = float2(419.895142f, 59.12445f);
+            float2 r2 = float2(-775.1488f, -153.6593f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float2 a3 = float2(179.604187f, 505.3778f);
-            float2 b3 = float2(-296.147644f, 367.636f);
-            float2 r3 = float2(475.751831f, 137.741821f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float2 a3 = float2(-410.46405f, -401.384644f);
+            float2 b3 = float2(-402.381653f, -75.37015f);
+            float2 r3 = float2(-8.082397f, -326.0145f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float2_operator_sub_wide_scalar()
         {
-            float2 a0 = float2(102.569641f, -199.248688f);
-            float b0 = (-504.2776f);
-            float2 r0 = float2(606.8472f, 305.0289f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float2 a0 = float2(207.389587f, 248.457764f);
+            float b0 = (-36.1124878f);
+            float2 r0 = float2(243.502075f, 284.570251f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float2 a1 = float2(218.154358f, -139.426361f);
-            float b1 = (72.79639f);
-            float2 r1 = float2(145.357971f, -212.222748f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float2 a1 = float2(-384.8239f, -374.811554f);
+            float b1 = (-205.344757f);
+            float2 r1 = float2(-179.479156f, -169.4668f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float2 a2 = float2(13.45929f, -273.2179f);
-            float b2 = (-31.2592163f);
-            float2 r2 = float2(44.7185059f, -241.958679f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float2 a2 = float2(191.642029f, -44.96161f);
+            float b2 = (18.8562622f);
+            float2 r2 = float2(172.785767f, -63.81787f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float2 a3 = float2(-375.997253f, 118.86438f);
-            float b3 = (484.570679f);
-            float2 r3 = float2(-860.567932f, -365.7063f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float2 a3 = float2(480.857971f, -366.865448f);
+            float b3 = (16.3381958f);
+            float2 r3 = float2(464.519775f, -383.203644f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float2_operator_sub_scalar_wide()
         {
-            float a0 = (385.512268f);
-            float2 b0 = float2(78.82605f, -43.92514f);
-            float2 r0 = float2(306.686218f, 429.4374f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float a0 = (-86.00824f);
+            float2 b0 = float2(466.4251f, 298.486938f);
+            float2 r0 = float2(-552.43335f, -384.495178f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float a1 = (-401.835358f);
-            float2 b1 = float2(-336.146667f, 25.8710938f);
-            float2 r1 = float2(-65.68869f, -427.706451f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float a1 = (-300.9501f);
+            float2 b1 = float2(315.38f, -381.092163f);
+            float2 r1 = float2(-616.3301f, 80.14206f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float a2 = (188.92981f);
-            float2 b2 = float2(132.735535f, -391.6434f);
-            float2 r2 = float2(56.1942749f, 580.573242f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float a2 = (-125.008362f);
+            float2 b2 = float2(58.4661865f, 214.7461f);
+            float2 r2 = float2(-183.474548f, -339.754456f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float a3 = (-131.123383f);
-            float2 b3 = float2(43.8323364f, -278.0896f);
-            float2 r3 = float2(-174.955719f, 146.966217f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float a3 = (-257.549438f);
+            float2 b3 = float2(480.2246f, -443.355072f);
+            float2 r3 = float2(-737.774048f, 185.805634f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mul_wide_wide()
         {
-            float2 a0 = float2(48.7297974f, 263.5946f);
-            float2 b0 = float2(351.026917f, 422.9179f);
-            float2 r0 = float2(17105.47f, 111478.875f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float2 a0 = float2(-482.7138f, -407.2935f);
+            float2 b0 = float2(-236.367889f, 260.7276f);
+            float2 r0 = float2(114098.047f, -106192.656f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float2 a1 = float2(-378.487183f, 494.618347f);
-            float2 b1 = float2(-490.6174f, 81.40454f);
-            float2 r1 = float2(185692.391f, 40264.18f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float2 a1 = float2(137.700562f, 208.541138f);
+            float2 b1 = float2(-416.3863f, -364.4956f);
+            float2 r1 = float2(-57336.625f, -76012.33f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float2 a2 = float2(-185.095612f, 423.893433f);
-            float2 b2 = float2(-357.226563f, 378.994568f);
-            float2 r2 = float2(66121.07f, 160653.313f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float2 a2 = float2(194.29657f, -484.242432f);
+            float2 b2 = float2(-253.147522f, -369.202881f);
+            float2 r2 = float2(-49185.6953f, 178783.7f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float2 a3 = float2(19.8618164f, -439.218475f);
-            float2 b3 = float2(318.321167f, 208.17157f);
-            float2 r3 = float2(6322.43652f, -91432.8f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float2 a3 = float2(183.9873f, -241.33548f);
+            float2 b3 = float2(193.547913f, 169.0849f);
+            float2 r3 = float2(35610.36f, -40806.1836f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mul_wide_scalar()
         {
-            float2 a0 = float2(-387.480865f, -48.62552f);
-            float b0 = (367.408752f);
-            float2 r0 = float2(-142363.859f, -17865.4414f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float2 a0 = float2(-96.31882f, -277.142273f);
+            float b0 = (-301.2072f);
+            float2 r0 = float2(29011.9219f, 83477.25f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float2 a1 = float2(-100.415588f, -428.578979f);
-            float b1 = (-161.453522f);
-            float2 r1 = float2(16212.45f, 69195.5859f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float2 a1 = float2(-239.93689f, 255.8581f);
+            float b1 = (509.531433f);
+            float2 r1 = float2(-122255.391f, 130367.742f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float2 a2 = float2(-198.319f, -216.104736f);
-            float b2 = (413.477356f);
-            float2 r2 = float2(-82000.4141f, -89354.4141f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float2 a2 = float2(215.7315f, -389.2433f);
+            float b2 = (-455.50827f);
+            float2 r2 = float2(-98267.4844f, 177303.531f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float2 a3 = float2(-65.20349f, 89.78735f);
-            float b3 = (18.9765015f);
-            float2 r3 = float2(-1237.33411f, 1703.84985f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float2 a3 = float2(-338.29248f, 243.757324f);
+            float b3 = (53.7962646f);
+            float2 r3 = float2(-18198.8711f, 13113.2334f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mul_scalar_wide()
         {
-            float a0 = (468.915955f);
-            float2 b0 = float2(123.866638f, 490.9615f);
-            float2 r0 = float2(58083.043f, 230219.672f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float a0 = (37.43219f);
+            float2 b0 = float2(96.74756f, 492.185364f);
+            float2 r0 = float2(3621.473f, 18423.5762f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float a1 = (-247.1626f);
-            float2 b1 = float2(-176.9495f, 382.263855f);
-            float2 r1 = float2(43735.2969f, -94481.33f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float a1 = (-274.054565f);
+            float2 b1 = float2(-452.870972f, 420.853333f);
+            float2 r1 = float2(124111.359f, -115336.773f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float a2 = (-398.549469f);
-            float2 b2 = float2(120.569336f, -263.275879f);
-            float2 r2 = float2(-48052.8438f, 104928.461f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float a2 = (102.182922f);
+            float2 b2 = float2(-114.948883f, -351.120056f);
+            float2 r2 = float2(-11745.8125f, -35878.4727f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float a3 = (74.37671f);
-            float2 b3 = float2(-309.856f, 404.927979f);
-            float2 r3 = float2(-23046.0684f, 30117.21f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float a3 = (-464.664978f);
+            float2 b3 = float2(444.084839f, 447.1053f);
+            float2 r3 = float2(-206350.672f, -207754.172f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float2_operator_div_wide_wide()
         {
-            float2 a0 = float2(6.82073975f, -338.630859f);
-            float2 b0 = float2(-352.736023f, 302.209717f);
-            float2 r0 = float2(-0.0193366688f, -1.12051606f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float2 a0 = float2(-353.131439f, -102.799866f);
+            float2 b0 = float2(-178.739563f, -302.096283f);
+            float2 r0 = float2(1.97567582f, 0.34028843f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float2 a1 = float2(497.60437f, -491.269928f);
-            float2 b1 = float2(-489.095154f, -380.8916f);
-            float2 r1 = float2(-1.01739788f, 1.28978932f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float2 a1 = float2(51.3191528f, -191.871674f);
+            float2 b1 = float2(-199.405823f, 278.850769f);
+            float2 r1 = float2(-0.257360339f, -0.688080132f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float2 a2 = float2(173.454712f, -441.556519f);
-            float2 b2 = float2(289.646484f, -216.575256f);
-            float2 r2 = float2(0.5988497f, 2.03881335f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float2 a2 = float2(8.041809f, -128.73764f);
+            float2 b2 = float2(502.3376f, -361.484833f);
+            float2 r2 = float2(0.0160087738f, 0.356135666f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float2 a3 = float2(321.0169f, -41.60199f);
-            float2 b3 = float2(-289.151f, 198.978516f);
-            float2 r3 = float2(-1.110205f, -0.20907779f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float2 a3 = float2(-136.0596f, -370.471f);
+            float2 b3 = float2(353.121033f, -38.894928f);
+            float2 r3 = float2(-0.385305852f, 9.524919f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float2_operator_div_wide_scalar()
         {
-            float2 a0 = float2(-179.145264f, 46.96112f);
-            float b0 = (-93.36542f);
-            float2 r0 = float2(1.918754f, -0.502981961f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float2 a0 = float2(171.3424f, 0.103393555f);
+            float b0 = (171.796814f);
+            float2 r0 = float2(0.997355f, 0.000601836247f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float2 a1 = float2(127.572754f, 461.327637f);
-            float b1 = (391.679626f);
-            float2 r1 = float2(0.3257069f, 1.17781878f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float2 a1 = float2(57.8882446f, 95.66968f);
+            float b1 = (-256.130737f);
+            float2 r1 = float2(-0.226010531f, -0.3735189f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float2 a2 = float2(150.55542f, 169.158569f);
-            float b2 = (18.4229126f);
-            float2 r2 = float2(8.172183f, 9.181967f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float2 a2 = float2(-290.3869f, -79.7449f);
+            float b2 = (-127.4487f);
+            float2 r2 = float2(2.278461f, 0.625701964f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float2 a3 = float2(37.5003052f, -22.5421448f);
-            float b3 = (121.809082f);
-            float2 r3 = float2(0.307861328f, -0.185061276f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float2 a3 = float2(146.466858f, 58.68634f);
+            float b3 = (-499.843567f);
+            float2 r3 = float2(-0.2930254f, -0.117409416f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float2_operator_div_scalar_wide()
         {
-            float a0 = (451.844666f);
-            float2 b0 = float2(-95.0651855f, 207.048767f);
-            float2 r0 = float2(-4.75299835f, 2.18231034f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float a0 = (-264.4425f);
+            float2 b0 = float2(105.589111f, -142.349091f);
+            float2 r0 = float2(-2.50444865f, 1.85770416f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float a1 = (502.384033f);
-            float2 b1 = float2(62.0412f, -110.84549f);
-            float2 r1 = float2(8.097588f, -4.532291f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float a1 = (-288.9489f);
+            float2 b1 = float2(39.644104f, -363.9914f);
+            float2 r1 = float2(-7.28857231f, 0.793834448f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float a2 = (-332.612732f);
-            float2 b2 = float2(224.279358f, -492.734528f);
-            float2 r2 = float2(-1.48302877f, 0.675034344f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float a2 = (-149.718231f);
+            float2 b2 = float2(-395.729126f, 258.7187f);
+            float2 r2 = float2(0.378335118f, -0.5786912f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float a3 = (435.0329f);
-            float2 b3 = float2(503.8188f, 291.349426f);
-            float2 r3 = float2(0.863471f, 1.49316549f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float a3 = (-9.66626f);
+            float2 b3 = float2(117.725525f, -331.386536f);
+            float2 r3 = float2(-0.0821084455f, 0.0291691385f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mod_wide_wide()
         {
-            float2 a0 = float2(157.5586f, 504.938f);
-            float2 b0 = float2(180.250183f, -41.4798279f);
-            float2 r0 = float2(157.5586f, 7.18005371f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float2 a0 = float2(-388.8125f, 181.681213f);
+            float2 b0 = float2(436.944153f, 58.9400635f);
+            float2 r0 = float2(-388.8125f, 4.861023f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float2 a1 = float2(73.00708f, -387.6087f);
-            float2 b1 = float2(-308.673157f, -326.860046f);
-            float2 r1 = float2(73.00708f, -60.7486572f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float2 a1 = float2(-167.078735f, 432.820129f);
+            float2 b1 = float2(-201.116241f, 279.289368f);
+            float2 r1 = float2(-167.078735f, 153.530762f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float2 a2 = float2(278.5445f, 282.228149f);
-            float2 b2 = float2(411.588257f, 429.410583f);
-            float2 r2 = float2(278.5445f, 282.228149f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float2 a2 = float2(-258.438965f, -170.110809f);
+            float2 b2 = float2(-397.079773f, 377.899963f);
+            float2 r2 = float2(-258.438965f, -170.110809f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float2 a3 = float2(57.0862427f, -63.974762f);
-            float2 b3 = float2(471.1482f, 226.144348f);
-            float2 r3 = float2(57.0862427f, -63.974762f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float2 a3 = float2(283.3183f, 122.716492f);
+            float2 b3 = float2(174.693848f, -228.176514f);
+            float2 r3 = float2(108.624451f, 122.716492f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mod_wide_scalar()
         {
-            float2 a0 = float2(42.07245f, 313.0503f);
-            float b0 = (260.272583f);
-            float2 r0 = float2(42.07245f, 52.77771f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float2 a0 = float2(-244.499634f, -211.8193f);
+            float b0 = (39.63495f);
+            float2 r0 = float2(-6.68994141f, -13.6445618f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float2 a1 = float2(111.52063f, -460.440857f);
-            float b1 = (131.212036f);
-            float2 r1 = float2(111.52063f, -66.80475f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float2 a1 = float2(-145.926788f, 155.479492f);
+            float b1 = (-304.9182f);
+            float2 r1 = float2(-145.926788f, 155.479492f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float2 a2 = float2(-436.485046f, -316.3909f);
-            float b2 = (-221.73172f);
-            float2 r2 = float2(-214.753326f, -94.65918f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float2 a2 = float2(-133.907776f, -226.535767f);
+            float b2 = (281.309631f);
+            float2 r2 = float2(-133.907776f, -226.535767f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float2 a3 = float2(24.1831055f, 335.600952f);
-            float b3 = (-238.9426f);
-            float2 r3 = float2(24.1831055f, 96.6583557f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float2 a3 = float2(335.166138f, 319.4715f);
+            float b3 = (101.706482f);
+            float2 r3 = float2(30.0466919f, 14.3520508f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float2_operator_mod_scalar_wide()
         {
-            float a0 = (-162.9458f);
-            float2 b0 = float2(171.125732f, 159.207947f);
-            float2 r0 = float2(-162.9458f, -3.737854f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float a0 = (-66.94504f);
+            float2 b0 = float2(-249.7761f, -396.073761f);
+            float2 r0 = float2(-66.94504f, -66.94504f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float a1 = (491.348083f);
-            float2 b1 = float2(-136.5397f, 84.48755f);
-            float2 r1 = float2(81.72897f, 68.91034f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float a1 = (386.492065f);
+            float2 b1 = float2(168.939453f, -199.418243f);
+            float2 r1 = float2(48.61316f, 187.073822f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float a2 = (414.3911f);
-            float2 b2 = float2(-85.03061f, 161.989563f);
-            float2 r2 = float2(74.26868f, 90.41199f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float a2 = (261.7517f);
+            float2 b2 = float2(16.1274414f, 257.668152f);
+            float2 r2 = float2(3.71264648f, 4.083557f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float a3 = (-7.60800171f);
-            float2 b3 = float2(-85.22388f, 160.841248f);
-            float2 r3 = float2(-7.60800171f, -7.60800171f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float a3 = (-75.78845f);
+            float2 b3 = float2(170.9563f, -242.858276f);
+            float2 r3 = float2(-75.78845f, -75.78845f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float2_operator_plus()
         {
-            float2 a0 = float2(150.599854f, -137.8551f);
-            float2 r0 = float2(150.599854f, -137.8551f);
-            TestUtils.AreEqual(+a0, r0);
+            float2 a0 = float2(-418.829559f, -405.79895f);
+            float2 r0 = float2(-418.829559f, -405.79895f);
+            TestUtils.AreEqual(r0, +a0);
 
-            float2 a1 = float2(439.0912f, 401.823547f);
-            float2 r1 = float2(439.0912f, 401.823547f);
-            TestUtils.AreEqual(+a1, r1);
+            float2 a1 = float2(-34.04178f, -459.8391f);
+            float2 r1 = float2(-34.04178f, -459.8391f);
+            TestUtils.AreEqual(r1, +a1);
 
-            float2 a2 = float2(-299.614624f, 444.5669f);
-            float2 r2 = float2(-299.614624f, 444.5669f);
-            TestUtils.AreEqual(+a2, r2);
+            float2 a2 = float2(210.86145f, -373.015442f);
+            float2 r2 = float2(210.86145f, -373.015442f);
+            TestUtils.AreEqual(r2, +a2);
 
-            float2 a3 = float2(-135.177917f, -458.637817f);
-            float2 r3 = float2(-135.177917f, -458.637817f);
-            TestUtils.AreEqual(+a3, r3);
+            float2 a3 = float2(-386.059845f, -418.645264f);
+            float2 r3 = float2(-386.059845f, -418.645264f);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void float2_operator_neg()
         {
-            float2 a0 = float2(-169.281158f, -377.0252f);
-            float2 r0 = float2(169.281158f, 377.0252f);
-            TestUtils.AreEqual(-a0, r0);
+            float2 a0 = float2(148.461731f, -467.122681f);
+            float2 r0 = float2(-148.461731f, 467.122681f);
+            TestUtils.AreEqual(r0, -a0);
 
-            float2 a1 = float2(36.6141357f, 469.914551f);
-            float2 r1 = float2(-36.6141357f, -469.914551f);
-            TestUtils.AreEqual(-a1, r1);
+            float2 a1 = float2(132.04718f, 473.701f);
+            float2 r1 = float2(-132.04718f, -473.701f);
+            TestUtils.AreEqual(r1, -a1);
 
-            float2 a2 = float2(388.945984f, 176.102539f);
-            float2 r2 = float2(-388.945984f, -176.102539f);
-            TestUtils.AreEqual(-a2, r2);
+            float2 a2 = float2(-407.9911f, -382.9898f);
+            float2 r2 = float2(407.9911f, 382.9898f);
+            TestUtils.AreEqual(r2, -a2);
 
-            float2 a3 = float2(494.421631f, -60.8139343f);
-            float2 r3 = float2(-494.421631f, 60.8139343f);
-            TestUtils.AreEqual(-a3, r3);
+            float2 a3 = float2(-299.093384f, 407.709778f);
+            float2 r3 = float2(299.093384f, -407.709778f);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void float2_operator_prefix_inc()
         {
-            float2 a0 = float2(86.58539f, 161.589783f);
-            float2 r0 = float2(87.58539f, 162.589783f);
-            TestUtils.AreEqual(++a0, r0);
+            float2 a0 = float2(-139.842072f, -56.7436523f);
+            float2 r0 = float2(-138.842072f, -55.7436523f);
+            TestUtils.AreEqual(r0, ++a0);
 
-            float2 a1 = float2(443.929626f, -34.5586548f);
-            float2 r1 = float2(444.929626f, -33.5586548f);
-            TestUtils.AreEqual(++a1, r1);
+            float2 a1 = float2(-381.955322f, -222.896332f);
+            float2 r1 = float2(-380.955322f, -221.896332f);
+            TestUtils.AreEqual(r1, ++a1);
 
-            float2 a2 = float2(-368.567474f, 145.026123f);
-            float2 r2 = float2(-367.567474f, 146.026123f);
-            TestUtils.AreEqual(++a2, r2);
+            float2 a2 = float2(210.319885f, -300.1941f);
+            float2 r2 = float2(211.319885f, -299.1941f);
+            TestUtils.AreEqual(r2, ++a2);
 
-            float2 a3 = float2(157.233154f, -484.200439f);
-            float2 r3 = float2(158.233154f, -483.200439f);
-            TestUtils.AreEqual(++a3, r3);
+            float2 a3 = float2(362.212769f, 130.90918f);
+            float2 r3 = float2(363.212769f, 131.90918f);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void float2_operator_postfix_inc()
         {
-            float2 a0 = float2(-281.7821f, 215.342224f);
-            float2 r0 = float2(-281.7821f, 215.342224f);
-            TestUtils.AreEqual(a0++, r0);
+            float2 a0 = float2(-396.669739f, 511.20752f);
+            float2 r0 = float2(-396.669739f, 511.20752f);
+            TestUtils.AreEqual(r0, a0++);
 
-            float2 a1 = float2(120.820862f, -179.722931f);
-            float2 r1 = float2(120.820862f, -179.722931f);
-            TestUtils.AreEqual(a1++, r1);
+            float2 a1 = float2(249.111267f, -259.4903f);
+            float2 r1 = float2(249.111267f, -259.4903f);
+            TestUtils.AreEqual(r1, a1++);
 
-            float2 a2 = float2(44.56366f, 193.365723f);
-            float2 r2 = float2(44.56366f, 193.365723f);
-            TestUtils.AreEqual(a2++, r2);
+            float2 a2 = float2(278.008179f, 66.71973f);
+            float2 r2 = float2(278.008179f, 66.71973f);
+            TestUtils.AreEqual(r2, a2++);
 
-            float2 a3 = float2(329.5243f, -130.474335f);
-            float2 r3 = float2(329.5243f, -130.474335f);
-            TestUtils.AreEqual(a3++, r3);
+            float2 a3 = float2(167.852112f, -326.1076f);
+            float2 r3 = float2(167.852112f, -326.1076f);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void float2_operator_prefix_dec()
         {
-            float2 a0 = float2(340.001831f, 496.070862f);
-            float2 r0 = float2(339.001831f, 495.070862f);
-            TestUtils.AreEqual(--a0, r0);
+            float2 a0 = float2(123.128723f, 256.84375f);
+            float2 r0 = float2(122.128723f, 255.84375f);
+            TestUtils.AreEqual(r0, --a0);
 
-            float2 a1 = float2(288.384216f, -353.6148f);
-            float2 r1 = float2(287.384216f, -354.6148f);
-            TestUtils.AreEqual(--a1, r1);
+            float2 a1 = float2(156.330811f, 325.867981f);
+            float2 r1 = float2(155.330811f, 324.867981f);
+            TestUtils.AreEqual(r1, --a1);
 
-            float2 a2 = float2(398.281921f, 15.32019f);
-            float2 r2 = float2(397.281921f, 14.32019f);
-            TestUtils.AreEqual(--a2, r2);
+            float2 a2 = float2(392.015625f, -236.225189f);
+            float2 r2 = float2(391.015625f, -237.225189f);
+            TestUtils.AreEqual(r2, --a2);
 
-            float2 a3 = float2(276.588684f, -305.8037f);
-            float2 r3 = float2(275.588684f, -306.8037f);
-            TestUtils.AreEqual(--a3, r3);
+            float2 a3 = float2(125.109619f, 45.5366821f);
+            float2 r3 = float2(124.109619f, 44.5366821f);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void float2_operator_postfix_dec()
         {
-            float2 a0 = float2(-148.111755f, 252.8498f);
-            float2 r0 = float2(-148.111755f, 252.8498f);
-            TestUtils.AreEqual(a0--, r0);
+            float2 a0 = float2(379.6883f, 302.692871f);
+            float2 r0 = float2(379.6883f, 302.692871f);
+            TestUtils.AreEqual(r0, a0--);
 
-            float2 a1 = float2(-106.1579f, -370.723755f);
-            float2 r1 = float2(-106.1579f, -370.723755f);
-            TestUtils.AreEqual(a1--, r1);
+            float2 a1 = float2(-176.07135f, 470.567566f);
+            float2 r1 = float2(-176.07135f, 470.567566f);
+            TestUtils.AreEqual(r1, a1--);
 
-            float2 a2 = float2(343.311157f, 450.6018f);
-            float2 r2 = float2(343.311157f, 450.6018f);
-            TestUtils.AreEqual(a2--, r2);
+            float2 a2 = float2(-402.925964f, 355.2611f);
+            float2 r2 = float2(-402.925964f, 355.2611f);
+            TestUtils.AreEqual(r2, a2--);
 
-            float2 a3 = float2(330.9572f, 269.754517f);
-            float2 r3 = float2(330.9572f, 269.754517f);
-            TestUtils.AreEqual(a3--, r3);
+            float2 a3 = float2(-27.8892212f, 156.14032f);
+            float2 r3 = float2(-27.8892212f, 156.14032f);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
@@ -972,10 +972,10 @@ namespace Unity.Mathematics.Tests
             float2 a = float2(0, 1);
             float2 b = float2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX), (0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY), (1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX), (2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY), (3));
+            TestUtils.AreEqual((0), shuffle(a, b, ShuffleComponent.LeftX));
+            TestUtils.AreEqual((1), shuffle(a, b, ShuffleComponent.LeftY));
+            TestUtils.AreEqual((2), shuffle(a, b, ShuffleComponent.RightX));
+            TestUtils.AreEqual((3), shuffle(a, b, ShuffleComponent.RightY));
         }
 
         [TestCompiler]
@@ -984,22 +984,22 @@ namespace Unity.Mathematics.Tests
             float2 a = float2(0, 1);
             float2 b = float2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX), float2(0, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftX), float2(1, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX), float2(2, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX), float2(3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY), float2(0, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float2(1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY), float2(2, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY), float2(3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX), float2(0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX), float2(1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX), float2(2, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), float2(3, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY), float2(0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY), float2(1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY), float2(2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY), float2(3, 3));
+            TestUtils.AreEqual(float2(0, 0), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float2(1, 0), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float2(2, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float2(3, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float2(0, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float2(1, 1), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float2(2, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float2(3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float2(0, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float2(1, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float2(2, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float2(3, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float2(0, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float2(1, 3), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float2(2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float2(3, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY));
         }
 
         [TestCompiler]
@@ -1008,22 +1008,22 @@ namespace Unity.Mathematics.Tests
             float2 a = float2(0, 1);
             float2 b = float2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY), float3(2, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightX), float3(2, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightY), float3(3, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float3(1, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY), float3(2, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY), float3(0, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY), float3(2, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftX), float3(3, 3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY), float3(2, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX), float3(2, 2, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float3(0, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY), float3(3, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float3(0, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightX), float3(3, 2, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightY), float3(0, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float3(3, 1, 1));
+            TestUtils.AreEqual(float3(2, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(2, 0, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float3(3, 1, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(1, 1, 1), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float3(2, 1, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(0, 3, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(2, 1, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(3, 3, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float3(2, 2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(2, 2, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float3(0, 1, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float3(3, 2, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(0, 1, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float3(3, 2, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float3(0, 1, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float3(3, 1, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
         }
 
         [TestCompiler]
@@ -1032,22 +1032,22 @@ namespace Unity.Mathematics.Tests
             float2 a = float2(0, 1);
             float2 b = float2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX), float4(0, 0, 1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightY), float4(2, 1, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX), float4(3, 2, 3, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY), float4(2, 0, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightX), float4(0, 3, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftY), float4(3, 0, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftX), float4(2, 2, 3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY), float4(2, 2, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.LeftY), float4(0, 1, 2, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightY), float4(2, 1, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftY), float4(3, 3, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), float4(2, 2, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX), float4(3, 0, 0, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY), float4(2, 2, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY), float4(0, 3, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX), float4(2, 0, 0, 0));
+            TestUtils.AreEqual(float4(0, 0, 1, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float4(2, 1, 0, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(3, 2, 3, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float4(2, 0, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(0, 3, 0, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(float4(3, 0, 3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float4(2, 2, 3, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float4(2, 2, 0, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(0, 1, 2, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float4(2, 1, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(3, 3, 3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float4(2, 2, 1, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(float4(3, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(float4(2, 2, 2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(0, 3, 0, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(float4(2, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
         }
 
 

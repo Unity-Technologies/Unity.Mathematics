@@ -18,952 +18,952 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void double2_zero()
         {
-            TestUtils.AreEqual(double2.zero.x, 0.0);
-            TestUtils.AreEqual(double2.zero.y, 0.0);
+            TestUtils.AreEqual(0.0, double2.zero.x);
+            TestUtils.AreEqual(0.0, double2.zero.y);
         }
 
         [TestCompiler]
         public static void double2_constructor()
         {
             double2 a = new double2(1, 2);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
         }
 
         [TestCompiler]
         public static void double2_scalar_constructor()
         {
             double2 a = new double2(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
         }
 
         [TestCompiler]
         public static void double2_static_constructor()
         {
             double2 a = double2(1, 2);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
         }
 
         [TestCompiler]
         public static void double2_static_scalar_constructor()
         {
             double2 a = double2(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
         }
 
         [TestCompiler]
         public static void double2_operator_equal_wide_wide()
         {
-            double2 a0 = double2(331.74411336134381, -417.68328280825324);
-            double2 b0 = double2(-426.58283277348744, 431.34453149854414);
+            double2 a0 = double2(492.15758275061728, -495.20632027797694);
+            double2 b0 = double2(192.56880888369346, -235.61102472786376);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double2 a1 = double2(-438.45087620171296, -57.990659979167674);
-            double2 b1 = double2(263.33917987688403, -309.39192905528091);
+            double2 a1 = double2(227.45765195947968, -147.37405950733182);
+            double2 b1 = double2(-254.04311740307281, -412.62472052715009);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double2 a2 = double2(-183.11340030613979, 72.322805676759572);
-            double2 b2 = double2(391.19957441426789, -468.23727748740339);
+            double2 a2 = double2(-222.68201909897942, 64.093720704360749);
+            double2 b2 = double2(471.90480945627428, -6.4727852374654162);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double2 a3 = double2(-292.70611562053955, -181.37693437439248);
-            double2 b3 = double2(-389.91158145941404, -192.67202505500615);
+            double2 a3 = double2(-23.890404473939157, -16.8197190839889);
+            double2 b3 = double2(-339.10237447316865, 488.1875700839737);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double2_operator_equal_wide_scalar()
         {
-            double2 a0 = double2(327.10191431972282, 440.46724745280449);
-            double b0 = (342.44057504387604);
+            double2 a0 = double2(-303.2300766926399, 451.52631327674089);
+            double b0 = (123.5445759871717);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double2 a1 = double2(-443.74519440333603, 435.37174793489828);
-            double b1 = (325.54625597854431);
+            double2 a1 = double2(-253.65587413201848, -500.6910920090466);
+            double b1 = (-105.20363502632995);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double2 a2 = double2(58.382070330149531, 377.06661551867921);
-            double b2 = (-398.43499369101369);
+            double2 a2 = double2(-426.19248338518315, -59.558379439431405);
+            double b2 = (159.87609656149334);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double2 a3 = double2(445.50211235764539, -92.372576994994915);
-            double b3 = (-17.79271484249864);
+            double2 a3 = double2(-57.477391031327386, 406.51375861024189);
+            double b3 = (-182.04973968400139);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double2_operator_equal_scalar_wide()
         {
-            double a0 = (430.78112884554139);
-            double2 b0 = double2(-434.72746225573468, 103.73032074036553);
+            double a0 = (-253.39728534100453);
+            double2 b0 = double2(19.952187785856495, -185.79199346610903);
             bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double a1 = (-263.03657090991578);
-            double2 b1 = double2(-224.56018291439869, 204.11080298391676);
+            double a1 = (407.8136052600172);
+            double2 b1 = double2(-87.2766969610363, -206.27469382354741);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double a2 = (196.56822476003697);
-            double2 b2 = double2(-424.75656743755405, 467.45050332855919);
+            double a2 = (160.503138855334);
+            double2 b2 = double2(-274.77081478516141, -2.6315281403397535);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double a3 = (-45.433633110222218);
-            double2 b3 = double2(138.19161063907279, 181.06193717804831);
+            double a3 = (448.35453602688131);
+            double2 b3 = double2(-410.03524251004461, 247.32901465489022);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double2_operator_not_equal_wide_wide()
         {
-            double2 a0 = double2(19.253994712258645, 121.33544045376379);
-            double2 b0 = double2(-249.06633507882538, -19.04659057550441);
+            double2 a0 = double2(430.8425316432689, 104.69001798736394);
+            double2 b0 = double2(210.02470622305975, -55.203330304102678);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double2 a1 = double2(468.30967615000418, -212.3654521500531);
-            double2 b1 = double2(323.62254896928675, 294.94198026086292);
+            double2 a1 = double2(225.80243478799355, -310.57017841496048);
+            double2 b1 = double2(-269.92533672504373, -234.54673372700194);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double2 a2 = double2(-410.63349337625948, 507.53425359517996);
-            double2 b2 = double2(-492.46095990224785, -166.48327048424784);
+            double2 a2 = double2(-418.61945815506363, 304.12820281839379);
+            double2 b2 = double2(25.917412054686565, -63.726991444699024);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double2 a3 = double2(52.201180720795492, -319.64238682372604);
-            double2 b3 = double2(421.19530482832124, 87.662903588108179);
+            double2 a3 = double2(-509.32682561749908, -160.53807719076895);
+            double2 b3 = double2(-484.55371092471933, -425.333599050219);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double2_operator_not_equal_wide_scalar()
         {
-            double2 a0 = double2(-418.02227206622354, 231.44822632123169);
-            double b0 = (-206.33659205508258);
+            double2 a0 = double2(-16.914588697680529, 168.83411486858233);
+            double b0 = (-145.37277109239847);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double2 a1 = double2(-469.47851083682781, -376.08437770236486);
-            double b1 = (-94.974084183096011);
+            double2 a1 = double2(-462.71352145760949, 214.50161443208424);
+            double b1 = (130.30776959765137);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double2 a2 = double2(-428.11901088623284, -91.333830160709965);
-            double b2 = (492.92776774471986);
+            double2 a2 = double2(-440.26328178879959, -169.09985860115842);
+            double b2 = (-197.12796053529155);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double2 a3 = double2(80.418608941332764, -409.29052205071343);
-            double b3 = (-124.3909161670091);
+            double2 a3 = double2(-386.61117595555783, -270.26885593601912);
+            double b3 = (-281.02101362916687);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double2_operator_not_equal_scalar_wide()
         {
-            double a0 = (357.34340898941434);
-            double2 b0 = double2(192.97637400076553, -323.1933154180615);
+            double a0 = (275.79582823244664);
+            double2 b0 = double2(-57.196896341255353, -382.4325279586169);
             bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double a1 = (-25.125236284511743);
-            double2 b1 = double2(-270.50307739456326, -454.42681977452094);
+            double a1 = (97.820359990848374);
+            double2 b1 = double2(-161.46364529499022, -458.39563367254829);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double a2 = (-458.81890103724731);
-            double2 b2 = double2(-274.53837049870674, 127.64221078140758);
+            double a2 = (-499.61786364932448);
+            double2 b2 = double2(327.92217818271467, 367.57121699283425);
             bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double a3 = (-43.887720366887606);
-            double2 b3 = double2(-179.47230180514617, 498.28768920259904);
+            double a3 = (59.7863667289663);
+            double2 b3 = double2(-209.58068118318016, -62.580453186566217);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_wide_wide()
         {
-            double2 a0 = double2(487.82488011188104, -508.92173480844207);
-            double2 b0 = double2(453.09734770893, -123.83057814642348);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double2 a0 = double2(196.84256825076534, 336.40979997087732);
+            double2 b0 = double2(-465.34502313348696, -256.15239751346053);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double2 a1 = double2(53.876066948229436, 443.78694531125336);
-            double2 b1 = double2(492.75013636646338, 434.4634313222316);
-            bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double2 a1 = double2(251.96372115424072, 257.65591466503963);
+            double2 b1 = double2(-314.814018634527, 364.56673662949663);
+            bool2 r1 = bool2(false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double2 a2 = double2(-81.078602590169112, 103.16550521886234);
-            double2 b2 = double2(-402.46478933955768, -480.75231598352656);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double2 a2 = double2(430.04588647840819, -62.419644146421774);
+            double2 b2 = double2(100.21050290959442, 182.56098636545289);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double2 a3 = double2(-496.19975470760824, 30.001322044991525);
-            double2 b3 = double2(317.30066051953509, 175.82104428849232);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double2 a3 = double2(8.8392293494376872, -333.81671563434259);
+            double2 b3 = double2(3.116978885194726, -259.43047893207074);
+            bool2 r3 = bool2(false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_wide_scalar()
         {
-            double2 a0 = double2(18.15358901869206, -409.34645695674533);
-            double b0 = (152.320865940452);
-            bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double2 a0 = double2(-132.05731708000292, -192.46500477216438);
+            double b0 = (-156.01021845452965);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double2 a1 = double2(180.78649028613529, 228.26473127504096);
-            double b1 = (-185.15496572533385);
+            double2 a1 = double2(-66.834607870706634, -360.28242199508588);
+            double b1 = (-379.01750081545561);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double2 a2 = double2(124.1257570367892, -307.54556694046858);
-            double b2 = (265.74384534812714);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double2 a2 = double2(20.927834282129879, 437.34587522845061);
+            double b2 = (-158.24074537970159);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double2 a3 = double2(493.12318371847425, 131.67983132772144);
-            double b3 = (36.373661296616206);
-            bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double2 a3 = double2(-20.452607402788772, 307.48418607725023);
+            double b3 = (225.29148517609178);
+            bool2 r3 = bool2(true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_scalar_wide()
         {
-            double a0 = (416.68128915162822);
-            double2 b0 = double2(-105.38907938142728, -389.249608459533);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double a0 = (-423.117411095238);
+            double2 b0 = double2(385.09483617595151, -123.93348532725753);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double a1 = (408.84688944781522);
-            double2 b1 = double2(-87.039535324573308, 268.69133508796403);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double a1 = (86.376572887588509);
+            double2 b1 = double2(133.44217378154497, 161.45794947513286);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double a2 = (-470.20163295706811);
-            double2 b2 = double2(271.31567419288479, -170.32271750752011);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double a2 = (229.75426660746064);
+            double2 b2 = double2(222.57159934871436, 315.53116360098647);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double a3 = (-156.5984128250733);
-            double2 b3 = double2(-0.288699388638463, 72.090836796951862);
+            double a3 = (-447.20351883731945);
+            double2 b3 = double2(271.83385790131695, -393.60531324595462);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_wide_wide()
         {
-            double2 a0 = double2(-188.03303131276419, 234.30020367088741);
-            double2 b0 = double2(-17.400830992218516, -59.539615897247415);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double2 a0 = double2(483.50140141113729, 310.81563415695712);
+            double2 b0 = double2(-471.39802454011425, -371.98528617060992);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double2 a1 = double2(-56.305944230549926, 240.95838248029281);
-            double2 b1 = double2(-24.285316717012449, 222.38749109133494);
-            bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double2 a1 = double2(106.9661896726891, 295.73526038589671);
+            double2 b1 = double2(36.900723236101044, -316.76360407320954);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double2 a2 = double2(501.48760938154885, -303.42498435798336);
-            double2 b2 = double2(-207.17042574992888, 365.54648630951829);
+            double2 a2 = double2(116.95757179938141, -478.29977653841479);
+            double2 b2 = double2(19.683055648432628, 207.3091381561519);
             bool2 r2 = bool2(true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double2 a3 = double2(-305.509098910498, -470.74254177079655);
-            double2 b3 = double2(183.57330068553483, -23.080710183400981);
+            double2 a3 = double2(-14.897393471979228, -33.817441717636484);
+            double2 b3 = double2(362.79748861994483, 324.95341816775192);
             bool2 r3 = bool2(false, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_wide_scalar()
         {
-            double2 a0 = double2(468.88079831976484, -355.42101089815657);
-            double b0 = (201.80273232320451);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double2 a0 = double2(64.317918092160426, -397.70346445483318);
+            double b0 = (305.85991992888034);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double2 a1 = double2(-45.708264610594256, 348.72522871043782);
-            double b1 = (407.1765884864966);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double2 a1 = double2(431.87690826499693, 246.26305233978803);
+            double b1 = (85.702980796668157);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double2 a2 = double2(418.54536147534168, -364.27550928866282);
-            double b2 = (-422.75017686502554);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double2 a2 = double2(197.49155602114809, 280.81334818564972);
+            double b2 = (286.1994608781298);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double2 a3 = double2(434.16361948203462, 178.80637868624478);
-            double b3 = (-255.04906833127563);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double2 a3 = double2(-405.78459210218148, -241.80727326209063);
+            double b3 = (171.56538661362856);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_scalar_wide()
         {
-            double a0 = (137.5041864558608);
-            double2 b0 = double2(-443.866813627941, 279.85275639214217);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double a0 = (-282.67049635698572);
+            double2 b0 = double2(358.09997360692353, -72.5964134077525);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double a1 = (-462.40431115701995);
-            double2 b1 = double2(-280.71377028185583, 120.71278553861794);
+            double a1 = (-232.16380106292843);
+            double2 b1 = double2(-60.706723956720282, 75.156642710397364);
             bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double a2 = (-31.670009866203202);
-            double2 b2 = double2(363.42834418054122, 263.125410440902);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double a2 = (150.88350040786133);
+            double2 b2 = double2(339.53917924479538, -498.19602965665797);
+            bool2 r2 = bool2(false, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double a3 = (-156.36087257990653);
-            double2 b3 = double2(66.354000837706963, -303.12960519601108);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double a3 = (459.74610326241054);
+            double2 b3 = double2(-227.96872316485678, 335.86213485145106);
+            bool2 r3 = bool2(true, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_equal_wide_wide()
         {
-            double2 a0 = double2(333.04760686170664, 239.35082756697705);
-            double2 b0 = double2(46.131192944073632, -378.08232301198052);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double2 a0 = double2(-438.52313753521219, 210.48942837980087);
+            double2 b0 = double2(-474.8141498392514, 304.3710555063426);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double2 a1 = double2(26.569201720212163, 41.492498178729988);
-            double2 b1 = double2(-466.77821443359284, -173.33503373588206);
-            bool2 r1 = bool2(false, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double2 a1 = double2(4.8773329280677444, -137.29793817237857);
+            double2 b1 = double2(234.8241737982371, -390.48543209139513);
+            bool2 r1 = bool2(true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double2 a2 = double2(-162.66233904783724, -271.00273454887918);
-            double2 b2 = double2(-482.23928640887107, 183.34649356796706);
+            double2 a2 = double2(156.09410174009111, -363.92412035722475);
+            double2 b2 = double2(-297.17535295019638, -326.29239121372461);
             bool2 r2 = bool2(false, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double2 a3 = double2(-108.98620920487969, 392.08160537857634);
-            double2 b3 = double2(399.07617134557859, -127.63707238418846);
+            double2 a3 = double2(-97.948485181642923, 437.29539009430232);
+            double2 b3 = double2(107.2538764976216, -413.13107342884462);
             bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_equal_wide_scalar()
         {
-            double2 a0 = double2(122.81770640370326, -283.69426144459021);
-            double b0 = (-181.94389947780587);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double2 a0 = double2(193.4958237118534, 168.91555197952107);
+            double b0 = (443.85054299042122);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double2 a1 = double2(-288.84764994720354, -315.2538966216398);
-            double b1 = (-185.45390447669376);
+            double2 a1 = double2(-313.9930695565385, 18.503590830836288);
+            double b1 = (81.826965131716292);
             bool2 r1 = bool2(true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double2 a2 = double2(279.57381428385793, -255.569789767065);
-            double b2 = (-317.9591602375541);
-            bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double2 a2 = double2(-0.35819602029312136, -463.81641242644582);
+            double b2 = (241.36115776810846);
+            bool2 r2 = bool2(true, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double2 a3 = double2(-368.80326216705294, -207.25397477264238);
-            double b3 = (-132.48886758298096);
-            bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double2 a3 = double2(-1.3577692515020203, 398.9919504593089);
+            double b3 = (-268.89945591096739);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_less_equal_scalar_wide()
         {
-            double a0 = (-336.46568385533322);
-            double2 b0 = double2(251.95838630011235, -22.858304749642627);
-            bool2 r0 = bool2(true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double a0 = (393.60626644343427);
+            double2 b0 = double2(-75.688363825757222, -44.2638714519627);
+            bool2 r0 = bool2(false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double a1 = (-238.90586220422102);
-            double2 b1 = double2(284.66662014865619, -358.3240021943692);
+            double a1 = (125.86491566797019);
+            double2 b1 = double2(191.96488174794467, 13.543054825413492);
             bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double a2 = (468.53025625112014);
-            double2 b2 = double2(-439.03722092091908, -197.06769594786118);
+            double a2 = (-197.0519259893577);
+            double2 b2 = double2(-423.945100743298, -330.04861680141119);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double a3 = (-367.5955204291248);
-            double2 b3 = double2(-143.89508754755144, -387.84270614564548);
-            bool2 r3 = bool2(true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double a3 = (420.16553779140372);
+            double2 b3 = double2(105.54730777887039, 174.82126363311954);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_equal_wide_wide()
         {
-            double2 a0 = double2(143.64125377668131, -251.70416295328374);
-            double2 b0 = double2(-409.2710322855371, -84.9138353266352);
-            bool2 r0 = bool2(true, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double2 a0 = double2(-507.92858409692, 504.49748181947393);
+            double2 b0 = double2(-81.346509732933043, 297.66615047010885);
+            bool2 r0 = bool2(false, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double2 a1 = double2(118.57615881719448, 23.871594201713606);
-            double2 b1 = double2(509.12827157840513, -61.134530811167565);
+            double2 a1 = double2(-385.43449205226938, -262.32340944107784);
+            double2 b1 = double2(171.06540616371922, -431.03805538222105);
             bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double2 a2 = double2(84.634044448209011, -145.38224155520192);
-            double2 b2 = double2(139.21721822545737, -30.229416146049914);
+            double2 a2 = double2(-37.550928848586466, -111.59527759980193);
+            double2 b2 = double2(-6.859075311040101, 319.72570362674333);
             bool2 r2 = bool2(false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double2 a3 = double2(-234.44732653091069, 90.461873811884743);
-            double2 b3 = double2(210.73626075067386, 27.014938605490556);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double2 a3 = double2(-463.70202157632542, 387.44885772627265);
+            double2 b3 = double2(254.079170106947, 396.5724000393285);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_equal_wide_scalar()
         {
-            double2 a0 = double2(-355.36085359908679, 304.30147209032509);
-            double b0 = (-139.19751436039689);
-            bool2 r0 = bool2(false, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double2 a0 = double2(465.15218732559686, -424.8860745024337);
+            double b0 = (-5.5998842742293391);
+            bool2 r0 = bool2(true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double2 a1 = double2(385.1285471325408, -435.80643650321588);
-            double b1 = (-263.95484483612461);
-            bool2 r1 = bool2(true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double2 a1 = double2(-209.22109685150025, -302.26910533675414);
+            double b1 = (58.779852656079356);
+            bool2 r1 = bool2(false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double2 a2 = double2(126.50078660179895, -226.75392376014679);
-            double b2 = (77.010820663073446);
+            double2 a2 = double2(140.12558252183976, -344.55997316192838);
+            double b2 = (16.353385694489475);
             bool2 r2 = bool2(true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double2 a3 = double2(-212.65009675391491, -11.07635713139382);
-            double b3 = (-413.1957916753347);
+            double2 a3 = double2(393.27804846003562, 441.0115565923096);
+            double b3 = (-315.70155086913218);
             bool2 r3 = bool2(true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_greater_equal_scalar_wide()
         {
-            double a0 = (-246.0732854558496);
-            double2 b0 = double2(142.15627557698463, -19.29862476293863);
-            bool2 r0 = bool2(false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double a0 = (374.82703393270594);
+            double2 b0 = double2(-1.609757185731894, 338.61524049314448);
+            bool2 r0 = bool2(true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double a1 = (-151.98687584325057);
-            double2 b1 = double2(330.020889197486, -224.80012260414668);
-            bool2 r1 = bool2(false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double a1 = (-116.18140392945213);
+            double2 b1 = double2(-332.15732375353451, -355.9793509710484);
+            bool2 r1 = bool2(true, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double a2 = (451.59992119837545);
-            double2 b2 = double2(-435.98180576599287, 405.88183064287614);
-            bool2 r2 = bool2(true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            double a2 = (-468.90144107719021);
+            double2 b2 = double2(38.579884785497484, -332.34754697063357);
+            bool2 r2 = bool2(false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double a3 = (-324.02012720891281);
-            double2 b3 = double2(300.85477914514706, -341.6529263656833);
-            bool2 r3 = bool2(false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double a3 = (2.8901150240051265);
+            double2 b3 = double2(467.77776477661814, 121.40638762405445);
+            bool2 r3 = bool2(false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double2_operator_add_wide_wide()
         {
-            double2 a0 = double2(-404.27537054767618, -214.93513522620088);
-            double2 b0 = double2(433.90024944483309, 359.72051994862056);
-            double2 r0 = double2(29.624878897156918, 144.78538472241968);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double2 a0 = double2(506.12905263627374, -501.77980803967444);
+            double2 b0 = double2(-28.757987751047096, -337.135153689019);
+            double2 r0 = double2(477.37106488522664, -838.91496172869347);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double2 a1 = double2(-164.2730897237887, 338.47717563178264);
-            double2 b1 = double2(420.50439115078393, -416.371905282313);
-            double2 r1 = double2(256.23130142699523, -77.894729650530337);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double2 a1 = double2(420.08479638587903, -186.03206476291274);
+            double2 b1 = double2(-340.676816860529, 152.31202633320913);
+            double2 r1 = double2(79.407979525350015, -33.720038429703607);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double2 a2 = double2(302.84880771434348, -330.63301840919678);
-            double2 b2 = double2(-163.21369154900952, -35.65208698979211);
-            double2 r2 = double2(139.63511616533395, -366.28510539898889);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double2 a2 = double2(-9.3123953385801883, 328.51179686585056);
+            double2 b2 = double2(423.66745420157326, 90.374096674087468);
+            double2 r2 = double2(414.35505886299308, 418.885893539938);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double2 a3 = double2(-21.244342098592028, 157.13040383026487);
-            double2 b3 = double2(260.76101482136221, -20.117472896407094);
-            double2 r3 = double2(239.51667272277018, 137.01293093385777);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double2 a3 = double2(424.34407659263536, 87.791079800478656);
+            double2 b3 = double2(376.18866246574964, 1.7671887882831925);
+            double2 r3 = double2(800.532739058385, 89.558268588761848);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double2_operator_add_wide_scalar()
         {
-            double2 a0 = double2(-323.42942276756719, 324.634587200654);
-            double b0 = (-311.26692190359665);
-            double2 r0 = double2(-634.69634467116384, 13.367665297057329);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double2 a0 = double2(-194.51420387742769, 338.54838696985894);
+            double b0 = (124.121678171736);
+            double2 r0 = double2(-70.3925257056917, 462.67006514159493);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double2 a1 = double2(-277.88344706123854, -459.05652997412557);
-            double b1 = (-472.86264513100622);
-            double2 r1 = double2(-750.74609219224476, -931.91917510513179);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double2 a1 = double2(246.97140252169754, -45.724677822424439);
+            double b1 = (100.51093797595752);
+            double2 r1 = double2(347.48234049765506, 54.786260153533078);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double2 a2 = double2(144.10591918980049, 149.11431343346567);
-            double b2 = (-334.47418872195954);
-            double2 r2 = double2(-190.36826953215905, -185.35987528849387);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double2 a2 = double2(-478.11131094308166, 60.37435224483454);
+            double b2 = (30.916145577522116);
+            double2 r2 = double2(-447.19516536555955, 91.290497822356656);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double2 a3 = double2(-388.34398263895139, -7.709385637058574);
-            double b3 = (303.38458146871278);
-            double2 r3 = double2(-84.9594011702386, 295.67519583165421);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double2 a3 = double2(-242.1187475855084, 6.7993848355483806);
+            double b3 = (82.50134495762245);
+            double2 r3 = double2(-159.61740262788595, 89.300729793170831);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double2_operator_add_scalar_wide()
         {
-            double a0 = (190.83125194852767);
-            double2 b0 = double2(411.15716881824528, -70.761643204261361);
-            double2 r0 = double2(601.988420766773, 120.0696087442663);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double a0 = (-340.35468284243473);
+            double2 b0 = double2(511.36225652665007, -146.21663791789518);
+            double2 r0 = double2(171.00757368421534, -486.57132076032991);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double a1 = (-404.53508991959279);
-            double2 b1 = double2(238.02884232161045, 442.24392506212178);
-            double2 r1 = double2(-166.50624759798234, 37.708835142528983);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double a1 = (-106.21042661844308);
+            double2 b1 = double2(-363.45024960276214, 199.08958325120136);
+            double2 r1 = double2(-469.66067622120522, 92.879156632758281);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double a2 = (151.43196327585349);
-            double2 b2 = double2(-447.09386154967075, -299.92477836270109);
-            double2 r2 = double2(-295.66189827381726, -148.4928150868476);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double a2 = (-27.108407271610758);
+            double2 b2 = double2(419.84900041103788, 284.95503748811552);
+            double2 r2 = double2(392.74059313942712, 257.84663021650476);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double a3 = (477.43272541343822);
-            double2 b3 = double2(-292.32724894784729, 59.315583971941692);
-            double2 r3 = double2(185.10547646559093, 536.74830938537991);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double a3 = (-164.92418129971446);
+            double2 b3 = double2(-249.19032561461921, 150.92817718858282);
+            double2 r3 = double2(-414.11450691433367, -13.99600411113164);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double2_operator_sub_wide_wide()
         {
-            double2 a0 = double2(379.05223649509821, -16.164036996739014);
-            double2 b0 = double2(236.68317877346794, 20.170748481606438);
-            double2 r0 = double2(142.36905772163027, -36.334785478345452);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double2 a0 = double2(160.4922617229131, 11.223957305412682);
+            double2 b0 = double2(115.46876078260539, -130.98230630298252);
+            double2 r0 = double2(45.023500940307713, 142.2062636083952);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double2 a1 = double2(107.16038208229486, 30.064602627449062);
-            double2 b1 = double2(111.4803836864794, -484.679841028843);
-            double2 r1 = double2(-4.32000160418454, 514.74444365629211);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double2 a1 = double2(359.20010607279846, -498.22830485656311);
+            double2 b1 = double2(241.54083716196044, 9.9870860623135513);
+            double2 r1 = double2(117.65926891083802, -508.21539091887666);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double2 a2 = double2(-428.43869443817005, 245.62773215287723);
-            double2 b2 = double2(-447.70867630825785, 18.1945517147866);
-            double2 r2 = double2(19.269981870087804, 227.43318043809063);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double2 a2 = double2(-355.25362913462038, -94.534852787170053);
+            double2 b2 = double2(419.89512582304656, 59.124466208333388);
+            double2 r2 = double2(-775.14875495766694, -153.65931899550344);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double2 a3 = double2(179.60420449990977, 505.37777805019994);
-            double2 b3 = double2(-296.14766063175523, 367.63596051169372);
-            double2 r3 = double2(475.751865131665, 137.74181753850621);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double2 a3 = double2(-410.46404786150163, -401.38464398001537);
+            double2 b3 = double2(-402.38163847587145, -75.370143687059226);
+            double2 r3 = double2(-8.0824093856301715, -326.01450029295614);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double2_operator_sub_wide_scalar()
         {
-            double2 a0 = double2(102.56966142662316, -199.24868759850443);
-            double b0 = (-504.27757405875138);
-            double2 r0 = double2(606.84723548537454, 305.02888646024695);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double2 a0 = double2(207.38960108877609, 248.45773684627272);
+            double b0 = (-36.112476604111691);
+            double2 r0 = double2(243.50207769288778, 284.57021345038441);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double2 a1 = double2(218.15437827732148, -139.42634851272516);
-            double b1 = (72.79636791758071);
-            double2 r1 = double2(145.35801035974077, -212.22271643030587);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double2 a1 = double2(-384.82393211164697, -374.81156152058929);
+            double b1 = (-205.34476122881506);
+            double2 r1 = double2(-179.47917088283191, -169.46680029177423);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double2 a2 = double2(13.459313160488023, -273.21787489262312);
-            double b2 = (-31.259209885848293);
-            double2 r2 = double2(44.718523046336315, -241.95866500677482);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double2 a2 = double2(191.64204820973896, -44.96160151667965);
+            double b2 = (18.856238135535364);
+            double2 r2 = double2(172.7858100742036, -63.817839652215014);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double2 a3 = double2(-375.99724524840587, 118.8643591957466);
-            double b3 = (484.57066248570129);
-            double2 r3 = double2(-860.56790773410717, -365.70630328995469);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double2 a3 = double2(480.85798738936796, -366.86545269883493);
+            double b3 = (16.338193185784917);
+            double2 r3 = double2(464.51979420358305, -383.20364588461985);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double2_operator_sub_scalar_wide()
         {
-            double a0 = (385.51228135894621);
-            double2 b0 = double2(78.826067245950071, -43.925143500755155);
-            double2 r0 = double2(306.68621411299614, 429.43742485970137);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double a0 = (-86.008225719448262);
+            double2 b0 = double2(466.42511413359318, 298.48694219183506);
+            double2 r0 = double2(-552.43333985304139, -384.49516791128332);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double a1 = (-401.83536762829652);
-            double2 b1 = double2(-336.14667931950964, 25.871118319160814);
-            double2 r1 = double2(-65.68868830878688, -427.70648594745734);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double a1 = (-300.95010652251085);
+            double2 b1 = double2(315.38003006362362, -381.09218543632522);
+            double2 r1 = double2(-616.33013658613447, 80.142078913814373);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double a2 = (188.92978080964167);
-            double2 b2 = double2(132.73553449136, -391.64339822886672);
-            double2 r2 = double2(56.194246318281671, 580.57317903850844);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double a2 = (-125.00837546447684);
+            double2 b2 = double2(58.466194418476107, 214.74609361158036);
+            double2 r2 = double2(-183.47456988295295, -339.75446907605721);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double a3 = (-131.12338477518568);
-            double2 b3 = double2(43.832313319590071, -278.08958948687166);
-            double2 r3 = double2(-174.95569809477576, 146.96620471168598);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double a3 = (-257.54942739082009);
+            double2 b3 = double2(480.22459505508868, -443.35507723472784);
+            double2 r3 = double2(-737.77402244590871, 185.80564984390776);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mul_wide_wide()
         {
-            double2 a0 = double2(48.729794286531273, 263.59457958098244);
-            double2 b0 = double2(351.02689258708938, 422.91789956713);
-            double2 r0 = double2(17105.468264809177, 111478.86593366979);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double2 a0 = double2(-482.71381710596097, -407.29348559272171);
+            double2 b0 = double2(-236.36788355389979, 260.72759139757954);
+            double2 r0 = double2(114098.04331156026, -106192.64949051509);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double2 a1 = double2(-378.48718493920154, 494.61832236434259);
-            double2 b1 = double2(-490.61739109950952, 81.404518403766929);
-            double2 r1 = double2(185692.39523946863, 40264.166325748447);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double2 a1 = double2(137.70058995937029, 208.54113278563182);
+            double2 b1 = double2(-416.38629718142852, -364.49561541364324);
+            double2 r1 = double2(-57336.638772880389, -76012.328533757158);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double2 a2 = double2(-185.09561094320173, 423.89342494676509);
-            double2 b2 = double2(-357.22656481211379, 378.99459451203916);
-            double2 r2 = double2(66121.069259039446, 160653.31670401874);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double2 a2 = double2(194.296573967811, -484.24241684574747);
+            double2 b2 = double2(-253.14750897751537, -369.20287220981106);
+            double2 r2 = double2(-49185.69370281692, 178783.69114527057);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double2 a3 = double2(19.861804256151345, -439.21847292371956);
-            double2 b3 = double2(318.32116880934745, 208.1715439335311);
-            double2 r3 = double2(6322.432745480568, -91432.787632658525);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double2 a3 = double2(183.98730739578014, -241.33547770294149);
+            double2 b3 = double2(193.54791531038836, 169.08491976982214);
+            double2 r3 = double2(35610.359790024842, -40806.189885013562);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mul_wide_scalar()
         {
-            double2 a0 = double2(-387.48086828155482, -48.625516675703921);
-            double b0 = (367.40878146114233);
-            double2 r0 = double2(-142363.87365483146, -17865.441829738833);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double2 a0 = double2(-96.318821236639678, -277.14229239017811);
+            double b0 = (-301.20720424373042);
+            double2 r0 = double2(29011.922860739887, 83477.255068544036);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double2 a1 = double2(-100.41558151152708, -428.578962764041);
-            double b1 = (-161.4535282409999);
-            double2 r1 = double2(16212.449925407765, 69195.585668122541);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double2 a1 = double2(-239.93690191951436, 255.85810172551226);
+            double b1 = (509.53140544776409);
+            double2 r1 = double2(-122255.38685383248, 130367.73816739726);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double2 a2 = double2(-198.31901440318626, -216.10473857452382);
-            double b2 = (413.47737927617379);
-            double2 r2 = double2(-82000.426336063218, -89354.420954956775);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double2 a2 = double2(215.73149667295229, -389.24327367788334);
+            double b2 = (-455.50827500573746);
+            double2 r2 = double2(-98267.481913902491, 177303.53215059882);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double2 a3 = double2(-65.20349958595051, 89.787349027482492);
-            double b3 = (18.976513156190776);
-            double2 r3 = double2(-1237.3350677224696, 1703.8508100795145);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double2 a3 = double2(-338.29248658674419, 243.75734459783757);
+            double b3 = (53.796284939067618);
+            double2 r3 = double2(-18198.879001166202, 13113.239565975766);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mul_scalar_wide()
         {
-            double a0 = (468.91594407936373);
-            double2 b0 = double2(123.86660796211413, 490.96148060772634);
-            double2 r0 = double2(58083.027412463176, 230219.66618577423);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double a0 = (37.432166355397612);
+            double2 b0 = double2(96.747546479454058, 492.18539427788244);
+            double2 r0 = double2(3621.4702542954869, 18423.565556306661);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double a1 = (-247.16259181087958);
-            double2 b1 = double2(-176.94950278892622, 382.26386874833327);
-            double2 r1 = double2(43735.29772895747, -94481.328555491942);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double a1 = (-274.05458534604617);
+            double2 b1 = double2(-452.87096926796761, 420.85330434369541);
+            double2 r1 = double2(124111.36569799489, -115336.77781342482);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double a2 = (-398.549474663357);
-            double2 b2 = double2(120.56934386145758, -263.27587879042881);
-            double2 r2 = double2(-48052.848656489565, 104928.46318345905);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double a2 = (102.18292694081686);
+            double2 b2 = double2(-114.94887762654054, -351.12003843445336);
+            double2 r2 = double2(-11745.812764441689, -35878.473234804551);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double a3 = (74.376708303753617);
-            double2 b3 = double2(-309.85598554734884, 404.92799944660067);
-            double2 r3 = double2(-23046.068253227262, 30117.211698862324);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double a3 = (-464.66496799172131);
+            double2 b3 = double2(444.08484646495663, 447.10525605040846);
+            double2 r3 = double2(-206350.67096824755, -207754.14949159342);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double2_operator_div_wide_wide()
         {
-            double2 a0 = double2(6.8207170995049182, -338.63085881743154);
-            double2 b0 = double2(-352.73601762984697, 302.20974292522749);
-            double2 r0 = double2(-0.019336605162511136, -1.1205160215539951);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double2 a0 = double2(-353.13144390337703, -102.79985456485292);
+            double2 b0 = double2(-178.73954805114283, -302.09628381491467);
+            double2 r0 = double2(1.97567604793504, 0.34028837848212429);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double2 a1 = double2(497.60438155457587, -491.26991938579357);
-            double2 b1 = double2(-489.09516810304262, -380.891595779402);
-            double2 r1 = double2(-1.0173978685672489, 1.2897893385663424);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double2 a1 = double2(51.319128298814917, -191.87167868012176);
+            double2 b1 = double2(-199.40583739029518, 278.85077561012042);
+            double2 r1 = double2(-0.25736021056579439, -0.68808013268139567);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double2 a2 = double2(173.45471604794955, -441.55652376709344);
-            double2 b2 = double2(289.64650525229354, -216.57524715018235);
-            double2 r2 = double2(0.59884967677018452, 2.038813435872012);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double2 a2 = double2(8.0418245829836223, -128.73764210973758);
+            double2 b2 = double2(502.33758782890516, -361.48483078623417);
+            double2 r2 = double2(0.016008805189634039, 0.35613566917796119);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double2 a3 = double2(321.01690331148768, -41.6019933417449);
-            double2 b3 = double2(-289.15099658125592, 198.97850022044895);
-            double2 r3 = double2(-1.1102050731520718, -0.20907783150266945);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double2 a3 = double2(-136.05959779399427, -370.4710053738537);
+            double2 b3 = double2(353.121059820578, -38.894930142394685);
+            double2 r3 = double2(-0.3853058151307277, 9.5249176182488586);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double2_operator_div_wide_scalar()
         {
-            double2 a0 = double2(-179.14525779483154, 46.961132786684288);
-            double b0 = (-93.365409179295114);
-            double2 r0 = double2(1.9187540585915315, -0.50298213438450257);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double2 a0 = double2(171.34242184988341, 0.10338377957384637);
+            double b0 = (171.79682191265601);
+            double2 r0 = double2(0.99735501473360411, 0.00060177934855167557);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double2 a1 = double2(127.57277470807207, 461.32760665441288);
-            double b1 = (391.67960924267754);
-            double2 r1 = double2(0.32570695971316266, 1.1778187982427819);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double2 a1 = double2(57.888263967767443, 95.6696842162263);
+            double b1 = (-256.13074529177078);
+            double2 r1 = double2(-0.22601060213143936, -0.37351893895925842);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double2 a2 = double2(150.55543119765605, 169.15858395824148);
-            double b2 = (18.422910937305005);
-            double2 r2 = double2(8.17218471662872, 9.1819682857885461);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double2 a2 = double2(-290.38690461329509, -79.7448890580539);
+            double b2 = (-127.44869118903239);
+            double2 r2 = double2(2.2784612529491741, 0.6257019065011501);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double2 a3 = double2(37.5003321345431, -22.542152176863567);
-            double b3 = (121.80905800769528);
-            double2 r3 = double2(0.3078616052689121, -0.18506137840290554);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double2 a3 = double2(146.46688110496234, 58.686315802245531);
+            double b3 = (-499.84355687529012);
+            double2 r3 = double2(-0.29302544584265894, -0.11740936738109768);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double2_operator_div_scalar_wide()
         {
-            double a0 = (451.8446936327241);
-            double2 b0 = double2(-95.065177723330066, 207.048737383936);
-            double2 r0 = double2(-4.7529989892590958, 2.1823107899221643);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double a0 = (-264.44250095283729);
+            double2 b0 = double2(105.58908157497137, -142.34910137129441);
+            double2 r0 = double2(-2.5044492954044237, 1.85770404172122);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double a1 = (502.38401603250952);
-            double2 b1 = double2(62.0412257006584, -110.84549408352257);
-            double2 r1 = double2(8.097583668905143, -4.53229082685094);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double a1 = (-288.94890679463231);
+            double2 b1 = double2(39.644133824689334, -363.99138396046658);
+            double2 r1 = double2(-7.2885665272041447, 0.79383446841701977);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double a2 = (-332.61274949303493);
-            double2 b2 = double2(224.27937065077913, -492.73451804217626);
-            double2 r2 = double2(-1.4830287267523126, 0.67503439948683375);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double a2 = (-149.71822006521666);
+            double2 b2 = double2(-395.72912306139671, 258.71868693955184);
+            double2 r2 = double2(0.37833510687053507, -0.57869117162069339);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double a3 = (435.03288027040333);
-            double2 b3 = double2(503.81881570435075, 291.34940757013362);
-            double2 r3 = double2(0.86347088816485928, 1.493165487785254);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double a3 = (-9.6662514254759344);
+            double2 b3 = double2(117.72553282497711, -331.38655797177296);
+            double2 r3 = double2(-0.082108368452634473, 0.029169111398595994);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mod_wide_wide()
         {
-            double2 a0 = double2(157.55858881657878, 504.93797158866096);
-            double2 b0 = double2(180.25016530801088, -41.479829092267835);
-            double2 r0 = double2(157.55858881657878, 7.18002248144694);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double2 a0 = double2(-388.81249422059045, 181.68118842955732);
+            double2 b0 = double2(436.94417187056695, 58.940049437312382);
+            double2 r0 = double2(-388.81249422059045, 4.8610401176201776);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double2 a1 = double2(73.007050786636341, -387.60870975424007);
-            double2 b1 = double2(-308.6731518752282, -326.86006203613249);
-            double2 r1 = double2(73.007050786636341, -60.748647718107577);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double2 a1 = double2(-167.07872470052854, 432.82015319951813);
+            double2 b1 = double2(-201.11623368091705, 279.2893537391393);
+            double2 r1 = double2(-167.07872470052854, 153.53079946037883);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double2 a2 = double2(278.54447830773165, 282.22817314892461);
-            double2 b2 = double2(411.58822674843861, 429.41059680907551);
-            double2 r2 = double2(278.54447830773165, 282.22817314892461);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double2 a2 = double2(-258.43895995730486, -170.11079629236406);
+            double2 b2 = double2(-397.07975954426445, 377.89994758083481);
+            double2 r2 = double2(-258.43895995730486, -170.11079629236406);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double2 a3 = double2(57.086228635667908, -63.974762707936918);
-            double2 b3 = double2(471.14820144658358, 226.1443618396969);
-            double2 r3 = double2(57.086228635667908, -63.974762707936918);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double2 a3 = double2(283.318293464984, 122.71651297561664);
+            double2 b3 = double2(174.69386657266591, -228.17652736798698);
+            double2 r3 = double2(108.62442689231807, 122.71651297561664);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mod_wide_scalar()
         {
-            double2 a0 = double2(42.072420378249376, 313.0502714184347);
-            double b0 = (260.27255332668892);
-            double2 r0 = double2(42.072420378249376, 52.777718091745783);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double2 a0 = double2(-244.49962889612635, -211.81931958525411);
+            double b0 = (39.634963769295723);
+            double2 r0 = double2(-6.6898462803520147, -13.644500738775491);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double2 a1 = double2(111.52063970990514, -460.44087026102511);
-            double b1 = (131.21203214079696);
-            double2 r1 = double2(111.52063970990514, -66.804773838634219);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double2 a1 = double2(-145.92677576184587, 155.47946436492703);
+            double b1 = (-304.91822090042672);
+            double2 r1 = double2(-145.92677576184587, 155.47946436492703);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double2 a2 = double2(-436.48505970299482, -316.39089479874394);
-            double b2 = (-221.73172031237357);
-            double2 r2 = double2(-214.75333939062125, -94.659174486370375);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double2 a2 = double2(-133.90778428591221, -226.53575311719243);
+            double b2 = (281.30965412841624);
+            double2 r2 = double2(-133.90778428591221, -226.53575311719243);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double2 a3 = double2(24.183113824661405, 335.60093203913459);
-            double b3 = (-238.94258724848862);
-            double2 r3 = double2(24.183113824661405, 96.65834479064597);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double2 a3 = double2(335.16613046041039, 319.47152033423606);
+            double b3 = (101.70649032560482);
+            double2 r3 = double2(30.046659483595931, 14.352049357421606);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double2_operator_mod_scalar_wide()
         {
-            double a0 = (-162.94581063228929);
-            double2 b0 = double2(171.12575991969823, 159.20793659948185);
-            double2 r0 = double2(-162.94581063228929, -3.73787403280744);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double a0 = (-66.945025236785909);
+            double2 b0 = double2(-249.77609479137516, -396.07375664081133);
+            double2 r0 = double2(-66.945025236785909, -66.945025236785909);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double a1 = (491.34807061187371);
-            double2 b1 = double2(-136.53971416155792, 84.487527171376883);
-            double2 r1 = double2(81.728928127199936, 68.9104347549893);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double a1 = (386.49204582091977);
+            double2 b1 = double2(168.93948109864232, -199.4182442163202);
+            double2 r1 = double2(48.613083623635134, 187.07380160459957);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double a2 = (414.39111657365743);
-            double2 b2 = double2(-85.030597011107318, 161.98958857450145);
-            double2 r2 = double2(74.268728529228156, 90.41193942465452);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double a2 = (261.7517141130528);
+            double2 b2 = double2(16.127438791155555, 257.66814744550186);
+            double2 r2 = double2(3.7126934545639187, 4.08356666755094);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double a3 = (-7.6080162560604663);
-            double2 b3 = double2(-85.22386912499735, 160.84123547414379);
-            double2 r3 = double2(-7.6080162560604663, -7.6080162560604663);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double a3 = (-75.788451945310669);
+            double2 b3 = double2(170.95630439136005, -242.85828005655588);
+            double2 r3 = double2(-75.788451945310669, -75.788451945310669);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double2_operator_plus()
         {
-            double2 a0 = double2(150.59985477784642, -137.85511237841803);
-            double2 r0 = double2(150.59985477784642, -137.85511237841803);
-            TestUtils.AreEqual(+a0, r0);
+            double2 a0 = double2(-418.82956357432045, -405.79894823851015);
+            double2 r0 = double2(-418.82956357432045, -405.79894823851015);
+            TestUtils.AreEqual(r0, +a0);
 
-            double2 a1 = double2(439.0911616939544, 401.8235406362561);
-            double2 r1 = double2(439.0911616939544, 401.8235406362561);
-            TestUtils.AreEqual(+a1, r1);
+            double2 a1 = double2(-34.041791216489742, -459.83910129025537);
+            double2 r1 = double2(-34.041791216489742, -459.83910129025537);
+            TestUtils.AreEqual(r1, +a1);
 
-            double2 a2 = double2(-299.61462010984059, 444.56690975863808);
-            double2 r2 = double2(-299.61462010984059, 444.56690975863808);
-            TestUtils.AreEqual(+a2, r2);
+            double2 a2 = double2(210.8614223985287, -373.015422279488);
+            double2 r2 = double2(210.8614223985287, -373.015422279488);
+            TestUtils.AreEqual(r2, +a2);
 
-            double2 a3 = double2(-135.17793161011207, -458.63783023256707);
-            double2 r3 = double2(-135.17793161011207, -458.63783023256707);
-            TestUtils.AreEqual(+a3, r3);
+            double2 a3 = double2(-386.059833944803, -418.64524932328857);
+            double2 r3 = double2(-386.059833944803, -418.64524932328857);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void double2_operator_neg()
         {
-            double2 a0 = double2(-169.28116782441788, -377.02522366914206);
-            double2 r0 = double2(169.28116782441788, 377.02522366914206);
-            TestUtils.AreEqual(-a0, r0);
+            double2 a0 = double2(148.46174890755753, -467.12267873581624);
+            double2 r0 = double2(-148.46174890755753, 467.12267873581624);
+            TestUtils.AreEqual(r0, -a0);
 
-            double2 a1 = double2(36.614130752447068, 469.91457460351035);
-            double2 r1 = double2(-36.614130752447068, -469.91457460351035);
-            TestUtils.AreEqual(-a1, r1);
+            double2 a1 = double2(132.04719954917539, 473.7010145009034);
+            double2 r1 = double2(-132.04719954917539, -473.7010145009034);
+            TestUtils.AreEqual(r1, -a1);
 
-            double2 a2 = double2(388.94596380225664, 176.10255464171178);
-            double2 r2 = double2(-388.94596380225664, -176.10255464171178);
-            TestUtils.AreEqual(-a2, r2);
+            double2 a2 = double2(-407.99109024926605, -382.98981803608581);
+            double2 r2 = double2(407.99109024926605, 382.98981803608581);
+            TestUtils.AreEqual(r2, -a2);
 
-            double2 a3 = double2(494.42163037435228, -60.813943175978011);
-            double2 r3 = double2(-494.42163037435228, 60.813943175978011);
-            TestUtils.AreEqual(-a3, r3);
+            double2 a3 = double2(-299.09338893512887, 407.70980305583669);
+            double2 r3 = double2(299.09338893512887, -407.70980305583669);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void double2_operator_prefix_inc()
         {
-            double2 a0 = double2(86.5853612826138, 161.589808777715);
-            double2 r0 = double2(87.5853612826138, 162.589808777715);
-            TestUtils.AreEqual(++a0, r0);
+            double2 a0 = double2(-139.84208137348389, -56.743654039103376);
+            double2 r0 = double2(-138.84208137348389, -55.743654039103376);
+            TestUtils.AreEqual(r0, ++a0);
 
-            double2 a1 = double2(443.92963978458647, -34.558641688227);
-            double2 r1 = double2(444.92963978458647, -33.558641688227);
-            TestUtils.AreEqual(++a1, r1);
+            double2 a1 = double2(-381.955324589254, -222.89634452708827);
+            double2 r1 = double2(-380.955324589254, -221.89634452708827);
+            TestUtils.AreEqual(r1, ++a1);
 
-            double2 a2 = double2(-368.56747858997784, 145.02611143189768);
-            double2 r2 = double2(-367.56747858997784, 146.02611143189768);
-            TestUtils.AreEqual(++a2, r2);
+            double2 a2 = double2(210.31986556310198, -300.19410218866267);
+            double2 r2 = double2(211.31986556310198, -299.19410218866267);
+            TestUtils.AreEqual(r2, ++a2);
 
-            double2 a3 = double2(157.23312409093285, -484.20042751925087);
-            double2 r3 = double2(158.23312409093285, -483.20042751925087);
-            TestUtils.AreEqual(++a3, r3);
+            double2 a3 = double2(362.21273939787068, 130.90919429199266);
+            double2 r3 = double2(363.21273939787068, 131.90919429199266);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void double2_operator_postfix_inc()
         {
-            double2 a0 = double2(-281.78208912619488, 215.34223971857796);
-            double2 r0 = double2(-281.78208912619488, 215.34223971857796);
-            TestUtils.AreEqual(a0++, r0);
+            double2 a0 = double2(-396.6697396695007, 511.20749378167443);
+            double2 r0 = double2(-396.6697396695007, 511.20749378167443);
+            TestUtils.AreEqual(r0, a0++);
 
-            double2 a1 = double2(120.82084923648313, -179.7229221704057);
-            double2 r1 = double2(120.82084923648313, -179.7229221704057);
-            TestUtils.AreEqual(a1++, r1);
+            double2 a1 = double2(249.11127030528678, -259.49027669592306);
+            double2 r1 = double2(249.11127030528678, -259.49027669592306);
+            TestUtils.AreEqual(r1, a1++);
 
-            double2 a2 = double2(44.563681384811048, 193.36569628183065);
-            double2 r2 = double2(44.563681384811048, 193.36569628183065);
-            TestUtils.AreEqual(a2++, r2);
+            double2 a2 = double2(278.00817764830219, 66.719732554033271);
+            double2 r2 = double2(278.00817764830219, 66.719732554033271);
+            TestUtils.AreEqual(r2, a2++);
 
-            double2 a3 = double2(329.52426472749755, -130.47432786341494);
-            double2 r3 = double2(329.52426472749755, -130.47432786341494);
-            TestUtils.AreEqual(a3++, r3);
+            double2 a3 = double2(167.85212691493894, -326.10758486674524);
+            double2 r3 = double2(167.85212691493894, -326.10758486674524);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void double2_operator_prefix_dec()
         {
-            double2 a0 = double2(340.00185433961542, 496.07084750387389);
-            double2 r0 = double2(339.00185433961542, 495.07084750387389);
-            TestUtils.AreEqual(--a0, r0);
+            double2 a0 = double2(123.12869626056806, 256.8437465433235);
+            double2 r0 = double2(122.12869626056806, 255.8437465433235);
+            TestUtils.AreEqual(r0, --a0);
 
-            double2 a1 = double2(288.38421048241867, -353.61481230036111);
-            double2 r1 = double2(287.38421048241867, -354.61481230036111);
-            TestUtils.AreEqual(--a1, r1);
+            double2 a1 = double2(156.33078844674435, 325.86799755965728);
+            double2 r1 = double2(155.33078844674435, 324.86799755965728);
+            TestUtils.AreEqual(r1, --a1);
 
-            double2 a2 = double2(398.28191751906741, 15.320201642494794);
-            double2 r2 = double2(397.28191751906741, 14.320201642494794);
-            TestUtils.AreEqual(--a2, r2);
+            double2 a2 = double2(392.01561731473339, -236.2252043393558);
+            double2 r2 = double2(391.01561731473339, -237.2252043393558);
+            TestUtils.AreEqual(r2, --a2);
 
-            double2 a3 = double2(276.58867395882896, -305.80371084148237);
-            double2 r3 = double2(275.58867395882896, -306.80371084148237);
-            TestUtils.AreEqual(--a3, r3);
+            double2 a3 = double2(125.10963517292851, 45.536655685648611);
+            double2 r3 = double2(124.10963517292851, 44.536655685648611);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void double2_operator_postfix_dec()
         {
-            double2 a0 = double2(-148.11175806266806, 252.84978473039803);
-            double2 r0 = double2(-148.11175806266806, 252.84978473039803);
-            TestUtils.AreEqual(a0--, r0);
+            double2 a0 = double2(379.68831723727669, 302.69287814884115);
+            double2 r0 = double2(379.68831723727669, 302.69287814884115);
+            TestUtils.AreEqual(r0, a0--);
 
-            double2 a1 = double2(-106.15790395911688, -370.72375100232836);
-            double2 r1 = double2(-106.15790395911688, -370.72375100232836);
-            TestUtils.AreEqual(a1--, r1);
+            double2 a1 = double2(-176.07134040448409, 470.56758401848731);
+            double2 r1 = double2(-176.07134040448409, 470.56758401848731);
+            TestUtils.AreEqual(r1, a1--);
 
-            double2 a2 = double2(343.31118575824019, 450.60180565835992);
-            double2 r2 = double2(343.31118575824019, 450.60180565835992);
-            TestUtils.AreEqual(a2--, r2);
+            double2 a2 = double2(-402.92594666170231, 355.26110069605568);
+            double2 r2 = double2(-402.92594666170231, 355.26110069605568);
+            TestUtils.AreEqual(r2, a2--);
 
-            double2 a3 = double2(330.95722190055869, 269.75451553508378);
-            double2 r3 = double2(330.95722190055869, 269.75451553508378);
-            TestUtils.AreEqual(a3--, r3);
+            double2 a3 = double2(-27.889220489137415, 156.14034969924967);
+            double2 r3 = double2(-27.889220489137415, 156.14034969924967);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
@@ -972,10 +972,10 @@ namespace Unity.Mathematics.Tests
             double2 a = double2(0, 1);
             double2 b = double2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX), (0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY), (1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX), (2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY), (3));
+            TestUtils.AreEqual((0), shuffle(a, b, ShuffleComponent.LeftX));
+            TestUtils.AreEqual((1), shuffle(a, b, ShuffleComponent.LeftY));
+            TestUtils.AreEqual((2), shuffle(a, b, ShuffleComponent.RightX));
+            TestUtils.AreEqual((3), shuffle(a, b, ShuffleComponent.RightY));
         }
 
         [TestCompiler]
@@ -984,22 +984,22 @@ namespace Unity.Mathematics.Tests
             double2 a = double2(0, 1);
             double2 b = double2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX), double2(0, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftX), double2(1, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX), double2(2, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX), double2(3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY), double2(0, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double2(1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY), double2(2, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY), double2(3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX), double2(0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX), double2(1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX), double2(2, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), double2(3, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY), double2(0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY), double2(1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY), double2(2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY), double2(3, 3));
+            TestUtils.AreEqual(double2(0, 0), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(1, 0), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(2, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(3, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(0, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(1, 1), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(2, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double2(0, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(1, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(2, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(3, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(0, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(1, 3), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(3, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY));
         }
 
         [TestCompiler]
@@ -1008,22 +1008,22 @@ namespace Unity.Mathematics.Tests
             double2 a = double2(0, 1);
             double2 b = double2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY), double3(2, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightX), double3(2, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightY), double3(3, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double3(1, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY), double3(2, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY), double3(0, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY), double3(2, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftX), double3(3, 3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY), double3(2, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX), double3(2, 2, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double3(0, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY), double3(3, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double3(0, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightX), double3(3, 2, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightY), double3(0, 1, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double3(3, 1, 1));
+            TestUtils.AreEqual(double3(2, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(2, 0, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(3, 1, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(1, 1, 1), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(2, 1, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(0, 3, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(2, 1, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(3, 3, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double3(2, 2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(2, 2, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double3(0, 1, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(3, 2, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(0, 1, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(3, 2, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(0, 1, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(3, 1, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
         }
 
         [TestCompiler]
@@ -1032,22 +1032,22 @@ namespace Unity.Mathematics.Tests
             double2 a = double2(0, 1);
             double2 b = double2(2, 3);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX), double4(0, 0, 1, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(2, 1, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX), double4(3, 2, 3, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY), double4(2, 0, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightX), double4(0, 3, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftY), double4(3, 0, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftX), double4(2, 2, 3, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(2, 2, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.LeftY), double4(0, 1, 2, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightY), double4(2, 1, 3, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftY), double4(3, 3, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double4(2, 2, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX), double4(3, 0, 0, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY), double4(2, 2, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(0, 3, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX), double4(2, 0, 0, 0));
+            TestUtils.AreEqual(double4(0, 0, 1, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(2, 1, 0, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(3, 2, 3, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(2, 0, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(0, 3, 0, 2), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(3, 0, 3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(2, 2, 3, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(2, 2, 0, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(0, 1, 2, 1), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(2, 1, 3, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(3, 3, 3, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(2, 2, 1, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(3, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(2, 2, 2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(0, 3, 0, 3), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(2, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
         }
 
 

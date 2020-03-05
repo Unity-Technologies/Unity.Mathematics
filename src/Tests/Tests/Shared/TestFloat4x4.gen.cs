@@ -18,955 +18,955 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void float4x4_zero()
         {
-            TestUtils.AreEqual(float4x4.zero.c0.x, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c0.y, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c0.z, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c0.w, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c1.x, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c1.y, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c1.z, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c1.w, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c2.x, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c2.y, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c2.z, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c2.w, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c3.x, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c3.y, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c3.z, 0.0f);
-            TestUtils.AreEqual(float4x4.zero.c3.w, 0.0f);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c0.x);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c0.y);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c0.z);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c0.w);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c1.x);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c1.y);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c1.z);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c1.w);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c2.x);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c2.y);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c2.z);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c2.w);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c3.x);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c3.y);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c3.z);
+            TestUtils.AreEqual(0.0f, float4x4.zero.c3.w);
         }
 
         [TestCompiler]
         public static void float4x4_identity()
         {
-            TestUtils.AreEqual(float4x4.identity.c0.x, 1.0f);
-            TestUtils.AreEqual(float4x4.identity.c0.y, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c0.z, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c0.w, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c1.x, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c1.y, 1.0f);
-            TestUtils.AreEqual(float4x4.identity.c1.z, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c1.w, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c2.x, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c2.y, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c2.z, 1.0f);
-            TestUtils.AreEqual(float4x4.identity.c2.w, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c3.x, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c3.y, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c3.z, 0.0f);
-            TestUtils.AreEqual(float4x4.identity.c3.w, 1.0f);
+            TestUtils.AreEqual(1.0f, float4x4.identity.c0.x);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c0.y);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c0.z);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c0.w);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c1.x);
+            TestUtils.AreEqual(1.0f, float4x4.identity.c1.y);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c1.z);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c1.w);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c2.x);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c2.y);
+            TestUtils.AreEqual(1.0f, float4x4.identity.c2.z);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c2.w);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c3.x);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c3.y);
+            TestUtils.AreEqual(0.0f, float4x4.identity.c3.z);
+            TestUtils.AreEqual(1.0f, float4x4.identity.c3.w);
         }
 
         [TestCompiler]
         public static void float4x4_operator_equal_wide_wide()
         {
-            float4x4 a0 = float4x4(331.744141f, -417.6833f, -438.450867f, -57.99066f, -183.1134f, 72.3228149f, -292.706116f, -181.376923f, 43.84778f, 481.287354f, 258.4253f, 352.580444f, 70.85327f, -41.08313f, -501.143951f, 469.417725f);
-            float4x4 b0 = float4x4(-426.582825f, 431.344543f, 263.339172f, -309.3919f, 391.1996f, -468.237274f, -389.9116f, -192.672028f, -8.950195f, -339.086975f, 104.677917f, -443.5048f, 358.640137f, -415.7492f, -141.969635f, 379.130066f);
+            float4x4 a0 = float4x4(492.1576f, -495.206329f, 227.457642f, -147.374054f, -222.682f, 64.09375f, -23.8904114f, -16.8197327f, 163.232117f, -165.271f, 470.8777f, -423.942566f, 109.6344f, 462.6903f, -335.38147f, 357.2345f);
+            float4x4 b0 = float4x4(192.568787f, -235.611023f, -254.043121f, -412.624725f, 471.9048f, -6.47277832f, -339.102356f, 488.187561f, -379.5966f, -308.417f, -82.333374f, -102.921082f, 226.515747f, -356.9013f, -362.912781f, -427.898438f);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float4x4 a1 = float4x4(379.497925f, -174.4578f, -456.507446f, 172.215576f, 258.43927f, 509.8202f, -199.17569f, 194.292358f, 448.9026f, -419.461578f, -267.8828f, 405.6131f, -267.163269f, -151.508728f, -207.5777f, -320.248f);
-            float4x4 b1 = float4x4(56.10376f, 132.809509f, -233.776184f, -159.645721f, 369.805054f, 41.04828f, 316.684326f, -258.031738f, -239.097748f, -181.013641f, 241.82428f, -284.933777f, -486.1785f, -285.091f, -154.241455f, 470.856262f);
+            float4x4 a1 = float4x4(1.54559326f, -347.388245f, -114.472168f, 435.848633f, 194.2381f, 138.765564f, -467.349152f, 370.43335f, 476.708252f, 320.552673f, -498.59198f, 92.41693f, 104.511353f, 166.754578f, -204.733429f, 434.756775f);
+            float4x4 b1 = float4x4(466.650146f, -102.799042f, -43.355957f, 85.0456543f, -91.1270447f, 422.192078f, -477.4313f, 1.87701416f, 312.580078f, 254.599365f, 352.72583f, 62.4909668f, 119.714783f, -511.058075f, -302.472717f, -371.769226f);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float4x4 a2 = float4x4(433.78186f, -335.735229f, 296.5462f, -248.164581f, 330.834229f, -85.5262756f, 106.857727f, 267.6709f, -347.652283f, -352.6518f, -234.508057f, 135.012878f, 162.490662f, -112.027222f, 429.732544f, -464.068054f);
-            float4x4 b2 = float4x4(205.192749f, 163.190125f, 197.813538f, -234.376038f, 128.9331f, 400.6203f, -200.4678f, 266.168945f, -295.0514f, 249.9538f, 138.4314f, -374.326324f, -401.524f, -482.328979f, -54.69342f, -99.3192444f);
+            float4x4 a2 = float4x4(-397.329651f, 503.981628f, -503.7141f, 90.65973f, -303.445251f, 9.34491f, 290.901062f, -147.57193f, 368.082336f, -321.6096f, -171.465424f, -441.306458f, -137.766815f, 304.689575f, 301.889465f, -222.220917f);
+            float4x4 b2 = float4x4(-20.007843f, 21.4594727f, -426.0207f, -305.411926f, 261.68335f, 50.00476f, -334.134644f, 75.0656738f, -51.186676f, -135.961548f, -409.364868f, 160.819763f, 102.120789f, 277.813049f, 434.906738f, -15.2891846f);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float4x4 a3 = float4x4(178.052979f, 119.266418f, 140.419556f, -42.57794f, -502.9332f, 0.152160645f, -184.649475f, 120.208496f, -241.849365f, -449.438721f, -313.589661f, 193.364258f, -441.820129f, -511.300568f, -202.15921f, -152.108582f);
-            float4x4 b3 = float4x4(-473.036041f, 107.631592f, -480.8977f, -260.91095f, 326.9145f, 115.184082f, -507.007172f, 445.3045f, 94.32233f, -424.5263f, -58.20175f, -216.649536f, -473.408875f, 186.07019f, -277.8356f, -126.472351f);
+            float4x4 a3 = float4x4(-13.88382f, 307.521729f, -469.412933f, -6.40887451f, -290.079651f, 46.0445557f, -168.61908f, 283.5899f, -244.713287f, -367.140442f, -492.863129f, 311.696167f, -90.7013855f, -352.773743f, -218.710266f, -95.30136f);
+            float4x4 b3 = float4x4(-1.46521f, 64.65869f, -163.0261f, 390.728943f, 113.9646f, -248.2753f, -469.587769f, -73.35397f, -420.311066f, 358.453247f, 58.7183228f, -499.964783f, -168.8381f, -93.83493f, 324.84668f, -226.35199f);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_equal_wide_scalar()
         {
-            float4x4 a0 = float4x4(327.101929f, 440.467224f, -443.745178f, 325.546265f, 435.371765f, 58.38208f, -398.435f, 377.0666f, 445.502136f, -17.7927246f, -92.37259f, -350.2315f, 450.236755f, 14.9833374f, -504.426971f, 412.488525f);
-            float b0 = (342.440552f);
+            float4x4 a0 = float4x4(-303.230072f, 451.5263f, -253.655884f, -105.203644f, -500.6911f, -426.192474f, 159.8761f, -59.55838f, -57.4773865f, -182.049744f, 406.513733f, 370.886f, -172.035309f, 455.400024f, -11.3389893f, 363.938232f);
+            float b0 = (123.544556f);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float4x4 a1 = float4x4(454.7033f, 356.93158f, 413.762878f, 233.3728f, -481.17157f, 355.5678f, -235.840881f, 322.297729f, 114.381042f, 352.201782f, -335.634521f, 273.712158f, 98.97534f, -173.683014f, 260.326843f, -154.797943f);
-            float b1 = (289.2917f);
+            float4x4 a1 = float4x4(-27.1505737f, -290.359039f, 180.196838f, -374.128326f, -439.358948f, -126.546082f, -197.26178f, -227.159332f, -479.8992f, -439.777679f, -495.237335f, -224.517059f, -422.833221f, -450.196259f, -20.10672f, 297.38f);
+            float b1 = (-325.976074f);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float4x4 a2 = float4x4(-40.9360046f, -244.18042f, 150.705566f, 46.6643066f, 510.5437f, -466.703918f, -313.411346f, -227.1417f, -429.960022f, -375.853638f, -413.806458f, 81.11273f, 500.628052f, 127.815674f, -27.17163f, 16.4016724f);
-            float b2 = (482.790283f);
+            float4x4 a2 = float4x4(185.966553f, -220.597046f, -228.686859f, -333.001282f, 434.213f, 406.248718f, -239.869781f, 380.93927f, 90.34949f, -361.327942f, -453.599945f, 157.732483f, -491.0462f, 296.614258f, 482.265137f, -305.876984f);
+            float b2 = (-102.975983f);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float4x4 a3 = float4x4(-348.93158f, -372.772522f, 6.144104f, -418.270874f, 311.612122f, -427.1006f, 304.0957f, -508.7515f, -191.009277f, 218.1803f, 449.199524f, -408.645569f, -165.473236f, -356.10968f, 159.300537f, 316.5664f);
-            float b3 = (262.974548f);
+            float4x4 a3 = float4x4(-290.1021f, -110.528351f, 496.8636f, -441.101746f, 50.9035034f, 66.07239f, 455.6059f, -390.0443f, 491.20813f, -498.4148f, 143.113464f, -347.041321f, -146.644165f, -243.853455f, -85.37955f, -438.494019f);
+            float b3 = (115.246521f);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_equal_scalar_wide()
         {
-            float a0 = (430.781128f);
-            float4x4 b0 = float4x4(-434.727478f, 103.730347f, -263.03656f, -224.560181f, 204.110779f, 196.568237f, -424.756561f, 467.4505f, -45.4336243f, 138.191589f, 181.061951f, -449.2158f, -335.154449f, -77.46622f, 107.902405f, -330.9517f);
+            float a0 = (-253.397278f);
+            float4x4 b0 = float4x4(19.95221f, -185.791992f, 407.8136f, -87.2767f, -206.274689f, 160.503113f, -274.7708f, -2.63153076f, 448.354553f, -410.035248f, 247.329041f, 355.539124f, -298.0667f, 414.1015f, -481.3026f, 196.55072f);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            float a1 = (-115.29895f);
-            float4x4 b1 = float4x4(244.522888f, -481.4762f, 134.603821f, -208.271637f, 420.9162f, -464.2389f, 64.91498f, 62.8317261f, -429.80426f, -5.533844f, 21.2402954f, 261.038635f, -30.1661377f, -380.670441f, 235.491638f, -322.037445f);
+            float a1 = (34.6010132f);
+            float4x4 b1 = float4x4(113.7616f, -386.453369f, -124.49176f, 243.886658f, -492.6182f, 145.424438f, 421.55072f, -95.40997f, 336.809265f, 209.5838f, 487.4414f, 161.806519f, 149.842468f, 225.724f, -71.21881f, 85.78027f);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            float a2 = (450.00824f);
-            float4x4 b2 = float4x4(375.5432f, -369.7356f, 278.307922f, 429.931946f, 26.0113525f, 447.70752f, 10.2235107f, 158.794312f, 81.00751f, 55.3158569f, 446.983459f, -173.133026f, 395.042969f, 121.359192f, 53.0856323f, -222.371277f);
+            float a2 = (192.547241f);
+            float4x4 b2 = float4x4(-49.88748f, -229.801971f, -103.407349f, 19.21576f, 492.8811f, 140.403137f, -267.536438f, 125.972717f, 478.0005f, 116.144592f, -368.957764f, -225.028656f, 2.723755f, -452.2632f, 87.45654f, 401.306519f);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            float a3 = (510.417419f);
-            float4x4 b3 = float4x4(198.145752f, 30.177002f, -136.85434f, 127.052795f, -343.643677f, 55.9691772f, 184.048462f, 224.6081f, 121.9151f, -309.897949f, 66.00311f, -305.588135f, 496.732544f, 6.86206055f, 457.570251f, 384.821655f);
+            float a3 = (-18.6455383f);
+            float4x4 b3 = float4x4(-294.214f, -32.7313538f, -1.25234985f, 14.7160645f, 0.570373535f, 180.783569f, 498.262878f, -503.8667f, -31.0839844f, 462.9193f, -250.21225f, 347.561951f, -213.487946f, -123.759247f, -193.452179f, -242.241089f);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_not_equal_wide_wide()
         {
-            float4x4 a0 = float4x4(19.2539673f, 121.335449f, 468.3097f, -212.365448f, -410.633484f, 507.534241f, 52.20117f, -319.6424f, -448.9063f, 255.3703f, -70.46268f, -18.9137878f, -131.624084f, 288.074951f, 290.717957f, 191.2832f);
-            float4x4 b0 = float4x4(-249.066345f, -19.0466f, 323.622559f, 294.941956f, -492.460968f, -166.483276f, 421.1953f, 87.6629f, 193.875122f, -279.289825f, 158.513611f, 426.635132f, -404.547821f, 480.740479f, -184.480316f, 355.445068f);
+            float4x4 a0 = float4x4(430.842529f, 104.69f, 225.802429f, -310.5702f, -418.619446f, 304.128174f, -509.3268f, -160.538086f, -203.301971f, -505.763245f, 162.17218f, 1.156189f, 65.66205f, 102.787781f, 172.930054f, 26.6210327f);
+            float4x4 b0 = float4x4(210.024719f, -55.20334f, -269.925354f, -234.546722f, 25.91742f, -63.72699f, -484.5537f, -425.3336f, -53.2743835f, 328.1944f, 15.9631348f, 461.7141f, -113.363037f, -240.072968f, 495.119141f, 203.55835f);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float4x4 a1 = float4x4(-220.54245f, 404.7948f, -266.012451f, 258.967346f, -375.447144f, 124.137634f, -395.242065f, 154.09259f, -270.3957f, 265.8225f, -70.6264343f, -431.107422f, 281.847473f, -399.4225f, -476.4524f, -507.77597f);
-            float4x4 b1 = float4x4(414.6756f, -134.759186f, -458.719055f, -43.3425f, -446.3987f, -50.54947f, -142.774689f, -462.0124f, 511.044678f, -497.399323f, -267.937927f, 372.740356f, 206.700317f, 360.857483f, -181.105927f, 285.8468f);
+            float4x4 a1 = float4x4(235.125977f, 128.541992f, -354.996979f, 334.3595f, -495.832f, 468.307373f, 458.370972f, 299.937317f, 43.1271973f, -354.7135f, -145.2872f, 390.80188f, -303.13147f, 391.134583f, 139.286865f, 104.523193f);
+            float4x4 b1 = float4x4(340.493469f, -241.9072f, 459.569824f, 213.07373f, -384.782837f, -255.072327f, 477.663452f, -248.036621f, -407.923462f, -199.788879f, 151.843262f, -97.1206055f, 154.975891f, -172.834534f, 441.5028f, -401.738617f);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float4x4 a2 = float4x4(-171.744171f, -457.940826f, -495.599457f, -158.324646f, 446.907776f, -415.842682f, -477.624023f, 309.877136f, -46.64041f, 239.136169f, 61.6972046f, -85.92847f, 333.78302f, 95.39337f, 452.70343f, -78.89011f);
-            float4x4 b2 = float4x4(-359.910828f, 149.525635f, 327.11676f, -502.187256f, -213.2872f, -136.063965f, -480.364319f, -500.8494f, 238.087341f, 291.673279f, 176.682556f, -464.6045f, -479.9456f, 39.28723f, 410.109863f, 317.6588f);
+            float4x4 a2 = float4x4(511.2964f, 213.147034f, -101.0957f, 441.6634f, 124.36615f, 312.026428f, 59.65576f, -508.65683f, 98.699646f, 228.799866f, 337.832642f, -163.154449f, 461.6916f, -450.7757f, -443.564758f, -438.213135f);
+            float4x4 b2 = float4x4(-411.430176f, -337.820282f, -430.6309f, -150.8718f, -206.837f, 34.95508f, -255.771454f, 99.99866f, -161.175568f, 68.8535156f, -285.590118f, -428.717316f, -286.3374f, 2.02709961f, -4.80599976f, -425.3348f);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float4x4 a3 = float4x4(-450.622742f, -390.8053f, -196.833862f, -478.4129f, 157.369324f, -432.3071f, -364.095245f, 338.36438f, 408.823181f, -104.502106f, 91.75787f, -287.8504f, 238.017639f, 327.7426f, -280.2766f, -442.8907f);
-            float4x4 b3 = float4x4(350.290833f, 476.668762f, -507.433f, -85.51248f, 256.009766f, -369.339233f, 216.956543f, 250.211731f, -410.5731f, -202.539734f, -287.449219f, 163.5733f, -505.3363f, 496.34613f, 314.388123f, -475.2021f);
+            float4x4 a3 = float4x4(22.69397f, -254.368744f, -247.483612f, 365.059082f, -337.586823f, 187.845032f, 351.816833f, 355.223633f, 151.63269f, 240.465881f, -299.297058f, -227.571289f, 263.7243f, -287.511871f, -491.855164f, -219.307037f);
+            float4x4 b3 = float4x4(358.046021f, 357.8011f, 125.757629f, -38.2419434f, 308.158325f, -450.4502f, -156.1532f, 464.639954f, -220.864044f, -211.537567f, -476.330353f, 284.886536f, 129.86438f, -326.7583f, -72.36374f, -382.827881f);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_not_equal_wide_scalar()
         {
-            float4x4 a0 = float4x4(-418.022278f, 231.448242f, -469.478516f, -94.97409f, -376.084381f, -428.119019f, 492.9278f, -91.33383f, 80.41858f, -124.39093f, -409.290527f, 353.96106f, 170.989319f, -494.895752f, 181.015137f, -180.176971f);
-            float b0 = (-206.336578f);
+            float4x4 a0 = float4x4(-16.9145813f, 168.8341f, -462.713531f, 130.307739f, 214.501587f, -440.263275f, -197.12796f, -169.099854f, -386.611176f, -281.021f, -270.26886f, -403.9637f, -269.805725f, 299.654236f, -71.7509155f, -432.755737f);
+            float b0 = (-145.372772f);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float4x4 a1 = float4x4(324.904724f, 86.04675f, 75.14545f, -505.780518f, 504.517944f, 385.4771f, -221.906036f, 237.351563f, 401.893555f, -418.3873f, -235.435944f, 449.5686f, 242.233826f, -117.3277f, 434.6377f, 111.69043f);
-            float b1 = (365.89978f);
+            float4x4 a1 = float4x4(-457.363129f, 273.873047f, 185.04248f, -482.5307f, 116.395142f, 511.735f, 230.5075f, 100.27478f, 129.682434f, 321.178772f, -220.639f, 140.3352f, 369.212341f, 453.811218f, -333.66626f, -373.937744f);
+            float b1 = (-13.5195923f);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float4x4 a2 = float4x4(503.1595f, -376.869751f, 264.2846f, -50.7024536f, -102.235168f, -203.671021f, -454.774658f, -12.1090393f, 272.4212f, -412.821442f, 66.87189f, -319.171753f, -190.822876f, 392.8404f, -341.5468f, -308.191833f);
-            float b2 = (450.927917f);
+            float4x4 a2 = float4x4(150.204285f, 372.32f, -95.83798f, 495.5667f, -5.3855896f, -210.502991f, -459.612732f, 243.309082f, 314.102173f, 96.7449951f, -168.161926f, -71.90546f, 216.608459f, -377.3738f, 142.35498f, -432.272552f);
+            float b2 = (-442.164764f);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float4x4 a3 = float4x4(-389.8844f, 250.916077f, 376.87616f, -424.24176f, -198.854553f, 357.97113f, 264.427551f, 179.674377f, -265.977936f, 502.2683f, 216.363708f, -28.9024353f, 350.184753f, 504.936768f, -331.928223f, -269.7294f);
-            float b3 = (164.820618f);
+            float4x4 a3 = float4x4(94.29083f, 337.810547f, -197.6615f, -46.38388f, 250.232056f, 169.099182f, -181.221069f, -481.967f, -427.1808f, -249.442078f, -488.488953f, 202.564941f, -243.823547f, -222.832214f, -448.6026f, 481.974f);
+            float b3 = (331.653381f);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_not_equal_scalar_wide()
         {
-            float a0 = (357.343384f);
-            float4x4 b0 = float4x4(192.976379f, -323.1933f, -25.1252441f, -270.503082f, -454.426819f, -458.8189f, -274.5384f, 127.642212f, -43.8877258f, -179.47229f, 498.287659f, -333.8144f, -169.487946f, -146.258789f, -33.028656f, 156.743591f);
+            float a0 = (275.795837f);
+            float4x4 b0 = float4x4(-57.1969f, -382.432526f, 97.82037f, -161.463654f, -458.39563f, -499.617859f, 327.92218f, 367.571228f, 59.786377f, -209.580688f, -62.5804443f, -479.974976f, -49.4945068f, -114.685211f, 109.93927f, -176.284821f);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            float a1 = (-285.206543f);
-            float4x4 b1 = float4x4(-10.882843f, 259.283447f, -469.940765f, 46.4143066f, -415.384338f, 311.547668f, 244.515991f, 110.527771f, -290.509644f, -53.821167f, -362.343781f, -455.7852f, -199.0863f, 298.186951f, 319.69635f, 346.52832f);
+            float a1 = (-347.4853f);
+            float4x4 b1 = float4x4(85.5409546f, -356.659546f, -104.243561f, -133.5492f, 243.539734f, 13.1412964f, -379.985962f, -41.28122f, 87.91168f, -339.077271f, -371.820343f, 333.1443f, 294.811951f, -187.14566f, 220.192261f, -228.182068f);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            float a2 = (-314.9336f);
-            float4x4 b2 = float4x4(-106.494812f, 324.17688f, 394.819275f, -341.915222f, -461.862549f, 63.3418579f, 52.88849f, 374.55603f, -92.46463f, -421.137146f, 171.128052f, -215.688965f, -321.5428f, -15.0583191f, 259.5998f, -287.845276f);
+            float a2 = (-499.723724f);
+            float4x4 b2 = float4x4(97.40588f, 501.60437f, 459.6754f, 158.098145f, 358.4886f, 243.512573f, 336.702942f, 89.953125f, -65.57837f, -159.260162f, 410.588562f, 123.963013f, -239.625122f, -299.42984f, -491.2919f, 207.71167f);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            float a3 = (-303.912659f);
-            float4x4 b3 = float4x4(-230.063263f, 382.651917f, -244.704529f, -201.070892f, 96.36072f, -122.741028f, 242.358765f, 130.969177f, 348.082825f, 107.002258f, -424.19458f, 71.42737f, -356.8014f, 34.34076f, -333.4087f, -168.342712f);
+            float a3 = (271.5655f);
+            float4x4 b3 = float4x4(-329.03772f, 461.0074f, -317.160522f, -102.655f, 211.263367f, 116.426147f, -34.1936951f, 391.817566f, -34.307312f, 351.4594f, 187.742554f, -477.573059f, 276.974426f, 489.565f, 229.2273f, 260.2071f);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_wide_wide()
         {
-            float4x4 a0 = float4x4(487.8249f, -508.921722f, 53.8760376f, 443.786926f, -81.07861f, 103.165527f, -496.199768f, 30.0013428f, 490.884521f, 485.697083f, -360.631073f, -442.654358f, -310.858032f, -142.116028f, -131.921722f, -279.917725f);
-            float4x4 b0 = float4x4(453.097351f, -123.830566f, 492.750122f, 434.46344f, -402.464783f, -480.752319f, 317.300659f, 175.821045f, 301.866333f, 77.77667f, -188.57605f, 479.3379f, -393.342255f, 21.69635f, 151.5708f, -115.47818f);
-            bool4x4 r0 = bool4x4(false, true, true, false, false, false, true, true, false, false, true, true, false, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float4x4 a0 = float4x4(196.84259f, 336.4098f, 251.963745f, 257.655945f, 430.0459f, -62.4196472f, 8.839233f, -333.8167f, 164.678833f, -350.9449f, 3.84143066f, 125.409729f, -111.129944f, 70.00549f, 448.1983f, -419.987122f);
+            float4x4 b0 = float4x4(-465.345032f, -256.1524f, -314.814026f, 364.5667f, 100.21051f, 182.560974f, 3.11700439f, -259.430481f, -437.3349f, -456.043732f, -394.255981f, 401.9137f, 313.439148f, 121.286682f, -28.0122986f, -282.965881f);
+            bool4x4 r0 = bool4x4(false, false, false, true, false, true, false, true, false, false, false, true, true, true, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float4x4 a1 = float4x4(-335.161621f, 207.237366f, 267.394043f, 259.686523f, 197.362366f, 378.0946f, -358.618958f, -187.3323f, -367.859619f, -268.33905f, 301.925049f, -455.977753f, 383.7517f, -324.972565f, 122.86615f, 54.38513f);
-            float4x4 b1 = float4x4(-417.1082f, -272.838745f, 210.978516f, -355.154755f, 183.079834f, -260.3083f, 312.9527f, 383.91626f, -170.578735f, 102.495972f, 477.086f, 164.40094f, -476.2596f, -64.78168f, -89.9094238f, 279.3506f);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, true, true, true, true, true, true, false, true, false, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            float4x4 a1 = float4x4(-258.301666f, -34.8322144f, -69.8594055f, 67.76721f, -139.777283f, 385.434631f, 133.7074f, 506.188354f, 34.44287f, 412.1137f, -84.8097839f, 444.785339f, -78.75473f, 366.977539f, 127.180481f, 428.368469f);
+            float4x4 b1 = float4x4(330.0644f, 124.099365f, -183.6903f, 373.0608f, 109.750916f, -203.57135f, 45.64868f, -360.952271f, 211.913086f, -313.286377f, -259.661072f, 79.09851f, 446.4961f, 450.524536f, -375.630768f, -53.9418335f);
+            bool4x4 r1 = bool4x4(true, true, false, true, true, false, false, false, true, false, false, false, true, true, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float4x4 a2 = float4x4(389.452942f, 366.4093f, -401.936737f, 420.427f, -469.8202f, 392.4143f, -54.6706543f, 325.956848f, 305.990051f, -122.444f, -92.09015f, 94.59674f, -473.130432f, -144.590424f, 23.95111f, 33.9790649f);
-            float4x4 b2 = float4x4(-293.356323f, 432.908447f, -209.159943f, -232.094f, 328.851868f, -31.7108765f, 329.653931f, -111.8107f, -14.0323181f, -473.342957f, 129.586365f, -300.24762f, -469.163544f, 231.653625f, -187.531769f, -224.72818f);
-            bool4x4 r2 = bool4x4(false, true, true, false, true, false, true, false, false, false, true, false, true, true, false, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float4x4 a2 = float4x4(8.197632f, -71.13736f, -474.0508f, 322.4289f, 6.897888f, 195.733582f, -267.6906f, -243.7937f, 319.2508f, -425.1562f, 71.87396f, 313.843872f, 397.279053f, -309.145874f, -38.6678467f, -266.1197f);
+            float4x4 b2 = float4x4(-291.453735f, 190.774841f, 54.0839233f, -163.63089f, -212.005646f, 406.0905f, -183.018951f, 355.221375f, -81.0422058f, -275.7148f, 405.299255f, -510.6406f, 398.069275f, -4.35549927f, 129.242676f, -276.146545f);
+            bool4x4 r2 = bool4x4(false, true, true, false, false, true, true, true, false, true, true, false, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float4x4 a3 = float4x4(-383.305328f, -137.76123f, 458.5434f, 273.853027f, -79.00577f, 60.3161621f, -427.3283f, -292.9284f, -290.216431f, 141.22821f, -479.465424f, -140.559265f, 124.046936f, 394.038879f, 447.430481f, 255.9549f);
-            float4x4 b3 = float4x4(-413.255981f, 446.737366f, -108.240753f, 353.3003f, 475.754944f, 485.073242f, 87.73309f, -457.902222f, 298.838135f, -375.1015f, 15.7280884f, -252.133423f, 154.656921f, -444.7732f, -323.2266f, 229.711609f);
-            bool4x4 r3 = bool4x4(false, true, false, true, true, true, true, false, true, false, true, false, true, false, false, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            float4x4 a3 = float4x4(193.3825f, 300.231018f, -395.214f, -398.901428f, 401.4842f, 191.8158f, 56.6053467f, -165.210846f, 178.2898f, -380.726257f, -462.474548f, 386.1842f, -93.29764f, 305.4958f, -148.7702f, 387.037f);
+            float4x4 b3 = float4x4(-72.6235352f, -86.83887f, -196.586456f, 492.358948f, 63.74463f, -384.804138f, -473.305145f, -407.7358f, -500.243866f, -303.777344f, 192.083252f, 114.898376f, -72.4967651f, -360.120056f, -185.215576f, 389.6552f);
+            bool4x4 r3 = bool4x4(false, false, true, true, false, false, false, false, false, true, true, false, true, false, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_wide_scalar()
         {
-            float4x4 a0 = float4x4(18.1535645f, -409.346466f, 180.7865f, -185.154968f, 228.264709f, 124.125732f, 265.743835f, -307.545563f, 493.123169f, 36.3736572f, 131.67981f, 85.93457f, -89.3711853f, -36.8948059f, -491.257172f, -193.741882f);
-            float b0 = (152.320862f);
-            bool4x4 r0 = bool4x4(true, true, false, true, false, true, false, true, false, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float4x4 a0 = float4x4(-132.057312f, -192.465f, -66.8345947f, -379.017517f, -360.2824f, 20.9278564f, -158.240753f, 437.3459f, -20.4526062f, 225.2915f, 307.4842f, 274.015259f, 373.549683f, 398.523682f, 105.030151f, -58.0108948f);
+            float b0 = (-156.010223f);
+            bool4x4 r0 = bool4x4(false, true, false, true, true, false, true, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float4x4 a1 = float4x4(-320.661f, -392.517334f, 435.076416f, 181.86554f, 350.0327f, -108.90918f, -9.381622f, 109.856995f, -377.404f, -91.78177f, -197.499542f, -324.0164f, -414.565826f, -141.8559f, -107.000946f, 364.8946f);
-            float b1 = (424.3283f);
-            bool4x4 r1 = bool4x4(true, true, false, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            float4x4 a1 = float4x4(109.670105f, -44.9712524f, 140.426086f, -500.0883f, 172.103333f, -197.500732f, -7.271515f, -432.9905f, 62.1583252f, -72.25473f, -377.852325f, -500.255737f, 149.11499f, 119.880615f, 202.63916f, 274.950684f);
+            float b1 = (-108.85318f);
+            bool4x4 r1 = bool4x4(false, false, false, true, false, true, false, true, false, false, true, true, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float4x4 a2 = float4x4(246.614075f, -130.2493f, 309.737122f, 219.850952f, -29.4940186f, 425.7171f, -20.5202942f, 177.995361f, -28.9998474f, 94.57269f, -344.9118f, -137.279968f, -230.438782f, -49.2548523f, 171.460266f, 193.200012f);
-            float b2 = (337.6457f);
-            bool4x4 r2 = bool4x4(true, true, true, true, true, false, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float4x4 a2 = float4x4(66.41205f, -149.6358f, 223.758728f, 73.2668457f, 213.094971f, 322.8595f, 418.3772f, 421.103577f, -187.16684f, 389.109436f, 401.335449f, -106.285065f, 380.607971f, 385.652832f, 120.659851f, -13.8308716f);
+            float b2 = (274.999451f);
+            bool4x4 r2 = bool4x4(true, true, true, true, true, false, false, false, true, false, false, true, false, false, true, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float4x4 a3 = float4x4(151.697021f, -177.425842f, -246.024445f, 348.288025f, 314.288147f, 211.562744f, -321.8319f, 216.988037f, 93.6687f, -296.092468f, -48.7566223f, -495.529175f, 395.689026f, -333.770447f, -273.3192f, 233.039978f);
-            float b3 = (-167.172119f);
-            bool4x4 r3 = bool4x4(false, true, true, false, false, false, true, false, false, true, false, true, false, true, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            float4x4 a3 = float4x4(-500.1271f, 431.943665f, 129.688965f, -143.969055f, 183.886414f, -506.964264f, 452.4369f, -458.027f, 89.5592651f, -418.817444f, -292.388428f, 425.601624f, 342.432434f, -406.589142f, -407.155f, 511.064575f);
+            float b3 = (487.528259f);
+            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_scalar_wide()
         {
-            float a0 = (416.681274f);
-            float4x4 b0 = float4x4(-105.389069f, -389.2496f, 408.846863f, -87.03952f, 268.691345f, -470.20163f, 271.315674f, -170.322723f, -156.598419f, -0.2886963f, 72.09082f, -54.4299927f, 191.603271f, 370.544f, 283.232422f, -362.762024f);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            float a0 = (-423.1174f);
+            float4x4 b0 = float4x4(385.094849f, -123.933472f, 86.37659f, 133.4422f, 161.457947f, 229.754272f, 222.5716f, 315.5312f, -447.203522f, 271.833862f, -393.605316f, 317.486877f, -164.6051f, -282.876038f, 296.979553f, -254.401154f);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, false, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            float a1 = (-145.500977f);
-            float4x4 b1 = float4x4(315.129883f, 340.8296f, -60.229248f, -194.843689f, -261.056763f, -246.825867f, 91.5376f, -233.5228f, 16.3255615f, -44.0384827f, 49.5278931f, -161.31601f, 230.163574f, -341.875549f, 87.1088257f, 229.0669f);
-            bool4x4 r1 = bool4x4(true, true, true, false, false, false, true, false, true, true, true, false, true, false, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            float a1 = (365.6156f);
+            float4x4 b1 = float4x4(-441.984253f, -131.42865f, 442.628967f, -29.7928467f, -138.37381f, 9.21698f, -226.73056f, 171.029419f, 376.625244f, -462.5887f, -142.36731f, -456.253784f, 66.61023f, 169.378784f, 327.4444f, 64.08795f);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            float a2 = (53.4827271f);
-            float4x4 b2 = float4x4(353.14386f, -435.014648f, -349.595825f, 272.964172f, -335.467438f, -92.51926f, 95.6543f, 242.6903f, -23.8696289f, -296.855469f, 361.50354f, 73.51141f, 480.124268f, -411.623077f, -424.673645f, 328.378235f);
-            bool4x4 r2 = bool4x4(true, false, false, true, false, false, true, true, false, false, true, true, true, false, false, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            float a2 = (-153.5039f);
+            float4x4 b2 = float4x4(199.380127f, -244.969055f, 472.743835f, -363.7801f, -179.487518f, -83.42514f, 178.886475f, 62.15576f, 409.746765f, -117.163666f, 316.601685f, 285.5163f, 18.6745f, 282.5293f, 132.923767f, -318.215332f);
+            bool4x4 r2 = bool4x4(true, false, true, false, false, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            float a3 = (433.9438f);
-            float4x4 b3 = float4x4(469.144531f, 139.9613f, -243.380829f, 99.52496f, -356.332336f, 369.5763f, -194.690735f, -365.516724f, -259.634247f, 85.83685f, -290.2122f, 502.9933f, 125.238037f, -170.413177f, 496.982f, 228.503113f);
-            bool4x4 r3 = bool4x4(true, false, false, false, false, false, false, false, false, false, false, true, false, false, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            float a3 = (314.8399f);
+            float4x4 b3 = float4x4(78.00372f, 116.839478f, -134.375641f, 118.675415f, 11.4686279f, 378.849548f, -198.892883f, 474.41272f, 296.8327f, 180.343018f, -147.0611f, 259.7849f, -1.81375122f, -409.5449f, -209.049713f, -258.601f);
+            bool4x4 r3 = bool4x4(false, false, false, false, false, true, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_wide_wide()
         {
-            float4x4 a0 = float4x4(-188.03302f, 234.300232f, -56.30594f, 240.958374f, 501.4876f, -303.425f, -305.5091f, -470.742554f, -305.090759f, 26.0454712f, 169.997375f, -498.388031f, 270.142944f, 69.6588745f, -163.975159f, 273.174133f);
-            float4x4 b0 = float4x4(-17.4008179f, -59.53961f, -24.2853088f, 222.387512f, -207.170441f, 365.5465f, 183.5733f, -23.080719f, 337.163818f, 175.811768f, -8.514038f, -125.865387f, -212.857056f, 12.6571045f, 134.17511f, -101.511993f);
-            bool4x4 r0 = bool4x4(false, true, false, true, true, false, false, false, false, false, true, false, true, true, false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float4x4 a0 = float4x4(483.5014f, 310.8156f, 106.966187f, 295.7353f, 116.957581f, -478.299774f, -14.8974f, -33.8174438f, -24.74054f, 319.782654f, -120.158569f, -289.008575f, 455.85144f, 144.706909f, 63.9320068f, -285.683044f);
+            float4x4 b0 = float4x4(-471.398f, -371.9853f, 36.9006958f, -316.7636f, 19.6830444f, 207.309143f, 362.7975f, 324.95343f, 340.948059f, 25.9860229f, -114.211121f, 240.803467f, 273.422424f, 325.515747f, 27.3410645f, 64.47955f);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, false, false, false, false, true, false, false, true, false, true, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float4x4 a1 = float4x4(193.8711f, -157.939331f, 439.0537f, 414.232666f, -246.558075f, 326.2243f, -457.296661f, -338.94574f, 310.630127f, -134.709412f, 485.6823f, -400.953827f, -31.0127869f, 182.317444f, 418.0558f, -125.63736f);
-            float4x4 b1 = float4x4(-505.14505f, -150.596619f, 286.160583f, 358.075439f, 105.754028f, 61.5240479f, 144.405334f, -298.4254f, 485.263245f, -341.976929f, 74.8334351f, 332.481018f, -151.834412f, -355.448883f, -283.69873f, -144.6875f);
-            bool4x4 r1 = bool4x4(true, false, true, true, false, true, false, false, false, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            float4x4 a1 = float4x4(-502.090729f, -337.194458f, 474.317322f, -507.1451f, -133.565582f, -443.109131f, -464.34137f, -68.36154f, -185.993011f, -157.8039f, -74.12424f, -94.47116f, 329.610535f, -315.836731f, 404.1938f, 131.304382f);
+            float4x4 b1 = float4x4(200.948364f, 100.122681f, -79.00711f, -315.137939f, -122.985443f, -163.7792f, -492.566f, -90.79727f, -284.901245f, -23.6536865f, 174.93f, 85.7125244f, -441.987823f, 345.543762f, 482.219482f, -422.383484f);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, true, true, true, false, false, false, true, false, false, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float4x4 a2 = float4x4(31.6554565f, -340.324646f, -170.487366f, 49.8656f, 434.931152f, -89.63016f, 177.261658f, -180.568726f, -385.911346f, 214.026978f, -243.115479f, -75.1943054f, 407.808777f, 392.4162f, -408.15686f, 452.019653f);
-            float4x4 b2 = float4x4(310.086975f, -312.364044f, 191.854065f, -79.25134f, 179.970032f, -447.756683f, -47.91211f, -386.2624f, -143.91568f, -137.2384f, 103.151062f, -392.962341f, 21.57965f, 78.88812f, 257.681519f, -474.859375f);
-            bool4x4 r2 = bool4x4(false, false, false, true, true, true, true, true, false, true, false, true, true, true, false, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            float4x4 a2 = float4x4(-206.633911f, 197.399841f, 187.991943f, 362.636047f, 336.0932f, -352.448364f, -183.10199f, 193.144836f, -170.216f, -0.491241455f, -326.855042f, -373.39624f, -216.580475f, 282.5121f, -275.170349f, -207.331757f);
+            float4x4 b2 = float4x4(-30.7792969f, 296.154236f, 378.059875f, -457.733429f, 122.920593f, -509.173126f, 386.77063f, 436.41748f, -276.495819f, -163.166779f, 249.970642f, -165.020752f, 89.09302f, 404.305176f, -340.688843f, -103.785095f);
+            bool4x4 r2 = bool4x4(false, false, false, true, true, true, false, false, true, true, false, false, false, false, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float4x4 a3 = float4x4(-280.6086f, -482.131378f, -27.27002f, 384.061951f, -76.602356f, -264.908081f, -347.536377f, -356.78064f, -483.2657f, -481.537537f, 14.274292f, -413.572021f, -126.718689f, -208.172791f, 311.437866f, -183.094482f);
-            float4x4 b3 = float4x4(-41.0882263f, -255.383667f, 485.418335f, -393.223938f, 456.541931f, -206.28772f, -465.197144f, -495.1007f, 56.5797729f, 49.9714355f, -500.398956f, 440.504333f, -459.362274f, 319.932983f, 482.977478f, -334.750366f);
-            bool4x4 r3 = bool4x4(false, false, false, true, false, false, true, true, false, false, true, false, true, false, false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            float4x4 a3 = float4x4(257.710144f, -469.1453f, -177.965851f, 233.210754f, -135.537323f, 152.253113f, 15.378418f, -243.185455f, -123.13266f, 3.75976563f, -29.2892761f, 416.471558f, -169.383057f, 0.7346802f, -416.4522f, 329.4369f);
+            float4x4 b3 = float4x4(491.274353f, 78.43793f, 147.484192f, -52.052887f, -212.070465f, 314.9552f, -97.2980347f, 454.8399f, -240.254211f, 168.689636f, -217.528809f, 55.3954468f, -149.5794f, -413.101044f, 470.330933f, 164.782043f);
+            bool4x4 r3 = bool4x4(false, false, false, true, true, false, true, false, true, false, true, true, false, true, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_wide_scalar()
         {
-            float4x4 a0 = float4x4(468.8808f, -355.421021f, -45.708252f, 407.176575f, 348.72522f, 418.545349f, -422.750183f, -364.2755f, 434.163635f, -255.049072f, 178.8064f, 379.823364f, -346.942383f, -121.102142f, 164.48761f, -282.735718f);
-            float b0 = (201.802734f);
-            bool4x4 r0 = bool4x4(true, false, false, true, true, true, false, false, true, false, false, true, false, false, false, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float4x4 a0 = float4x4(64.31793f, -397.703461f, 431.8769f, 85.703f, 246.263062f, 197.491577f, 286.199463f, 280.813354f, -405.7846f, 171.565369f, -241.807281f, 333.5782f, 370.279175f, -413.7014f, -356.592346f, -353.0313f);
+            float b0 = (305.859924f);
+            bool4x4 r0 = bool4x4(false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float4x4 a1 = float4x4(437.083984f, 208.428467f, -509.6458f, -293.801758f, 127.584412f, 488.46167f, -162.216888f, 301.607727f, -345.053375f, -76.30057f, -238.100464f, -238.177124f, -42.973877f, -427.231781f, 277.377869f, -130.1195f);
-            float b1 = (15.6209717f);
-            bool4x4 r1 = bool4x4(true, true, false, false, true, true, false, true, false, false, false, false, false, false, true, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            float4x4 a1 = float4x4(396.645325f, -240.013428f, 502.915039f, 315.4676f, -259.2897f, 281.230652f, 428.792175f, 245.153076f, -279.1754f, -453.8631f, -124.771545f, -425.652924f, 99.13287f, 355.060547f, -456.439423f, 154.489014f);
+            float b1 = (467.222046f);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float4x4 a2 = float4x4(-142.3913f, -137.017181f, -7.19000244f, 237.227966f, 96.94458f, 300.371826f, 459.7182f, 490.047729f, 449.307373f, -112.741364f, -137.8487f, 132.370483f, 410.731384f, 228.559631f, 434.726929f, -344.5157f);
-            float b2 = (100.413269f);
-            bool4x4 r2 = bool4x4(false, false, false, true, false, true, true, true, true, false, false, true, true, true, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            float4x4 a2 = float4x4(405.529724f, 186.0863f, 249.999084f, -110.096924f, -435.3045f, 72.7520142f, -254.346558f, -428.987946f, 255.373657f, -309.1123f, 185.501587f, -201.334167f, 23.321167f, -143.9761f, -111.77951f, -356.656616f);
+            float b2 = (-157.7338f);
+            bool4x4 r2 = bool4x4(true, true, true, true, false, true, false, false, true, false, true, false, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float4x4 a3 = float4x4(-223.801331f, 485.099976f, 239.058167f, 250.682556f, -437.781647f, -331.88266f, -395.491364f, -406.431122f, 181.778625f, -17.1540833f, 327.350281f, 385.9016f, -34.86252f, -339.8173f, 413.428467f, -2.05709839f);
-            float b3 = (-311.5487f);
-            bool4x4 r3 = bool4x4(true, true, true, true, false, false, false, false, true, true, true, true, true, false, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            float4x4 a3 = float4x4(-318.313568f, 490.187134f, -305.578979f, 260.850342f, 53.1495972f, -166.934113f, -508.915283f, 352.549927f, 13.4384766f, 139.354675f, -101.028992f, 194.466309f, 7.08258057f, 328.504883f, -297.367859f, -332.910828f);
+            float b3 = (287.207642f);
+            bool4x4 r3 = bool4x4(false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_scalar_wide()
         {
-            float a0 = (137.504211f);
-            float4x4 b0 = float4x4(-443.866821f, 279.852783f, -462.4043f, -280.713776f, 120.712769f, -31.6700134f, 363.428345f, 263.125427f, -156.36087f, 66.3540039f, -303.1296f, 419.3374f, -392.721069f, -378.762939f, -398.361145f, -314.282471f);
-            bool4x4 r0 = bool4x4(true, false, true, true, true, true, false, false, true, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            float a0 = (-282.6705f);
+            float4x4 b0 = float4x4(358.099976f, -72.596405f, -232.163788f, -60.7067261f, 75.15662f, 150.883484f, 339.539185f, -498.196045f, 459.7461f, -227.968719f, 335.862122f, 76.17883f, 296.859924f, 177.48999f, -281.2012f, 244.722839f);
+            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            float a1 = (89.5307f);
-            float4x4 b1 = float4x4(408.407166f, 303.3543f, 16.916748f, -425.384216f, 205.63916f, -181.906982f, 256.7876f, -272.8026f, -192.998962f, 457.5393f, -12.8081055f, 421.600769f, -235.210266f, -483.95105f, 157.529114f, 193.490845f);
-            bool4x4 r1 = bool4x4(false, false, true, true, false, true, false, true, true, false, true, false, true, true, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            float a1 = (137.328552f);
+            float4x4 b1 = float4x4(-385.338257f, 443.163452f, -353.562561f, 26.04065f, -331.793945f, -43.6919556f, 20.9494019f, -211.17984f, 227.421692f, -84.7797852f, -375.1355f, -205.178131f, -197.04715f, -219.634033f, -210.015625f, -266.7737f);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, true, false, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            float a2 = (-301.340332f);
-            float4x4 b2 = float4x4(-252.4213f, 181.764282f, -272.323181f, 162.383667f, -384.406525f, -434.1296f, 98.33081f, -438.860046f, 73.80786f, -466.34906f, -315.6296f, -310.005737f, 12.364563f, 432.5692f, -460.619873f, 364.926331f);
-            bool4x4 r2 = bool4x4(false, false, false, false, true, true, false, true, false, true, true, true, false, false, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            float a2 = (144.7785f);
+            float4x4 b2 = float4x4(-471.7112f, -155.913177f, 99.72473f, -230.944855f, -338.8689f, 334.068237f, -158.660858f, -315.018219f, -177.19281f, 171.95929f, 198.38916f, 303.678345f, 400.6996f, 351.878662f, -31.7696533f, 386.0733f);
+            bool4x4 r2 = bool4x4(true, true, true, true, true, false, true, true, true, false, false, false, false, false, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            float a3 = (350.0462f);
-            float4x4 b3 = float4x4(222.446655f, -88.21329f, -115.269562f, 50.8884277f, -137.506012f, -50.2402649f, -207.191925f, 504.088867f, -198.288239f, 22.79071f, -135.76355f, 353.524658f, -433.1506f, 38.3050537f, 51.3412476f, -286.153442f);
-            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, false, true, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            float a3 = (-360.348877f);
+            float4x4 b3 = float4x4(-499.8237f, 428.290344f, 425.8302f, 203.288818f, 177.893921f, 483.09552f, 258.88678f, -361.5269f, 359.734924f, -276.336731f, 202.674683f, 218.982117f, 144.793274f, 503.665283f, 33.8777466f, -169.047455f);
+            bool4x4 r3 = bool4x4(true, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_equal_wide_wide()
         {
-            float4x4 a0 = float4x4(333.0476f, 239.35083f, 26.5692139f, 41.4924927f, -162.662354f, -271.002747f, -108.986206f, 392.0816f, 314.488647f, 208.102173f, 39.9359741f, 458.7705f, -404.075f, 359.389954f, 405.929749f, -463.0184f);
-            float4x4 b0 = float4x4(46.1311646f, -378.082336f, -466.7782f, -173.335022f, -482.2393f, 183.3465f, 399.076172f, -127.637085f, -118.196838f, -329.727448f, -208.817627f, 368.286865f, 68.84564f, 452.365234f, -255.050629f, 440.1126f);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, true, true, false, false, false, false, false, true, true, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float4x4 a0 = float4x4(-438.523132f, 210.489441f, 4.87731934f, -137.297943f, 156.094116f, -363.924133f, -97.94849f, 437.2954f, 458.530273f, -294.064758f, 23.62262f, -34.2840576f, 149.736511f, -418.8867f, -197.502533f, -88.2055054f);
+            float4x4 b0 = float4x4(-474.814148f, 304.371033f, 234.824158f, -390.485443f, -297.175354f, -326.2924f, 107.253906f, -413.131073f, 67.09442f, 470.075256f, -84.499115f, 392.784241f, -263.531738f, 369.3009f, -333.3253f, 238.413452f);
+            bool4x4 r0 = bool4x4(false, true, true, false, false, true, true, false, false, true, false, true, false, true, false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float4x4 a1 = float4x4(-459.443024f, 271.79187f, 73.09076f, 263.657959f, -355.346161f, -184.612061f, -320.97345f, 340.874939f, 226.31f, 186.879822f, -130.892334f, -315.204651f, 99.36072f, -486.007324f, -314.168152f, -67.26477f);
-            float4x4 b1 = float4x4(-138.225769f, -237.159058f, 201.343079f, -403.248749f, 230.682983f, -57.3156433f, 124.1311f, 38.1745f, 209.631958f, 236.809814f, 485.7528f, 29.8652344f, 383.063965f, 469.723572f, 101.127319f, -419.6117f);
-            bool4x4 r1 = bool4x4(true, false, true, false, true, true, true, false, false, true, true, true, true, true, true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            float4x4 a1 = float4x4(-376.71814f, 341.627136f, -83.30917f, -107.490723f, 319.466858f, 205.357361f, 345.563721f, 395.3219f, -222.874146f, 439.022034f, -368.075562f, -200.0386f, 71.46991f, -357.365417f, 141.710876f, 319.0171f);
+            float4x4 b1 = float4x4(486.2426f, 279.6502f, 236.052f, 132.758972f, 66.29474f, 183.002136f, 200.130554f, 339.043823f, 438.5379f, 145.401855f, 178.163086f, 157.975952f, 329.7052f, -243.590912f, 5.401184f, -22.5805969f);
+            bool4x4 r1 = bool4x4(true, false, true, true, false, false, false, false, true, false, true, true, true, true, false, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float4x4 a2 = float4x4(492.7791f, 130.789551f, -384.7157f, 311.272217f, 130.1452f, -486.3813f, 487.794434f, 177.260315f, 239.970642f, -285.944763f, 70.06958f, 59.0049438f, -335.021118f, 175.480225f, 175.350342f, 422.919373f);
-            float4x4 b2 = float4x4(-199.115326f, -482.760468f, 117.240662f, -398.854431f, 99.35089f, 321.253f, 4.08618164f, -16.2060852f, -190.784576f, -315.7022f, -187.828217f, -433.195862f, -270.073364f, 202.0268f, 305.9344f, 55.52655f);
-            bool4x4 r2 = bool4x4(false, false, true, false, false, true, false, false, false, false, false, false, true, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            float4x4 a2 = float4x4(303.030151f, -461.574249f, 277.62677f, 182.1781f, -337.414856f, -361.391663f, 222.1435f, -464.7795f, -146.853668f, 80.17505f, -260.3473f, 94.48901f, 174.281189f, -303.8197f, 81.41742f, 503.048157f);
+            float4x4 b2 = float4x4(-90.3375854f, -72.19107f, -354.354828f, -289.521729f, 85.17627f, 469.327881f, 294.7138f, 461.605957f, -245.930481f, -124.040436f, 278.392639f, -42.8812561f, -328.348816f, 98.9855957f, -375.899841f, -197.934265f);
+            bool4x4 r2 = bool4x4(false, true, false, false, true, true, true, true, false, false, true, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float4x4 a3 = float4x4(-214.052277f, -38.0947571f, 505.341553f, -89.10977f, 410.359741f, -405.3354f, 460.1341f, 54.0708f, -306.19635f, -282.24707f, -124.927948f, 22.3187256f, 253.879761f, 364.260681f, 453.760437f, -62.2048035f);
-            float4x4 b3 = float4x4(-277.000366f, 390.1419f, 311.635376f, -402.9307f, 73.73425f, 281.756775f, -124.457642f, -416.725464f, 42.19873f, 388.616455f, -263.562561f, 168.6073f, 51.9854126f, 397.357666f, -402.754578f, 336.210815f);
-            bool4x4 r3 = bool4x4(false, true, false, false, false, true, false, false, true, true, false, true, false, true, false, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            float4x4 a3 = float4x4(259.2776f, 391.971924f, 149.704773f, -450.582947f, -255.6402f, -29.1832886f, 27.5547485f, 447.832458f, 282.48468f, 415.262756f, 437.226135f, -274.2333f, 327.17334f, 265.5277f, 461.464844f, 141.060852f);
+            float4x4 b3 = float4x4(-284.062f, -76.09866f, -44.487f, -380.519348f, 216.543762f, 58.74817f, -157.366516f, 288.756042f, -306.971375f, -124.358673f, -68.9424438f, -487.362457f, 93.30701f, 93.9755859f, -428.8075f, -473.515f);
+            bool4x4 r3 = bool4x4(false, false, false, true, true, true, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_equal_wide_scalar()
         {
-            float4x4 a0 = float4x4(122.817688f, -283.694275f, -288.847656f, -185.453918f, -315.2539f, 279.5738f, -317.959167f, -255.5698f, -368.803284f, -132.488861f, -207.253967f, -328.492218f, -115.355896f, -192.5214f, 454.183838f, -38.063385f);
-            float b0 = (-181.943909f);
-            bool4x4 r0 = bool4x4(false, true, true, true, true, false, true, true, true, false, true, true, false, true, false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float4x4 a0 = float4x4(193.49585f, 168.915527f, -313.993073f, 81.8269653f, 18.5036011f, -0.3581848f, 241.361145f, -463.8164f, -1.35775757f, -268.899475f, 398.991943f, -471.253082f, -264.9378f, 82.2583f, 11.2460327f, 424.704041f);
+            float b0 = (443.850525f);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float4x4 a1 = float4x4(509.92865f, -231.749481f, 179.05542f, -253.84079f, 228.502563f, 320.4897f, 65.78052f, 157.06311f, 126.580139f, -476.033325f, 441.4171f, -281.348267f, 145.758118f, 403.821838f, 365.085327f, -483.509583f);
-            float b1 = (-410.584534f);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            float4x4 a1 = float4x4(426.482239f, -196.2879f, 31.9011841f, -152.257568f, -437.926453f, -37.1048279f, -47.1442261f, 333.623047f, -274.8039f, 358.67627f, -260.460571f, 192.309143f, 145.306091f, -466.132965f, -494.267334f, -111.570129f);
+            float b1 = (56.3200073f);
+            bool4x4 r1 = bool4x4(false, true, true, true, true, true, true, false, true, false, true, false, false, true, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float4x4 a2 = float4x4(-37.3781128f, 215.754883f, 403.4709f, -101.321106f, 129.15509f, 168.198242f, 117.474426f, 60.7937622f, 49.77649f, -57.94391f, 14.2515869f, 476.8059f, 44.86029f, -419.562378f, -331.7572f, 330.148071f);
-            float b2 = (-168.46701f);
-            bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            float4x4 a2 = float4x4(-139.5412f, 33.98401f, -445.704468f, -451.0422f, -122.039276f, 83.3277f, -202.465515f, -76.56488f, 218.032776f, -103.53595f, -283.358429f, -374.761658f, -213.49588f, 477.491821f, -383.370056f, 23.9649658f);
+            float b2 = (-146.589355f);
+            bool4x4 r2 = bool4x4(false, false, true, true, false, false, true, false, false, false, true, true, true, false, true, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float4x4 a3 = float4x4(-213.327942f, -299.579742f, -118.323f, -135.341492f, 101.553589f, -92.18396f, 157.371826f, 169.483032f, 70.1659546f, 243.607178f, -247.376282f, -486.2215f, -2.56140137f, -24.3107f, -60.339325f, -356.982635f);
-            float b3 = (158.4226f);
-            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, false, true, false, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            float4x4 a3 = float4x4(-5.960785f, 164.991455f, -117.631805f, -166.246613f, 369.776978f, -305.9796f, 245.151123f, 260.203918f, -218.692535f, 152.965515f, -10.1782837f, -144.12558f, 365.336182f, -314.766479f, 381.259277f, 152.317078f);
+            float b3 = (-283.961731f);
+            bool4x4 r3 = bool4x4(false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_less_equal_scalar_wide()
         {
-            float a0 = (-336.4657f);
-            float4x4 b0 = float4x4(251.958374f, -22.8583069f, -238.905853f, 284.666626f, -358.324f, 468.530273f, -439.037231f, -197.067688f, -367.59552f, -143.895081f, -387.8427f, -88.23752f, 439.360535f, -487.9847f, -393.415863f, 399.102478f);
-            bool4x4 r0 = bool4x4(true, true, true, true, false, true, false, true, false, true, false, true, true, false, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            float a0 = (393.606262f);
+            float4x4 b0 = float4x4(-75.6883545f, -44.2638855f, 125.864929f, 191.9649f, 13.54303f, -197.051941f, -423.9451f, -330.0486f, 420.165527f, 105.5473f, 174.821289f, 296.7176f, -469.7004f, 123.267212f, 112.996948f, 495.143372f);
+            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            float a1 = (365.36438f);
-            float4x4 b1 = float4x4(-225.015259f, -305.5796f, -155.50473f, -241.3457f, -22.9373779f, -113.94046f, 421.051025f, -493.358154f, -422.88028f, 27.0828857f, -505.903076f, 470.219849f, 399.418335f, 312.550354f, -309.136749f, -317.886841f);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, true, false, false, false, false, true, true, false, false, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            float a1 = (-488.6579f);
+            float4x4 b1 = float4x4(388.539429f, -493.240784f, 16.45105f, -387.651642f, -229.1773f, -373.01532f, -391.142151f, 90.99414f, -178.396149f, -69.62106f, 471.790833f, -67.46677f, 45.30536f, -154.6922f, 385.7389f, -431.652954f);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            float a2 = (-501.4554f);
-            float4x4 b2 = float4x4(-73.50827f, 54.2999268f, -311.153778f, -112.9451f, -479.154938f, 429.135559f, 380.567444f, -274.0169f, -336.8193f, -86.04999f, -148.557709f, -324.375427f, 298.402771f, 505.1112f, -169.459564f, -57.31967f);
-            bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            float a2 = (-331.673035f);
+            float4x4 b2 = float4x4(-349.8927f, -114.839142f, -245.217834f, -486.6955f, 391.950928f, -125.770538f, -229.812286f, 289.449036f, -200.494232f, 281.5927f, 99.90106f, -146.027435f, 124.148376f, 94.3569946f, 93.920105f, -484.924133f);
+            bool4x4 r2 = bool4x4(false, true, true, false, true, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            float a3 = (0.130981445f);
-            float4x4 b3 = float4x4(-40.39978f, 11.2077637f, -353.648651f, 416.88f, -237.104248f, -420.917847f, -147.956848f, 266.02478f, -447.443726f, -70.55267f, -445.134155f, -155.287567f, -255.013855f, 55.5545654f, 433.294067f, -282.350677f);
-            bool4x4 r3 = bool4x4(false, true, false, true, false, false, false, true, false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            float a3 = (-270.796875f);
+            float4x4 b3 = float4x4(-313.374084f, 252.967834f, -302.899719f, 269.257874f, -358.511047f, -183.248535f, 5.00708f, -411.029266f, -320.0608f, 384.569153f, -383.735962f, 249.418152f, -137.139832f, -251.7605f, 301.0824f, 216.370544f);
+            bool4x4 r3 = bool4x4(false, true, false, true, false, true, true, false, false, true, false, true, true, true, true, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_equal_wide_wide()
         {
-            float4x4 a0 = float4x4(143.641235f, -251.704163f, 118.576172f, 23.871582f, 84.63403f, -145.382233f, -234.447327f, 90.46185f, 203.555847f, 370.9796f, -64.08972f, -140.503021f, -61.64731f, 463.918945f, -81.43878f, -56.36319f);
-            float4x4 b0 = float4x4(-409.271027f, -84.91385f, 509.1283f, -61.13452f, 139.217224f, -30.2294312f, 210.736267f, 27.0149536f, 467.682922f, -206.05484f, 109.552368f, -413.970337f, 95.38501f, -493.097656f, 330.596924f, 106.934875f);
-            bool4x4 r0 = bool4x4(true, false, false, true, false, false, false, true, false, true, false, true, false, true, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float4x4 a0 = float4x4(-507.9286f, 504.4975f, -385.4345f, -262.323425f, -37.5509338f, -111.595276f, -463.702026f, 387.448853f, 456.9688f, -211.010162f, 182.411377f, -53.59604f, -309.570221f, -136.022491f, 280.736267f, -96.99588f);
+            float4x4 b0 = float4x4(-81.3465f, 297.666138f, 171.06543f, -431.038055f, -6.85907f, 319.7257f, 254.079163f, 396.5724f, 178.8393f, -447.063354f, 288.492676f, 474.889282f, -321.750244f, -395.977234f, -158.692474f, 391.4887f);
+            bool4x4 r0 = bool4x4(false, true, false, true, false, false, false, false, true, true, false, false, true, true, true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float4x4 a1 = float4x4(39.7544556f, -389.112549f, 117.347229f, -460.3187f, -209.221191f, -223.7843f, -36.6575928f, 488.5995f, 437.58728f, -330.4093f, -373.0106f, -352.3084f, 243.232f, 488.733459f, -466.79068f, -491.69577f);
-            float4x4 b1 = float4x4(-316.19577f, 206.490479f, 114.226807f, 54.4406128f, -242.842743f, 240.4956f, 151.109375f, 165.143127f, 92.21735f, 13.223999f, 204.379517f, -477.9111f, -349.733826f, -488.808838f, 4.96923828f, 266.0371f);
-            bool4x4 r1 = bool4x4(true, false, true, false, true, false, false, true, true, false, false, true, true, true, false, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            float4x4 a1 = float4x4(-174.059509f, 88.90192f, 43.81604f, -446.07843f, 16.6455688f, 409.83252f, -191.329865f, 222.9978f, 404.2884f, 230.603271f, -441.789276f, -86.29306f, 484.249573f, 95.23639f, -204.912109f, -199.774353f);
+            float4x4 b1 = float4x4(-368.109253f, 89.12378f, -510.279327f, -486.9298f, -81.2155457f, 274.2188f, -212.881561f, 288.9953f, 307.73175f, 307.245178f, -199.391785f, -284.421265f, -482.3918f, 448.315735f, -378.3462f, -390.858459f);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, false, true, false, false, true, true, false, true, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float4x4 a2 = float4x4(-316.419617f, 442.0161f, 87.8488159f, 421.667725f, 416.001648f, -508.833618f, -178.66333f, 134.687256f, 118.785522f, -418.684937f, 149.006226f, -32.0545349f, -475.88736f, 475.258484f, 137.493286f, 9.231262f);
-            float4x4 b2 = float4x4(259.682922f, -430.251556f, 395.971375f, -422.670959f, -195.461f, -333.246948f, 131.001343f, 299.243347f, -213.224213f, 338.343872f, 442.412842f, 347.374939f, -423.201447f, -44.9189453f, -483.5099f, 297.80957f);
-            bool4x4 r2 = bool4x4(false, true, false, true, true, false, false, false, true, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            float4x4 a2 = float4x4(-421.8632f, -18.2147827f, -346.822754f, -159.243652f, 112.917725f, 48.2910156f, 390.660156f, 154.219177f, -32.7480469f, -288.265625f, 122.704285f, 321.277954f, 230.183838f, 116.874268f, -93.515686f, 229.9823f);
+            float4x4 b2 = float4x4(8.916016f, 416.407227f, -213.674957f, 455.2481f, -236.080353f, -248.373108f, 184.18512f, 415.31134f, 86.98218f, 485.004578f, 107.758911f, -486.667725f, -138.676788f, 14.2078247f, -382.394165f, -117.008209f);
+            bool4x4 r2 = bool4x4(false, false, false, false, true, true, true, false, false, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float4x4 a3 = float4x4(-263.146973f, 44.9152222f, 221.093262f, -434.705658f, 182.549622f, 109.222351f, 201.2132f, 212.7522f, 27.5789185f, -95.59433f, -88.3458252f, -394.969116f, -220.262543f, -466.3642f, 432.712952f, -48.1642456f);
-            float4x4 b3 = float4x4(22.1785889f, 215.659546f, 406.851f, -470.384155f, -419.738342f, 334.450439f, 492.938538f, -399.769348f, -322.509857f, 258.433533f, -318.039642f, -246.832458f, -417.358826f, -0.949768066f, -45.41333f, 387.511475f);
-            bool4x4 r3 = bool4x4(false, false, false, true, true, false, false, true, true, false, true, false, true, false, true, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            float4x4 a3 = float4x4(-393.441223f, 184.082031f, 317.333252f, 123.818054f, -45.0246277f, -317.672546f, 264.3172f, -163.081421f, -124.610992f, -30.9362183f, 421.919434f, -1.56271362f, 199.638062f, -325.7766f, 181.4508f, 36.7637939f);
+            float4x4 b3 = float4x4(288.690979f, 311.7541f, 318.590576f, 105.963318f, 287.355164f, 306.291077f, -349.919983f, -211.935577f, 191.925049f, 220.105713f, -172.7789f, -17.6221313f, -43.54706f, 303.854f, 338.548523f, -16.68814f);
+            bool4x4 r3 = bool4x4(false, false, false, true, false, false, true, true, false, false, true, true, true, false, false, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_equal_wide_scalar()
         {
-            float4x4 a0 = float4x4(-355.36084f, 304.301453f, 385.12854f, -263.954834f, -435.806427f, 126.500793f, 77.0108f, -226.753937f, -212.650085f, -413.1958f, -11.076355f, -457.0079f, -123.012939f, 280.998047f, -112.265076f, 383.0702f);
-            float b0 = (-139.19751f);
-            bool4x4 r0 = bool4x4(false, true, true, false, false, true, true, false, false, false, true, false, true, true, true, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float4x4 a0 = float4x4(465.152161f, -424.886078f, -209.2211f, 58.7798462f, -302.2691f, 140.12561f, 16.3533936f, -344.559967f, 393.278076f, -315.701538f, 441.011536f, -509.781555f, -36.9942932f, 494.8203f, -164.973938f, -466.1201f);
+            float b0 = (-5.599884f);
+            bool4x4 r0 = bool4x4(true, false, false, true, false, true, true, false, true, false, true, false, false, true, false, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float4x4 a1 = float4x4(173.831116f, -286.820068f, 404.740967f, 59.7572632f, 150.140442f, -264.706f, -13.230011f, -202.237823f, 64.6931152f, -182.857544f, -322.092163f, 454.143433f, -119.187012f, -472.931427f, 393.1292f, -335.408234f);
-            float b1 = (-168.515747f);
-            bool4x4 r1 = bool4x4(true, false, true, true, true, false, true, false, true, false, false, true, true, false, true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            float4x4 a1 = float4x4(-123.813751f, 104.995728f, 314.346f, 190.516113f, -83.11142f, -23.8364258f, 143.049377f, -264.919983f, -169.702209f, 329.70752f, 359.095825f, -260.4233f, 354.195129f, -111.845337f, 33.309082f, 355.6313f);
+            float b1 = (215.651245f);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, false, true, true, false, true, false, false, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float4x4 a2 = float4x4(-430.910034f, -482.470825f, 261.039734f, -177.777771f, 128.379272f, 211.634644f, -125.348724f, -208.412567f, -36.8859253f, 127.953857f, 77.77246f, -298.682922f, 223.657654f, 166.668335f, -161.962158f, 429.687622f);
-            float b2 = (56.3127441f);
-            bool4x4 r2 = bool4x4(false, false, true, false, true, true, false, false, false, true, true, false, true, true, false, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            float4x4 a2 = float4x4(-435.360565f, -93.2957153f, -338.8496f, 436.8958f, 511.084167f, -277.67453f, -453.799255f, 170.919f, -182.825745f, -207.516937f, -319.5006f, -240.5086f, 436.3413f, -66.9560547f, 303.320862f, 180.196045f);
+            float b2 = (-38.3993225f);
+            bool4x4 r2 = bool4x4(false, false, false, true, true, false, false, true, false, false, false, false, true, false, true, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float4x4 a3 = float4x4(464.48175f, 163.795227f, -85.78122f, 96.8819f, 222.662048f, 57.0075073f, -113.641449f, 450.282959f, 11.5004272f, -202.641663f, -112.897034f, -168.897339f, 418.536926f, -452.264374f, 107.794434f, 390.40033f);
-            float b3 = (-65.3729248f);
-            bool4x4 r3 = bool4x4(true, true, false, true, true, true, false, true, true, false, false, false, true, false, true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            float4x4 a3 = float4x4(337.965149f, 107.356689f, -501.208679f, -237.363922f, -434.488464f, 110.950378f, 159.729553f, -188.300171f, 379.4331f, 322.4181f, 169.257568f, 427.863342f, -472.917084f, 308.1438f, -104.297546f, -353.412842f);
+            float b3 = (-84.43594f);
+            bool4x4 r3 = bool4x4(true, true, false, false, false, true, true, false, true, true, true, true, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_greater_equal_scalar_wide()
         {
-            float a0 = (-246.073273f);
-            float4x4 b0 = float4x4(142.15625f, -19.2986145f, -151.986877f, 330.020874f, -224.80011f, 451.5999f, -435.9818f, 405.881836f, -324.020142f, 300.8548f, -341.652924f, 349.348328f, -342.970947f, 397.824646f, 363.170837f, -141.004517f);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, false, true, false, true, false, true, false, true, false, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            float a0 = (374.827026f);
+            float4x4 b0 = float4x4(-1.60977173f, 338.615234f, -116.1814f, -332.157318f, -355.97937f, -468.901428f, 38.579895f, -332.347534f, 2.89013672f, 467.777771f, 121.406372f, -305.023376f, -58.4288025f, -226.519562f, -47.0209961f, 305.302673f);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            float a1 = (-304.1397f);
-            float4x4 b1 = float4x4(317.879517f, -371.1032f, -166.7135f, 191.643372f, -274.388062f, 33.1248169f, -54.8842163f, 442.023254f, 161.054626f, -191.782715f, 158.516846f, -506.656738f, 270.833069f, -134.918579f, -57.2349548f, -439.546265f);
-            bool4x4 r1 = bool4x4(false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            float a1 = (-427.401245f);
+            float4x4 b1 = float4x4(92.26367f, -497.178528f, -408.625641f, -455.2305f, 396.4261f, -469.2949f, -485.754028f, -182.346191f, -291.545349f, 278.740784f, -75.8711243f, 28.9070435f, 287.720154f, 420.509766f, 473.626831f, 181.514526f);
+            bool4x4 r1 = bool4x4(false, true, false, true, false, true, true, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            float a2 = (-101.919159f);
-            float4x4 b2 = float4x4(145.802979f, -499.493225f, 447.140869f, 417.132874f, 441.340271f, -290.828918f, -332.456818f, 507.5188f, 92.5846558f, 432.372f, 445.113342f, 404.533569f, 372.266357f, 366.59375f, 485.050354f, 42.1818848f);
-            bool4x4 r2 = bool4x4(false, true, false, false, false, true, true, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            float a2 = (-369.202881f);
+            float4x4 b2 = float4x4(243.749756f, -244.124146f, -242.993347f, -322.115356f, 192.974976f, -54.7255554f, -166.000824f, 244.293457f, 438.2494f, -162.692841f, 37.1853638f, -506.667358f, -205.163086f, 368.389954f, -35.45996f, -20.9164429f);
+            bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            float a3 = (-339.3036f);
-            float4x4 b3 = float4x4(4.527954f, -98.5957f, 412.855957f, 74.28339f, -95.45566f, 459.576538f, 414.897339f, 399.99762f, 126.145264f, 131.382629f, -82.49863f, 400.538574f, -82.85321f, -76.2266541f, 227.582031f, 276.8946f);
-            bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            float a3 = (9.041382f);
+            float4x4 b3 = float4x4(-377.5871f, -18.9806213f, 59.2191162f, 318.0575f, 113.964172f, 295.910156f, -142.4274f, 362.188843f, 447.56604f, -235.642242f, -397.548981f, 150.745422f, 227.169983f, -464.732025f, 159.779541f, 25.4620972f);
+            bool4x4 r3 = bool4x4(true, true, false, false, false, false, true, false, false, true, true, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_add_wide_wide()
         {
-            float4x4 a0 = float4x4(-404.27536f, -214.93515f, -164.2731f, 338.477173f, 302.848816f, -330.633f, -21.2443542f, 157.130432f, 32.4448242f, -333.966125f, -488.6353f, 484.605347f, -143.616638f, -246.090881f, -133.722687f, 280.921021f);
-            float4x4 b0 = float4x4(433.900269f, 359.72052f, 420.5044f, -416.3719f, -163.213684f, -35.6521f, 260.761f, -20.1174622f, 156.770142f, 315.0406f, -110.87442f, -373.966431f, 12.482605f, 97.39429f, -149.583466f, -463.5646f);
-            float4x4 r0 = float4x4(29.6249084f, 144.78537f, 256.2313f, -77.8947144f, 139.635132f, -366.2851f, 239.516632f, 137.01297f, 189.214966f, -18.9255371f, -599.509766f, 110.638916f, -131.134033f, -148.6966f, -283.306152f, -182.643585f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float4x4 a0 = float4x4(506.129028f, -501.779816f, 420.084778f, -186.032074f, -9.312408f, 328.51178f, 424.344055f, 87.79108f, 462.4137f, -46.17871f, 401.170044f, -454.124146f, 69.19568f, -177.957336f, 299.604126f, 340.704834f);
+            float4x4 b0 = float4x4(-28.7579956f, -337.135132f, -340.676819f, 152.312012f, 423.66748f, 90.3740845f, 376.18866f, 1.76721191f, -120.185852f, -279.629364f, -344.6671f, 242.839172f, 418.593079f, -23.3128052f, -95.0999451f, 147.9281f);
+            float4x4 r0 = float4x4(477.371033f, -838.9149f, 79.40796f, -33.7200623f, 414.355072f, 418.885864f, 800.5327f, 89.55829f, 342.227844f, -325.808075f, 56.50293f, -211.284973f, 487.788757f, -201.270142f, 204.504181f, 488.632935f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float4x4 a1 = float4x4(-197.236908f, 72.3357544f, 408.859131f, 362.2229f, -238.820435f, -305.657684f, 3.2989502f, -434.634155f, 50.4830322f, -353.551483f, 507.8617f, -19.4649048f, 461.294922f, -8.662842f, 154.595276f, 229.350769f);
-            float4x4 b1 = float4x4(-332.266174f, 384.891052f, -47.640564f, 231.062012f, -383.314941f, -107.283905f, 367.018616f, 304.003784f, -509.41568f, -253.265533f, 419.9604f, 218.59906f, -352.968719f, 335.244324f, -270.917084f, -59.56772f);
-            float4x4 r1 = float4x4(-529.503052f, 457.2268f, 361.218567f, 593.2849f, -622.1354f, -412.9416f, 370.317566f, -130.630371f, -458.932648f, -606.817f, 927.8221f, 199.134155f, 108.3262f, 326.581482f, -116.321808f, 169.783051f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float4x4 a1 = float4x4(219.916016f, -321.9084f, 286.355347f, -333.4195f, -118.932159f, 68.60748f, 23.190918f, -205.577881f, 11.5214233f, -340.795074f, -68.93118f, 304.8532f, -86.63385f, 105.669128f, 349.280518f, 364.7079f);
+            float4x4 b1 = float4x4(331.0329f, -82.50256f, 279.4496f, 342.622742f, -300.358521f, -209.694092f, 446.559448f, -351.9892f, -263.12384f, -252.458557f, 289.825378f, 338.796143f, -232.619019f, -510.50824f, 349.280762f, -426.212463f);
+            float4x4 r1 = float4x4(550.9489f, -404.41095f, 565.804932f, 9.203247f, -419.29068f, -141.086609f, 469.750366f, -557.5671f, -251.602417f, -593.253662f, 220.8942f, 643.649353f, -319.252869f, -404.8391f, 698.5613f, -61.5045776f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float4x4 a2 = float4x4(67.8652954f, -350.4152f, -323.574768f, 83.02338f, 306.547241f, 41.8610229f, -317.216736f, 134.734619f, -64.88327f, -465.088745f, -308.031982f, -459.4263f, 199.19873f, 435.59613f, 473.022278f, -435.5333f);
-            float4x4 b2 = float4x4(-379.06842f, -200.97818f, 284.239319f, -431.9146f, -53.0281372f, 406.679626f, 79.88922f, 1.36474609f, -38.094696f, -136.306976f, 22.1865845f, -105.197327f, 365.7367f, 249.827881f, -485.021423f, -479.903351f);
-            float4x4 r2 = float4x4(-311.203125f, -551.3934f, -39.33545f, -348.891235f, 253.5191f, 448.540649f, -237.327515f, 136.099365f, -102.977966f, -601.395752f, -285.8454f, -564.623657f, 564.9354f, 685.424f, -11.9991455f, -915.436646f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float4x4 a2 = float4x4(-429.0374f, 382.458069f, 186.097046f, 227.411865f, -298.766357f, 351.3028f, 98.7254f, -292.351685f, 112.1709f, 477.165771f, -266.304871f, -295.1407f, -485.820374f, -507.8687f, -338.2196f, 505.342163f);
+            float4x4 b2 = float4x4(-331.416321f, -418.6888f, -341.70636f, -329.0359f, 123.198547f, 189.528564f, 267.569946f, 134.636292f, -337.96814f, 50.7280273f, 81.16345f, 442.0907f, -148.704529f, 6.974365f, -334.911255f, 43.78711f);
+            float4x4 r2 = float4x4(-760.453735f, -36.2307434f, -155.609314f, -101.624023f, -175.56781f, 540.83136f, 366.295349f, -157.7154f, -225.797241f, 527.8938f, -185.141418f, 146.950012f, -634.5249f, -500.894348f, -673.130859f, 549.1293f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float4x4 a3 = float4x4(-100.665741f, 336.85083f, 205.433777f, 115.578552f, -80.43906f, -47.8127747f, -133.9006f, 23.8157959f, 24.2966919f, -111.872406f, -317.828339f, -263.5357f, -431.64212f, 111.823059f, 360.6432f, -392.9369f);
-            float4x4 b3 = float4x4(265.910034f, -129.6326f, 278.344055f, 278.2437f, -433.636871f, 48.88983f, 85.85547f, -130.5943f, 501.9724f, -319.310059f, -146.342224f, -466.32132f, 266.7821f, -177.3115f, 345.1955f, 279.568665f);
-            float4x4 r3 = float4x4(165.2443f, 207.218231f, 483.777832f, 393.822266f, -514.0759f, 1.07705688f, -48.0451355f, -106.7785f, 526.2691f, -431.182465f, -464.170563f, -729.857056f, -164.860016f, -65.4884338f, 705.8387f, -113.368225f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float4x4 a3 = float4x4(-153.0664f, -292.656677f, -447.898651f, -26.0862427f, 21.4642944f, -465.6922f, 450.522522f, -271.92923f, -452.2673f, -110.679169f, 384.114929f, 352.0924f, 475.724365f, -444.868439f, -345.837646f, -502.816284f);
+            float4x4 b3 = float4x4(-17.1800537f, -157.392761f, -298.889069f, -158.772217f, 500.240784f, 319.870239f, -396.675354f, 157.7962f, 483.0329f, 175.248657f, -198.020142f, 1.79919434f, 452.367371f, -177.198425f, -291.5625f, -475.855133f);
+            float4x4 r3 = float4x4(-170.24646f, -450.049438f, -746.7877f, -184.858459f, 521.7051f, -145.82196f, 53.847168f, -114.133026f, 30.7655945f, 64.56949f, 186.094788f, 353.8916f, 928.091736f, -622.0669f, -637.400146f, -978.6714f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_add_wide_scalar()
         {
-            float4x4 a0 = float4x4(-323.429443f, 324.634583f, -277.883453f, -472.86264f, -459.056519f, 144.1059f, -334.474182f, 149.114319f, -388.344f, 303.384583f, -7.709381f, -29.01889f, 45.1229858f, 101.801208f, -410.416f, 279.443237f);
-            float b0 = (-311.2669f);
-            float4x4 r0 = float4x4(-634.69635f, 13.3676758f, -589.1504f, -784.1295f, -770.3234f, -167.161011f, -645.7411f, -162.152588f, -699.6109f, -7.882324f, -318.9763f, -340.2858f, -266.143921f, -209.4657f, -721.682861f, -31.82367f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float4x4 a0 = float4x4(-194.514191f, 338.5484f, 246.971375f, 100.510925f, -45.72467f, -478.1113f, 30.9161377f, 60.37433f, -242.118744f, 82.50134f, 6.79937744f, -484.6998f, -188.265015f, -213.526733f, -267.7843f, 189.259949f);
+            float b0 = (124.121704f);
+            float4x4 r0 = float4x4(-70.39249f, 462.6701f, 371.093079f, 224.632629f, 78.39703f, -353.9896f, 155.037842f, 184.496033f, -117.99704f, 206.623047f, 130.921082f, -360.5781f, -64.14331f, -89.40503f, -143.6626f, 313.381653f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float4x4 a1 = float4x4(-191.047485f, 11.0637817f, -38.5522461f, 410.894958f, -14.2527771f, -218.204224f, -374.088928f, -344.117737f, -368.177551f, 94.00256f, 466.70813f, 141.67926f, -438.578247f, 299.5407f, -230.743561f, -393.342438f);
-            float b1 = (118.387756f);
-            float4x4 r1 = float4x4(-72.65973f, 129.451538f, 79.83551f, 529.2827f, 104.134979f, -99.81647f, -255.701172f, -225.72998f, -249.7898f, 212.39032f, 585.0959f, 260.067017f, -320.1905f, 417.928467f, -112.355804f, -274.954681f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float4x4 a1 = float4x4(198.533569f, -424.925659f, 302.102356f, 300.3991f, 124.021606f, -200.161346f, 31.3782349f, 362.522156f, -423.988861f, 432.41333f, 374.211426f, -465.6995f, -311.04303f, 84.91901f, -432.442444f, 235.750671f);
+            float b1 = (187.536072f);
+            float4x4 r1 = float4x4(386.069641f, -237.389587f, 489.638428f, 487.935181f, 311.557678f, -12.6252747f, 218.9143f, 550.0582f, -236.452789f, 619.9494f, 561.7475f, -278.163422f, -123.506958f, 272.455078f, -244.906372f, 423.286743f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float4x4 a2 = float4x4(-280.737122f, -471.077362f, 55.40204f, 390.843567f, 235.540955f, -261.955017f, 152.414978f, -386.3908f, -169.5328f, -135.850952f, 180.40448f, -45.86389f, 457.075562f, -428.395538f, -65.46414f, -479.952759f);
-            float b2 = (307.491333f);
-            float4x4 r2 = float4x4(26.7542114f, -163.586029f, 362.893372f, 698.3349f, 543.0323f, 45.5363159f, 459.9063f, -78.8994751f, 137.958527f, 171.640381f, 487.8958f, 261.627441f, 764.5669f, -120.904205f, 242.027191f, -172.461426f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float4x4 a2 = float4x4(-472.637756f, 186.120728f, -170.298218f, -115.272491f, -101.168823f, 257.775146f, 246.549255f, -397.5346f, -199.04837f, 20.585022f, 207.323853f, 197.935181f, -201.540558f, -106.638672f, -179.382233f, 203.817078f);
+            float b2 = (-257.577759f);
+            float4x4 r2 = float4x4(-730.2155f, -71.45703f, -427.875977f, -372.85025f, -358.746582f, 0.1973877f, -11.0285034f, -655.112366f, -456.626129f, -236.992737f, -50.2539063f, -59.64258f, -459.118317f, -364.216431f, -436.96f, -53.76068f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float4x4 a3 = float4x4(351.625427f, -267.69812f, 300.59906f, -222.3244f, 214.98584f, 30.8388062f, -415.7945f, 383.255066f, 421.121033f, -461.896667f, -289.1823f, -504.564941f, -461.765747f, -508.156158f, -288.96582f, -147.676453f);
-            float b3 = (291.51178f);
-            float4x4 r3 = float4x4(643.1372f, 23.81366f, 592.11084f, 69.18738f, 506.49762f, 322.3506f, -124.282715f, 674.766846f, 712.6328f, -170.384888f, 2.32946777f, -213.053162f, -170.253967f, -216.644379f, 2.54595947f, 143.835327f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float4x4 a3 = float4x4(-364.820953f, 77.39429f, 185.278931f, 17.086731f, -511.8999f, 26.7097168f, -296.40683f, 249.988831f, -133.735809f, -398.524628f, 168.704712f, 14.0738525f, -443.0757f, 509.582336f, -72.75815f, -208.45047f);
+            float b3 = (154.526245f);
+            float4x4 r3 = float4x4(-210.294708f, 231.920532f, 339.805176f, 171.612976f, -357.373657f, 181.235962f, -141.880585f, 404.515076f, 20.7904358f, -243.998383f, 323.230957f, 168.6001f, -288.549469f, 664.1086f, 81.7681f, -53.9242249f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_add_scalar_wide()
         {
-            float a0 = (190.831238f);
-            float4x4 b0 = float4x4(411.157166f, -70.76166f, -404.5351f, 238.02887f, 442.2439f, 151.431946f, -447.093872f, -299.924774f, 477.432739f, -292.327271f, 59.3156128f, -378.93335f, -228.865875f, -309.567322f, -78.70996f, -93.9873047f);
-            float4x4 r0 = float4x4(601.9884f, 120.06958f, -213.703857f, 428.8601f, 633.075134f, 342.263184f, -256.262634f, -109.093536f, 668.264f, -101.496033f, 250.146851f, -188.102112f, -38.0346375f, -118.736084f, 112.121277f, 96.84393f);
-            TestUtils.AreEqual(a0 + b0, r0);
+            float a0 = (-340.354675f);
+            float4x4 b0 = float4x4(511.362244f, -146.216644f, -106.210419f, -363.450256f, 199.0896f, -27.1083984f, 419.849f, 284.955017f, -164.9242f, -249.190338f, 150.928162f, 298.1751f, -457.1534f, 424.718079f, -301.857483f, 230.288879f);
+            float4x4 r0 = float4x4(171.007568f, -486.57132f, -446.5651f, -703.804932f, -141.265076f, -367.463074f, 79.49432f, -55.39966f, -505.27887f, -589.545044f, -189.426514f, -42.1795654f, -797.508057f, 84.3634f, -642.212158f, -110.065796f);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            float a1 = (-173.508575f);
-            float4x4 b1 = float4x4(342.767578f, -172.601349f, 76.3781738f, 502.4878f, -262.746582f, 353.173767f, 288.0697f, 433.607117f, 397.094482f, -309.569122f, 235.586182f, -383.315f, 81.2998657f, 440.019531f, -1.446228f, 277.807373f);
-            float4x4 r1 = float4x4(169.259f, -346.109924f, -97.1304f, 328.979218f, -436.255157f, 179.665192f, 114.561127f, 260.098541f, 223.5859f, -483.0777f, 62.0776062f, -556.8236f, -92.20871f, 266.510956f, -174.9548f, 104.2988f);
-            TestUtils.AreEqual(a1 + b1, r1);
+            float a1 = (-423.5876f);
+            float4x4 b1 = float4x4(-67.06003f, 68.72412f, -164.02243f, 318.935181f, 7.80456543f, 187.698364f, -3.656952f, -446.083069f, -209.287231f, -38.21289f, -346.257172f, 465.607422f, -192.185944f, 278.6938f, 381.978455f, 481.243652f);
+            float4x4 r1 = float4x4(-490.6476f, -354.863464f, -587.61f, -104.652405f, -415.78302f, -235.889221f, -427.244537f, -869.670654f, -632.8748f, -461.800476f, -769.8447f, 42.0198364f, -615.77356f, -144.8938f, -41.60913f, 57.6560669f);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            float a2 = (-488.5011f);
-            float4x4 b2 = float4x4(268.6328f, -475.54068f, 490.330139f, -476.8236f, -203.885071f, 244.760437f, -484.204254f, -197.844f, -241.3187f, -251.078308f, -99.91083f, 443.419983f, 134.448914f, -447.6911f, -425.283142f, 49.8901978f);
-            float4x4 r2 = float4x4(-219.868286f, -964.041748f, 1.82904053f, -965.3247f, -692.386169f, -243.740662f, -972.7053f, -686.3451f, -729.8198f, -739.5794f, -588.4119f, -45.0811157f, -354.0522f, -936.1922f, -913.784241f, -438.6109f);
-            TestUtils.AreEqual(a2 + b2, r2);
+            float a2 = (-97.22815f);
+            float4x4 b2 = float4x4(-455.513733f, 501.834961f, 358.7066f, 430.699768f, 256.987183f, 207.651672f, -376.965179f, -428.085327f, -373.49353f, -468.89328f, -467.658447f, 297.484924f, -506.89978f, -233.358459f, 434.558777f, -387.3152f);
+            float4x4 r2 = float4x4(-552.7419f, 404.6068f, 261.478455f, 333.471619f, 159.759033f, 110.423523f, -474.193329f, -525.3135f, -470.72168f, -566.12146f, -564.8866f, 200.256775f, -604.1279f, -330.5866f, 337.330627f, -484.543335f);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            float a3 = (243.9668f);
-            float4x4 b3 = float4x4(68.86005f, -445.4358f, 353.3672f, 200.343445f, 161.903748f, 88.0645752f, -180.604828f, 316.4217f, -466.850525f, -50.9989f, -170.680023f, -428.6098f, -115.867157f, -220.346771f, -451.2382f, -144.740723f);
-            float4x4 r3 = float4x4(312.826843f, -201.469f, 597.334f, 444.310242f, 405.870544f, 332.031372f, 63.36197f, 560.3885f, -222.883728f, 192.9679f, 73.28677f, -184.643f, 128.09964f, 23.6200256f, -207.2714f, 99.2260742f);
-            TestUtils.AreEqual(a3 + b3, r3);
+            float a3 = (171.590271f);
+            float4x4 b3 = float4x4(245.057556f, 200.502747f, 353.496826f, -147.289825f, -8.442291f, 178.085022f, 409.446533f, -429.3672f, -103.623169f, -500.8955f, 254.1062f, 331.3476f, -484.73822f, -15.8841248f, 280.9497f, 328.9314f);
+            float4x4 r3 = float4x4(416.647827f, 372.093018f, 525.0871f, 24.3004456f, 163.14798f, 349.6753f, 581.0368f, -257.776917f, 67.9671f, -329.305237f, 425.696472f, 502.937866f, -313.147949f, 155.706146f, 452.539978f, 500.521667f);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_sub_wide_wide()
         {
-            float4x4 a0 = float4x4(379.052246f, -16.164032f, 107.1604f, 30.0645752f, -428.4387f, 245.627747f, 179.604187f, 505.3778f, 317.7188f, -198.473389f, 166.69458f, -379.0271f, 332.89624f, 159.256226f, -405.395935f, -44.4034729f);
-            float4x4 b0 = float4x4(236.683167f, 20.1707764f, 111.480408f, -484.67984f, -447.708679f, 18.19458f, -296.147644f, 367.636f, -267.455017f, -71.1860657f, -248.3346f, -138.191071f, -474.848175f, -275.859375f, -172.86972f, -72.15997f);
-            float4x4 r0 = float4x4(142.36908f, -36.33481f, -4.32000732f, 514.7444f, 19.269989f, 227.433167f, 475.751831f, 137.741821f, 585.1738f, -127.287323f, 415.029175f, -240.836029f, 807.7444f, 435.1156f, -232.526215f, 27.7565f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float4x4 a0 = float4x4(160.492249f, 11.223938f, 359.200134f, -498.2283f, -355.253632f, -94.53485f, -410.46405f, -401.384644f, 317.706848f, 447.060425f, -489.074158f, -230.008392f, 24.8754272f, 366.614441f, -107.374146f, -219.008148f);
+            float4x4 b0 = float4x4(115.46875f, -130.9823f, 241.540833f, 9.987061f, 419.895142f, 59.12445f, -402.381653f, -75.37015f, 320.9796f, -73.90875f, -31.4447327f, -389.251953f, -375.028839f, 259.182739f, 276.648682f, -453.0692f);
+            float4x4 r0 = float4x4(45.0235f, 142.206238f, 117.6593f, -508.215363f, -775.1488f, -153.6593f, -8.082397f, -326.0145f, -3.272766f, 520.9692f, -457.629425f, 159.243561f, 399.904266f, 107.4317f, -384.022827f, 234.061066f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float4x4 a1 = float4x4(-97.96677f, 427.353271f, 64.90527f, 448.51593f, 344.09552f, -299.151367f, 465.763245f, 402.467957f, -243.425079f, 333.471619f, -150.873566f, -29.31659f, 103.710266f, 199.274475f, 464.224182f, 432.716064f);
-            float4x4 b1 = float4x4(-161.5686f, 498.741577f, -123.512634f, -329.4557f, -154.944733f, -481.698822f, 74.2055054f, -267.317078f, 211.440613f, 186.44928f, 471.0301f, 115.386841f, -389.972961f, 70.0085449f, -206.07605f, 256.43103f);
-            float4x4 r1 = float4x4(63.6018372f, -71.3883057f, 188.417908f, 777.9716f, 499.040253f, 182.547455f, 391.557739f, 669.785034f, -454.8657f, 147.022339f, -621.9037f, -144.70343f, 493.683228f, 129.26593f, 670.300232f, 176.285034f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float4x4 a1 = float4x4(473.9076f, 259.63623f, -360.119629f, 7.80963135f, 437.428467f, -59.1991577f, 418.744324f, 183.142151f, 271.230347f, 496.208557f, 165.354919f, -227.403656f, -166.522858f, 356.142273f, 386.9264f, -394.638763f);
+            float4x4 b1 = float4x4(-272.576538f, -191.148041f, 87.1369f, 430.02478f, 343.6571f, 121.029419f, -354.188171f, 249.052f, -2.22543335f, 22.4472656f, 478.112976f, -320.063f, -111.524109f, 222.228943f, -245.411072f, -119.902283f);
+            float4x4 r1 = float4x4(746.484131f, 450.784271f, -447.256531f, -422.215149f, 93.77136f, -180.228577f, 772.9325f, -65.90985f, 273.45578f, 473.7613f, -312.758057f, 92.65933f, -54.99875f, 133.91333f, 632.337463f, -274.736481f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float4x4 a2 = float4x4(108.694763f, -395.838684f, -211.500916f, -209.269287f, -203.970947f, 96.7184448f, -461.183228f, -91.9543457f, -365.3161f, 479.565735f, 5.65863037f, -433.2864f, 379.748f, -116.968689f, 189.212891f, -281.679871f);
-            float4x4 b2 = float4x4(-194.21228f, -170.827209f, -505.3638f, -70.7685242f, -381.0177f, -190.360718f, -409.328278f, -253.3092f, -85.4267f, -104.836548f, 281.147217f, -56.9968872f, -200.0336f, -57.1217957f, -133.492584f, 38.17151f);
-            float4x4 r2 = float4x4(302.907043f, -225.011475f, 293.862885f, -138.500763f, 177.046753f, 287.079163f, -51.85495f, 161.354858f, -279.8894f, 584.4023f, -275.4886f, -376.28952f, 579.7816f, -59.8468933f, 322.705475f, -319.851379f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float4x4 a2 = float4x4(126.903259f, 97.21692f, -150.017853f, -227.250519f, -198.830017f, 0.662780762f, -484.245575f, -295.996277f, -46.17099f, 499.9524f, 292.440125f, -106.424133f, 466.827148f, 487.374817f, 242.994629f, -468.901581f);
+            float4x4 b2 = float4x4(-153.465668f, 374.1125f, 301.763428f, -281.430054f, -494.964355f, -320.731262f, 160.962219f, -132.9364f, -394.437531f, 406.851257f, 270.544617f, 507.794617f, 67.69922f, 263.40448f, 297.5807f, 170.839539f);
+            float4x4 r2 = float4x4(280.368927f, -276.895569f, -451.781281f, 54.1795349f, 296.134338f, 321.394043f, -645.207764f, -163.059875f, 348.266541f, 93.1011353f, 21.8955078f, -614.21875f, 399.12793f, 223.970337f, -54.58606f, -639.7411f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float4x4 a3 = float4x4(-75.6608f, -78.3935852f, -41.95581f, 456.183838f, -91.29013f, -121.579742f, -137.688324f, 64.57007f, 213.981384f, -76.675354f, -173.641785f, -261.2276f, -272.9259f, -38.5751953f, 123.604919f, 252.018616f);
-            float4x4 b3 = float4x4(-43.5823975f, 147.975525f, 61.295166f, -250.06131f, -107.759827f, -281.8559f, -350.955872f, 1.03851318f, -59.41629f, 37.65088f, 25.5526123f, 339.547546f, 173.1582f, 500.532654f, 359.852539f, 441.521667f);
-            float4x4 r3 = float4x4(-32.0784f, -226.36911f, -103.250977f, 706.2451f, 16.469696f, 160.276154f, 213.267548f, 63.5315552f, 273.397675f, -114.326233f, -199.1944f, -600.775146f, -446.0841f, -539.107849f, -236.24762f, -189.503052f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float4x4 a3 = float4x4(226.2959f, 506.12616f, 60.59491f, -112.930145f, -286.9749f, -290.722748f, -34.5498047f, -347.817444f, -327.527832f, -243.600067f, -233.363464f, 99.65759f, 464.9585f, 419.285339f, 326.3886f, -12.4246826f);
+            float4x4 b3 = float4x4(-451.296875f, 60.20996f, 321.029663f, 481.46698f, 265.6386f, 148.319275f, -418.672424f, 184.514954f, -22.9213257f, 269.3639f, -289.490051f, 368.358643f, 101.4223f, 294.282959f, 21.3450317f, 15.5893555f);
+            float4x4 r3 = float4x4(677.5928f, 445.9162f, -260.434753f, -594.3971f, -552.6135f, -439.042023f, 384.12262f, -532.3324f, -304.6065f, -512.964f, 56.1265869f, -268.70105f, 363.5362f, 125.00238f, 305.043579f, -28.0140381f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_sub_wide_scalar()
         {
-            float4x4 a0 = float4x4(102.569641f, -199.248688f, 218.154358f, 72.79639f, -139.426361f, 13.45929f, -31.2592163f, -273.2179f, -375.997253f, 484.570679f, 118.86438f, -126.182953f, -323.067322f, 128.219543f, -59.64612f, -125.91571f);
-            float b0 = (-504.2776f);
-            float4x4 r0 = float4x4(606.8472f, 305.0289f, 722.431946f, 577.074f, 364.851227f, 517.7369f, 473.018372f, 231.0597f, 128.280334f, 988.848267f, 623.141968f, 378.094635f, 181.210266f, 632.497131f, 444.63147f, 378.361877f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float4x4 a0 = float4x4(207.389587f, 248.457764f, -384.8239f, -205.344757f, -374.811554f, 191.642029f, 18.8562622f, -44.96161f, 480.857971f, 16.3381958f, -366.865448f, -35.5231f, 349.397766f, 439.077271f, 490.2223f, 195.024048f);
+            float b0 = (-36.1124878f);
+            float4x4 r0 = float4x4(243.502075f, 284.570251f, -348.711426f, -169.232269f, -338.699066f, 227.754517f, 54.96875f, -8.849121f, 516.970459f, 52.4506836f, -330.75296f, 0.589386f, 385.510254f, 475.189758f, 526.3348f, 231.136536f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float4x4 a1 = float4x4(-39.709137f, 29.6282349f, 164.511963f, -245.126526f, -293.853027f, -168.449432f, -283.301147f, -492.369232f, 470.4295f, -384.2162f, 407.132629f, 312.913452f, 509.8f, 150.796814f, -329.48877f, 253.458374f);
-            float b1 = (-388.437134f);
-            float4x4 r1 = float4x4(348.728f, 418.065369f, 552.9491f, 143.310608f, 94.58411f, 219.9877f, 105.135986f, -103.9321f, 858.866638f, 4.22094727f, 795.569763f, 701.3506f, 898.2371f, 539.233948f, 58.9483643f, 641.8955f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float4x4 a1 = float4x4(-384.849426f, 55.6027832f, -54.931488f, 53.0880737f, 316.8025f, -273.8067f, 256.8872f, 297.173645f, 101.829041f, 136.607971f, -19.7322083f, 336.589722f, -51.8765564f, 317.345764f, -467.055939f, -50.1670532f);
+            float b1 = (189.05188f);
+            float4x4 r1 = float4x4(-573.9013f, -133.4491f, -243.983368f, -135.9638f, 127.75061f, -462.858582f, 67.83533f, 108.121765f, -87.22284f, -52.44391f, -208.784088f, 147.537842f, -240.928436f, 128.293884f, -656.1078f, -239.218933f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float4x4 a2 = float4x4(310.496033f, -224.979126f, -336.760071f, 132.737488f, 332.288879f, -343.48233f, -329.0356f, 464.4472f, -451.642578f, 475.5431f, -65.27713f, -327.276184f, -322.615326f, 365.869751f, -289.1949f, 38.31122f);
-            float b2 = (370.29657f);
-            float4x4 r2 = float4x4(-59.8005371f, -595.2757f, -707.056641f, -237.559082f, -38.00769f, -713.778931f, -699.332153f, 94.1506348f, -821.939148f, 105.246521f, -435.5737f, -697.572754f, -692.911865f, -4.426819f, -659.491455f, -331.985352f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float4x4 a2 = float4x4(477.804565f, 0.4111328f, 46.66095f, -19.241394f, 396.809753f, 69.5905151f, -334.274231f, -198.077148f, -239.200623f, -339.6812f, -14.5144348f, 219.99707f, -180.260681f, -438.8906f, 186.35553f, -365.066772f);
+            float b2 = (-60.82193f);
+            float4x4 r2 = float4x4(538.626465f, 61.2330627f, 107.48288f, 41.5805359f, 457.631683f, 130.412445f, -273.4523f, -137.255219f, -178.3787f, -278.859283f, 46.3074951f, 280.819f, -119.438751f, -378.068665f, 247.17746f, -304.244843f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float4x4 a3 = float4x4(-500.130066f, -440.6181f, -339.167267f, -164.3038f, 301.575439f, 481.200745f, -10.5444641f, 53.16559f, -97.8558655f, -114.324493f, 73.6081543f, -74.13135f, -373.797241f, -178.226135f, -63.64688f, 132.3587f);
-            float b3 = (-330.072754f);
-            float4x4 r3 = float4x4(-170.057312f, -110.545349f, -9.094513f, 165.768951f, 631.6482f, 811.2735f, 319.5283f, 383.238342f, 232.216888f, 215.74826f, 403.6809f, 255.9414f, -43.7244873f, 151.846619f, 266.425873f, 462.431458f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float4x4 a3 = float4x4(-478.801239f, 57.5604858f, 306.905945f, -357.698456f, 159.085022f, 10.2644653f, -129.711182f, 9.481628f, 35.359436f, -456.9659f, -473.41156f, 130.448669f, 20.7345581f, 210.992432f, -411.8095f, -497.356018f);
+            float b3 = (-193.226776f);
+            float4x4 r3 = float4x4(-285.574463f, 250.787262f, 500.132721f, -164.47168f, 352.3118f, 203.491241f, 63.5155945f, 202.7084f, 228.586212f, -263.739136f, -280.184784f, 323.675446f, 213.961334f, 404.2192f, -218.582733f, -304.129242f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_sub_scalar_wide()
         {
-            float a0 = (385.512268f);
-            float4x4 b0 = float4x4(78.82605f, -43.92514f, -401.835358f, -336.146667f, 25.8710938f, 188.92981f, 132.735535f, -391.6434f, -131.123383f, 43.8323364f, -278.0896f, -440.455048f, -375.452454f, 190.743652f, 364.129639f, 349.778564f);
-            float4x4 r0 = float4x4(306.686218f, 429.4374f, 787.347656f, 721.658936f, 359.641174f, 196.582458f, 252.776733f, 777.15564f, 516.6356f, 341.679932f, 663.601868f, 825.9673f, 760.9647f, 194.768616f, 21.38263f, 35.7337036f);
-            TestUtils.AreEqual(a0 - b0, r0);
+            float a0 = (-86.00824f);
+            float4x4 b0 = float4x4(466.4251f, 298.486938f, -300.9501f, 315.38f, -381.092163f, -125.008362f, 58.4661865f, 214.7461f, -257.549438f, 480.2246f, -443.355072f, 260.795044f, 29.6819458f, 139.857727f, -247.789948f, -248.466217f);
+            float4x4 r0 = float4x4(-552.43335f, -384.495178f, 214.941864f, -401.388245f, 295.083923f, 39.0001221f, -144.474426f, -300.754333f, 171.5412f, -566.232849f, 357.346832f, -346.803284f, -115.690186f, -225.865967f, 161.781708f, 162.457977f);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            float a1 = (492.411f);
-            float4x4 b1 = float4x4(122.080627f, -191.474121f, 114.199036f, 79.3216553f, 105.470459f, -447.612244f, -490.964935f, 245.041565f, 256.2849f, -149.756348f, -447.192841f, -468.422f, -312.239227f, 481.437073f, -27.6018677f, 63.1561279f);
-            float4x4 r1 = float4x4(370.330383f, 683.885132f, 378.211975f, 413.089355f, 386.940552f, 940.023254f, 983.376f, 247.369446f, 236.1261f, 642.167358f, 939.6039f, 960.833f, 804.650269f, 10.973938f, 520.0129f, 429.254883f);
-            TestUtils.AreEqual(a1 - b1, r1);
+            float a1 = (91.44513f);
+            float4x4 b1 = float4x4(86.3841553f, 373.8183f, 260.411926f, 114.353943f, -464.405457f, -109.741455f, -311.675354f, 107.864014f, -258.795166f, 14.0975342f, -461.970184f, 30.3108521f, 63.70111f, -462.676758f, 39.75946f, 47.99817f);
+            float4x4 r1 = float4x4(5.060974f, -282.373169f, -168.9668f, -22.9088135f, 555.8506f, 201.186584f, 403.120483f, -16.4188843f, 350.2403f, 77.3475952f, 553.4153f, 61.1342773f, 27.7440186f, 554.1219f, 51.68567f, 43.44696f);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            float a2 = (-451.783752f);
-            float4x4 b2 = float4x4(364.788269f, -400.735321f, 125.037537f, -221.621948f, 252.242188f, 100.1181f, -229.246552f, -27.64032f, 454.539917f, 0.9707031f, -34.3462219f, -144.898071f, 462.202271f, 29.3624878f, -179.430939f, -443.148956f);
-            float4x4 r2 = float4x4(-816.572f, -51.04843f, -576.8213f, -230.1618f, -704.02594f, -551.901855f, -222.5372f, -424.143433f, -906.323669f, -452.754456f, -417.437531f, -306.885681f, -913.986f, -481.14624f, -272.3528f, -8.634796f);
-            TestUtils.AreEqual(a2 - b2, r2);
+            float a2 = (-177.6193f);
+            float4x4 b2 = float4x4(202.477051f, -289.3088f, -459.9254f, 248.386658f, 85.32971f, -73.37479f, -510.652f, 426.963257f, 239.59021f, 477.852356f, 256.0136f, 338.620361f, -483.8312f, 330.3922f, -263.4182f, 123.92804f);
+            float4x4 r2 = float4x4(-380.096344f, 111.689514f, 282.306122f, -426.005951f, -262.949f, -104.244507f, 333.0327f, -604.5825f, -417.2095f, -655.4717f, -433.6329f, -516.2396f, 306.2119f, -508.0115f, 85.79892f, -301.547333f);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            float a3 = (-175.3952f);
-            float4x4 b3 = float4x4(88.03955f, 485.364f, -109.425415f, -205.809387f, 485.3556f, -108.3129f, -422.870422f, -69.18826f, 281.586243f, -173.313873f, 67.9284058f, -435.221375f, -330.884155f, 74.3952f, 261.512268f, 8.388855f);
-            float4x4 r3 = float4x4(-263.434753f, -660.7592f, -65.96979f, 30.4141846f, -660.7508f, -67.0823059f, 247.47522f, -106.20694f, -456.981445f, -2.08132935f, -243.323608f, 259.826172f, 155.488953f, -249.7904f, -436.907471f, -183.784058f);
-            TestUtils.AreEqual(a3 - b3, r3);
+            float a3 = (-269.115967f);
+            float4x4 b3 = float4x4(-265.6382f, 484.580322f, -304.015625f, 311.637817f, 418.830566f, -103.771606f, -501.27475f, -304.483978f, 389.703f, 372.894043f, 8.436401f, -327.564758f, 190.749451f, 430.901367f, 28.885437f, -299.203125f);
+            float4x4 r3 = float4x4(-3.47775269f, -753.6963f, 34.89966f, -580.7538f, -687.946533f, -165.34436f, 232.158783f, 35.36801f, -658.819f, -642.01f, -277.552368f, 58.44879f, -459.865417f, -700.017334f, -298.0014f, 30.0871582f);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mul_wide_wide()
         {
-            float4x4 a0 = float4x4(48.7297974f, 263.5946f, -378.487183f, 494.618347f, -185.095612f, 423.893433f, 19.8618164f, -439.218475f, 200.14624f, -178.356964f, -285.078064f, 56.74951f, 42.60443f, 472.961182f, -264.8566f, -278.0382f);
-            float4x4 b0 = float4x4(351.026917f, 422.9179f, -490.6174f, 81.40454f, -357.226563f, 378.994568f, 318.321167f, 208.17157f, 345.885681f, -149.02887f, 293.0559f, 423.94812f, 53.42926f, -257.1869f, 87.37598f, 84.21008f);
-            float4x4 r0 = float4x4(17105.47f, 111478.875f, 185692.391f, 40264.18f, 66121.07f, 160653.313f, 6322.43652f, -91432.8f, 69227.72f, 26580.3359f, -83543.81f, 24058.85f, 2276.32324f, -121639.414f, -23142.1035f, -23413.6211f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float4x4 a0 = float4x4(-482.7138f, -407.2935f, 137.700562f, 208.541138f, 194.29657f, -484.242432f, 183.9873f, -241.33548f, 45.8687744f, 363.3261f, -328.118958f, -471.023071f, -262.682556f, -379.262756f, -374.090576f, 481.4474f);
+            float4x4 b0 = float4x4(-236.367889f, 260.7276f, -416.3863f, -364.4956f, -253.147522f, -369.202881f, 193.547913f, 169.0849f, 201.969666f, 249.456055f, -308.193176f, -385.579651f, -183.2796f, 22.2756348f, -265.521423f, -95.67746f);
+            float4x4 r0 = float4x4(114098.047f, -106192.656f, -57336.625f, -76012.33f, -49185.6953f, 178783.7f, 35610.36f, -40806.1836f, 9264.101f, 90633.9f, 101124.023f, 181616.9f, 48144.3555f, -8448.318f, 99329.06f, -46063.6641f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float4x4 a1 = float4x4(88.71771f, 171.394775f, 366.3731f, -253.821564f, -217.548523f, 431.067322f, -159.4126f, -162.980865f, -190.602509f, 300.649963f, -264.473053f, -260.2057f, -217.722626f, -131.686554f, -451.578583f, -165.738892f);
-            float4x4 b1 = float4x4(-59.68576f, -144.9017f, 436.8335f, -444.172668f, 292.1997f, -29.1942139f, 80.04816f, 396.248f, -81.42062f, 423.228516f, -331.0962f, 267.6739f, 351.646423f, 80.08356f, 239.805237f, 239.528442f);
-            float4x4 r1 = float4x4(-5295.184f, -24835.3945f, 160044.047f, 112740.6f, -63567.6133f, -12584.6719f, -12760.6846f, -64580.84f, 15518.9756f, 127243.641f, 87566.02f, -69650.2656f, -76561.38f, -10545.9277f, -108290.906f, -39699.18f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float4x4 a1 = float4x4(104.628052f, 412.935425f, 477.877258f, 20.3778076f, 291.995972f, -138.488312f, -393.464966f, 9.363098f, -131.942291f, 364.449646f, 390.615967f, 418.797974f, -277.3448f, 11.4101563f, 474.876465f, -502.405029f);
+            float4x4 b1 = float4x4(133.2544f, 148.311462f, 249.284119f, 500.0055f, -19.3315735f, -36.69107f, 30.5238037f, -401.367f, 3.43725586f, 257.24176f, -290.971924f, 337.47937f, 490.286133f, -191.0198f, -325.7345f, -52.1819763f);
+            float4x4 r1 = float4x4(13942.1475f, 61243.06f, 119127.211f, 10189.0156f, -5644.7417f, 5081.284f, -12010.0479f, -3758.03857f, -453.5194f, 93751.67f, -113658.281f, 141335.672f, -135978.3f, -2179.566f, -154683.641f, 26216.4883f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float4x4 a2 = float4x4(432.811646f, -221.723145f, -365.0736f, 353.7984f, 87.7072754f, -443.480347f, 373.9886f, 71.36072f, -295.5899f, 445.415649f, 298.726f, -163.316864f, -311.480072f, -439.179077f, 56.52002f, -504.5941f);
-            float4x4 b2 = float4x4(-172.316681f, -432.452454f, 217.683228f, 275.312744f, -246.184265f, -65.27777f, -426.056274f, 474.556335f, -435.2868f, 328.564026f, -189.2667f, -92.1861f, 415.7209f, -497.273315f, 178.094849f, 54.64624f);
-            float4x4 r2 = float4x4(-74580.6641f, 95884.72f, -79470.4f, 97405.21f, -21592.15f, 28949.4082f, -159340.188f, 33864.68f, 128666.383f, 146347.563f, -56538.8828f, 15055.5439f, -129488.773f, 218392.031f, 10065.9248f, -27574.17f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float4x4 a2 = float4x4(-222.59491f, 38.1690674f, 292.6125f, 203.2077f, -330.408142f, 469.460144f, 342.2951f, -504.114655f, 319.3573f, -357.782074f, -117.9711f, 25.706543f, 226.456421f, -86.34372f, -274.126038f, -486.870972f);
+            float4x4 b2 = float4x4(123.435059f, -461.267059f, 122.353088f, 308.584656f, 375.320618f, 203.212646f, 77.66797f, 218.793579f, -489.895752f, 134.472168f, -287.794373f, -116.399994f, -436.543976f, 499.591064f, -300.602356f, 105.730469f);
+            float4x4 r2 = float4x4(-27476.0156f, -17606.1328f, 35802.043f, 62706.7773f, -124008.984f, 95400.24f, 26585.3652f, -110297.047f, -156451.781f, -48111.73f, 33951.418f, -2992.24146f, -98858.19f, -43136.55f, 82402.93f, -51477.0977f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float4x4 a3 = float4x4(-54.06143f, 49.99414f, -210.228729f, 249.3216f, 76.7809448f, -176.47879f, -399.615845f, 405.685242f, -231.714264f, -136.326538f, 306.3896f, 452.802429f, 503.000183f, 391.027649f, 144.8623f, -293.207275f);
-            float4x4 b3 = float4x4(-320.461121f, -499.095917f, -242.528412f, 103.714294f, -486.6628f, 493.711243f, 317.072083f, -303.666351f, -94.24286f, 495.708252f, 17.6970825f, 110.078369f, 382.462952f, -268.7945f, 339.071716f, 421.612427f);
-            float4x4 r3 = float4x4(17324.5879f, -24951.8711f, 50986.44f, 25858.2129f, -37366.43f, -87129.56f, -126707.031f, -123192.961f, 21837.4141f, -67578.19f, 5422.20166f, 49843.7539f, 192378.938f, -105106.078f, 49118.71f, -123619.828f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float4x4 a3 = float4x4(-28.9265442f, -326.096161f, 504.3548f, -181.979523f, 312.229553f, 75.6499f, -248.432068f, 507.184265f, 482.400818f, 1.6229248f, -479.952423f, -446.2109f, -414.271545f, -175.72348f, -303.303223f, 70.71069f);
+            float4x4 b3 = float4x4(425.693665f, -4.90002441f, -41.369812f, 257.704651f, -456.134979f, -496.704651f, -296.414673f, 156.987183f, 304.616577f, 452.772156f, -124.8772f, -446.8005f, -357.430969f, 217.1565f, 215.616577f, 482.1942f);
+            float4x4 r3 = float4x4(-12313.8467f, 1597.87915f, -20865.0625f, -46896.97f, -142418.828f, -37575.66f, 73638.91f, 79621.43f, 146947.281f, 734.8152f, 59935.1133f, 199367.266f, 148073.484f, -38159.4961f, -65397.2031f, 34096.29f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mul_wide_scalar()
         {
-            float4x4 a0 = float4x4(-387.480865f, -48.62552f, -100.415588f, -161.453522f, -428.578979f, -198.319f, 413.477356f, -216.104736f, -65.20349f, 18.9765015f, 89.78735f, -356.197571f, 13.6069336f, 394.3037f, -428.809479f, -362.6972f);
-            float b0 = (367.408752f);
-            float4x4 r0 = float4x4(-142363.859f, -17865.4414f, -36893.5664f, -59319.4375f, -157463.672f, -72864.13f, 151915.2f, -79398.77f, -23956.334f, 6972.133f, 32988.66f, -130870.1f, 4999.30664f, 144870.641f, -157548.359f, -133258.125f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float4x4 a0 = float4x4(-96.31882f, -277.142273f, -239.93689f, 509.531433f, 255.8581f, 215.7315f, -455.50827f, -389.2433f, -338.29248f, 53.7962646f, 243.757324f, 135.354675f, -207.3501f, -383.9396f, -31.4252319f, 42.6761475f);
+            float b0 = (-301.2072f);
+            float4x4 r0 = float4x4(29011.9219f, 83477.25f, 72270.72f, -153474.547f, -77066.3047f, -64979.8867f, 137202.375f, 117242.883f, 101896.133f, -16203.8232f, -73421.46f, -40769.8047f, 62455.3438f, 115645.383f, 9465.507f, -12854.3633f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float4x4 a1 = float4x4(92.84253f, -456.005219f, 283.081482f, -209.552551f, -398.407166f, -8.434082f, 176.073975f, -365.27417f, 236.014709f, 423.7818f, 485.64624f, -52.75711f, -217.148438f, 268.026855f, -362.128937f, -404.337952f);
-            float b1 = (344.986023f);
-            float4x4 r1 = float4x4(32029.375f, -157315.422f, 97659.16f, -72292.7f, -137444.9f, -2909.64038f, 60743.06f, -126014.484f, 81421.77f, 146198.8f, 167541.172f, -18200.4648f, -74913.18f, 92465.5156f, -124929.422f, -139490.938f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float4x4 a1 = float4x4(260.38385f, 25.67212f, -290.5006f, 207.091f, -156.523315f, -208.402008f, 370.945068f, -341.59845f, 10.2703247f, -176.888763f, -61.0061035f, 186.279785f, -487.652222f, -129.376831f, -317.7163f, -207.62735f);
+            float b1 = (176.867554f);
+            float4x4 r1 = float4x4(46053.4531f, 4540.565f, -51380.1328f, 36627.68f, -27683.8965f, -36859.5547f, 65608.15f, -60417.6836f, 1816.48718f, -31285.8828f, -10790f, 32946.85f, -86249.86f, -22882.5645f, -56193.707f, -36722.543f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float4x4 a2 = float4x4(-211.233734f, 96.29022f, 338.633362f, 437.533264f, -282.0213f, -290.4144f, 440.138184f, 489.330444f, -184.513489f, 203.295349f, 311.9261f, -178.088043f, 343.528076f, -212.521362f, -61.2655945f, -78.9118652f);
-            float b2 = (-70.45105f);
-            float4x4 r2 = float4x4(14881.6387f, -6783.747f, -23857.0762f, -30824.6777f, 19868.6973f, 20460f, -31008.1973f, -34473.8438f, 12999.1689f, -14322.3711f, -21975.52f, 12546.4893f, -24201.9141f, 14972.3535f, 4316.22559f, 5559.424f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float4x4 a2 = float4x4(388.8714f, 128.415527f, 510.389526f, 267.576355f, -309.209656f, -36.48297f, -189.569519f, 233.209229f, -331.086975f, -98.6447754f, -214.181f, -87.88077f, -493.165741f, -407.306061f, -411.3714f, 477.935669f);
+            float b2 = (-233.335327f);
+            float4x4 r2 = float4x4(-90737.44f, -29963.8789f, -119091.906f, -62435.0156f, 72149.54f, 8512.766f, 44233.2656f, -54415.9531f, 77254.29f, 23017.31f, 49975.9922f, 20505.6875f, 115072.992f, 95038.89f, 95987.48f, -111519.273f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float4x4 a3 = float4x4(17.4915771f, -328.8244f, 414.583374f, 334.071716f, 253.815918f, 471.808533f, 235.510437f, -308.179321f, -152.593658f, -110.1008f, 439.831116f, 348.6524f, -360.055054f, 262.949646f, -60.08371f, -463.859619f);
-            float b3 = (155.284241f);
-            float4x4 r3 = float4x4(2716.16626f, -51061.2461f, 64378.2656f, 51876.0742f, 39413.6133f, 73264.43f, 36571.06f, -47855.39f, -23695.39f, -17096.92f, 68298.84f, 54140.2227f, -55910.875f, 40831.9375f, -9330.054f, -72030.0859f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float4x4 a3 = float4x4(364.748535f, -187.482422f, -287.957642f, 208.590149f, 367.3161f, 443.2597f, -98.88196f, 339.129822f, -266.412231f, -119.37973f, 117.4978f, -63.52304f, -362.640259f, -328.8269f, 49.4736328f, -169.017944f);
+            float b3 = (-8.058472f);
+            float4x4 r3 = float4x4(-2939.31567f, 1510.82178f, 2320.49854f, -1680.91785f, -2960.00635f, -3571.99585f, 796.837463f, -2732.86816f, 2146.87549f, 962.0182f, -946.8527f, 511.898621f, 2922.32617f, 2649.84229f, -398.681854f, 1362.02637f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mul_scalar_wide()
         {
-            float a0 = (468.915955f);
-            float4x4 b0 = float4x4(123.866638f, 490.9615f, -247.1626f, -176.9495f, 382.263855f, -398.549469f, 120.569336f, -263.275879f, 74.37671f, -309.856f, 404.927979f, -105.62616f, 243.92627f, -291.964081f, -92.4649353f, -144.353f);
-            float4x4 r0 = float4x4(58083.043f, 230219.672f, -115898.484f, -82974.44f, 179249.625f, -186886.2f, 56536.8867f, -123454.258f, 34876.4258f, -145296.422f, 189877.188f, -49529.793f, 114380.922f, -136906.609f, -43358.2852f, -67689.42f);
-            TestUtils.AreEqual(a0 * b0, r0);
+            float a0 = (37.43219f);
+            float4x4 b0 = float4x4(96.74756f, 492.185364f, -274.054565f, -452.870972f, 420.853333f, 102.182922f, -114.948883f, -351.120056f, -464.664978f, 444.084839f, 447.1053f, 130.829346f, -321.41333f, 445.301331f, 478.2436f, 358.571716f);
+            float4x4 r0 = float4x4(3621.473f, 18423.5762f, -10258.4629f, -16951.9531f, 15753.4619f, 3824.93066f, -4302.78857f, -13143.1924f, -17393.4277f, 16623.0684f, 16736.13f, 4897.229f, -12031.2051f, 16668.6035f, 17901.7051f, 13422.125f);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            float a1 = (-7.56222534f);
-            float4x4 b1 = float4x4(-257.847656f, -215.880646f, -480.0216f, -91.38034f, -9.730133f, 47.95282f, 6.174988f, 201.409363f, 502.8886f, 504.705566f, 286.208618f, -265.3672f, -24.2191772f, 107.506653f, 133.728577f, 410.170044f);
-            float4x4 r1 = float4x4(1949.9021f, 1632.53809f, 3630.03149f, 691.038757f, 73.58146f, -362.630035f, -46.6966476f, -1523.103f, -3802.957f, -3816.69727f, -2164.374f, 2006.76648f, 183.150879f, -812.989563f, -1011.28564f, -3101.79834f);
-            TestUtils.AreEqual(a1 * b1, r1);
+            float a1 = (-144.8901f);
+            float4x4 b1 = float4x4(-438.893829f, -3.536438f, -471.807556f, -42.5603943f, 119.911072f, 271.900024f, 239.684021f, 487.4414f, -79.18829f, -112.925659f, 161.370056f, 459.759155f, -337.195984f, -276.834534f, 469.723877f, -274.565155f);
+            float4x4 r1 = float4x4(63591.375f, 512.3949f, 68360.25f, 6166.58f, -17373.9277f, -39395.625f, -34727.8438f, -70625.44f, 11473.6006f, 16361.8105f, -23380.9238f, -66614.5547f, 48856.3633f, 40110.5859f, -68058.34f, 39781.7734f);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            float a2 = (-365.492767f);
-            float4x4 b2 = float4x4(-147.518616f, 34.2779541f, -75.76126f, -127.265808f, 452.852539f, -420.228241f, -276.3678f, -106.62793f, -258.060059f, -243.5987f, -179.388092f, -468.960266f, 126.897705f, -297.456177f, -323.623169f, -202.767853f);
-            float4x4 r2 = float4x4(53916.99f, -12528.3447f, 27690.1934f, 46514.73f, -165514.328f, 153590.375f, 101010.43f, 38971.74f, 94319.0859f, 89033.56f, 65565.05f, 171401.578f, -46380.1953f, 108718.078f, 118281.93f, 74110.19f);
-            TestUtils.AreEqual(a2 * b2, r2);
+            float a2 = (506.7859f);
+            float4x4 b2 = float4x4(65.88257f, 495.855652f, -347.2796f, -343.606049f, -183.7038f, 460.264771f, 437.513245f, -324.557251f, -112.287781f, 273.135437f, -283.093658f, 1.880249f, -310.8167f, 326.0122f, 243.64325f, 78.17932f);
+            float4x4 r2 = float4x4(33388.3555f, 251292.641f, -175996.4f, -174134.7f, -93098.49f, 233255.688f, 221725.531f, -164481.031f, -56905.8633f, 138421.188f, -143467.875f, 952.883667f, -157517.516f, 165218.391f, 123474.961f, 39620.1758f);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            float a3 = (45.3328247f);
-            float4x4 b3 = float4x4(-153.666046f, 286.483154f, -363.8152f, 48.2963257f, -378.403259f, -68.99133f, 258.6624f, 133.641113f, 391.3753f, -391.255f, 346.360718f, -509.9087f, -413.4041f, 94.63739f, -240.800568f, -3.796173f);
-            float4x4 r3 = float4x4(-6966.11572f, 12987.0908f, -16492.77f, 2189.409f, -17154.0879f, -3127.572f, 11725.8975f, 6058.329f, 17742.1484f, -17736.6953f, 15701.51f, -23115.6016f, -18740.7754f, 4290.18f, -10916.17f, -172.091248f);
-            TestUtils.AreEqual(a3 * b3, r3);
+            float a3 = (-308.664f);
+            float4x4 b3 = float4x4(-382.209229f, -134.171875f, -173.004913f, -432.007446f, 488.8365f, -291.7146f, -1.73858643f, -428.3124f, -11.9584045f, -296.891418f, 235.681091f, -298.879181f, 384.531f, 208.919373f, 489.3814f, -106.6055f);
+            float4x4 r3 = float4x4(117974.227f, 41414.0273f, 53400.39f, 133345.141f, -150886.219f, 90041.8f, 536.639038f, 132204.625f, 3691.129f, 91639.6953f, -72746.2656f, 92253.24f, -118690.883f, -64485.89f, -151054.422f, 32905.28f);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_div_wide_wide()
         {
-            float4x4 a0 = float4x4(6.82073975f, -338.630859f, 497.60437f, -491.269928f, 173.454712f, -441.556519f, 321.0169f, -41.60199f, -40.212616f, -169.795868f, -179.339935f, -433.401184f, -425.297119f, 335.54364f, 455.9829f, -438.431244f);
-            float4x4 b0 = float4x4(-352.736023f, 302.209717f, -489.095154f, -380.8916f, 289.646484f, -216.575256f, -289.151f, 198.978516f, -292.720581f, 9.058472f, -29.8904419f, 257.638977f, -340.1684f, 33.71222f, 281.611023f, -384.688171f);
-            float4x4 r0 = float4x4(-0.0193366688f, -1.12051606f, -1.01739788f, 1.28978932f, 0.5988497f, 2.03881335f, -1.110205f, -0.20907779f, 0.137375429f, -18.7444286f, 5.999909f, -1.68220353f, 1.25025463f, 9.953176f, 1.61919415f, 1.13970554f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float4x4 a0 = float4x4(-353.131439f, -102.799866f, 51.3191528f, -191.871674f, 8.041809f, -128.73764f, -136.0596f, -370.471f, -237.69455f, -432.546875f, 200.2655f, 361.4416f, -416.226135f, -450.0192f, -273.497437f, -286.908173f);
+            float4x4 b0 = float4x4(-178.739563f, -302.096283f, -199.405823f, 278.850769f, 502.3376f, -361.484833f, 353.121033f, -38.894928f, -75.76474f, -195.217834f, -405.034f, -394.23f, -375.8277f, -121.245483f, 447.623352f, 338.286255f);
+            float4x4 r0 = float4x4(1.97567582f, 0.34028843f, -0.257360339f, -0.688080132f, 0.0160087738f, 0.356135666f, -0.385305852f, 9.524919f, 3.1372714f, 2.215714f, -0.4944412f, -0.9168292f, 1.107492f, 3.71163678f, -0.610999048f, -0.8481225f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float4x4 a1 = float4x4(-475.071625f, 398.719849f, 372.927673f, 31.9406128f, 472.518372f, -31.91278f, 381.816772f, 72.1203f, 214.974182f, 423.207275f, 165.060364f, -62.5003357f, -431.334839f, 215.506836f, -312.638855f, -324.874481f);
-            float4x4 b1 = float4x4(457.441284f, 228.607361f, -300.276f, -168.690582f, -59.6442871f, 320.390625f, 0.8565674f, -483.937256f, 62.5262451f, -224.534058f, -414.907623f, -475.288849f, -84.26984f, 325.772766f, -12.9821472f, 403.8437f);
-            float4x4 r1 = float4x4(-1.0385412f, 1.74412513f, -1.24194968f, -0.189344376f, -7.92227364f, -0.09960585f, 445.752167f, -0.149028212f, 3.43814325f, -1.8848244f, -0.397824377f, 0.1314997f, 5.11849642f, 0.661525f, 24.0822144f, -0.804456f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float4x4 a1 = float4x4(-314.256042f, 177.762085f, 97.6270142f, -68.10727f, -386.450745f, 263.699341f, -297.0271f, -501.777039f, -263.40686f, -451.080841f, -416.34552f, -315.278748f, -28.1811218f, -397.870148f, -261.386658f, 40.3482056f);
+            float4x4 b1 = float4x4(-405.5442f, -431.168945f, 296.205139f, 437.939819f, 39.2106323f, 331.289734f, -310.619568f, 207.26947f, -223.293f, -480.0914f, 448.675964f, -460.097443f, -220.569855f, -84.85315f, 441.373779f, 72.41846f);
+            float4x4 r1 = float4x4(0.7748996f, -0.412279427f, 0.3295926f, -0.155517414f, -9.855764f, 0.795978f, 0.9562408f, -2.42089224f, 1.17964673f, 0.9395729f, -0.9279426f, 0.6852434f, 0.127765059f, 4.688926f, -0.592211545f, 0.557153642f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float4x4 a2 = float4x4(216.077759f, -253.5036f, -175.87088f, 338.050781f, 187.3388f, 48.5401f, -509.977661f, 387.8222f, 99.7113f, 330.738037f, 370.4037f, -37.7485352f, 7.94158936f, 147.9422f, -3.78286743f, -368.051758f);
-            float4x4 b2 = float4x4(455.131653f, 375.575623f, 241.790649f, -251.936615f, 510.8947f, 392.304382f, -241.79184f, 85.84631f, 307.4809f, -118.543335f, 298.102844f, 451.836f, 362.008728f, -54.80246f, 218.167847f, -26.4995117f);
-            float4x4 r2 = float4x4(0.4747588f, -0.674973547f, -0.7273684f, -1.34180892f, 0.3666877f, 0.123730712f, 2.10916f, 4.517634f, 0.324284554f, -2.790018f, 1.24253654f, -0.08354477f, 0.021937564f, -2.699554f, -0.0173392519f, 13.8890018f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float4x4 a2 = float4x4(277.245728f, 464.77124f, -336.641052f, 375.4781f, 504.342529f, -320.7671f, -156.733337f, 414.797058f, -386.0507f, -369.838623f, 386.704224f, 242.631836f, 421.7345f, 109.012207f, 182.075256f, 187.326416f);
+            float4x4 b2 = float4x4(44.9760742f, -242.515381f, -451.302063f, -21.8996887f, -358.486664f, -350.945129f, -481.848145f, 406.393433f, -145.288666f, 461.795532f, -318.816772f, -250.932f, 125.859558f, -193.803162f, -495.25412f, -315.824554f);
+            float4x4 r2 = float4x4(6.164294f, -1.91646087f, 0.7459329f, -17.14536f, -1.40686548f, 0.9140092f, 0.3252754f, 1.02067852f, 2.65712881f, -0.800870955f, -1.21293569f, -0.966922641f, 3.35083413f, -0.562489331f, -0.367640078f, -0.5931344f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float4x4 a3 = float4x4(-246.7698f, -407.687073f, -257.639832f, 203.9336f, 236.4754f, 100.1272f, 48.5523071f, -477.311218f, 39.90802f, -285.938477f, 168.279846f, -478.56f, -19.119812f, -144.365936f, -418.151581f, 263.846252f);
-            float4x4 b3 = float4x4(76.24353f, 438.685181f, 208.544678f, 485.1836f, 163.143921f, 166.165649f, 57.1953125f, 322.457031f, -382.339447f, -108.119751f, 305.668823f, 429.9749f, -193.3396f, -25.8795776f, -119.146729f, 481.170959f);
-            float4x4 r3 = float4x4(-3.2366f, -0.9293386f, -1.235418f, 0.420322537f, 1.44948947f, 0.6025746f, 0.848886132f, -1.480232f, -0.104378507f, 2.64464617f, 0.550529957f, -1.11299515f, 0.0988923758f, 5.578373f, 3.50955153f, 0.548342f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float4x4 a3 = float4x4(510.862366f, -457.956055f, -263.390778f, 31.9105225f, -86.77109f, -472.43396f, 257.443054f, 208.635864f, -123.366913f, -210.80249f, 299.212463f, 197.7143f, 314.344238f, -152.249908f, -48.31424f, 308.025024f);
+            float4x4 b3 = float4x4(-320.719116f, 169.996826f, 252.738342f, -324.1048f, 82.81885f, 454.1411f, -476.333618f, -58.3329773f, -292.26355f, 395.902039f, 90.55267f, 84.0625f, 203.703247f, 49.49939f, 57.28125f, 487.59668f);
+            float4x4 r3 = float4x4(-1.59286535f, -2.69390941f, -1.04214811f, -0.09845742f, -1.04772151f, -1.0402801f, -0.540468f, -3.57663655f, 0.422108442f, -0.5324612f, 3.304292f, 2.35199165f, 1.54314792f, -3.07579374f, -0.843456447f, 0.6317209f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_div_wide_scalar()
         {
-            float4x4 a0 = float4x4(-179.145264f, 46.96112f, 127.572754f, 391.679626f, 461.327637f, 150.55542f, 18.4229126f, 169.158569f, 37.5003052f, 121.809082f, -22.5421448f, 398.16748f, -331.000366f, -498.451965f, 502.30603f, -329.666962f);
-            float b0 = (-93.36542f);
-            float4x4 r0 = float4x4(1.918754f, -0.502981961f, -1.36638129f, -4.195125f, -4.94109774f, -1.61253941f, -0.197320521f, -1.81179047f, -0.4016509f, -1.30464888f, 0.241439983f, -4.264614f, 3.5452137f, 5.33872175f, -5.380001f, 3.53093219f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float4x4 a0 = float4x4(171.3424f, 0.103393555f, 57.8882446f, -256.130737f, 95.66968f, -290.3869f, -127.4487f, -79.7449f, 146.466858f, -499.843567f, 58.68634f, -453.2058f, -205.033813f, 481.738159f, 464.479065f, -293.4635f);
+            float b0 = (171.796814f);
+            float4x4 r0 = float4x4(0.997355f, 0.000601836247f, 0.3369576f, -1.49089336f, 0.5568769f, -1.69029272f, -0.7418572f, -0.4641815f, 0.8525586f, -2.90950418f, 0.3416032f, -2.63803387f, -1.1934669f, 2.80411577f, 2.70365357f, -1.708201f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float4x4 a1 = float4x4(-191.8522f, -369.294861f, -414.91745f, 94.42157f, -20.6722717f, 102.390625f, -167.4013f, -121.169037f, -99.98184f, 392.385437f, 352.320923f, -5.702301f, -319.4804f, -370.4504f, -323.005249f, 217.078308f);
-            float b1 = (-35.94284f);
-            float4x4 r1 = float4x4(5.33770275f, 10.2745037f, 11.5438137f, -2.62699246f, 0.575143f, -2.8487072f, 4.657431f, 3.371159f, 2.78169012f, -10.9169292f, -9.802256f, 0.158649147f, 8.888569f, 10.306654f, 8.986637f, -6.039542f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float4x4 a1 = float4x4(-158.505585f, 494.1286f, 203.583435f, 180.9704f, 259.1192f, 460.844727f, 490.956238f, -280.478058f, -320.243866f, 192.41449f, 264.800842f, 226.852966f, -192.235687f, 460.9765f, -437.8922f, -413.232727f);
+            float b1 = (-289.5822f);
+            float4x4 r1 = float4x4(0.5473595f, -1.70635f, -0.7030246f, -0.624936163f, -0.8948036f, -1.59141243f, -1.695395f, 0.968561053f, 1.10588241f, -0.6644555f, -0.9144237f, -0.783380151f, 0.663838f, -1.59186745f, 1.5121516f, 1.42699623f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float4x4 a2 = float4x4(436.197083f, 441.9048f, -196.723663f, 486.582031f, 152.848267f, 412.772461f, -165.36908f, 152.405212f, -508.723724f, -323.6767f, 236.727356f, 202.579529f, 339.5708f, -456.229828f, -390.6125f, -480.111145f);
-            float b2 = (165.354614f);
-            float4x4 r2 = float4x4(2.63794923f, 2.67246723f, -1.18970776f, 2.94265771f, 0.9243665f, 2.49628639f, -1.0000875f, 0.921687067f, -3.076562f, -1.95747f, 1.43163443f, 1.22512174f, 2.05359125f, -2.75909948f, -2.36227155f, -2.9035244f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float4x4 a2 = float4x4(249.471863f, 216.785583f, 383.7389f, 82.0233154f, 189.574646f, 314.503845f, -391.92218f, 121.280579f, 417.901733f, -133.262878f, -428.7424f, -188.531891f, 356.259521f, 181.969f, -140.890472f, 474.082642f);
+            float b2 = (313.035034f);
+            float4x4 r2 = float4x4(0.7969455f, 0.6925282f, 1.2258656f, 0.262025982f, 0.605602f, 1.0046922f, -1.25200737f, 0.3874345f, 1.33499992f, -0.425712347f, -1.36963069f, -0.6022709f, 1.13808191f, 0.5813055f, -0.450078934f, 1.51447153f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float4x4 a3 = float4x4(219.479126f, 457.550171f, 497.128418f, 238.433167f, 439.306824f, 456.5705f, -217.02594f, 0.8486328f, 49.30945f, 270.169983f, 178.10199f, -337.1391f, -155.019257f, -19.74054f, -211.5369f, -330.9108f);
-            float b3 = (19.5891724f);
-            float4x4 r3 = float4x4(11.2041044f, 23.3573f, 25.3777142f, 12.1716814f, 22.4260025f, 23.30729f, -11.0788727f, 0.0433215238f, 2.51717877f, 13.7918015f, 9.091859f, -17.2104816f, -7.91351748f, -1.007727f, -10.7986641f, -16.8925362f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float4x4 a3 = float4x4(-451.357727f, -220.999786f, 463.01123f, 502.372f, 424.6776f, 51.258667f, 78.93201f, -487.652679f, -96.08646f, 29.1986084f, 119.750427f, 205.4021f, -173.297424f, -448.8201f, -15.4214783f, 472.026917f);
+            float b3 = (390.1247f);
+            float4x4 r3 = float4x4(-1.15695763f, -0.566485f, 1.18682885f, 1.28772163f, 1.08856893f, 0.131390467f, 0.202325076f, -1.24999177f, -0.246296778f, 0.07484429f, 0.306954235f, 0.5265037f, -0.444210351f, -1.150453f, -0.0395296142f, 1.20993853f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_div_scalar_wide()
         {
-            float a0 = (451.844666f);
-            float4x4 b0 = float4x4(-95.0651855f, 207.048767f, 502.384033f, 62.0412f, -110.84549f, -332.612732f, 224.279358f, -492.734528f, 435.0329f, 503.8188f, 291.349426f, 88.02417f, 328.702759f, 50.01013f, -509.816162f, 158.94751f);
-            float4x4 r0 = float4x4(-4.75299835f, 2.18231034f, 0.899400949f, 7.28297758f, -4.076347f, -1.3584708f, 2.014651f, -0.9170144f, 1.03864479f, 0.8968397f, 1.55086851f, 5.13318872f, 1.37463f, 9.035063f, -0.8862894f, 2.84272885f);
-            TestUtils.AreEqual(a0 / b0, r0);
+            float a0 = (-264.4425f);
+            float4x4 b0 = float4x4(105.589111f, -142.349091f, -288.9489f, 39.644104f, -363.9914f, -149.718231f, -395.729126f, 258.7187f, -9.66626f, 117.725525f, -331.386536f, -509.986023f, 427.896484f, 467.617126f, -407.124634f, 252.690735f);
+            float4x4 r0 = float4x4(-2.50444865f, 1.85770416f, 0.9151877f, -6.670412f, 0.7265076f, 1.7662679f, 0.6682412f, -1.02212369f, 27.3572731f, -2.246263f, 0.797988057f, 0.518528938f, -0.6180058f, -0.56551075f, 0.649536967f, -1.04650652f);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            float a1 = (68.4343262f);
-            float4x4 b1 = float4x4(-237.568573f, 32.9957275f, 169.610413f, -389.980072f, -383.048676f, 42.4129028f, 3.11767578f, -432.5184f, 253.8139f, -448.56073f, 303.820679f, 385.4851f, -168.352173f, -29.5488586f, -52.12848f, 325.4944f);
-            float4x4 r1 = float4x4(-0.288061351f, 2.074036f, 0.403479517f, -0.1754816f, -0.178657f, 1.61352611f, 21.95043f, -0.158222929f, 0.269624025f, -0.152564242f, 0.225245789f, 0.177527815f, -0.406495064f, -2.31597185f, -1.31280112f, 0.210247338f);
-            TestUtils.AreEqual(a1 / b1, r1);
+            float a1 = (444.599365f);
+            float4x4 b1 = float4x4(-88.31329f, 199.955017f, -218.346924f, -13.4171753f, -296.131073f, 0.561340332f, -289.299316f, 196.218323f, 334.733459f, -282.392731f, -479.5036f, -473.439453f, 105.050781f, -287.6313f, 77.29932f, -210.894379f);
+            float4x4 r1 = float4x4(-5.03434229f, 2.223497f, -2.03620625f, -33.1365852f, -1.50136f, 792.031738f, -1.53681445f, 2.26584029f, 1.328219f, -1.5744009f, -0.9272076f, -0.9390839f, 4.232233f, -1.54572678f, 5.75166f, -2.10816121f);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            float a2 = (181.440369f);
-            float4x4 b2 = float4x4(-214.250153f, -496.525543f, -270.410767f, 480.0288f, 459.5122f, 68.31439f, -396.944275f, -417.722046f, 318.85907f, 343.116882f, -459.427368f, -414.6583f, 286.604126f, 429.914124f, 46.71936f, 379.613953f);
-            float4x4 r2 = float4x4(-0.846862257f, -0.36542f, -0.6709806f, 0.3779781f, 0.3948543f, 2.655961f, -0.4570928f, -0.4343567f, 0.56903f, 0.5288005f, -0.3949272f, -0.437565982f, 0.633069634f, 0.422038645f, 3.88362265f, 0.477960229f);
-            TestUtils.AreEqual(a2 / b2, r2);
+            float a2 = (-184.068237f);
+            float4x4 b2 = float4x4(-315.148438f, 87.86688f, 101.590515f, 345.9364f, -146.318115f, 479.999939f, -172.67688f, -178.013641f, 361.760437f, 349.376953f, -398.686127f, -243.78f, 296.622925f, 477.810669f, 486.600342f, 256.917236f);
+            float4x4 r2 = float4x4(0.584068358f, -2.0948534f, -1.81186438f, -0.5320869f, 1.25800037f, -0.383475542f, 1.06596923f, 1.034012f, -0.5088125f, -0.5268471f, 0.4616871f, 0.7550588f, -0.6205462f, -0.385232568f, -0.378273964f, -0.716449559f);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            float a3 = (66.88623f);
-            float4x4 b3 = float4x4(-347.095551f, 255.564209f, -472.5758f, 329.824768f, -224.01651f, -347.364136f, -12.7336731f, -17.4403687f, 147.340576f, -396.052f, 432.458679f, -366.2196f, 91.38507f, 21.3676758f, -168.522125f, 274.529846f);
-            float4x4 r3 = float4x4(-0.192702651f, 0.261719853f, -0.141535446f, 0.202793226f, -0.298577249f, -0.192553639f, -5.252705f, -3.83513856f, 0.453956634f, -0.168882445f, 0.154665023f, -0.182639673f, 0.731916368f, 3.130253f, -0.3968988f, 0.2436392f);
-            TestUtils.AreEqual(a3 / b3, r3);
+            float a3 = (-89.86423f);
+            float4x4 b3 = float4x4(-148.205872f, 388.356384f, 76.9372559f, 260.97467f, -110.279846f, 369.089539f, -511.6496f, 355.425781f, -186.724854f, -379.3255f, -428.225525f, 220.158142f, 397.282959f, -106.643188f, 103.314148f, 212.908325f);
+            float4x4 r3 = float4x4(0.606347263f, -0.231396288f, -1.16801965f, -0.3443408f, 0.8148744f, -0.2434754f, 0.175636277f, -0.252835423f, 0.4812655f, 0.236905321f, 0.209852576f, -0.408180356f, -0.226197034f, 0.842662632f, -0.8698153f, -0.422079444f);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mod_wide_wide()
         {
-            float4x4 a0 = float4x4(157.5586f, 504.938f, 73.00708f, -387.6087f, 278.5445f, 282.228149f, 57.0862427f, -63.974762f, -345.268982f, -380.7162f, 470.2804f, -480.307465f, 65.2514648f, 503.1162f, 387.605835f, -281.181274f);
-            float4x4 b0 = float4x4(180.250183f, -41.4798279f, -308.673157f, -326.860046f, 411.588257f, 429.410583f, 471.1482f, 226.144348f, 423.907471f, -300.951752f, 67.24133f, -488.690979f, -440.438141f, 508.5224f, -108.2384f, 93.46802f);
-            float4x4 r0 = float4x4(157.5586f, 7.18005371f, 73.00708f, -60.7486572f, 278.5445f, 282.228149f, 57.0862427f, -63.974762f, -345.268982f, -79.7644348f, 66.8324f, -480.307465f, 65.2514648f, 503.1162f, 62.890625f, -0.7772217f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float4x4 a0 = float4x4(-388.8125f, 181.681213f, -167.078735f, 432.820129f, -258.438965f, -170.110809f, 283.3183f, 122.716492f, 335.271f, -503.608521f, 191.022522f, 289.742676f, -124.033722f, 259.274f, -274.358459f, -140.030792f);
+            float4x4 b0 = float4x4(436.944153f, 58.9400635f, -201.116241f, 279.289368f, -397.079773f, 377.899963f, 174.693848f, -228.176514f, -317.060181f, -417.4801f, -249.975952f, -397.571564f, -358.745453f, -198.15921f, 208.737122f, -12.1194153f);
+            float4x4 r0 = float4x4(-388.8125f, 4.861023f, -167.078735f, 153.530762f, -258.438965f, -170.110809f, 108.624451f, 122.716492f, 18.2108154f, -86.12842f, 191.022522f, 289.742676f, -124.033722f, 61.1147766f, -65.62134f, -6.717224f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float4x4 a1 = float4x4(89.57654f, -216.285217f, 95.61566f, 327.346619f, -362.112946f, 124.853882f, 461.3974f, 352.7256f, -454.7909f, -366.852783f, -175.171173f, 504.993347f, 148.557617f, 405.268738f, -299.789368f, -202.465912f);
-            float4x4 b1 = float4x4(-20.98877f, 301.875427f, 142.5885f, 439.710449f, 61.1275635f, -37.5414734f, -345.72113f, -253.643555f, -271.911163f, -2.026184f, 320.0362f, -421.68277f, 481.628967f, 1.44519043f, -384.131134f, -125.2171f);
-            float4x4 r1 = float4x4(5.62146f, -216.285217f, 95.61566f, 327.346619f, -56.47513f, 12.2294617f, 115.67627f, 99.08203f, -182.87973f, -0.113464355f, -175.171173f, 83.31058f, 148.557617f, 0.6154175f, -299.789368f, -77.24881f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float4x4 a1 = float4x4(324.577576f, -200.513092f, 211.423157f, -51.2722168f, -230.633911f, 99.98938f, 399.18988f, 24.90326f, 50.92401f, -364.863678f, -252.626617f, -281.2898f, -364.798523f, -329.026245f, 51.6098022f, 41.6478271f);
+            float4x4 b1 = float4x4(25.2714233f, -194.1207f, -493.8718f, -312.3017f, -216.980591f, 413.570984f, -436.3944f, 3.491272f, -308.233429f, -441.375061f, 84.60083f, 373.163452f, 67.25275f, -320.333282f, 118.97937f, 44.8239746f);
+            float4x4 r1 = float4x4(21.3204956f, -6.392395f, 211.423157f, -51.2722168f, -13.65332f, 99.98938f, 399.18988f, 0.464355469f, 50.92401f, -364.863678f, -83.42496f, -281.2898f, -28.53479f, -8.692963f, 51.6098022f, 41.6478271f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float4x4 a2 = float4x4(180.769531f, -172.165924f, 175.433411f, -381.471283f, -415.4391f, -450.8388f, 454.387451f, -438.088379f, -281.1637f, 451.3133f, -253.38562f, -243.360809f, -13.9821472f, -358.68222f, 249.319763f, 227.499817f);
-            float4x4 b2 = float4x4(-323.2398f, -433.925018f, 146.149841f, 24.1425171f, -308.426636f, -102.847168f, 69.23401f, -101.027405f, 244.759766f, 147.517029f, 232.84491f, 281.540344f, -306.602448f, 125.986694f, -186.0986f, -489.9818f);
-            float4x4 r2 = float4x4(180.769531f, -172.165924f, 29.28357f, -19.3335266f, -107.012451f, -39.4501343f, 38.9834f, -33.97876f, -36.40393f, 8.762207f, -20.54071f, -243.360809f, -13.9821472f, -106.708832f, 63.22116f, 227.499817f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float4x4 a2 = float4x4(254.95105f, -458.6776f, -136.79303f, 72.40033f, 246.212036f, 325.1538f, 162.034668f, -284.761444f, 128.351257f, 262.916748f, 61.60077f, -271.4928f, -205.438812f, -341.322144f, 347.154419f, 148.0885f);
+            float4x4 b2 = float4x4(354.0086f, -253.953125f, -195.162811f, 317.142822f, 320.693176f, -103.996887f, 388.171753f, -199.639313f, -256.217316f, -478.125031f, -210.655731f, -272.0233f, -61.6765442f, -367.8296f, -242.938934f, 162.386719f);
+            float4x4 r2 = float4x4(254.95105f, -204.724487f, -136.79303f, 72.40033f, 246.212036f, 13.163147f, 162.034668f, -85.12213f, 128.351257f, 262.916748f, 61.60077f, -271.4928f, -20.40918f, -341.322144f, 104.215485f, 148.0885f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float4x4 a3 = float4x4(-248.406525f, 293.689026f, 338.444824f, 82.9230347f, -402.43988f, -98.5871f, 258.875f, -364.070251f, 407.717346f, -229.391113f, -323.444458f, -383.831482f, 432.120972f, 92.05713f, -7.16796875f, 286.822754f);
-            float4x4 b3 = float4x4(-261.929016f, 272.6372f, 274.650574f, -88.9407043f, 121.0047f, -378.744568f, 95.8405151f, -432.6764f, -5.70385742f, -32.5491638f, 162.01709f, 459.924622f, 58.2937622f, -29.9641418f, 4.542053f, 282.6595f);
-            float4x4 r3 = float4x4(-248.406525f, 21.0518188f, 63.79425f, 82.9230347f, -39.42578f, -98.5871f, 67.19397f, -364.070251f, 2.74346924f, -1.54696655f, -161.427368f, -383.831482f, 24.0646362f, 2.16470337f, -2.62591553f, 4.163269f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float4x4 a3 = float4x4(253.371582f, -353.380066f, -489.716766f, -371.7157f, 131.366272f, -175.5871f, 271.447021f, -300.871216f, -159.985809f, 63.31543f, 368.062622f, 495.223145f, 113.5014f, 463.485657f, -365.840637f, 481.9884f);
+            float4x4 b3 = float4x4(-456.834534f, -466.818756f, -233.143585f, -265.913147f, -170.0065f, -61.3197937f, 334.7071f, -240.970245f, 382.6131f, -204.172882f, 7.772827f, -46.39322f, 325.345642f, 436.883484f, -71.77011f, -22.84903f);
+            float4x4 r3 = float4x4(253.371582f, -353.380066f, -23.4295959f, -105.802551f, 131.366272f, -52.94751f, 271.447021f, -59.90097f, -159.985809f, 63.31543f, 2.739746f, 31.2909546f, 113.5014f, 26.6021729f, -6.990082f, 2.158783f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mod_wide_scalar()
         {
-            float4x4 a0 = float4x4(42.07245f, 313.0503f, 111.52063f, 131.212036f, -460.440857f, -436.485046f, -221.73172f, -316.3909f, 24.1831055f, -238.9426f, 335.600952f, -240.832489f, -12.3947144f, -152.489655f, -387.4286f, -240.0715f);
-            float b0 = (260.272583f);
-            float4x4 r0 = float4x4(42.07245f, 52.77771f, 111.52063f, 131.212036f, -200.168274f, -176.212463f, -221.73172f, -56.1183167f, 24.1831055f, -238.9426f, 75.32837f, -240.832489f, -12.3947144f, -152.489655f, -127.156006f, -240.0715f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float4x4 a0 = float4x4(-244.499634f, -211.8193f, -145.926788f, -304.9182f, 155.479492f, -133.907776f, 281.309631f, -226.535767f, 335.166138f, 101.706482f, 319.4715f, -285.4023f, -355.846863f, 259.378f, -330.871948f, -284.343567f);
+            float b0 = (39.63495f);
+            float4x4 r0 = float4x4(-6.68994141f, -13.6445618f, -27.0219421f, -27.4735718f, 36.574646f, -15.00293f, 3.86499023f, -28.3610229f, 18.0865479f, 22.4365845f, 2.39190674f, -7.957672f, -38.7672729f, 21.5682983f, -13.7923584f, -6.898926f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float4x4 a1 = float4x4(-51.5551453f, 15.7027588f, 179.9151f, 453.635f, -76.82529f, 213.75293f, 143.580566f, 490.95636f, 426.8548f, -495.03064f, -452.600067f, -235.307281f, -457.423737f, 320.532471f, 46.65277f, 268.335815f);
-            float b1 = (179.872742f);
-            float4x4 r1 = float4x4(-51.5551453f, 15.7027588f, 0.0423584f, 93.88953f, -76.82529f, 33.880188f, 143.580566f, 131.210876f, 67.109314f, -135.285156f, -92.85458f, -55.43454f, -97.67825f, 140.659729f, 46.65277f, 88.46307f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float4x4 a1 = float4x4(-102.683441f, 206.41687f, -416.713654f, -339.256653f, 435.2975f, 132.552917f, 226.944092f, -306.1183f, 115.438477f, 281.882935f, -218.347443f, -140.0405f, -462.3235f, -211.6087f, 351.331055f, 321.047f);
+            float b1 = (-172.141754f);
+            float4x4 r1 = float4x4(-102.683441f, 34.275116f, -72.4301453f, -167.1149f, 91.01398f, 132.552917f, 54.8023376f, -133.976532f, 115.438477f, 109.74118f, -46.20569f, -140.0405f, -118.039978f, -39.46695f, 7.04754639f, 148.905243f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float4x4 a2 = float4x4(463.731384f, -293.5371f, -227.900635f, 349.627441f, 342.578735f, 285.631653f, -46.4919434f, 327.946045f, 358.8695f, 454.485046f, 131.267639f, 319.250549f, 506.849731f, -300.762451f, -373.89267f, -427.0885f);
-            float b2 = (90.74432f);
-            float4x4 r2 = float4x4(10.0097656f, -21.3041382f, -46.4119873f, 77.39447f, 70.3457642f, 13.3986816f, -46.4919434f, 55.7130737f, 86.6365356f, 0.763427734f, 40.5233154f, 47.01758f, 53.1281128f, -28.52948f, -10.9153748f, -64.1112061f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float4x4 a2 = float4x4(346.0852f, 465.40918f, -367.197021f, -467.5106f, 415.2151f, 506.186157f, -3.729828f, 128.249878f, 134.941589f, 247.616943f, -285.287872f, 433.766663f, -141.831024f, -229.781891f, 471.218018f, 377.681458f);
+            float b2 = (-94.4077454f);
+            float4x4 r2 = float4x4(62.86197f, 87.7782f, -83.9737854f, -89.87961f, 37.5841064f, 34.14743f, -3.729828f, 33.8421326f, 40.533844f, 58.8014526f, -2.06463623f, 56.13568f, -47.42328f, -40.9664f, 93.5870361f, 0.0504760742f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float4x4 a3 = float4x4(345.4536f, 393.026123f, 287.155579f, 100.437439f, -174.902161f, -412.702667f, 479.940063f, 152.255676f, -375.295654f, -453.4544f, -281.131653f, 430.916382f, -30.393158f, -47.4750671f, -223.051819f, 2.831726f);
-            float b3 = (-1.83511353f);
-            float4x4 r3 = float4x4(0.4522705f, 0.3118286f, 0.877868652f, 1.34130859f, -0.566375732f, -1.63723755f, 0.97543335f, 1.77636719f, -0.9324951f, -0.181365967f, -0.359283447f, 1.49981689f, -1.03134155f, -1.597229f, -1.00308228f, 0.996612549f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float4x4 a3 = float4x4(433.4076f, -333.358124f, 403.178467f, -417.24295f, 116.337463f, 167.627747f, 139.12915f, -510.799957f, -471.958984f, 96.20929f, -12.3428955f, 425.504761f, 285.489624f, -198.684814f, 480.1405f, -94.44934f);
+            float b3 = (-99.4491f);
+            float4x4 r3 = float4x4(35.6112061f, -35.0108337f, 5.38208f, -19.4465637f, 16.8883667f, 68.17865f, 39.6800537f, -13.5544739f, -74.1626f, 96.20929f, -12.3428955f, 27.708374f, 86.59143f, -99.23572f, 82.34412f, -94.44934f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_mod_scalar_wide()
         {
-            float a0 = (-162.9458f);
-            float4x4 b0 = float4x4(171.125732f, 159.207947f, 491.348083f, -136.5397f, 84.48755f, 414.3911f, -85.03061f, 161.989563f, -7.60800171f, -85.22388f, 160.841248f, -234.483124f, 114.877625f, -40.5487061f, -85.7437439f, -235.708923f);
-            float4x4 r0 = float4x4(-162.9458f, -3.737854f, -162.9458f, -26.4060974f, -78.45825f, -162.9458f, -77.91519f, -0.9562378f, -3.177765f, -77.7219238f, -2.10455322f, -162.9458f, -48.0681763f, -0.750976563f, -77.20206f, -162.9458f);
-            TestUtils.AreEqual(a0 % b0, r0);
+            float a0 = (-66.94504f);
+            float4x4 b0 = float4x4(-249.7761f, -396.073761f, 386.492065f, 168.939453f, -199.418243f, 261.7517f, 16.1274414f, 257.668152f, -75.78845f, 170.9563f, -242.858276f, 425.9453f, 303.2724f, 3.033081f, -505.74353f, 461.957031f);
+            float4x4 r0 = float4x4(-66.94504f, -66.94504f, -66.94504f, -66.94504f, -66.94504f, -66.94504f, -2.43527222f, -66.94504f, -66.94504f, -66.94504f, -66.94504f, -66.94504f, -66.94504f, -0.217254639f, -66.94504f, -66.94504f);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            float a1 = (-135.851166f);
-            float4x4 b1 = float4x4(391.487f, 240.695984f, -81.43179f, -398.1865f, -209.346069f, -431.59314f, 411.7469f, -119.326263f, -296.96582f, -319.028f, 194.759827f, -189.406708f, -292.210022f, -228.648621f, 306.944519f, 313.818237f);
-            float4x4 r1 = float4x4(-135.851166f, -135.851166f, -54.4193726f, -135.851166f, -135.851166f, -135.851166f, -135.851166f, -16.5249023f, -135.851166f, -135.851166f, -135.851166f, -135.851166f, -135.851166f, -135.851166f, -135.851166f, -135.851166f);
-            TestUtils.AreEqual(a1 % b1, r1);
+            float a1 = (205.972778f);
+            float4x4 b1 = float4x4(270.040649f, -47.4807129f, -150.254486f, 149.499512f, -220.298035f, 31.1188354f, 400.635681f, 6.23144531f, -39.05075f, -71.9411f, -495.307129f, -86.7196045f, -436.970062f, -472.294739f, -130.008759f, -251.516846f);
+            float4x4 r1 = float4x4(205.972778f, 16.0499268f, 55.7182922f, 56.4732666f, 205.972778f, 19.2597656f, 205.972778f, 0.335083f, 10.7190247f, 62.0905762f, 205.972778f, 32.53357f, 205.972778f, 205.972778f, 75.96402f, 205.972778f);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            float a2 = (224.436829f);
-            float4x4 b2 = float4x4(426.099548f, -14.8559875f, -477.121582f, 248.822388f, -186.535858f, -374.613647f, -202.297546f, -447.239716f, -356.850159f, -398.0221f, 105.208435f, 122.377991f, -249.76767f, 331.081238f, 136.209656f, -475.207855f);
-            float4x4 r2 = float4x4(224.436829f, 1.59701538f, 224.436829f, 224.436829f, 37.90097f, 224.436829f, 22.1392822f, 224.436829f, 224.436829f, 224.436829f, 14.0199585f, 102.058838f, 224.436829f, 224.436829f, 88.22717f, 224.436829f);
-            TestUtils.AreEqual(a2 % b2, r2);
+            float a2 = (281.976379f);
+            float4x4 b2 = float4x4(388.86084f, 50.6152954f, 293.87085f, 123.744263f, 422.904358f, -53.87619f, -178.857666f, -362.27594f, 361.085266f, 465.276123f, -269.889648f, -159.408966f, -29.0952148f, 484.499451f, -354.950623f, -328.6906f);
+            float4x4 r2 = float4x4(281.976379f, 28.8999023f, 281.976379f, 34.487854f, 281.976379f, 12.5954285f, 103.118713f, 281.976379f, 281.976379f, 281.976379f, 12.086731f, 122.567413f, 20.1194458f, 281.976379f, 281.976379f, 281.976379f);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            float a3 = (-392.589325f);
-            float4x4 b3 = float4x4(312.964172f, -150.763733f, -126.438995f, -276.759338f, -131.528168f, 78.80109f, -432.3988f, 494.78656f, -130.546661f, 221.419128f, 232.209534f, -160.6037f, -227.39801f, -368.575256f, 365.896729f, -36.30136f);
-            float4x4 r3 = float4x4(-79.62515f, -91.06186f, -13.2723389f, -115.829987f, -129.53299f, -77.38498f, -392.589325f, -392.589325f, -0.9493408f, -171.1702f, -160.379791f, -71.38193f, -165.191315f, -24.0140686f, -26.6925964f, -29.5757141f);
-            TestUtils.AreEqual(a3 % b3, r3);
+            float a3 = (-171.739227f);
+            float4x4 b3 = float4x4(-300.492981f, -64.58917f, 400.004578f, 295.555481f, 482.521973f, 84.80737f, 497.856384f, -349.291931f, 351.6325f, -178.30719f, -0.5654297f, -167.612244f, -150.81839f, 131.251038f, 399.150452f, 165.462158f);
+            float4x4 r3 = float4x4(-171.739227f, -42.5608826f, -171.739227f, -171.739227f, -171.739227f, -2.1244812f, -171.739227f, -171.739227f, -171.739227f, -171.739227f, -0.414031982f, -4.12698364f, -20.9208374f, -40.48819f, -171.739227f, -6.277069f);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_plus()
         {
-            float4x4 a0 = float4x4(150.599854f, -137.8551f, 439.0912f, 401.849243f, 401.823547f, -299.614624f, -364.624817f, 444.5669f, -135.177917f, 188.590271f, -458.637817f, -176.78833f, 67.19397f, -202.573944f, -83.5177f, 466.917053f);
-            float4x4 r0 = float4x4(150.599854f, -137.8551f, 439.0912f, 401.849243f, 401.823547f, -299.614624f, -364.624817f, 444.5669f, -135.177917f, 188.590271f, -458.637817f, -176.78833f, 67.19397f, -202.573944f, -83.5177f, 466.917053f);
-            TestUtils.AreEqual(+a0, r0);
+            float4x4 a0 = float4x4(-418.829559f, -405.79895f, -34.04178f, 236.999268f, -459.8391f, 210.86145f, 293.742f, -373.015442f, -386.059845f, 4.95440674f, -418.645264f, 504.474854f, -170.746521f, 439.5594f, -478.7494f, 116.400757f);
+            float4x4 r0 = float4x4(-418.829559f, -405.79895f, -34.04178f, 236.999268f, -459.8391f, 210.86145f, 293.742f, -373.015442f, -386.059845f, 4.95440674f, -418.645264f, 504.474854f, -170.746521f, 439.5594f, -478.7494f, 116.400757f);
+            TestUtils.AreEqual(r0, +a0);
 
-            float4x4 a1 = float4x4(369.197021f, 288.732178f, 27.9801025f, -277.2133f, -419.9559f, -418.334534f, -85.52872f, 184.964111f, -113.681641f, -496.363739f, 473.138367f, -214.060791f, -316.094727f, -287.7664f, -259.0204f, 504.885f);
-            float4x4 r1 = float4x4(369.197021f, 288.732178f, 27.9801025f, -277.2133f, -419.9559f, -418.334534f, -85.52872f, 184.964111f, -113.681641f, -496.363739f, 473.138367f, -214.060791f, -316.094727f, -287.7664f, -259.0204f, 504.885f);
-            TestUtils.AreEqual(+a1, r1);
+            float4x4 a1 = float4x4(421.409668f, 447.8661f, 124.164368f, 222.172546f, -65.94928f, 239.041809f, 498.449524f, -139.382538f, 279.072937f, 108.775818f, 37.9992065f, 136.812134f, -236.030029f, -440.308319f, 342.2791f, 102.472229f);
+            float4x4 r1 = float4x4(421.409668f, 447.8661f, 124.164368f, 222.172546f, -65.94928f, 239.041809f, 498.449524f, -139.382538f, 279.072937f, 108.775818f, 37.9992065f, 136.812134f, -236.030029f, -440.308319f, 342.2791f, 102.472229f);
+            TestUtils.AreEqual(r1, +a1);
 
-            float4x4 a2 = float4x4(195.073181f, 368.666138f, 88.02533f, -123.764893f, 378.997f, -224.181122f, -217.134491f, 204.336731f, 2.32061768f, 435.4549f, -137.489288f, 349.320679f, -488.533234f, 11.072937f, 111.8009f, 175.555786f);
-            float4x4 r2 = float4x4(195.073181f, 368.666138f, 88.02533f, -123.764893f, 378.997f, -224.181122f, -217.134491f, 204.336731f, 2.32061768f, 435.4549f, -137.489288f, 349.320679f, -488.533234f, 11.072937f, 111.8009f, 175.555786f);
-            TestUtils.AreEqual(+a2, r2);
+            float4x4 a2 = float4x4(-161.454834f, 141.314331f, 239.320862f, -494.6041f, 361.59198f, -14.6017456f, 141.712524f, 25.2562866f, -268.2269f, 106.774658f, 176.744385f, 104.119934f, 144.618591f, 289.4519f, -393.0167f, -198.95575f);
+            float4x4 r2 = float4x4(-161.454834f, 141.314331f, 239.320862f, -494.6041f, 361.59198f, -14.6017456f, 141.712524f, 25.2562866f, -268.2269f, 106.774658f, 176.744385f, 104.119934f, 144.618591f, 289.4519f, -393.0167f, -198.95575f);
+            TestUtils.AreEqual(r2, +a2);
 
-            float4x4 a3 = float4x4(182.642517f, -320.562439f, -346.2193f, -84.18686f, -198.0087f, -231.520569f, 12.619873f, -295.114868f, 3.505188f, -315.2509f, -325.763245f, 146.627686f, -331.0832f, -35.64331f, 312.382568f, -169.67334f);
-            float4x4 r3 = float4x4(182.642517f, -320.562439f, -346.2193f, -84.18686f, -198.0087f, -231.520569f, 12.619873f, -295.114868f, 3.505188f, -315.2509f, -325.763245f, 146.627686f, -331.0832f, -35.64331f, 312.382568f, -169.67334f);
-            TestUtils.AreEqual(+a3, r3);
+            float4x4 a3 = float4x4(-419.009216f, 233.295471f, 407.3216f, -129.0021f, 321.17218f, -132.84079f, -20.491333f, -135.618225f, -226.912048f, -409.9144f, -256.257233f, 2.17242432f, 361.9702f, -66.73724f, -248.924377f, -109.997375f);
+            float4x4 r3 = float4x4(-419.009216f, 233.295471f, 407.3216f, -129.0021f, 321.17218f, -132.84079f, -20.491333f, -135.618225f, -226.912048f, -409.9144f, -256.257233f, 2.17242432f, 361.9702f, -66.73724f, -248.924377f, -109.997375f);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_neg()
         {
-            float4x4 a0 = float4x4(-169.281158f, -377.0252f, 36.6141357f, -258.382446f, 469.914551f, 388.945984f, 350.969238f, 176.102539f, 494.421631f, 201.18689f, -60.8139343f, 313.8802f, 381.035767f, 327.1795f, 292.367554f, 462.13623f);
-            float4x4 r0 = float4x4(169.281158f, 377.0252f, -36.6141357f, 258.382446f, -469.914551f, -388.945984f, -350.969238f, -176.102539f, -494.421631f, -201.18689f, 60.8139343f, -313.8802f, -381.035767f, -327.1795f, -292.367554f, -462.13623f);
-            TestUtils.AreEqual(-a0, r0);
+            float4x4 a0 = float4x4(148.461731f, -467.122681f, 132.04718f, 183.522644f, 473.701f, -407.9911f, -54.95877f, -382.9898f, -299.093384f, -383.014069f, 407.709778f, 168.735474f, 466.441528f, 171.902466f, -280.558319f, -78.857605f);
+            float4x4 r0 = float4x4(-148.461731f, 467.122681f, -132.04718f, -183.522644f, -473.701f, 407.9911f, 54.95877f, 382.9898f, 299.093384f, 383.014069f, -407.709778f, -168.735474f, -466.441528f, -171.902466f, 280.558319f, 78.857605f);
+            TestUtils.AreEqual(r0, -a0);
 
-            float4x4 a1 = float4x4(448.669861f, 93.50537f, 385.7409f, -37.0343628f, -298.235046f, -14.9801636f, -116.370148f, 258.546448f, 369.4939f, 292.990967f, -349.357544f, 160.560852f, -429.3812f, 282.849731f, -12.6661682f, -273.521271f);
-            float4x4 r1 = float4x4(-448.669861f, -93.50537f, -385.7409f, 37.0343628f, 298.235046f, 14.9801636f, 116.370148f, -258.546448f, -369.4939f, -292.990967f, 349.357544f, -160.560852f, 429.3812f, -282.849731f, 12.6661682f, 273.521271f);
-            TestUtils.AreEqual(-a1, r1);
+            float4x4 a1 = float4x4(318.69635f, 140.340027f, 132.195618f, -505.895264f, 410.380554f, -237.056946f, -137.617828f, -245.349976f, 422.521362f, -434.57135f, 60.22223f, -466.5663f, 426.894531f, 146.649536f, -391.37207f, 423.237732f);
+            float4x4 r1 = float4x4(-318.69635f, -140.340027f, -132.195618f, 505.895264f, -410.380554f, 237.056946f, 137.617828f, 245.349976f, -422.521362f, 434.57135f, -60.22223f, 466.5663f, -426.894531f, -146.649536f, 391.37207f, -423.237732f);
+            TestUtils.AreEqual(r1, -a1);
 
-            float4x4 a2 = float4x4(-138.772888f, 94.23346f, 184.8446f, -136.302673f, 31.7103882f, -134.855469f, 404.9942f, -127.453461f, 164.948914f, 154.396973f, 24.71045f, -406.521851f, 164.153259f, -364.896118f, -7.724945f, 29.5784912f);
-            float4x4 r2 = float4x4(138.772888f, -94.23346f, -184.8446f, 136.302673f, -31.7103882f, 134.855469f, -404.9942f, 127.453461f, -164.948914f, -154.396973f, -24.71045f, 406.521851f, -164.153259f, 364.896118f, 7.724945f, -29.5784912f);
-            TestUtils.AreEqual(-a2, r2);
+            float4x4 a2 = float4x4(254.297546f, 108.059692f, -507.9763f, -306.245728f, 219.66626f, 474.667969f, -98.76068f, 492.111084f, 84.04584f, 300.976624f, -483.864624f, -389.15744f, -324.6861f, 378.85437f, 190.219238f, -69.10242f);
+            float4x4 r2 = float4x4(-254.297546f, -108.059692f, 507.9763f, 306.245728f, -219.66626f, -474.667969f, 98.76068f, -492.111084f, -84.04584f, -300.976624f, 483.864624f, 389.15744f, 324.6861f, -378.85437f, -190.219238f, 69.10242f);
+            TestUtils.AreEqual(r2, -a2);
 
-            float4x4 a3 = float4x4(13.9100342f, 296.8617f, 504.4043f, 379.753174f, 480.2602f, 149.954956f, -359.015747f, -4.92892456f, -411.579285f, -416.044983f, 188.326782f, -496.4583f, 411.8028f, 430.337158f, 463.852234f, 75.40149f);
-            float4x4 r3 = float4x4(-13.9100342f, -296.8617f, -504.4043f, -379.753174f, -480.2602f, -149.954956f, 359.015747f, 4.92892456f, 411.579285f, 416.044983f, -188.326782f, 496.4583f, -411.8028f, -430.337158f, -463.852234f, -75.40149f);
-            TestUtils.AreEqual(-a3, r3);
+            float4x4 a3 = float4x4(507.495361f, 245.013367f, 429.615784f, 142.357f, -430.84906f, 281.934265f, -242.334961f, -83.12738f, -460.8203f, -485.419739f, 396.819031f, -428.4235f, -213.987885f, -17.6636353f, 287.0819f, 257.497742f);
+            float4x4 r3 = float4x4(-507.495361f, -245.013367f, -429.615784f, -142.357f, 430.84906f, -281.934265f, 242.334961f, 83.12738f, 460.8203f, 485.419739f, -396.819031f, 428.4235f, 213.987885f, 17.6636353f, -287.0819f, -257.497742f);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_prefix_inc()
         {
-            float4x4 a0 = float4x4(86.58539f, 161.589783f, 443.929626f, -338.268433f, -34.5586548f, -368.567474f, 359.1416f, 145.026123f, 157.233154f, 25.3619385f, -484.200439f, 346.040466f, 381.775635f, 244.663025f, 49.9732056f, -105.417908f);
-            float4x4 r0 = float4x4(87.58539f, 162.589783f, 444.929626f, -337.268433f, -33.5586548f, -367.567474f, 360.1416f, 146.026123f, 158.233154f, 26.3619385f, -483.200439f, 347.040466f, 382.775635f, 245.663025f, 50.9732056f, -104.417908f);
-            TestUtils.AreEqual(++a0, r0);
+            float4x4 a0 = float4x4(-139.842072f, -56.7436523f, -381.955322f, 509.796326f, -222.896332f, 210.319885f, -392.7315f, -300.1941f, 362.212769f, 401.6148f, 130.90918f, -450.230164f, 243.546936f, 46.1920166f, -41.4972839f, 299.1855f);
+            float4x4 r0 = float4x4(-138.842072f, -55.7436523f, -380.955322f, 510.796326f, -221.896332f, 211.319885f, -391.7315f, -299.1941f, 363.212769f, 402.6148f, 131.90918f, -449.230164f, 244.546936f, 47.1920166f, -40.4972839f, 300.1855f);
+            TestUtils.AreEqual(r0, ++a0);
 
-            float4x4 a1 = float4x4(218.376526f, -153.756561f, 352.001953f, 75.30719f, -18.34317f, -484.351f, 49.86487f, -269.916f, -205.470337f, 375.4276f, -157.748962f, -218.1582f, -343.9989f, 506.713318f, 312.928345f, -29.0180664f);
-            float4x4 r1 = float4x4(219.376526f, -152.756561f, 353.001953f, 76.30719f, -17.34317f, -483.351f, 50.86487f, -268.916f, -204.470337f, 376.4276f, -156.748962f, -217.1582f, -342.9989f, 507.713318f, 313.928345f, -28.0180664f);
-            TestUtils.AreEqual(++a1, r1);
+            float4x4 a1 = float4x4(154.356567f, 200.706f, 92.95776f, 448.602173f, -295.587f, 18.4990845f, -215.711121f, 471.947266f, 257.0766f, 41.6259155f, 4.82543945f, 243.004761f, -472.619019f, -125.720215f, -477.459564f, 9.89147949f);
+            float4x4 r1 = float4x4(155.356567f, 201.706f, 93.95776f, 449.602173f, -294.587f, 19.4990845f, -214.711121f, 472.947266f, 258.0766f, 42.6259155f, 5.82543945f, 244.004761f, -471.619019f, -124.720215f, -476.459564f, 10.8914795f);
+            TestUtils.AreEqual(r1, ++a1);
 
-            float4x4 a2 = float4x4(-309.897827f, 73.2099f, -186.3169f, -126.7576f, 176.922119f, 418.15155f, -202.122131f, 227.427673f, 19.9057f, -282.922546f, 416.024841f, 220.69f, 178.45929f, 205.361755f, -300.572327f, 339.708679f);
-            float4x4 r2 = float4x4(-308.897827f, 74.2099f, -185.3169f, -125.7576f, 177.922119f, 419.15155f, -201.122131f, 228.427673f, 20.9057f, -281.922546f, 417.024841f, 221.69f, 179.45929f, 206.361755f, -299.572327f, 340.708679f);
-            TestUtils.AreEqual(++a2, r2);
+            float4x4 a2 = float4x4(-76.92285f, -387.177429f, 461.7093f, 13.699707f, -46.303772f, 89.36603f, -222.2291f, 340.8178f, 399.741272f, -311.372345f, 300.177979f, -272.7783f, 351.019165f, 436.575256f, -137.063324f, 312.579956f);
+            float4x4 r2 = float4x4(-75.92285f, -386.177429f, 462.7093f, 14.699707f, -45.303772f, 90.36603f, -221.2291f, 341.8178f, 400.741272f, -310.372345f, 301.177979f, -271.7783f, 352.019165f, 437.575256f, -136.063324f, 313.579956f);
+            TestUtils.AreEqual(r2, ++a2);
 
-            float4x4 a3 = float4x4(-395.627228f, -343.244843f, -478.004f, -500.721863f, 110.396545f, 133.940857f, -117.935211f, 443.647522f, -341.0883f, -231.995056f, 4.890564f, -148.8157f, -10.7679749f, 30.64862f, -285.128784f, -136.941437f);
-            float4x4 r3 = float4x4(-394.627228f, -342.244843f, -477.004f, -499.721863f, 111.396545f, 134.940857f, -116.935211f, 444.647522f, -340.0883f, -230.995056f, 5.890564f, -147.8157f, -9.767975f, 31.64862f, -284.128784f, -135.941437f);
-            TestUtils.AreEqual(++a3, r3);
+            float4x4 a3 = float4x4(-315.999023f, -442.44696f, -93.81058f, -76.4442444f, -8.3284f, 436.757263f, 345.7558f, -474.150879f, 32.02704f, -343.3061f, 114.443054f, -31.1988831f, 322.8318f, 15.335022f, 96.3687744f, 51.8783569f);
+            float4x4 r3 = float4x4(-314.999023f, -441.44696f, -92.81058f, -75.4442444f, -7.32839966f, 437.757263f, 346.7558f, -473.150879f, 33.02704f, -342.3061f, 115.443054f, -30.1988831f, 323.8318f, 16.335022f, 97.3687744f, 52.8783569f);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_postfix_inc()
         {
-            float4x4 a0 = float4x4(-281.7821f, 215.342224f, 120.820862f, -325.353668f, -179.722931f, 44.56366f, -375.17334f, 193.365723f, 329.5243f, -341.1537f, -130.474335f, 277.307373f, -15.2096863f, -362.9092f, 480.75708f, 20.4838257f);
-            float4x4 r0 = float4x4(-281.7821f, 215.342224f, 120.820862f, -325.353668f, -179.722931f, 44.56366f, -375.17334f, 193.365723f, 329.5243f, -341.1537f, -130.474335f, 277.307373f, -15.2096863f, -362.9092f, 480.75708f, 20.4838257f);
-            TestUtils.AreEqual(a0++, r0);
+            float4x4 a0 = float4x4(-396.669739f, 511.20752f, 249.111267f, -128.817322f, -259.4903f, 278.008179f, -81.39343f, 66.71973f, 167.852112f, 147.94397f, -326.1076f, 41.03357f, 128.5304f, 73.15558f, -60.1323853f, -446.229767f);
+            float4x4 r0 = float4x4(-396.669739f, 511.20752f, 249.111267f, -128.817322f, -259.4903f, 278.008179f, -81.39343f, 66.71973f, 167.852112f, 147.94397f, -326.1076f, 41.03357f, 128.5304f, 73.15558f, -60.1323853f, -446.229767f);
+            TestUtils.AreEqual(r0, a0++);
 
-            float4x4 a1 = float4x4(-132.573273f, 63.9730225f, 423.3778f, 413.74353f, -39.5121155f, 121.25531f, -293.2835f, -121.773895f, 337.215637f, 64.4483643f, -319.071655f, 342.496338f, 357.928772f, 394.4254f, 71.8752441f, 176.151672f);
-            float4x4 r1 = float4x4(-132.573273f, 63.9730225f, 423.3778f, 413.74353f, -39.5121155f, 121.25531f, -293.2835f, -121.773895f, 337.215637f, 64.4483643f, -319.071655f, 342.496338f, 357.928772f, 394.4254f, 71.8752441f, 176.151672f);
-            TestUtils.AreEqual(a1++, r1);
+            float4x4 a1 = float4x4(-296.937836f, 446.2293f, 49.2001953f, -326.643127f, -510.864227f, 471.647461f, -171.013092f, 310.727356f, -298.917175f, 489.985f, 184.603455f, 290.69104f, 117.192322f, 164.442932f, 412.3678f, -229.386566f);
+            float4x4 r1 = float4x4(-296.937836f, 446.2293f, 49.2001953f, -326.643127f, -510.864227f, 471.647461f, -171.013092f, 310.727356f, -298.917175f, 489.985f, 184.603455f, 290.69104f, 117.192322f, 164.442932f, 412.3678f, -229.386566f);
+            TestUtils.AreEqual(r1, a1++);
 
-            float4x4 a2 = float4x4(-239.430359f, 427.487f, 348.652466f, 285.957275f, -299.5846f, -279.679f, -158.7518f, 401.164368f, 457.9082f, 195.599243f, -95.2428f, 432.1338f, -217.213257f, -62.00345f, -194.959869f, 258.2185f);
-            float4x4 r2 = float4x4(-239.430359f, 427.487f, 348.652466f, 285.957275f, -299.5846f, -279.679f, -158.7518f, 401.164368f, 457.9082f, 195.599243f, -95.2428f, 432.1338f, -217.213257f, -62.00345f, -194.959869f, 258.2185f);
-            TestUtils.AreEqual(a2++, r2);
+            float4x4 a2 = float4x4(239.596924f, -80.70819f, -391.0335f, -478.227142f, 166.860474f, -291.1745f, -389.396667f, -52.13214f, 35.75531f, 356.052124f, 6.52948f, -285.349823f, 418.016479f, 47.1428833f, 31.4516f, 148.9469f);
+            float4x4 r2 = float4x4(239.596924f, -80.70819f, -391.0335f, -478.227142f, 166.860474f, -291.1745f, -389.396667f, -52.13214f, 35.75531f, 356.052124f, 6.52948f, -285.349823f, 418.016479f, 47.1428833f, 31.4516f, 148.9469f);
+            TestUtils.AreEqual(r2, a2++);
 
-            float4x4 a3 = float4x4(334.05658f, 102.513855f, -158.257355f, -183.525635f, -245.100616f, -417.9131f, -97.89563f, 308.420227f, -4.938568f, 492.1153f, 455.898315f, 362.8694f, 483.595459f, -223.579071f, 309.6504f, -410.8443f);
-            float4x4 r3 = float4x4(334.05658f, 102.513855f, -158.257355f, -183.525635f, -245.100616f, -417.9131f, -97.89563f, 308.420227f, -4.938568f, 492.1153f, 455.898315f, 362.8694f, 483.595459f, -223.579071f, 309.6504f, -410.8443f);
-            TestUtils.AreEqual(a3++, r3);
+            float4x4 a3 = float4x4(-219.800385f, 448.954224f, -32.54605f, 441.9734f, -128.249451f, -472.44f, -91.87564f, 72.45532f, -472.57312f, 300.0232f, 246.003113f, 288.0287f, -461.3402f, 495.501038f, -226.475372f, -241.579865f);
+            float4x4 r3 = float4x4(-219.800385f, 448.954224f, -32.54605f, 441.9734f, -128.249451f, -472.44f, -91.87564f, 72.45532f, -472.57312f, 300.0232f, 246.003113f, 288.0287f, -461.3402f, 495.501038f, -226.475372f, -241.579865f);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void float4x4_operator_prefix_dec()
         {
-            float4x4 a0 = float4x4(340.001831f, 496.070862f, 288.384216f, 183.694641f, -353.6148f, 398.281921f, -240.591583f, 15.32019f, 276.588684f, 311.914368f, -305.8037f, -268.388153f, 349.170227f, 468.03656f, -93.05707f, 429.558044f);
-            float4x4 r0 = float4x4(339.001831f, 495.070862f, 287.384216f, 182.694641f, -354.6148f, 397.281921f, -241.591583f, 14.32019f, 275.588684f, 310.914368f, -306.8037f, -269.388153f, 348.170227f, 467.03656f, -94.05707f, 428.558044f);
-            TestUtils.AreEqual(--a0, r0);
+            float4x4 a0 = float4x4(123.128723f, 256.84375f, 156.330811f, 461.737427f, 325.867981f, 392.015625f, 187.874146f, -236.225189f, 125.109619f, 469.844727f, 45.5366821f, 376.046875f, -363.0755f, -22.0289612f, 248.7901f, 168.095032f);
+            float4x4 r0 = float4x4(122.128723f, 255.84375f, 155.330811f, 460.737427f, 324.867981f, 391.015625f, 186.874146f, -237.225189f, 124.109619f, 468.844727f, 44.5366821f, 375.046875f, -364.0755f, -23.0289612f, 247.7901f, 167.095032f);
+            TestUtils.AreEqual(r0, --a0);
 
-            float4x4 a1 = float4x4(-164.938538f, -142.655212f, 96.54895f, -142.570221f, -2.399109f, 225.875671f, -388.630585f, -455.2949f, -248.5845f, 384.1317f, 80.48389f, 240.107849f, -385.305054f, 73.84015f, -497.545959f, -71.49823f);
-            float4x4 r1 = float4x4(-165.938538f, -143.655212f, 95.54895f, -143.570221f, -3.399109f, 224.875671f, -389.630585f, -456.2949f, -249.5845f, 383.1317f, 79.48389f, 239.107849f, -386.305054f, 72.84015f, -498.545959f, -72.49823f);
-            TestUtils.AreEqual(--a1, r1);
+            float4x4 a1 = float4x4(168.265625f, 166.945557f, 183.957947f, 485.6947f, -460.739319f, 89.5698853f, -267.4298f, 201.756226f, -141.216888f, -217.4841f, 197.361755f, -213.544128f, 180.7406f, -128.3125f, 478.045532f, -454.566132f);
+            float4x4 r1 = float4x4(167.265625f, 165.945557f, 182.957947f, 484.6947f, -461.739319f, 88.5698853f, -268.4298f, 200.756226f, -142.216888f, -218.4841f, 196.361755f, -214.544128f, 179.7406f, -129.3125f, 477.045532f, -455.566132f);
+            TestUtils.AreEqual(r1, --a1);
 
-            float4x4 a2 = float4x4(-383.514832f, 270.4037f, -287.671753f, -447.269775f, -168.875916f, 42.3015137f, 279.244629f, -6.788391f, -61.1860352f, -68.86096f, 244.576233f, -118.339966f, -360.305359f, -241.1615f, 492.7033f, 176.498779f);
-            float4x4 r2 = float4x4(-384.514832f, 269.4037f, -288.671753f, -448.269775f, -169.875916f, 41.3015137f, 278.244629f, -7.788391f, -62.1860352f, -69.86096f, 243.576233f, -119.339966f, -361.305359f, -242.1615f, 491.7033f, 175.498779f);
-            TestUtils.AreEqual(--a2, r2);
+            float4x4 a2 = float4x4(-386.898346f, -315.110443f, -108.28656f, -286.317017f, -375.601563f, -87.60596f, 78.27545f, 161.531982f, -346.847961f, -57.54077f, 455.372864f, 444.798157f, 129.820129f, 134.710632f, 61.322998f, -274.543335f);
+            float4x4 r2 = float4x4(-387.898346f, -316.110443f, -109.28656f, -287.317017f, -376.601563f, -88.60596f, 77.27545f, 160.531982f, -347.847961f, -58.54077f, 454.372864f, 443.798157f, 128.820129f, 133.710632f, 60.322998f, -275.543335f);
+            TestUtils.AreEqual(r2, --a2);
 
-            float4x4 a3 = float4x4(200.867f, -178.579773f, -291.259827f, -29.4279175f, -283.521179f, -241.80484f, 165.014771f, 126.9895f, 406.969666f, -497.849762f, 190.9245f, 287.212341f, 149.893738f, -273.9258f, -320.257751f, 315.1101f);
-            float4x4 r3 = float4x4(199.867f, -179.579773f, -292.259827f, -30.4279175f, -284.521179f, -242.80484f, 164.014771f, 125.9895f, 405.969666f, -498.849762f, 189.9245f, 286.212341f, 148.893738f, -274.9258f, -321.257751f, 314.1101f);
-            TestUtils.AreEqual(--a3, r3);
+            float4x4 a3 = float4x4(-43.39557f, 211.510681f, -161.216339f, 149.434021f, 90.4324951f, -344.726135f, -88.23938f, -252.0188f, -44.91513f, 97.4996948f, 502.5124f, 489.3189f, 456.369019f, 86.15723f, 79.49109f, 318.612976f);
+            float4x4 r3 = float4x4(-44.39557f, 210.510681f, -162.216339f, 148.434021f, 89.4324951f, -345.726135f, -89.23938f, -253.0188f, -45.91513f, 96.4996948f, 501.5124f, 488.3189f, 455.369019f, 85.15723f, 78.49109f, 317.612976f);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void float4x4_operator_postfix_dec()
         {
-            float4x4 a0 = float4x4(-148.111755f, 252.8498f, -106.1579f, 132.648621f, -370.723755f, 343.311157f, -321.157837f, 450.6018f, 330.9572f, 425.6258f, 269.754517f, -164.309845f, 234.149658f, -320.725952f, -337.031372f, -310.267639f);
-            float4x4 r0 = float4x4(-148.111755f, 252.8498f, -106.1579f, 132.648621f, -370.723755f, 343.311157f, -321.157837f, 450.6018f, 330.9572f, 425.6258f, 269.754517f, -164.309845f, 234.149658f, -320.725952f, -337.031372f, -310.267639f);
-            TestUtils.AreEqual(a0--, r0);
+            float4x4 a0 = float4x4(379.6883f, 302.692871f, -176.07135f, -291.2527f, 470.567566f, -402.925964f, -63.65515f, 355.2611f, -27.8892212f, -100.761841f, 156.14032f, 479.9452f, -200.304291f, -445.026947f, 407.420349f, 327.670349f);
+            float4x4 r0 = float4x4(379.6883f, 302.692871f, -176.07135f, -291.2527f, 470.567566f, -402.925964f, -63.65515f, 355.2611f, -27.8892212f, -100.761841f, 156.14032f, 479.9452f, -200.304291f, -445.026947f, 407.420349f, 327.670349f);
+            TestUtils.AreEqual(r0, a0--);
 
-            float4x4 a1 = float4x4(-298.127167f, -453.877f, -134.770233f, 416.1966f, 511.618652f, -239.314911f, -492.061157f, 475.658264f, 56.15918f, 24.9328f, -92.12152f, 247.940613f, -467.1975f, -173.623566f, 294.711548f, 47.24408f);
-            float4x4 r1 = float4x4(-298.127167f, -453.877f, -134.770233f, 416.1966f, 511.618652f, -239.314911f, -492.061157f, 475.658264f, 56.15918f, 24.9328f, -92.12152f, 247.940613f, -467.1975f, -173.623566f, 294.711548f, 47.24408f);
-            TestUtils.AreEqual(a1--, r1);
+            float4x4 a1 = float4x4(48.06018f, -38.43506f, 283.9416f, -94.80209f, 152.510681f, -287.2625f, -215.948029f, -407.046356f, 159.233582f, -359.456482f, 168.41394f, -278.933777f, 289.912842f, 402.039551f, 470.716553f, -208.560608f);
+            float4x4 r1 = float4x4(48.06018f, -38.43506f, 283.9416f, -94.80209f, 152.510681f, -287.2625f, -215.948029f, -407.046356f, 159.233582f, -359.456482f, 168.41394f, -278.933777f, 289.912842f, 402.039551f, 470.716553f, -208.560608f);
+            TestUtils.AreEqual(r1, a1--);
 
-            float4x4 a2 = float4x4(-130.603f, 63.55182f, 41.2713623f, 228.408875f, 427.093628f, -13.930481f, 248.1687f, -184.782654f, -483.95575f, -260.6369f, 429.128052f, 132.314026f, -351.987427f, -4.266083f, 273.66217f, 156.307312f);
-            float4x4 r2 = float4x4(-130.603f, 63.55182f, 41.2713623f, 228.408875f, 427.093628f, -13.930481f, 248.1687f, -184.782654f, -483.95575f, -260.6369f, 429.128052f, 132.314026f, -351.987427f, -4.266083f, 273.66217f, 156.307312f);
-            TestUtils.AreEqual(a2--, r2);
+            float4x4 a2 = float4x4(145.896729f, -274.570831f, -250.04126f, -70.85629f, -485.627838f, -341.094543f, -503.192078f, 397.648621f, 446.621582f, -292.81012f, 126.6225f, -250.442413f, 470.816467f, 26.9436035f, -186.923523f, 45.7460938f);
+            float4x4 r2 = float4x4(145.896729f, -274.570831f, -250.04126f, -70.85629f, -485.627838f, -341.094543f, -503.192078f, 397.648621f, 446.621582f, -292.81012f, 126.6225f, -250.442413f, 470.816467f, 26.9436035f, -186.923523f, 45.7460938f);
+            TestUtils.AreEqual(r2, a2--);
 
-            float4x4 a3 = float4x4(-112.744019f, 426.2166f, 25.0543213f, -52.30835f, -276.1173f, -19.8352966f, -126.096771f, 168.9903f, 85.1170654f, -193.621613f, 282.963745f, -309.3388f, 286.154724f, 87.24939f, 487.042969f, 300.446045f);
-            float4x4 r3 = float4x4(-112.744019f, 426.2166f, 25.0543213f, -52.30835f, -276.1173f, -19.8352966f, -126.096771f, 168.9903f, 85.1170654f, -193.621613f, 282.963745f, -309.3388f, 286.154724f, 87.24939f, 487.042969f, 300.446045f);
-            TestUtils.AreEqual(a3--, r3);
+            float4x4 a3 = float4x4(-206.455963f, -350.94812f, -92.1842041f, -37.5095825f, 114.516663f, 77.95538f, -472.1233f, -396.2063f, -200.665985f, 468.530518f, 279.9309f, 122.194885f, 194.197937f, 9.198608f, 197.423828f, 176.5058f);
+            float4x4 r3 = float4x4(-206.455963f, -350.94812f, -92.1842041f, -37.5095825f, 114.516663f, 77.95538f, -472.1233f, -396.2063f, -200.665985f, 468.530518f, 279.9309f, 122.194885f, 194.197937f, 9.198608f, 197.423828f, 176.5058f);
+            TestUtils.AreEqual(r3, a3--);
         }
 
 

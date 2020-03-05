@@ -84,8 +84,11 @@ namespace Unity.Mathematics
         /// <summary>
         /// Double precision constant for Not a Number.
         ///
-        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
-        /// Use isnan() if you must test if a number is NaN.
+        /// NAN_DBL is considered unordered, which means all comparisons involving it are false except for not equal (operator !=).
+        /// As a consequence, NAN_DBL == NAN_DBL is false but NAN_DBL != NAN_DBL is true.
+        ///
+        /// Additionally, there are multiple bit representations for Not a Number, so if you must test if your value
+        /// is NAN_DBL, use isnan().
         /// </summary>
         public const double NAN_DBL = Double.NaN;
 
@@ -132,8 +135,11 @@ namespace Unity.Mathematics
         /// <summary>
         /// Single precision constant for Not a Number.
         ///
-        /// Note: There are multiple bit representations for NaN and NaN compares false with all other numbers, even with itself.
-        /// Use isnan() if you must test if a number is NaN.
+        /// NAN is considered unordered, which means all comparisons involving it are false except for not equal (operator !=).
+        /// As a consequence, NAN == NAN is false but NAN != NAN is true.
+        ///
+        /// Additionally, there are multiple bit representations for Not a Number, so if you must test if your value
+        /// is NAN, use isnan().
         /// </summary>
         public const float NAN = Single.NaN;
 
@@ -425,6 +431,101 @@ namespace Unity.Mathematics
                          (asulong(x.w) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000);
         }
 
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(int x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(int2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(int3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="int4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(int4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
+
+        /// <summary>
+        /// Checks if the input is a power of two.
+        /// </summary>
+        /// <remarks>If x is less than or equal to zero, then this function returns false.</remarks>
+        /// <param name="x">Unsigned integer input.</param>
+        /// <returns>bool where true indicates that input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool ispow2(uint x)
+        {
+            return x > 0 && ((x & (x - 1)) == 0);
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint2"/> input</param>
+        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool2 ispow2(uint2 x)
+        {
+            return new bool2(ispow2(x.x), ispow2(x.y));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint3"/> input</param>
+        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool3 ispow2(uint3 x)
+        {
+            return new bool3(ispow2(x.x), ispow2(x.y), ispow2(x.z));
+        }
+
+        /// <summary>
+        /// Checks if each component of the input is a power of two.
+        /// </summary>
+        /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
+        /// <param name="x"><see cref="uint4"/> input</param>
+        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static bool4 ispow2(uint4 x)
+        {
+            return new bool4(ispow2(x.x), ispow2(x.y), ispow2(x.z), ispow2(x.w));
+        }
 
         /// <summary>Returns the minimum of two int values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1619,7 +1720,6 @@ namespace Unity.Mathematics
         /// <summary>Returns the componentwise base-2 logarithm of a double4 vector.</summary>
         public static double4 log2(double4 x) { return new double4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
-
         /// <summary>Returns the base-10 logarithm of a float value.</summary>
         public static float log10(float x) { return (float)System.Math.Log10((float)x); }
 
@@ -2497,24 +2597,34 @@ namespace Unity.Mathematics
         public static void sincos(double4 x, out double4 s, out double4 c) { s = sin(x); c = cos(x); }
 
 
-        /// <summary>Returns number of 1-bits in the binary representations of an int value.</summary>
+        /// <summary>Returns number of 1-bits in the binary representation of an int value. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">int value in which to count bits set to 1.</param>
+        /// <returns>Number of bits set to 1 within x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int countbits(int x) { return countbits((uint)x); }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of an int2 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of an int2 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">int2 value in which to count bits for each component.</param>
+        /// <returns>int2 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 countbits(int2 x) { return countbits((uint2)x); }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of an int3 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of an int3 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>int3 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 countbits(int3 x) { return countbits((uint3)x); }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of an int4 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of an int4 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>int4 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 countbits(int4 x) { return countbits((uint4)x); }
 
 
-        /// <summary>Returns number of 1-bits in the binary representations of a uint value.</summary>
+        /// <summary>Returns number of 1-bits in the binary representation of a uint value. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>Number of bits set to 1 within x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int countbits(uint x)
         {
@@ -2523,7 +2633,9 @@ namespace Unity.Mathematics
             return (int)((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of a uint2 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint2 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>int2 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 countbits(uint2 x)
         {
@@ -2532,7 +2644,9 @@ namespace Unity.Mathematics
             return int2((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of a uint3 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint3 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>int3 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 countbits(uint3 x)
         {
@@ -2541,7 +2655,9 @@ namespace Unity.Mathematics
             return int3((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
-        /// <summary>Returns componentwise number of 1-bits in the binary representations of a uint4 vector.</summary>
+        /// <summary>Returns component-wise number of 1-bits in the binary representation of a uint4 vector. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>int4 containing number of bits set to 1 within each component of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 countbits(uint4 x)
         {
@@ -2550,7 +2666,9 @@ namespace Unity.Mathematics
             return int4((((x + (x >> 4)) & 0x0F0F0F0F) * 0x01010101) >> 24);
         }
 
-        /// <summary>Returns number of 1-bits in the binary representations of a ulong value.</summary>
+        /// <summary>Returns number of 1-bits in the binary representation of a ulong value. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>Number of bits set to 1 within x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int countbits(ulong x)
         {
@@ -2559,7 +2677,9 @@ namespace Unity.Mathematics
             return (int)((((x + (x >> 4)) & 0x0F0F0F0F0F0F0F0F) * 0x0101010101010101) >> 56);
         }
 
-        /// <summary>Returns number of 1-bits in the binary representations of a long value.</summary>
+        /// <summary>Returns number of 1-bits in the binary representation of a long value. Also known as the Hamming weight, popcnt on x86, and vcnt on ARM.</summary>
+        /// <param name="x">Number in which to count bits.</param>
+        /// <returns>Number of bits set to 1 within x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int countbits(long x) { return countbits((ulong)x); }
 
@@ -3005,6 +3125,214 @@ namespace Unity.Mathematics
             return x + 1;
         }
 
+        /// <summary>
+        /// Computes the ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// x must be greater than 0, otherwise the result is undefined.
+        /// </remarks>
+        /// <param name="x">Integer to be used as input.</param>
+        /// <returns>Ceiling of the base-2 logarithm of x, as an integer.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int ceillog2(int x)
+        {
+            return 32 - lzcnt((uint)x - 1);
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="int2"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 ceillog2(int2 x)
+        {
+            return new int2(ceillog2(x.x), ceillog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="int3"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 ceillog2(int3 x)
+        {
+            return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="int4"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 ceillog2(int4 x)
+        {
+            return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
+        }
+
+        /// <summary>
+        /// Computes the ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// x must be greater than 0, otherwise the result is undefined.
+        /// </remarks>
+        /// <param name="x">Unsigned integer to be used as input.</param>
+        /// <returns>Ceiling of the base-2 logarithm of x, as an integer.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int ceillog2(uint x)
+        {
+            return 32 - lzcnt(x - 1);
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="uint2"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 ceillog2(uint2 x)
+        {
+            return new int2(ceillog2(x.x), ceillog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="uint3"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 ceillog2(uint3 x)
+        {
+            return new int3(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise ceiling of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>
+        /// Components of x must be greater than 0, otherwise the result for that component is undefined.
+        /// </remarks>
+        /// <param name="x"><see cref="uint4"/> to be used as input.</param>
+        /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 ceillog2(uint4 x)
+        {
+            return new int4(ceillog2(x.x), ceillog2(x.y), ceillog2(x.z), ceillog2(x.w));
+        }
+
+        /// <summary>
+        /// Computes the floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>x must be greater than zero, otherwise the result is undefined.</remarks>
+        /// <param name="x">Integer to be used as input.</param>
+        /// <returns>Floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int floorlog2(int x)
+        {
+            return 31 - lzcnt((uint)x);
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int2"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 floorlog2(int2 x)
+        {
+            return new int2(floorlog2(x.x), floorlog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int3"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 floorlog2(int3 x)
+        {
+            return new int3(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="int4"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 floorlog2(int4 x)
+        {
+            return new int4(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z), floorlog2(x.w));
+        }
+
+        /// <summary>
+        /// Computes the floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>x must be greater than zero, otherwise the result is undefined.</remarks>
+        /// <param name="x">Unsigned integer to be used as input.</param>
+        /// <returns>Floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int floorlog2(uint x)
+        {
+            return 31 - lzcnt(x);
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint2"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 floorlog2(uint2 x)
+        {
+            return new int2(floorlog2(x.x), floorlog2(x.y));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint3"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 floorlog2(uint3 x)
+        {
+            return new int3(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z));
+        }
+
+        /// <summary>
+        /// Computes the componentwise floor of the base-2 logarithm of x.
+        /// </summary>
+        /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
+        /// <param name="x"><see cref="uint4"/> to be used as input.</param>
+        /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 floorlog2(uint4 x)
+        {
+            return new int4(floorlog2(x.x), floorlog2(x.y), floorlog2(x.z), floorlog2(x.w));
+        }
+
         /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float radians(float x) { return x * 0.0174532925f; }
@@ -3418,8 +3746,53 @@ namespace Unity.Mathematics
             }
         }
 
+        /// <summary>
+        /// Unity's up axis (0, 1, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-up.html](https://docs.unity3d.com/ScriptReference/Vector3-up.html)</remarks>
+        /// <returns>The up axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 up() { return new float3(0.0f, 1.0f, 0.0f); }  // for compatibility
+
+        /// <summary>
+        /// Unity's down axis (0, -1, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-down.html](https://docs.unity3d.com/ScriptReference/Vector3-down.html)</remarks>
+        /// <returns>The down axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 down() { return new float3(0.0f, -1.0f, 0.0f); }
+
+        /// <summary>
+        /// Unity's forward axis (0, 0, 1).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-forward.html](https://docs.unity3d.com/ScriptReference/Vector3-forward.html)</remarks>
+        /// <returns>The forward axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 forward() { return new float3(0.0f, 0.0f, 1.0f); }
+
+        /// <summary>
+        /// Unity's back axis (0, 0, -1).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-back.html](https://docs.unity3d.com/ScriptReference/Vector3-back.html)</remarks>
+        /// <returns>The back axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 back() { return new float3(0.0f, 0.0f, -1.0f); }
+
+        /// <summary>
+        /// Unity's left axis (-1, 0, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-left.html](https://docs.unity3d.com/ScriptReference/Vector3-left.html)</remarks>
+        /// <returns>The left axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 left() { return new float3(-1.0f, 0.0f, 0.0f); }
+
+        /// <summary>
+        /// Unity's right axis (1, 0, 0).
+        /// </summary>
+        /// <remarks>Matches [https://docs.unity3d.com/ScriptReference/Vector3-right.html](https://docs.unity3d.com/ScriptReference/Vector3-right.html)</remarks>
+        /// <returns>The right axis.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 right() { return new float3(1.0f, 0.0f, 0.0f); }
 
 
         // Internal

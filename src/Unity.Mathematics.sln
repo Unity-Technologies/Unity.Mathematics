@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics", "Unity.Mathematics\Unity.Mathematics.csproj", "{19810344-7387-4155-935F-BDD5CC61F0BF}"
 EndProject
@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.CodeGen",
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "General", "General", "{B11ECCE1-1A78-40B2-956F-CBE615FF5DF9}"
 	ProjectSection(SolutionItems) = preProject
+		CHANGELOG.md = CHANGELOG.md
 		package.json = package.json
 		..\readme.md = ..\readme.md
-		CHANGELOG.md = CHANGELOG.md
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unity.Mathematics.Tests", "Tests\Unity.Mathematics.Tests.csproj", "{2E7C74D3-42F1-482F-8BB7-E199D9E3B412}"
@@ -42,14 +42,14 @@ Global
 		{19810344-7387-4155-935F-BDD5CC61F0BF}.Release|x86.Build.0 = Release|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x64.ActiveCfg = Debug|x64
-		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x64.Build.0 = Debug|x64
+		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x64.Build.0 = Debug|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x86.ActiveCfg = Debug|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Debug|x86.Build.0 = Debug|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x64.ActiveCfg = Release|x64
-		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x64.Build.0 = Release|x64
+		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x64.ActiveCfg = Release|Any CPU
+		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x64.Build.0 = Release|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x86.ActiveCfg = Release|Any CPU
 		{293EBCD6-CACD-4DA8-A518-FBC629268C0F}.Release|x86.Build.0 = Release|Any CPU
 		{2E7C74D3-42F1-482F-8BB7-E199D9E3B412}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -80,5 +80,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {644285FA-DECE-4BCC-8345-3DA015012412}
+	EndGlobalSection
 EndGlobal
-

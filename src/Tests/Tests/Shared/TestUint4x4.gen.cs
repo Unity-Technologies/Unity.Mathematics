@@ -18,1239 +18,1239 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint4x4_zero()
         {
-            TestUtils.AreEqual(uint4x4.zero.c0.x, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c0.y, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c0.z, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c0.w, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c1.x, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c1.y, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c1.z, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c1.w, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c2.x, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c2.y, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c2.z, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c2.w, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c3.x, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c3.y, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c3.z, 0u);
-            TestUtils.AreEqual(uint4x4.zero.c3.w, 0u);
+            TestUtils.AreEqual(0u, uint4x4.zero.c0.x);
+            TestUtils.AreEqual(0u, uint4x4.zero.c0.y);
+            TestUtils.AreEqual(0u, uint4x4.zero.c0.z);
+            TestUtils.AreEqual(0u, uint4x4.zero.c0.w);
+            TestUtils.AreEqual(0u, uint4x4.zero.c1.x);
+            TestUtils.AreEqual(0u, uint4x4.zero.c1.y);
+            TestUtils.AreEqual(0u, uint4x4.zero.c1.z);
+            TestUtils.AreEqual(0u, uint4x4.zero.c1.w);
+            TestUtils.AreEqual(0u, uint4x4.zero.c2.x);
+            TestUtils.AreEqual(0u, uint4x4.zero.c2.y);
+            TestUtils.AreEqual(0u, uint4x4.zero.c2.z);
+            TestUtils.AreEqual(0u, uint4x4.zero.c2.w);
+            TestUtils.AreEqual(0u, uint4x4.zero.c3.x);
+            TestUtils.AreEqual(0u, uint4x4.zero.c3.y);
+            TestUtils.AreEqual(0u, uint4x4.zero.c3.z);
+            TestUtils.AreEqual(0u, uint4x4.zero.c3.w);
         }
 
         [TestCompiler]
         public static void uint4x4_identity()
         {
-            TestUtils.AreEqual(uint4x4.identity.c0.x, 1u);
-            TestUtils.AreEqual(uint4x4.identity.c0.y, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c0.z, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c0.w, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c1.x, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c1.y, 1u);
-            TestUtils.AreEqual(uint4x4.identity.c1.z, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c1.w, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c2.x, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c2.y, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c2.z, 1u);
-            TestUtils.AreEqual(uint4x4.identity.c2.w, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c3.x, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c3.y, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c3.z, 0u);
-            TestUtils.AreEqual(uint4x4.identity.c3.w, 1u);
+            TestUtils.AreEqual(1u, uint4x4.identity.c0.x);
+            TestUtils.AreEqual(0u, uint4x4.identity.c0.y);
+            TestUtils.AreEqual(0u, uint4x4.identity.c0.z);
+            TestUtils.AreEqual(0u, uint4x4.identity.c0.w);
+            TestUtils.AreEqual(0u, uint4x4.identity.c1.x);
+            TestUtils.AreEqual(1u, uint4x4.identity.c1.y);
+            TestUtils.AreEqual(0u, uint4x4.identity.c1.z);
+            TestUtils.AreEqual(0u, uint4x4.identity.c1.w);
+            TestUtils.AreEqual(0u, uint4x4.identity.c2.x);
+            TestUtils.AreEqual(0u, uint4x4.identity.c2.y);
+            TestUtils.AreEqual(1u, uint4x4.identity.c2.z);
+            TestUtils.AreEqual(0u, uint4x4.identity.c2.w);
+            TestUtils.AreEqual(0u, uint4x4.identity.c3.x);
+            TestUtils.AreEqual(0u, uint4x4.identity.c3.y);
+            TestUtils.AreEqual(0u, uint4x4.identity.c3.z);
+            TestUtils.AreEqual(1u, uint4x4.identity.c3.w);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_equal_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1769459654, 197796492, 154243692, 952126595, 689725190, 1225413740, 459892608, 693366823, 1165697239, 2083074615, 1615698985, 1813156614, 1222331884, 987584254, 22766760, 2058182171);
-            uint4x4 b0 = uint4x4(179132783, 1978336870, 1626004111, 424899921, 1894146793, 91777081, 256037971, 669679301, 1054971930, 362624852, 1293267305, 143644847, 1825864659, 201852545, 776009920, 1868835168);
+            uint4x4 a0 = uint4x4(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316, 1416064367, 727143393, 2061243891, 184669837, 1303661760, 2044073738, 370395888, 1822916805);
+            uint4x4 b0 = uint4x4(1477587886, 579629692, 540974792, 208405066, 2063397938, 1060167409, 362592601, 2097545362, 277670088, 426944490, 901076223, 857900673, 1548779757, 325265488, 312658571, 176373760);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            uint4x4 a1 = uint4x4(1869606666, 707877323, 116376311, 1434904089, 1615728304, 2142912288, 656040157, 1481202493, 2015158802, 194067123, 511950842, 1924374179, 513459816, 756004986, 638419857, 402133161);
-            uint4x4 b1 = uint4x4(1191399971, 1352263540, 583477616, 738940448, 1849279169, 1159826254, 1737877015, 532610029, 572317484, 694128708, 1580884032, 476192349, 54151645, 475862680, 750274050, 2061198917);
+            uint4x4 a1 = uint4x4(1076983135, 345215866, 833676277, 1987782708, 1481088614, 1364754268, 93639636, 1850596922, 2073471507, 1745989448, 28118669, 1267554232, 1292918049, 1423451579, 644384701, 1985492825);
+            uint4x4 b1 = uint4x4(2052378097, 858156597, 982817797, 1252095508, 882634538, 1959142806, 72495800, 1077678183, 1729269763, 1607675346, 1813461519, 1204794859, 1324801873, 1975336, 439410532, 294085211);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            uint4x4 a2 = uint4x4(1983448269, 369654062, 1695644295, 553302990, 1767551488, 894380195, 1297838664, 1635088337, 344662166, 334177390, 581942797, 1356884326, 1414509439, 838803724, 1974956277, 100520591);
-            uint4x4 b2 = uint4x4(1504062219, 1415976284, 1488586930, 582219623, 1344134167, 1913903463, 653330360, 1631938516, 454974225, 1597932923, 1364053463, 288722634, 231684974, 62224666, 959041409, 865454254);
+            uint4x4 a2 = uint4x4(240481133, 2130667921, 17376735, 1263869085, 437371027, 1093339523, 1683805602, 764261037, 1845666482, 399277628, 714152770, 148255091, 784823865, 1712722195, 1706849865, 607710807);
+            uint4x4 b2 = uint4x4(1031782338, 1118745564, 180311719, 433246570, 1622531532, 1178609353, 373010678, 1231165960, 966395555, 788609772, 215241459, 1411005263, 1287904654, 1656358051, 1985807372, 1041678082);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            uint4x4 a3 = uint4x4(1447146008, 1323861632, 1368222953, 984449381, 19014494, 1074060867, 686503837, 1325837332, 566546955, 131200514, 416096660, 1479256120, 147177893, 1466845, 649783206, 754746993);
-            uint4x4 b3 = uint4x4(81713371, 1299461585, 65226209, 526571872, 1759331147, 1315300322, 10470716, 2007613103, 1271550117, 183445632, 951683885, 619394806, 80931428, 1463959321, 491078324, 808510079);
+            uint4x4 a3 = uint4x4(1044625360, 1718661673, 89311526, 1060301448, 465400678, 1170304319, 720121996, 1668472904, 560540836, 303792501, 40132904, 1727416088, 883527247, 333921699, 615073171, 873880352);
+            uint4x4 b3 = uint4x4(1070669057, 1209340945, 731851358, 1893159788, 1312742878, 553070784, 88944879, 919907371, 192285619, 1825472793, 1196883053, 25239674, 719662658, 876955728, 1754994681, 599047302);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_equal_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1759724257, 1997468592, 143140702, 1756461805, 1986782555, 1196177899, 238163080, 1864507830, 2008027469, 1036427796, 880022489, 339253087, 2017956782, 1105164108, 15881823, 1938793008);
-            uint b0 = (1791891760);
+            uint4x4 a0 = uint4x4(437822262, 2020661134, 541786900, 853113810, 23716499, 179951405, 1409026299, 948838849, 953202998, 691955848, 1926262965, 1851546137, 712957637, 2028784869, 1049962241, 1836975611);
+            uint b0 = (1332833578);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            uint4x4 a1 = uint4x4(2027323810, 1822281633, 1941465438, 1563160061, 64651909, 1819421607, 579147650, 1749649185, 1313616237, 1812362468, 369865256, 1647757845, 1281308178, 709502114, 1619686825, 749106982);
-            uint b1 = (1680430470);
+            uint4x4 a1 = uint4x4(1016802970, 464814777, 1451642042, 289137869, 152339338, 808355440, 660053867, 597354173, 67320270, 151461188, 35153827, 602895443, 186996278, 129611815, 1031574999, 1697392883);
+            uint b1 = (390120467);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            uint4x4 a2 = uint4x4(987892819, 561658357, 1389794299, 1171603951, 2144429544, 94992733, 416470599, 597391188, 172050339, 285519571, 205926800, 1243847599, 2123634888, 1341790687, 1016758780, 1108138590);
-            uint b2 = (2086226443);
+            uint4x4 a2 = uint4x4(1463742000, 611116281, 594150729, 375387566, 1984352551, 1925707182, 570698441, 1872629381, 1263218472, 315982238, 122473806, 1404530826, 43943273, 1695786992, 2085125114, 432271298);
+            uint b2 = (857785521);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            uint4x4 a3 = uint4x4(341979245, 291981219, 1086626973, 196564196, 1727239851, 178046985, 1711476699, 6812620, 673166318, 1531299078, 2015781471, 216749985, 726719291, 326925682, 1407819311, 1737629752);
-            uint b3 = (1625239433);
+            uint4x4 a3 = uint4x4(465353570, 841947061, 2115740248, 148684393, 1180494240, 1212305694, 2029216680, 255759637, 2103879876, 28490217, 1373872472, 345943406, 766206720, 562344033, 894687966, 154153254);
+            uint b3 = (1315431335);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_equal_scalar_wide()
         {
-            uint a0 = (1977155329);
-            uint4x4 b0 = uint4x4(162052257, 1291280073, 522114153, 602804987, 1501793202, 1485975269, 182962739, 2054056581, 978460589, 1363550636, 1453456227, 131668009, 370871984, 911283419, 1300029560, 379685821);
+            uint a0 = (542329200);
+            uint4x4 b0 = uint4x4(1115584594, 684107773, 1928988941, 890709324, 641152437, 1410341302, 497505660, 1068223109, 2014009435, 213835595, 1592428361, 1819361470, 448650623, 1942175642, 64377057, 1485938610);
             bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            uint a1 = (831942423);
-            uint4x4 b1 = uint4x4(1586543452, 64013033, 1356026486, 636964527, 1956467079, 100162328, 1209878427, 1205509449, 172376936, 1062136542, 1118285955, 1621179564, 1010478823, 275418060, 1567603635, 398380338);
+            uint a1 = (1146305380);
+            uint4x4 b1 = uint4x4(1312317120, 263290348, 812663708, 1585209188, 40646617, 1378718922, 1957797737, 873652576, 1780082094, 1513270921, 2095980581, 1413074719, 1387984261, 1547119354, 924385171, 1253636050);
             bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            uint a2 = (2017477544);
-            uint4x4 b2 = uint4x4(1861313024, 298350101, 1657395881, 1975374413, 1128291634, 2012652526, 1095182019, 1406757642, 1243626907, 1189747607, 2011134078, 710655570, 1902207020, 1328250539, 1185070448, 607395459);
+            uint a2 = (1477542688);
+            uint4x4 b2 = uint4x4(969120167, 591812191, 856880926, 1114040166, 2107388425, 1368188588, 512677295, 1337925727, 2076181515, 1317314747, 299981273, 601822512, 1079453890, 125277108, 1257151509, 1915342590);
             bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            uint a3 = (2144164693);
-            uint4x4 b3 = uint4x4(1489283591, 1137027610, 786737497, 1340190802, 353068825, 1191117745, 1459719373, 1544779185, 1329416266, 423838727, 1212160431, 432877017, 2115465413, 1088132576, 2033336239, 1880771318);
+            uint a3 = (1034639325);
+            uint4x4 b3 = uint4x4(456730344, 1005099225, 1071115483, 1104603659, 1074937977, 1452872498, 2118674851, 17056748, 1008553990, 2044554028, 549008726, 1802632037, 626025174, 814199888, 668043190, 565725420);
             bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_not_equal_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1114120377, 1328200685, 2055858397, 628379191, 212580972, 2138118298, 1183215634, 403403153, 132317086, 1609292182, 925970858, 1034076747, 797706087, 1677878785, 1683421549, 1474891802);
-            uint4x4 b0 = uint4x4(551411861, 1033798228, 1752427499, 1692279987, 40976337, 724601100, 1957052399, 1257584257, 1480327454, 488028594, 1406169001, 1968460485, 225343558, 2081927683, 686858576, 1819164209);
+            uint4x4 a0 = uint4x4(1977284100, 1293292704, 1547283851, 422428953, 195833190, 1711544892, 5606053, 737069074, 647386678, 13079405, 1413841590, 1076166545, 1211445174, 1289303469, 1436402489, 1129570126);
+            uint4x4 b0 = uint4x4(1514195556, 957972049, 507667364, 581861672, 1128094576, 940096636, 57559040, 181752616, 962017320, 1762015406, 1107218953, 2042026522, 836002288, 570272309, 2112081980, 1500634658);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            uint4x4 a1 = uint4x4(611230788, 1922657997, 515873282, 1616835734, 286372105, 1334077363, 244859168, 1396897395, 506680950, 1631211998, 925627461, 169643999, 1664818761, 236092141, 74548714, 8858438);
-            uint4x4 b1 = uint4x4(1943379523, 791131358, 111738244, 982846016, 137575866, 967731892, 774321591, 104831621, 2145480211, 30619865, 511835232, 1855435023, 1507223847, 1830514839, 693935155, 1673206043);
+            uint4x4 a1 = uint4x4(1566836685, 1343313905, 329259205, 1774944480, 33906739, 2055853627, 2035015372, 1702756001, 1164186087, 329853698, 769052491, 1893312730, 438029011, 1894010522, 1365847542, 1292942830);
+            uint4x4 b1 = uint4x4(1787808345, 566425667, 2037529609, 1520589840, 266793699, 538816359, 2075474643, 553571317, 218264354, 654754196, 1392180230, 870065147, 1398749829, 711281563, 1999640291, 231234857);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            uint4x4 a2 = uint4x4(713568182, 113370312, 34394402, 741710975, 2010975367, 201656489, 72091638, 1723601317, 975929810, 1575246733, 1203130225, 893536748, 1773735524, 1273796244, 2023129750, 908297302);
-            uint4x4 b2 = uint4x4(318954089, 1387319758, 1759755442, 20578842, 626446166, 788394992, 66344855, 23384496, 1573047164, 1685424985, 1444271937, 99395556, 67222974, 1156133082, 1933804542, 1739920597);
+            uint4x4 a2 = uint4x4(2146008097, 1520743598, 861728782, 1999977058, 1334556487, 1728108667, 1198848973, 7011150, 1280729934, 1553569869, 1782228282, 731582167, 2041979262, 128396656, 143519087, 154742298);
+            uint4x4 b2 = uint4x4(210910234, 365281355, 170643407, 757340716, 639973212, 1147047891, 537350186, 1283454178, 735732152, 1218138135, 474815930, 174656455, 473248758, 1077993023, 1063662917, 181750095);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            uint4x4 a3 = uint4x4(128717428, 254163710, 660951279, 70437219, 1403769236, 167128145, 310178743, 1783343385, 1931106177, 854585029, 1266172069, 470075818, 1572900988, 1761067881, 485959198, 144932739);
-            uint4x4 b3 = uint4x4(1808354967, 2073388726, 9577637, 894409155, 1610633156, 299181295, 1528732654, 1598473906, 212707645, 648985197, 470917100, 1416779892, 13974756, 2114655075, 1733061540, 77170825);
+            uint4x4 a3 = uint4x4(1121334516, 540291909, 554731045, 1839326182, 365770943, 1467681356, 1811555210, 1818699821, 1391738679, 1578035276, 446070422, 596490222, 1626811714, 470785740, 42246751, 613821629);
+            uint4x4 b3 = uint4x4(1824618770, 1824105138, 1337474646, 993542680, 1719996629, 129079279, 746264839, 2048162472, 610556344, 630115390, 74804695, 1671192167, 1346087143, 388480024, 921984035, 270893570);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_not_equal_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(197085580, 1559123934, 89174026, 874566733, 285035719, 175911184, 2107486277, 882200899, 1242391870, 812875165, 215397387, 1816051923, 1432332427, 35870207, 1453358020, 695883299);
-            uint b0 = (641022627);
+            uint4x4 a0 = uint4x4(1038269360, 1427812625, 103361237, 1347017023, 1523584313, 150442802, 660334527, 719113717, 262959423, 484398043, 506946952, 226568494, 507918242, 1702162286, 923269270, 166187260);
+            uint b0 = (768873026);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            uint4x4 a1 = uint4x4(1755116468, 1254194936, 1231333222, 13043207, 2131792700, 1882145915, 608371145, 1571504076, 1916573718, 196320053, 579996843, 2016555517, 1581742998, 827687815, 1985243112, 1307973647);
-            uint b1 = (1841089280);
+            uint4x4 a1 = uint4x4(114581840, 1648095254, 1461803977, 61801615, 1317840133, 2146927809, 1557151164, 1284033253, 1345705546, 1747302566, 611028295, 1368046109, 1848036266, 2025452920, 373992983, 289537519);
+            uint b1 = (1045389187);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            uint4x4 a2 = uint4x4(2128943772, 283388660, 1627986803, 967411073, 859339164, 646612753, 120010225, 1048347358, 1645050509, 207992519, 1213982313, 404390157, 673557247, 1897587892, 357466227, 427416676);
-            uint b2 = (2019406199);
+            uint4x4 a2 = uint4x4(1388743060, 1854553487, 872755032, 2113020512, 1062447442, 632285066, 109864030, 1583997921, 1732461790, 1276630817, 721080697, 922945173, 1528002730, 282331576, 1372281893, 167200566);
+            uint b2 = (146455100);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            uint4x4 a3 = uint4x4(256095012, 1599950998, 1864108355, 184042373, 656713574, 1824461666, 1628286528, 1450546304, 515945648, 2127074778, 1527489434, 1013129029, 1808132519, 2132670997, 377637922, 508078276);
-            uint b3 = (1419395740);
+            uint4x4 a3 = uint4x4(1271483982, 1782181919, 659215598, 976467745, 1598516540, 1428368463, 693693720, 62983770, 177878767, 550623883, 49306232, 1498551255, 562406804, 606428770, 132953969, 2084514622);
+            uint b3 = (1769269391);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_not_equal_scalar_wide()
         {
-            uint a0 = (1823145268);
-            uint4x4 b0 = uint4x4(1478442612, 395956316, 1021050384, 506455754, 120739710, 111528848, 497993131, 1341426941, 981702603, 697361127, 2118726847, 373682311, 718299814, 767014928, 1004475715, 1402457009);
+            uint a0 = (1652127596);
+            uint4x4 b0 = uint4x4(953791238, 271722683, 1278885987, 735128017, 112416504, 25967222, 1761444475, 1844594536, 1199122922, 634219279, 942501101, 67161343, 969944293, 833229499, 1304301133, 704045745);
             bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            uint a1 = (475620317);
-            uint4x4 b1 = uint4x4(1050918856, 1617498576, 88204597, 1171079641, 202617696, 1727104700, 1586529029, 1305535353, 464498913, 960870640, 313851836, 117891028, 656227554, 1699085193, 1744193687, 1800464394);
+            uint a1 = (345012334);
+            uint4x4 b1 = uint4x4(1253134152, 325772538, 855127202, 793668881, 1584481616, 1101301152, 276853534, 987168816, 1258105989, 362645228, 293978043, 1772395973, 1692007315, 681268929, 1535518457, 595209334);
             bool4x4 r1 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            uint a2 = (413278231);
-            uint4x4 b2 = uint4x4(850406002, 1753589972, 1901737830, 356693616, 105145888, 1206579389, 1184657034, 1859242787, 879829423, 190553242, 1432623307, 621409296, 399417725, 1042162212, 1618162088, 470086499);
+            uint a2 = (25745185);
+            uint4x4 b2 = uint4x4(1278016813, 2125682481, 2037751005, 1405297618, 1825546885, 1584424742, 1779859088, 1262387250, 936213998, 739749071, 1934808433, 1333711144, 571211509, 445791940, 43428024, 1509344718);
             bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            uint a3 = (436390741);
-            uint4x4 b3 = uint4x4(591264208, 1876220995, 560559256, 652065627, 1275824916, 816335263, 1582005002, 1348404048, 1803724444, 1298141855, 184141295, 1223535913, 325475049, 1145759581, 374533160, 720701564);
+            uint a3 = (1643255886);
+            uint4x4 b3 = uint4x4(383699707, 2040544421, 408607994, 858458715, 1516793269, 1317905178, 1002032453, 1895442848, 1001794162, 1810805641, 1467466432, 72198563, 1654599254, 2100433997, 1554466291, 1619435656);
             bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_wide_wide()
         {
-            uint4x4 a0 = uint4x4(2096784746, 6455590, 1186728125, 2004430503, 903707670, 1290095569, 33135516, 1136659156, 2103201294, 2092322432, 317443647, 145428344, 421825315, 775702881, 797081946, 486711847);
-            uint4x4 b0 = uint4x4(2023955832, 814050279, 2107113757, 1984877677, 229711986, 65531143, 1739169538, 1442465278, 1706801427, 1236851354, 678269170, 2078986192, 248843346, 1119242408, 1391608859, 831566525);
-            bool4x4 r0 = bool4x4(false, true, true, false, false, false, true, true, false, false, true, true, false, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            uint4x4 a0 = uint4x4(1486550609, 1779244308, 1602148045, 1614085440, 1975613414, 942838342, 1092279031, 373677431, 1419098312, 337757077, 1081797900, 1336745069, 840685445, 1220554047, 2013681746, 192965012);
+            uint4x4 b0 = uint4x4(97842578, 536551311, 413528975, 1838293684, 1283898480, 1456599961, 1080278602, 529676676, 156584048, 117348799, 246927124, 1916615924, 1731071394, 1328098431, 1014995792, 480319327);
+            bool4x4 r0 = bool4x4(false, false, false, true, false, true, false, true, false, false, false, true, true, true, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            uint4x4 a1 = uint4x4(370856976, 1508350125, 1634507727, 1618343965, 1487640747, 1866663662, 321663320, 680877476, 302284266, 510994085, 1706924575, 117487157, 1878527488, 392224964, 1331410876, 1187795731);
-            uint4x4 b1 = uint4x4(199002555, 501557545, 1516195865, 328928308, 1457688009, 527835751, 1730051156, 1878872603, 716012262, 1288691420, 2074263652, 1418515576, 74953045, 937884779, 885188095, 1659582458);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, true, true, true, true, true, true, false, true, false, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            uint4x4 a1 = uint4x4(532043965, 1000693402, 927236048, 1215860000, 780607596, 1882056852, 1354146545, 2135295778, 1145973790, 1938006975, 895882838, 2006524299, 908581156, 1843349513, 1340458575, 1972095585);
+            uint4x4 b1 = uint4x4(1765937053, 1333997067, 688515308, 1856106947, 1303906227, 646821776, 1169473993, 316770064, 1518155802, 416732703, 529193056, 1239623485, 2010112031, 2018560298, 285987009, 960617622);
+            bool4x4 r1 = bool4x4(true, true, false, true, true, false, false, false, true, false, false, false, true, true, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            uint4x4 a2 = uint4x4(1890483786, 1842157814, 230819413, 1955441198, 88457462, 1896694254, 959089155, 1757322872, 1715449517, 816958142, 880614774, 1272125597, 81515398, 770513704, 1123970901, 1145001079);
-            uint4x4 b2 = uint4x4(458529044, 1981616608, 635101611, 587005429, 1763394124, 1007239285, 1765076240, 839257806, 1044313925, 81069684, 1345504074, 444076971, 89834549, 1559554682, 680459186, 602452652);
-            bool4x4 r2 = bool4x4(false, true, true, false, true, false, true, false, false, false, true, false, true, true, false, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            uint4x4 a2 = uint4x4(1090933468, 924555996, 79585200, 1749924275, 1088207695, 1484224850, 512353919, 562469379, 1743259263, 182124641, 1224472464, 1731920136, 1906896401, 425415911, 992649442, 515648372);
+            uint4x4 b2 = uint4x4(462519015, 1473825625, 1187164011, 730583004, 629133777, 1925375320, 689923293, 1818695099, 903783983, 495525944, 1923715956, 2850909, 1908553564, 1064607664, 1344783349, 494620587);
+            bool4x4 r2 = bool4x4(false, true, true, false, false, true, true, true, false, true, true, false, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            uint4x4 a3 = uint4x4(269892278, 784835612, 2035376989, 1648053190, 908054711, 1200233958, 177569398, 459426421, 465113820, 1369918909, 68229953, 778967684, 1333887094, 1900101210, 2012071554, 1610518175);
-            uint4x4 b3 = uint4x4(207081204, 2010617923, 846744515, 1814666302, 2071472303, 2091014098, 1257731519, 113451248, 1700450805, 287096951, 1106726047, 544979712, 1398080843, 140984864, 395886516, 1555481923);
-            bool4x4 r3 = bool4x4(false, true, false, true, true, true, true, false, true, false, true, false, true, false, false, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            uint4x4 a3 = uint4x4(1479294289, 1703371955, 244917997, 237184864, 1915715174, 1476008655, 1192451853, 727269566, 1447642652, 275301035, 103862368, 1883628805, 878082526, 1714412871, 761748100, 1885417209);
+            uint4x4 b3 = uint4x4(921439230, 891627530, 661470153, 2106293426, 1207423971, 266749061, 81148979, 218657863, 24654414, 436674592, 1476569641, 1314701159, 921705087, 318515283, 685316611, 1890907993);
+            bool4x4 r3 = bool4x4(false, false, true, true, false, false, false, false, false, true, true, false, true, false, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1111812659, 215280083, 1452878573, 685443717, 1552447661, 1334052403, 1631047060, 428772023, 2107896094, 1150022920, 1349894445, 1253959696, 886316879, 996367814, 43500883, 667435667);
-            uint b0 = (1393181832);
-            bool4x4 r0 = bool4x4(true, true, false, true, false, true, false, true, false, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            uint4x4 a0 = uint4x4(796797557, 670113454, 933579492, 278884514, 318174822, 1117630673, 741886928, 1990922600, 1030849597, 1546212312, 1718582899, 1648393417, 1857132231, 1909506562, 1294006045, 952084157);
+            uint b0 = (746564682);
+            bool4x4 r0 = bool4x4(false, true, false, true, true, false, true, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            uint4x4 a1 = uint4x4(401266960, 250573340, 1986163240, 1455141496, 1807813603, 845342719, 1054067153, 1304128666, 282268279, 881261520, 659555283, 394230220, 204334258, 776248468, 849344566, 1838981301);
-            uint b1 = (1963622811);
-            bool4x4 r1 = bool4x4(true, true, false, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            uint4x4 a1 = uint4x4(1303736668, 979430272, 1368236640, 24980695, 1434668705, 659552739, 1058492383, 165694933, 1204097259, 922212691, 281328069, 24629507, 1386458568, 1325149699, 1498707004, 1650355158);
+            uint b1 = (845460171);
+            bool4x4 r1 = bool4x4(false, false, false, true, false, true, false, true, false, false, true, true, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            uint4x4 a2 = uint4x4(1590929053, 800589266, 1723307701, 1534802720, 1011888379, 1966535354, 1030707675, 1447025090, 1012924766, 1272075079, 350409375, 785844846, 590476680, 970446937, 1433320127, 1478911625);
-            uint b2 = (1781836121);
-            bool4x4 r2 = bool4x4(true, true, true, true, true, false, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            uint4x4 a2 = uint4x4(1213017950, 759932777, 1542997846, 1227393490, 1520634374, 1750827258, 1951142425, 1956860037, 681224518, 1889763470, 1915403219, 850845857, 1871934613, 1882514458, 1326783898, 1044736383);
+            uint b2 = (1650457461);
+            bool4x4 r2 = bool4x4(true, true, true, true, true, false, false, false, true, false, false, true, false, false, true, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            uint4x4 a3 = uint4x4(1391873522, 701652873, 557791154, 1804154810, 1732851876, 1517421011, 398811420, 1528798698, 1270179382, 452790883, 971491777, 34541803, 1903561836, 373774452, 500549879, 1562462042);
-            uint b3 = (723156477);
-            bool4x4 r3 = bool4x4(false, true, true, false, false, false, true, false, false, true, false, true, false, true, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            uint4x4 a3 = uint4x4(24899250, 1979593332, 1345719300, 771816862, 1459379624, 10560715, 2022570756, 113189581, 1261561210, 195417982, 460558859, 1966293093, 1791874676, 221062613, 219875895, 2145521906);
+            uint b3 = (2096162636);
+            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_scalar_wide()
         {
-            uint a0 = (1947585822);
-            uint4x4 b0 = uint4x4(852724905, 257426229, 1931155895, 891206688, 1637228394, 87657529, 1642732032, 716549196, 745331149, 1073136377, 1224927266, 959593884, 1475562958, 1850828896, 1667723226, 312974729);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            uint a0 = (186400299);
+            uint4x4 b0 = uint4x4(1881344229, 813834467, 1254886626, 1353590345, 1412343685, 1555571443, 1540508298, 1735458634, 135888070, 1643818742, 248291654, 1739560105, 728539891, 480507742, 1696553040, 540223931);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, false, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            uint a1 = (768604138);
-            uint4x4 b1 = uint4x4(1734617142, 1788513218, 947431907, 665124971, 526266121, 556110438, 1265710125, 584009036, 1107979057, 981386418, 1177609288, 735437655, 1556429822, 356776859, 1256422245, 1554129909);
-            bool4x4 r1 = bool4x4(true, true, true, false, false, false, true, false, true, true, true, false, true, false, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            uint a1 = (1840493353);
+            uint4x4 b1 = uint4x4(146833656, 798115946, 2002002066, 1011261705, 783550942, 1093071215, 598253401, 1432416562, 1863582169, 103622950, 775175960, 116908309, 1213433625, 1428954824, 1760442490, 1208143947);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, true, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            uint a2 = (1185903275);
-            uint4x4 b2 = uint4x4(1814338151, 161449963, 340586256, 1646189236, 370215604, 879714906, 1274343437, 1582700269, 1023683570, 451190756, 1831869733, 1227906410, 2080635380, 210505650, 183136631, 1762400890);
-            bool4x4 r2 = bool4x4(true, false, false, true, false, false, true, true, false, false, true, true, true, false, false, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            uint a2 = (751820805);
+            uint4x4 b2 = uint4x4(1491872302, 560004484, 2065157473, 310839658, 697329242, 898786601, 1448893980, 1204091943, 1933043135, 828031833, 1737703663, 1672512847, 1112905025, 1666248737, 1352503217, 406395888);
+            bool4x4 r2 = bool4x4(true, false, true, false, false, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            uint a3 = (1983787866);
-            uint4x4 b3 = uint4x4(2057609170, 1367261896, 563335257, 1282460851, 326458784, 1848799438, 665445770, 307197652, 529249337, 1253754758, 465122744, 2128595188, 1336384974, 716359518, 2115988668, 1552947622);
-            bool4x4 r3 = bool4x4(true, false, false, false, false, false, false, false, false, false, false, true, false, false, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            uint a3 = (1734008932);
+            uint4x4 b3 = uint4x4(1237327481, 1318771944, 791935677, 1322622241, 1097793287, 1868246899, 656633225, 2068657430, 1696245163, 1451948493, 765332338, 1618550325, 1069938092, 214863918, 635332811, 531416158);
+            bool4x4 r3 = bool4x4(false, false, false, false, false, true, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_wide_wide()
         {
-            uint4x4 a0 = uint4x4(679407976, 1565104964, 955659700, 1579068177, 2125437566, 437413511, 433042806, 86523161, 433920144, 1128363150, 1430252123, 28546361, 1640272676, 1219827111, 729860988, 1646629509);
-            uint4x4 b0 = uint4x4(1037249636, 948878199, 1022811823, 1540122195, 639273951, 1840348368, 1458722938, 1025338066, 1780825559, 1442445808, 1055886580, 809782985, 627348215, 1100285680, 1355127414, 860855759);
-            bool4x4 r0 = bool4x4(false, true, false, true, true, false, false, false, false, false, true, false, true, true, false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            uint4x4 a0 = uint4x4(2087717754, 1725569452, 1298066182, 1693943616, 1319019629, 70674491, 1042499725, 1002821508, 1021857133, 1744374599, 821751047, 467646903, 2029731638, 1377214212, 1207816926, 474621063);
+            uint4x4 b0 = uint4x4(85148514, 293632137, 1151128249, 409440398, 1115020183, 1508500597, 1834583302, 1755218534, 1788761753, 1128238489, 834223713, 1578743290, 1647150256, 1756397855, 1131080201, 1208965204);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, false, false, false, false, true, false, false, true, false, true, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            uint4x4 a1 = uint4x4(1480319015, 742519043, 1994504193, 1942450636, 556672053, 1757883729, 114721227, 362921128, 1725180404, 791235721, 2092291463, 232880702, 1008703275, 1456089170, 1950468359, 810261207);
-            uint4x4 b1 = uint4x4(14375850, 757917854, 1673864053, 1824680438, 1295524124, 1202767129, 1376581777, 447898330, 2091412579, 356564192, 1230678959, 1771005043, 755321979, 328311485, 478782497, 770310152);
-            bool4x4 r1 = bool4x4(true, false, true, true, false, true, false, false, false, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            uint4x4 a1 = uint4x4(20781266, 366593779, 2068457387, 10181449, 793634464, 144474612, 99947390, 930377263, 683686232, 742803073, 918292048, 875621429, 1764985258, 411384146, 1921397684, 1349107119);
+            uint4x4 b1 = uint4x4(1495161099, 1283714281, 908051907, 412849651, 815822687, 730271942, 40756039, 883326140, 476260632, 1024136446, 1440596667, 1253494041, 146826162, 1798399573, 2085029408, 187939428);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, true, true, true, false, false, false, true, false, false, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            uint4x4 a2 = uint4x4(1140128089, 360029353, 716203895, 1178317520, 1985858570, 885773755, 1445486498, 695061758, 264427087, 1522588923, 563891693, 916047943, 1928978795, 1896698226, 217774883, 2021695726);
-            uint4x4 b2 = uint4x4(1724041399, 418666956, 1476088954, 907539738, 1451166359, 134727999, 973262879, 263690899, 771928781, 785932056, 1290065317, 249640056, 1118997647, 1239182214, 1614139151, 77889556);
-            bool4x4 r2 = bool4x4(false, false, false, true, true, true, true, true, false, true, false, true, true, true, false, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            uint4x4 a2 = uint4x4(640399120, 1487719331, 1467989523, 1834244794, 1778580304, 334604025, 689749101, 1478795900, 716772993, 1072711623, 388277128, 290673156, 619539670, 1666212670, 496667761, 638935614);
+            uint4x4 b2 = uint4x4(1009192934, 1694822273, 1866590874, 113805226, 1331524948, 5928360, 1884858608, 1988975599, 493888072, 731556294, 1597968264, 727668246, 1260583385, 1921631225, 359265523, 856088703);
+            bool4x4 r2 = bool4x4(false, false, false, true, true, true, false, false, true, true, false, false, false, false, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            uint4x4 a3 = uint4x4(485262917, 62639040, 1016552424, 1879178082, 913095059, 518189269, 344905204, 325518545, 60260221, 63884398, 1103677221, 206418459, 807993456, 637171808, 1726874375, 689764855);
-            uint4x4 b3 = uint4x4(987573577, 538163475, 2091737819, 249091450, 2031179630, 641125104, 98152703, 35440396, 1192398271, 1178539578, 24329151, 1997546419, 110389297, 1744689895, 2086618953, 371719419);
-            bool4x4 r3 = bool4x4(false, false, false, true, false, false, true, true, false, false, true, false, true, false, false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            uint4x4 a3 = uint4x4(1614199215, 89872822, 700520355, 1562820264, 789499485, 1393039789, 1105992642, 563744940, 815513909, 1081626580, 1012317785, 1947145947, 718519778, 1075282603, 200378204, 1764621112);
+            uint4x4 b3 = uint4x4(2104018831, 1238238103, 1383038637, 964579005, 628997847, 1734250747, 869693069, 2027610297, 569892194, 1427509612, 617550825, 1189914503, 760051085, 207406138, 2060097216, 1419314781);
+            bool4x4 r3 = bool4x4(false, false, false, true, true, false, true, false, true, false, true, true, false, true, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(2057056127, 328369940, 977884645, 1927653020, 1805071634, 1951495065, 187170445, 309800711, 1984248926, 538865160, 1448725978, 1870289210, 346150889, 819772244, 1418697328, 480802003);
-            uint b0 = (1496952827);
-            bool4x4 r0 = bool4x4(true, false, false, true, true, true, false, false, true, false, false, true, false, false, false, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            uint4x4 a0 = uint4x4(1208626274, 239697208, 1979453345, 1253474001, 1590192876, 1487911635, 1673945595, 1662650098, 222749855, 1433540517, 566635217, 1773305960, 1850273578, 206147145, 325913453, 333381537);
+            uint b0 = (1715176566);
+            bool4x4 r0 = bool4x4(false, false, true, false, false, false, false, false, false, false, false, true, true, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            uint4x4 a1 = uint4x4(1990373394, 1510847950, 4937056, 457594840, 1341305673, 2098120134, 733548321, 1706259035, 350112448, 913727938, 574408973, 574248211, 983619095, 177771860, 1655445406, 800861447);
-            uint b1 = (1106501347);
-            bool4x4 r1 = bool4x4(true, true, false, false, true, true, false, true, false, false, false, false, false, false, true, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            uint4x4 a1 = uint4x4(1905567362, 570397194, 2128431130, 1735325311, 529971908, 1663525234, 1972984241, 1587865063, 488268523, 121921923, 812076921, 181082921, 1281638484, 1818357732, 116518997, 1397728785);
+            uint b1 = (2053577491);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            uint4x4 a2 = uint4x4(775125660, 786395976, 1058663306, 1571244944, 1277049353, 1703667253, 2037840755, 2101446339, 2016007678, 837306072, 784652183, 1351342786, 1935107986, 1553066066, 1985430281, 351240056);
-            uint b2 = (1284323744);
-            bool4x4 r2 = bool4x4(false, false, false, true, false, true, true, true, true, false, false, true, true, true, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            uint4x4 a2 = uint4x4(1924199337, 1463993051, 1598027926, 842851852, 160842093, 1226313895, 540338405, 174088887, 1609299242, 425486336, 1462766889, 651513452, 1122649822, 771802057, 839323192, 325778683);
+            uint b2 = (742950077);
+            bool4x4 r2 = bool4x4(true, true, true, true, false, true, false, false, true, false, true, false, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            uint4x4 a3 = uint4x4(604396431, 2091070156, 1575083101, 1599461287, 155647154, 377733453, 244336324, 221393985, 1454959186, 1037767127, 1760245119, 1883036147, 1000629831, 361093300, 1940764219, 1069427763);
-            uint b3 = (420376872);
-            bool4x4 r3 = bool4x4(true, true, true, true, false, false, false, false, true, true, true, true, true, false, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            uint4x4 a3 = uint4x4(406189885, 2101738734, 432896271, 1620784610, 1185204658, 723655621, 6469104, 1813092585, 1101924353, 1365989712, 861868674, 1481567177, 1088595018, 1762666432, 450116220, 375577175);
+            uint b3 = (1676059941);
+            bool4x4 r3 = bool4x4(false, true, false, false, false, false, false, true, false, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_scalar_wide()
         {
-            uint a0 = (1362109003);
-            uint4x4 b0 = uint4x4(142885648, 1660635591, 104009698, 485042379, 1326894883, 1007324999, 1835906302, 1625555804, 745829307, 1212896249, 438032966, 1953156077, 250146075, 279418367, 238317957, 414643707);
-            bool4x4 r0 = bool4x4(true, false, true, true, true, true, false, false, true, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            uint a0 = (480938827);
+            uint4x4 b0 = uint4x4(1824731899, 921496110, 586859044, 946430596, 1231356727, 1390167458, 1785807092, 28949024, 2037899283, 595656760, 1778095771, 1233500439, 1696302238, 1445965340, 484020151, 1586962841);
+            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            uint a1 = (1261501322);
-            uint4x4 b1 = uint4x4(1930233724, 1709921862, 1109218757, 181646471, 1504998457, 692255257, 1612264495, 501633267, 668993654, 2033271267, 1046881275, 1957902676, 580470126, 58822937, 1404104358, 1479521505);
-            bool4x4 r1 = bool4x4(false, false, true, true, false, true, false, true, true, false, true, false, true, true, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            uint a1 = (1361740714);
+            uint4x4 b1 = uint4x4(265628948, 2003122957, 332267433, 1128353075, 377919478, 982113135, 1117675960, 630865591, 1550679736, 895945757, 287025687, 643452096, 660504007, 613135893, 633307118, 514276792);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, true, false, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            uint a2 = (441785371);
-            uint4x4 b2 = uint4x4(544376028, 1454929174, 502638742, 1414285087, 267582916, 163306028, 1279956416, 153385596, 1228528117, 95736939, 411818567, 423612701, 1099672166, 1980905188, 107751915, 1839047842);
-            bool4x4 r2 = bool4x4(false, false, false, false, true, true, false, true, false, true, true, true, false, false, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            uint a2 = (1377364317);
+            uint4x4 b2 = uint4x4(84491736, 746768197, 1282879723, 589415384, 363082240, 1774333756, 741005890, 413100725, 702141547, 1434366582, 1489794027, 1710601432, 1914069735, 1811684885, 1007116016, 1883396218);
+            bool4x4 r2 = bool4x4(true, true, true, true, true, false, true, true, true, false, false, false, false, false, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            uint a3 = (1807841960);
-            uint4x4 b3 = uint4x4(1540246317, 888745127, 832004060, 1180462532, 785370838, 968380334, 639228850, 2130892759, 657901229, 1121537379, 789025027, 1815136775, 165359181, 1154073312, 1181412255, 473634572);
-            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, false, true, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            uint a3 = (318035497);
+            uint4x4 b3 = uint4x4(25535571, 1971931803, 1966772446, 1500069399, 1446812421, 2086866622, 1616666731, 315565005, 1828160638, 494221701, 1498781405, 1532980575, 1377395276, 2130004514, 1144788653, 719223647);
+            bool4x4 r3 = bool4x4(true, false, false, false, false, false, false, true, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_equal_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1772193278, 1575696890, 1129461478, 1160757899, 732614174, 505407897, 845181177, 1895996546, 1733272281, 1510163679, 1157493614, 2035853300, 226335126, 1827437131, 1925038167, 102721882);
-            uint4x4 b0 = uint4x4(1170485947, 280845724, 94836958, 710231911, 62412740, 1458247289, 1910665214, 806067482, 825865086, 382253253, 635819539, 1846095366, 1218121558, 2022420424, 538861885, 1996724846);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, true, true, false, false, false, false, false, true, true, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            uint4x4 a0 = uint4x4(154092149, 1515170149, 1083970332, 785807178, 1401094881, 310537627, 868328962, 1990816725, 2035349541, 457043352, 1123282035, 1001842946, 1387761992, 195272789, 659549000, 888761458);
+            uint4x4 b0 = uint4x4(77984380, 1712054191, 1566203809, 254834519, 450519938, 389457083, 1298669505, 207343167, 1214449047, 2059561026, 896534357, 1897470050, 521075677, 1848221945, 374708019, 1573731118);
+            bool4x4 r0 = bool4x4(false, true, true, false, false, true, true, false, false, true, false, true, false, true, false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            uint4x4 a1 = uint4x4(110219955, 1643730680, 1227024208, 1626672632, 328526921, 686582255, 400611759, 1788608407, 1548348235, 1465657187, 799240722, 412709767, 1282116294, 54510598, 414883474, 932677391);
-            uint4x4 b1 = uint4x4(783861407, 576383233, 1495988801, 228067901, 1557519061, 953542180, 1334063563, 1153799594, 1513371874, 1570368029, 2092439352, 1136373739, 1877085171, 2058823567, 1285821122, 193752289);
-            bool4x4 r1 = bool4x4(true, false, true, false, true, true, true, false, false, true, true, true, true, true, true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            uint4x4 a1 = uint4x4(283706617, 1790185840, 899029812, 848317418, 1743712447, 1504407474, 1798441490, 1902791952, 606340844, 1994437705, 301831413, 654230470, 1223625081, 324292199, 1370931020, 1742769166);
+            uint4x4 b1 = uint4x4(2093466449, 1660210829, 1568778785, 1352157589, 1212771905, 1457525058, 1493446008, 1784768208, 1993422493, 1378671664, 1447376929, 1405041439, 1765183746, 562894655, 1085068880, 1026386862);
+            bool4x4 r1 = bool4x4(true, false, true, true, false, false, false, false, true, false, true, true, true, true, false, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            uint4x4 a2 = uint4x4(2107174505, 1348027334, 266934534, 1726526921, 1346676101, 53726332, 2096720931, 1445483607, 1576996798, 474072189, 1220688345, 1197484124, 371151640, 1441750586, 1441478203, 1960668074);
-            uint4x4 b2 = uint4x4(656166698, 61319770, 1319613313, 237283480, 1282095778, 1747458200, 1082311120, 1039755210, 673637537, 411666293, 679837500, 165264250, 507356941, 1497422684, 1715332712, 1190189446);
-            bool4x4 r2 = bool4x4(false, false, true, false, false, true, false, false, false, false, false, false, true, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            uint4x4 a2 = uint4x4(1709242127, 105750466, 1655967312, 1455797002, 366131629, 315848579, 1539610530, 99028560, 765767372, 1241881101, 527753961, 1271899705, 1439235979, 436585748, 1244486586, 2128710216);
+            uint4x4 b2 = uint4x4(884290156, 922346160, 330605896, 466570756, 1252369410, 2057993777, 1691801535, 2041799631, 557988228, 813610154, 1657573441, 983813335, 385144401, 1281329713, 285422763, 658643567);
+            bool4x4 r2 = bool4x4(false, true, false, false, true, true, true, true, false, false, true, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            uint4x4 a3 = uint4x4(624841670, 993851322, 2133519876, 886865060, 1934328600, 223691928, 2038713020, 1187136455, 431601564, 481826769, 811748933, 1120547591, 1606166221, 1837651777, 2025346374, 943288924);
-            uint4x4 b3 = uint4x4(492829966, 1891928708, 1727288637, 228734922, 1228373707, 1664628591, 812735214, 199805174, 1162239035, 1888729584, 521011098, 1427337005, 1182763084, 1907061240, 229104237, 1778827036);
-            bool4x4 r3 = bool4x4(false, true, false, false, false, true, false, false, true, true, false, true, false, true, false, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            uint4x4 a3 = uint4x4(1617486386, 1895766578, 1387695542, 128800896, 537625491, 1012540035, 1131528350, 2012914556, 1666155186, 1944610930, 1990671426, 498632901, 1759874098, 1630593828, 2041503795, 1369567817);
+            uint4x4 b3 = uint4x4(478020612, 914151334, 980445792, 275734948, 1527866949, 1196945650, 743720340, 1679307193, 429976215, 812942792, 929159012, 51668686, 1269420778, 1270822911, 174467289, 80708866);
+            bool4x4 r3 = bool4x4(false, false, false, true, true, true, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_equal_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1331309222, 478791836, 467984397, 684816797, 412606484, 1660050607, 406933135, 537773128, 300305325, 795892530, 639098736, 384843721, 831822993, 669995206, 2026234386, 993917104);
-            uint b0 = (692177811);
-            bool4x4 r0 = bool4x4(false, true, true, true, true, false, true, true, true, false, true, true, false, true, false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            uint4x4 a0 = uint4x4(1479531977, 1427983411, 415250630, 1245345407, 1112546666, 1072990632, 1579912858, 101048307, 1070894375, 509818792, 1910488590, 85452501, 518127023, 1246249980, 1097326500, 1964410699);
+            uint b0 = (2004563877);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            uint4x4 a1 = uint4x4(2143139650, 587727929, 1449248286, 541399087, 1552946378, 1745857413, 1211693585, 1403126997, 1339199616, 75427551, 1999460625, 483711715, 1379418772, 1920617613, 1839381265, 59748735);
-            uint b1 = (212683631);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, false, false, false, true, false, false, false, false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            uint4x4 a1 = uint4x4(1968139888, 662096238, 1140643434, 754434551, 155343473, 995927387, 974873240, 1773400038, 497436329, 1825940497, 527516420, 1477043363, 1378470734, 96190147, 37188105, 839762283);
+            uint b1 = (1191853379);
+            bool4x4 r1 = bool4x4(false, true, true, true, true, true, true, false, true, false, true, false, false, true, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            uint4x4 a2 = uint4x4(995354220, 1526212647, 1919881568, 861256033, 1344599669, 1426479164, 1320103530, 1201235641, 1178130731, 952224665, 1103629513, 2073676324, 1167820734, 193855762, 377996504, 1766112506);
-            uint b2 = (720440878);
-            bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            uint4x4 a2 = uint4x4(781102710, 1145011483, 139031840, 127837780, 817806943, 1248492707, 649140851, 913173654, 1530989756, 856611228, 479496140, 287809619, 626008542, 2075114788, 269756518, 1123999963);
+            uint b2 = (766321672);
+            bool4x4 r2 = bool4x4(false, false, true, true, false, false, true, false, false, false, true, true, true, false, true, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            uint4x4 a3 = uint4x4(626360708, 445477566, 825600481, 789910135, 1286715080, 880418070, 1403774459, 1429173447, 1220890515, 1584623056, 554956157, 54061413, 1068370200, 1022758564, 947201118, 325094986);
-            uint b3 = (1405978088);
-            bool4x4 r3 = bool4x4(true, true, true, true, true, true, true, false, true, false, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            uint4x4 a3 = uint4x4(1061241170, 1419753922, 827050063, 725097426, 1849220404, 432056024, 1587861037, 1619429016, 615110337, 1394533782, 1052396438, 771488591, 1839907288, 413628645, 1873300485, 1393173865);
+            uint b3 = (478230935);
+            bool4x4 r3 = bool4x4(false, false, false, false, false, true, false, false, false, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_less_equal_scalar_wide()
         {
-            uint a0 = (368122142);
-            uint4x4 b0 = uint4x4(1602136857, 1025804484, 572719917, 1670730995, 322281926, 2056320987, 153014038, 660460911, 302838143, 771971953, 260376717, 888694354, 1995147646, 50363690, 248688945, 1910720377);
-            bool4x4 r0 = bool4x4(true, true, true, true, false, true, false, true, false, true, false, true, true, false, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            uint a0 = (1899193992);
+            uint4x4 b0 = uint4x4(915011820, 980913757, 1337699683, 1476321359, 1102143668, 660493983, 184664508, 381579707, 1954892821, 1295090571, 1440368586, 1696003686, 88708652, 1332251857, 1310713644, 2112132784);
+            bool4x4 r0 = bool4x4(false, false, false, false, false, false, false, false, true, false, false, false, false, false, false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            uint a1 = (1839966465);
-            uint4x4 b1 = uint4x4(601850603, 432894977, 747624795, 567603209, 1025638652, 834791365, 1956749769, 39094770, 186897619, 1130538813, 12786182, 2059864367, 1911382803, 1729207392, 425435076, 407084831);
-            bool4x4 r1 = bool4x4(false, false, false, false, false, false, true, false, false, false, false, true, true, false, false, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            uint a1 = (48951945);
+            uint4x4 b1 = uint4x4(1888568027, 39340955, 1108242207, 260777425, 593122164, 291471959, 253457314, 1264570386, 699618012, 927735863, 2063158939, 932253787, 1168754049, 749328788, 1882694892, 168499987);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            uint a2 = (22113571);
-            uint4x4 b2 = uint4x4(919583832, 1187617082, 421205041, 836878799, 68881073, 1973704380, 1871849539, 499086750, 367380545, 893281913, 762193729, 393477260, 1699537735, 2133036841, 718359357, 953533784);
-            bool4x4 r2 = bool4x4(true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            uint a2 = (378173027);
+            uint4x4 b2 = uint4x4(339963627, 832906712, 559482768, 53067420, 1895722478, 809981860, 591790551, 1680760399, 653274934, 1664284538, 1283249545, 767500110, 1334099884, 1271622829, 1270706578, 56782179);
+            bool4x4 r2 = bool4x4(false, true, true, false, true, true, true, true, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            uint a3 = (1074016492);
-            uint4x4 b3 = uint4x4(989017315, 1097246207, 332086862, 1948002580, 576498205, 191013119, 763453795, 1631636225, 135384307, 925782174, 140227856, 748080191, 538938987, 1190248208, 1982425288, 481609523);
-            bool4x4 r3 = bool4x4(false, true, false, true, false, false, false, true, false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            uint a3 = (505839576);
+            uint4x4 b3 = uint4x4(416548761, 1604253810, 438515054, 1638416567, 321889656, 689441798, 1084242369, 211750973, 402525656, 1880241767, 268989216, 1596809567, 786138772, 545761783, 1705157341, 1527503699);
+            bool4x4 r3 = bool4x4(false, true, false, true, false, true, true, false, false, true, false, true, true, true, true, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_equal_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1374979366, 545879935, 1322414052, 1123804185, 1251232279, 768853165, 582070144, 1263454123, 1500629331, 1851742458, 939335967, 779085610, 944458048, 2046650369, 902952345, 955539678);
-            uint4x4 b0 = uint4x4(215438260, 895664604, 2141461196, 945533420, 1365701491, 1010346143, 1515687794, 1130396256, 2054544008, 641613525, 1303489788, 205583136, 1273778628, 39641088, 1767053835, 1298000488);
-            bool4x4 r0 = bool4x4(true, false, false, true, false, false, false, true, false, true, false, true, false, true, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            uint4x4 a0 = uint4x4(8538378, 2131749726, 265427108, 523609761, 994991818, 839709564, 101288202, 1886280970, 2032074826, 631221455, 1456286159, 961342752, 424526026, 788481984, 1662488497, 870326690);
+            uint4x4 b0 = uint4x4(903145828, 1697992986, 1432491982, 169789504, 1059357300, 1744255222, 1606584463, 1905414425, 1448794969, 136181998, 1678754836, 2069656857, 398982689, 243317404, 740939613, 1894753119);
+            bool4x4 r0 = bool4x4(false, true, false, true, false, false, false, false, true, true, false, false, true, true, true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            uint4x4 a1 = uint4x4(1157113010, 257713664, 1319836764, 108383550, 634973154, 604432106, 996865291, 2098409217, 1991428831, 380823306, 291481927, 334897533, 1583836297, 2098690203, 94810827, 42581075);
-            uint4x4 b1 = uint4x4(410631220, 1506783726, 1313292743, 1187912061, 564463682, 1578097724, 1390641114, 1420072103, 1267135617, 1101474530, 1502356789, 71489578, 340296799, 48635424, 1084163097, 1631662091);
-            bool4x4 r1 = bool4x4(true, false, true, false, true, false, false, true, true, false, false, true, true, true, false, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            uint4x4 a1 = uint4x4(708712581, 1260182701, 1165630721, 138247561, 1108650168, 1933222913, 672493999, 1541402159, 1921596027, 1557351956, 147242547, 892772168, 2089286723, 1273466960, 644009998, 654784654);
+            uint4x4 b1 = uint4x4(301760792, 1260647988, 3608523, 52576030, 903420465, 1648820371, 627296845, 1679808907, 1719102039, 1718081638, 655586949, 477267189, 62092869, 2013928066, 280292357, 254052205);
+            bool4x4 r1 = bool4x4(true, false, true, true, true, true, true, false, true, false, false, true, true, false, true, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            uint4x4 a2 = uint4x4(410161813, 2000716780, 1257974130, 1958043139, 1946160458, 6640371, 699057682, 1356201492, 1322853058, 195695904, 1386230529, 1006518561, 75733687, 2070431076, 1362086187, 1093101234);
-            uint4x4 b2 = uint4x4(1618336324, 171438924, 1904154044, 187336588, 663830397, 374872285, 1348471533, 1701300581, 626578266, 1783300375, 2001548795, 1802239868, 186224086, 979539965, 59748126, 1698293704);
-            bool4x4 r2 = bool4x4(false, true, false, true, true, false, false, false, true, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            uint4x4 a2 = uint4x4(189030610, 1035542641, 346401762, 739783704, 1310547408, 1175015477, 1893015570, 1397162858, 1005064177, 469205024, 1331071304, 1747510572, 1556472271, 1318844912, 877625210, 1556049679);
+            uint4x4 b2 = uint4x4(1092440092, 1947011057, 625632982, 2028466303, 578645425, 552865694, 1460006028, 1944712828, 1256156724, 2090870105, 1299728699, 53125632, 782915512, 1103537852, 271803142, 828357811);
+            bool4x4 r2 = bool4x4(false, false, false, false, true, true, true, false, false, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            uint4x4 a3 = uint4x4(521882607, 1167935911, 1537407981, 162097973, 1456576125, 1302797719, 1495716418, 1519915543, 1131578954, 873266013, 888467193, 245431562, 611817763, 95705237, 1981206615, 972734048);
-            uint4x4 b3 = uint4x4(1120253662, 1526012614, 1926970293, 87274787, 193486718, 1775135177, 2107508895, 235364764, 397389622, 1615716208, 406764347, 556096665, 198476912, 1071750044, 978503174, 1886412332);
-            bool4x4 r3 = bool4x4(false, false, false, true, true, false, false, true, true, false, true, false, true, false, true, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            uint4x4 a3 = uint4x4(248635811, 1459789761, 1739237851, 1333407145, 979318335, 407534230, 1628055119, 731735266, 812413658, 1008863889, 1958570980, 1070464548, 1492413167, 390538786, 1454271717, 1150841093);
+            uint4x4 b3 = uint4x4(1679170708, 1727537554, 1741874749, 1295963045, 1676369300, 1716080769, 339906474, 629280695, 1476237779, 1535336921, 711398196, 1036785558, 982417009, 1710969897, 1783729499, 1038744266);
+            bool4x4 r3 = bool4x4(false, false, false, true, false, false, true, true, false, false, true, true, true, false, false, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_equal_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(328496099, 1711908264, 1881414926, 520188393, 159789484, 1339033201, 1235245220, 598204379, 627782248, 207207443, 1050513019, 115326785, 815764965, 1663037383, 838304903, 1877098280);
-            uint b0 = (781823478);
-            bool4x4 r0 = bool4x4(false, true, true, false, false, true, true, false, false, false, true, false, true, true, true, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            uint4x4 a0 = uint4x4(2049236663, 182691143, 634973382, 1197012109, 439837565, 1367606469, 1108037359, 351147187, 1898505669, 411667685, 1998610091, 4652390, 996159180, 2111455181, 727766399, 96217144);
+            uint b0 = (1061998015);
+            bool4x4 r0 = bool4x4(true, false, false, true, false, true, true, false, true, false, true, false, false, true, false, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            uint4x4 a1 = uint4x4(1438292093, 472236552, 1922545138, 1199061830, 1388609205, 518613082, 1045996504, 649618362, 1209413129, 690261764, 398265617, 2026149621, 823788562, 81932743, 1898193546, 370339767);
-            uint b1 = (720338718);
-            bool4x4 r1 = bool4x4(true, false, true, true, true, false, true, false, true, false, false, true, true, false, true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            uint4x4 a1 = uint4x4(814085575, 1293933760, 1732973229, 1473283041, 899444524, 1023753195, 1373738074, 518164359, 717850464, 1765188600, 1826820341, 527594558, 1816542874, 839185150, 1143596061, 1819554651);
+            uint b1 = (1525995206);
+            bool4x4 r1 = bool4x4(false, false, true, false, false, false, false, false, false, true, true, false, true, false, false, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            uint4x4 a2 = uint4x4(170058002, 61927158, 1621181831, 700914795, 1342972622, 1517571861, 810866485, 636669006, 996386423, 1342080574, 1236842442, 447358301, 1542785977, 1423270704, 734082540, 1974862102);
-            uint b2 = (1191838162);
-            bool4x4 r2 = bool4x4(false, false, true, false, true, true, false, false, false, true, true, false, true, true, false, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            uint4x4 a2 = uint4x4(160724539, 878086499, 363122662, 1989978759, 2145562949, 491416140, 122055824, 1432184946, 690328424, 638547285, 403700518, 569358695, 1988815901, 933324785, 1709851817, 1451640349);
+            uint b2 = (993212636);
+            bool4x4 r2 = bool4x4(false, false, false, true, true, false, false, true, false, false, false, false, true, false, true, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            uint4x4 a3 = uint4x4(2047830604, 1417245252, 893845536, 1276917916, 1540697920, 1193295182, 835418422, 2018053678, 1097860002, 648771437, 836979603, 719538405, 1951477333, 125274700, 1299803120, 1892470665);
-            uint b3 = (936644868);
-            bool4x4 r3 = bool4x4(true, true, false, true, true, true, false, true, true, false, false, false, true, false, true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            uint4x4 a3 = uint4x4(1782506169, 1298885111, 22631046, 575953622, 162553491, 1306421595, 1408718955, 678847750, 1869470748, 1749901516, 1428700665, 1971036276, 81962795, 1719966182, 855014030, 332581386);
+            uint b3 = (896666795);
+            bool4x4 r3 = bool4x4(true, true, false, false, false, true, true, false, true, true, true, true, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_greater_equal_scalar_wide()
         {
-            uint a0 = (557688741);
-            uint4x4 b0 = uint4x4(1371865141, 1033269674, 755002243, 1765845791, 602301797, 2020815501, 159421708, 1924937716, 394222366, 1704680025, 357243706, 1806378360, 354479574, 1908040605, 1835366305, 778033888);
-            bool4x4 r0 = bool4x4(false, false, false, false, false, false, true, false, true, false, true, false, true, false, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            uint a0 = (1859811087);
+            uint4x4 b0 = uint4x4(1070365918, 1783869452, 830091760, 377157428, 327199016, 90384229, 1154649706, 376758501, 1079802834, 2054742898, 1328349472, 434061447, 951207723, 598695892, 975131651, 1714007943);
+            bool4x4 r0 = bool4x4(true, true, true, true, true, true, true, true, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            uint a1 = (435914601);
-            uint4x4 b1 = uint4x4(1740383551, 295481939, 724118281, 1475647047, 498308338, 1143209634, 958641291, 2000731827, 1411497891, 671544291, 1406175701, 11205649, 1641719955, 790797058, 953711429, 151946503);
-            bool4x4 r1 = bool4x4(false, true, false, false, false, false, false, false, false, false, false, true, false, false, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            uint a1 = (177416473);
+            uint4x4 b1 = uint4x4(1267232721, 31082860, 216791741, 119054289, 1905107583, 89559116, 55041824, 691334141, 462326883, 1658303669, 914628512, 1134364322, 1677134711, 1955614770, 2067009301, 1454405405);
+            bool4x4 r1 = bool4x4(false, true, false, true, false, true, true, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            uint a2 = (860001859);
-            uint4x4 b2 = uint4x4(1379512836, 26228610, 2011464216, 1948532854, 1999299512, 463829378, 376529353, 2138085873, 1267905979, 1980491659, 2007212190, 1922110149, 1854440946, 1842544599, 2090966131, 1162203618);
-            bool4x4 r2 = bool4x4(false, true, false, false, false, true, true, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            uint a2 = (299467282);
+            uint4x4 b2 = uint4x4(1584922149, 561776357, 564147844, 398216936, 1478439642, 958973988, 725612832, 1586062302, 1992817431, 732550238, 1151725147, 11183347, 643483664, 1846311608, 999376922, 1029876878);
+            bool4x4 r2 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, true, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            uint a3 = (362170602);
-            uint4x4 b3 = uint4x4(1083237600, 866971621, 1939563461, 1229525341, 873556803, 2037543687, 1943844599, 1912597611, 1338287553, 1349271210, 900729654, 1913732067, 899986058, 913882967, 1551015924, 1654431857);
-            bool4x4 r3 = bool4x4(false, false, false, false, false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            uint a3 = (1092702918);
+            uint4x4 b3 = uint4x4(281884284, 1033936590, 1197933362, 1740756798, 1312741982, 1694310336, 775049936, 1833306934, 2012355780, 579564207, 240021194, 1389877826, 1550151770, 99128128, 1408823818, 1127139689);
+            bool4x4 r3 = bool4x4(true, true, false, false, false, false, true, false, false, true, true, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_add_wide_wide()
         {
-            uint4x4 a0 = uint4x4(225914922, 622990175, 729236185, 1783579909, 1708861806, 380354128, 1029189209, 1403268164, 1141783501, 373364088, 48999294, 2090032850, 772555923, 557651823, 793305044, 1662875947);
-            uint4x4 b0 = uint4x4(1983696599, 1828130431, 1955603448, 200546650, 731457904, 998973978, 1620597307, 1031552425, 1402512585, 1734429792, 841221283, 289477406, 1099919690, 1277992402, 760042536, 101576399);
-            uint4x4 r0 = uint4x4(2209611521, 2451120606, 2684839633, 1984126559, 2440319710, 1379328106, 2649786516, 2434820589, 2544296086, 2107793880, 890220577, 2379510256, 1872475613, 1835644225, 1553347580, 1764452346);
-            TestUtils.AreEqual(a0 + b0, r0);
+            uint4x4 a0 = uint4x4(2135171378, 21433296, 1954723494, 683604307, 1054212315, 1762680995, 1963655852, 1257853062, 2043493600, 976898058, 1915056423, 121374462, 1218855698, 700538222, 1702057277, 1788251699);
+            uint4x4 b0 = uint4x4(1013431952, 366718162, 359290756, 1393163294, 1962236872, 1263270041, 1862666629, 1077447887, 821693806, 487316539, 350922520, 1583012528, 1951595076, 1024851344, 874302782, 1383969588);
+            uint4x4 r0 = uint4x4(3148603330, 388151458, 2314014250, 2076767601, 3016449187, 3025951036, 3826322481, 2335300949, 2865187406, 1464214597, 2265978943, 1704386990, 3170450774, 1725389566, 2576360059, 3172221287);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            uint4x4 a1 = uint4x4(660106064, 1225440955, 1931181602, 1833378287, 572899044, 432731205, 1080660284, 162247952, 1179612393, 332290625, 2138805007, 1032920934, 2041147396, 1055574508, 1397951625, 1554725253);
-            uint4x4 b1 = uint4x4(376929182, 1880916902, 973832289, 1558313950, 269872091, 848751182, 1843435630, 1711283984, 5419699, 542605492, 1954462654, 1532177286, 333512769, 1776800142, 505587507, 948819270);
-            uint4x4 r1 = uint4x4(1037035246, 3106357857, 2905013891, 3391692237, 842771135, 1281482387, 2924095914, 1873531936, 1185032092, 874896117, 4093267661, 2565098220, 2374660165, 2832374650, 1903539132, 2503544523);
-            TestUtils.AreEqual(a1 + b1, r1);
+            uint4x4 a1 = uint4x4(1534939160, 398651016, 1674272498, 374510467, 824322986, 1217622199, 1122376670, 642613771, 1097903998, 359042741, 929182687, 1713065399, 892057490, 1295346111, 1806236181, 1838589664);
+            uint4x4 b1 = uint4x4(1767968088, 900721406, 1659790033, 1792273749, 443844328, 633981449, 2010244807, 335566991, 521931102, 544297835, 1681549647, 1784248858, 585904415, 3128418, 1806236610, 179909533);
+            uint4x4 r1 = uint4x4(3302907248, 1299372422, 3334062531, 2166784216, 1268167314, 1851603648, 3132621477, 978180762, 1619835100, 903340576, 2610732334, 3497314257, 1477961905, 1298474529, 3612472791, 2018499197);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            uint4x4 a2 = uint4x4(1216065604, 338867914, 395156352, 1247854470, 1716617945, 1161530748, 408490078, 1356300769, 937671738, 98380009, 427751911, 110255039, 1491491895, 1987253153, 2065741428, 160362325);
-            uint4x4 b2 = uint4x4(278777729, 652260027, 1669834909, 167951212, 962533785, 1926610850, 1241281668, 1076603940, 993851486, 787885345, 1120270455, 853127057, 1840747316, 1597668833, 56578145, 67311537);
-            uint4x4 r2 = uint4x4(1494843333, 991127941, 2064991261, 1415805682, 2679151730, 3088141598, 1649771746, 2432904709, 1931523224, 886265354, 1548022366, 963382096, 3332239211, 3584921986, 2122319573, 227673862);
-            TestUtils.AreEqual(a2 + b2, r2);
+            uint4x4 a2 = uint4x4(173985173, 1875814528, 1464015613, 1550659036, 447183339, 1810477200, 1280783968, 460635858, 1308981305, 2074430993, 515260041, 454786901, 54902689, 8663916, 364443922, 2133521215);
+            uint4x4 b2 = uint4x4(378711407, 195687764, 357131656, 383703567, 1332107956, 1471212095, 1634876660, 1356094538, 364971231, 1180126175, 1243953864, 2000873160, 761885805, 1088368083, 371382049, 1165570023);
+            uint4x4 r2 = uint4x4(552696580, 2071502292, 1821147269, 1934362603, 1779291295, 3281689295, 2915660628, 1816730396, 1673952536, 3254557168, 1759213905, 2455660061, 816788494, 1097031999, 735825971, 3299091238);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            uint4x4 a3 = uint4x4(862630485, 1780169225, 1504567716, 1316127632, 905048876, 973471194, 792931906, 1123687208, 1124695647, 839128404, 407207498, 521067359, 168522690, 1308251779, 1830065403, 249693431);
-            uint4x4 b3 = uint4x4(1631395582, 801882555, 1657471572, 1657261131, 164339413, 1176271222, 1253793731, 799865728, 2126454215, 404100139, 766839908, 95795149, 1633224504, 701892683, 1797669284, 1660039800);
-            uint4x4 r3 = uint4x4(2494026067, 2582051780, 3162039288, 2973388763, 1069388289, 2149742416, 2046725637, 1923552936, 3251149862, 1243228543, 1174047406, 616862508, 1801747194, 2010144462, 3627734687, 1909733231);
-            TestUtils.AreEqual(a3 + b3, r3);
+            uint4x4 a3 = uint4x4(752738311, 459996276, 134430279, 1019035025, 1118755713, 97114496, 2018556094, 503464890, 125268557, 841630760, 1879289264, 1812133139, 2071408153, 140785075, 348467740, 19259645);
+            uint4x4 b3 = uint4x4(1037712666, 743665263, 446926007, 740772342, 2122822821, 1744558378, 241853304, 1404664477, 2086735220, 1441264950, 658463489, 1077514956, 2022425015, 702129808, 462290953, 75801290);
+            uint4x4 r3 = uint4x4(1790450977, 1203661539, 581356286, 1759807367, 3241578534, 1841672874, 2260409398, 1908129367, 2212003777, 2282895710, 2537752753, 2889648095, 4093833168, 842914883, 810758693, 95060935);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_add_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(395461163, 1754549897, 490977997, 82076982, 111030504, 1375953840, 372298610, 1386457204, 259325464, 1709985405, 1057574070, 1012884785, 1168371570, 1287234389, 213037110, 1659776711);
-            uint b0 = (420967776);
-            uint4x4 r0 = uint4x4(816428939, 2175517673, 911945773, 503044758, 531998280, 1796921616, 793266386, 1807424980, 680293240, 2130953181, 1478541846, 1433852561, 1589339346, 1708202165, 634004886, 2080744487);
-            TestUtils.AreEqual(a0 + b0, r0);
+            uint4x4 a0 = uint4x4(665815972, 1783729250, 1591678394, 1284528538, 977850224, 71069732, 1138577680, 1200356017, 565982008, 1246759684, 1088001167, 57252642, 678921480, 625943813, 512157429, 1470648741);
+            uint b0 = (1334043849);
+            uint4x4 r0 = uint4x4(1999859821, 3117773099, 2925722243, 2618572387, 2311894073, 1405113581, 2472621529, 2534399866, 1900025857, 2580803533, 2422045016, 1391296491, 2012965329, 1959987662, 1846201278, 2804692590);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            uint4x4 a1 = uint4x4(673086186, 1096944220, 992891902, 1935451029, 1043851553, 616134421, 289220457, 352074636, 301617568, 1270879501, 2052499651, 1370864779, 153976613, 1701924280, 589837480, 248842959);
-            uint b1 = (1322018946);
-            uint4x4 r1 = uint4x4(1995105132, 2418963166, 2314910848, 3257469975, 2365870499, 1938153367, 1611239403, 1674093582, 1623636514, 2592898447, 3374518597, 2692883725, 1475995559, 3023943226, 1911856426, 1570861905);
-            TestUtils.AreEqual(a1 + b1, r1);
+            uint4x4 a1 = uint4x4(1490096953, 182608093, 1707296407, 1703724354, 1333833947, 653973063, 1139546735, 1834005844, 184572739, 1980578280, 1858520040, 97099208, 421437295, 1251829854, 166844260, 1568146789);
+            uint b1 = (1467033531);
+            uint4x4 r1 = uint4x4(2957130484, 1649641624, 3174329938, 3170757885, 2800867478, 2121006594, 2606580266, 3301039375, 1651606270, 3447611811, 3325553571, 1564132739, 1888470826, 2718863385, 1633877791, 3035180320);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            uint4x4 a2 = uint4x4(484993361, 85820995, 1189928295, 1893400163, 1567706976, 524382326, 1393379263, 263421584, 718205752, 788841747, 1452077406, 977558272, 2032298724, 175331265, 936453546, 67207903);
-            uint b2 = (1718597830);
-            uint4x4 r2 = uint4x4(2203591191, 1804418825, 2908526125, 3611997993, 3286304806, 2242980156, 3111977093, 1982019414, 2436803582, 2507439577, 3170675236, 2696156102, 3750896554, 1893929095, 2655051376, 1785805733);
-            TestUtils.AreEqual(a2 + b2, r2);
+            uint4x4 a2 = uint4x4(82548613, 1464065228, 716600557, 831997894, 861575416, 1614335536, 1590793088, 240051362, 656307111, 1116911778, 1508531454, 1488841996, 651080626, 850104335, 697550029, 1501177275);
+            uint b2 = (533562157);
+            uint4x4 r2 = uint4x4(616110770, 1997627385, 1250162714, 1365560051, 1395137573, 2147897693, 2124355245, 773613519, 1189869268, 1650473935, 2042093611, 2022404153, 1184642783, 1383666492, 1231112186, 2034739432);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            uint4x4 a3 = uint4x4(1811153820, 512338140, 1704143735, 607493781, 1524599870, 1138415476, 201757540, 1877485993, 1956896583, 105074339, 467282606, 15592425, 105348851, 8061125, 467736590, 764041826);
-            uint b3 = (1685086329);
-            uint4x4 r3 = uint4x4(3496240149, 2197424469, 3389230064, 2292580110, 3209686199, 2823501805, 1886843869, 3562572322, 3641982912, 1790160668, 2152368935, 1700678754, 1790435180, 1693147454, 2152822919, 2449128155);
-            TestUtils.AreEqual(a3 + b3, r3);
+            uint4x4 a3 = uint4x4(308656842, 1236049353, 1462299846, 1109575265, 209902, 1129756187, 452131659, 1598006341, 793277485, 237975099, 1427541287, 1103256809, 144544713, 2142413477, 921156907, 636589500);
+            uint b3 = (1397806846);
+            uint4x4 r3 = uint4x4(1706463688, 2633856199, 2860106692, 2507382111, 1398016748, 2527563033, 1849938505, 2995813187, 2191084331, 1635781945, 2825348133, 2501063655, 1542351559, 3540220323, 2318963753, 2034396346);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_add_scalar_wide()
         {
-            uint a0 = (1473943965);
-            uint4x4 b0 = uint4x4(1936000902, 925343902, 225370251, 1572924486, 2001194555, 1391317668, 136118038, 444753975, 2074990818, 460687149, 1198135619, 279061028, 593775297, 424532120, 908675040, 876636170);
-            uint4x4 r0 = uint4x4(3409944867, 2399287867, 1699314216, 3046868451, 3475138520, 2865261633, 1610062003, 1918697940, 3548934783, 1934631114, 2672079584, 1753004993, 2067719262, 1898476085, 2382619005, 2350580135);
-            TestUtils.AreEqual(a0 + b0, r0);
+            uint a0 = (359966320);
+            uint4x4 b0 = uint4x4(2146146202, 767103309, 851002415, 311531406, 1491262941, 1016891373, 1954228994, 1671335850, 727870747, 551151834, 1390261152, 1699060326, 115021619, 1964440175, 440700758, 1556692550);
+            uint4x4 r0 = uint4x4(2506112522, 1127069629, 1210968735, 671497726, 1851229261, 1376857693, 2314195314, 2031302170, 1087837067, 911118154, 1750227472, 2059026646, 474987939, 2324406495, 800667078, 1916658870);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            uint a1 = (709867944);
-            uint4x4 b1 = uint4x4(1792577509, 711770554, 1233918441, 2127535094, 522722338, 1814400879, 1677867823, 1983081877, 1906509250, 424528305, 1567801821, 269872022, 1244240055, 1996529632, 1070708851, 1656346128);
-            uint4x4 r1 = uint4x4(2502445453, 1421638498, 1943786385, 2837403038, 1232590282, 2524268823, 2387735767, 2692949821, 2616377194, 1134396249, 2277669765, 979739966, 1954107999, 2706397576, 1780576795, 2366214072);
-            TestUtils.AreEqual(a1 + b1, r1);
+            uint a1 = (185414255);
+            uint4x4 b1 = uint4x4(933106731, 1217866784, 729761881, 1742597318, 1090109152, 1467373815, 1066072609, 138237856, 634834665, 993603553, 347587889, 2050191349, 670698672, 1658205080, 1874808705, 2082982954);
+            uint4x4 r1 = uint4x4(1118520986, 1403281039, 915176136, 1928011573, 1275523407, 1652788070, 1251486864, 323652111, 820248920, 1179017808, 533002144, 2235605604, 856112927, 1843619335, 2060222960, 2268397209);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            uint a2 = (49280752);
-            uint4x4 b2 = uint4x4(1637105710, 76460736, 2102038715, 73770211, 646163820, 1587041706, 58291919, 658832909, 567659861, 547192443, 864213647, 2003660887, 1355701656, 134865512, 181858417, 1178369208);
-            uint4x4 r2 = uint4x4(1686386462, 125741488, 2151319467, 123050963, 695444572, 1636322458, 107572671, 708113661, 616940613, 596473195, 913494399, 2052941639, 1404982408, 184146264, 231139169, 1227649960);
-            TestUtils.AreEqual(a2 + b2, r2);
+            uint a2 = (869839589);
+            uint4x4 b2 = uint4x4(118460267, 2126166073, 1826004041, 1976984739, 1612682951, 1509218893, 283188530, 175981795, 290469072, 90401332, 92990995, 1697612984, 10695923, 584353656, 1985077669, 261483046);
+            uint4x4 r2 = uint4x4(988299856, 2996005662, 2695843630, 2846824328, 2482522540, 2379058482, 1153028119, 1045821384, 1160308661, 960240921, 962830584, 2567452573, 880535512, 1454193245, 2854917258, 1131322635);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            uint a3 = (1585377325);
-            uint4x4 b3 = uint4x4(1218151815, 139595287, 1814806489, 1493892518, 1413278564, 1258426670, 694986075, 1737326256, 94685305, 966789363, 715799864, 174881953, 830750763, 611641164, 127426768, 770198547);
-            uint4x4 r3 = uint4x4(2803529140, 1724972612, 3400183814, 3079269843, 2998655889, 2843803995, 2280363400, 3322703581, 1680062630, 2552166688, 2301177189, 1760259278, 2416128088, 2197018489, 1712804093, 2355575872);
-            TestUtils.AreEqual(a3 + b3, r3);
+            uint a3 = (1433592717);
+            uint4x4 b3 = uint4x4(1587664734, 1494226579, 1815078437, 764852649, 1056037050, 1447213141, 1932413453, 173293550, 856428276, 23287820, 1606641105, 1768628148, 57172075, 1040430401, 1662936094, 1763561019);
+            uint4x4 r3 = uint4x4(3021257451, 2927819296, 3248671154, 2198445366, 2489629767, 2880805858, 3366006170, 1606886267, 2290020993, 1456880537, 3040233822, 3202220865, 1490764792, 2474023118, 3096528811, 3197153736);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_sub_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1868671979, 1039843381, 1298473433, 1136791865, 175240759, 1588860513, 1450399140, 2133595841, 1740046500, 657512959, 1423325650, 278864421, 1771875899, 1407726279, 223564929, 980621018);
-            uint4x4 b0 = uint4x4(1570102425, 1116042949, 1307533133, 57294526, 134828678, 1111898564, 452675165, 1844730313, 512848031, 924453828, 552946403, 783934119, 77913045, 495222828, 711207747, 922411382);
-            uint4x4 r0 = uint4x4(298569554, 4218767728, 4285907596, 1079497339, 40412081, 476961949, 997723975, 288865528, 1227198469, 4028026427, 870379247, 3789897598, 1693962854, 912503451, 3807324478, 58209636);
-            TestUtils.AreEqual(a0 - b0, r0);
+            uint4x4 a0 = uint4x4(1410318491, 1097280168, 1827039044, 28881338, 328720965, 875487868, 212936325, 231977215, 1740021315, 2011295463, 48079003, 591379285, 1125909359, 1842588095, 848561896, 614448464);
+            uint4x4 b0 = uint4x4(1315897366, 799052018, 1580289673, 1094686261, 1954325726, 1197734816, 229886366, 915679176, 1746884850, 918743925, 1007797419, 257421324, 287249342, 1617287463, 1653916102, 123586847);
+            uint4x4 r0 = uint4x4(94421125, 298228150, 246749371, 3229162373, 2669362535, 3972720348, 4278017255, 3611265335, 4288103761, 1092551538, 3335248880, 333957961, 838660017, 225300632, 3489613090, 490861617);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            uint4x4 a1 = uint4x4(868290646, 1969966556, 1209857990, 2014347946, 1795362375, 446375911, 2050518174, 1917778262, 563242401, 1773082533, 757336997, 1012260486, 1291238004, 1491650697, 2047290501, 1981213244);
-            uint4x4 b1 = uint4x4(734907931, 2119678714, 814717039, 382823142, 748799197, 63546200, 1229362002, 513137254, 1517164897, 1464754363, 2061563582, 1315725576, 255909262, 1220560388, 641569037, 1611516659);
-            uint4x4 r1 = uint4x4(133382715, 4145255138, 395140951, 1631524804, 1046563178, 382829711, 821156172, 1404641008, 3341044800, 308328170, 2990740711, 3991502206, 1035328742, 271090309, 1405721464, 369696585);
-            TestUtils.AreEqual(a1 - b1, r1);
+            uint4x4 a1 = uint4x4(2067598029, 1618238416, 318516219, 1090119767, 1991095823, 949592162, 1951912339, 1457818751, 1642553126, 2114366549, 1420516260, 596841760, 724518081, 1820626306, 1885185225, 246124365);
+            uint4x4 b1 = uint4x4(502107404, 672875302, 1256481116, 1975569142, 1794443030, 1327558915, 330955394, 1596041731, 1069074732, 1120817099, 2076417364, 402521072, 839858844, 1539789702, 559077522, 822288510);
+            uint4x4 r1 = uint4x4(1565490625, 945363114, 3357002399, 3409517921, 196652793, 3917000543, 1620956945, 4156744316, 573478394, 993549450, 3639066192, 194320688, 4179626533, 280836604, 1326107703, 3718803151);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            uint4x4 a2 = uint4x4(1301691307, 243607918, 630192256, 634872323, 645983732, 1276575100, 106570492, 880899592, 307618430, 2079464074, 1085608861, 165074385, 1870131092, 828440710, 1470549989, 483016288);
-            uint4x4 b2 = uint4x4(666449131, 715491209, 13917127, 925329461, 274689817, 674526453, 215318221, 542513897, 894589025, 853883679, 1663350302, 954210711, 654240980, 953948728, 793787558, 1153793338);
-            uint4x4 r2 = uint4x4(635242176, 3823084005, 616275129, 4004510158, 371293915, 602048647, 4186219567, 338385695, 3707996701, 1225580395, 3717225855, 3505830970, 1215890112, 4169459278, 676762431, 3624190246);
-            TestUtils.AreEqual(a2 - b2, r2);
+            uint4x4 a2 = uint4x4(1339877262, 1277620434, 759131597, 597162957, 656765083, 1075131749, 58205257, 452992632, 976914238, 2122217984, 1687033200, 850554234, 2052749291, 2095840868, 1583338457, 90383917);
+            uint4x4 b2 = uint4x4(751901021, 1858312568, 1706585560, 483540199, 35726321, 401119620, 1411304017, 794953965, 246546364, 1926970811, 1641115012, 2138664312, 1215717344, 1626141022, 1697813712, 1432018301);
+            uint4x4 r2 = uint4x4(587976241, 3714275162, 3347513333, 113622758, 621038762, 674012129, 2941868536, 3953005963, 730367874, 195247173, 45918188, 3006857218, 837031947, 469699846, 4180492041, 2953332912);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            uint4x4 a3 = uint4x4(915069600, 909338540, 985754084, 2030428645, 882292574, 818770631, 784988482, 1209155084, 1522493317, 912941958, 709588610, 525907798, 501374746, 992843764, 1332960064, 1602263119);
-            uint4x4 b3 = uint4x4(982342899, 1384069043, 1202287053, 549325274, 847753072, 482647180, 337734033, 1075919783, 949136800, 1152701476, 1127329565, 1785824652, 1436880854, 2123434923, 1828407242, 1999679821);
-            uint4x4 r3 = uint4x4(4227693997, 3820236793, 4078434327, 1481103371, 34539502, 336123451, 447254449, 133235301, 573356517, 4055207778, 3877226341, 3035050442, 3359461188, 3164376137, 3799520118, 3897550594);
-            TestUtils.AreEqual(a3 - b3, r3);
+            uint4x4 a3 = uint4x4(1548318665, 2135165300, 1200818607, 836910134, 471911775, 464052016, 1001285615, 344315815, 386866212, 562875464, 584343185, 1282738957, 2048830434, 1953046924, 1758228339, 1047685389);
+            uint4x4 b3 = uint4x4(127303652, 1200011318, 1746989830, 2083451213, 1630826350, 1384789939, 195722140, 1460697711, 1025672341, 1638638861, 466637201, 1846245897, 1286439769, 1690897900, 1118505582, 1106435018);
+            uint4x4 r3 = uint4x4(1421015013, 935153982, 3748796073, 3048426217, 3136052721, 3374229373, 805563475, 3178585400, 3656161167, 3219203899, 117705984, 3731460356, 762390665, 262149024, 639722757, 4236217667);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_sub_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1288845994, 655887040, 1531244714, 1226406872, 781343578, 1101968049, 1008186509, 500762411, 285218449, 2089960157, 1323018452, 809116994, 396220529, 1342637736, 948654870, 809677454);
-            uint b0 = (16195101);
-            uint4x4 r0 = uint4x4(1272650893, 639691939, 1515049613, 1210211771, 765148477, 1085772948, 991991408, 484567310, 269023348, 2073765056, 1306823351, 792921893, 380025428, 1326442635, 932459769, 793482353);
-            TestUtils.AreEqual(a0 - b0, r0);
+            uint4x4 a0 = uint4x4(1508669340, 1594795463, 266707545, 643102647, 287705008, 1475644328, 1113286221, 979450511, 2082174113, 1108005498, 304369206, 999244508, 1806482044, 1994553647, 2101812429, 1482736902);
+            uint b0 = (998008471);
+            uint4x4 r0 = uint4x4(510660869, 596786992, 3563666370, 3940061472, 3584663833, 477635857, 115277750, 4276409336, 1084165642, 109997027, 3601328031, 1236037, 808473573, 996545176, 1103803958, 484728431);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            uint4x4 a1 = uint4x4(990465709, 1135876784, 1418748403, 559674210, 457487332, 720477767, 479616263, 41168718, 2060304042, 267982041, 1927560833, 1729968951, 2142869921, 1389985652, 382753795, 1605282528);
-            uint b1 = (259130138);
-            uint4x4 r1 = uint4x4(731335571, 876746646, 1159618265, 300544072, 198357194, 461347629, 220486125, 4077005876, 1801173904, 8851903, 1668430695, 1470838813, 1883739783, 1130855514, 123623657, 1346152390);
-            TestUtils.AreEqual(a1 - b1, r1);
+            uint4x4 a1 = uint4x4(266654115, 1190349300, 958542155, 1185075537, 1738124835, 499527536, 1612473406, 1696960099, 1287292743, 1360229454, 1032360376, 1779621585, 964948785, 1739264125, 94254551, 968533883);
+            uint b1 = (1470212363);
+            uint4x4 r1 = uint4x4(3091409048, 4015104233, 3783297088, 4009830470, 267912472, 3324282469, 142261043, 226747736, 4112047676, 4184984387, 3857115309, 309409222, 3789703718, 269051762, 2919009484, 3793288816);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            uint4x4 a2 = uint4x4(1724899160, 601926424, 367504781, 1352112529, 1770602147, 353407154, 383704143, 2047758197, 126578674, 2071027963, 936845745, 387393948, 397168456, 1841026363, 467256206, 1154086212);
-            uint b2 = (1850309994);
-            uint4x4 r2 = uint4x4(4169556462, 3046583726, 2812162083, 3796769831, 4215259449, 2798064456, 2828361445, 197448203, 2571235976, 220717969, 3381503047, 2832051250, 2841825758, 4285683665, 2911913508, 3598743514);
-            TestUtils.AreEqual(a2 - b2, r2);
+            uint4x4 a2 = uint4x4(2075770560, 1074604044, 1171596880, 1033389665, 1905912138, 1219683758, 372717946, 658343960, 572101777, 361378660, 1043302867, 1535109165, 695707807, 153321516, 1464557635, 308141270);
+            uint b2 = (946189008);
+            uint4x4 r2 = uint4x4(1129581552, 128415036, 225407872, 87200657, 959723130, 273494750, 3721496234, 4007122248, 3920880065, 3710156948, 97113859, 588920157, 4044486095, 3502099804, 518368627, 3656919558);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            uint4x4 a3 = uint4x4(24893075, 149698686, 362456498, 729171784, 1706191416, 2082892920, 1051628451, 1185238154, 868523183, 833986008, 1228109323, 918277107, 289832175, 699974505, 940264657, 1351318113);
-            uint b3 = (381529046);
-            uint4x4 r3 = uint4x4(3938331325, 4063136936, 4275894748, 347642738, 1324662370, 1701363874, 670099405, 803709108, 486994137, 452456962, 846580277, 536748061, 4203270425, 318445459, 558735611, 969789067);
-            TestUtils.AreEqual(a3 - b3, r3);
+            uint4x4 a3 = uint4x4(69622833, 1194454863, 1717370179, 323593803, 1407367283, 1095267927, 801717786, 1093626195, 1147895912, 115414874, 80925845, 1347312573, 1117225328, 1516225020, 210114655, 30710625);
+            uint b3 = (668515891);
+            uint4x4 r3 = uint4x4(3696074238, 525938972, 1048854288, 3950045208, 738851392, 426752036, 133201895, 425110304, 479380021, 3741866279, 3707377250, 678796682, 448709437, 847709129, 3836566060, 3657162030);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_sub_scalar_wide()
         {
-            uint a0 = (1882219675);
-            uint4x4 b0 = uint4x4(1239052068, 981624121, 231031979, 368791143, 1127997491, 1469956291, 1352108415, 252406088, 798756155, 1165664847, 490545685, 150040657, 286361006, 1473760294, 1837376960, 1807280648);
-            uint4x4 r0 = uint4x4(643167607, 900595554, 1651187696, 1513428532, 754222184, 412263384, 530111260, 1629813587, 1083463520, 716554828, 1391673990, 1732179018, 1595858669, 408459381, 44842715, 74939027);
-            TestUtils.AreEqual(a0 - b0, r0);
+            uint a0 = (893369501);
+            uint4x4 b0 = uint4x4(2051906184, 1699714311, 442603706, 1735141684, 274533585, 811580259, 1196354320, 1524097023, 533621527, 2080845793, 143958837, 1620668660, 1135989346, 1367044745, 554088609, 552670373);
+            uint4x4 r0 = uint4x4(3136430613, 3488622486, 450765795, 3453195113, 618835916, 81789242, 3991982477, 3664239774, 359747974, 3107491004, 749410664, 3567668137, 4052347451, 3821292052, 339280892, 340699128);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            uint a1 = (2106402623);
-            uint4x4 b1 = uint4x4(1329763512, 672191500, 1313234602, 1240091402, 1294929405, 135030915, 44113712, 1587631264, 1611210200, 759680027, 135910447, 91389671, 418928701, 2083388563, 1015856505, 1206189809);
-            uint4x4 r1 = uint4x4(776639111, 1434211123, 793168021, 866311221, 811473218, 1971371708, 2062288911, 518771359, 495192423, 1346722596, 1970492176, 2015012952, 1687473922, 23014060, 1090546118, 900212814);
-            TestUtils.AreEqual(a1 - b1, r1);
+            uint a1 = (1265516124);
+            uint4x4 b1 = uint4x4(1254902543, 1857695581, 1619865274, 1313559400, 99812999, 843597298, 420111239, 1299949060, 531009038, 1103306550, 104920105, 1137308312, 1207332725, 103438360, 1157123503, 1174401240);
+            uint4x4 r1 = uint4x4(10613581, 3702787839, 3940618146, 4246924020, 1165703125, 421918826, 845404885, 4260534360, 734507086, 162209574, 1160596019, 128207812, 58183399, 1162077764, 108392621, 91114884);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            uint a2 = (126282592);
-            uint4x4 b2 = uint4x4(1838758292, 233338944, 1335964577, 608966914, 1602731981, 1283704696, 592976983, 1015775895, 2026981165, 1075777505, 1001712578, 769868535, 2043050235, 1135319388, 697447885, 144391093);
-            uint4x4 r2 = uint4x4(2582491596, 4187910944, 3085285311, 3812282974, 2818517907, 3137545192, 3828272905, 3405473993, 2394268723, 3345472383, 3419537310, 3651381353, 2378199653, 3285930500, 3723802003, 4276858795);
-            TestUtils.AreEqual(a2 - b2, r2);
+            uint a2 = (701247193);
+            uint4x4 b2 = uint4x4(1498366995, 467017290, 109208355, 1594646461, 1252691221, 919863765, 2826939, 1969148647, 1576198850, 2075870798, 1610641273, 1783880129, 59074246, 1766624573, 521313783, 1333637752);
+            uint4x4 r2 = uint4x4(3497847494, 234229903, 592038838, 3401568028, 3743523268, 4076350724, 698420254, 3027065842, 3420015639, 2920343691, 3385573216, 3212334360, 642172947, 3229589916, 179933410, 3662576737);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            uint a3 = (705911427);
-            uint4x4 b3 = uint4x4(1258374194, 2091623931, 844260102, 642128273, 2091606310, 846593206, 186918267, 928643526, 1664270938, 710276264, 1216197968, 161016417, 379827454, 1229759931, 1622172827, 1091334495);
-            uint4x4 r3 = uint4x4(3742504529, 2909254792, 4156618621, 63783154, 2909272413, 4154285517, 518993160, 4072235197, 3336607785, 4290602459, 3784680755, 544895010, 326083973, 3771118792, 3378705896, 3909544228);
-            TestUtils.AreEqual(a3 - b3, r3);
+            uint a3 = (509364704);
+            uint4x4 b3 = uint4x4(516658115, 2089980466, 436174846, 1727293748, 1952093185, 856117013, 22492467, 435192624, 1891008194, 1855757356, 1091434215, 386788711, 1473772449, 1977407433, 1134318981, 446267420);
+            uint4x4 r3 = uint4x4(4287673885, 2714351534, 73189858, 3077038252, 2852238815, 3948214987, 486872237, 74172080, 2913323806, 2948574644, 3712897785, 122575993, 3330559551, 2826924567, 3670013019, 63097284);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mul_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1175935609, 1626539723, 279996667, 2111031627, 685568193, 1962710767, 1115395046, 152633925, 1493478880, 699700164, 475889768, 1192754186, 1163089838, 2065613335, 518297268, 490653429);
-            uint4x4 b0 = uint4x4(1809898573, 1960664942, 44842581, 1244459472, 324583419, 1868551095, 1741309699, 1510309193, 1799116733, 761205650, 1688324641, 1962825503, 1185791083, 534381819, 1256982490, 1250343185);
-            uint4x4 r0 = uint4x4(3819319909, 2972794938, 3265504599, 3816237040, 4254600251, 1957159385, 1257473458, 462837421, 2953543264, 2041565640, 3502742888, 1551559478, 47148474, 1120315533, 2226602312, 1160790853);
-            TestUtils.AreEqual(a0 * b0, r0);
+            uint4x4 a0 = uint4x4(61417577, 219585476, 1362520891, 1511084277, 1481211272, 58211871, 1459591173, 567624644, 1169935583, 1835691886, 385626539, 85934842, 522856538, 278370196, 289217012, 2083410174);
+            uint4x4 b0 = uint4x4(578042444, 1620527213, 200516468, 309339115, 542853019, 299467282, 1479641221, 1428338601, 1497302909, 1596889147, 427413842, 265122693, 689376654, 1120457204, 516903000, 873091659);
+            uint4x4 r0 = uint4x4(2868103468, 1326150260, 3304073148, 2972110823, 1973926232, 88546350, 3431047833, 3712145508, 556671459, 1098186330, 1848083398, 4236646882, 2005201900, 651971856, 2573806560, 4184807018);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            uint4x4 a1 = uint4x4(1259796407, 1433182720, 1842081955, 541439429, 617509486, 1977755498, 739429397, 731946172, 674019377, 1704250444, 519101640, 528050952, 617144387, 797575104, 126712893, 726162204);
-            uint4x4 b1 = uint4x4(948571728, 769860956, 1989848008, 142244192, 1686528968, 1012517137, 1241614931, 1904734139, 902990410, 1961316299, 379382825, 1635094615, 1811197867, 1241689231, 1576649808, 1576069350);
-            uint4x4 r1 = uint4x4(1230990128, 208943104, 3844005976, 3572516576, 1964896240, 4040218634, 1244691663, 1942618452, 4117342250, 1084060740, 3120282632, 4045397944, 2757204417, 3671020608, 2947188496, 198392616);
-            TestUtils.AreEqual(a1 * b1, r1);
+            uint4x4 a1 = uint4x4(1293162798, 1939730122, 2075923048, 1116477212, 1686101741, 783310758, 248585944, 1093377716, 797038788, 1838048120, 1892922904, 1952024781, 492107602, 1097670675, 2069629919, 20122103);
+            uint4x4 b1 = uint4x4(1353196495, 1384773500, 1596528529, 2122329305, 1033200564, 996795088, 1137754930, 232014195, 1080950243, 1613216909, 463529448, 1781487382, 2101946430, 673144237, 390627073, 964308272);
+            uint4x4 r1 = uint4x4(4175537714, 3758002136, 2245379304, 3535300284, 1443849636, 550781664, 3335949872, 3941859036, 3201362380, 264300824, 4173364672, 1825729694, 4053448156, 3048379351, 2230824159, 4043852112);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            uint4x4 a2 = uint4x4(1981413637, 608754688, 308126979, 1815710885, 1257677304, 143696164, 1858052790, 1223396106, 453844911, 2007846089, 1700215693, 731241545, 420520776, 152716569, 1192272904, 15531299);
-            uint4x4 b2 = uint4x4(712367582, 166823318, 1530256616, 1651114519, 557455972, 936844447, 180237049, 2068958554, 160879196, 1762790505, 676820777, 880413582, 1945571752, 30884088, 1447233845, 1188343325);
-            uint4x4 r2 = uint4x4(2009613142, 956098560, 1498095288, 2459364563, 4277826784, 883950940, 88133382, 223339396, 876540132, 214952561, 210900117, 1818317694, 1882910528, 2209886264, 3930996136, 1642231543);
-            TestUtils.AreEqual(a2 * b2, r2);
+            uint4x4 a2 = uint4x4(606926492, 1153788131, 1687394746, 1499899200, 380825697, 2058271053, 1791586731, 16536749, 1743482585, 323418416, 826338527, 1127652402, 1548655361, 892665898, 498857854, 52699386);
+            uint4x4 b2 = uint4x4(1332603859, 106394678, 1330334791, 1720890701, 1860846228, 1499909622, 1236623401, 1532585255, 46356001, 1355750416, 470193265, 829633350, 158242740, 2121460265, 443332975, 1295474668);
+            uint4x4 r2 = uint4x4(1004304020, 3964664802, 638638742, 892728384, 2820012564, 1744222462, 3318371427, 2734565211, 2648780793, 1971376896, 936606319, 4269976492, 3894449076, 3059182266, 4018298274, 2504076408);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            uint4x4 a3 = uint4x4(960366764, 1178587147, 632860243, 1596607160, 1234763172, 703638995, 235686661, 1924525472, 587801761, 787844320, 1716287366, 2023337304, 2128609684, 1893786189, 1377540047, 458841615);
-            uint4x4 b3 = uint4x4(401686148, 27061815, 565122854, 1291246408, 53135925, 2109129315, 1738690152, 436907338, 876100197, 2113317344, 1110855346, 1304592860, 1875824753, 510038874, 1784826797, 1957927106);
-            uint4x4 r3 = uint4x4(671228080, 1020521565, 248534354, 1587571648, 2109205236, 919543449, 4026793992, 2724974656, 2619338117, 4028310528, 802811692, 3910815648, 1933636180, 28296722, 1700608995, 1510944606);
-            TestUtils.AreEqual(a3 * b3, r3);
+            uint4x4 a3 = uint4x4(1013078461, 389868596, 2131450446, 692103096, 1728534690, 1232391212, 552742042, 2137384298, 2085409681, 1077145299, 67208657, 137969745, 204951457, 705222964, 437668893, 1222032847);
+            uint4x4 b3 = uint4x4(1966486133, 1063465732, 986983038, 1614187644, 117157419, 32076676, 452115159, 1402967848, 1712569067, 2023273918, 811855334, 136733227, 324154781, 1529152006, 1525922582, 2084976369);
+            uint4x4 r3 = uint4x4(492301665, 2753432784, 3640606308, 3084508448, 4283432758, 1476201136, 1834965334, 3709034128, 1711312923, 330198938, 4061378246, 1614991259, 1710893757, 4000022328, 4178229630, 147610079);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mul_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(261135546, 971766724, 863155086, 735149234, 174946595, 657836706, 1940866736, 620537339, 937000174, 1113538456, 1262039542, 326741371, 1102277667, 1900656642, 174463170, 313110653);
-            uint b0 = (1844253884);
-            uint4x4 r0 = uint4x4(77832344, 2171352048, 1857614920, 3328146104, 1111667124, 2437904120, 120432960, 1860206676, 4291843784, 3332543392, 3030771880, 3368550996, 1201481140, 677202296, 579032696, 2468372428);
-            TestUtils.AreEqual(a0 * b0, r0);
+            uint4x4 a0 = uint4x4(871746615, 492532311, 570557670, 2142306629, 1610315153, 1526163563, 118471734, 257439514, 364291059, 1186560810, 1584938026, 1357601203, 638897141, 268562104, 1007838321, 1163240135);
+            uint b0 = (442064533);
+            uint4x4 r0 = uint4x4(338365955, 1081376419, 2565819870, 3279557417, 3421481829, 4119466055, 3456786286, 513646114, 1627104879, 1523063666, 1353478258, 3777359663, 2536221593, 3032449304, 484373445, 2580271059);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            uint4x4 a1 = uint4x4(1268446779, 117429572, 1667406709, 634278255, 238221445, 1056054287, 1442995733, 307706329, 1568700496, 1962476657, 2092215812, 963102134, 618348527, 1635834887, 314302415, 225783707);
-            uint b1 = (1797229909);
-            uint4x4 r1 = uint4x4(3996598423, 2057585556, 159911641, 1909206235, 2028520745, 3936916475, 136695289, 3592010253, 3483107984, 3268392581, 2857499476, 979624814, 2717113691, 3939625299, 1370968763, 2414226807);
-            TestUtils.AreEqual(a1 * b1, r1);
+            uint4x4 a1 = uint4x4(1619806399, 1127580168, 464517916, 1508043166, 745488654, 636691139, 1851670006, 357357967, 1095280227, 702779195, 945802744, 1464398841, 51061000, 802418971, 407442471, 638315697);
+            uint b1 = (1444659979);
+            uint4x4 r1 = uint4x4(3616906549, 204516952, 550116916, 1818059722, 936342938, 25036641, 3023113106, 1880770085, 4081946433, 270145673, 1865007528, 3007063731, 3346760536, 4271631657, 4019884717, 611909275);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            uint4x4 a2 = uint4x4(630752565, 1275677027, 1783907500, 1991315521, 482300294, 464698678, 1996778461, 2099942127, 686789014, 1500083042, 1727898300, 700264112, 1794172384, 628052201, 945258559, 908251633);
-            uint b2 = (925995275);
-            uint4x4 r2 = uint4x4(3810901575, 3622451777, 1701863268, 2000782283, 4262160066, 1060091730, 3197489023, 4140609349, 2339846002, 3047454518, 2685303316, 2990715280, 711835808, 875918083, 276115893, 42567259);
-            TestUtils.AreEqual(a2 * b2, r2);
+            uint4x4 a2 = uint4x4(1889264235, 1343048690, 2144106255, 1634890111, 425282134, 997231492, 676185747, 1562817045, 379402138, 866868743, 624571724, 889442510, 39498317, 219559094, 211033504, 2076045580);
+            uint b2 = (584402164);
+            uint4x4 r2 = uint4x4(1438595580, 691186344, 737965644, 2481252620, 644329976, 690489808, 3509538844, 94916612, 130016968, 3995237036, 1642003568, 2726280280, 3923731812, 1721275768, 992656512, 2349657968);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            uint4x4 a3 = uint4x4(1110424325, 384147064, 1943186204, 1774340938, 1606032439, 2063196084, 1567643000, 427442905, 753729746, 842843696, 1996134571, 1804918852, 318651647, 1625187216, 947737127, 100957664);
-            uint b3 = (1399396466);
-            uint4x4 r3 = uint4x4(1188479034, 2689847664, 2522272376, 787379956, 2064955518, 1293057576, 440487792, 2495028386, 2780827012, 3948200288, 2299200550, 3845537352, 4236644750, 2188236320, 1048657246, 1521290688);
-            TestUtils.AreEqual(a3 * b3, r3);
+            uint4x4 a3 = uint4x4(1838674974, 680562697, 469850888, 1511187096, 1844059526, 2003324819, 866371311, 1784948662, 515034926, 823384368, 1320152637, 940524320, 313230059, 384141839, 1177495555, 719285506);
+            uint b3 = (1056841954);
+            uint4x4 r3 = uint4x4(946684540, 4170074098, 646143248, 2211383856, 189976652, 31629254, 1385529086, 3958754988, 660907676, 3964386400, 2610819546, 3214754368, 3136353142, 2227683646, 1201386150, 1792703428);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mul_scalar_wide()
         {
-            uint a0 = (2057129833);
-            uint4x4 b0 = uint4x4(1333508928, 2103362674, 555404300, 702651820, 1875407260, 237922996, 1326594064, 521612288, 1229721086, 423926724, 1922937387, 852227720, 1585292254, 461448775, 879828777, 771011663);
-            uint4x4 r0 = uint4x4(516459840, 2020065474, 3025233132, 2007875468, 3102850300, 1549488084, 261484176, 3809807360, 692657966, 2020171620, 1862817955, 3357808072, 3527391246, 1918082079, 287862481, 2541049191);
-            TestUtils.AreEqual(a0 * b0, r0);
+            uint a0 = (1152242766);
+            uint4x4 b0 = uint4x4(1276636134, 2105929407, 499007702, 124002565, 1956335172, 1288034953, 832676555, 337389733, 99268757, 2005055247, 2011389505, 1348110859, 399689191, 2007606374, 2076691289, 1825721194);
+            uint4x4 r0 = uint4x4(2165463060, 999811634, 1179056436, 3493540742, 404105400, 1339492798, 3913201114, 3183347270, 2131796326, 1519334034, 3342961614, 2874551130, 3879114850, 583175956, 980068638, 1831387724);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            uint a1 = (1057882676);
-            uint4x4 b1 = uint4x4(532996060, 621007289, 67063537, 882103331, 1053336271, 1174306132, 1086691717, 1496127863, 2128375630, 2132186065, 1673964852, 517226483, 1022950500, 1299199589, 1354190940, 1933930716);
-            uint4x4 r1 = uint4x4(1606758576, 2340948884, 1856498420, 211377436, 710455308, 3141803280, 3550230788, 618535468, 3320395736, 2183899252, 378377872, 937878364, 3187936336, 1874712196, 3705998000, 1157932208);
-            TestUtils.AreEqual(a1 * b1, r1);
+            uint a1 = (769885235);
+            uint4x4 b1 = uint4x4(153314735, 1066325369, 84289667, 984486192, 1325213504, 1643957457, 1576395620, 2095980601, 907671947, 836919582, 1412159342, 2037926630, 366590562, 493177763, 2058824164, 497936968);
+            uint4x4 r1 = uint4x4(4289232349, 3738299163, 541498905, 521809040, 1382797760, 961253795, 3068648684, 1134088027, 3776537265, 231133434, 3160056554, 294093778, 492874118, 3468107129, 490924140, 4232760408);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            uint a2 = (307247937);
-            uint4x4 b2 = uint4x4(764372847, 1145627874, 914858924, 806846057, 2023442485, 192459330, 494156554, 850126865, 532550621, 562878343, 697537749, 90260896, 1339865643, 449931025, 395054823, 648506785);
-            uint4x4 r2 = uint4x4(3203389487, 2380411746, 1491677868, 2196327337, 3013708917, 324696258, 1799244682, 863098705, 2632383005, 3533624903, 240509205, 3401485728, 1499672043, 2033981009, 674170279, 4212584673);
-            TestUtils.AreEqual(a2 * b2, r2);
+            uint a2 = (2136548816);
+            uint4x4 b2 = uint4x4(1211907591, 2113626509, 345443734, 353147704, 688487056, 2038986981, 1991273614, 393095943, 838257274, 1646548338, 480051387, 1077685034, 421911953, 1757438926, 1584698689, 1237695787);
+            uint4x4 r2 = uint4x4(1868064944, 2388501392, 3000481760, 2871342464, 3262801152, 452481808, 510048608, 1680472240, 775038240, 1082189472, 4138639088, 3132761120, 3727882960, 3478904160, 3135547856, 2650008048);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            uint a3 = (1168811637);
-            uint4x4 b3 = uint4x4(751480790, 1674540568, 310766040, 1175026502, 280172657, 929056542, 1616196230, 1354007604, 1894515277, 253220578, 1800112859, 4385805, 206770586, 1272210782, 568746447, 1065780651);
-            uint4x4 r3 = uint4x4(1489182926, 139757816, 3460689848, 3804281598, 1941795237, 218756278, 4037999422, 3200394180, 3984390961, 4149199178, 1107195927, 3309850609, 2980374370, 137971702, 2687298971, 498465063);
-            TestUtils.AreEqual(a3 * b3, r3);
+            uint a3 = (426426495);
+            uint4x4 b3 = uint4x4(272190940, 792362979, 710924244, 167756574, 2098906277, 461971950, 1070095729, 175505611, 1048663225, 451115371, 1568000860, 446946750, 1880161842, 1511877484, 2100048988, 850173891);
+            uint4x4 r3 = uint4x4(3219824676, 1827516829, 4180873772, 2158250978, 2903854555, 3439744274, 2755992335, 3627066549, 659408839, 2872540181, 3859604132, 2084929858, 2043124430, 3420539540, 3930782116, 3442704829);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_div_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1088045904, 363581441, 2117293847, 43474130, 1437502728, 147730677, 1746963064, 986496120, 989409859, 717654081, 697638750, 164833649, 181829127, 1777427895, 2030007248, 154284884);
-            uint4x4 b0 = uint4x4(334000779, 1707521590, 48034914, 274954252, 1681174571, 619550611, 467348233, 1491029983, 459862277, 1092738758, 1011057052, 1614049909, 360356960, 1144441486, 1664322899, 266992285);
-            uint4x4 r0 = uint4x4(3, 0, 44, 0, 0, 0, 3, 0, 2, 0, 0, 0, 0, 1, 1, 0);
-            TestUtils.AreEqual(a0 / b0, r0);
+            uint4x4 a0 = uint4x4(333171510, 858154903, 1181365836, 671357749, 1090606752, 803759420, 788404166, 296807814, 575260195, 166625280, 1493729000, 1831739736, 200852358, 129983172, 500176108, 472051781);
+            uint4x4 b0 = uint4x4(698897823, 440199998, 655557473, 1658534285, 2127220100, 315653188, 1814290360, 992173243, 914851653, 664340325, 224323977, 246981573, 285573983, 819471609, 2012476015, 1783179572);
+            uint4x4 r0 = uint4x4(0, 1, 1, 0, 0, 2, 0, 0, 0, 0, 6, 7, 0, 0, 0, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            uint4x4 a1 = uint4x4(77444398, 1909917993, 1855827887, 1140726205, 2064684631, 1006815877, 1874469680, 1224989065, 1524575385, 1961271848, 1419898549, 942669111, 169167130, 1525692463, 418090666, 392430651);
-            uint4x4 b1 = uint4x4(2033065666, 1553166258, 444017400, 719972014, 948658676, 1745649713, 1075538185, 58851846, 1204868810, 602859793, 203617475, 76988852, 897015179, 1756936887, 1046516291, 1920663476);
-            uint4x4 r1 = uint4x4(0, 1, 4, 1, 2, 0, 1, 20, 1, 3, 6, 12, 0, 0, 0, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            uint4x4 a1 = uint4x4(414699094, 1446535974, 1278480457, 930910505, 263295881, 1626759436, 450830871, 21439121, 521337599, 127756712, 200601965, 412554396, 1014641734, 239347640, 525574301, 1158358177);
+            uint4x4 b1 = uint4x4(223253978, 169515029, 1694929006, 1992168131, 1155972447, 1768506696, 422325410, 1508417406, 605462475, 66917170, 2014683461, 108847533, 611173330, 895791853, 1999369787, 1225614384);
+            uint4x4 r1 = uint4x4(1, 8, 0, 0, 0, 0, 1, 0, 0, 1, 0, 3, 1, 0, 0, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            uint4x4 a2 = uint4x4(1526889687, 542106213, 704913887, 1782685743, 1466619719, 1175537774, 4241175, 1887063876, 1282851542, 1767349748, 1850534698, 994577383, 1090396555, 1383999128, 1065808584, 301881348);
-            uint4x4 b2 = uint4x4(2028222039, 1861381045, 1580813509, 545392459, 2145165714, 1896463721, 566667583, 1253774589, 1718576049, 825138438, 1698908738, 2021310570, 1832929141, 958812708, 1531272965, 1018168340);
-            uint4x4 r2 = uint4x4(0, 0, 0, 3, 0, 0, 0, 1, 0, 2, 1, 0, 0, 1, 0, 0);
-            TestUtils.AreEqual(a2 / b2, r2);
+            uint4x4 a2 = uint4x4(1655168319, 2048437741, 367754386, 1861176433, 2131424795, 401044444, 745048188, 1943634349, 264134862, 298134010, 1884719303, 1582577607, 1958183229, 1302356942, 1455581366, 1466593830);
+            uint4x4 b2 = uint4x4(1168063495, 565150188, 127292785, 1027814836, 321940796, 337756553, 63233040, 1926010595, 769049413, 2042197280, 405134611, 547499280, 1337688441, 667307127, 35118652, 411409741);
+            uint4x4 r2 = uint4x4(1, 3, 2, 1, 6, 1, 11, 1, 0, 0, 4, 2, 1, 1, 41, 3);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            uint4x4 a3 = uint4x4(556228025, 218760026, 533431972, 1501421606, 1569666714, 1283723721, 1175563348, 72747677, 1157434950, 474085345, 1426650190, 70128778, 1033644656, 770984490, 196814381, 1627067522);
-            uint4x4 b3 = uint4x4(1233636048, 1993731288, 1511091667, 2091245523, 1415879389, 1422216482, 1193689037, 1749983194, 271917874, 846998264, 1714775860, 1975464596, 668279290, 1019468393, 823873035, 2082830401);
-            uint4x4 r3 = uint4x4(0, 0, 0, 0, 1, 0, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            uint4x4 a3 = uint4x4(2145097917, 113338377, 521371316, 1140663020, 891769689, 82976022, 1613639017, 1511282992, 815022628, 631656991, 1701235777, 1488378728, 1732969535, 754450606, 972419490, 1719717117);
+            uint4x4 b3 = uint4x4(401145052, 1430251023, 1603772580, 394044814, 1247425523, 2026144816, 74797843, 951408694, 460820692, 1904008535, 1263644544, 1250033708, 1500938461, 1177549592, 1193869306, 2096306143);
+            uint4x4 r3 = uint4x4(5, 0, 0, 2, 0, 0, 21, 1, 1, 0, 1, 1, 1, 0, 0, 0);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_div_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(698046988, 1172226457, 1341281323, 1895153499, 2041215936, 1389479447, 1112377468, 1428493086, 1152385720, 1329193933, 1026467504, 1908759590, 379583730, 28412292, 2127153910, 382380097);
-            uint b0 = (877940369);
-            uint4x4 r0 = uint4x4(0, 1, 1, 2, 2, 1, 1, 1, 1, 1, 1, 2, 0, 0, 2, 0);
-            TestUtils.AreEqual(a0 / b0, r0);
+            uint4x4 a0 = uint4x4(1433072926, 1073958635, 1195142312, 536596719, 1274375693, 464756346, 806462546, 906504670, 1380905136, 25493909, 1196815948, 123300377, 643754735, 2084019932, 2047825037, 458304263);
+            uint b0 = (1434025872);
+            uint4x4 r0 = uint4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            uint4x4 a1 = uint4x4(671398601, 299274353, 203596848, 1271758211, 1030388954, 1288470572, 722675863, 819631958, 864064692, 1896633751, 1812612344, 1061783233, 403742836, 296850993, 396350721, 1528988014);
-            uint b1 = (998364247);
-            uint4x4 r1 = uint4x4(0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1);
-            TestUtils.AreEqual(a1 / b1, r1);
+            uint4x4 a1 = uint4x4(741331531, 2110004616, 1500687214, 1453264263, 1617154145, 2040203220, 2103351724, 485536709, 402141749, 1477264254, 1629069474, 1549487015, 670594363, 2040479674, 155415284, 207130003);
+            uint b1 = (466443901);
+            uint4x4 r1 = uint4x4(1, 4, 3, 3, 3, 4, 4, 1, 0, 3, 3, 3, 1, 4, 0, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            uint4x4 a2 = uint4x4(1988513450, 2000483269, 661182395, 2094178271, 1394287935, 1939388419, 726937702, 1393358744, 6870826, 394942617, 1570195133, 1498581896, 1785873466, 116958509, 254568080, 66875752);
-            uint b2 = (1420515541);
-            uint4x4 r2 = uint4x4(1, 1, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0);
-            TestUtils.AreEqual(a2 / b2, r2);
+            uint4x4 a2 = uint4x4(1596922206, 1528374182, 1878500631, 1245757182, 1471308702, 1733304186, 251821475, 1328085649, 1950145317, 794269329, 174603836, 678361822, 1820872200, 1455358409, 778273070, 2067965131);
+            uint b2 = (1730223836);
+            uint4x4 r2 = uint4x4(0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            uint4x4 a3 = uint4x4(1534022909, 2033294062, 2116295656, 1573772424, 1995035062, 2031239532, 618605460, 1075521541, 1177151244, 1640329343, 1447248771, 366709853, 748642884, 1032342940, 630116783, 379771576);
-            uint b3 = (1114823276);
-            uint4x4 r3 = uint4x4(1, 1, 1, 1, 1, 1, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            uint4x4 a3 = uint4x4(127176068, 610271655, 2044746707, 2127292310, 1964355374, 1181239062, 1239274235, 51060010, 872233944, 1134975739, 1324876719, 1504501302, 710310773, 132497882, 1041400664, 2063654021);
+            uint b3 = (1891892641);
+            uint4x4 r3 = uint4x4(0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_div_scalar_wide()
         {
-            uint a0 = (2021328826);
-            uint4x4 b0 = uint4x4(874375696, 1507954497, 2127317467, 1203851704, 841281974, 376202331, 1544089754, 40402644, 1986071898, 2130326460, 1684745816, 1258341923, 1763081534, 1178620704, 4579859, 1407078950);
-            uint4x4 r0 = uint4x4(2, 1, 0, 1, 2, 5, 1, 50, 1, 0, 1, 1, 1, 1, 441, 1);
-            TestUtils.AreEqual(a0 / b0, r0);
+            uint a0 = (519165704);
+            uint4x4 b0 = uint4x4(1295178177, 775214121, 467772046, 1156881598, 310396565, 759759959, 243837702, 1616314235, 1053470225, 1320630160, 378773841, 4223608, 1971105754, 2054406020, 219939614, 1603672651);
+            uint4x4 r0 = uint4x4(0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 1, 122, 0, 0, 2, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            uint a1 = (1217259005);
-            uint4x4 b1 = uint4x4(575524401, 1142938917, 1429440678, 255894342, 270430515, 1162688113, 1080280113, 166684975, 1606028217, 133041771, 1710899991, 1882162682, 720681740, 1011773405, 964420484, 1756352966);
-            uint4x4 r1 = uint4x4(2, 1, 0, 4, 4, 1, 1, 7, 0, 9, 0, 0, 1, 1, 1, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            uint a1 = (2006134295);
+            uint4x4 b1 = uint4x4(888535397, 1493077923, 615835131, 1045603945, 452709946, 1074919059, 467037221, 1485241506, 1775728786, 481521341, 68149923, 80867357, 1294049272, 470535313, 1235850199, 631464286);
+            uint4x4 r1 = uint4x4(2, 1, 3, 1, 4, 1, 4, 1, 1, 4, 29, 24, 1, 4, 1, 3);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            uint a2 = (1454249800);
-            uint4x4 b2 = uint4x4(624426708, 32452286, 506649350, 2080435179, 2037408776, 1217007523, 241289343, 197715227, 1742437821, 1793310115, 110252799, 204140342, 1674794195, 1975337048, 1171719434, 1869850028);
-            uint4x4 r2 = uint4x4(2, 44, 2, 0, 0, 1, 6, 7, 0, 0, 13, 7, 0, 0, 1, 0);
-            TestUtils.AreEqual(a2 / b2, r2);
+            uint a2 = (687722755);
+            uint4x4 b2 = uint4x4(412827650, 1258012095, 1286792622, 1799223034, 766890491, 2080374598, 711612151, 700420132, 1832408481, 1806438353, 237636410, 562498090, 1695805237, 2075783388, 2094216740, 1612536340);
+            uint4x4 r2 = uint4x4(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2, 1, 0, 0, 0, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            uint a3 = (1214012381);
-            uint4x4 b3 = uint4x4(345829690, 1609698754, 82678508, 1765434484, 603945181, 345266384, 1047037354, 1037166729, 1382737404, 243160560, 1980673410, 305723609, 1265390158, 1118553055, 720325332, 1649472604);
-            uint4x4 r3 = uint4x4(3, 0, 14, 0, 2, 3, 1, 1, 0, 4, 0, 3, 0, 1, 1, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            uint a3 = (885282904);
+            uint4x4 b3 = uint4x4(762931601, 1888184154, 1235090956, 1621045406, 842468231, 1847778709, 734825, 1819123739, 682151426, 278238618, 175687779, 1535446878, 1906904600, 850094847, 1290407289, 1520242969);
+            uint4x4 r3 = uint4x4(1, 0, 0, 0, 1, 0, 1204, 0, 1, 3, 5, 0, 0, 1, 0, 0);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mod_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1404166133, 2132673500, 1226848706, 260867443, 1657891933, 1665617201, 1193460322, 939577022, 349660242, 275322117, 2059991300, 66464083, 1210584015, 2128853048, 1886610218, 484061946);
-            uint4x4 b0 = uint4x4(1451753818, 986752317, 426407306, 388266591, 1936904896, 1974281115, 2061811216, 1548000924, 1962740273, 442600258, 1214757164, 48882551, 150076096, 2140190639, 846749437, 1269758433);
-            uint4x4 r0 = uint4x4(1404166133, 159168866, 374034094, 260867443, 1657891933, 1665617201, 1193460322, 939577022, 349660242, 275322117, 845234136, 17581532, 9975247, 2128853048, 193111344, 484061946);
-            TestUtils.AreEqual(a0 % b0, r0);
+            uint4x4 a0 = uint4x4(258342924, 1454754891, 723352342, 1981431473, 531756042, 716993627, 1667903349, 1331097004, 1776856101, 17598216, 1474345080, 1681376293, 813624265, 1617478722, 498370451, 780075943);
+            uint4x4 b0 = uint4x4(1990080167, 1197348066, 651970512, 1659454050, 241005212, 1866255454, 1440101415, 595220963, 408818410, 198222574, 549504274, 239973807, 321398087, 658171840, 1511495237, 1048325585);
+            uint4x4 r0 = uint4x4(258342924, 257406825, 71381830, 321977423, 49745618, 716993627, 227801934, 140655078, 141582461, 17598216, 375336532, 1559644, 170828091, 301135042, 498370451, 780075943);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            uint4x4 a1 = uint4x4(1261597433, 620158848, 1274262355, 1760237377, 314335948, 1335579382, 2041362257, 1813460940, 119976212, 304395783, 706381249, 2132789693, 1385289735, 1923651949, 445037905, 649140020);
-            uint4x4 b1 = uint4x4(1029725197, 1706820437, 1372771540, 1995881439, 1201935603, 995011640, 348712039, 541812751, 503502777, 1069492621, 1744906418, 189408969, 2083790949, 1076772610, 268160451, 811142496);
-            uint4x4 r1 = uint4x4(231872236, 620158848, 1274262355, 1760237377, 314335948, 340567742, 297802062, 188022687, 119976212, 304395783, 706381249, 49291034, 1385289735, 846879339, 176877454, 649140020);
-            TestUtils.AreEqual(a1 % b1, r1);
+            uint4x4 a1 = uint4x4(1754430321, 653235398, 1517128354, 966216200, 590067427, 1283434795, 1910903650, 1125967790, 1180537254, 308567230, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599);
+            uint4x4 b1 = uint4x4(1126739824, 666641241, 38017598, 418797691, 618700513, 1941062990, 158556432, 1081063558, 427329468, 148111230, 1251162672, 1856322297, 1214781084, 401954255, 1323259633, 1167744452);
+            uint4x4 r1 = uint4x4(627690497, 653235398, 34442032, 128620818, 590067427, 1283434795, 8226466, 44904232, 325878318, 12344770, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            uint4x4 a2 = uint4x4(1452842950, 712683682, 1441652368, 273738569, 202502896, 128264310, 2026661429, 155003941, 484098803, 2020214427, 542353654, 563377184, 1044419151, 321530702, 1596603238, 1550843534);
-            uint4x4 b2 = uint4x4(395858768, 163735125, 1380240232, 1124372349, 426924325, 858055697, 1218936090, 861871976, 1587040297, 1383107441, 1562052972, 1664174662, 430749879, 1337955053, 683464767, 46175497);
-            uint4x4 r2 = uint4x4(265266646, 57743182, 61412136, 273738569, 202502896, 128264310, 807725339, 155003941, 484098803, 637106986, 542353654, 563377184, 182919393, 321530702, 229673704, 27052133);
-            TestUtils.AreEqual(a2 % b2, r2);
+            uint4x4 a2 = uint4x4(1608412916, 111825133, 786866017, 1225576256, 1590085857, 1755638794, 1413553126, 476553804, 1342913944, 1625118233, 1202928007, 504380191, 642905424, 357937367, 1801777444, 1384305901);
+            uint4x4 b2 = uint4x4(1816151689, 541163525, 664455763, 1738838503, 1746284172, 855644567, 1887796950, 655067833, 536415164, 71040983, 631964713, 503267649, 944396748, 302347270, 564261945, 1414291441);
+            uint4x4 r2 = uint4x4(1608412916, 111825133, 122410254, 1225576256, 1590085857, 44349660, 1413553126, 476553804, 270083616, 62216607, 570963294, 1112542, 642905424, 55590097, 108991609, 1384305901);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            uint4x4 a3 = uint4x4(552795583, 1689652337, 1783512004, 1247644030, 229764208, 866989725, 1616642108, 310231187, 1928787008, 592673807, 395429671, 268788842, 1979965231, 1266799621, 1058709530, 1675252758);
-            uint4x4 b3 = uint4x4(524436886, 1645503489, 1649725815, 887219627, 1327507081, 279456924, 1274733996, 166353645, 1061779973, 1005481255, 1413516226, 2038273625, 1195992667, 1010902489, 1083267163, 1666521776);
-            uint4x4 r3 = uint4x4(28358697, 44148848, 133786189, 360424403, 229764208, 28618953, 341908112, 143877542, 867007035, 592673807, 395429671, 268788842, 783972564, 255897132, 1058709530, 8730982);
-            TestUtils.AreEqual(a3 % b3, r3);
+            uint4x4 a3 = uint4x4(1605100561, 332650074, 46731299, 294197541, 1349236859, 705509020, 1643007525, 442769171, 738227280, 1206523958, 1845625047, 2112300092, 1311771498, 2045741748, 306518396, 2084544706);
+            uint4x4 b3 = uint4x4(115690343, 94751961, 584804265, 516081491, 717212374, 945144869, 1775673480, 568390571, 1876139615, 645560273, 1090042616, 976448203, 1756041131, 1989952916, 923228986, 1025823912);
+            uint4x4 r3 = uint4x4(101126102, 48394191, 46731299, 294197541, 632024485, 705509020, 1643007525, 442769171, 738227280, 560963685, 755582431, 159403686, 1311771498, 55788832, 306518396, 32896882);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mod_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1161974084, 1730255826, 1307617556, 1348913399, 108127332, 158366308, 608736703, 410222026, 1124457489, 572642899, 1777547989, 568679511, 1047748248, 753947810, 261245150, 570275397);
-            uint b0 = (1619572929);
-            uint4x4 r0 = uint4x4(1161974084, 110682897, 1307617556, 1348913399, 108127332, 158366308, 608736703, 410222026, 1124457489, 572642899, 157975060, 568679511, 1047748248, 753947810, 261245150, 570275397);
-            TestUtils.AreEqual(a0 % b0, r0);
+            uint4x4 a0 = uint4x4(560988938, 629524514, 767711194, 434281967, 1399805893, 792916846, 1663690927, 598661916, 1776636144, 1287035793, 1743722161, 475209785, 327476870, 1617696916, 379853074, 477430114);
+            uint b0 = (1156862367);
+            uint4x4 r0 = uint4x4(560988938, 629524514, 767711194, 434281967, 242943526, 792916846, 506828560, 598661916, 619773777, 130173426, 586859794, 475209785, 327476870, 460834549, 379853074, 477430114);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            uint4x4 a1 = uint4x4(965622832, 1106672888, 1451051118, 2025083337, 912627512, 1522014233, 1374852101, 2103351954, 1968921221, 35587335, 124570693, 580266662, 114454719, 1745947125, 1171579725, 1636482775);
-            uint b1 = (1450962286);
-            uint4x4 r1 = uint4x4(965622832, 1106672888, 88832, 574121051, 912627512, 71051947, 1374852101, 652389668, 517958935, 35587335, 124570693, 580266662, 114454719, 294984839, 1171579725, 185520489);
-            TestUtils.AreEqual(a1 % b1, r1);
+            uint4x4 a1 = uint4x4(858399046, 1506629323, 199829950, 362269020, 1986626876, 1351725413, 1549678101, 431765276, 1315833792, 1664893153, 615834034, 780055604, 104179235, 629966219, 1810536428, 1747026206);
+            uint b1 = (712734431);
+            uint4x4 r1 = uint4x4(145664615, 81160461, 199829950, 362269020, 561158014, 638990982, 124209239, 431765276, 603099361, 239424291, 615834034, 67321173, 104179235, 629966219, 385067566, 321557344);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            uint4x4 a2 = uint4x4(2046257003, 458149860, 595799567, 1806963758, 1792181549, 1672754829, 976241129, 1761494562, 1826345689, 2026866040, 1349029993, 1743258729, 2136682783, 442997233, 289632048, 178072356);
-            uint b2 = (1264046527);
-            uint4x4 r2 = uint4x4(782210476, 458149860, 595799567, 542917231, 528135022, 408708302, 976241129, 497448035, 562299162, 762819513, 84983466, 479212202, 872636256, 442997233, 289632048, 178072356);
-            TestUtils.AreEqual(a2 % b2, r2);
+            uint4x4 a2 = uint4x4(1799535061, 2049775667, 303673867, 93301056, 1944511005, 2135291183, 1065919801, 1342701312, 1356734788, 1593032231, 475449806, 1983416442, 776300612, 591854273, 2061957684, 1865797266);
+            uint b2 = (875754431);
+            uint4x4 r2 = uint4x4(48026199, 298266805, 303673867, 93301056, 193002143, 383782321, 190165370, 466946881, 480980357, 717277800, 475449806, 231907580, 776300612, 591854273, 310448822, 114288404);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            uint4x4 a3 = uint4x4(1798210595, 1897977340, 1675950769, 1284374394, 706945417, 208241593, 2080249102, 1393045092, 286689758, 122778973, 484166010, 1977439011, 1010002770, 974179421, 605968264, 1079680383);
-            uint b3 = (1069893303);
-            uint4x4 r3 = uint4x4(728317292, 828084037, 606057466, 214481091, 706945417, 208241593, 1010355799, 323151789, 286689758, 122778973, 484166010, 907545708, 1010002770, 974179421, 605968264, 9787080);
-            TestUtils.AreEqual(a3 % b3, r3);
+            uint4x4 a3 = uint4x4(1982663429, 374639153, 1919268329, 198719918, 1317719138, 1425282748, 1365516740, 2516691, 83972101, 1275507340, 1047856893, 1966089959, 1672456909, 657069574, 2080669380, 875667226);
+            uint b3 = (865181949);
+            uint4x4 r3 = uint4x4(252299531, 374639153, 188904431, 198719918, 452537189, 560100799, 500334791, 2516691, 83972101, 410325391, 182674944, 235726061, 807274960, 657069574, 350305482, 10485277);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_mod_scalar_wide()
         {
-            uint a0 = (732019691);
-            uint4x4 b0 = uint4x4(1432618553, 1407625066, 2104173412, 787397289, 1250925010, 1942782982, 895419737, 1413458613, 1057786657, 895014416, 1411050342, 581995078, 1314657708, 988705005, 893924184, 579424395);
-            uint4x4 r0 = uint4x4(732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 732019691, 150024613, 732019691, 732019691, 732019691, 152595296);
-            TestUtils.AreEqual(a0 % b0, r0);
+            uint a0 = (933347930);
+            uint4x4 b0 = uint4x4(549923387, 243114953, 1884274390, 1428033594, 655531454, 1622674954, 1107563514, 1614111094, 914801920, 1432263179, 564431096, 1967013901, 1709750152, 1080102613, 13120773, 2042535998);
+            uint4x4 r0 = uint4x4(383424543, 204003071, 933347930, 933347930, 277816476, 933347930, 933347930, 933347930, 18546010, 933347930, 368916834, 933347930, 933347930, 933347930, 1773047, 933347930);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            uint a1 = (788841281);
-            uint4x4 b1 = uint4x4(1894749534, 1578517841, 902966975, 238684224, 634711288, 168625436, 1937237642, 823496492, 450959406, 404691608, 1482182841, 676527143, 460933039, 594230895, 1717451078, 1731866379);
-            uint4x4 r1 = uint4x4(788841281, 788841281, 788841281, 72788609, 154129993, 114339537, 788841281, 788841281, 337881875, 384149673, 788841281, 112314138, 327908242, 194610386, 788841281, 788841281);
-            TestUtils.AreEqual(a1 % b1, r1);
+            uint a1 = (1505698002);
+            uint4x4 b1 = uint4x4(1640058084, 974167554, 758635306, 1387264978, 611743343, 1139002766, 1913935748, 1086810076, 991846486, 922870408, 35007468, 891877602, 157349181, 83267982, 801093706, 546272767);
+            uint4x4 r1 = uint4x4(1505698002, 531530448, 747062696, 118433024, 282211316, 366695236, 1505698002, 418887926, 513851516, 582827594, 376878, 613820400, 89555373, 6874326, 704604296, 413152468);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            uint a2 = (1544419925);
-            uint4x4 b2 = uint4x4(1967337381, 1042586549, 73145369, 1595560251, 682547798, 288120102, 649493089, 135812143, 325372817, 239028961, 1294379934, 1330387108, 549941054, 1768069506, 1359394152, 77158739);
-            uint4x4 r2 = uint4x4(1544419925, 501833376, 8367176, 1544419925, 179324329, 103819415, 245433747, 50486352, 242928657, 110246159, 250039991, 214032817, 444537817, 1544419925, 185025773, 1245145);
-            TestUtils.AreEqual(a2 % b2, r2);
+            uint a2 = (1665089132);
+            uint4x4 b2 = uint4x4(1889242068, 1179889796, 1690033703, 1333252321, 1960636489, 960755248, 698650125, 313994074, 1830992514, 2049496523, 507742240, 739436968, 1012724736, 2089810815, 329356442, 384427687);
+            uint4x4 r2 = uint4x4(1665089132, 485199336, 1665089132, 331836811, 1665089132, 704333884, 267788882, 95118762, 1665089132, 1665089132, 141862412, 186215196, 652364396, 1665089132, 18306922, 127378384);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            uint a3 = (250422350);
-            uint4x4 b3 = uint4x4(1730075221, 757567374, 808580035, 493335467, 797907265, 1238999630, 166935770, 2111384444, 799965604, 1538091374, 1560720543, 736931470, 596853618, 300783521, 1841082911, 997612346);
-            uint4x4 r3 = uint4x4(250422350, 250422350, 250422350, 250422350, 250422350, 250422350, 83486580, 250422350, 250422350, 250422350, 250422350, 250422350, 250422350, 250422350, 250422350, 250422350);
-            TestUtils.AreEqual(a3 % b3, r3);
+            uint a3 = (713578570);
+            uint4x4 b3 = uint4x4(443562339, 938288481, 1912612259, 1693566599, 2085663691, 1251595834, 2117822289, 341223518, 1811168615, 699804546, 1072556046, 722233492, 757452739, 1348995197, 1910821037, 1420741134);
+            uint4x4 r3 = uint4x4(270016231, 713578570, 713578570, 713578570, 713578570, 713578570, 713578570, 31131534, 713578570, 13774024, 713578570, 713578570, 713578570, 713578570, 713578570, 713578570);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_plus()
         {
-            uint4x4 a0 = uint4x4(1389572610, 784638699, 1994582731, 1916480804, 1916426865, 445404424, 309068130, 2006066207, 790253154, 1469244349, 111908581, 702989834, 1214657768, 648913468, 898592517, 2052937846);
-            uint4x4 r0 = uint4x4(1389572610, 784638699, 1994582731, 1916480804, 1916426865, 445404424, 309068130, 2006066207, 790253154, 1469244349, 111908581, 702989834, 1214657768, 648913468, 898592517, 2052937846);
-            TestUtils.AreEqual(+a0, r0);
+            uint4x4 a0 = uint4x4(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785, 264115671, 1084131995, 195779102, 2131702223, 715660442, 1995564647, 69731564, 1317851903);
+            uint4x4 r0 = uint4x4(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785, 264115671, 1084131995, 195779102, 2131702223, 715660442, 1995564647, 69731564, 1317851903);
+            TestUtils.AreEqual(r0, +a0);
 
-            uint4x4 a1 = uint4x4(1848004046, 1679257084, 1132420338, 492383417, 193030470, 196430696, 894375106, 1461639702, 835334114, 32791625, 2065984953, 624823819, 410843134, 470251975, 530536690, 2132562467);
-            uint4x4 r1 = uint4x4(1848004046, 1679257084, 1132420338, 492383417, 193030470, 196430696, 894375106, 1461639702, 835334114, 32791625, 2065984953, 624823819, 410843134, 470251975, 530536690, 2132562467);
-            TestUtils.AreEqual(+a1, r1);
+            uint4x4 a1 = uint4x4(1957501908, 2012985092, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471, 1659000230, 1301861249, 1153431944, 1360657696, 578750954, 150348334, 1791553179, 1288641627);
+            uint4x4 r1 = uint4x4(1957501908, 2012985092, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471, 1659000230, 1301861249, 1153431944, 1360657696, 578750954, 150348334, 1791553179, 1288641627);
+            TestUtils.AreEqual(r1, +a1);
 
-            uint4x4 a2 = uint4x4(1482839904, 1846890697, 1258344306, 814188060, 1868556209, 603599937, 618377823, 1502266946, 1078608507, 1986956916, 785405891, 1806320375, 49213371, 1096963465, 1308205315, 1441908990);
-            uint4x4 r2 = uint4x4(1482839904, 1846890697, 1258344306, 814188060, 1868556209, 603599937, 618377823, 1502266946, 1078608507, 1986956916, 785405891, 1806320375, 49213371, 1096963465, 1308205315, 1441908990);
-            TestUtils.AreEqual(+a2, r2);
+            uint4x4 a2 = uint4x4(735146513, 1370099515, 1575634098, 36481877, 1832055170, 1043119761, 1370934466, 1126708142, 511229253, 1297664549, 1444401655, 1292097101, 1377029046, 1680766483, 249526091, 656501406);
+            uint4x4 r2 = uint4x4(735146513, 1370099515, 1575634098, 36481877, 1832055170, 1043119761, 1370934466, 1126708142, 511229253, 1297664549, 1444401655, 1292097101, 1377029046, 1680766483, 249526091, 656501406);
+            TestUtils.AreEqual(r2, +a2);
 
-            uint4x4 a3 = uint4x4(1456770921, 401473664, 347667313, 897189193, 658487506, 588208003, 1100207625, 454841102, 1081092751, 412612799, 390566824, 1381242388, 379410020, 998992374, 1728855538, 717911014);
-            uint4x4 r3 = uint4x4(1456770921, 401473664, 347667313, 897189193, 658487506, 588208003, 1100207625, 454841102, 1081092751, 412612799, 390566824, 1381242388, 379410020, 998992374, 1728855538, 717911014);
-            TestUtils.AreEqual(+a3, r3);
+            uint4x4 a3 = uint4x4(195015813, 1562997921, 1927957096, 803204796, 1747288691, 795154500, 1030768402, 789329792, 597872750, 214089028, 536331458, 1078297736, 1832848364, 933783661, 551709570, 843060596);
+            uint4x4 r3 = uint4x4(195015813, 1562997921, 1927957096, 803204796, 1747288691, 795154500, 1030768402, 789329792, 597872750, 214089028, 536331458, 1078297736, 1832848364, 933783661, 551709570, 843060596);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_neg()
         {
-            uint4x4 a0 = uint4x4(718733484, 283062622, 1150527221, 531874537, 2059224113, 1889420629, 1809777681, 1443055648, 2110619134, 1495661305, 946205741, 1731996287, 1872831707, 1759886927, 1686881016, 2042911689);
-            uint4x4 r0 = uint4x4(3576233812, 4011904674, 3144440075, 3763092759, 2235743183, 2405546667, 2485189615, 2851911648, 2184348162, 2799305991, 3348761555, 2562971009, 2422135589, 2535080369, 2608086280, 2252055607);
-            TestUtils.AreEqual(-a0, r0);
+            uint4x4 a0 = uint4x4(1385088677, 94114564, 1350664872, 1458616659, 2067164853, 218122493, 958484951, 270553961, 446497525, 270503114, 1928771252, 1427605822, 2051940607, 1434247484, 485368391, 908365416);
+            uint4x4 r0 = uint4x4(2909878619, 4200852732, 2944302424, 2836350637, 2227802443, 4076844803, 3336482345, 4024413335, 3848469771, 4024464182, 2366196044, 2867361474, 2243026689, 2860719812, 3809598905, 3386601880);
+            TestUtils.AreEqual(r0, -a0);
 
-            uint4x4 a1 = uint4x4(2014670666, 1269836738, 1882699158, 996075122, 448297621, 1042326164, 829695960, 1615953054, 1848626634, 1688188403, 341085917, 1410462357, 173264209, 1666920746, 1047178919, 500126134);
-            uint4x4 r1 = uint4x4(2280296630, 3025130558, 2412268138, 3298892174, 3846669675, 3252641132, 3465271336, 2679014242, 2446340662, 2606778893, 3953881379, 2884504939, 4121703087, 2628046550, 3247788377, 3794841162);
-            TestUtils.AreEqual(-a1, r1);
+            uint4x4 a1 = uint4x4(1742096480, 1368056141, 1350976157, 12802586, 1934372287, 576597401, 785136322, 559205611, 1959833280, 162379661, 1200036971, 95281343, 1969004480, 1381288239, 252975075, 1961335692);
+            uint4x4 r1 = uint4x4(2552870816, 2926911155, 2943991139, 4282164710, 2360595009, 3718369895, 3509830974, 3735761685, 2335134016, 4132587635, 3094930325, 4199685953, 2325962816, 2913679057, 4041992221, 2333631604);
+            TestUtils.AreEqual(r1, -a1);
 
-            uint4x4 a2 = uint4x4(782713965, 1271363774, 1461389024, 787894407, 1140243270, 790929412, 1923076181, 806452514, 1419664828, 1397535680, 1125563437, 221203693, 1417996124, 308499171, 1057541408, 1135772397);
-            uint4x4 r2 = uint4x4(3512253331, 3023603522, 2833578272, 3507072889, 3154724026, 3504037884, 2371891115, 3488514782, 2875302468, 2897431616, 3169403859, 4073763603, 2876971172, 3986468125, 3237425888, 3159194899);
-            TestUtils.AreEqual(-a2, r2);
+            uint4x4 a2 = uint4x4(1607042487, 1300359361, 8438338, 431498011, 1534415387, 2069192669, 866625695, 2105773520, 1249998702, 1704935592, 59004141, 257619538, 392825753, 1868257049, 1472660509, 928823577);
+            uint4x4 r2 = uint4x4(2687924809, 2994607935, 4286528958, 3863469285, 2760551909, 2225774627, 3428341601, 2189193776, 3044968594, 2590031704, 4235963155, 4037347758, 3902141543, 2426710247, 2822306787, 3366143719);
+            TestUtils.AreEqual(r2, -a2);
 
-            uint4x4 a3 = uint4x4(1102913281, 1696305953, 2131554264, 1870142009, 2080920507, 1388220105, 320831261, 1063405130, 210597479, 201232226, 1468691764, 32593291, 1937354925, 1976224206, 2046510469, 1231870153);
-            uint4x4 r3 = uint4x4(3192054015, 2598661343, 2163413032, 2424825287, 2214046789, 2906747191, 3974136035, 3231562166, 4084369817, 4093735070, 2826275532, 4262374005, 2357612371, 2318743090, 2248456827, 3063097143);
-            TestUtils.AreEqual(-a3, r3);
+            uint4x4 a3 = uint4x4(2138036799, 1587572134, 1974711458, 1372286091, 170185840, 1665000810, 565528550, 899411048, 107331573, 55742832, 1905931627, 175272618, 624976692, 1036698522, 1675796177, 1613753777);
+            uint4x4 r3 = uint4x4(2156930497, 2707395162, 2320255838, 2922681205, 4124781456, 2629966486, 3729438746, 3395556248, 4187635723, 4239224464, 2389035669, 4119694678, 3669990604, 3258268774, 2619171119, 2681213519);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_prefix_inc()
         {
-            uint4x4 a0 = uint4x4(1255324487, 1412620214, 2004729755, 364341497, 1001267099, 300799799, 1826916366, 1377883623, 1403483584, 1126929701, 58299929, 1799441336, 1874383402, 1586837356, 1178543239, 852664432);
-            uint4x4 r0 = uint4x4(1255324488, 1412620215, 2004729756, 364341498, 1001267100, 300799800, 1826916367, 1377883624, 1403483585, 1126929702, 58299930, 1799441337, 1874383403, 1586837357, 1178543240, 852664433);
-            TestUtils.AreEqual(++a0, r0);
+            uint4x4 a0 = uint4x4(780471723, 954741756, 272723451, 2142862245, 606294309, 1514814550, 250124151, 444189162, 1833356994, 1915989169, 1348278302, 129540735, 1584496757, 1170613526, 986715680, 1701179230);
+            uint4x4 r0 = uint4x4(780471724, 954741757, 272723452, 2142862246, 606294310, 1514814551, 250124152, 444189163, 1833356995, 1915989170, 1348278303, 129540736, 1584496758, 1170613527, 986715681, 1701179231);
+            TestUtils.AreEqual(r0, ++a0);
 
-            uint4x4 a1 = uint4x4(1531710577, 751290927, 1811943399, 1231672495, 1035273389, 57984113, 1178315985, 507686985, 642839275, 1861070532, 742918261, 616230925, 352323826, 2136396660, 1730000143, 1012886521);
-            uint4x4 r1 = uint4x4(1531710578, 751290928, 1811943400, 1231672496, 1035273390, 57984114, 1178315986, 507686986, 642839276, 1861070533, 742918262, 616230926, 352323827, 2136396661, 1730000144, 1012886522);
-            TestUtils.AreEqual(++a1, r1);
+            uint4x4 a1 = uint4x4(1397451003, 1494652811, 1268688387, 2014528731, 453850931, 1112537171, 621362788, 2063486914, 1612870531, 1161037742, 1083861484, 1583359796, 82587894, 810087437, 72436569, 1094485773);
+            uint4x4 r1 = uint4x4(1397451004, 1494652812, 1268688388, 2014528732, 453850932, 1112537172, 621362789, 2063486915, 1612870532, 1161037743, 1083861485, 1583359797, 82587895, 810087438, 72436570, 1094485774);
+            TestUtils.AreEqual(r1, ++a1);
 
-            uint4x4 a2 = uint4x4(423838964, 1227274159, 683006965, 807911901, 1444774410, 1950669234, 649860984, 1550692271, 1115487100, 480410248, 1946209160, 1536562336, 1447998063, 1504416615, 443395983, 1786162598);
-            uint4x4 r2 = uint4x4(423838965, 1227274160, 683006966, 807911902, 1444774411, 1950669235, 649860985, 1550692272, 1115487101, 480410249, 1946209161, 1536562337, 1447998064, 1504416616, 443395984, 1786162599);
-            TestUtils.AreEqual(++a2, r2);
+            uint4x4 a2 = uint4x4(912422931, 261771874, 2042016403, 1102472175, 976635804, 1261156013, 607693651, 1788488571, 1912059986, 420746703, 1703260621, 501684292, 1809882373, 1989306461, 786299198, 1729269500);
+            uint4x4 r2 = uint4x4(912422932, 261771875, 2042016404, 1102472176, 976635805, 1261156014, 607693652, 1788488572, 1912059987, 420746704, 1703260622, 501684293, 1809882374, 1989306462, 786299199, 1729269501);
+            TestUtils.AreEqual(r2, ++a2);
 
-            uint4x4 a3 = uint4x4(244051390, 353905207, 71294778, 23651992, 1305260217, 1354636101, 826413770, 2004138159, 358427824, 587212914, 1083998105, 761652698, 1051159758, 1138016688, 475783433, 786554815);
-            uint4x4 r3 = uint4x4(244051391, 353905208, 71294779, 23651993, 1305260218, 1354636102, 826413771, 2004138160, 358427825, 587212915, 1083998106, 761652699, 1051159759, 1138016689, 475783434, 786554816);
-            TestUtils.AreEqual(++a3, r3);
+            uint4x4 a3 = uint4x4(411043860, 145863296, 877006815, 913426639, 1056275934, 1989688232, 1798844310, 79375331, 1140907425, 353776808, 1313746314, 1008313013, 1750769100, 1105901732, 1275841733, 1182538609);
+            uint4x4 r3 = uint4x4(411043861, 145863297, 877006816, 913426640, 1056275935, 1989688233, 1798844311, 79375332, 1140907426, 353776809, 1313746315, 1008313014, 1750769101, 1105901733, 1275841734, 1182538610);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_postfix_inc()
         {
-            uint4x4 a0 = uint4x4(482801952, 1525347232, 1327121509, 391425724, 696835538, 1167198637, 286946275, 1479259080, 1764804294, 358290724, 800117326, 1655297583, 1041844812, 312666038, 2081962534, 1116699556);
-            uint4x4 r0 = uint4x4(482801952, 1525347232, 1327121509, 391425724, 696835538, 1167198637, 286946275, 1479259080, 1764804294, 358290724, 800117326, 1655297583, 1041844812, 312666038, 2081962534, 1116699556);
-            TestUtils.AreEqual(a0++, r0);
+            uint4x4 a0 = uint4x4(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244, 1425753247, 1384002775, 389844650, 1159795446, 1343289659, 1227160199, 947635082, 137930180);
+            uint4x4 r0 = uint4x4(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244, 1425753247, 1384002775, 389844650, 1159795446, 1343289659, 1227160199, 947635082, 137930180);
+            TestUtils.AreEqual(r0, a0++);
 
-            uint4x4 a1 = uint4x4(795715545, 1207902920, 1961629484, 1941424958, 990878915, 1328032701, 458681710, 818363470, 1780934301, 1208899882, 404600086, 1792008648, 1824372908, 1900911823, 1224475166, 1443158669);
-            uint4x4 r1 = uint4x4(795715545, 1207902920, 1961629484, 1941424958, 990878915, 1328032701, 458681710, 818363470, 1780934301, 1208899882, 404600086, 1792008648, 1824372908, 1900911823, 1224475166, 1443158669);
-            TestUtils.AreEqual(a1++, r1);
+            uint4x4 a1 = uint4x4(451018043, 2009552507, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327, 446867079, 2101314783, 1460883320, 1683365096, 1319511974, 1418603655, 1938539756, 592683318);
+            uint4x4 r1 = uint4x4(451018043, 2009552507, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327, 446867079, 2101314783, 1460883320, 1683365096, 1319511974, 1418603655, 1938539756, 592683318);
+            TestUtils.AreEqual(r1, a1++);
 
-            uint4x4 a2 = uint4x4(571619995, 1970247027, 1804919008, 1673437753, 445467354, 487212471, 740815192, 1915044512, 2034044982, 1483943124, 874003180, 1979992001, 618212578, 943711186, 664881371, 1615265332);
-            uint4x4 r2 = uint4x4(571619995, 1970247027, 1804919008, 1673437753, 445467354, 487212471, 740815192, 1915044512, 2034044982, 1483943124, 874003180, 1979992001, 618212578, 943711186, 664881371, 1615265332);
-            TestUtils.AreEqual(a2++, r2);
+            uint4x4 a2 = uint4x4(1576213022, 904484472, 253685095, 70826818, 1423673637, 463104653, 257117856, 964412816, 1148726183, 1820437224, 1087435092, 475319856, 1950385959, 1172607661, 1139700625, 1386106060);
+            uint4x4 r2 = uint4x4(1576213022, 904484472, 253685095, 70826818, 1423673637, 463104653, 257117856, 964412816, 1148726183, 1820437224, 1087435092, 475319856, 1950385959, 1172607661, 1139700625, 1386106060);
+            TestUtils.AreEqual(r2, a2++);
 
-            uint4x4 a3 = uint4x4(1774309220, 1288728955, 741852080, 688860641, 559728600, 197314531, 868439799, 1720545901, 1063384884, 2105782402, 2029829836, 1834734079, 2087915033, 604862548, 1723125807, 212138914);
-            uint4x4 r3 = uint4x4(1774309220, 1288728955, 741852080, 688860641, 559728600, 197314531, 868439799, 1720545901, 1063384884, 2105782402, 2029829836, 1834734079, 2087915033, 604862548, 1723125807, 212138914);
-            TestUtils.AreEqual(a3++, r3);
+            uint4x4 a3 = uint4x4(612787013, 2015267118, 1005487805, 2000627239, 804783244, 82963346, 881064625, 1225691658, 82684192, 1702936093, 1589647770, 1677781795, 106241273, 2112882767, 598788541, 567112128);
+            uint4x4 r3 = uint4x4(612787013, 2015267118, 1005487805, 2000627239, 804783244, 82963346, 881064625, 1225691658, 82684192, 1702936093, 1589647770, 1677781795, 106241273, 2112882767, 598788541, 567112128);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_prefix_dec()
         {
-            uint4x4 a0 = uint4x4(1786777392, 2114077793, 1678527347, 1458977374, 332157813, 1908999543, 569184702, 1105870615, 1653790314, 1727873646, 432424960, 510891085, 1806004859, 2055285618, 878587021, 1974590384);
-            uint4x4 r0 = uint4x4(1786777391, 2114077792, 1678527346, 1458977373, 332157812, 1908999542, 569184701, 1105870614, 1653790313, 1727873645, 432424959, 510891084, 1806004858, 2055285617, 878587020, 1974590383);
-            TestUtils.AreEqual(--a0, r0);
+            uint4x4 a0 = uint4x4(1331961415, 1612382200, 1401591249, 2042075388, 1757136546, 1895858159, 1467742422, 578341664, 1336115745, 2059077641, 1169239112, 1862369220, 312317355, 1027543764, 1595492535, 1426262619);
+            uint4x4 r0 = uint4x4(1331961414, 1612382199, 1401591248, 2042075387, 1757136545, 1895858158, 1467742421, 578341663, 1336115744, 2059077640, 1169239111, 1862369219, 312317354, 1027543763, 1595492534, 1426262618);
+            TestUtils.AreEqual(r0, --a0);
 
-            uint4x4 a1 = uint4x4(727840634, 774572143, 1276219624, 774750407, 1068710522, 1547437444, 258724438, 118919226, 552422331, 1879324374, 1242528814, 1577284508, 265698585, 1228595881, 30312324, 923799149);
-            uint4x4 r1 = uint4x4(727840633, 774572142, 1276219623, 774750406, 1068710521, 1547437443, 258724437, 118919225, 552422330, 1879324373, 1242528813, 1577284507, 265698584, 1228595880, 30312323, 923799148);
-            TestUtils.AreEqual(--a1, r1);
+            uint4x4 a1 = uint4x4(1426620468, 1423852012, 1459529624, 2092317419, 107501474, 1261583506, 512900840, 1496855314, 777588547, 617644613, 1487639376, 625907330, 1452782388, 804650978, 2076275981, 120447533);
+            uint4x4 r1 = uint4x4(1426620467, 1423852011, 1459529623, 2092317418, 107501473, 1261583505, 512900839, 1496855313, 777588546, 617644612, 1487639375, 625907329, 1452782387, 804650977, 2076275980, 120447532);
+            TestUtils.AreEqual(r1, --a1);
 
-            uint4x4 a2 = uint4x4(269452938, 1640819407, 470450436, 135749100, 719583348, 1162454522, 1659360266, 1059505533, 945425377, 929329930, 1586655374, 825564918, 318126706, 567989493, 2107015560, 1443886609);
-            uint4x4 r2 = uint4x4(269452937, 1640819406, 470450435, 135749099, 719583347, 1162454521, 1659360265, 1059505532, 945425376, 929329929, 1586655373, 825564917, 318126705, 567989492, 2107015559, 1443886608);
-            TestUtils.AreEqual(--a2, r2);
+            uint4x4 a2 = uint4x4(262357170, 412907314, 846648478, 473291493, 286048219, 890018786, 1237897291, 1412498905, 346348942, 953070054, 2028727932, 2006551142, 1345994403, 1356250542, 1202345509, 497982699);
+            uint4x4 r2 = uint4x4(262357169, 412907313, 846648477, 473291492, 286048218, 890018785, 1237897290, 1412498904, 346348941, 953070053, 2028727931, 2006551141, 1345994402, 1356250541, 1202345508, 497982698);
+            TestUtils.AreEqual(r2, --a2);
 
-            uint4x4 a3 = uint4x4(1494990481, 699232909, 462925705, 1012026985, 479154823, 566640349, 1419802909, 1340058148, 1927219129, 29675169, 1474139535, 1676069754, 1388091729, 499277765, 402112636, 1734575583);
-            uint4x4 r3 = uint4x4(1494990480, 699232908, 462925704, 1012026984, 479154822, 566640348, 1419802908, 1340058147, 1927219128, 29675168, 1474139534, 1676069753, 1388091728, 499277764, 402112635, 1734575582);
-            TestUtils.AreEqual(--a3, r3);
+            uint4x4 a3 = uint4x4(982734742, 1517311883, 735646686, 1387127643, 1263392561, 350798694, 888690409, 545220074, 979547999, 1278213546, 2127586693, 2099917981, 2030817004, 1254426663, 1240446778, 1741921687);
+            uint4x4 r3 = uint4x4(982734741, 1517311882, 735646685, 1387127642, 1263392560, 350798693, 888690408, 545220073, 979547998, 1278213545, 2127586692, 2099917980, 2030817003, 1254426662, 1240446777, 1741921686);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_postfix_dec()
         {
-            uint4x4 a0 = uint4x4(763128954, 1604006255, 851112563, 1351926085, 296277768, 1793717563, 400225071, 2018722301, 1767809423, 1966343832, 1639458045, 729159102, 1564789209, 401130734, 366935840, 423063416);
-            uint4x4 r0 = uint4x4(763128954, 1604006255, 851112563, 1351926085, 296277768, 1793717563, 400225071, 2018722301, 1767809423, 1966343832, 1639458045, 729159102, 1564789209, 401130734, 366935840, 423063416);
-            TestUtils.AreEqual(a0--, r0);
+            uint4x4 a0 = uint4x4(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351, 1015253889, 862428933, 1401191870, 2080259851, 653673271, 140452688, 1928164223, 1760916301);
+            uint4x4 r0 = uint4x4(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351, 1015253889, 862428933, 1401191870, 2080259851, 653673271, 140452688, 1928164223, 1760916301);
+            TestUtils.AreEqual(r0, a0--);
 
-            uint4x4 a1 = uint4x4(448523825, 121892713, 791108164, 1946569341, 2146683853, 571862090, 41814812, 2071269553, 1191516164, 1126029661, 880548962, 1593710942, 93957599, 709626808, 1691796732, 1172819870);
-            uint4x4 r1 = uint4x4(448523825, 121892713, 791108164, 1946569341, 2146683853, 571862090, 41814812, 2071269553, 1191516164, 1126029661, 880548962, 1593710942, 93957599, 709626808, 1691796732, 1172819870);
-            TestUtils.AreEqual(a1--, r1);
+            uint4x4 a1 = uint4x4(1174531383, 993137684, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745, 1407678826, 319906934, 1426931482, 488775250, 1681733117, 1916879863, 2060905976, 636358505);
+            uint4x4 r1 = uint4x4(1174531383, 993137684, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745, 1407678826, 319906934, 1426931482, 488775250, 1681733117, 1916879863, 2060905976, 636358505);
+            TestUtils.AreEqual(r1, a1--);
 
-            uint4x4 a2 = uint4x4(799847509, 1207019598, 1160294149, 1552749911, 1969422069, 1044527464, 1594189344, 686224526, 58813048, 527146605, 1973688583, 1351224443, 335570697, 1064795203, 1647652955, 1401541984);
-            uint4x4 r2 = uint4x4(799847509, 1207019598, 1160294149, 1552749911, 1969422069, 1044527464, 1594189344, 686224526, 58813048, 527146605, 1973688583, 1351224443, 335570697, 1064795203, 1647652955, 1401541984);
-            TestUtils.AreEqual(a2--, r2);
+            uint4x4 a2 = uint4x4(1379709480, 497925052, 549367303, 925145385, 55306458, 358414755, 18471540, 1907671409, 2010375112, 459674494, 1339288497, 548526029, 2061115550, 1130246689, 681734791, 1169678318);
+            uint4x4 r2 = uint4x4(1379709480, 497925052, 549367303, 925145385, 55306458, 358414755, 18471540, 1907671409, 2010375112, 459674494, 1339288497, 548526029, 2061115550, 1130246689, 681734791, 1169678318);
+            TestUtils.AreEqual(r2, a2--);
 
-            uint4x4 a3 = uint4x4(837300458, 1967582807, 1126284560, 964043260, 494681887, 1032144165, 809297751, 1428140179, 1252245251, 667687902, 1667159756, 425011359, 1673851824, 1256717024, 2095144960, 1703822879);
-            uint4x4 r3 = uint4x4(837300458, 1967582807, 1126284560, 964043260, 494681887, 1032144165, 809297751, 1428140179, 1252245251, 667687902, 1667159756, 425011359, 1673851824, 1256717024, 2095144960, 1703822879);
-            TestUtils.AreEqual(a3--, r3);
+            uint4x4 a3 = uint4x4(640772261, 337750282, 880417560, 995078500, 1313900720, 1237226166, 83627499, 242836958, 652914747, 2056321582, 1660799445, 1330003101, 1481004419, 1093032717, 1487769541, 1443901346);
+            uint4x4 r3 = uint4x4(640772261, 337750282, 880417560, 995078500, 1313900720, 1237226166, 83627499, 242836958, 652914747, 2056321582, 1660799445, 1330003101, 1481004419, 1093032717, 1487769541, 1443901346);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_and_wide_wide()
         {
-            uint4x4 a0 = uint4x4(2092051178, 1746770686, 1029274525, 1475004282, 612016978, 797870200, 1438448989, 1307881465, 1061841715, 758104536, 792659253, 1952707562, 591786804, 18587383, 2137260293, 1938728741);
-            uint4x4 b0 = uint4x4(272703892, 1322639335, 892833749, 1144239790, 1616750127, 886768760, 151903875, 437958142, 1601934447, 709021151, 1161272974, 87355212, 2003092747, 1175201405, 1818376664, 627815462);
-            uint4x4 r0 = uint4x4(268443776, 1209375462, 890309525, 1143113258, 542679554, 613023864, 17619969, 135308792, 524943395, 671269336, 87491588, 69264200, 591708416, 525941, 1818231040, 554345508);
-            TestUtils.AreEqual(a0 & b0, r0);
+            uint4x4 a0 = uint4x4(1055241304, 859321394, 1088358961, 2090949513, 300561740, 651904515, 1331035868, 2012752753, 1298126656, 53199569, 1752363533, 1303061302, 1929998247, 1504941434, 470682792, 713577376);
+            uint4x4 b0 = uint4x4(749698416, 748105424, 1842764797, 9990577, 1989102105, 1666634755, 58116798, 868036607, 1420638875, 1308767169, 564040763, 478617502, 806150474, 674015378, 1505309955, 36064977);
+            uint4x4 r0 = uint4x4(749024336, 537928720, 1087769137, 8409473, 277479432, 575816707, 55888540, 867707761, 1141707264, 33686209, 538087433, 209912598, 805855490, 136347666, 403178496, 33571456);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            uint4x4 a1 = uint4x4(2079117027, 1531731525, 679695184, 1294590416, 548710916, 1729598590, 949318613, 2072239038, 2095642225, 1059417062, 1924618819, 630319449, 467479977, 730852531, 874246366, 1154463144);
-            uint4x4 b1 = uint4x4(1692040923, 418702231, 1050351645, 1116669379, 631323443, 1395396662, 1633642673, 649593167, 488642172, 1222255439, 1394844021, 930778204, 1659415474, 1173665425, 299802877, 941123961);
-            uint4x4 r1 = uint4x4(1623740099, 407126533, 679677968, 1074332096, 547367424, 1124339766, 538271889, 578814222, 471864944, 134226758, 1378025537, 621840472, 46672288, 25470097, 270180572, 532776);
-            TestUtils.AreEqual(a1 & b1, r1);
+            uint4x4 a1 = uint4x4(1493231658, 1340884669, 1577921467, 44846626, 1105094388, 1143008413, 333009589, 2116296009, 2067254825, 121795325, 2122365250, 1088796653, 1594120761, 965590824, 337823363, 1686791432);
+            uint4x4 b1 = uint4x4(1779639327, 808650076, 1634437037, 1997568501, 1930853951, 1901503461, 1508772523, 2010961769, 1495957269, 1914669725, 1263994006, 491200541, 380703892, 282208487, 1416934135, 942735432);
+            uint4x4 r1 = uint4x4(1207967754, 2098204, 1074332585, 33572896, 1091986996, 1073782917, 298320545, 1979979081, 1495420417, 33686173, 1241513986, 4530189, 369102864, 276834336, 337674883, 536870920);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            uint4x4 a2 = uint4x4(1825505033, 955135380, 767655997, 1905746605, 307344031, 160310235, 1579158031, 1285520246, 2078337356, 1227042827, 758959602, 850680290, 1061721474, 2098705901, 319499114, 242423013);
-            uint4x4 b2 = uint4x4(170054738, 1893891713, 889179234, 11490070, 1788918804, 161335810, 557310900, 1105627778, 1516477863, 1648618121, 716473302, 684273006, 600953321, 1167763357, 120924991, 248908039);
-            uint4x4 r2 = uint4x4(134403072, 820130944, 616661024, 8864260, 33599508, 160170498, 2097668, 1082526210, 1516275972, 1073946633, 674529746, 545261922, 591434112, 1158849933, 50408234, 240254981);
-            TestUtils.AreEqual(a2 & b2, r2);
+            uint4x4 a2 = uint4x4(1275524729, 173403097, 864715776, 1437598787, 1375792249, 203672781, 1568515997, 145607913, 837338112, 754244200, 1383514630, 61183374, 690842674, 1362012962, 668846213, 1659745138);
+            uint4x4 b2 = uint4x4(615839538, 1698880188, 1204102677, 1811173266, 203114715, 1968993229, 1549041488, 421225724, 1641463312, 1122209170, 946391298, 229237652, 849684128, 1197217575, 1910121786, 1835643900);
+            uint4x4 r2 = uint4x4(67434032, 4246168, 58721280, 1102054402, 18521, 67125453, 1549018896, 134825192, 566264832, 14714880, 274776066, 27361668, 539304992, 1091306274, 567803904, 1617539952);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            uint4x4 a3 = uint4x4(1624343946, 1717375276, 678507293, 2029420817, 730379214, 914911408, 1234533786, 1499103820, 373895228, 1242811716, 1220243697, 182164359, 1466858095, 832170239, 937956980, 1839474603);
-            uint4x4 b3 = uint4x4(788474629, 779263875, 178347325, 1206462991, 1047926992, 135700015, 468983639, 2057652724, 1772708400, 1505252150, 1653328670, 1109031731, 270862374, 166702676, 737983248, 186419040);
-            uint4x4 r3 = uint4x4(550568192, 642781440, 136384797, 1088421889, 704647360, 4128, 160701714, 1476395076, 598064, 1209024772, 1082867728, 35265283, 270796838, 25798740, 602411536, 151258912);
-            TestUtils.AreEqual(a3 & b3, r3);
+            uint4x4 a3 = uint4x4(244062519, 625978732, 1335369426, 1146245993, 58358482, 538877476, 1060321225, 1070168191, 235095979, 1592354022, 662689935, 1706704449, 554656164, 1008037514, 1989573362, 1142327053);
+            uint4x4 b3 = uint4x4(200272981, 1864653698, 417415821, 863152148, 458105706, 1919250535, 1267287071, 45079273, 544365100, 843843698, 564582262, 329133431, 2091649092, 15031648, 240381212, 1613154110);
+            uint4x4 r3 = uint4x4(176949269, 621021440, 142606976, 5373952, 55190082, 537137188, 184615945, 42555497, 148008, 306708578, 556191750, 26881089, 537657348, 347136, 101869584, 1074169612);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_and_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1539818086, 1174036358, 829722249, 278534026, 1883523687, 972630451, 479408214, 1980474728, 1129809064, 1581024627, 182089936, 241631718, 710874038, 1975155852, 1449409653, 1337613880);
-            uint b0 = (1429236654);
-            uint4x4 r0 = uint4x4(1358971430, 1160792966, 288361096, 269484938, 1342196262, 288369058, 336601094, 1409294632, 1091567784, 1412432162, 1075328, 69206438, 1049510, 1429235852, 1411393572, 1160792616);
-            TestUtils.AreEqual(a0 & b0, r0);
+            uint4x4 a0 = uint4x4(1513158868, 284695609, 734595037, 1566510707, 1601252476, 84213838, 314333543, 430856908, 753481263, 327392481, 1619794917, 2143619546, 1873208293, 126982769, 651482651, 1383096952);
+            uint b0 = (1173647397);
+            uint4x4 r0 = uint4x4(1076916228, 15732769, 29360133, 1163132961, 1164976164, 84148228, 11816997, 27545604, 81801253, 25169953, 1082396709, 1170472960, 1168400421, 93327393, 81022977, 1081106464);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            uint4x4 a1 = uint4x4(1334047680, 1322285560, 808609814, 238335913, 802616343, 1060535418, 914205556, 1274627743, 1613439939, 1950316859, 1238111984, 1988386213, 619596063, 1456176595, 30992418, 160413444);
-            uint b1 = (2064480518);
-            uint4x4 r1 = uint4x4(1258385664, 1241544960, 805332998, 168046848, 721711110, 990148610, 839723268, 1258897414, 1611211010, 1879931138, 1225527296, 1912887556, 537676038, 1376352514, 17328130, 151859460);
-            TestUtils.AreEqual(a1 & b1, r1);
+            uint4x4 a1 = uint4x4(1689107088, 366962092, 1729929586, 989550739, 1914435619, 1592791064, 2047510829, 678485991, 586400261, 771972179, 309059606, 131945492, 1707451796, 394184188, 1943201012, 558008097);
+            uint b1 = (1368301071);
+            uint4x4 r1 = uint4x4(1082956288, 294519820, 1091338242, 277485571, 1342871555, 1350569992, 1342867469, 40455, 8552965, 138243, 269123590, 25957380, 1099203588, 286163980, 1367507972, 16942593);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            uint4x4 a2 = uint4x4(562966750, 858544803, 111962878, 1183545408, 1505909645, 1433418599, 1454972444, 1301163747, 971137722, 1932970846, 427593152, 467144984, 465867779, 2111518073, 1628751128, 2018995173);
-            uint b2 = (1873533334);
-            uint4x4 r2 = uint4x4(562696342, 589846658, 111691926, 1183537152, 1233279364, 1159731462, 1185486868, 1300891778, 698499218, 1663224086, 153651584, 193466640, 192974850, 1837830416, 1627439376, 1745045892);
-            TestUtils.AreEqual(a2 & b2, r2);
+            uint4x4 a2 = uint4x4(1070093422, 258102213, 1800249857, 922911179, 1719705954, 609219265, 1162961184, 851638827, 889902874, 1622363409, 785352441, 1741477119, 452211039, 1144654389, 641588835, 1574197624);
+            uint b2 = (34324916);
+            uint4x4 r2 = uint4x4(34095140, 33702276, 34177024, 33718656, 33587488, 770176, 82208, 33734688, 704784, 213264, 34308272, 34128052, 33554708, 655412, 34193440, 16688);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            uint4x4 a3 = uint4x4(34893530, 422239385, 1111051290, 1301482173, 626620311, 113500940, 2063000340, 1151389930, 270083748, 1169797239, 1388779877, 2139572162, 510213001, 124848032, 151097518, 81218274);
-            uint b3 = (267857097);
-            uint4x4 r3 = uint4x4(34876616, 153226377, 36768776, 227739785, 89203841, 113451016, 183902208, 77594824, 1123456, 95494209, 46598209, 260506816, 241248393, 124847232, 151060616, 81201344);
-            TestUtils.AreEqual(a3 & b3, r3);
+            uint4x4 a3 = uint4x4(568430284, 349792636, 1088197642, 523608129, 1406695425, 839388192, 834567855, 888024716, 1014852215, 1459725306, 5273937, 298911416, 1193513114, 2080691940, 1824077552, 1585611449);
+            uint b3 = (1840697362);
+            uint4x4 r3 = uint4x4(564166656, 76562448, 1083478018, 221544448, 1099976704, 536870912, 565596162, 614858752, 741621778, 1157660690, 1069072, 26214416, 1159893010, 1812254720, 1823477776, 1283620880);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_and_scalar_wide()
         {
-            uint a0 = (1464480071);
-            uint4x4 b0 = uint4x4(880300166, 1801631129, 2146929359, 134501242, 560052329, 1883977874, 1013494998, 1922782264, 691181116, 462206052, 446227614, 733622820, 154650269, 1040709037, 872751594, 1748058103);
-            uint4x4 r0 = uint4x4(340267014, 1128411393, 1463943239, 4418, 20983873, 1347039234, 340275270, 1376391168, 16912388, 319303748, 302522374, 50999300, 16908293, 369242373, 335552834, 1073754439);
-            TestUtils.AreEqual(a0 & b0, r0);
+            uint a0 = (477163326);
+            uint4x4 b0 = uint4x4(110453385, 703240362, 2075630560, 1884904031, 1734899436, 947945203, 1664399051, 458879298, 158491426, 79772356, 2054527944, 202228212, 359225061, 639811396, 1821945318, 1821303024);
+            uint4x4 r0 = uint4x4(68182536, 140544042, 405834528, 273697310, 73426476, 402681394, 3188234, 407953666, 141583138, 71313924, 410028808, 201376052, 341853732, 69250820, 202419494, 201383984);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            uint a1 = (515699587);
-            uint4x4 b1 = uint4x4(1854871563, 684039719, 435845623, 1477579741, 624937918, 987459778, 1763643001, 1468764252, 80425994, 1974457780, 625936109, 1911820063, 1176053964, 908793579, 1551482044, 1683057338);
-            uint4x4 r1 = uint4x4(244060163, 142905859, 414740867, 403706753, 71091074, 446197890, 136053249, 378048512, 76034050, 346870144, 67895937, 280232707, 102244480, 371724931, 473477248, 68182658);
-            TestUtils.AreEqual(a1 & b1, r1);
+            uint a1 = (2030124055);
+            uint4x4 b1 = uint4x4(1985961756, 579780373, 2061831301, 1139618293, 1145191868, 1121606282, 1414714065, 688688277, 1508875606, 664318814, 2092766410, 1010043618, 599967779, 47076367, 1325716015, 1119912335);
+            uint4x4 r1 = uint4x4(1879120916, 536886293, 2013334533, 1090596885, 1073757204, 1073747970, 1342181393, 687868949, 1493244950, 553660438, 2013336578, 939526146, 553650179, 5127, 1224740871, 1073741831);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            uint a2 = (1874774463);
-            uint4x4 b2 = uint4x4(1007700018, 528593413, 1753034393, 1809980070, 1372419123, 222338426, 1411956572, 1607908811, 1054792119, 304797471, 828744177, 1312993324, 738391014, 1661989605, 967576643, 426629215);
-            uint4x4 r2 = uint4x4(739264562, 260079621, 1748764825, 1805781158, 1099710515, 218138938, 1143507228, 1335265675, 782158263, 36356383, 556040625, 1308786732, 738378150, 1661911205, 699140099, 153929759);
-            TestUtils.AreEqual(a2 & b2, r2);
+            uint a2 = (2083412385);
+            uint4x4 b2 = uint4x4(1805692137, 1689798540, 265665838, 1616867488, 244288538, 688929004, 1157047188, 1381359113, 1562107079, 944933664, 1994959125, 1413414673, 1280114143, 1373827711, 1107998701, 890185579);
+            uint4x4 r2 = uint4x4(1746929825, 1680359808, 201595168, 1611550880, 202246144, 671094944, 1143341440, 1342461953, 1544181889, 939657504, 1948780801, 1412323585, 1275877761, 1344426017, 1074401697, 873333025);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            uint a3 = (513111152);
-            uint4x4 b3 = uint4x4(272615577, 221031418, 1691101254, 2134383977, 255362248, 814171351, 383286358, 813220637, 479626335, 2057003741, 387558889, 10962201, 1662610799, 1700896120, 1042229217, 1198049129);
-            uint4x4 r3 = uint4x4(269828112, 201597040, 75767872, 504370272, 235930688, 277169232, 378565712, 269500432, 479462480, 445734992, 370222176, 8733712, 34694240, 67179632, 504702048, 100680800);
-            TestUtils.AreEqual(a3 & b3, r3);
+            uint a3 = (195053206);
+            uint4x4 b3 = uint4x4(1877717925, 2063436477, 878745806, 1485028680, 1112745164, 1729117727, 660916495, 1196215754, 226023830, 283626389, 1719116288, 1596319327, 1706007294, 32695989, 728811929, 1229799524);
+            uint4x4 r3 = uint4x4(195035780, 178258580, 2097286, 142607360, 33555588, 50333206, 52445190, 50349186, 153108630, 10502804, 35652096, 186664470, 27263638, 27281044, 186663056, 151011332);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_or_wide_wide()
         {
-            uint4x4 a0 = uint4x4(734971681, 170686390, 1266964099, 1460491362, 1803179461, 768462149, 987469872, 438875025, 1128872651, 795335618, 1529817033, 741387702, 1220165008, 1338127916, 1489866234, 179365479);
-            uint4x4 b0 = uint4x4(855541034, 1662326443, 1355326851, 2034950208, 350174433, 267121140, 1311095923, 1505207657, 504611275, 741405442, 29985341, 1349904874, 2075459701, 1867309176, 1329238130, 1905614698);
-            uint4x4 r0 = uint4x4(1006552875, 1799190463, 1540159363, 2135946338, 2147450341, 804257269, 2130689139, 1539291129, 1599863755, 796392386, 1542434813, 2088103422, 2076130805, 1875834492, 1610587642, 2075524975);
-            TestUtils.AreEqual(a0 | b0, r0);
+            uint4x4 a0 = uint4x4(1920951869, 1750772852, 1420019191, 732977093, 1169579447, 229437930, 1966721348, 2039812323, 113550869, 1912038362, 1569990624, 1490718227, 1686257697, 2137727522, 1569900650, 856504729);
+            uint4x4 b0 = uint4x4(214585254, 275414367, 858759675, 190211455, 1218691723, 2129565457, 1862809466, 495728846, 868064152, 1756913766, 933656055, 247722084, 1884195075, 1804207631, 1913174711, 1815920856);
+            uint4x4 r0 = uint4x4(2130669503, 2021326207, 2008016383, 737572863, 1303895999, 2146367483, 2134507390, 2107455727, 939376541, 2046780414, 2142664695, 1591475831, 1959708963, 2146117167, 2140863231, 2134768089);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            uint4x4 a1 = uint4x4(271887939, 949829005, 1924295483, 1565617278, 2114237895, 107080877, 1139095362, 352536950, 1307382197, 520285165, 1338563982, 889841013, 114153332, 442161435, 17198935, 545083974);
-            uint4x4 b1 = uint4x4(243380332, 2030947165, 1446681429, 2018905151, 585548776, 310314990, 2084079897, 262706040, 1215119971, 2039496068, 486050077, 704986340, 968265163, 1338988045, 1740665833, 473941331);
-            uint4x4 r1 = uint4x4(515227247, 2040397789, 1991965567, 2102881407, 2129065967, 377483247, 2147336027, 531356542, 1307399159, 2140340205, 1610145183, 1057881589, 1073733631, 1608507167, 1741062143, 1015011159);
-            TestUtils.AreEqual(a1 | b1, r1);
+            uint4x4 a1 = uint4x4(2033376384, 2086259889, 671790684, 1189001916, 1756048437, 417084592, 2024165808, 966008272, 2031026290, 1461019191, 1071959084, 1645847295, 871350674, 736640317, 868515800, 767794452);
+            uint4x4 b1 = uint4x4(1226577606, 1696467642, 186912044, 1778908130, 1461256625, 1142152181, 272117331, 1162254035, 870448102, 1845053992, 257334526, 987295814, 1503050768, 1683307763, 1076253109, 1403888383);
+            uint4x4 r1 = uint4x4(2034163398, 2103430843, 724483964, 1860172798, 2142973365, 1558183925, 2025750515, 2111217619, 2079325174, 2147314239, 1073143038, 2061103871, 2080374162, 1878867455, 1944485885, 2146418687);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            uint4x4 a2 = uint4x4(170808954, 2142716848, 361266918, 1728395821, 1086477644, 774651194, 2070388111, 210809512, 1722922751, 559926979, 808952965, 567050716, 1501022966, 1916793833, 1004519994, 2001706216);
-            uint4x4 b2 = uint4x4(1010331098, 744089540, 555411507, 1829674869, 923914114, 944268257, 431072712, 1283568758, 1075421876, 274746263, 287353058, 1933321509, 244842665, 956030320, 226629233, 373572062);
-            uint4x4 r2 = uint4x4(1044283386, 2147477492, 899350263, 1863303037, 2010374094, 1047298043, 2079833551, 1284617982, 1723447039, 830459863, 825732327, 1945937405, 1610599167, 2063597561, 1071634043, 2001722878);
-            TestUtils.AreEqual(a2 | b2, r2);
+            uint4x4 a2 = uint4x4(362186994, 96189073, 1924033224, 1971421809, 1826545883, 865329, 516571463, 371039923, 918186803, 1920664988, 452155520, 743961772, 1728213958, 825116968, 1597755374, 910392330);
+            uint4x4 b2 = uint4x4(561000721, 740143742, 343344681, 2074122472, 133130232, 108733999, 348566046, 1414140366, 975473487, 699452548, 1158934384, 1776041858, 1098964075, 1316223563, 1653177800, 679795328);
+            uint4x4 r2 = uint4x4(905361907, 767539967, 1996451561, 2141297401, 1879042043, 109000255, 516879199, 1449107455, 1052699519, 2080099740, 1609826288, 1843396526, 1736638447, 2139093867, 2143027182, 1053294218);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            uint4x4 a3 = uint4x4(40464802, 139506036, 2088846696, 2048922769, 1634207797, 953018424, 1858882530, 782081876, 757455651, 1763548941, 1180738854, 1812472013, 443280382, 1390550221, 786101321, 825154875);
-            uint4x4 b3 = uint4x4(1780623193, 128764264, 1755931057, 751970690, 838093943, 414649868, 2093056403, 1830564267, 1306076324, 1089260706, 270337711, 2030939543, 209395339, 116424253, 772365501, 859848411);
-            uint4x4 r3 = uint4x4(1785427963, 268237180, 2091476473, 2129804691, 1912360055, 956296764, 2127416307, 1872609279, 1845362599, 1778245551, 1451075503, 2098048479, 511442943, 1458732797, 786169085, 862912507);
-            TestUtils.AreEqual(a3 | b3, r3);
+            uint4x4 a3 = uint4x4(693462173, 779965187, 175928258, 1385704458, 1046509940, 18508109, 256469197, 470724351, 1132010845, 765120960, 1303071768, 951732863, 1964522596, 1159413431, 1665711360, 476367098);
+            uint4x4 b3 = uint4x4(1160679856, 1463165087, 225864530, 1687681609, 1534380366, 938828852, 1537113296, 522784628, 1469983598, 2040525960, 68341904, 1350736257, 467630862, 825069149, 655198246, 173368083);
+            uint4x4 r3 = uint4x4(1837102525, 2139059103, 259947474, 1990196811, 2138372478, 939486589, 1608482013, 523218943, 1476345727, 2107635144, 1304157336, 2025511935, 2145353582, 1967111935, 1733147942, 511044603);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_or_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1734012999, 667885144, 1145828203, 697078394, 548056872, 1693193261, 982993821, 1923524974, 1721498502, 629916984, 1306607927, 1103396649, 629860201, 748158308, 1434379189, 1149265831);
-            uint b0 = (724265524);
-            uint4x4 r0 = uint4x4(1870396023, 804224636, 1869347711, 732953214, 732688188, 1877966397, 1002400701, 2075126654, 1874590646, 799797052, 1877699383, 1810857789, 799797117, 801111924, 2139089845, 1873506231);
-            TestUtils.AreEqual(a0 | b0, r0);
+            uint4x4 a0 = uint4x4(1295304853, 1307252624, 350194630, 1128063578, 1774824542, 2085245467, 1988423804, 999162350, 2110327307, 1050875188, 341855232, 1317039676, 228656898, 41280811, 1536908787, 606786773);
+            uint b0 = (1305527136);
+            uint4x4 r0 = uint4x4(1307888629, 1308350448, 1574947814, 1341973370, 1842999166, 2111492987, 2144662396, 2145305582, 2111425387, 2146686836, 1576062816, 1339092860, 1307690850, 1341515627, 1608245235, 1845155829);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            uint4x4 a1 = uint4x4(591994749, 1655990044, 854989838, 116720856, 393888236, 1529825596, 1732308386, 1265510112, 1772725577, 1966044680, 1845712935, 51995087, 1955901484, 189025069, 94271361, 687253656);
-            uint b1 = (1915156047);
-            uint4x4 r1 = uint4x4(1936719743, 1924593503, 1928789583, 1995962079, 2004809711, 2066743167, 2003238895, 2070869743, 2075129679, 1999631951, 2116550255, 1933572047, 1991702127, 2070347631, 2009003983, 2063007455);
-            TestUtils.AreEqual(a1 | b1, r1);
+            uint4x4 a1 = uint4x4(1739461580, 1350320187, 1377874553, 1522262112, 1496806239, 1732466858, 1535976093, 375675620, 1614193383, 226059393, 697385997, 112556963, 1614163749, 1583289054, 1370656810, 1286074530);
+            uint b1 = (2040936581);
+            uint4x4 r1 = uint4x4(2142125005, 2046720191, 2074524413, 2076178661, 2042067935, 2145876143, 2075081373, 2145811173, 2042018535, 2113895557, 2042068109, 2142731175, 2041986981, 2147433183, 2042017967, 2108160167);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            uint4x4 a2 = uint4x4(154409550, 755199069, 1240097960, 832848429, 1129657298, 1192885109, 953260743, 1785129647, 811580272, 1372843434, 1363616194, 1073591478, 248001931, 94028786, 2040238184, 1666135313);
-            uint b2 = (333055268);
-            uint4x4 r2 = uint4x4(469639022, 1071345021, 1543136684, 872302381, 1407137782, 1474035573, 1004249063, 2080305071, 870301556, 1406922158, 1407133158, 1073722806, 534394287, 400214006, 2077988204, 1944007989);
-            TestUtils.AreEqual(a2 | b2, r2);
+            uint4x4 a2 = uint4x4(1155438844, 440002979, 1569359727, 5393691, 774282482, 1217128427, 212144562, 1525899482, 463019249, 1531812233, 1944160603, 953179348, 1692078056, 1331652826, 183129856, 1305664018);
+            uint b2 = (1835671387);
+            uint4x4 r2 = uint4x4(1845403647, 2138832891, 2112528255, 1836736347, 1869520891, 1844183035, 1844387835, 2147188699, 2147164155, 2138021851, 2146148187, 2113560543, 1845174267, 1870626779, 1877630811, 1845157723);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            uint4x4 a3 = uint4x4(1880259291, 489974735, 28889952, 1617292143, 330377288, 1285543195, 1561003464, 1579051929, 922814942, 1874632228, 1284764533, 1871529887, 1913080665, 440891915, 1212336566, 416142993);
-            uint b3 = (449659323);
-            uint4x4 r3 = uint4x4(2061466619, 536701951, 469619707, 2062412799, 469592571, 1591727547, 1607419387, 1591700411, 1070418431, 2147344319, 1591735295, 2144159679, 2060405755, 449805243, 1523567039, 449697723);
-            TestUtils.AreEqual(a3 | b3, r3);
+            uint4x4 a3 = uint4x4(626899632, 2094300112, 1737365603, 1920526388, 1956204544, 1722269413, 961702184, 752387958, 160631159, 1859186074, 1291037807, 886605387, 496163558, 1615069781, 1118682069, 30965146);
+            uint b3 = (1403426207);
+            uint4x4 r3 = uint4x4(2013249471, 2146893791, 2007932415, 1946090943, 2009060767, 2007482367, 2079784383, 2147391487, 1538760191, 2146893215, 1610071551, 2013173727, 1605820415, 1944491999, 1404026847, 1409219999);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_or_scalar_wide()
         {
-            uint a0 = (1944842696);
-            uint4x4 b0 = uint4x4(1797946902, 1995080562, 1009785533, 2078864395, 1738258290, 2078839688, 182771906, 331104563, 1016101895, 1555585463, 344959457, 1773844766, 2065533499, 930917837, 660708795, 294373756);
-            uint4x4 r0 = uint4x4(2079064030, 2011952122, 2147220477, 2079061451, 2013001722, 2079060936, 2079322570, 1946153467, 2147220943, 2147219967, 2012215785, 2080111070, 2080373755, 2013265357, 2011954683, 1944844796);
-            TestUtils.AreEqual(a0 | b0, r0);
+            uint a0 = (1768627592);
+            uint4x4 b0 = uint4x4(1849658052, 1759912154, 729979455, 975926310, 1987690876, 1809506714, 1160695341, 408963395, 314072711, 1560007537, 1709003416, 977086639, 1448375596, 1689568808, 595543345, 559778387);
+            uint4x4 r0 = uint4x4(1870634956, 1777286618, 1810603967, 2070642094, 2138824188, 1811676570, 1836048301, 2037079499, 2080071567, 2113658873, 1845452696, 2071936431, 2139061676, 1845485480, 1803509177, 1769971675);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            uint a1 = (677858240);
-            uint4x4 b1 = uint4x4(1983817531, 2008476971, 1783619227, 943797701, 741485891, 1611993557, 1139962120, 472265873, 1159614643, 1216369159, 651328142, 618536270, 1964020452, 1697972846, 1036467012, 566893591);
-            uint4x4 r1 = uint4x4(2122313723, 2146955243, 1785716699, 946307013, 746024899, 1752652757, 1811381192, 1013415889, 1837063155, 1759992775, 787971022, 754933710, 2105007076, 1836534766, 1038580676, 703553495);
-            TestUtils.AreEqual(a1 | b1, r1);
+            uint a1 = (621080913);
+            uint4x4 b1 = uint4x4(438994183, 1742637145, 1219409263, 1602932494, 1204461702, 2111538444, 836730895, 1207638621, 802100209, 1089077339, 1315030334, 249047666, 1604790897, 1848168086, 347254235, 1777613639);
+            uint4x4 r1 = uint4x4(1060042071, 1742666073, 1840182655, 2140077919, 1741615575, 2111829341, 903868767, 1744829277, 802157553, 1710158171, 1868952959, 803011443, 2141715313, 1865220055, 901184987, 1844771671);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            uint a2 = (1866044762);
-            uint4x4 b2 = uint4x4(939343938, 1835442116, 379134562, 1800677771, 713890127, 1228587866, 192011208, 1070170416, 450989057, 1492827412, 721304744, 1998056970, 1657504526, 1417279906, 1638180426, 907764016);
-            uint4x4 r2 = uint4x4(2147341658, 1870634974, 2142877562, 1870511579, 1874697567, 1866192730, 1870258138, 2147063162, 2147065179, 2147204446, 1879031290, 2134900570, 1878759262, 2138701306, 1874704218, 2134635898);
-            TestUtils.AreEqual(a2 | b2, r2);
+            uint a2 = (1876731927);
+            uint4x4 b2 = uint4x4(842785732, 1023558747, 1567635900, 1888818835, 1681286114, 816160472, 669874393, 856364582, 957707703, 533888601, 707380794, 1472392035, 1658477097, 490006292, 1104319323, 1803275943);
+            uint4x4 r2 = uint4x4(2147478487, 2145315935, 2147269055, 2145238679, 1878977527, 2147335903, 1878915295, 2145369655, 2145254839, 2145320543, 1878912575, 2145315703, 1876884031, 2147282711, 1876867935, 1879043767);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            uint a3 = (1666974194);
-            uint4x4 b3 = uint4x4(1879082085, 167606992, 465136914, 1001044995, 1056461011, 383087005, 2017307060, 1606598522, 578643647, 862470529, 1678927411, 1860051940, 1199565090, 2005096264, 1455976092, 1206951175);
-            uint4x4 r3 = uint4x4(1935443447, 1811774450, 2080206322, 2080292339, 2147242483, 2011001343, 2071833078, 2145304570, 1669163007, 1937523187, 1734240243, 1876829174, 1736436210, 2011125754, 2010935294, 1744608759);
-            TestUtils.AreEqual(a3 | b3, r3);
+            uint a3 = (1843251082);
+            uint4x4 b3 = uint4x4(1971735860, 1170365407, 938567231, 165695098, 645196350, 1795857357, 2040732207, 1915771336, 1185590667, 720429375, 1993148654, 159915729, 856765461, 1859323098, 1361749181, 1346956647);
+            uint4x4 r3 = uint4x4(2111819710, 1843388383, 2147346367, 1845350394, 1878912958, 1876942799, 2113920943, 2147344330, 1879043979, 1878910911, 2145243118, 1843257307, 2145253279, 1876936666, 2113923007, 2111696879);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_xor_wide_wide()
         {
-            uint4x4 a0 = uint4x4(1451207246, 1326937873, 1723637117, 1703580819, 248456219, 102413373, 1112748052, 786343099, 1705703147, 1153897995, 706969967, 856434388, 1429965951, 206758510, 530227784, 30367516);
-            uint4x4 b0 = uint4x4(973506398, 229917169, 115811768, 824430321, 1106935191, 1150807945, 1096766695, 405353279, 1241418803, 1943592644, 817552063, 980538734, 1055597865, 93654543, 1866100663, 428258142);
-            uint4x4 r0 = uint4x4(1819880720, 1117992672, 1616623813, 1420384866, 1328896396, 1116560308, 51143923, 922195844, 743733976, 924829903, 446258128, 159249338, 1808836950, 164097121, 1889586687, 407497794);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            uint4x4 a0 = uint4x4(1843655608, 362425681, 640805534, 1342040268, 945678755, 980321850, 390165019, 1682422658, 303897251, 230477768, 1103646442, 1503102919, 26631152, 1016475570, 1862440929, 379588576);
+            uint4x4 b0 = uint4x4(1422803441, 1234691140, 119589253, 1101464929, 121896337, 1880109018, 1000210266, 1718938232, 464406940, 884337881, 34199854, 1430659227, 126415540, 1069919967, 1810763253, 2082802224);
+            uint4x4 r0 = uint4x4(959296073, 1544407317, 554771227, 240840109, 1058935858, 1249815008, 752651585, 36917754, 162747199, 956900113, 1136760772, 215066460, 102672708, 55804269, 82614804, 1787102672);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            uint4x4 a1 = uint4x4(781820050, 350072558, 1506701192, 1749550432, 801802251, 881150186, 2119789506, 124082522, 1124271386, 1427332872, 639366091, 1531454424, 117072010, 947434865, 2056536905, 294202537);
-            uint4x4 b1 = uint4x4(1532858506, 2045421737, 1774747197, 452373668, 118283764, 129561090, 915948317, 583510087, 770310023, 1563117834, 1957986285, 633655183, 346399139, 668039252, 1609926276, 529839203);
-            uint4x4 r1 = uint4x4(1975791640, 1832322631, 805704117, 1925097924, 684086783, 859683560, 1220618463, 631435549, 1860893341, 137893378, 1387236390, 2123164759, 308265257, 531221797, 627164621, 236820682);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            uint4x4 a1 = uint4x4(1943580404, 691527166, 723280696, 497086939, 1640104913, 893178410, 1596765788, 664096470, 2043360590, 799560121, 287637604, 696169196, 2067184169, 1208059988, 1250597330, 1386507647);
+            uint4x4 b1 = uint4x4(941097951, 27782297, 156353074, 607061607, 470737131, 1151564598, 8268481, 434405645, 519003095, 1880915120, 608970922, 1809455754, 1079250101, 514389994, 272120301, 1282399149);
+            uint4x4 r1 = uint4x4(1270918443, 680538471, 575512842, 965736380, 2110579514, 1906288924, 1599249565, 1047646171, 1730440857, 1605643529, 896084174, 1118087270, 996325020, 1453948862, 1521655871, 516667090);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            uint4x4 a2 = uint4x4(1076567675, 368987895, 746694137, 1046135734, 1639352018, 1141790393, 2083885524, 1008232875, 931515343, 1116866804, 438767791, 1936375698, 1404082, 1928349727, 827312332, 543320410);
-            uint4x4 b2 = uint4x4(1821638878, 1727373193, 888405009, 2078439597, 701524327, 588686203, 726873298, 514017634, 1770732070, 1907401408, 614733329, 971317412, 1863901022, 1160302053, 1081511180, 1339359622);
-            uint4x4 r2 = uint4x4(750722725, 1930154366, 410147304, 1169734427, 1214705589, 1729689026, 1466344710, 582688969, 1578037737, 857909812, 1048774334, 1250926390, 1863169004, 936936954, 1899578816, 1874290908);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            uint4x4 a2 = uint4x4(1889791408, 2084012261, 308683100, 995657536, 2114803648, 1391716615, 1288505091, 1981377086, 1609802717, 1174043024, 1011203132, 1795164620, 244928755, 108081775, 1095776733, 1503947924);
+            uint4x4 b2 = uint4x4(1045003273, 1596550715, 1654640361, 147544177, 1770899808, 632909311, 351538321, 18362671, 582069925, 1343437834, 646157103, 1334609482, 1029555059, 1791514242, 2130180592, 1367984612);
+            uint4x4 r2 = uint4x4(1323995577, 589229790, 1895428021, 865328945, 394305184, 2001372408, 1480133522, 1996577553, 2101480824, 367609242, 449195795, 613191558, 868520832, 1824089325, 1067958317, 137209200);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            uint4x4 a3 = uint4x4(1971564874, 1200477062, 546960422, 1984299597, 1871657936, 2071249463, 816195892, 697253306, 1485649911, 1884007556, 493059472, 91071412, 2032746827, 1725969111, 1107538929, 1251127265);
-            uint4x4 b3 = uint4x4(351310983, 298150628, 544192976, 235866377, 1496376922, 2085325411, 942768221, 1537682359, 433417231, 285804835, 534284776, 461834346, 1545154130, 1030276762, 2033317328, 557840838);
-            uint4x4 r3 = uint4x4(1634936269, 1447606626, 16141814, 2018052932, 918543754, 121587796, 144157033, 1915229709, 1096309752, 1631757735, 45872248, 518695902, 623931161, 1535702093, 993150497, 1806521895);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            uint4x4 a3 = uint4x4(1231713131, 1409256837, 71739867, 125722545, 1670829206, 1913595119, 1364737954, 520950663, 1245356662, 1052070924, 1245560924, 271196017, 1397322300, 1351621960, 1546558586, 1199251091);
+            uint4x4 b3 = uint4x4(1758262908, 551762515, 1215029402, 388720229, 652015944, 664221443, 63259885, 1715645848, 1189697317, 668527405, 43069813, 1243634305, 749402779, 1426611688, 1351626941, 2132106703);
+            uint4x4 r3 = uint4x4(564561175, 1931261910, 1278036289, 274020820, 1162489310, 1436029932, 1386052431, 2035269151, 215217491, 426622753, 1219293481, 1510622704, 2145618087, 93864096, 213822663, 946750300);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_xor_wide_scalar()
         {
-            uint4x4 a0 = uint4x4(1168710170, 1910166247, 770450475, 137053244, 294543551, 1408449906, 1818436467, 1927634471, 1868775761, 2129912193, 2002455346, 1128536481, 137121619, 217103701, 2089471351, 672445107);
-            uint b0 = (1652551354);
-            uint4x4 r0 = uint4x4(668398752, 329595997, 1335085713, 1783933574, 1945210373, 831312840, 236768713, 278573213, 219983851, 478940987, 354739592, 557578011, 1783865833, 1854886895, 519381965, 1248549897);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            uint4x4 a0 = uint4x4(169345668, 176087064, 2084362901, 1663924004, 193851255, 517476661, 905336222, 863800783, 365003873, 835837496, 954341348, 1464576786, 625604047, 1700827127, 2003392824, 1481813598);
+            uint b0 = (354464228);
+            uint4x4 r0 = uint4x4(523809632, 526275068, 1763470193, 1980614336, 514678419, 200843473, 550954106, 643578923, 14759301, 619802588, 767731200, 1114315510, 812205099, 1883258387, 1649010908, 1299324858);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            uint4x4 a1 = uint4x4(1736096264, 1734728632, 1569700130, 693181400, 1591621356, 1902550747, 838201645, 1371411220, 813904326, 1675805514, 1930315761, 1465528371, 710228736, 135524471, 1787240536, 1884295730);
-            uint b1 = (792848316);
-            uint4x4 r1 = uint4x4(1211850164, 1210334212, 1926127262, 101776484, 1906299216, 1579645287, 515118737, 2130703528, 532862586, 1285760246, 1548722253, 2015090575, 85253308, 659691467, 1170655204, 1595012494);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            uint4x4 a1 = uint4x4(1077374714, 1991576049, 781860967, 60088394, 1196907956, 858716109, 858484213, 178843494, 1223183458, 866652388, 1771693181, 1206307664, 2037729583, 1324393116, 497725784, 1367278685);
+            uint b1 = (1043379893);
+            uint4x4 r1 = uint4x4(2114443343, 1216724804, 279639762, 1034180351, 2036853505, 220086648, 219929408, 882399699, 1993931479, 228107857, 1470714568, 2044100069, 1195769754, 1891636265, 597297133, 1867494120);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            uint4x4 a2 = uint4x4(1475655978, 1987636844, 1623414652, 1500386764, 956830995, 1142365779, 1918858458, 1637348670, 1224956275, 153173892, 1491654164, 1067393936, 1215140034, 1895833209, 1629426465, 940287550);
-            uint b2 = (382865968);
-            uint4x4 r2 = uint4x4(1093053210, 1621818460, 1980843340, 1337722876, 802817827, 1388645475, 1686988522, 2001069838, 1607551811, 536030644, 1312474148, 692924832, 1589609202, 1741818953, 2009923857, 786019342);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            uint4x4 a2 = uint4x4(962962860, 1570278596, 1744797352, 574677361, 1363709514, 1256194849, 801937870, 1010182360, 1851940033, 346084804, 1153678862, 443991213, 53881334, 2016754499, 1219039118, 98879165);
+            uint b2 = (906632547);
+            uint4x4 r2 = uint4x4(258980047, 1804767655, 1375036363, 340458514, 1732416297, 2095717954, 432440493, 171718075, 1483227554, 581617831, 1925817197, 746379726, 893138069, 1312761376, 2124616429, 871291870);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            uint4x4 a3 = uint4x4(715717468, 1673726279, 987095124, 475528770, 60929998, 7615500, 2079732477, 913125671, 1628122872, 1880128039, 2035604353, 462106100, 1158547025, 1994387722, 215214810, 1391724398);
-            uint b3 = (910784884);
-            uint4x4 r3 = uint4x4(484540968, 1435136051, 211589408, 706643766, 904449722, 909987192, 1304382345, 2377811, 1463965580, 1180238675, 1327342325, 767710336, 1934065445, 1083607166, 983208878, 1690140186);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            uint4x4 a3 = uint4x4(1431003548, 1357679092, 1348322929, 109257274, 1305039919, 1464854602, 1225878688, 1485080510, 1118151444, 1798307920, 1281126688, 1804976766, 474757937, 1658928027, 456615564, 97298101);
+            uint b3 = (1566042386);
+            uint4x4 r3 = uint4x4(136087694, 230383846, 218771299, 1540672296, 278838589, 169345368, 340166066, 97742508, 535972358, 912779586, 285972530, 918694764, 1092342307, 1068946057, 1180733342, 1486573479);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_xor_scalar_wide()
         {
-            uint a0 = (1194539731);
-            uint4x4 b0 = uint4x4(1838033352, 576935253, 399395950, 250856040, 1425907707, 1076687299, 983484392, 2124473834, 2078261486, 1921195479, 95097761, 573992422, 1605464512, 619598441, 2142716785, 1152008011);
-            uint4x4 r0 = uint4x4(717034267, 1699770246, 1358788285, 1237383355, 332309800, 119524112, 2108554555, 965992249, 1022163517, 900736772, 1117268338, 1694848821, 411192083, 1675454650, 948205986, 60360088);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            uint a0 = (1361775641);
+            uint4x4 b0 = uint4x4(1452773578, 459050892, 1986218254, 1689037698, 999278344, 1229114508, 1087843538, 733699740, 106187872, 1533632738, 1107817672, 492506236, 597602329, 1439603382, 1001169118, 1231718216);
+            uint4x4 r0 = uint4x4(129801427, 1249346453, 659047703, 898082715, 1789184785, 409583765, 301736139, 2056278661, 1467957369, 172125435, 321714385, 1282408549, 1924512768, 82155183, 1787276487, 406948689);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            uint a1 = (2146366522);
-            uint4x4 b1 = uint4x4(1906443135, 1183476844, 595094127, 477679389, 1422748994, 467245707, 113755677, 1824784547, 271553025, 984124685, 261664042, 1638436014, 785466723, 2057301897, 2081439648, 1145403829);
-            uint4x4 r1 = uint4x4(239925061, 962893910, 1553374805, 1670789927, 723753336, 1681354417, 2032742951, 321582233, 1874945595, 1162246455, 1886804240, 507934868, 1363128665, 91298739, 67029914, 1001098639);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            uint a1 = (1693179077);
+            uint4x4 b1 = uint4x4(1050897427, 1796435561, 1100532547, 2106589181, 79691722, 851486414, 381749210, 1743618507, 2038827673, 1680906962, 161437943, 171927307, 277703584, 1344718195, 1634011177, 28540247);
+            uint4x4 r1 = uint4x4(1514713302, 267956908, 628299654, 425993016, 1616126735, 1445689867, 1915411231, 50748686, 493737564, 14370327, 1836352562, 1859435470, 1952888677, 885856694, 93246700, 1700307346);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            uint a2 = (1589602121);
-            uint4x4 b2 = uint4x4(1571308289, 566131846, 993843062, 1730434628, 348626620, 306342372, 301444163, 922131848, 755889613, 1650983067, 1902605684, 1855623384, 753021431, 1673001866, 483914770, 1299053736);
-            uint4x4 r2 = uint4x4(51848264, 2130779087, 1703129151, 966471949, 1249442293, 1291652781, 1330170634, 1749678785, 1941082756, 1020749778, 802689597, 807794577, 1918719678, 1023974595, 1114149723, 332569569);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            uint a2 = (1205447252);
+            uint4x4 b2 = uint4x4(150341716, 899457210, 1927941858, 1213321665, 1943899052, 1166699955, 244059986, 698605361, 770240668, 1451322609, 409403288, 227252138, 455879262, 1859170556, 2135312326, 436746325);
+            uint4x4 r2 = uint4x4(1328521728, 1917127406, 892576950, 260602773, 872686072, 39045095, 1230349574, 1853519205, 1781619400, 291030693, 1606374860, 1246903806, 1559592970, 688462504, 950005138, 1574015489);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            uint a3 = (472149303);
-            uint4x4 b3 = uint4x4(2094354786, 1885433140, 165154, 716860342, 415284358, 109689546, 285640273, 573555140, 1154354682, 92562614, 721820350, 486037820, 1292794763, 2011377229, 161141760, 1576072240);
-            uint4x4 r3 = uint4x4(1626422357, 1816461315, 472311829, 916326017, 82104753, 447600637, 220392294, 1040952563, 1491755213, 429918593, 925005705, 14431243, 1361712828, 1808221050, 364820791, 1104451847);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            uint a3 = (843204844);
+            uint4x4 b3 = uint4x4(52615461, 2078810590, 1178449600, 1402670107, 1373081856, 1755048125, 1604469044, 2092902838, 1107934318, 1695691193, 926405595, 561772433, 1975967935, 188914543, 1621290142, 463965989);
+            uint4x4 r3 = uint4x4(828412361, 1235904818, 1954545196, 1641628919, 1670765036, 1524211793, 1843399128, 1325228378, 1884025986, 1464891733, 91593527, 322551677, 1199876179, 956355459, 1390453874, 702924745);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_left_shift()
         {
-            uint4x4 a0 = uint4x4(931909748, 24051129, 764104297, 615327136, 915651018, 778230483, 1053065817, 1251270776, 258942729, 1285562176, 1971396937, 32966442, 1409592718, 538213441, 2054530579, 524937488);
-            int b0 = (633406437);
-            uint4x4 r0 = uint4x4(4051308160, 769636128, 2976501024, 2510599168, 3531028800, 3428538976, 3633335072, 1385959168, 3991200032, 2483283968, 2955159840, 1054926144, 2157294016, 42960928, 1320469088, 3913097728);
-            TestUtils.AreEqual(a0 << b0, r0);
+            uint4x4 a0 = uint4x4(1129100049, 829482269, 1571297368, 443753193, 1872142968, 249554593, 892627436, 980302862, 62369727, 849916599, 1271350845, 108441902, 1959056531, 1779118882, 1451674188, 2082026915);
+            int b0 = (218351941);
+            uint4x4 r0 = uint4x4(1771463200, 773628832, 3036875520, 1315200288, 4074000128, 3690779680, 2794274176, 1304920512, 1995831264, 1427527392, 2028521376, 3470140864, 2560266848, 1097229376, 3503901056, 2200351840);
+            TestUtils.AreEqual(r0, a0 << b0);
 
-            uint4x4 a1 = uint4x4(624466118, 465262380, 936874837, 1392283667, 1002534458, 949546679, 1123185955, 311157834, 634963054, 28333286, 95236432, 1640195068, 1947497755, 299556994, 1622718384, 473347952);
-            int b1 = (1111935176);
-            uint4x4 r1 = uint4x4(949536256, 3143052288, 3616756992, 4237300480, 3245750784, 2565781248, 4067762944, 2346994176, 3636751872, 2958353920, 2905690112, 3278109696, 343218944, 3672146432, 3099045888, 917991424);
-            TestUtils.AreEqual(a1 << b1, r1);
+            uint4x4 a1 = uint4x4(1149883636, 186532735, 1487486874, 1498738574, 752067504, 1647167336, 772453640, 456967739, 947384545, 1463252873, 1315516161, 640579158, 56630178, 1650899378, 2142944517, 565484033);
+            int b1 = (1380536034);
+            uint4x4 r1 = uint4x4(304567248, 746130940, 1654980200, 1699987000, 3008270016, 2293702048, 3089814560, 1827870956, 3789538180, 1558044196, 967097348, 2562316632, 226520712, 2308630216, 4276810772, 2261936132);
+            TestUtils.AreEqual(r1, a1 << b1);
 
-            uint4x4 a2 = uint4x4(998589221, 575390398, 2068350818, 1192301390, 1228053923, 1868409525, 511192696, 242429588, 426519117, 1221451389, 1584456831, 1973795972, 377890114, 1161363563, 1741553775, 1186267981);
-            int b2 = (985218348);
-            uint4x4 r2 = uint4x4(1412583424, 3156992000, 2289442816, 288677888, 702164992, 3668660224, 2196209664, 854147072, 3265581056, 3722956800, 239595520, 1539850240, 1649680384, 2416357376, 3758551040, 1345638400);
-            TestUtils.AreEqual(a2 << b2, r2);
+            uint4x4 a2 = uint4x4(965161323, 1821547426, 1959741996, 1189216014, 2088913234, 331636352, 1765476869, 1716088059, 2042799042, 1560870407, 1332136179, 1595140080, 1067324801, 948699739, 1516035622, 1153563832);
+            int b2 = (1634169280);
+            uint4x4 r2 = uint4x4(965161323, 1821547426, 1959741996, 1189216014, 2088913234, 331636352, 1765476869, 1716088059, 2042799042, 1560870407, 1332136179, 1595140080, 1067324801, 948699739, 1516035622, 1153563832);
+            TestUtils.AreEqual(r2, a2 << b2);
 
-            uint4x4 a3 = uint4x4(1771847231, 328482998, 884244226, 1687109728, 1778355626, 1221988097, 1788401989, 304169302, 280687964, 749897197, 957829385, 1758559355, 458928621, 986005182, 348678553, 1707102137);
-            int b3 = (1463077326);
-            uint4x4 r3 = uint4x4(261079040, 271417344, 532709376, 3491233792, 3815407616, 2210414592, 911294464, 1347780608, 3176595456, 2709209088, 3561111552, 1595850752, 2893758464, 1336901632, 442908672, 334381056);
-            TestUtils.AreEqual(a3 << b3, r3);
+            uint4x4 a3 = uint4x4(1430593538, 229486560, 1384761698, 1777845122, 1613768084, 1329798580, 798843728, 2134269101, 924758423, 933785367, 1724594922, 339723704, 5739549, 1346500868, 1275889975, 1690441516);
+            int b3 = (1594641896);
+            uint4x4 r3 = uint4x4(1159725568, 2913984512, 2311676416, 4156785152, 807769088, 1126020096, 2640531456, 912043264, 514955008, 2825852672, 3409635840, 1069922304, 1469324544, 1106838528, 210319104, 3256298496);
+            TestUtils.AreEqual(r3, a3 << b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_right_shift()
         {
-            uint4x4 a0 = uint4x4(1366397886, 1724049991, 102473945, 171782889, 1292455651, 86277781, 56874046, 1261184742, 1893257536, 2046727266, 1170864679, 1264893071, 1265324047, 993515717, 320091418, 186426076);
-            int b0 = (1757774778);
-            uint4x4 r0 = uint4x4(20, 25, 1, 2, 19, 1, 0, 18, 28, 30, 17, 18, 18, 14, 4, 2);
-            TestUtils.AreEqual(a0 >> b0, r0);
+            uint4x4 a0 = uint4x4(809126085, 908563670, 763568837, 1986717290, 1174507510, 646821842, 1242726074, 390811632, 1521420393, 1923166649, 102096936, 400863878, 667378673, 1611921244, 307750782, 479442287);
+            int b0 = (994800051);
+            uint4x4 r0 = uint4x4(1543, 1732, 1456, 3789, 2240, 1233, 2370, 745, 2901, 3668, 194, 764, 1272, 3074, 586, 914);
+            TestUtils.AreEqual(r0, a0 >> b0);
 
-            uint4x4 a1 = uint4x4(562082206, 338639704, 1449581600, 1825350371, 16947721, 374423720, 164572160, 1239322828, 1697725793, 2116573268, 359144410, 1829474937, 865429239, 1202380161, 85143602, 1041997969);
-            int b1 = (452386814);
-            uint4x4 r1 = uint4x4(0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0);
-            TestUtils.AreEqual(a1 >> b1, r1);
+            uint4x4 a1 = uint4x4(2014389412, 1075916177, 1248577253, 848199210, 813936577, 848976170, 500930883, 662405800, 126875849, 1103917083, 1199000503, 955487090, 1013356510, 391605984, 185228398, 87452680);
+            int b1 = (1673938174);
+            uint4x4 r1 = uint4x4(1, 1, 1, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r1, a1 >> b1);
 
-            uint4x4 a2 = uint4x4(1986016679, 362745106, 344567253, 159258430, 1051440028, 979945345, 1469927553, 439858026, 1793350256, 1453787585, 1698978600, 1108861754, 280802887, 1326874614, 1791771374, 1864577233);
-            int b2 = (1111135654);
-            uint4x4 r2 = uint4x4(31031510, 5667892, 5383863, 2488412, 16428750, 15311646, 22967618, 6872781, 28021097, 22715431, 26546540, 17325964, 4387545, 20732415, 27996427, 29134019);
-            TestUtils.AreEqual(a2 >> b2, r2);
+            uint4x4 a2 = uint4x4(2021602226, 275199908, 664576720, 363706280, 1600231415, 19835299, 1403250657, 1132760506, 388419548, 1563117590, 1786307084, 1386128491, 1614558171, 370772389, 47213745, 1348912303);
+            int b2 = (1401766495);
+            uint4x4 r2 = uint4x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r2, a2 >> b2);
 
-            uint4x4 a3 = uint4x4(710975032, 1461815094, 1176300781, 1688531162, 1740827057, 1349626271, 2085385432, 1079943708, 1742213505, 117188160, 1845213283, 1579193452, 1027828297, 844347105, 1085721077, 222895102);
-            int b3 = (250571633);
-            uint4x4 r3 = uint4x4(5424, 11152, 8974, 12882, 13281, 10296, 15910, 8239, 13292, 894, 14077, 12048, 7841, 6441, 8283, 1700);
-            TestUtils.AreEqual(a3 >> b3, r3);
+            uint4x4 a3 = uint4x4(1452132416, 1998929045, 455362165, 2108410522, 180863474, 59587500, 262637954, 1324311490, 1047631661, 1690388406, 43725571, 1582808189, 508063883, 1531560665, 2064352185, 313411198);
+            int b3 = (241508868);
+            uint4x4 r3 = uint4x4(90758276, 124933065, 28460135, 131775657, 11303967, 3724218, 16414872, 82769468, 65476978, 105649275, 2732848, 98925511, 31753992, 95722541, 129022011, 19588199);
+            TestUtils.AreEqual(r3, a3 >> b3);
         }
 
         [TestCompiler]
         public static void uint4x4_operator_bitwise_not()
         {
-            uint4x4 a0 = uint4x4(1581459784, 813914639, 1110317406, 876503210, 707106370, 356629770, 813009756, 678126530, 1610491464, 214532408, 476264684, 776399159, 22668443, 246932821, 1612087198, 1114736666);
-            uint4x4 r0 = uint4x4(2713507511, 3481052656, 3184649889, 3418464085, 3587860925, 3938337525, 3481957539, 3616840765, 2684475831, 4080434887, 3818702611, 3518568136, 4272298852, 4048034474, 2682880097, 3180230629);
-            TestUtils.AreEqual(~a0, r0);
+            uint4x4 a0 = uint4x4(111796841, 603562399, 745091931, 853183268, 1110916612, 381888399, 1891338755, 1506860135, 771210628, 787710759, 875964607, 96456785, 916013379, 203444882, 1172294211, 1020232736);
+            uint4x4 r0 = uint4x4(4183170454, 3691404896, 3549875364, 3441784027, 3184050683, 3913078896, 2403628540, 2788107160, 3523756667, 3507256536, 3419002688, 4198510510, 3378953916, 4091522413, 3122673084, 3274734559);
+            TestUtils.AreEqual(r0, ~a0);
 
-            uint4x4 a1 = uint4x4(1596002861, 1531048177, 2091343919, 1782155829, 431089156, 476668865, 601977771, 173406346, 1280862234, 1136385834, 1935490827, 556065717, 383898809, 92821910, 568103121, 296860711);
-            uint4x4 r1 = uint4x4(2698964434, 2763919118, 2203623376, 2512811466, 3863878139, 3818298430, 3692989524, 4121560949, 3014105061, 3158581461, 2359476468, 3738901578, 3911068486, 4202145385, 3726864174, 3998106584);
-            TestUtils.AreEqual(~a1, r1);
+            uint4x4 a1 = uint4x4(683852713, 881353367, 1218471344, 1174233245, 592898220, 443427914, 1385118179, 215320517, 860122767, 1411266016, 1349739899, 686325107, 829984855, 191189901, 319233142, 156019905);
+            uint4x4 r1 = uint4x4(3611114582, 3413613928, 3076495951, 3120734050, 3702069075, 3851539381, 2909849116, 4079646778, 3434844528, 2883701279, 2945227396, 3608642188, 3464982440, 4103777394, 3975734153, 4138947390);
+            TestUtils.AreEqual(r1, ~a1);
 
-            uint4x4 a2 = uint4x4(1500072318, 633194522, 590890503, 1356297671, 500797677, 1785546206, 1501030387, 1671299031, 1186943668, 654084432, 522820481, 462992046, 384553309, 2066394689, 1440652115, 1887336264);
-            uint4x4 r2 = uint4x4(2794894977, 3661772773, 3704076792, 2938669624, 3794169618, 2509421089, 2793936908, 2623668264, 3108023627, 3640882863, 3772146814, 3831975249, 3910413986, 2228572606, 2854315180, 2407631031);
-            TestUtils.AreEqual(~a2, r2);
+            uint4x4 a2 = uint4x4(1467719681, 957020051, 610113447, 1906177458, 1022824453, 1413628073, 1876376887, 479785538, 1454477141, 1062967600, 864049393, 916152339, 1644897753, 1624633488, 210894078, 759733457);
+            uint4x4 r2 = uint4x4(2827247614, 3337947244, 3684853848, 2388789837, 3272142842, 2881339222, 2418590408, 3815181757, 2840490154, 3231999695, 3430917902, 3378814956, 2650069542, 2670333807, 4084073217, 3535233838);
+            TestUtils.AreEqual(r2, ~a2);
 
-            uint4x4 a3 = uint4x4(1117052424, 1190873813, 1067362121, 1946787602, 559925587, 337245774, 508339635, 703096864, 1573727783, 1367727583, 1025002576, 122060813, 1226592655, 121710498, 2055645210, 479538448);
-            uint4x4 r3 = uint4x4(3177914871, 3104093482, 3227605174, 2348179693, 3735041708, 3957721521, 3786627660, 3591870431, 2721239512, 2927239712, 3269964719, 4172906482, 3068374640, 4173256797, 2239322085, 3815428847);
-            TestUtils.AreEqual(~a3, r3);
+            uint4x4 a3 = uint4x4(40062168, 316098272, 360895484, 1085047243, 142465498, 160134485, 1507457399, 637862751, 250793845, 1118106030, 541598856, 820535028, 2088709420, 596520858, 556731465, 2087920527);
+            uint4x4 r3 = uint4x4(4254905127, 3978869023, 3934071811, 3209920052, 4152501797, 4134832810, 2787509896, 3657104544, 4044173450, 3176861265, 3753368439, 3474432267, 2206257875, 3698446437, 3738235830, 2207046768);
+            TestUtils.AreEqual(r3, ~a3);
         }
 
 
