@@ -23,7 +23,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool2x2 matrix from two bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(in bool2 c0, in bool2 c1)
-        { 
+        {
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -32,7 +32,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool m00, bool m01,
                        bool m10, bool m11)
-        { 
+        {
             this.c0 = new bool2(m00, m10);
             this.c1 = new bool2(m01, m11);
         }
@@ -53,28 +53,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two bool2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (in bool2x2 lhs, in bool2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
+        public static bool2x2 operator == (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool2x2 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (in bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
+        public static bool2x2 operator == (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (bool lhs, in bool2x2 rhs) { return new bool2x2 (lhs == rhs.c0, lhs == rhs.c1); }
+        public static bool2x2 operator == (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs == rhs.c0, lhs == rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (in bool2x2 lhs, in bool2x2 rhs) { return new bool2x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
+        public static bool2x2 operator != (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool2x2 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (in bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
+        public static bool2x2 operator != (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (bool lhs, in bool2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
+        public static bool2x2 operator != (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool2x2 matrix.</summary>
@@ -84,41 +84,41 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two bool2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator & (in bool2x2 lhs, in bool2x2 rhs) { return new bool2x2 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1); }
+        public static bool2x2 operator & (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool2x2 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator & (in bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 & rhs, lhs.c1 & rhs); }
+        public static bool2x2 operator & (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 & rhs, lhs.c1 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator & (bool lhs, in bool2x2 rhs) { return new bool2x2 (lhs & rhs.c0, lhs & rhs.c1); }
+        public static bool2x2 operator & (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs & rhs.c0, lhs & rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator | (in bool2x2 lhs, in bool2x2 rhs) { return new bool2x2 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1); }
+        public static bool2x2 operator | (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool2x2 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator | (in bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 | rhs, lhs.c1 | rhs); }
+        public static bool2x2 operator | (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 | rhs, lhs.c1 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator | (bool lhs, in bool2x2 rhs) { return new bool2x2 (lhs | rhs.c0, lhs | rhs.c1); }
+        public static bool2x2 operator | (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs | rhs.c0, lhs | rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator ^ (in bool2x2 lhs, in bool2x2 rhs) { return new bool2x2 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1); }
+        public static bool2x2 operator ^ (bool2x2 lhs, bool2x2 rhs) { return new bool2x2 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool2x2 matrix and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator ^ (in bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 ^ rhs, lhs.c1 ^ rhs); }
+        public static bool2x2 operator ^ (bool2x2 lhs, bool rhs) { return new bool2x2 (lhs.c0 ^ rhs, lhs.c1 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator ^ (bool lhs, in bool2x2 rhs) { return new bool2x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
+        public static bool2x2 operator ^ (bool lhs, bool2x2 rhs) { return new bool2x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
 
 
 
@@ -189,7 +189,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(in bool2x2 v)
         {
-            return csum(select(uint2(0x7AF32C49u, 0xAE131389u), uint2(0x5D1B165Bu, 0x87096CD7u), v.c0) + 
+            return csum(select(uint2(0x7AF32C49u, 0xAE131389u), uint2(0x5D1B165Bu, 0x87096CD7u), v.c0) +
                         select(uint2(0x4C7F6DD1u, 0x4822A3E9u), uint2(0xAAC3C25Du, 0xD21D0945u), v.c1));
         }
 
@@ -201,7 +201,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(in bool2x2 v)
         {
-            return (select(uint2(0x88FCAB2Du, 0x614DA60Du), uint2(0x5BA2C50Bu, 0x8C455ACBu), v.c0) + 
+            return (select(uint2(0x88FCAB2Du, 0x614DA60Du), uint2(0x5BA2C50Bu, 0x8C455ACBu), v.c0) +
                     select(uint2(0xCD266C89u, 0xF1852A33u), uint2(0x77E35E77u, 0x863E3729u), v.c1));
         }
 

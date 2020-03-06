@@ -103,28 +103,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two half2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in half2 lhs, in half2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (half2 lhs, half2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in half2 lhs, half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (half2 lhs, half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (half lhs, in half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (half lhs, half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in half2 lhs, in half2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (half2 lhs, half2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half2 vector and a half value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in half2 lhs, half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (half2 lhs, half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (half lhs, in half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (half lhs, half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 

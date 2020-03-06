@@ -152,67 +152,67 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise multiplication operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator * (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x * rhs.x, lhs.y * rhs.y); }
+        public static uint2 operator * (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x * rhs.x, lhs.y * rhs.y); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator * (in uint2 lhs, uint rhs) { return new uint2 (lhs.x * rhs, lhs.y * rhs); }
+        public static uint2 operator * (uint2 lhs, uint rhs) { return new uint2 (lhs.x * rhs, lhs.y * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator * (uint lhs, in uint2 rhs) { return new uint2 (lhs * rhs.x, lhs * rhs.y); }
+        public static uint2 operator * (uint lhs, uint2 rhs) { return new uint2 (lhs * rhs.x, lhs * rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator + (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x + rhs.x, lhs.y + rhs.y); }
+        public static uint2 operator + (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x + rhs.x, lhs.y + rhs.y); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator + (in uint2 lhs, uint rhs) { return new uint2 (lhs.x + rhs, lhs.y + rhs); }
+        public static uint2 operator + (uint2 lhs, uint rhs) { return new uint2 (lhs.x + rhs, lhs.y + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator + (uint lhs, in uint2 rhs) { return new uint2 (lhs + rhs.x, lhs + rhs.y); }
+        public static uint2 operator + (uint lhs, uint2 rhs) { return new uint2 (lhs + rhs.x, lhs + rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator - (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x - rhs.x, lhs.y - rhs.y); }
+        public static uint2 operator - (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x - rhs.x, lhs.y - rhs.y); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator - (in uint2 lhs, uint rhs) { return new uint2 (lhs.x - rhs, lhs.y - rhs); }
+        public static uint2 operator - (uint2 lhs, uint rhs) { return new uint2 (lhs.x - rhs, lhs.y - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator - (uint lhs, in uint2 rhs) { return new uint2 (lhs - rhs.x, lhs - rhs.y); }
+        public static uint2 operator - (uint lhs, uint2 rhs) { return new uint2 (lhs - rhs.x, lhs - rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator / (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x / rhs.x, lhs.y / rhs.y); }
+        public static uint2 operator / (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x / rhs.x, lhs.y / rhs.y); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator / (in uint2 lhs, uint rhs) { return new uint2 (lhs.x / rhs, lhs.y / rhs); }
+        public static uint2 operator / (uint2 lhs, uint rhs) { return new uint2 (lhs.x / rhs, lhs.y / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator / (uint lhs, in uint2 rhs) { return new uint2 (lhs / rhs.x, lhs / rhs.y); }
+        public static uint2 operator / (uint lhs, uint2 rhs) { return new uint2 (lhs / rhs.x, lhs / rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator % (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        public static uint2 operator % (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x % rhs.x, lhs.y % rhs.y); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator % (in uint2 lhs, uint rhs) { return new uint2 (lhs.x % rhs, lhs.y % rhs); }
+        public static uint2 operator % (uint2 lhs, uint rhs) { return new uint2 (lhs.x % rhs, lhs.y % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator % (uint lhs, in uint2 rhs) { return new uint2 (lhs % rhs.x, lhs % rhs.y); }
+        public static uint2 operator % (uint lhs, uint2 rhs) { return new uint2 (lhs % rhs.x, lhs % rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a uint2 vector.</summary>
@@ -227,54 +227,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
+        public static bool2 operator < (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (in uint2 lhs, uint rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
+        public static bool2 operator < (uint2 lhs, uint rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (uint lhs, in uint2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
+        public static bool2 operator < (uint lhs, uint2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
+        public static bool2 operator <= (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (in uint2 lhs, uint rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
+        public static bool2 operator <= (uint2 lhs, uint rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (uint lhs, in uint2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
+        public static bool2 operator <= (uint lhs, uint2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
+        public static bool2 operator > (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (in uint2 lhs, uint rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
+        public static bool2 operator > (uint2 lhs, uint rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (uint lhs, in uint2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
+        public static bool2 operator > (uint lhs, uint2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
+        public static bool2 operator >= (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (in uint2 lhs, uint rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
+        public static bool2 operator >= (uint2 lhs, uint rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (uint lhs, in uint2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
+        public static bool2 operator >= (uint lhs, uint2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a uint2 vector.</summary>
@@ -297,28 +297,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in uint2 lhs, uint rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (uint2 lhs, uint rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (uint lhs, in uint2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (uint lhs, uint2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in uint2 lhs, in uint2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (uint2 lhs, uint2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in uint2 lhs, uint rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (uint2 lhs, uint rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (uint lhs, in uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (uint lhs, uint2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on a uint2 vector.</summary>
@@ -328,41 +328,41 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator & (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x & rhs.x, lhs.y & rhs.y); }
+        public static uint2 operator & (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x & rhs.x, lhs.y & rhs.y); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator & (in uint2 lhs, uint rhs) { return new uint2 (lhs.x & rhs, lhs.y & rhs); }
+        public static uint2 operator & (uint2 lhs, uint rhs) { return new uint2 (lhs.x & rhs, lhs.y & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator & (uint lhs, in uint2 rhs) { return new uint2 (lhs & rhs.x, lhs & rhs.y); }
+        public static uint2 operator & (uint lhs, uint2 rhs) { return new uint2 (lhs & rhs.x, lhs & rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator | (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x | rhs.x, lhs.y | rhs.y); }
+        public static uint2 operator | (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x | rhs.x, lhs.y | rhs.y); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator | (in uint2 lhs, uint rhs) { return new uint2 (lhs.x | rhs, lhs.y | rhs); }
+        public static uint2 operator | (uint2 lhs, uint rhs) { return new uint2 (lhs.x | rhs, lhs.y | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator | (uint lhs, in uint2 rhs) { return new uint2 (lhs | rhs.x, lhs | rhs.y); }
+        public static uint2 operator | (uint lhs, uint2 rhs) { return new uint2 (lhs | rhs.x, lhs | rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator ^ (in uint2 lhs, in uint2 rhs) { return new uint2 (lhs.x ^ rhs.x, lhs.y ^ rhs.y); }
+        public static uint2 operator ^ (uint2 lhs, uint2 rhs) { return new uint2 (lhs.x ^ rhs.x, lhs.y ^ rhs.y); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator ^ (in uint2 lhs, uint rhs) { return new uint2 (lhs.x ^ rhs, lhs.y ^ rhs); }
+        public static uint2 operator ^ (uint2 lhs, uint rhs) { return new uint2 (lhs.x ^ rhs, lhs.y ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint value and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 operator ^ (uint lhs, in uint2 rhs) { return new uint2 (lhs ^ rhs.x, lhs ^ rhs.y); }
+        public static uint2 operator ^ (uint lhs, uint2 rhs) { return new uint2 (lhs ^ rhs.x, lhs ^ rhs.y); }
 
 
 

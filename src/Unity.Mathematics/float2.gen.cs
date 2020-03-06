@@ -176,67 +176,67 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise multiplication operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (in float2 lhs, in float2 rhs) { return new float2 (lhs.x * rhs.x, lhs.y * rhs.y); }
+        public static float2 operator * (float2 lhs, float2 rhs) { return new float2 (lhs.x * rhs.x, lhs.y * rhs.y); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (in float2 lhs, float rhs) { return new float2 (lhs.x * rhs, lhs.y * rhs); }
+        public static float2 operator * (float2 lhs, float rhs) { return new float2 (lhs.x * rhs, lhs.y * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator * (float lhs, in float2 rhs) { return new float2 (lhs * rhs.x, lhs * rhs.y); }
+        public static float2 operator * (float lhs, float2 rhs) { return new float2 (lhs * rhs.x, lhs * rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (in float2 lhs, in float2 rhs) { return new float2 (lhs.x + rhs.x, lhs.y + rhs.y); }
+        public static float2 operator + (float2 lhs, float2 rhs) { return new float2 (lhs.x + rhs.x, lhs.y + rhs.y); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (in float2 lhs, float rhs) { return new float2 (lhs.x + rhs, lhs.y + rhs); }
+        public static float2 operator + (float2 lhs, float rhs) { return new float2 (lhs.x + rhs, lhs.y + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator + (float lhs, in float2 rhs) { return new float2 (lhs + rhs.x, lhs + rhs.y); }
+        public static float2 operator + (float lhs, float2 rhs) { return new float2 (lhs + rhs.x, lhs + rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (in float2 lhs, in float2 rhs) { return new float2 (lhs.x - rhs.x, lhs.y - rhs.y); }
+        public static float2 operator - (float2 lhs, float2 rhs) { return new float2 (lhs.x - rhs.x, lhs.y - rhs.y); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (in float2 lhs, float rhs) { return new float2 (lhs.x - rhs, lhs.y - rhs); }
+        public static float2 operator - (float2 lhs, float rhs) { return new float2 (lhs.x - rhs, lhs.y - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator - (float lhs, in float2 rhs) { return new float2 (lhs - rhs.x, lhs - rhs.y); }
+        public static float2 operator - (float lhs, float2 rhs) { return new float2 (lhs - rhs.x, lhs - rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (in float2 lhs, in float2 rhs) { return new float2 (lhs.x / rhs.x, lhs.y / rhs.y); }
+        public static float2 operator / (float2 lhs, float2 rhs) { return new float2 (lhs.x / rhs.x, lhs.y / rhs.y); }
 
         /// <summary>Returns the result of a componentwise division operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (in float2 lhs, float rhs) { return new float2 (lhs.x / rhs, lhs.y / rhs); }
+        public static float2 operator / (float2 lhs, float rhs) { return new float2 (lhs.x / rhs, lhs.y / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator / (float lhs, in float2 rhs) { return new float2 (lhs / rhs.x, lhs / rhs.y); }
+        public static float2 operator / (float lhs, float2 rhs) { return new float2 (lhs / rhs.x, lhs / rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (in float2 lhs, in float2 rhs) { return new float2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        public static float2 operator % (float2 lhs, float2 rhs) { return new float2 (lhs.x % rhs.x, lhs.y % rhs.y); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (in float2 lhs, float rhs) { return new float2 (lhs.x % rhs, lhs.y % rhs); }
+        public static float2 operator % (float2 lhs, float rhs) { return new float2 (lhs.x % rhs, lhs.y % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 operator % (float lhs, in float2 rhs) { return new float2 (lhs % rhs.x, lhs % rhs.y); }
+        public static float2 operator % (float lhs, float2 rhs) { return new float2 (lhs % rhs.x, lhs % rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a float2 vector.</summary>
@@ -251,54 +251,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
+        public static bool2 operator < (float2 lhs, float2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (in float2 lhs, float rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
+        public static bool2 operator < (float2 lhs, float rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (float lhs, in float2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
+        public static bool2 operator < (float lhs, float2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
+        public static bool2 operator <= (float2 lhs, float2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (in float2 lhs, float rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
+        public static bool2 operator <= (float2 lhs, float rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (float lhs, in float2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
+        public static bool2 operator <= (float lhs, float2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
+        public static bool2 operator > (float2 lhs, float2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (in float2 lhs, float rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
+        public static bool2 operator > (float2 lhs, float rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (float lhs, in float2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
+        public static bool2 operator > (float lhs, float2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
+        public static bool2 operator >= (float2 lhs, float2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (in float2 lhs, float rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
+        public static bool2 operator >= (float2 lhs, float rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (float lhs, in float2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
+        public static bool2 operator >= (float lhs, float2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a float2 vector.</summary>
@@ -313,28 +313,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (float2 lhs, float2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (in float2 lhs, float rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (float2 lhs, float rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (float lhs, in float2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (float lhs, float2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in float2 lhs, in float2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (float2 lhs, float2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (in float2 lhs, float rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (float2 lhs, float rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float value and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (float lhs, in float2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (float lhs, float2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
