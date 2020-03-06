@@ -30,7 +30,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3 vector from three bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3 vector from a bool value and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool2 yz)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3 vector from a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool2 xy, bool z)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -57,7 +57,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool3 vector from a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool3 xyz)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;

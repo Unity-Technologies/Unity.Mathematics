@@ -18,1210 +18,1210 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void int4x2_zero()
         {
-            TestUtils.AreEqual(int4x2.zero.c0.x, 0);
-            TestUtils.AreEqual(int4x2.zero.c0.y, 0);
-            TestUtils.AreEqual(int4x2.zero.c0.z, 0);
-            TestUtils.AreEqual(int4x2.zero.c0.w, 0);
-            TestUtils.AreEqual(int4x2.zero.c1.x, 0);
-            TestUtils.AreEqual(int4x2.zero.c1.y, 0);
-            TestUtils.AreEqual(int4x2.zero.c1.z, 0);
-            TestUtils.AreEqual(int4x2.zero.c1.w, 0);
+            TestUtils.AreEqual(0, int4x2.zero.c0.x);
+            TestUtils.AreEqual(0, int4x2.zero.c0.y);
+            TestUtils.AreEqual(0, int4x2.zero.c0.z);
+            TestUtils.AreEqual(0, int4x2.zero.c0.w);
+            TestUtils.AreEqual(0, int4x2.zero.c1.x);
+            TestUtils.AreEqual(0, int4x2.zero.c1.y);
+            TestUtils.AreEqual(0, int4x2.zero.c1.z);
+            TestUtils.AreEqual(0, int4x2.zero.c1.w);
         }
 
         [TestCompiler]
         public static void int4x2_operator_equal_wide_wide()
         {
-            int4x2 a0 = int4x2(790229414, 970783976, 1428432738, 1578747135, 1733797753, 2001507228, 1446876437, 1777406370);
-            int4x2 b0 = int4x2(612337669, 1214209108, 2120643427, 295461214, 1510890331, 1893316566, 921816149, 1834958575);
+            int4x2 a0 = int4x2(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316);
+            int4x2 b0 = int4x2(1477587886, 579629692, 540974792, 208405066, 2063397938, 1060167409, 362592601, 2097545362);
             bool4x2 r0 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int4x2 a1 = int4x2(1426387268, 1809275021, 1843770816, 1172185222, 1469608940, 869874758, 458603090, 581282460);
-            int4x2 b1 = int4x2(1482011863, 2062852792, 226398742, 770290735, 36812057, 543224481, 1565350150, 1909926604);
+            int4x2 a1 = int4x2(1416064367, 727143393, 2061243891, 184669837, 1303661760, 2044073738, 370395888, 1822916805);
+            int4x2 b1 = int4x2(277670088, 426944490, 901076223, 857900673, 1548779757, 325265488, 312658571, 176373760);
             bool4x2 r1 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int4x2 a2 = int4x2(1948324909, 1129078206, 1638391029, 1135553683, 2079295200, 576232476, 608208235, 11172509);
-            int4x2 b2 = int4x2(1619900436, 1849990483, 1261604411, 161864811, 843379453, 1780425458, 215681636, 2123130580);
+            int4x2 a2 = int4x2(1076983135, 345215866, 833676277, 1987782708, 1481088614, 1364754268, 93639636, 1850596922);
+            int4x2 b2 = int4x2(2052378097, 858156597, 982817797, 1252095508, 882634538, 1959142806, 72495800, 1077678183);
             bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int4x2 a3 = int4x2(1025529486, 2095601864, 193500113, 1780908384, 1587636094, 1892083815, 1250768669, 1984341771);
-            int4x2 b3 = int4x2(708665810, 1902328998, 1808456602, 563830672, 200493241, 1391620681, 1035522654, 168447603);
+            int4x2 a3 = int4x2(2073471507, 1745989448, 28118669, 1267554232, 1292918049, 1423451579, 644384701, 1985492825);
+            int4x2 b3 = int4x2(1729269763, 1607675346, 1813461519, 1204794859, 1324801873, 1975336, 439410532, 294085211);
             bool4x2 r3 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_equal_wide_scalar()
         {
-            int4x2 a0 = int4x2(1211464300, 1921862607, 508076684, 1249127920, 1394594555, 746862310, 1733655277, 1884008277);
-            int b0 = (746972502);
+            int4x2 a0 = int4x2(437822262, 2020661134, 541786900, 853113810, 23716499, 179951405, 1409026299, 948838849);
+            int b0 = (1332833578);
             bool4x2 r0 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int4x2 a1 = int4x2(1682018538, 936027116, 927605411, 672785749, 1465584610, 585324157, 404448210, 969511077);
-            int b1 = (795585660);
+            int4x2 a1 = int4x2(953202998, 1926262965, 1851546137, 712957637, 2028784869, 1049962241, 1836975611, 1016802970);
+            int b1 = (691955848);
             bool4x2 r1 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int4x2 a2 = int4x2(442746747, 1884034177, 451512860, 425476075, 1370577708, 597010220, 1249636005, 211986678);
-            int b2 = (1772925698);
+            int4x2 a2 = int4x2(390120467, 1451642042, 289137869, 152339338, 808355440, 660053867, 597354173, 67320270);
+            int b2 = (464814777);
             bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int4x2 a3 = int4x2(1305479811, 1150443719, 177122433, 511346787, 1442445694, 667984966, 1684122010, 1962874832);
-            int b3 = (255635293);
+            int4x2 a3 = int4x2(151461188, 602895443, 186996278, 129611815, 1031574999, 1697392883, 1463742000, 857785521);
+            int b3 = (35153827);
             bool4x2 r3 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_equal_scalar_wide()
         {
-            int a0 = (1150044438);
-            int4x2 b0 = int4x2(233855098, 924242519, 1402948791, 601381975, 2120518068, 629187703, 1971977031, 47183124);
+            int a0 = (542329200);
+            int4x2 b0 = int4x2(1115584594, 684107773, 1928988941, 890709324, 641152437, 1410341302, 497505660, 1068223109);
             bool4x2 r0 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int a1 = (1061805787);
-            int4x2 b1 = int4x2(1009011238, 312511148, 1460673064, 737210539, 1737844479, 1892405453, 2133024000, 455818693);
+            int a1 = (2014009435);
+            int4x2 b1 = int4x2(213835595, 1592428361, 1819361470, 448650623, 1942175642, 64377057, 1485938610, 1146305380);
             bool4x2 r1 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int a2 = (2003197687);
-            int4x2 b2 = int4x2(1276241219, 534746610, 559824292, 1758388240, 1023494292, 719963017, 1883763832, 597498209);
+            int a2 = (1312317120);
+            int4x2 b2 = int4x2(263290348, 812663708, 1585209188, 40646617, 1378718922, 1957797737, 873652576, 1780082094);
             bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int a3 = (367814403);
-            int4x2 b3 = int4x2(1839429063, 223575614, 79701214, 1699606118, 759455864, 2017599457, 1395605233, 1191785903);
+            int a3 = (1513270921);
+            int4x2 b3 = int4x2(2095980581, 1413074719, 1387984261, 1547119354, 924385171, 1253636050, 1477542688, 969120167);
             bool4x2 r3 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_not_equal_wide_wide()
         {
-            int4x2 a0 = int4x2(1660932106, 982847023, 97046264, 1739517447, 1253499180, 1830584069, 1841470429, 1397841646);
-            int4x2 b0 = int4x2(107139049, 75478496, 2055495054, 358586687, 942338347, 111564990, 113811950, 948912488);
+            int4x2 a0 = int4x2(1977284100, 1293292704, 1547283851, 422428953, 195833190, 1711544892, 5606053, 737069074);
+            int4x2 b0 = int4x2(1514195556, 957972049, 507667364, 581861672, 1128094576, 940096636, 57559040, 181752616);
             bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int4x2 a1 = int4x2(1770890135, 1906548631, 169082967, 2099271786, 1909317609, 46519139, 1433204003, 931492669);
-            int4x2 b1 = int4x2(1080084121, 1400504872, 1032134499, 1061123400, 221862069, 858950046, 989094643, 2023070999);
+            int4x2 a1 = int4x2(647386678, 13079405, 1413841590, 1076166545, 1211445174, 1289303469, 1436402489, 1129570126);
+            int4x2 b1 = int4x2(962017320, 1762015406, 1107218953, 2042026522, 836002288, 570272309, 2112081980, 1500634658);
             bool4x2 r1 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int4x2 a2 = int4x2(670504132, 1551558665, 1204055048, 1623586740, 226381077, 1145987803, 644253929, 475189890);
-            int4x2 b2 = int4x2(1269317127, 531883744, 687761409, 278427731, 296354221, 536981557, 1134676193, 1749879634);
+            int4x2 a2 = int4x2(1566836685, 1343313905, 329259205, 1774944480, 33906739, 2055853627, 2035015372, 1702756001);
+            int4x2 b2 = int4x2(1787808345, 566425667, 2037529609, 1520589840, 266793699, 538816359, 2075474643, 553571317);
             bool4x2 r2 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int4x2 a3 = int4x2(922313145, 2006448607, 1574579050, 1839580033, 155350910, 313644534, 2008975915, 1072866331);
-            int4x2 b3 = int4x2(1944210269, 92849031, 164029425, 628797607, 2069207270, 2022667842, 880567401, 264404537);
+            int4x2 a3 = int4x2(1164186087, 329853698, 769052491, 1893312730, 438029011, 1894010522, 1365847542, 1292942830);
+            int4x2 b3 = int4x2(218264354, 654754196, 1392180230, 870065147, 1398749829, 711281563, 1999640291, 231234857);
             bool4x2 r3 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_not_equal_wide_scalar()
         {
-            int4x2 a0 = int4x2(747758183, 1033001286, 1439973882, 2138928797, 1197845089, 1432672459, 950170763, 238704450);
-            int b0 = (248693828);
+            int4x2 a0 = int4x2(1038269360, 1427812625, 103361237, 1347017023, 1523584313, 150442802, 660334527, 719113717);
+            int b0 = (768873026);
             bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int4x2 a1 = int4x2(2105962247, 1640688041, 276313906, 2126300423, 791998981, 2035077187, 1171827730, 1412347883);
-            int b1 = (727205263);
+            int4x2 a1 = int4x2(262959423, 506946952, 226568494, 507918242, 1702162286, 923269270, 166187260, 114581840);
+            int b1 = (484398043);
             bool4x2 r1 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int4x2 a2 = int4x2(1622176923, 1072798259, 1808712713, 1497830076, 1582645163, 1876273820, 90244766, 30493685);
-            int b2 = (768370497);
+            int4x2 a2 = int4x2(1045389187, 1461803977, 61801615, 1317840133, 2146927809, 1557151164, 1284033253, 1345705546);
+            int b2 = (1648095254);
             bool4x2 r2 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int4x2 a3 = int4x2(904014575, 11554610, 2016093187, 1515760622, 1596313927, 363921847, 1555396158, 913218907);
-            int b3 = (384643370);
+            int4x2 a3 = int4x2(1747302566, 1368046109, 1848036266, 2025452920, 373992983, 289537519, 1388743060, 146455100);
+            int b3 = (611028295);
             bool4x2 r3 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_not_equal_scalar_wide()
         {
-            int a0 = (2076921066);
-            int4x2 b0 = int4x2(2037494727, 1989050616, 48833929, 1897435904, 514354517, 1783749164, 364694471, 754315072);
+            int a0 = (1652127596);
+            int4x2 b0 = int4x2(953791238, 271722683, 1278885987, 735128017, 112416504, 25967222, 1761444475, 1844594536);
             bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int a1 = (124108032);
-            int4x2 b1 = int4x2(1512967900, 1178825850, 1854793298, 50286949, 2100802631, 1640811853, 82110247, 472172806);
+            int a1 = (1199122922);
+            int4x2 b1 = int4x2(634219279, 942501101, 67161343, 969944293, 833229499, 1304301133, 704045745, 345012334);
             bool4x2 r1 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int a2 = (266984506);
-            int4x2 b2 = int4x2(2003668365, 1826089250, 1041416160, 356140110, 2057237962, 799920703, 1916347720, 510966350);
+            int a2 = (1253134152);
+            int4x2 b2 = int4x2(325772538, 855127202, 793668881, 1584481616, 1101301152, 276853534, 987168816, 1258105989);
             bool4x2 r2 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int a3 = (572038024);
-            int4x2 b3 = int4x2(1936481966, 1366859342, 1775285431, 604757336, 1047551607, 1311703338, 676012224, 627370253);
+            int a3 = (362645228);
+            int4x2 b3 = int4x2(293978043, 1772395973, 1692007315, 681268929, 1535518457, 595209334, 25745185, 1278016813);
             bool4x2 r3 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_wide_wide()
         {
-            int4x2 a0 = int4x2(1182186063, 415538999, 1667335818, 1566618442, 1166180837, 639095188, 1080836365, 771119973);
-            int4x2 b0 = int4x2(524633529, 1032195686, 760723389, 1505751409, 431962172, 1287906509, 1560084663, 1450178202);
-            bool4x2 r0 = bool4x2(false, true, false, false, false, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int4x2 a0 = int4x2(1486550609, 1779244308, 1602148045, 1614085440, 1975613414, 942838342, 1092279031, 373677431);
+            int4x2 b0 = int4x2(97842578, 536551311, 413528975, 1838293684, 1283898480, 1456599961, 1080278602, 529676676);
+            bool4x2 r0 = bool4x2(false, false, false, true, false, true, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int4x2 a1 = int4x2(928263233, 789225474, 665243110, 1003542034, 1032480172, 1961336172, 923379558, 21210619);
-            int4x2 b1 = int4x2(2066166337, 1107069023, 1640077524, 2103263105, 684229139, 1234033624, 1278743281, 1953079347);
-            bool4x2 r1 = bool4x2(true, true, true, true, false, false, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            int4x2 a1 = int4x2(1419098312, 337757077, 1081797900, 1336745069, 840685445, 1220554047, 2013681746, 192965012);
+            int4x2 b1 = int4x2(156584048, 117348799, 246927124, 1916615924, 1731071394, 1328098431, 1014995792, 480319327);
+            bool4x2 r1 = bool4x2(false, false, false, true, true, true, false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int4x2 a2 = int4x2(1089772116, 1707633052, 778986024, 158153146, 336715101, 1839141169, 1706859710, 1928438162);
-            int4x2 b2 = int4x2(1228832942, 2082539723, 1088437561, 1058382082, 207459172, 750531081, 2015788562, 2126542133);
-            bool4x2 r2 = bool4x2(true, true, true, true, false, false, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int4x2 a2 = int4x2(532043965, 1000693402, 927236048, 1215860000, 780607596, 1882056852, 1354146545, 2135295778);
+            int4x2 b2 = int4x2(1765937053, 1333997067, 688515308, 1856106947, 1303906227, 646821776, 1169473993, 316770064);
+            bool4x2 r2 = bool4x2(true, true, false, true, true, false, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int4x2 a3 = int4x2(1638101724, 2044698552, 1543260981, 471462349, 1668575142, 2147199161, 946870864, 582371851);
-            int4x2 b3 = int4x2(271967348, 1601249324, 1373999400, 1689592186, 459759541, 983106679, 332584818, 2034921203);
-            bool4x2 r3 = bool4x2(false, false, false, true, false, false, false, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int4x2 a3 = int4x2(1145973790, 1938006975, 895882838, 2006524299, 908581156, 1843349513, 1340458575, 1972095585);
+            int4x2 b3 = int4x2(1518155802, 416732703, 529193056, 1239623485, 2010112031, 2018560298, 285987009, 960617622);
+            bool4x2 r3 = bool4x2(true, false, false, false, true, true, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_wide_scalar()
         {
-            int4x2 a0 = int4x2(608447185, 818840405, 869219329, 2080125385, 1214500548, 1361741203, 1667165786, 1615392341);
-            int b0 = (1491216667);
-            bool4x2 r0 = bool4x2(true, true, true, false, true, true, false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int4x2 a0 = int4x2(796797557, 670113454, 933579492, 278884514, 318174822, 1117630673, 741886928, 1990922600);
+            int b0 = (746564682);
+            bool4x2 r0 = bool4x2(false, true, false, true, true, false, true, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int4x2 a1 = int4x2(840091491, 1247103789, 315321650, 930950514, 1100560246, 933855388, 908563901, 1127696709);
-            int b1 = (469591900);
-            bool4x2 r1 = bool4x2(false, false, true, false, false, false, false, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            int4x2 a1 = int4x2(1030849597, 1718582899, 1648393417, 1857132231, 1909506562, 1294006045, 952084157, 1303736668);
+            int b1 = (1546212312);
+            bool4x2 r1 = bool4x2(true, false, false, false, false, true, true, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int4x2 a2 = int4x2(1286331950, 971148054, 1827886929, 1056649851, 1579735991, 689044913, 1960894027, 371987110);
-            int b2 = (380753337);
-            bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int4x2 a2 = int4x2(845460171, 1368236640, 24980695, 1434668705, 659552739, 1058492383, 165694933, 1204097259);
+            int b2 = (979430272);
+            bool4x2 r2 = bool4x2(true, false, true, false, true, false, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int4x2 a3 = int4x2(867559111, 1698536333, 41716206, 243673862, 1274625476, 611065092, 118750042, 1829327996);
-            int b3 = (1703747625);
-            bool4x2 r3 = bool4x2(true, true, true, true, true, true, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int4x2 a3 = int4x2(922212691, 24629507, 1386458568, 1325149699, 1498707004, 1650355158, 1213017950, 1650457461);
+            int b3 = (281328069);
+            bool4x2 r3 = bool4x2(false, true, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_scalar_wide()
         {
-            int a0 = (548436837);
-            int4x2 b0 = int4x2(282703327, 14370648, 1862117300, 1304793311, 826073259, 988910157, 445132446, 1139670255);
-            bool4x2 r0 = bool4x2(false, false, true, true, true, true, false, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int a0 = (186400299);
+            int4x2 b0 = int4x2(1881344229, 813834467, 1254886626, 1353590345, 1412343685, 1555571443, 1540508298, 1735458634);
+            bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int a1 = (111349251);
-            int4x2 b1 = int4x2(1102440676, 112183144, 1594415311, 1890019295, 2098715503, 608933527, 183989010, 1596056507);
+            int a1 = (135888070);
+            int4x2 b1 = int4x2(1643818742, 248291654, 1739560105, 728539891, 480507742, 1696553040, 540223931, 1840493353);
             bool4x2 r1 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int a2 = (1027318999);
-            int4x2 b2 = int4x2(146281093, 358911716, 874278078, 1106057699, 1256807459, 2111973919, 1736480659, 810406400);
-            bool4x2 r2 = bool4x2(false, false, false, true, true, true, true, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int a2 = (146833656);
+            int4x2 b2 = int4x2(798115946, 2002002066, 1011261705, 783550942, 1093071215, 598253401, 1432416562, 1863582169);
+            bool4x2 r2 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int a3 = (1329939911);
-            int4x2 b3 = int4x2(1276652605, 593690439, 771851138, 590897155, 386688344, 1290583204, 1984930954, 743544838);
-            bool4x2 r3 = bool4x2(false, false, false, false, false, false, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int a3 = (103622950);
+            int4x2 b3 = int4x2(775175960, 116908309, 1213433625, 1428954824, 1760442490, 1208143947, 751820805, 1491872302);
+            bool4x2 r3 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_wide_wide()
         {
-            int4x2 a0 = int4x2(592884447, 2133928932, 918957182, 1284069471, 194584707, 739120780, 241654068, 1340158550);
-            int4x2 b0 = int4x2(138737040, 192863971, 1700841444, 1044631301, 1391589821, 730837695, 253553987, 2078872742);
-            bool4x2 r0 = bool4x2(true, true, false, true, false, true, false, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int4x2 a0 = int4x2(2087717754, 1725569452, 1298066182, 1693943616, 1319019629, 70674491, 1042499725, 1002821508);
+            int4x2 b0 = int4x2(85148514, 293632137, 1151128249, 409440398, 1115020183, 1508500597, 1834583302, 1755218534);
+            bool4x2 r0 = bool4x2(true, true, true, true, true, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int4x2 a1 = int4x2(2099542537, 1182623667, 1399607274, 789301637, 180400925, 594688333, 1877031463, 1360073500);
-            int4x2 b1 = int4x2(910845808, 976047676, 202633078, 1223618940, 641600530, 1830470354, 1570701388, 1104256103);
-            bool4x2 r1 = bool4x2(true, true, true, false, false, false, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int4x2 a1 = int4x2(1021857133, 1744374599, 821751047, 467646903, 2029731638, 1377214212, 1207816926, 474621063);
+            int4x2 b1 = int4x2(1788761753, 1128238489, 834223713, 1578743290, 1647150256, 1756397855, 1131080201, 1208965204);
+            bool4x2 r1 = bool4x2(false, true, false, false, true, false, true, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int4x2 a2 = int4x2(1091782422, 546676424, 348221770, 716039145, 458742739, 1365508046, 1523167942, 1574478622);
-            int4x2 b2 = int4x2(1838646932, 740166101, 1549021845, 1457092873, 1790630950, 907793213, 555122804, 1418910265);
-            bool4x2 r2 = bool4x2(false, false, false, false, false, true, true, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int4x2 a2 = int4x2(20781266, 366593779, 2068457387, 10181449, 793634464, 144474612, 99947390, 930377263);
+            int4x2 b2 = int4x2(1495161099, 1283714281, 908051907, 412849651, 815822687, 730271942, 40756039, 883326140);
+            bool4x2 r2 = bool4x2(false, false, true, false, false, false, true, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int4x2 a3 = int4x2(1295065160, 715285504, 1130323487, 677530432, 1496919050, 12463046, 1106153111, 1315083485);
-            int4x2 b3 = int4x2(335209251, 1094341422, 1465325455, 390251369, 910309992, 277356652, 1601082764, 771366966);
-            bool4x2 r3 = bool4x2(true, false, false, true, true, false, false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int4x2 a3 = int4x2(683686232, 742803073, 918292048, 875621429, 1764985258, 411384146, 1921397684, 1349107119);
+            int4x2 b3 = int4x2(476260632, 1024136446, 1440596667, 1253494041, 146826162, 1798399573, 2085029408, 187939428);
+            bool4x2 r3 = bool4x2(true, false, false, false, true, false, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_wide_scalar()
         {
-            int4x2 a0 = int4x2(1097138316, 211763648, 1883002501, 56406996, 43662641, 1923456111, 1437755186, 1219010035);
-            int b0 = (438688675);
-            bool4x2 r0 = bool4x2(true, false, true, false, false, true, true, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int4x2 a0 = int4x2(1208626274, 239697208, 1979453345, 1253474001, 1590192876, 1487911635, 1673945595, 1662650098);
+            int b0 = (1715176566);
+            bool4x2 r0 = bool4x2(false, false, true, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int4x2 a1 = int4x2(2125058448, 893125636, 48044515, 711945018, 1035679270, 577943770, 572743717, 1016617211);
-            int b1 = (304028799);
-            bool4x2 r1 = bool4x2(true, true, false, true, true, true, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int4x2 a1 = int4x2(222749855, 566635217, 1773305960, 1850273578, 206147145, 325913453, 333381537, 1905567362);
+            int b1 = (1433540517);
+            bool4x2 r1 = bool4x2(false, false, true, true, false, false, false, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int4x2 a2 = int4x2(2063134811, 64009107, 1462961460, 1143565920, 3715845, 689362811, 263973424, 1045140419);
-            int b2 = (1577403353);
-            bool4x2 r2 = bool4x2(true, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int4x2 a2 = int4x2(2053577491, 2128431130, 1735325311, 529971908, 1663525234, 1972984241, 1587865063, 488268523);
+            int b2 = (570397194);
+            bool4x2 r2 = bool4x2(true, true, true, false, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int4x2 a3 = int4x2(1058332184, 1183316983, 1107974092, 212839726, 523727054, 112709358, 614746280, 1000986708);
-            int b3 = (524569092);
-            bool4x2 r3 = bool4x2(true, true, true, false, false, false, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int4x2 a3 = int4x2(121921923, 181082921, 1281638484, 1818357732, 116518997, 1397728785, 1924199337, 742950077);
+            int b3 = (812076921);
+            bool4x2 r3 = bool4x2(false, false, true, true, false, true, true, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_scalar_wide()
         {
-            int a0 = (2024896938);
-            int4x2 b0 = int4x2(599356784, 185671342, 1932327391, 2025591013, 1257191721, 1312388500, 1443698859, 779217735);
-            bool4x2 r0 = bool4x2(true, true, true, false, true, true, true, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int a0 = (480938827);
+            int4x2 b0 = int4x2(1824731899, 921496110, 586859044, 946430596, 1231356727, 1390167458, 1785807092, 28949024);
+            bool4x2 r0 = bool4x2(false, false, false, false, false, false, false, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int a1 = (691047512);
-            int4x2 b1 = int4x2(741776730, 732565983, 668302204, 1556466996, 858599525, 1896917159, 701542098, 1052151621);
-            bool4x2 r1 = bool4x2(false, false, true, false, false, false, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int a1 = (2037899283);
+            int4x2 b1 = int4x2(595656760, 1778095771, 1233500439, 1696302238, 1445965340, 484020151, 1586962841, 1361740714);
+            bool4x2 r1 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int a2 = (1023307544);
-            int4x2 b2 = int4x2(1435392907, 1858177345, 299897686, 632930355, 1387203601, 483722222, 863042711, 1713088900);
-            bool4x2 r2 = bool4x2(false, false, true, true, false, true, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int a2 = (265628948);
+            int4x2 b2 = int4x2(2003122957, 332267433, 1128353075, 377919478, 982113135, 1117675960, 630865591, 1550679736);
+            bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int a3 = (315569296);
-            int4x2 b3 = int4x2(292652611, 1002628348, 927789921, 108145064, 425005337, 2093233588, 2063431853, 2079035844);
-            bool4x2 r3 = bool4x2(true, false, false, true, false, false, false, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int a3 = (895945757);
+            int4x2 b3 = int4x2(287025687, 643452096, 660504007, 613135893, 633307118, 514276792, 1377364317, 84491736);
+            bool4x2 r3 = bool4x2(true, true, true, true, true, true, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_equal_wide_wide()
         {
-            int4x2 a0 = int4x2(1577248162, 2043073061, 1688380407, 176431985, 223299035, 1502802140, 1691709825, 386789394);
-            int4x2 b0 = int4x2(903445031, 2108974565, 210822256, 1281704747, 453681718, 66138830, 1229799377, 1620922595);
-            bool4x2 r0 = bool4x2(false, true, false, true, true, false, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int4x2 a0 = int4x2(154092149, 1515170149, 1083970332, 785807178, 1401094881, 310537627, 868328962, 1990816725);
+            int4x2 b0 = int4x2(77984380, 1712054191, 1566203809, 254834519, 450519938, 389457083, 1298669505, 207343167);
+            bool4x2 r0 = bool4x2(false, true, true, false, false, true, true, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int4x2 a1 = int4x2(117182003, 1665770435, 1958490731, 420032601, 1251092689, 2011681765, 749743684, 183784440);
-            int4x2 b1 = int4x2(1715833766, 1366430432, 13102000, 46919981, 486470891, 1709514236, 2145785285, 854254454);
-            bool4x2 r1 = bool4x2(true, false, false, false, false, false, true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int4x2 a1 = int4x2(2035349541, 457043352, 1123282035, 1001842946, 1387761992, 195272789, 659549000, 888761458);
+            int4x2 b1 = int4x2(1214449047, 2059561026, 896534357, 1897470050, 521075677, 1848221945, 374708019, 1573731118);
+            bool4x2 r1 = bool4x2(false, true, false, true, false, true, false, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int4x2 a2 = int4x2(1150674774, 1633828822, 1719442172, 336047314, 743733218, 1393995865, 1854442658, 1498138884);
-            int4x2 b2 = int4x2(1273278658, 810263315, 1862773824, 201799013, 974166844, 1320622967, 2058099616, 522102017);
-            bool4x2 r2 = bool4x2(true, false, true, false, true, false, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int4x2 a2 = int4x2(283706617, 1790185840, 899029812, 848317418, 1743712447, 1504407474, 1798441490, 1902791952);
+            int4x2 b2 = int4x2(2093466449, 1660210829, 1568778785, 1352157589, 1212771905, 1457525058, 1493446008, 1784768208);
+            bool4x2 r2 = bool4x2(true, false, true, true, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int4x2 a3 = int4x2(912169992, 1992682021, 1619593455, 1883313982, 483412430, 857881876, 346624138, 531961063);
-            int4x2 b3 = int4x2(620752145, 1213693681, 1281818305, 1564146162, 1996153080, 1201909516, 614401396, 224997397);
-            bool4x2 r3 = bool4x2(false, false, false, false, true, true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int4x2 a3 = int4x2(606340844, 1994437705, 301831413, 654230470, 1223625081, 324292199, 1370931020, 1742769166);
+            int4x2 b3 = int4x2(1993422493, 1378671664, 1447376929, 1405041439, 1765183746, 562894655, 1085068880, 1026386862);
+            bool4x2 r3 = bool4x2(true, false, true, true, true, true, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_equal_wide_scalar()
         {
-            int4x2 a0 = int4x2(1722165358, 1219858357, 860410743, 411099660, 348104022, 1963256951, 212084836, 58924407);
-            int b0 = (1688048545);
-            bool4x2 r0 = bool4x2(false, true, true, true, true, false, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int4x2 a0 = int4x2(1479531977, 1427983411, 415250630, 1245345407, 1112546666, 1072990632, 1579912858, 101048307);
+            int b0 = (2004563877);
+            bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int4x2 a1 = int4x2(1459242706, 532949158, 262559763, 690091301, 1806172431, 2091514001, 1857173043, 1617221948);
-            int b1 = (1745758438);
-            bool4x2 r1 = bool4x2(true, true, true, true, false, false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int4x2 a1 = int4x2(1070894375, 1910488590, 85452501, 518127023, 1246249980, 1097326500, 1964410699, 1968139888);
+            int b1 = (509818792);
+            bool4x2 r1 = bool4x2(false, false, true, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int4x2 a2 = int4x2(2017733017, 981729559, 2032949254, 910922522, 2079225209, 26179915, 238796519, 1917813750);
-            int b2 = (804204255);
-            bool4x2 r2 = bool4x2(false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int4x2 a2 = int4x2(1191853379, 1140643434, 754434551, 155343473, 995927387, 974873240, 1773400038, 497436329);
+            int b2 = (662096238);
+            bool4x2 r2 = bool4x2(false, false, false, true, false, false, false, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int4x2 a3 = int4x2(1258115260, 1337879822, 959460446, 1599429457, 1279143037, 1551937606, 626254356, 1162369122);
-            int b3 = (20607406);
-            bool4x2 r3 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int4x2 a3 = int4x2(1825940497, 1477043363, 1378470734, 96190147, 37188105, 839762283, 781102710, 766321672);
+            int b3 = (527516420);
+            bool4x2 r3 = bool4x2(false, false, false, true, true, false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_less_equal_scalar_wide()
         {
-            int a0 = (1777585);
-            int4x2 b0 = int4x2(1181030049, 1787703989, 1729760948, 1816537388, 1359786460, 874999193, 1678863148, 1711365839);
-            bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int a0 = (1899193992);
+            int4x2 b0 = int4x2(915011820, 980913757, 1337699683, 1476321359, 1102143668, 660493983, 184664508, 381579707);
+            bool4x2 r0 = bool4x2(false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int a1 = (762067160);
-            int4x2 b1 = int4x2(11953554, 1131583906, 1175393186, 1293698493, 48893340, 66196247, 1958607116, 1576473309);
-            bool4x2 r1 = bool4x2(false, true, true, true, false, false, true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int a1 = (1954892821);
+            int4x2 b1 = int4x2(1295090571, 1440368586, 1696003686, 88708652, 1332251857, 1310713644, 2112132784, 48951945);
+            bool4x2 r1 = bool4x2(false, false, false, false, false, false, true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int a2 = (861890786);
-            int4x2 b2 = int4x2(478252419, 957887737, 117849810, 1348693584, 105489302, 259034238, 530713566, 601413850);
-            bool4x2 r2 = bool4x2(false, true, false, true, false, false, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int a2 = (1888568027);
+            int4x2 b2 = int4x2(39340955, 1108242207, 260777425, 593122164, 291471959, 253457314, 1264570386, 699618012);
+            bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int a3 = (830430286);
-            int4x2 b3 = int4x2(145552297, 1697295044, 1150680564, 2091065664, 1796096704, 1572008712, 1556906486, 205552788);
-            bool4x2 r3 = bool4x2(false, true, true, true, true, true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int a3 = (927735863);
+            int4x2 b3 = int4x2(2063158939, 932253787, 1168754049, 749328788, 1882694892, 168499987, 378173027, 339963627);
+            bool4x2 r3 = bool4x2(true, true, true, false, true, false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_equal_wide_wide()
         {
-            int4x2 a0 = int4x2(263000030, 744235661, 1893760267, 237248, 1062370984, 1676977687, 816766880, 1089431546);
-            int4x2 b0 = int4x2(1395535146, 1178373944, 1237373760, 1364855321, 600811864, 362060472, 290870624, 1839067862);
-            bool4x2 r0 = bool4x2(false, false, true, false, true, true, true, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int4x2 a0 = int4x2(8538378, 2131749726, 265427108, 523609761, 994991818, 839709564, 101288202, 1886280970);
+            int4x2 b0 = int4x2(903145828, 1697992986, 1432491982, 169789504, 1059357300, 1744255222, 1606584463, 1905414425);
+            bool4x2 r0 = bool4x2(false, true, false, true, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int4x2 a1 = int4x2(1394493730, 1176473380, 1193988637, 1703862455, 1806186947, 1253571980, 589397635, 1951842887);
-            int4x2 b1 = int4x2(396958580, 1336888643, 1019684398, 1697684196, 1227300220, 2044269675, 1898323839, 874509380);
-            bool4x2 r1 = bool4x2(true, false, true, true, true, false, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            int4x2 a1 = int4x2(2032074826, 631221455, 1456286159, 961342752, 424526026, 788481984, 1662488497, 870326690);
+            int4x2 b1 = int4x2(1448794969, 136181998, 1678754836, 2069656857, 398982689, 243317404, 740939613, 1894753119);
+            bool4x2 r1 = bool4x2(true, true, false, false, true, true, true, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int4x2 a2 = int4x2(798931197, 808426484, 744869638, 1959531616, 207430702, 1533946595, 1148381840, 2011549474);
-            int4x2 b2 = int4x2(1873505472, 1268843918, 1606949562, 1263896445, 1805518202, 1412091359, 1240330374, 1955056253);
-            bool4x2 r2 = bool4x2(false, false, false, true, false, true, false, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int4x2 a2 = int4x2(708712581, 1260182701, 1165630721, 138247561, 1108650168, 1933222913, 672493999, 1541402159);
+            int4x2 b2 = int4x2(301760792, 1260647988, 3608523, 52576030, 903420465, 1648820371, 627296845, 1679808907);
+            bool4x2 r2 = bool4x2(true, false, true, true, true, true, true, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int4x2 a3 = int4x2(605043041, 1707339660, 2038122892, 345761584, 1839156338, 1519670644, 2131285427, 775457686);
-            int4x2 b3 = int4x2(2025187918, 750755999, 869709740, 1390799279, 1194035112, 666460047, 103451220, 1311530792);
-            bool4x2 r3 = bool4x2(false, true, true, false, true, true, true, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int4x2 a3 = int4x2(1921596027, 1557351956, 147242547, 892772168, 2089286723, 1273466960, 644009998, 654784654);
+            int4x2 b3 = int4x2(1719102039, 1718081638, 655586949, 477267189, 62092869, 2013928066, 280292357, 254052205);
+            bool4x2 r3 = bool4x2(true, false, false, true, true, false, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_equal_wide_scalar()
         {
-            int4x2 a0 = int4x2(2112791350, 1043657935, 101764761, 1529909067, 556026890, 281734132, 1186600258, 815093894);
-            int b0 = (1470533736);
-            bool4x2 r0 = bool4x2(true, false, false, true, false, false, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int4x2 a0 = int4x2(2049236663, 182691143, 634973382, 1197012109, 439837565, 1367606469, 1108037359, 351147187);
+            int b0 = (1061998015);
+            bool4x2 r0 = bool4x2(true, false, false, true, false, true, true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int4x2 a1 = int4x2(609211196, 829548642, 244604867, 1419295004, 471843809, 1819986195, 1460027917, 1646290021);
-            int b1 = (1604309397);
-            bool4x2 r1 = bool4x2(false, false, false, false, false, true, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            int4x2 a1 = int4x2(1898505669, 1998610091, 4652390, 996159180, 2111455181, 727766399, 96217144, 814085575);
+            int b1 = (411667685);
+            bool4x2 r1 = bool4x2(true, true, false, true, true, true, false, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int4x2 a2 = int4x2(196833647, 1905036391, 1771391775, 1584946560, 370941146, 440219668, 1607345862, 1449142607);
-            int b2 = (1596738181);
-            bool4x2 r2 = bool4x2(false, true, true, false, false, false, true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int4x2 a2 = int4x2(1525995206, 1732973229, 1473283041, 899444524, 1023753195, 1373738074, 518164359, 717850464);
+            int b2 = (1293933760);
+            bool4x2 r2 = bool4x2(true, true, true, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int4x2 a3 = int4x2(1223010129, 1719435169, 258833609, 1389585003, 612593660, 42612027, 1138747386, 1491562090);
-            int b3 = (379014762);
-            bool4x2 r3 = bool4x2(true, true, false, true, true, false, true, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int4x2 a3 = int4x2(1765188600, 527594558, 1816542874, 839185150, 1143596061, 1819554651, 160724539, 993212636);
+            int b3 = (1826820341);
+            bool4x2 r3 = bool4x2(false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_greater_equal_scalar_wide()
         {
-            int a0 = (1525542481);
-            int4x2 b0 = int4x2(1503244746, 861711266, 817773856, 925984572, 571221723, 683686810, 118252990, 1653952090);
-            bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int a0 = (1859811087);
+            int4x2 b0 = int4x2(1070365918, 1783869452, 830091760, 377157428, 327199016, 90384229, 1154649706, 376758501);
+            bool4x2 r0 = bool4x2(true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int a1 = (1240253990);
-            int4x2 b1 = int4x2(1947039008, 1869136019, 152012637, 1214546726, 917376832, 303549425, 2111728811, 945321577);
+            int a1 = (1079802834);
+            int4x2 b1 = int4x2(2054742898, 1328349472, 434061447, 951207723, 598695892, 975131651, 1714007943, 177416473);
             bool4x2 r1 = bool4x2(false, false, true, true, true, true, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int a2 = (173706579);
-            int4x2 b2 = int4x2(625318949, 519443238, 1583588379, 1026799433, 1713083717, 394922760, 1216218189, 1336522452);
-            bool4x2 r2 = bool4x2(false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int a2 = (1267232721);
+            int4x2 b2 = int4x2(31082860, 216791741, 119054289, 1905107583, 89559116, 55041824, 691334141, 462326883);
+            bool4x2 r2 = bool4x2(true, true, true, false, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int a3 = (233894308);
-            int4x2 b3 = int4x2(479913036, 984991199, 172993285, 2121050903, 465645173, 788510727, 337378780, 273010835);
-            bool4x2 r3 = bool4x2(false, false, true, false, false, false, false, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int a3 = (1658303669);
+            int4x2 b3 = int4x2(914628512, 1134364322, 1677134711, 1955614770, 2067009301, 1454405405, 299467282, 1584922149);
+            bool4x2 r3 = bool4x2(true, true, false, false, false, true, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_add_wide_wide()
         {
-            int4x2 a0 = int4x2(2049228671, 1658660009, 491719392, 937013355, 81108663, 1063894558, 86954702, 843159721);
-            int4x2 b0 = int4x2(2088751567, 645762023, 306868786, 4360271, 506047997, 2094559874, 1634712736, 1601474440);
-            int4x2 r0 = int4x2(-156987058, -1990545264, 798588178, 941373626, 587156660, -1136512864, 1721667438, -1850333135);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int4x2 a0 = int4x2(2135171378, 21433296, 1954723494, 683604307, 1054212315, 1762680995, 1963655852, 1257853062);
+            int4x2 b0 = int4x2(1013431952, 366718162, 359290756, 1393163294, 1962236872, 1263270041, 1862666629, 1077447887);
+            int4x2 r0 = int4x2(-1146363966, 388151458, -1980953046, 2076767601, -1278518109, -1269016260, -468644815, -1959666347);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int4x2 a1 = int4x2(698977704, 192867135, 1683407172, 137301303, 2103582820, 526139155, 447937230, 2127411006);
-            int4x2 b1 = int4x2(1586485231, 908746788, 1812370320, 1247342357, 2043773873, 223363428, 175115707, 985928617);
-            int4x2 r1 = int4x2(-2009504361, 1101613923, -799189804, 1384643660, -147610603, 749502583, 623052937, -1181627673);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int4x2 a1 = int4x2(2043493600, 976898058, 1915056423, 121374462, 1218855698, 700538222, 1702057277, 1788251699);
+            int4x2 b1 = int4x2(821693806, 487316539, 350922520, 1583012528, 1951595076, 1024851344, 874302782, 1383969588);
+            int4x2 r1 = int4x2(-1429779890, 1464214597, -2028988353, 1704386990, -1124516522, 1725389566, -1718607237, -1122746009);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int4x2 a2 = int4x2(1670579390, 1914969141, 997691756, 857841794, 2129024875, 267535529, 978891383, 657092366);
-            int4x2 b2 = int4x2(507662836, 1231457019, 776127866, 607782424, 1160366210, 1384832242, 702057048, 703554905);
-            int4x2 r2 = int4x2(-2116725070, -1148541136, 1773819622, 1465624218, -1005576211, 1652367771, 1680948431, 1360647271);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int4x2 a2 = int4x2(1534939160, 398651016, 1674272498, 374510467, 824322986, 1217622199, 1122376670, 642613771);
+            int4x2 b2 = int4x2(1767968088, 900721406, 1659790033, 1792273749, 443844328, 633981449, 2010244807, 335566991);
+            int4x2 r2 = int4x2(-992060048, 1299372422, -960904765, -2128183080, 1268167314, 1851603648, -1162345819, 978180762);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int4x2 a3 = int4x2(941872903, 906908654, 1940071697, 862186205, 1951450264, 689662850, 1928213278, 1703906688);
-            int4x2 b3 = int4x2(2106992817, 1994483489, 539473, 236858351, 411317652, 595429166, 713649927, 2053476603);
-            int4x2 r3 = int4x2(-1246101576, -1393575153, 1940611170, 1099044556, -1932199380, 1285092016, -1653104091, -537584005);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int4x2 a3 = int4x2(1097903998, 359042741, 929182687, 1713065399, 892057490, 1295346111, 1806236181, 1838589664);
+            int4x2 b3 = int4x2(521931102, 544297835, 1681549647, 1784248858, 585904415, 3128418, 1806236610, 179909533);
+            int4x2 r3 = int4x2(1619835100, 903340576, -1684234962, -797653039, 1477961905, 1298474529, -682494505, 2018499197);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_add_wide_scalar()
         {
-            int4x2 a0 = int4x2(2038218457, 134923711, 875689667, 1338884463, 997710928, 340490871, 1067888129, 70433301);
-            int b0 = (2124409227);
-            int4x2 r0 = int4x2(-132339612, -2035634358, -1294868402, -831673606, -1172847141, -1830067198, -1102669940, -2100124768);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int4x2 a0 = int4x2(665815972, 1783729250, 1591678394, 1284528538, 977850224, 71069732, 1138577680, 1200356017);
+            int b0 = (1334043849);
+            int4x2 r0 = int4x2(1999859821, -1177194197, -1369245053, -1676394909, -1983073223, 1405113581, -1822345767, -1760567430);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int4x2 a1 = int4x2(2003021861, 1160398286, 85446202, 1068152966, 1239387100, 1497676888, 1727477485, 1095438654);
-            int b1 = (1635971971);
-            int4x2 r1 = int4x2(-655973464, -1498597039, 1721418173, -1590842359, -1419608225, -1161318437, -931517840, -1563556671);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int4x2 a1 = int4x2(565982008, 1088001167, 57252642, 678921480, 625943813, 512157429, 1470648741, 1490096953);
+            int b1 = (1246759684);
+            int4x2 r1 = int4x2(1812741692, -1960206445, 1304012326, 1925681164, 1872703497, 1758917113, -1577558871, -1558110659);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int4x2 a2 = int4x2(756559204, 658923552, 1610518921, 1585755398, 692843300, 1068593469, 1704776233, 577782260);
-            int b2 = (1818718931);
-            int4x2 r2 = int4x2(-1719689161, -1817324813, -865729444, -890492967, -1783405065, -1407654896, -771472132, -1898466105);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int4x2 a2 = int4x2(1467033531, 1707296407, 1703724354, 1333833947, 653973063, 1139546735, 1834005844, 184572739);
+            int b2 = (182608093);
+            int4x2 r2 = int4x2(1649641624, 1889904500, 1886332447, 1516442040, 836581156, 1322154828, 2016613937, 367180832);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int4x2 a3 = int4x2(736972565, 564257439, 2051736283, 1572837697, 1628006545, 1855700263, 656748782, 272774516);
-            int b3 = (711894571);
-            int4x2 r3 = int4x2(1448867136, 1276152010, -1531336442, -2010235028, -1955066180, -1727372462, 1368643353, 984669087);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int4x2 a3 = int4x2(1980578280, 97099208, 421437295, 1251829854, 166844260, 1568146789, 82548613, 533562157);
+            int b3 = (1858520040);
+            int4x2 r3 = int4x2(-455868976, 1955619248, -2015009961, -1184617402, 2025364300, -868300467, 1941068653, -1902885099);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_add_scalar_wide()
         {
-            int a0 = (391092078);
-            int4x2 b0 = int4x2(519908870, 851424292, 328314822, 135622204, 740923360, 655394201, 1451896269, 1781697072);
-            int4x2 r0 = int4x2(911000948, 1242516370, 719406900, 526714282, 1132015438, 1046486279, 1842988347, -2122178146);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int a0 = (359966320);
+            int4x2 b0 = int4x2(2146146202, 767103309, 851002415, 311531406, 1491262941, 1016891373, 1954228994, 1671335850);
+            int4x2 r0 = int4x2(-1788854774, 1127069629, 1210968735, 671497726, 1851229261, 1376857693, -1980771982, 2031302170);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int a1 = (996031825);
-            int4x2 b1 = int4x2(1557774949, 779774940, 1111541302, 783046445, 1130163944, 288279584, 1397683861, 1636583489);
-            int4x2 r1 = int4x2(-1741160522, 1775806765, 2107573127, 1779078270, 2126195769, 1284311409, -1901251610, -1662351982);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int a1 = (727870747);
+            int4x2 b1 = int4x2(551151834, 1390261152, 1699060326, 115021619, 1964440175, 440700758, 1556692550, 185414255);
+            int4x2 r1 = int4x2(1279022581, 2118131899, -1868036223, 842892366, -1602656374, 1168571505, -2010403999, 913285002);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int a2 = (673263339);
-            int4x2 b2 = int4x2(1469300874, 14855965, 1116636999, 1488863300, 1600990886, 190651301, 1307459768, 920085839);
-            int4x2 r2 = int4x2(2142564213, 688119304, 1789900338, -2132840657, -2020713071, 863914640, 1980723107, 1593349178);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int a2 = (933106731);
+            int4x2 b2 = int4x2(1217866784, 729761881, 1742597318, 1090109152, 1467373815, 1066072609, 138237856, 634834665);
+            int4x2 r2 = int4x2(-2143993781, 1662868612, -1619263247, 2023215883, -1894486750, 1999179340, 1071344587, 1567941396);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int a3 = (2082229835);
-            int4x2 b3 = int4x2(1992405574, 1213924458, 505841452, 981421162, 1488337699, 1113826640, 1806146508, 1841791222);
-            int4x2 r3 = int4x2(-220331887, -998813003, -1706896009, -1231316299, -724399762, -1098910821, -406590953, -370946239);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int a3 = (993603553);
+            int4x2 b3 = int4x2(347587889, 2050191349, 670698672, 1658205080, 1874808705, 2082982954, 869839589, 118460267);
+            int4x2 r3 = int4x2(1341191442, -1251172394, 1664302225, -1643158663, -1426555038, -1218380789, 1863443142, 1112063820);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_sub_wide_wide()
         {
-            int4x2 a0 = int4x2(1353441118, 797269833, 659988112, 56022121, 365847472, 2062899435, 1380988474, 799885138);
-            int4x2 b0 = int4x2(1332656812, 1827794007, 972557431, 2078233689, 1508184327, 1372307701, 810327977, 936799885);
-            int4x2 r0 = int4x2(20784306, -1030524174, -312569319, -2022211568, -1142336855, 690591734, 570660497, -136914747);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int4x2 a0 = int4x2(1410318491, 1097280168, 1827039044, 28881338, 328720965, 875487868, 212936325, 231977215);
+            int4x2 b0 = int4x2(1315897366, 799052018, 1580289673, 1094686261, 1954325726, 1197734816, 229886366, 915679176);
+            int4x2 r0 = int4x2(94421125, 298228150, 246749371, -1065804923, -1625604761, -322246948, -16950041, -683701961);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int4x2 a1 = int4x2(1306058185, 579775276, 1239163824, 344591081, 86359575, 1049709943, 721529513, 1767221271);
-            int4x2 b1 = int4x2(71562303, 1418723328, 1971342989, 1226053395, 136565478, 1979903295, 600719425, 837912956);
-            int4x2 r1 = int4x2(1234495882, -838948052, -732179165, -881462314, -50205903, -930193352, 120810088, 929308315);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int4x2 a1 = int4x2(1740021315, 2011295463, 48079003, 591379285, 1125909359, 1842588095, 848561896, 614448464);
+            int4x2 b1 = int4x2(1746884850, 918743925, 1007797419, 257421324, 287249342, 1617287463, 1653916102, 123586847);
+            int4x2 r1 = int4x2(-6863535, 1092551538, -959718416, 333957961, 838660017, 225300632, -805354206, 490861617);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int4x2 a2 = int4x2(7652784, 545192611, 176298787, 1477774126, 1426963688, 2032787858, 2059525977, 445200454);
-            int4x2 b2 = int4x2(632054793, 711091688, 904695656, 1640069560, 750244414, 1385118097, 1102391291, 1221949855);
-            int4x2 r2 = int4x2(-624402009, -165899077, -728396869, -162295434, 676719274, 647669761, 957134686, -776749401);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int4x2 a2 = int4x2(2067598029, 1618238416, 318516219, 1090119767, 1991095823, 949592162, 1951912339, 1457818751);
+            int4x2 b2 = int4x2(502107404, 672875302, 1256481116, 1975569142, 1794443030, 1327558915, 330955394, 1596041731);
+            int4x2 r2 = int4x2(1565490625, 945363114, -937964897, -885449375, 196652793, -377966753, 1620956945, -138222980);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int4x2 a3 = int4x2(425848588, 2026967474, 1128492011, 61421784, 988065731, 1741434432, 2070331135, 1356704176);
-            int4x2 b3 = int4x2(609588723, 1054324682, 1678086165, 1529581776, 1718700085, 523422634, 223602473, 1912611694);
-            int4x2 r3 = int4x2(-183740135, 972642792, -549594154, -1468159992, -730634354, 1218011798, 1846728662, -555907518);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int4x2 a3 = int4x2(1642553126, 2114366549, 1420516260, 596841760, 724518081, 1820626306, 1885185225, 246124365);
+            int4x2 b3 = int4x2(1069074732, 1120817099, 2076417364, 402521072, 839858844, 1539789702, 559077522, 822288510);
+            int4x2 r3 = int4x2(573478394, 993549450, -655901104, 194320688, -115340763, 280836604, 1326107703, -576164145);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_sub_wide_scalar()
         {
-            int4x2 a0 = int4x2(1176369558, 1934521195, 309452150, 1417634074, 108910717, 1306356714, 1502312334, 1451794815);
-            int b0 = (462232403);
-            int4x2 r0 = int4x2(714137155, 1472288792, -152780253, 955401671, -353321686, 844124311, 1040079931, 989562412);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int4x2 a0 = int4x2(1508669340, 1594795463, 266707545, 643102647, 287705008, 1475644328, 1113286221, 979450511);
+            int b0 = (998008471);
+            int4x2 r0 = int4x2(510660869, 596786992, -731300926, -354905824, -710303463, 477635857, 115277750, -18557960);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int4x2 a1 = int4x2(281174200, 1913724431, 2041593336, 557239990, 1119051448, 1590376732, 819090189, 816382635);
-            int b1 = (87530840);
-            int4x2 r1 = int4x2(193643360, 1826193591, 1954062496, 469709150, 1031520608, 1502845892, 731559349, 728851795);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int4x2 a1 = int4x2(2082174113, 304369206, 999244508, 1806482044, 1994553647, 2101812429, 1482736902, 266654115);
+            int b1 = (1108005498);
+            int4x2 r1 = int4x2(974168615, -803636292, -108760990, 698476546, 886548149, 993806931, 374731404, -841351383);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int4x2 a2 = int4x2(815920639, 1792801932, 1113440549, 1418937976, 1277257189, 2092779398, 642236742, 1605250794);
-            int b2 = (1829033117);
-            int4x2 r2 = int4x2(-1013112478, -36231185, -715592568, -410095141, -551775928, 263746281, -1186796375, -223782323);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int4x2 a2 = int4x2(1470212363, 958542155, 1185075537, 1738124835, 499527536, 1612473406, 1696960099, 1287292743);
+            int b2 = (1190349300);
+            int4x2 r2 = int4x2(279863063, -231807145, -5273763, 547775535, -690821764, 422124106, 506610799, 96943443);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int4x2 a3 = int4x2(819644478, 128303186, 553494257, 1017126971, 1999744782, 2017272758, 1817991764, 1280985500);
-            int b3 = (1468003019);
-            int4x2 r3 = int4x2(-648358541, -1339699833, -914508762, -450876048, 531741763, 549269739, 349988745, -187017519);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int4x2 a3 = int4x2(1360229454, 1779621585, 964948785, 1739264125, 94254551, 968533883, 2075770560, 946189008);
+            int b3 = (1032360376);
+            int4x2 r3 = int4x2(327869078, 747261209, -67411591, 706903749, -938105825, -63826493, 1043410184, -86171368);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_sub_scalar_wide()
         {
-            int a0 = (1691534405);
-            int4x2 b0 = int4x2(2022393810, 1612688515, 496689713, 887037586, 2097630964, 374934538, 939035482, 935242277);
-            int4x2 r0 = int4x2(-330859405, 78845890, 1194844692, 804496819, -406096559, 1316599867, 752498923, 756292128);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int a0 = (893369501);
+            int4x2 b0 = int4x2(2051906184, 1699714311, 442603706, 1735141684, 274533585, 811580259, 1196354320, 1524097023);
+            int4x2 r0 = int4x2(-1158536683, -806344810, 450765795, -841772183, 618835916, 81789242, -302984819, -630727522);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int a1 = (1789300421);
-            int4x2 b1 = int4x2(264712893, 1231856067, 1818112748, 1428436109, 1258745460, 1077380396, 1330722719, 518111829);
-            int4x2 r1 = int4x2(1524587528, 557444354, -28812327, 360864312, 530554961, 711920025, 458577702, 1271188592);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int a1 = (533621527);
+            int4x2 b1 = int4x2(2080845793, 143958837, 1620668660, 1135989346, 1367044745, 554088609, 552670373, 1265516124);
+            int4x2 r1 = int4x2(-1547224266, 389662690, -1087047133, -602367819, -833423218, -20467082, -19048846, -731894597);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int a2 = (967128529);
-            int4x2 b2 = int4x2(344666254, 1082267918, 907866696, 1816885123, 460340568, 962154498, 557113461, 1701216709);
-            int4x2 r2 = int4x2(622462275, -115139389, 59261833, -849756594, 506787961, 4974031, 410015068, -734088180);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int a2 = (1254902543);
+            int4x2 b2 = int4x2(1857695581, 1619865274, 1313559400, 99812999, 843597298, 420111239, 1299949060, 531009038);
+            int4x2 r2 = int4x2(-602793038, -364962731, -58656857, 1155089544, 411305245, 834791304, -45046517, 723893505);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int a3 = (1980098777);
-            int4x2 b3 = int4x2(730060552, 1444397827, 853570556, 138836432, 1013190428, 718089530, 506757390, 1216448041);
-            int4x2 r3 = int4x2(1250038225, 535700950, 1126528221, 1841262345, 966908349, 1262009247, 1473341387, 763650736);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int a3 = (1103306550);
+            int4x2 b3 = int4x2(104920105, 1137308312, 1207332725, 103438360, 1157123503, 1174401240, 701247193, 1498366995);
+            int4x2 r3 = int4x2(998386445, -34001762, -104026175, 999868190, -53816953, -71094690, 402059357, -395060445);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mul_wide_wide()
         {
-            int4x2 a0 = int4x2(245827027, 208934650, 1019478917, 568231809, 877289039, 1585782440, 2111178729, 1186019069);
-            int4x2 b0 = int4x2(759663997, 350129201, 477450108, 1635735015, 388710278, 757722665, 1509388321, 1841703980);
-            int4x2 r0 = int4x2(-632811769, 1402281434, 332447596, -1932977561, -1670918566, 1455036648, 2128344329, -594088068);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int4x2 a0 = int4x2(61417577, 219585476, 1362520891, 1511084277, 1481211272, 58211871, 1459591173, 567624644);
+            int4x2 b0 = int4x2(578042444, 1620527213, 200516468, 309339115, 542853019, 299467282, 1479641221, 1428338601);
+            int4x2 r0 = int4x2(-1426863828, 1326150260, -990894148, -1322856473, 1973926232, 88546350, -863919463, -582821788);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int4x2 a1 = int4x2(571481445, 1570087048, 629447153, 619383734, 2055121568, 700402816, 263414349, 187830569);
-            int4x2 b1 = int4x2(1826369331, 1524322467, 1605207974, 428419155, 1460605791, 1968043860, 771161742, 2037340417);
-            int4x2 r1 = int4x2(-1654168033, 2093463192, -1207506618, -1133560830, 990589280, -938173952, -1341723466, 1156600361);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int4x2 a1 = int4x2(1169935583, 1835691886, 385626539, 85934842, 522856538, 278370196, 289217012, 2083410174);
+            int4x2 b1 = int4x2(1497302909, 1596889147, 427413842, 265122693, 689376654, 1120457204, 516903000, 873091659);
+            int4x2 r1 = int4x2(556671459, 1098186330, 1848083398, -58320414, 2005201900, 651971856, -1721160736, -110160278);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int4x2 a2 = int4x2(2048056680, 546694675, 853585367, 933370718, 990212476, 1915885905, 1984212358, 368146234);
-            int4x2 b2 = int4x2(322304267, 651448359, 1608326767, 1427155898, 1092185338, 665119139, 223634707, 694718952);
-            int4x2 r2 = int4x2(649177976, 678952165, 1063621177, -1611682740, -2142428392, -573253741, -1652113678, 1626072720);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int4x2 a2 = int4x2(1293162798, 1939730122, 2075923048, 1116477212, 1686101741, 783310758, 248585944, 1093377716);
+            int4x2 b2 = int4x2(1353196495, 1384773500, 1596528529, 2122329305, 1033200564, 996795088, 1137754930, 232014195);
+            int4x2 r2 = int4x2(-119429582, -536965160, -2049587992, -759667012, 1443849636, 550781664, -959017424, -353108260);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int4x2 a3 = int4x2(899438811, 1765718681, 409003054, 2069758852, 140280263, 442491280, 1924530939, 1372320666);
-            int4x2 b3 = int4x2(675813713, 999254223, 1326064110, 788102700, 1927999142, 1706356773, 747671596, 106127297);
-            int4x2 r3 = int4x2(1891467339, 335415735, 1128927428, -1656253776, -1433851638, 479369680, -366628060, -250163942);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int4x2 a3 = int4x2(797038788, 1838048120, 1892922904, 1952024781, 492107602, 1097670675, 2069629919, 20122103);
+            int4x2 b3 = int4x2(1080950243, 1613216909, 463529448, 1781487382, 2101946430, 673144237, 390627073, 964308272);
+            int4x2 r3 = int4x2(-1093604916, 264300824, -121602624, 1825729694, -241519140, -1246587945, -2064143137, -251115184);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mul_wide_scalar()
         {
-            int4x2 a0 = int4x2(1762033447, 465343930, 1570757881, 1326409563, 1824319147, 1356578909, 72749215, 154616909);
-            int b0 = (1476837906);
-            int4x2 r0 = int4x2(-1313177922, 1326807828, -2138555518, -276153754, -65548794, -1318584182, -1839224530, -1720506518);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int4x2 a0 = int4x2(871746615, 492532311, 570557670, 2142306629, 1610315153, 1526163563, 118471734, 257439514);
+            int b0 = (442064533);
+            int4x2 r0 = int4x2(338365955, 1081376419, -1729147426, -1015409879, -873485467, -175501241, -838181010, 513646114);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int4x2 a1 = int4x2(975743632, 1958912969, 971327747, 1818877398, 1324050764, 660611671, 1279757657, 391009467);
-            int b1 = (573770299);
-            int4x2 r1 = int4x2(414773040, -699623085, 1045098929, -1129153454, 1954692228, 970215437, 1522404739, 631100697);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int4x2 a1 = int4x2(364291059, 1584938026, 1357601203, 638897141, 268562104, 1007838321, 1163240135, 1619806399);
+            int b1 = (1186560810);
+            int4x2 r1 = int4x2(1029154526, 989596900, 521189470, -1619710670, 1627099696, 753911178, -1861135962, 167687254);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int4x2 a2 = int4x2(1186856590, 800117742, 606927173, 1338014500, 1688964615, 1439447294, 387721300, 1192501703);
-            int b2 = (890343818);
-            int4x2 r2 = int4x2(218605196, 908725324, -805080014, -1528445592, 1365477062, 1262261996, 2040090952, 691203142);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int4x2 a2 = int4x2(1444659979, 464517916, 1508043166, 745488654, 636691139, 1851670006, 357357967, 1095280227);
+            int b2 = (1127580168);
+            int4x2 r2 = int4x2(204516952, -1949298464, -1049655056, 73999472, -492889064, -2074682448, 679242360, 1245870360);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int4x2 a3 = int4x2(1613845584, 124378112, 970518733, 1370700538, 1978842602, 1451974062, 987919119, 1659987051);
-            int b3 = (76318055);
-            int4x2 r3 = int4x2(-1335460816, 1256424448, -545299589, 628661398, 357366566, 753276674, 2132219401, -825295347);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int4x2 a3 = int4x2(702779195, 1464398841, 51061000, 802418971, 407442471, 638315697, 1889264235, 584402164);
+            int b3 = (945802744);
+            int4x2 r3 = int4x2(-586547160, -76431816, -567056448, 1852387624, 241680584, -171571080, 1493698216, 2103324768);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mul_scalar_wide()
         {
-            int a0 = (99541948);
-            int4x2 b0 = int4x2(1764461774, 657072478, 1459784358, 1610646683, 1632058826, 868441654, 1408757883, 335917146);
-            int4x2 r0 = int4x2(-950398648, -102049016, 1260585960, 1158730452, -1606056, -466153048, 2108402516, 1966690328);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int a0 = (1152242766);
+            int4x2 b0 = int4x2(1276636134, 2105929407, 499007702, 124002565, 1956335172, 1288034953, 832676555, 337389733);
+            int4x2 r0 = int4x2(-2129504236, 999811634, 1179056436, -801426554, 404105400, 1339492798, -381766182, -1111620026);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int a1 = (2105124483);
-            int4x2 b1 = int4x2(1178393968, 1963904348, 1409533767, 243286231, 1336308795, 517963367, 1733623488, 459880225);
-            int4x2 r1 = int4x2(-1028919216, 2084093460, 1286996821, 910923781, 1886305329, -1039959883, 644799552, 1815059427);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int a1 = (99268757);
+            int4x2 b1 = int4x2(2005055247, 2011389505, 1348110859, 399689191, 2007606374, 2076691289, 1825721194, 769885235);
+            int4x2 r1 = int4x2(559764411, -1619094571, 1022902375, -1005504653, -685637794, 1103844045, 2105414834, 302946735);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int a2 = (994616533);
-            int4x2 b2 = int4x2(1420531535, 1821413700, 677771573, 2132626845, 1158827713, 640102997, 944551639, 1323243330);
-            int4x2 r2 = int4x2(585859259, 2021158292, 1046891801, -1941821535, -738776427, -1715252039, -160572189, 1259643370);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int a2 = (153314735);
+            int4x2 b2 = int4x2(1066325369, 84289667, 984486192, 1325213504, 1643957457, 1576395620, 2095980601, 907671947);
+            int4x2 r2 = int4x2(1030204087, 35283085, -749359152, 2102006976, 305231839, -663165604, -1035369481, 1010199813);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int a3 = (1186460236);
-            int4x2 b3 = int4x2(657101857, 1275563580, 1031291523, 1008470115, 1155301041, 1046199281, 2138825098, 1273008873);
-            int4x2 r3 = int4x2(-901633076, -879300144, 1278776548, 1761940324, -675287412, 2049744268, -375297800, -1944395988);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int a3 = (836919582);
+            int4x2 b3 = int4x2(1412159342, 2037926630, 366590562, 493177763, 2058824164, 497936968, 2136548816, 1211907591);
+            int4x2 r3 = int4x2(-1226838812, -175772428, 1537669500, -865230822, 1738427576, -71910288, -446284192, 1673391058);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_div_wide_wide()
         {
-            int4x2 a0 = int4x2(1590198532, 507812502, 126627032, 1058247011, 427387861, 290676154, 1829594484, 1127868739);
-            int4x2 b0 = int4x2(1434703236, 911965201, 390415521, 128746927, 525835375, 816946613, 878264647, 146789678);
-            int4x2 r0 = int4x2(1, 0, 0, 8, 0, 0, 2, 7);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int4x2 a0 = int4x2(333171510, 858154903, 1181365836, 671357749, 1090606752, 803759420, 788404166, 296807814);
+            int4x2 b0 = int4x2(698897823, 440199998, 655557473, 1658534285, 2127220100, 315653188, 1814290360, 992173243);
+            int4x2 r0 = int4x2(0, 1, 1, 0, 0, 2, 0, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int4x2 a1 = int4x2(499016351, 1341209632, 134906097, 785470242, 788249865, 1099825433, 1552968283, 1822367139);
-            int4x2 b1 = int4x2(2089524057, 254213018, 1916850021, 1737806518, 1906634983, 437754923, 825037958, 902508708);
-            int4x2 r1 = int4x2(0, 5, 0, 0, 0, 2, 1, 2);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int4x2 a1 = int4x2(575260195, 166625280, 1493729000, 1831739736, 200852358, 129983172, 500176108, 472051781);
+            int4x2 b1 = int4x2(914851653, 664340325, 224323977, 246981573, 285573983, 819471609, 2012476015, 1783179572);
+            int4x2 r1 = int4x2(0, 0, 6, 7, 0, 0, 0, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int4x2 a2 = int4x2(1021812060, 1937073018, 645757349, 1097576782, 1246027674, 1152153253, 1900577195, 172149343);
-            int4x2 b2 = int4x2(896853614, 49452028, 1921327824, 787000669, 1032149621, 858558868, 1422112429, 837098844);
-            int4x2 r2 = int4x2(1, 39, 0, 1, 1, 1, 1, 0);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int4x2 a2 = int4x2(414699094, 1446535974, 1278480457, 930910505, 263295881, 1626759436, 450830871, 21439121);
+            int4x2 b2 = int4x2(223253978, 169515029, 1694929006, 1992168131, 1155972447, 1768506696, 422325410, 1508417406);
+            int4x2 r2 = int4x2(1, 8, 0, 0, 0, 0, 1, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int4x2 a3 = int4x2(1735128704, 816492592, 2012272185, 632330092, 649232994, 123715336, 1438073735, 723262291);
-            int4x2 b3 = int4x2(616122946, 2035322800, 1324534444, 1820832158, 917489631, 367475696, 620492088, 1749833550);
-            int4x2 r3 = int4x2(2, 0, 1, 0, 0, 0, 2, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int4x2 a3 = int4x2(521337599, 127756712, 200601965, 412554396, 1014641734, 239347640, 525574301, 1158358177);
+            int4x2 b3 = int4x2(605462475, 66917170, 2014683461, 108847533, 611173330, 895791853, 1999369787, 1225614384);
+            int4x2 r3 = int4x2(0, 1, 0, 3, 1, 0, 0, 0);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_div_wide_scalar()
         {
-            int4x2 a0 = int4x2(560951562, 1218680769, 375341724, 1613542090, 1919409166, 1397425408, 1349573078, 524526253);
-            int b0 = (947861580);
-            int4x2 r0 = int4x2(0, 1, 0, 1, 2, 1, 1, 0);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int4x2 a0 = int4x2(1433072926, 1073958635, 1195142312, 536596719, 1274375693, 464756346, 806462546, 906504670);
+            int b0 = (1434025872);
+            int4x2 r0 = int4x2(0, 0, 0, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int4x2 a1 = int4x2(341995568, 1515313790, 1676971657, 2131487088, 2105094094, 1017891310, 542666029, 1646044372);
-            int b1 = (495895326);
-            int4x2 r1 = int4x2(0, 3, 3, 4, 4, 2, 1, 3);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int4x2 a1 = int4x2(1380905136, 1196815948, 123300377, 643754735, 2084019932, 2047825037, 458304263, 741331531);
+            int b1 = (25493909);
+            int4x2 r1 = int4x2(54, 46, 4, 25, 81, 80, 17, 29);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int4x2 a2 = int4x2(1447236569, 19616726, 896899915, 707389627, 1249475421, 1486968988, 1738891885, 1919705924);
-            int b2 = (107215658);
-            int4x2 r2 = int4x2(13, 0, 8, 6, 11, 13, 16, 17);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int4x2 a2 = int4x2(466443901, 1500687214, 1453264263, 1617154145, 2040203220, 2103351724, 485536709, 402141749);
+            int b2 = (2110004616);
+            int4x2 r2 = int4x2(0, 0, 0, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int4x2 a3 = int4x2(1244966864, 206442634, 1508567412, 1825701056, 1117255783, 929925156, 1725332114, 1949103348);
-            int b3 = (1200843642);
-            int4x2 r3 = int4x2(1, 0, 1, 1, 0, 0, 1, 1);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int4x2 a3 = int4x2(1477264254, 1549487015, 670594363, 2040479674, 155415284, 207130003, 1596922206, 1730223836);
+            int b3 = (1629069474);
+            int4x2 r3 = int4x2(0, 0, 0, 1, 0, 0, 0, 1);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_div_scalar_wide()
         {
-            int a0 = (1161272038);
-            int4x2 b0 = int4x2(187325733, 1594107378, 2016183849, 1589343709, 388768753, 1417077283, 1773486938, 1154044032);
-            int4x2 r0 = int4x2(6, 0, 0, 0, 2, 0, 0, 1);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int a0 = (519165704);
+            int4x2 b0 = int4x2(1295178177, 775214121, 467772046, 1156881598, 310396565, 759759959, 243837702, 1616314235);
+            int4x2 r0 = int4x2(0, 0, 1, 0, 1, 0, 2, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int a1 = (81831373);
-            int4x2 b1 = int4x2(1476877645, 653688843, 45756703, 631027637, 396671391, 784365696, 1250594097, 1818363859);
-            int4x2 r1 = int4x2(0, 0, 1, 0, 0, 0, 0, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int a1 = (1053470225);
+            int4x2 b1 = int4x2(1320630160, 378773841, 4223608, 1971105754, 2054406020, 219939614, 1603672651, 2006134295);
+            int4x2 r1 = int4x2(0, 2, 249, 0, 0, 4, 0, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int a2 = (1653451772);
-            int4x2 b2 = int4x2(270557729, 48974453, 1796936382, 1427856423, 981056957, 1955700573, 705450043, 1054404890);
-            int4x2 r2 = int4x2(6, 33, 0, 1, 1, 0, 2, 1);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int a2 = (888535397);
+            int4x2 b2 = int4x2(1493077923, 615835131, 1045603945, 452709946, 1074919059, 467037221, 1485241506, 1775728786);
+            int4x2 r2 = int4x2(0, 1, 0, 1, 0, 1, 0, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int a3 = (351914083);
-            int4x2 b3 = int4x2(131970646, 1320586926, 366944102, 1575786200, 257204865, 1582754309, 2114509003, 1266146708);
-            int4x2 r3 = int4x2(2, 0, 0, 0, 1, 0, 0, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int a3 = (481521341);
+            int4x2 b3 = int4x2(68149923, 80867357, 1294049272, 470535313, 1235850199, 631464286, 687722755, 412827650);
+            int4x2 r3 = int4x2(7, 5, 0, 1, 0, 0, 0, 1);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mod_wide_wide()
         {
-            int4x2 a0 = int4x2(146150818, 1846543305, 1071447756, 308965362, 659881575, 1002365460, 861198439, 1510617532);
-            int4x2 b0 = int4x2(983050390, 771341152, 942375212, 367361754, 749500619, 750718852, 2095151755, 88438806);
-            int4x2 r0 = int4x2(146150818, 303861001, 129072544, 308965362, 659881575, 251646608, 861198439, 7157830);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int4x2 a0 = int4x2(258342924, 1454754891, 723352342, 1981431473, 531756042, 716993627, 1667903349, 1331097004);
+            int4x2 b0 = int4x2(1990080167, 1197348066, 651970512, 1659454050, 241005212, 1866255454, 1440101415, 595220963);
+            int4x2 r0 = int4x2(258342924, 257406825, 71381830, 321977423, 49745618, 716993627, 227801934, 140655078);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int4x2 a1 = int4x2(778525078, 1458458044, 101987897, 1249565173, 938026607, 1692541775, 1518877124, 1806965510);
-            int4x2 b1 = int4x2(769227442, 647214624, 1026513788, 1544950956, 160166322, 1099108075, 1158422232, 1798905209);
-            int4x2 r1 = int4x2(9297636, 164028796, 101987897, 1249565173, 137194997, 593433700, 360454892, 8060301);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int4x2 a1 = int4x2(1776856101, 17598216, 1474345080, 1681376293, 813624265, 1617478722, 498370451, 780075943);
+            int4x2 b1 = int4x2(408818410, 198222574, 549504274, 239973807, 321398087, 658171840, 1511495237, 1048325585);
+            int4x2 r1 = int4x2(141582461, 17598216, 375336532, 1559644, 170828091, 301135042, 498370451, 780075943);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int4x2 a2 = int4x2(1325139851, 994457255, 1372400564, 1770508529, 100255877, 452674793, 1545968777, 629019189);
-            int4x2 b2 = int4x2(164686701, 327889784, 1082162785, 1213537518, 608481038, 329133821, 1824387961, 1223426748);
-            int4x2 r2 = int4x2(7646243, 10787903, 290237779, 556971011, 100255877, 123540972, 1545968777, 629019189);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int4x2 a2 = int4x2(1754430321, 653235398, 1517128354, 966216200, 590067427, 1283434795, 1910903650, 1125967790);
+            int4x2 b2 = int4x2(1126739824, 666641241, 38017598, 418797691, 618700513, 1941062990, 158556432, 1081063558);
+            int4x2 r2 = int4x2(627690497, 653235398, 34442032, 128620818, 590067427, 1283434795, 8226466, 44904232);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int4x2 a3 = int4x2(1402964707, 2138294579, 1641714420, 1782022072, 1880968864, 1980798192, 1397317084, 995968277);
-            int4x2 b3 = int4x2(798137669, 79717779, 1233582258, 1267120677, 301592349, 911281434, 1357340934, 1648942990);
-            int4x2 r3 = int4x2(604827038, 65632325, 408132162, 514901395, 71414770, 158235324, 39976150, 995968277);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int4x2 a3 = int4x2(1180537254, 308567230, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599);
+            int4x2 b3 = int4x2(427329468, 148111230, 1251162672, 1856322297, 1214781084, 401954255, 1323259633, 1167744452);
+            int4x2 r3 = int4x2(325878318, 12344770, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mod_wide_scalar()
         {
-            int4x2 a0 = int4x2(164800505, 1062177828, 1898749675, 1701653318, 820393245, 19002208, 128329633, 1464010899);
-            int b0 = (883951171);
-            int4x2 r0 = int4x2(164800505, 178226657, 130847333, 817702147, 820393245, 19002208, 128329633, 580059728);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int4x2 a0 = int4x2(560988938, 629524514, 767711194, 434281967, 1399805893, 792916846, 1663690927, 598661916);
+            int b0 = (1156862367);
+            int4x2 r0 = int4x2(560988938, 629524514, 767711194, 434281967, 242943526, 792916846, 506828560, 598661916);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int4x2 a1 = int4x2(896587769, 1982762194, 959236935, 712321026, 172564850, 1540068445, 1085897743, 1607489717);
-            int b1 = (405208598);
-            int4x2 r1 = int4x2(86170573, 361927802, 148819739, 307112428, 172564850, 324442651, 275480547, 391863923);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int4x2 a1 = int4x2(1776636144, 1743722161, 475209785, 327476870, 1617696916, 379853074, 477430114, 858399046);
+            int b1 = (1287035793);
+            int4x2 r1 = int4x2(489600351, 456686368, 475209785, 327476870, 330661123, 379853074, 477430114, 858399046);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int4x2 a2 = int4x2(165478511, 915707999, 1602830401, 928191283, 1084934806, 488509689, 2087820912, 377501313);
-            int b2 = (647846716);
-            int4x2 r2 = int4x2(165478511, 267861283, 307136969, 280344567, 437088090, 488509689, 144280764, 377501313);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int4x2 a2 = int4x2(712734431, 199829950, 362269020, 1986626876, 1351725413, 1549678101, 431765276, 1315833792);
+            int b2 = (1506629323);
+            int4x2 r2 = int4x2(712734431, 199829950, 362269020, 479997553, 1351725413, 43048778, 431765276, 1315833792);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int4x2 a3 = int4x2(1778384846, 812183417, 1153802502, 1642671870, 1924710742, 665297470, 1568090825, 2050982942);
-            int b3 = (1216011754);
-            int4x2 r3 = int4x2(562373092, 812183417, 1153802502, 426660116, 708698988, 665297470, 352079071, 834971188);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int4x2 a3 = int4x2(1664893153, 780055604, 104179235, 629966219, 1810536428, 1747026206, 1799535061, 875754431);
+            int b3 = (615834034);
+            int4x2 r3 = int4x2(433225085, 164221570, 104179235, 14132185, 578868360, 515358138, 567866993, 259920397);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_mod_scalar_wide()
         {
-            int a0 = (242383789);
-            int4x2 b0 = int4x2(740000543, 1556450291, 1104736385, 437976569, 1911837205, 1507212038, 1906405167, 247693265);
-            int4x2 r0 = int4x2(242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int a0 = (933347930);
+            int4x2 b0 = int4x2(549923387, 243114953, 1884274390, 1428033594, 655531454, 1622674954, 1107563514, 1614111094);
+            int4x2 r0 = int4x2(383424543, 204003071, 933347930, 933347930, 277816476, 933347930, 933347930, 933347930);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int a1 = (293460573);
-            int4x2 b1 = int4x2(1495295166, 873323603, 530681233, 1298102643, 2057984657, 1000742091, 1461372131, 1859742342);
-            int4x2 r1 = int4x2(293460573, 293460573, 293460573, 293460573, 293460573, 293460573, 293460573, 293460573);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int a1 = (914801920);
+            int4x2 b1 = int4x2(1432263179, 564431096, 1967013901, 1709750152, 1080102613, 13120773, 2042535998, 1505698002);
+            int4x2 r1 = int4x2(914801920, 350370824, 914801920, 914801920, 914801920, 9468583, 914801920, 914801920);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int a2 = (797184687);
-            int4x2 b2 = int4x2(821888842, 1083192997, 840114986, 1894865954, 615159964, 1485575122, 2028738, 2122220318);
-            int4x2 r2 = int4x2(797184687, 797184687, 797184687, 797184687, 182024723, 797184687, 1919391, 797184687);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int a2 = (1640058084);
+            int4x2 b2 = int4x2(974167554, 758635306, 1387264978, 611743343, 1139002766, 1913935748, 1086810076, 991846486);
+            int4x2 r2 = int4x2(665890530, 122787472, 252793106, 416571398, 501055318, 1640058084, 553248008, 648211598);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int a3 = (164578061);
-            int4x2 b3 = int4x2(730088119, 1444946139, 1305792037, 1110829011, 872723581, 166847388, 1477846418, 511428733);
-            int4x2 r3 = int4x2(164578061, 164578061, 164578061, 164578061, 164578061, 164578061, 164578061, 164578061);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int a3 = (922870408);
+            int4x2 b3 = int4x2(35007468, 891877602, 157349181, 83267982, 801093706, 546272767, 1665089132, 1889242068);
+            int4x2 r3 = int4x2(12676240, 30992806, 136124503, 6922606, 121776702, 376597641, 922870408, 922870408);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_plus()
         {
-            int4x2 a0 = int4x2(1643476803, 907898539, 379615839, 1140483021, 1735287433, 1743199272, 1472881565, 339091479);
-            int4x2 r0 = int4x2(1643476803, 907898539, 379615839, 1140483021, 1735287433, 1743199272, 1472881565, 339091479);
-            TestUtils.AreEqual(+a0, r0);
+            int4x2 a0 = int4x2(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785);
+            int4x2 r0 = int4x2(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785);
+            TestUtils.AreEqual(r0, +a0);
 
-            int4x2 a1 = int4x2(401565897, 849339193, 174532915, 1864850812, 1566098441, 1145639744, 1615499926, 2049663954);
-            int4x2 r1 = int4x2(401565897, 849339193, 174532915, 1864850812, 1566098441, 1145639744, 1615499926, 2049663954);
-            TestUtils.AreEqual(+a1, r1);
+            int4x2 a1 = int4x2(264115671, 195779102, 2131702223, 715660442, 1995564647, 69731564, 1317851903, 1957501908);
+            int4x2 r1 = int4x2(264115671, 195779102, 2131702223, 715660442, 1995564647, 69731564, 1317851903, 1957501908);
+            TestUtils.AreEqual(r1, +a1);
 
-            int4x2 a2 = int4x2(1723005749, 591286416, 1706631096, 1079164488, 1808261782, 1201290141, 82958939, 308695413);
-            int4x2 r2 = int4x2(1723005749, 591286416, 1706631096, 1079164488, 1808261782, 1201290141, 82958939, 308695413);
-            TestUtils.AreEqual(+a2, r2);
+            int4x2 a2 = int4x2(531426536, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471, 1659000230);
+            int4x2 r2 = int4x2(531426536, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471, 1659000230);
+            TestUtils.AreEqual(r2, +a2);
 
-            int4x2 a3 = int4x2(1575280693, 1673126612, 500666137, 640289062, 836003812, 336058393, 829347661, 33442669);
-            int4x2 r3 = int4x2(1575280693, 1673126612, 500666137, 640289062, 836003812, 336058393, 829347661, 33442669);
-            TestUtils.AreEqual(+a3, r3);
+            int4x2 a3 = int4x2(1301861249, 1360657696, 578750954, 150348334, 1791553179, 1288641627, 735146513, 328684789);
+            int4x2 r3 = int4x2(1301861249, 1360657696, 578750954, 150348334, 1791553179, 1288641627, 735146513, 328684789);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_neg()
         {
-            int4x2 a0 = int4x2(1955022112, 662160019, 370300775, 2141283773, 1004505619, 28153593, 33894270, 505708349);
-            int4x2 r0 = int4x2(-1955022112, -662160019, -370300775, -2141283773, -1004505619, -28153593, -33894270, -505708349);
-            TestUtils.AreEqual(-a0, r0);
+            int4x2 a0 = int4x2(1385088677, 94114564, 1350664872, 1458616659, 2067164853, 218122493, 958484951, 270553961);
+            int4x2 r0 = int4x2(-1385088677, -94114564, -1350664872, -1458616659, -2067164853, -218122493, -958484951, -270553961);
+            TestUtils.AreEqual(r0, -a0);
 
-            int4x2 a1 = int4x2(1115028238, 694995093, 1542206286, 213087293, 243937487, 341522275, 841085242, 574159094);
-            int4x2 r1 = int4x2(-1115028238, -694995093, -1542206286, -213087293, -243937487, -341522275, -841085242, -574159094);
-            TestUtils.AreEqual(-a1, r1);
+            int4x2 a1 = int4x2(446497525, 1928771252, 1427605822, 2051940607, 1434247484, 485368391, 908365416, 1742096480);
+            int4x2 r1 = int4x2(-446497525, -1928771252, -1427605822, -2051940607, -1434247484, -485368391, -908365416, -1742096480);
+            TestUtils.AreEqual(r1, -a1);
 
-            int4x2 a2 = int4x2(1687250035, 1175014732, 1259809073, 1212465326, 1190569920, 2047955772, 2120729864, 1440774928);
-            int4x2 r2 = int4x2(-1687250035, -1175014732, -1259809073, -1212465326, -1190569920, -2047955772, -2120729864, -1440774928);
-            TestUtils.AreEqual(-a2, r2);
+            int4x2 a2 = int4x2(990033169, 1350976157, 12802586, 1934372287, 576597401, 785136322, 559205611, 1959833280);
+            int4x2 r2 = int4x2(-990033169, -1350976157, -12802586, -1934372287, -576597401, -785136322, -559205611, -1959833280);
+            TestUtils.AreEqual(r2, -a2);
 
-            int4x2 a3 = int4x2(1485596454, 1387601718, 1745651998, 319115626, 1119959806, 739132284, 1954173314, 1709857098);
-            int4x2 r3 = int4x2(-1485596454, -1387601718, -1745651998, -319115626, -1119959806, -739132284, -1954173314, -1709857098);
-            TestUtils.AreEqual(-a3, r3);
+            int4x2 a3 = int4x2(162379661, 95281343, 1969004480, 1381288239, 252975075, 1961335692, 1607042487, 832886233);
+            int4x2 r3 = int4x2(-162379661, -95281343, -1969004480, -1381288239, -252975075, -1961335692, -1607042487, -832886233);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_prefix_inc()
         {
-            int4x2 a0 = int4x2(864455342, 2035793213, 1275443862, 971919915, 411610189, 446210725, 395072276, 115573442);
-            int4x2 r0 = int4x2(864455343, 2035793214, 1275443863, 971919916, 411610190, 446210726, 395072277, 115573443);
-            TestUtils.AreEqual(++a0, r0);
+            int4x2 a0 = int4x2(780471723, 954741756, 272723451, 2142862245, 606294309, 1514814550, 250124151, 444189162);
+            int4x2 r0 = int4x2(780471724, 954741757, 272723452, 2142862246, 606294310, 1514814551, 250124152, 444189163);
+            TestUtils.AreEqual(r0, ++a0);
 
-            int4x2 a1 = int4x2(913293639, 1208161871, 1385544935, 1835605516, 831396561, 388229350, 696475402, 1786514683);
-            int4x2 r1 = int4x2(913293640, 1208161872, 1385544936, 1835605517, 831396562, 388229351, 696475403, 1786514684);
-            TestUtils.AreEqual(++a1, r1);
+            int4x2 a1 = int4x2(1833356994, 1348278302, 129540735, 1584496757, 1170613526, 986715680, 1701179230, 1397451003);
+            int4x2 r1 = int4x2(1833356995, 1348278303, 129540736, 1584496758, 1170613527, 986715681, 1701179231, 1397451004);
+            TestUtils.AreEqual(r1, ++a1);
 
-            int4x2 a2 = int4x2(993189311, 1622410417, 1398865015, 241906003, 1705625817, 609525897, 172599489, 504806865);
-            int4x2 r2 = int4x2(993189312, 1622410418, 1398865016, 241906004, 1705625818, 609525898, 172599490, 504806866);
-            TestUtils.AreEqual(++a2, r2);
+            int4x2 a2 = int4x2(483952900, 1268688387, 2014528731, 453850931, 1112537171, 621362788, 2063486914, 1612870531);
+            int4x2 r2 = int4x2(483952901, 1268688388, 2014528732, 453850932, 1112537172, 621362789, 2063486915, 1612870532);
+            TestUtils.AreEqual(r2, ++a2);
 
-            int4x2 a3 = int4x2(519296647, 1541894135, 924683935, 259568871, 1349062584, 1120518661, 65514038, 1495168208);
-            int4x2 r3 = int4x2(519296648, 1541894136, 924683936, 259568872, 1349062585, 1120518662, 65514039, 1495168209);
-            TestUtils.AreEqual(++a3, r3);
+            int4x2 a3 = int4x2(1161037742, 1583359796, 82587894, 810087437, 72436569, 1094485773, 912422931, 1011314676);
+            int4x2 r3 = int4x2(1161037743, 1583359797, 82587895, 810087438, 72436570, 1094485774, 912422932, 1011314677);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_postfix_inc()
         {
-            int4x2 a0 = int4x2(1751003569, 2063707595, 1500486291, 969189211, 1007848192, 2028651936, 1643023524, 1190630527);
-            int4x2 r0 = int4x2(1751003569, 2063707595, 1500486291, 969189211, 1007848192, 2028651936, 1643023524, 1190630527);
-            TestUtils.AreEqual(a0++, r0);
+            int4x2 a0 = int4x2(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244);
+            int4x2 r0 = int4x2(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244);
+            TestUtils.AreEqual(r0, a0++);
 
-            int4x2 a1 = int4x2(1396179607, 177416855, 1524860667, 1408994706, 375284401, 1580130369, 1676086778, 717006530);
-            int4x2 r1 = int4x2(1396179607, 177416855, 1524860667, 1408994706, 375284401, 1580130369, 1676086778, 717006530);
-            TestUtils.AreEqual(a1++, r1);
+            int4x2 a1 = int4x2(1425753247, 389844650, 1159795446, 1343289659, 1227160199, 947635082, 137930180, 451018043);
+            int4x2 r1 = int4x2(1425753247, 389844650, 1159795446, 1343289659, 1227160199, 947635082, 137930180, 451018043);
+            TestUtils.AreEqual(r1, a1++);
 
-            int4x2 a2 = int4x2(506142468, 2026873940, 130175844, 1513142653, 420613464, 1219979307, 586574160, 357567451);
-            int4x2 r2 = int4x2(506142468, 2026873940, 130175844, 1513142653, 420613464, 1219979307, 586574160, 357567451);
-            TestUtils.AreEqual(a2++, r2);
+            int4x2 a2 = int4x2(1634297552, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327, 446867079);
+            int4x2 r2 = int4x2(1634297552, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327, 446867079);
+            TestUtils.AreEqual(r2, a2++);
 
-            int4x2 a3 = int4x2(1468020171, 1127356901, 101238629, 2131648021, 423320704, 827539403, 1919960927, 840371710);
-            int4x2 r3 = int4x2(1468020171, 1127356901, 101238629, 2131648021, 423320704, 827539403, 1919960927, 840371710);
-            TestUtils.AreEqual(a3++, r3);
+            int4x2 a3 = int4x2(2101314783, 1683365096, 1319511974, 1418603655, 1938539756, 592683318, 1576213022, 1150548583);
+            int4x2 r3 = int4x2(2101314783, 1683365096, 1319511974, 1418603655, 1938539756, 592683318, 1576213022, 1150548583);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void int4x2_operator_prefix_dec()
         {
-            int4x2 a0 = int4x2(200904609, 871077500, 968578728, 638967721, 1995396216, 435367037, 1782514098, 1589827826);
-            int4x2 r0 = int4x2(200904608, 871077499, 968578727, 638967720, 1995396215, 435367036, 1782514097, 1589827825);
-            TestUtils.AreEqual(--a0, r0);
+            int4x2 a0 = int4x2(1331961415, 1612382200, 1401591249, 2042075388, 1757136546, 1895858159, 1467742422, 578341664);
+            int4x2 r0 = int4x2(1331961414, 1612382199, 1401591248, 2042075387, 1757136545, 1895858158, 1467742421, 578341663);
+            TestUtils.AreEqual(r0, --a0);
 
-            int4x2 a1 = int4x2(1434377580, 1699290403, 1758478358, 1914114460, 71237375, 389120307, 1022184392, 1310293956);
-            int4x2 r1 = int4x2(1434377579, 1699290402, 1758478357, 1914114459, 71237374, 389120306, 1022184391, 1310293955);
-            TestUtils.AreEqual(--a1, r1);
+            int4x2 a1 = int4x2(1336115745, 1169239112, 1862369220, 312317355, 1027543764, 1595492535, 1426262619, 1426620468);
+            int4x2 r1 = int4x2(1336115744, 1169239111, 1862369219, 312317354, 1027543763, 1595492534, 1426262618, 1426620467);
+            TestUtils.AreEqual(r1, --a1);
 
-            int4x2 a2 = int4x2(356565557, 906734601, 799006218, 1383897383, 1040798388, 1469596990, 1719228297, 220897829);
-            int4x2 r2 = int4x2(356565556, 906734600, 799006217, 1383897382, 1040798387, 1469596989, 1719228296, 220897828);
-            TestUtils.AreEqual(--a2, r2);
+            int4x2 a2 = int4x2(674685792, 1459529624, 2092317419, 107501474, 1261583506, 512900840, 1496855314, 777588547);
+            int4x2 r2 = int4x2(674685791, 1459529623, 2092317418, 107501473, 1261583505, 512900839, 1496855313, 777588546);
+            TestUtils.AreEqual(r2, --a2);
 
-            int4x2 a3 = int4x2(1454322707, 14227726, 293093918, 1065286595, 1249415499, 1009503100, 157482354, 965385343);
-            int4x2 r3 = int4x2(1454322706, 14227725, 293093917, 1065286594, 1249415498, 1009503099, 157482353, 965385342);
-            TestUtils.AreEqual(--a3, r3);
+            int4x2 a3 = int4x2(617644613, 625907330, 1452782388, 804650978, 2076275981, 120447533, 262357170, 1887136873);
+            int4x2 r3 = int4x2(617644612, 625907329, 1452782387, 804650977, 2076275980, 120447532, 262357169, 1887136872);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_postfix_dec()
         {
-            int4x2 a0 = int4x2(283970262, 1109329936, 1073216143, 649439137, 1932646215, 1174104498, 484207852, 524156737);
-            int4x2 r0 = int4x2(283970262, 1109329936, 1073216143, 649439137, 1932646215, 1174104498, 484207852, 524156737);
-            TestUtils.AreEqual(a0--, r0);
+            int4x2 a0 = int4x2(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351);
+            int4x2 r0 = int4x2(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351);
+            TestUtils.AreEqual(r0, a0--);
 
-            int4x2 a1 = int4x2(691209285, 802721301, 377162390, 526366486, 1504625034, 590919177, 60677868, 1867810045);
-            int4x2 r1 = int4x2(691209285, 802721301, 377162390, 526366486, 1504625034, 590919177, 60677868, 1867810045);
-            TestUtils.AreEqual(a1--, r1);
+            int4x2 a1 = int4x2(1015253889, 1401191870, 2080259851, 653673271, 140452688, 1928164223, 1760916301, 1174531383);
+            int4x2 r1 = int4x2(1015253889, 1401191870, 2080259851, 653673271, 140452688, 1928164223, 1760916301, 1174531383);
+            TestUtils.AreEqual(r1, a1--);
 
-            int4x2 a2 = int4x2(2095777993, 324944916, 242636153, 1659736954, 1316734088, 1030072405, 1751972064, 1868889881);
-            int4x2 r2 = int4x2(2095777993, 324944916, 242636153, 1659736954, 1316734088, 1030072405, 1751972064, 1868889881);
-            TestUtils.AreEqual(a2--, r2);
+            int4x2 a2 = int4x2(634036198, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745, 1407678826);
+            int4x2 r2 = int4x2(634036198, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745, 1407678826);
+            TestUtils.AreEqual(r2, a2--);
 
-            int4x2 a3 = int4x2(1726583208, 175622377, 181847458, 665549439, 530897466, 635466911, 416440036, 1447690298);
-            int4x2 r3 = int4x2(1726583208, 175622377, 181847458, 665549439, 530897466, 635466911, 416440036, 1447690298);
-            TestUtils.AreEqual(a3--, r3);
+            int4x2 a3 = int4x2(319906934, 488775250, 1681733117, 1916879863, 2060905976, 636358505, 1379709480, 451326084);
+            int4x2 r3 = int4x2(319906934, 488775250, 1681733117, 1916879863, 2060905976, 636358505, 1379709480, 451326084);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_and_wide_wide()
         {
-            int4x2 a0 = int4x2(779935043, 1097962163, 1939593304, 800599247, 952140918, 782792558, 1608557706, 396446406);
-            int4x2 b0 = int4x2(307705143, 1710882162, 866836769, 532490608, 679371720, 1794035877, 1439832202, 519529812);
-            int4x2 r0 = int4x2(39064835, 1097961522, 864731136, 263727168, 675283008, 715673636, 1438646410, 379666500);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int4x2 a0 = int4x2(1055241304, 859321394, 1088358961, 2090949513, 300561740, 651904515, 1331035868, 2012752753);
+            int4x2 b0 = int4x2(749698416, 748105424, 1842764797, 9990577, 1989102105, 1666634755, 58116798, 868036607);
+            int4x2 r0 = int4x2(749024336, 537928720, 1087769137, 8409473, 277479432, 575816707, 55888540, 867707761);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int4x2 a1 = int4x2(2039894114, 1286974642, 442394124, 1759739564, 233435438, 665207770, 1942050241, 1022352952);
-            int4x2 b1 = int4x2(23633139, 1209152681, 646737179, 1255867027, 1900854122, 413173763, 1409138251, 2087190272);
-            int4x2 r1 = int4x2(16781410, 1209017504, 34366472, 1220739712, 21541162, 10485762, 1405162561, 1013440000);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int4x2 a1 = int4x2(1298126656, 53199569, 1752363533, 1303061302, 1929998247, 1504941434, 470682792, 713577376);
+            int4x2 b1 = int4x2(1420638875, 1308767169, 564040763, 478617502, 806150474, 674015378, 1505309955, 36064977);
+            int4x2 r1 = int4x2(1141707264, 33686209, 538087433, 209912598, 805855490, 136347666, 403178496, 33571456);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int4x2 a2 = int4x2(60340400, 329119345, 406517382, 1126764634, 343425836, 1957552749, 1624478957, 341972372);
-            int4x2 b2 = int4x2(563439483, 354579077, 642224854, 1650432515, 755290290, 902865191, 661389406, 2134212586);
-            int4x2 r2 = int4x2(26222640, 285241857, 168582, 1107890178, 67125280, 880844837, 541065292, 337646976);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int4x2 a2 = int4x2(1493231658, 1340884669, 1577921467, 44846626, 1105094388, 1143008413, 333009589, 2116296009);
+            int4x2 b2 = int4x2(1779639327, 808650076, 1634437037, 1997568501, 1930853951, 1901503461, 1508772523, 2010961769);
+            int4x2 r2 = int4x2(1207967754, 2098204, 1074332585, 33572896, 1091986996, 1073782917, 298320545, 1979979081);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int4x2 a3 = int4x2(181537307, 130347414, 1240828622, 526120460, 695449226, 1477446724, 201628999, 737924014);
-            int4x2 b3 = int4x2(1855189321, 185194029, 810374380, 133197864, 1989578783, 38739182, 387425484, 1690486314);
-            int4x2 r3 = int4x2(177340425, 50384900, 4522188, 122712072, 538087434, 3140, 67404868, 549634602);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int4x2 a3 = int4x2(2067254825, 121795325, 2122365250, 1088796653, 1594120761, 965590824, 337823363, 1686791432);
+            int4x2 b3 = int4x2(1495957269, 1914669725, 1263994006, 491200541, 380703892, 282208487, 1416934135, 942735432);
+            int4x2 r3 = int4x2(1495420417, 33686173, 1241513986, 4530189, 369102864, 276834336, 337674883, 536870920);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_and_wide_scalar()
         {
-            int4x2 a0 = int4x2(443615469, 490057985, 2042441263, 1524760558, 1405175110, 510212004, 1941875181, 1236735839);
-            int b0 = (93423598);
-            int4x2 r0 = int4x2(1114348, 85033216, 26281518, 8488942, 25232710, 67176356, 26247660, 26281806);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int4x2 a0 = int4x2(1513158868, 284695609, 734595037, 1566510707, 1601252476, 84213838, 314333543, 430856908);
+            int b0 = (1173647397);
+            int4x2 r0 = int4x2(1076916228, 15732769, 29360133, 1163132961, 1164976164, 84148228, 11816997, 27545604);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int4x2 a1 = int4x2(1365509729, 607982857, 650270920, 1249238550, 814629680, 1862276471, 143502472, 861733033);
-            int b1 = (428270198);
-            int4x2 r1 = int4x2(285475424, 262144, 8536128, 134529558, 277234224, 150995062, 142909440, 285474848);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int4x2 a1 = int4x2(753481263, 1619794917, 2143619546, 1873208293, 126982769, 651482651, 1383096952, 1689107088);
+            int b1 = (327392481);
+            int4x2 r1 = int4x2(8459297, 8394977, 327223488, 58884321, 58824801, 41980929, 301989984, 8493184);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int4x2 a2 = int4x2(1408932942, 1567715668, 1102952410, 322053683, 1599352836, 208656708, 1272226025, 462670926);
-            int b2 = (957693145);
-            int4x2 r2 = int4x2(286268488, 420556880, 18167000, 286270481, 420753408, 134551616, 152314057, 420547656);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int4x2 a2 = int4x2(1368301071, 1729929586, 989550739, 1914435619, 1592791064, 2047510829, 678485991, 586400261);
+            int b2 = (366962092);
+            int4x2 r2 = int4x2(294519820, 85729568, 282804352, 270229536, 349175816, 269091116, 5260708, 13844484);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int4x2 a3 = int4x2(1817145060, 1817277774, 818900583, 772681077, 1630437952, 546018772, 872875431, 1143080525);
-            int b3 = (1466722981);
-            int4x2 r3 = int4x2(1145858724, 1145069572, 273443365, 101460005, 1093403136, 524420, 335806629, 1142948357);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int4x2 a3 = int4x2(771972179, 131945492, 1707451796, 394184188, 1943201012, 558008097, 1070093422, 34324916);
+            int b3 = (309059606);
+            int4x2 r3 = int4x2(33767442, 38354964, 4300820, 308985876, 306372628, 4358144, 306724870, 34324500);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_and_scalar_wide()
         {
-            int a0 = (1144543590);
-            int4x2 b0 = int4x2(420346723, 562416448, 1393127318, 1560699552, 851218057, 703880958, 1159378889, 2031211279);
-            int4x2 r0 = int4x2(547170, 18752, 1074284806, 1140867104, 3672064, 3168358, 1142427968, 1074811142);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int a0 = (477163326);
+            int4x2 b0 = int4x2(110453385, 703240362, 2075630560, 1884904031, 1734899436, 947945203, 1664399051, 458879298);
+            int4x2 r0 = int4x2(68182536, 140544042, 405834528, 273697310, 73426476, 402681394, 3188234, 407953666);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int a1 = (1089518981);
-            int4x2 b1 = int4x2(270607307, 1349288930, 520199596, 1763483957, 1248975349, 236938635, 185023291, 1085233038);
-            int4x2 r1 = int4x2(2105729, 1080066432, 40324, 1074831621, 1081121157, 1058177, 14593, 1084233092);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int a1 = (158491426);
+            int4x2 b1 = int4x2(79772356, 2054527944, 202228212, 359225061, 639811396, 1821945318, 1821303024, 2030124055);
+            int4x2 r1 = int4x2(4203008, 141558528, 134234400, 23085600, 2237184, 135274786, 134373408, 151003138);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int a2 = (1845693112);
-            int4x2 b2 = int4x2(946052961, 1436238522, 2042776519, 56356886, 1770159840, 1872339579, 1439201366, 1233066417);
-            int4x2 r2 = int4x2(671287840, 1141047992, 1744964224, 33751056, 1744964256, 1845559864, 1140852752, 1208158384);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int a2 = (1985961756);
+            int4x2 b2 = int4x2(579780373, 2061831301, 1139618293, 1145191868, 1121606282, 1414714065, 688688277, 1508875606);
+            int4x2 r2 = int4x2(571350804, 1917127684, 1112346900, 1145183516, 1113217544, 1414681104, 537660436, 1347362068);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int a3 = (1214109404);
-            int4x2 b3 = int4x2(2255485, 1814885263, 1711986588, 1286898282, 915476451, 1870138851, 372814411, 1623486506);
-            int4x2 r3 = int4x2(16988, 1208799884, 1074321052, 1209303624, 1115840, 1213727936, 1610312, 1078218760);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int a3 = (664318814);
+            int4x2 b3 = int4x2(2092766410, 1010043618, 599967779, 47076367, 1325716015, 1119912335, 2083412385, 1805692137);
+            int4x2 r3 = int4x2(613945418, 605028930, 595623938, 42471438, 117477902, 41976078, 604508416, 595632200);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_or_wide_wide()
         {
-            int4x2 a0 = int4x2(1731159103, 659068416, 382702471, 1821032196, 1565773438, 1004000514, 948501377, 600951835);
-            int4x2 b0 = int4x2(1583847161, 692672727, 1161585489, 1756207130, 1321374429, 1287357212, 2075767170, 1273513430);
-            int4x2 r0 = int4x2(2138044159, 793370327, 1476391895, 1823457054, 1607720703, 2147473182, 2075786115, 1811533279);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int4x2 a0 = int4x2(1920951869, 1750772852, 1420019191, 732977093, 1169579447, 229437930, 1966721348, 2039812323);
+            int4x2 b0 = int4x2(214585254, 275414367, 858759675, 190211455, 1218691723, 2129565457, 1862809466, 495728846);
+            int4x2 r0 = int4x2(2130669503, 2021326207, 2008016383, 737572863, 1303895999, 2146367483, 2134507390, 2107455727);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int4x2 a1 = int4x2(669346222, 396691477, 2108560248, 2117522137, 330307355, 818676817, 1774459567, 1117506257);
-            int4x2 b1 = int4x2(1610830169, 1316929125, 511625048, 573925879, 1502255628, 1841676448, 1682928938, 1115131952);
-            int4x2 r1 = int4x2(1743223295, 1610595957, 2147407736, 2117598207, 1538957087, 2110637297, 1842315183, 1124063985);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int4x2 a1 = int4x2(113550869, 1912038362, 1569990624, 1490718227, 1686257697, 2137727522, 1569900650, 856504729);
+            int4x2 b1 = int4x2(868064152, 1756913766, 933656055, 247722084, 1884195075, 1804207631, 1913174711, 1815920856);
+            int4x2 r1 = int4x2(939376541, 2046780414, 2142664695, 1591475831, 1959708963, 2146117167, 2140863231, 2134768089);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int4x2 a2 = int4x2(1254511182, 1017865993, 1883021644, 1140203470, 759288967, 2122744307, 335621148, 715028074);
-            int4x2 b2 = int4x2(1541423910, 1416096228, 188606371, 1041599540, 219545389, 560097663, 1087543661, 936383841);
-            int4x2 r2 = int4x2(1541821294, 2096099309, 2067654639, 2146934782, 760610735, 2145839615, 1423162749, 1071544171);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int4x2 a2 = int4x2(2033376384, 2086259889, 671790684, 1189001916, 1756048437, 417084592, 2024165808, 966008272);
+            int4x2 b2 = int4x2(1226577606, 1696467642, 186912044, 1778908130, 1461256625, 1142152181, 272117331, 1162254035);
+            int4x2 r2 = int4x2(2034163398, 2103430843, 724483964, 1860172798, 2142973365, 1558183925, 2025750515, 2111217619);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int4x2 a3 = int4x2(543305337, 662107399, 1934997335, 436754869, 1613808671, 362365372, 342908672, 2129231210);
-            int4x2 b3 = int4x2(108816721, 1694053551, 452638547, 1219534055, 85142537, 1027930490, 2126839395, 2030328147);
-            int4x2 r3 = int4x2(645820281, 1744827823, 2080356183, 1522064887, 1697901599, 1037957630, 2129985379, 2146270587);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int4x2 a3 = int4x2(2031026290, 1461019191, 1071959084, 1645847295, 871350674, 736640317, 868515800, 767794452);
+            int4x2 b3 = int4x2(870448102, 1845053992, 257334526, 987295814, 1503050768, 1683307763, 1076253109, 1403888383);
+            int4x2 r3 = int4x2(2079325174, 2147314239, 1073143038, 2061103871, 2080374162, 1878867455, 1944485885, 2146418687);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_or_wide_scalar()
         {
-            int4x2 a0 = int4x2(961259683, 471103264, 1733389229, 1591585258, 386953869, 1148351449, 1048929715, 1814263250);
-            int b0 = (1666102508);
-            int4x2 r0 = int4x2(2068823279, 2136930284, 1734344685, 2145369582, 2002712301, 1736374269, 2144335359, 1869608446);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int4x2 a0 = int4x2(1295304853, 1307252624, 350194630, 1128063578, 1774824542, 2085245467, 1988423804, 999162350);
+            int b0 = (1305527136);
+            int4x2 r0 = int4x2(1307888629, 1308350448, 1574947814, 1341973370, 1842999166, 2111492987, 2144662396, 2145305582);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int4x2 a1 = int4x2(860336789, 1227888278, 774029856, 879300408, 1179087439, 797240690, 1977614655, 46921989);
-            int b1 = (1637162093);
-            int4x2 r1 = int4x2(1943518973, 1773477631, 1874321005, 1979522941, 1742175855, 1872100735, 1978998143, 1675623789);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int4x2 a1 = int4x2(2110327307, 341855232, 1317039676, 228656898, 41280811, 1536908787, 606786773, 1739461580);
+            int b1 = (1050875188);
+            int4x2 r1 = int4x2(2146115391, 1055087924, 2124644156, 1067652918, 1056437567, 2142985719, 1051448821, 2142181372);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int4x2 a2 = int4x2(1980838747, 64304104, 313591807, 1393862490, 1890090886, 521303722, 2021379070, 2055963359);
-            int b2 = (284225881);
-            int4x2 r2 = int4x2(1995567963, 334885881, 317847551, 1408563035, 1895366623, 536016891, 2029779967, 2063332319);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int4x2 a2 = int4x2(2040936581, 1377874553, 1522262112, 1496806239, 1732466858, 1535976093, 375675620, 1614193383);
+            int b2 = (1350320187);
+            int4x2 r2 = int4x2(2046720191, 1383920251, 1526718587, 1501524863, 2004834491, 1543332543, 1450990335, 1887363839);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int4x2 a3 = int4x2(1511253082, 1142751163, 1767274359, 1421981808, 1501294791, 485944015, 539526284, 310877895);
-            int b3 = (1775629833);
-            int4x2 r3 = int4x2(2077750875, 1843265467, 1775761279, 2111176313, 2046817999, 2113404623, 1778251405, 2077753039);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int4x2 a3 = int4x2(226059393, 112556963, 1614163749, 1583289054, 1370656810, 1286074530, 1155438844, 1835671387);
+            int b3 = (697385997);
+            int4x2 r3 = int4x2(771318925, 800423855, 1773629229, 2145343199, 2041828399, 1840772271, 1843387645, 1845190495);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_or_scalar_wide()
         {
-            int a0 = (1213433101);
-            int4x2 b0 = int4x2(1212928242, 1614462616, 936937728, 764766995, 306352095, 574719481, 1283571271, 2109131012);
-            int4x2 r0 = int4x2(1213978111, 1752940445, 2145094925, 1842867999, 1515425759, 1783858685, 1288945487, 2113391885);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int a0 = (1768627592);
+            int4x2 b0 = int4x2(1849658052, 1759912154, 729979455, 975926310, 1987690876, 1809506714, 1160695341, 408963395);
+            int4x2 r0 = int4x2(1870634956, 1777286618, 1810603967, 2070642094, 2138824188, 1811676570, 1836048301, 2037079499);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int a1 = (979469710);
-            int4x2 b1 = int4x2(1348323481, 1407542578, 697517649, 1059093741, 627815046, 418822515, 83214352, 424663473);
-            int4x2 r1 = int4x2(2055064991, 2078664126, 1005832159, 1063386607, 1064023950, 989314559, 1056294302, 997187007);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int a1 = (314072711);
+            int4x2 b1 = int4x2(1560007537, 1709003416, 977086639, 1448375596, 1689568808, 595543345, 559778387, 621080913);
+            int4x2 r1 = int4x2(1593565175, 2013093535, 985497263, 1459388335, 1992089263, 872374199, 872275671, 935133143);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int a2 = (447949225);
-            int4x2 b2 = int4x2(527022375, 1947148461, 305251437, 1254601325, 1752329425, 1592402684, 1587055329, 1088734150);
-            int4x2 r2 = int4x2(536590767, 2126457261, 447999469, 1526184941, 2062773753, 1593519101, 1589357545, 1526197231);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int a2 = (438994183);
+            int4x2 b2 = int4x2(1742637145, 1219409263, 1602932494, 1204461702, 2111538444, 836730895, 1207638621, 802100209);
+            int4x2 r2 = int4x2(2147388767, 1521399151, 1605029647, 1609213319, 2147190031, 1006601487, 1610325855, 1072666615);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int a3 = (298563808);
-            int4x2 b3 = int4x2(2052547661, 582843231, 656983670, 1944993640, 1081208038, 829763560, 990961386, 547309556);
-            int4x2 r3 = int4x2(2078276845, 872414207, 938213110, 1945092072, 1375468774, 838844392, 1004273386, 836763636);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int a3 = (1089077339);
+            int4x2 b3 = int4x2(1315030334, 249047666, 1604790897, 1848168086, 347254235, 1777613639, 1876731927, 842785732);
+            int4x2 r3 = int4x2(1324074367, 1325017723, 1609509499, 1860882143, 1425714651, 1778269023, 1878960223, 1929110495);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_xor_wide_wide()
         {
-            int4x2 a0 = int4x2(1556324760, 207002929, 1843444873, 1632079131, 1460334334, 1607815585, 220623650, 38668553);
-            int4x2 b0 = int4x2(1054997548, 1523759632, 251164872, 110472397, 384031112, 1109163205, 535118981, 179106262);
-            int4x2 r0 = int4x2(1646419380, 1451501345, 1662567489, 1741824470, 1105803126, 499723620, 314783655, 149092575);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int4x2 a0 = int4x2(1843655608, 362425681, 640805534, 1342040268, 945678755, 980321850, 390165019, 1682422658);
+            int4x2 b0 = int4x2(1422803441, 1234691140, 119589253, 1101464929, 121896337, 1880109018, 1000210266, 1718938232);
+            int4x2 r0 = int4x2(959296073, 1544407317, 554771227, 240840109, 1058935858, 1249815008, 752651585, 36917754);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int4x2 a1 = int4x2(47193340, 643663548, 1371932564, 94957188, 700973621, 370621508, 2087573076, 351476570);
-            int4x2 b1 = int4x2(1523031711, 1713313372, 1294118730, 520360641, 1040688781, 1020757245, 1143954843, 1281933464);
-            int4x2 r1 = int4x2(1477935715, 1078104288, 484747486, 447544389, 399484088, 717273273, 943885263, 1486609346);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int4x2 a1 = int4x2(303897251, 230477768, 1103646442, 1503102919, 26631152, 1016475570, 1862440929, 379588576);
+            int4x2 b1 = int4x2(464406940, 884337881, 34199854, 1430659227, 126415540, 1069919967, 1810763253, 2082802224);
+            int4x2 r1 = int4x2(162747199, 956900113, 1136760772, 215066460, 102672708, 55804269, 82614804, 1787102672);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int4x2 a2 = int4x2(1340815927, 681577472, 314138777, 446857644, 1368661599, 1672499683, 1259759761, 2049102405);
-            int4x2 b2 = int4x2(175288469, 326874157, 1192052687, 1087083643, 1900865484, 1521193463, 569695524, 1622101483);
-            int4x2 r2 = int4x2(1167690402, 1004255277, 1437869910, 1516836311, 551090579, 958119956, 1793242549, 445489070);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int4x2 a2 = int4x2(1943580404, 691527166, 723280696, 497086939, 1640104913, 893178410, 1596765788, 664096470);
+            int4x2 b2 = int4x2(941097951, 27782297, 156353074, 607061607, 470737131, 1151564598, 8268481, 434405645);
+            int4x2 r2 = int4x2(1270918443, 680538471, 575512842, 965736380, 2110579514, 1906288924, 1599249565, 1047646171);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int4x2 a3 = int4x2(1972524935, 91962333, 1960780785, 1303778459, 960040360, 822786011, 2028027011, 170382968);
-            int4x2 b3 = int4x2(1340735463, 546583617, 1034420616, 262206030, 1834125935, 802756092, 611321886, 316379491);
-            int4x2 r3 = int4x2(981182560, 636424092, 1232544377, 1108797141, 1416333255, 517186087, 1553020061, 419186459);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int4x2 a3 = int4x2(2043360590, 799560121, 287637604, 696169196, 2067184169, 1208059988, 1250597330, 1386507647);
+            int4x2 b3 = int4x2(519003095, 1880915120, 608970922, 1809455754, 1079250101, 514389994, 272120301, 1282399149);
+            int4x2 r3 = int4x2(1730440857, 1605643529, 896084174, 1118087270, 996325020, 1453948862, 1521655871, 516667090);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_xor_wide_scalar()
         {
-            int4x2 a0 = int4x2(2124666952, 177397845, 574879617, 1937385541, 1136545648, 213863690, 535061373, 289301586);
-            int b0 = (493665894);
-            int4x2 r0 = int4x2(1674536494, 402546227, 1060063719, 1846973987, 1590882582, 299103084, 42523931, 206756404);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int4x2 a0 = int4x2(169345668, 176087064, 2084362901, 1663924004, 193851255, 517476661, 905336222, 863800783);
+            int b0 = (354464228);
+            int4x2 r0 = int4x2(523809632, 526275068, 1763470193, 1980614336, 514678419, 200843473, 550954106, 643578923);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int4x2 a1 = int4x2(1305234431, 1308626970, 1267729267, 125659640, 1315625690, 1730088797, 116862046, 375757978);
-            int b1 = (353786540);
-            int4x2 r1 = int4x2(1490686291, 1528187574, 1585863135, 309015380, 1534886006, 1913214449, 333543154, 57919030);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int4x2 a1 = int4x2(365003873, 954341348, 1464576786, 625604047, 1700827127, 2003392824, 1481813598, 1077374714);
+            int b1 = (835837496);
+            int4x2 r1 = int4x2(605051481, 154388956, 1721398570, 345517047, 1420906959, 1186498304, 1770221670, 1910943938);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int4x2 a2 = int4x2(491079274, 187129429, 967051293, 549951551, 653124416, 788984, 1479174924, 1680011736);
-            int b2 = (191750702);
-            int4x2 r2 = int4x2(371762244, 4897915, 852093491, 732592657, 763363694, 190966742, 1397197090, 1867453430);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int4x2 a2 = int4x2(1043379893, 781860967, 60088394, 1196907956, 858716109, 858484213, 178843494, 1223183458);
+            int b2 = (1991576049);
+            int4x2 r2 = int4x2(1216724804, 1479494038, 1965156795, 836916293, 1167851068, 1168008196, 2082334359, 1046300051);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int4x2 a3 = int4x2(447453839, 293394300, 527727631, 529042816, 1382138962, 1206186973, 1059509471, 744733291);
-            int b3 = (890841598);
-            int4x2 r3 = int4x2(800240497, 610664066, 711808497, 714187902, 1735978412, 1929239075, 171965729, 427463573);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int4x2 a3 = int4x2(866652388, 1206307664, 2037729583, 1324393116, 497725784, 1367278685, 962962860, 906632547);
+            int b3 = (1771693181);
+            int4x2 r3 = int4x2(1513223321, 780087085, 283946322, 661210849, 1949521189, 954654752, 1358709201, 1603533086);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_xor_scalar_wide()
         {
-            int a0 = (1288453276);
-            int4x2 b0 = int4x2(1077599928, 884741329, 212164516, 1585020328, 152985454, 1775851275, 1416249064, 1309317737);
-            int4x2 r0 = int4x2(217506340, 2020616269, 1080648504, 313868596, 1171416050, 622160791, 413532788, 46573301);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int a0 = (1361775641);
+            int4x2 b0 = int4x2(1452773578, 459050892, 1986218254, 1689037698, 999278344, 1229114508, 1087843538, 733699740);
+            int4x2 r0 = int4x2(129801427, 1249346453, 659047703, 898082715, 1789184785, 409583765, 301736139, 2056278661);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int a1 = (1773918217);
-            int4x2 b1 = int4x2(1509843030, 1206045972, 1154916424, 1947871003, 1774252400, 1946113778, 1079717492, 290620937);
-            int4x2 r1 = int4x2(809875551, 777590045, 762148929, 497155858, 8071545, 440700667, 702609021, 2028559872);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int a1 = (106187872);
+            int4x2 b1 = int4x2(1533632738, 1107817672, 492506236, 597602329, 1439603382, 1001169118, 1231718216, 1693179077);
+            int4x2 r1 = int4x2(1564290178, 1146337448, 453984284, 634059897, 1402656470, 1039723710, 1329515304, 1656721573);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int a2 = (1382343363);
-            int4x2 b2 = int4x2(939045099, 1309568053, 221134131, 885841718, 612068188, 194068085, 1396957881, 573581481);
-            int4x2 r2 = int4x2(1704743464, 476745462, 1598742512, 1722301941, 1981778335, 1509285046, 19333242, 1884605034);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int a2 = (1050897427);
+            int4x2 b2 = int4x2(1796435561, 1100532547, 2106589181, 79691722, 851486414, 381749210, 1743618507, 2038827673);
+            int4x2 r2 = int4x2(1437598330, 2134615888, 1126994926, 974951385, 207866589, 677538761, 1498344920, 1193633418);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int a3 = (1813817520);
-            int4x2 b3 = int4x2(86594349, 2006985393, 1431761813, 905646837, 1522414781, 192882943, 714832744, 374210759);
-            int4x2 r3 = int4x2(1765145501, 465338881, 961174309, 1508358725, 916626445, 1734574159, 1183306712, 2052237431);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int a3 = (1680906962);
+            int4x2 b3 = int4x2(161437943, 171927307, 277703584, 1344718195, 1634011177, 28540247, 1205447252, 150341716);
+            int4x2 r3 = int4x2(1840235045, 1846541785, 1958605170, 873881505, 89494267, 1703143301, 602484870, 1824952966);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_left_shift()
         {
-            int4x2 a0 = int4x2(197771193, 622182602, 1283988958, 1327917304, 473415985, 432425717, 870301196, 2058433484);
-            int b0 = (1321149625);
-            int4x2 r0 = int4x2(1912602624, -1811939328, -1140850688, -268435456, 1644167168, -369098752, 402653184, -1744830464);
-            TestUtils.AreEqual(a0 << b0, r0);
+            int4x2 a0 = int4x2(1129100049, 829482269, 1571297368, 443753193, 1872142968, 249554593, 892627436, 980302862);
+            int b0 = (218351941);
+            int4x2 r0 = int4x2(1771463200, 773628832, -1258091776, 1315200288, -220967168, -604187616, -1500693120, 1304920512);
+            TestUtils.AreEqual(r0, a0 << b0);
 
-            int4x2 a1 = int4x2(1200694230, 1360008038, 1008296534, 1447702302, 1079614371, 35667343, 1664454606, 2045594989);
-            int b1 = (1531607705);
-            int4x2 r1 = int4x2(-1409286144, -872415232, -1409286144, 1006632960, 1174405120, 503316480, -1677721600, -637534208);
-            TestUtils.AreEqual(a1 << b1, r1);
+            int4x2 a1 = int4x2(62369727, 1271350845, 108441902, 1959056531, 1779118882, 1451674188, 2082026915, 1149883636);
+            int b1 = (849916599);
+            int4x2 r1 = int4x2(-545259520, 511705088, -1761607680, 1233125376, -1862270976, 637534208, -780140544, 2046820352);
+            TestUtils.AreEqual(r1, a1 << b1);
 
-            int4x2 a2 = int4x2(2077023268, 297755411, 1722762487, 1161625759, 37265945, 997793693, 1521705181, 263886278);
-            int b2 = (592678686);
-            int4x2 r2 = int4x2(0, -1073741824, -1073741824, -1073741824, 1073741824, 1073741824, 1073741824, -2147483648);
-            TestUtils.AreEqual(a2 << b2, r2);
+            int4x2 a2 = int4x2(1380536034, 1487486874, 1498738574, 752067504, 1647167336, 772453640, 456967739, 947384545);
+            int b2 = (186532735);
+            int4x2 r2 = int4x2(0, 0, 0, 0, 0, 0, -2147483648, -2147483648);
+            TestUtils.AreEqual(r2, a2 << b2);
 
-            int4x2 a3 = int4x2(221147365, 230910816, 71403448, 481375728, 1176038816, 1382694875, 1824729613, 1535276688);
-            int b3 = (2084190583);
-            int4x2 r3 = int4x2(1920991232, -1342177280, -603979776, -134217728, -805306368, -310378496, 109051904, 1207959552);
-            TestUtils.AreEqual(a3 << b3, r3);
+            int4x2 a3 = int4x2(1463252873, 640579158, 56630178, 1650899378, 2142944517, 565484033, 965161323, 1634169280);
+            int b3 = (1315516161);
+            int4x2 r3 = int4x2(-1368461550, 1281158316, 113260356, -993168540, -9078262, 1130968066, 1930322646, -1026628736);
+            TestUtils.AreEqual(r3, a3 << b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_right_shift()
         {
-            int4x2 a0 = int4x2(548167301, 1161338299, 1617625829, 1860731847, 713958715, 196552656, 770466193, 1265099998);
-            int b0 = (1266801540);
-            int4x2 r0 = int4x2(34260456, 72583643, 101101614, 116295740, 44622419, 12284541, 48154137, 79068749);
-            TestUtils.AreEqual(a0 >> b0, r0);
+            int4x2 a0 = int4x2(809126085, 908563670, 763568837, 1986717290, 1174507510, 646821842, 1242726074, 390811632);
+            int b0 = (994800051);
+            int4x2 r0 = int4x2(1543, 1732, 1456, 3789, 2240, 1233, 2370, 745);
+            TestUtils.AreEqual(r0, a0 >> b0);
 
-            int4x2 a1 = int4x2(572763124, 426807581, 2031319045, 701927980, 917785020, 569504877, 185593382, 1102123711);
-            int b1 = (506619530);
-            int4x2 r1 = int4x2(559338, 416804, 1983710, 685476, 896274, 556157, 181243, 1076292);
-            TestUtils.AreEqual(a1 >> b1, r1);
+            int4x2 a1 = int4x2(1521420393, 102096936, 400863878, 667378673, 1611921244, 307750782, 479442287, 2014389412);
+            int b1 = (1923166649);
+            int4x2 r1 = int4x2(45, 3, 11, 19, 48, 9, 14, 60);
+            TestUtils.AreEqual(r1, a1 >> b1);
 
-            int4x2 a2 = int4x2(334005460, 280138733, 1598620011, 1840564178, 736389149, 1279158873, 408822762, 763607760);
-            int b2 = (1624751550);
-            int4x2 r2 = int4x2(0, 0, 1, 1, 0, 1, 0, 0);
-            TestUtils.AreEqual(a2 >> b2, r2);
+            int4x2 a2 = int4x2(1673938174, 1248577253, 848199210, 813936577, 848976170, 500930883, 662405800, 126875849);
+            int b2 = (1075916177);
+            int4x2 r2 = int4x2(12771, 9525, 6471, 6209, 6477, 3821, 5053, 967);
+            TestUtils.AreEqual(r2, a2 >> b2);
 
-            int4x2 a3 = int4x2(348013684, 774126687, 1587054000, 600069797, 29576474, 1880981389, 352174824, 1164508476);
-            int b3 = (1568185874);
-            int4x2 r3 = int4x2(1327, 2953, 6054, 2289, 112, 7175, 1343, 4442);
-            TestUtils.AreEqual(a3 >> b3, r3);
+            int4x2 a3 = int4x2(1103917083, 955487090, 1013356510, 391605984, 185228398, 87452680, 2021602226, 1401766495);
+            int b3 = (1199000503);
+            int4x2 r3 = int4x2(131, 113, 120, 46, 22, 10, 240, 167);
+            TestUtils.AreEqual(r3, a3 >> b3);
         }
 
         [TestCompiler]
         public static void int4x2_operator_bitwise_not()
         {
-            int4x2 a0 = int4x2(1403358969, 831360921, 2088190243, 976721016, 878283189, 308994339, 1935567517, 1420884856);
-            int4x2 r0 = int4x2(-1403358970, -831360922, -2088190244, -976721017, -878283190, -308994340, -1935567518, -1420884857);
-            TestUtils.AreEqual(~a0, r0);
+            int4x2 a0 = int4x2(111796841, 603562399, 745091931, 853183268, 1110916612, 381888399, 1891338755, 1506860135);
+            int4x2 r0 = int4x2(-111796842, -603562400, -745091932, -853183269, -1110916613, -381888400, -1891338756, -1506860136);
+            TestUtils.AreEqual(r0, ~a0);
 
-            int4x2 a1 = int4x2(472965491, 627580960, 2061524024, 753208488, 2097179283, 1303022493, 664744603, 1289372466);
-            int4x2 r1 = int4x2(-472965492, -627580961, -2061524025, -753208489, -2097179284, -1303022494, -664744604, -1289372467);
-            TestUtils.AreEqual(~a1, r1);
+            int4x2 a1 = int4x2(771210628, 875964607, 96456785, 916013379, 203444882, 1172294211, 1020232736, 683852713);
+            int4x2 r1 = int4x2(-771210629, -875964608, -96456786, -916013380, -203444883, -1172294212, -1020232737, -683852714);
+            TestUtils.AreEqual(r1, ~a1);
 
-            int4x2 a2 = int4x2(1635981125, 1545651937, 717936457, 1284504687, 1342785385, 869629475, 2045854321, 1282546942);
-            int4x2 r2 = int4x2(-1635981126, -1545651938, -717936458, -1284504688, -1342785386, -869629476, -2045854322, -1282546943);
-            TestUtils.AreEqual(~a2, r2);
+            int4x2 a2 = int4x2(375158799, 1218471344, 1174233245, 592898220, 443427914, 1385118179, 215320517, 860122767);
+            int4x2 r2 = int4x2(-375158800, -1218471345, -1174233246, -592898221, -443427915, -1385118180, -215320518, -860122768);
+            TestUtils.AreEqual(r2, ~a2);
 
-            int4x2 a3 = int4x2(1562433528, 1736570715, 508906058, 2060752880, 1867418756, 388530274, 695179852, 1766938039);
-            int4x2 r3 = int4x2(-1562433529, -1736570716, -508906059, -2060752881, -1867418757, -388530275, -695179853, -1766938040);
-            TestUtils.AreEqual(~a3, r3);
+            int4x2 a3 = int4x2(1411266016, 686325107, 829984855, 191189901, 319233142, 156019905, 1467719681, 1193642973);
+            int4x2 r3 = int4x2(-1411266017, -686325108, -829984856, -191189902, -319233143, -156019906, -1467719682, -1193642974);
+            TestUtils.AreEqual(r3, ~a3);
         }
 
 

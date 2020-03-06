@@ -1,5 +1,5 @@
 //
-// Description : Array and textureless GLSL 2D/3D/4D simplex 
+// Description : Array and textureless GLSL 2D/3D/4D simplex
 //               noise functions.
 //      Author : Ian McEwan, Ashima Arts.
 //  Maintainer : stegu
@@ -8,7 +8,7 @@
 //               Distributed under the MIT License. See LICENSE file.
 //               https://github.com/ashima/webgl-noise
 //               https://github.com/stegu/webgl-noise
-// 
+//
 
 using static Unity.Mathematics.math;
 
@@ -60,7 +60,7 @@ namespace Unity.Mathematics
             float4 x4 = x0 + C.wwww;
 
             // Permutations
-            i = mod289(i); 
+            i = mod289(i);
             float j0 = permute( permute( permute( permute(i.w) + i.z) + i.y) + i.x);
             float4 j1 = permute( permute( permute( permute (
                                                        i.w + float4(i1.w, i2.w, i3.w, 1.0f ))

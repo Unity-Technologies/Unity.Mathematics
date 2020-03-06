@@ -50,12 +50,12 @@ namespace Unity.Mathematics.Tests
             {
                 for (int i = 0; i < 50; ++i)
                 {
-                    TestUtils.AreEqual(resultsWithZeroSeed[i], hash(p, i, 0));
+                    TestUtils.AreEqual(hash(p, i, 0), resultsWithZeroSeed[i]);
                 }
 
                 for (int i = 0; i < 50; ++i)
                 {
-                    TestUtils.AreEqual(resultsWith_0xeb69cf40_seed[i], hash(p, i, 0xeb69cf40));
+                    TestUtils.AreEqual(hash(p, i, 0xeb69cf40), resultsWith_0xeb69cf40_seed[i]);
                 }
             }
         }

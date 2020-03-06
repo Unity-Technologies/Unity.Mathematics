@@ -23,7 +23,7 @@ namespace Unity.Mathematics
             const float Kz = 0.166666666667f; // 1/6
             const float Kzo = 0.416666666667f; // 1/2-1/6*2
             const float jitter = 0.8f; // smaller jitter gives less errors in F2
-            
+
             float3 Pi = mod289(floor(P));
             float3 Pf = frac(P);
             float4 Pfx = Pf.x + float4(0.0f, -1.0f, 0.0f, -1.0f);
@@ -48,7 +48,7 @@ namespace Unity.Mathematics
             float4 d2 = dx2 * dx2 + dy2 * dy2 + dz2 * dz2; // z+1
 
             // Sort out the two smallest distances (F1, F2)
-            
+
             // Do it right and sort out both F1 and F2
             float4 d = min(d1,d2); // F1 is now in d
             d2 = max(d1,d2); // Make sure we keep all candidates for F2

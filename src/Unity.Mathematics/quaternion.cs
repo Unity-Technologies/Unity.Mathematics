@@ -35,7 +35,7 @@ namespace Unity.Mathematics
             float t = v.y + asfloat(asuint(w.z) ^ u_sign);
             uint4 u_mask = uint4((int)u_sign >> 31);
             uint4 t_mask = uint4(asint(t) >> 31);
-            
+
             float tr = 1.0f + abs(u.x);
 
             uint4 sign_flips = uint4(0x00000000, 0x80000000, 0x80000000, 0x80000000) ^ (u_mask & uint4(0x00000000, 0x80000000, 0x00000000, 0x80000000)) ^ (t_mask & uint4(0x80000000, 0x80000000, 0x80000000, 0x00000000));

@@ -18,1214 +18,1214 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void int3x4_zero()
         {
-            TestUtils.AreEqual(int3x4.zero.c0.x, 0);
-            TestUtils.AreEqual(int3x4.zero.c0.y, 0);
-            TestUtils.AreEqual(int3x4.zero.c0.z, 0);
-            TestUtils.AreEqual(int3x4.zero.c1.x, 0);
-            TestUtils.AreEqual(int3x4.zero.c1.y, 0);
-            TestUtils.AreEqual(int3x4.zero.c1.z, 0);
-            TestUtils.AreEqual(int3x4.zero.c2.x, 0);
-            TestUtils.AreEqual(int3x4.zero.c2.y, 0);
-            TestUtils.AreEqual(int3x4.zero.c2.z, 0);
-            TestUtils.AreEqual(int3x4.zero.c3.x, 0);
-            TestUtils.AreEqual(int3x4.zero.c3.y, 0);
-            TestUtils.AreEqual(int3x4.zero.c3.z, 0);
+            TestUtils.AreEqual(0, int3x4.zero.c0.x);
+            TestUtils.AreEqual(0, int3x4.zero.c0.y);
+            TestUtils.AreEqual(0, int3x4.zero.c0.z);
+            TestUtils.AreEqual(0, int3x4.zero.c1.x);
+            TestUtils.AreEqual(0, int3x4.zero.c1.y);
+            TestUtils.AreEqual(0, int3x4.zero.c1.z);
+            TestUtils.AreEqual(0, int3x4.zero.c2.x);
+            TestUtils.AreEqual(0, int3x4.zero.c2.y);
+            TestUtils.AreEqual(0, int3x4.zero.c2.z);
+            TestUtils.AreEqual(0, int3x4.zero.c3.x);
+            TestUtils.AreEqual(0, int3x4.zero.c3.y);
+            TestUtils.AreEqual(0, int3x4.zero.c3.z);
         }
 
         [TestCompiler]
         public static void int3x4_operator_equal_wide_wide()
         {
-            int3x4 a0 = int3x4(790229414, 970783976, 1428432738, 1578747135, 1733797753, 2001507228, 1446876437, 1777406370, 1426387268, 1809275021, 1843770816, 1172185222);
-            int3x4 b0 = int3x4(612337669, 1214209108, 2120643427, 295461214, 1510890331, 1893316566, 921816149, 1834958575, 1482011863, 2062852792, 226398742, 770290735);
+            int3x4 a0 = int3x4(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098, 1023640014, 1038468316, 1416064367, 727143393, 2061243891, 184669837);
+            int3x4 b0 = int3x4(1477587886, 579629692, 540974792, 208405066, 2063397938, 1060167409, 362592601, 2097545362, 277670088, 426944490, 901076223, 857900673);
             bool3x4 r0 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int3x4 a1 = int3x4(1469608940, 869874758, 458603090, 581282460, 1948324909, 1129078206, 1638391029, 1135553683, 2079295200, 576232476, 608208235, 11172509);
-            int3x4 b1 = int3x4(36812057, 543224481, 1565350150, 1909926604, 1619900436, 1849990483, 1261604411, 161864811, 843379453, 1780425458, 215681636, 2123130580);
+            int3x4 a1 = int3x4(1303661760, 2044073738, 370395888, 1822916805, 1076983135, 345215866, 833676277, 1987782708, 1481088614, 1364754268, 93639636, 1850596922);
+            int3x4 b1 = int3x4(1548779757, 325265488, 312658571, 176373760, 2052378097, 858156597, 982817797, 1252095508, 882634538, 1959142806, 72495800, 1077678183);
             bool3x4 r1 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int3x4 a2 = int3x4(1025529486, 2095601864, 193500113, 1780908384, 1587636094, 1892083815, 1250768669, 1984341771, 929607871, 2092475304, 1940221590, 196567546);
-            int3x4 b2 = int3x4(708665810, 1902328998, 1808456602, 563830672, 200493241, 1391620681, 1035522654, 168447603, 91580624, 1974459648, 2074899534, 164782857);
+            int3x4 a2 = int3x4(2073471507, 1745989448, 28118669, 1267554232, 1292918049, 1423451579, 644384701, 1985492825, 240481133, 2130667921, 17376735, 1263869085);
+            int3x4 b2 = int3x4(1729269763, 1607675346, 1813461519, 1204794859, 1324801873, 1975336, 439410532, 294085211, 1031782338, 1118745564, 180311719, 433246570);
             bool3x4 r2 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int3x4 a3 = int3x4(346458180, 2131041239, 1797649913, 162082500, 25639548, 1665178642, 1617231933, 1716426491, 1986475699, 262354389, 1517004243, 1058579789);
-            int3x4 b3 = int3x4(1647410210, 1000391363, 1539243411, 1253927304, 894227825, 1897420927, 826437109, 139868307, 565247534, 1437897788, 1891416649, 1043772546);
+            int3x4 a3 = int3x4(437371027, 1093339523, 1683805602, 764261037, 1845666482, 399277628, 714152770, 148255091, 784823865, 1712722195, 1706849865, 607710807);
+            int3x4 b3 = int3x4(1622531532, 1178609353, 373010678, 1231165960, 966395555, 788609772, 215241459, 1411005263, 1287904654, 1656358051, 1985807372, 1041678082);
             bool3x4 r3 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_equal_wide_scalar()
         {
-            int3x4 a0 = int3x4(1211464300, 1921862607, 508076684, 1249127920, 1394594555, 746862310, 1733655277, 1884008277, 1682018538, 795585660, 936027116, 927605411);
-            int b0 = (746972502);
+            int3x4 a0 = int3x4(437822262, 2020661134, 541786900, 853113810, 23716499, 179951405, 1409026299, 948838849, 953202998, 691955848, 1926262965, 1851546137);
+            int b0 = (1332833578);
             bool3x4 r0 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int3x4 a1 = int3x4(672785749, 585324157, 404448210, 969511077, 442746747, 1772925698, 1884034177, 451512860, 425476075, 1370577708, 597010220, 1249636005);
-            int b1 = (1465584610);
+            int3x4 a1 = int3x4(712957637, 1049962241, 1836975611, 1016802970, 390120467, 464814777, 1451642042, 289137869, 152339338, 808355440, 660053867, 597354173);
+            int b1 = (2028784869);
             bool3x4 r1 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int3x4 a2 = int3x4(211986678, 255635293, 1150443719, 177122433, 511346787, 1442445694, 667984966, 1684122010, 1962874832, 172230876, 496695881, 955604291);
-            int b2 = (1305479811);
+            int3x4 a2 = int3x4(67320270, 35153827, 602895443, 186996278, 129611815, 1031574999, 1697392883, 1463742000, 857785521, 611116281, 594150729, 375387566);
+            int b2 = (151461188);
             bool3x4 r2 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int3x4 a3 = int3x4(872759249, 1604334190, 443527663, 1734064824, 1483978726, 1018945528, 476526026, 564821616, 1368099334, 2134154866, 2136028886, 20195989);
-            int b3 = (811880239);
+            int3x4 a3 = int3x4(1984352551, 570698441, 1872629381, 1263218472, 315982238, 122473806, 1404530826, 43943273, 1695786992, 2085125114, 432271298, 465353570);
+            int b3 = (1925707182);
             bool3x4 r3 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_equal_scalar_wide()
         {
-            int a0 = (1150044438);
-            int3x4 b0 = int3x4(233855098, 924242519, 1402948791, 601381975, 2120518068, 629187703, 1971977031, 47183124, 1061805787, 1009011238, 312511148, 1460673064);
+            int a0 = (542329200);
+            int3x4 b0 = int3x4(1115584594, 684107773, 1928988941, 890709324, 641152437, 1410341302, 497505660, 1068223109, 2014009435, 213835595, 1592428361, 1819361470);
             bool3x4 r0 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            int a1 = (737210539);
-            int3x4 b1 = int3x4(1737844479, 1892405453, 2133024000, 455818693, 2003197687, 1276241219, 534746610, 559824292, 1758388240, 1023494292, 719963017, 1883763832);
+            int a1 = (448650623);
+            int3x4 b1 = int3x4(1942175642, 64377057, 1485938610, 1146305380, 1312317120, 263290348, 812663708, 1585209188, 40646617, 1378718922, 1957797737, 873652576);
             bool3x4 r1 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            int a2 = (597498209);
-            int3x4 b2 = int3x4(367814403, 1839429063, 223575614, 79701214, 1699606118, 759455864, 2017599457, 1395605233, 1191785903, 1156248212, 338891967, 61410415);
+            int a2 = (1780082094);
+            int3x4 b2 = int3x4(1513270921, 2095980581, 1413074719, 1387984261, 1547119354, 924385171, 1253636050, 1477542688, 969120167, 591812191, 856880926, 1114040166);
             bool3x4 r2 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            int a3 = (1576985758);
-            int3x4 b3 = int3x4(1066598856, 1070606918, 1295956934, 1391539053, 1206456305, 466211205, 1362213007, 554347592, 361925309, 1122476040, 1118155036, 2074160001);
+            int a3 = (2107388425);
+            int3x4 b3 = int3x4(1368188588, 512677295, 1337925727, 2076181515, 1317314747, 299981273, 601822512, 1079453890, 125277108, 1257151509, 1915342590, 1034639325);
             bool3x4 r3 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_not_equal_wide_wide()
         {
-            int3x4 a0 = int3x4(1660932106, 982847023, 97046264, 1739517447, 1253499180, 1830584069, 1841470429, 1397841646, 1770890135, 1906548631, 169082967, 2099271786);
-            int3x4 b0 = int3x4(107139049, 75478496, 2055495054, 358586687, 942338347, 111564990, 113811950, 948912488, 1080084121, 1400504872, 1032134499, 1061123400);
+            int3x4 a0 = int3x4(1977284100, 1293292704, 1547283851, 422428953, 195833190, 1711544892, 5606053, 737069074, 647386678, 13079405, 1413841590, 1076166545);
+            int3x4 b0 = int3x4(1514195556, 957972049, 507667364, 581861672, 1128094576, 940096636, 57559040, 181752616, 962017320, 1762015406, 1107218953, 2042026522);
             bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int3x4 a1 = int3x4(1909317609, 46519139, 1433204003, 931492669, 670504132, 1551558665, 1204055048, 1623586740, 226381077, 1145987803, 644253929, 475189890);
-            int3x4 b1 = int3x4(221862069, 858950046, 989094643, 2023070999, 1269317127, 531883744, 687761409, 278427731, 296354221, 536981557, 1134676193, 1749879634);
+            int3x4 a1 = int3x4(1211445174, 1289303469, 1436402489, 1129570126, 1566836685, 1343313905, 329259205, 1774944480, 33906739, 2055853627, 2035015372, 1702756001);
+            int3x4 b1 = int3x4(836002288, 570272309, 2112081980, 1500634658, 1787808345, 566425667, 2037529609, 1520589840, 266793699, 538816359, 2075474643, 553571317);
             bool3x4 r1 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int3x4 a2 = int3x4(922313145, 2006448607, 1574579050, 1839580033, 155350910, 313644534, 2008975915, 1072866331, 10845678, 1588544505, 709736932, 1892341087);
-            int3x4 b2 = int3x4(1944210269, 92849031, 164029425, 628797607, 2069207270, 2022667842, 880567401, 264404537, 1954996717, 572153302, 865957902, 1083128726);
+            int3x4 a2 = int3x4(1164186087, 329853698, 769052491, 1893312730, 438029011, 1894010522, 1365847542, 1292942830, 2146008097, 1520743598, 861728782, 1999977058);
+            int3x4 b2 = int3x4(218264354, 654754196, 1392180230, 870065147, 1398749829, 711281563, 1999640291, 231234857, 210910234, 365281355, 170643407, 757340716);
             bool3x4 r2 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int3x4 a3 = int3x4(1603981028, 1174123795, 2033630343, 416869471, 1894155826, 2084120548, 1130129683, 448491949, 1577220741, 376532834, 374116875, 416935463);
-            int3x4 b3 = int3x4(1628120900, 2020212393, 1562290229, 774641416, 444123152, 1636477381, 838643638, 506474707, 922761058, 1282331425, 1748402545, 1493297323);
+            int3x4 a3 = int3x4(1334556487, 1728108667, 1198848973, 7011150, 1280729934, 1553569869, 1782228282, 731582167, 2041979262, 128396656, 143519087, 154742298);
+            int3x4 b3 = int3x4(639973212, 1147047891, 537350186, 1283454178, 735732152, 1218138135, 474815930, 174656455, 473248758, 1077993023, 1063662917, 181750095);
             bool3x4 r3 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_not_equal_wide_scalar()
         {
-            int3x4 a0 = int3x4(747758183, 1033001286, 1439973882, 2138928797, 1197845089, 1432672459, 950170763, 238704450, 2105962247, 727205263, 1640688041, 276313906);
-            int b0 = (248693828);
+            int3x4 a0 = int3x4(1038269360, 1427812625, 103361237, 1347017023, 1523584313, 150442802, 660334527, 719113717, 262959423, 484398043, 506946952, 226568494);
+            int b0 = (768873026);
             bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int3x4 a1 = int3x4(2126300423, 2035077187, 1171827730, 1412347883, 1622176923, 768370497, 1072798259, 1808712713, 1497830076, 1582645163, 1876273820, 90244766);
-            int b1 = (791998981);
+            int3x4 a1 = int3x4(507918242, 923269270, 166187260, 114581840, 1045389187, 1648095254, 1461803977, 61801615, 1317840133, 2146927809, 1557151164, 1284033253);
+            int b1 = (1702162286);
             bool3x4 r1 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int3x4 a2 = int3x4(30493685, 384643370, 11554610, 2016093187, 1515760622, 1596313927, 363921847, 1555396158, 913218907, 1739138988, 1916670251, 1516209113);
-            int b2 = (904014575);
+            int3x4 a2 = int3x4(1345705546, 611028295, 1368046109, 1848036266, 2025452920, 373992983, 289537519, 1388743060, 146455100, 1854553487, 872755032, 2113020512);
+            int b2 = (1747302566);
             bool3x4 r2 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int3x4 a3 = int3x4(765258490, 1509386069, 1670155205, 6112585, 1942607934, 964072392, 779222124, 409389668, 321500037, 1728722181, 1641292942, 780105497);
-            int b3 = (668154629);
+            int3x4 a3 = int3x4(1062447442, 109864030, 1583997921, 1732461790, 1276630817, 721080697, 922945173, 1528002730, 282331576, 1372281893, 167200566, 1271483982);
+            int b3 = (632285066);
             bool3x4 r3 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_not_equal_scalar_wide()
         {
-            int a0 = (2076921066);
-            int3x4 b0 = int3x4(2037494727, 1989050616, 48833929, 1897435904, 514354517, 1783749164, 364694471, 754315072, 124108032, 1512967900, 1178825850, 1854793298);
+            int a0 = (1652127596);
+            int3x4 b0 = int3x4(953791238, 271722683, 1278885987, 735128017, 112416504, 25967222, 1761444475, 1844594536, 1199122922, 634219279, 942501101, 67161343);
             bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            int a1 = (50286949);
-            int3x4 b1 = int3x4(2100802631, 1640811853, 82110247, 472172806, 266984506, 2003668365, 1826089250, 1041416160, 356140110, 2057237962, 799920703, 1916347720);
+            int a1 = (969944293);
+            int3x4 b1 = int3x4(833229499, 1304301133, 704045745, 345012334, 1253134152, 325772538, 855127202, 793668881, 1584481616, 1101301152, 276853534, 987168816);
             bool3x4 r1 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            int a2 = (510966350);
-            int3x4 b2 = int3x4(572038024, 1936481966, 1366859342, 1775285431, 604757336, 1047551607, 1311703338, 676012224, 627370253, 1715733805, 699755913, 1875151666);
+            int a2 = (1258105989);
+            int3x4 b2 = int3x4(362645228, 293978043, 1772395973, 1692007315, 681268929, 1535518457, 595209334, 25745185, 1278016813, 2125682481, 2037751005, 1405297618);
             bool3x4 r2 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            int a3 = (358894860);
-            int3x4 b3 = int3x4(1036873378, 214171973, 340364269, 1652250278, 592713982, 806342921, 1264065574, 188560943, 1068608955, 485382245, 57935167, 1002934795);
+            int a3 = (1825546885);
+            int3x4 b3 = int3x4(1584424742, 1779859088, 1262387250, 936213998, 739749071, 1934808433, 1333711144, 571211509, 445791940, 43428024, 1509344718, 1643255886);
             bool3x4 r3 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_wide_wide()
         {
-            int3x4 a0 = int3x4(1182186063, 415538999, 1667335818, 1566618442, 1166180837, 639095188, 1080836365, 771119973, 928263233, 789225474, 665243110, 1003542034);
-            int3x4 b0 = int3x4(524633529, 1032195686, 760723389, 1505751409, 431962172, 1287906509, 1560084663, 1450178202, 2066166337, 1107069023, 1640077524, 2103263105);
-            bool3x4 r0 = bool3x4(false, true, false, false, false, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int3x4 a0 = int3x4(1486550609, 1779244308, 1602148045, 1614085440, 1975613414, 942838342, 1092279031, 373677431, 1419098312, 337757077, 1081797900, 1336745069);
+            int3x4 b0 = int3x4(97842578, 536551311, 413528975, 1838293684, 1283898480, 1456599961, 1080278602, 529676676, 156584048, 117348799, 246927124, 1916615924);
+            bool3x4 r0 = bool3x4(false, false, false, true, false, true, false, true, false, false, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int3x4 a1 = int3x4(1032480172, 1961336172, 923379558, 21210619, 1089772116, 1707633052, 778986024, 158153146, 336715101, 1839141169, 1706859710, 1928438162);
-            int3x4 b1 = int3x4(684229139, 1234033624, 1278743281, 1953079347, 1228832942, 2082539723, 1088437561, 1058382082, 207459172, 750531081, 2015788562, 2126542133);
-            bool3x4 r1 = bool3x4(false, false, true, true, true, true, true, true, false, false, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            int3x4 a1 = int3x4(840685445, 1220554047, 2013681746, 192965012, 532043965, 1000693402, 927236048, 1215860000, 780607596, 1882056852, 1354146545, 2135295778);
+            int3x4 b1 = int3x4(1731071394, 1328098431, 1014995792, 480319327, 1765937053, 1333997067, 688515308, 1856106947, 1303906227, 646821776, 1169473993, 316770064);
+            bool3x4 r1 = bool3x4(true, true, false, true, true, true, false, true, true, false, false, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int3x4 a2 = int3x4(1638101724, 2044698552, 1543260981, 471462349, 1668575142, 2147199161, 946870864, 582371851, 410751553, 198134393, 1999935258, 671192178);
-            int3x4 b2 = int3x4(271967348, 1601249324, 1373999400, 1689592186, 459759541, 983106679, 332584818, 2034921203, 833499488, 1999487070, 836063897, 1987309319);
-            bool3x4 r2 = bool3x4(false, false, false, true, false, false, false, true, true, true, false, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int3x4 a2 = int3x4(1145973790, 1938006975, 895882838, 2006524299, 908581156, 1843349513, 1340458575, 1972095585, 1090933468, 924555996, 79585200, 1749924275);
+            int3x4 b2 = int3x4(1518155802, 416732703, 529193056, 1239623485, 2010112031, 2018560298, 285987009, 960617622, 462519015, 1473825625, 1187164011, 730583004);
+            bool3x4 r2 = bool3x4(true, false, false, false, true, true, false, false, false, true, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int3x4 a3 = int3x4(1908013191, 770353922, 1948420002, 396403395, 903274624, 1743415547, 1381528376, 409818366, 757370593, 413964581, 1088722047, 111511218);
-            int3x4 b3 = int3x4(1878327039, 457783938, 253010953, 1164175257, 1982277686, 651412210, 567444942, 1863256363, 18040866, 319226483, 1322530114, 4130283);
-            bool3x4 r3 = bool3x4(false, false, false, true, true, false, false, true, false, false, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int3x4 a3 = int3x4(1088207695, 1484224850, 512353919, 562469379, 1743259263, 182124641, 1224472464, 1731920136, 1906896401, 425415911, 992649442, 515648372);
+            int3x4 b3 = int3x4(629133777, 1925375320, 689923293, 1818695099, 903783983, 495525944, 1923715956, 2850909, 1908553564, 1064607664, 1344783349, 494620587);
+            bool3x4 r3 = bool3x4(false, true, true, true, false, true, true, false, true, true, true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_wide_scalar()
         {
-            int3x4 a0 = int3x4(608447185, 818840405, 869219329, 2080125385, 1214500548, 1361741203, 1667165786, 1615392341, 840091491, 469591900, 1247103789, 315321650);
-            int b0 = (1491216667);
-            bool3x4 r0 = bool3x4(true, true, true, false, true, true, false, false, true, true, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int3x4 a0 = int3x4(796797557, 670113454, 933579492, 278884514, 318174822, 1117630673, 741886928, 1990922600, 1030849597, 1546212312, 1718582899, 1648393417);
+            int b0 = (746564682);
+            bool3x4 r0 = bool3x4(false, true, false, true, true, false, true, false, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int3x4 a1 = int3x4(930950514, 933855388, 908563901, 1127696709, 1286331950, 380753337, 971148054, 1827886929, 1056649851, 1579735991, 689044913, 1960894027);
-            int b1 = (1100560246);
-            bool3x4 r1 = bool3x4(true, true, true, false, false, true, true, false, true, false, true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            int3x4 a1 = int3x4(1857132231, 1294006045, 952084157, 1303736668, 845460171, 979430272, 1368236640, 24980695, 1434668705, 659552739, 1058492383, 165694933);
+            int b1 = (1909506562);
+            bool3x4 r1 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int3x4 a2 = int3x4(371987110, 1703747625, 1698536333, 41716206, 243673862, 1274625476, 611065092, 118750042, 1829327996, 452204442, 1645191336, 1829152606);
-            int b2 = (867559111);
-            bool3x4 r2 = bool3x4(true, false, false, true, true, false, true, true, false, true, false, false);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int3x4 a2 = int3x4(1204097259, 281328069, 24629507, 1386458568, 1325149699, 1498707004, 1650355158, 1213017950, 1650457461, 759932777, 1542997846, 1227393490);
+            int b2 = (922212691);
+            bool3x4 r2 = bool3x4(false, true, true, false, false, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int3x4 a3 = int3x4(1891059504, 233590785, 894500093, 92899312, 965973603, 1496873003, 973411415, 694702440, 215973795, 1555455579, 1443255493, 212954934);
-            int b3 = (1217893177);
-            bool3x4 r3 = bool3x4(false, true, true, true, true, false, true, true, true, false, false, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int3x4 a3 = int3x4(1520634374, 1951142425, 1956860037, 681224518, 1889763470, 1915403219, 850845857, 1871934613, 1882514458, 1326783898, 1044736383, 24899250);
+            int b3 = (1750827258);
+            bool3x4 r3 = bool3x4(true, false, false, true, false, false, true, false, false, true, true, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_scalar_wide()
         {
-            int a0 = (548436837);
-            int3x4 b0 = int3x4(282703327, 14370648, 1862117300, 1304793311, 826073259, 988910157, 445132446, 1139670255, 111349251, 1102440676, 112183144, 1594415311);
-            bool3x4 r0 = bool3x4(false, false, true, true, true, true, false, true, false, true, false, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            int a0 = (186400299);
+            int3x4 b0 = int3x4(1881344229, 813834467, 1254886626, 1353590345, 1412343685, 1555571443, 1540508298, 1735458634, 135888070, 1643818742, 248291654, 1739560105);
+            bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, false, true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            int a1 = (1890019295);
-            int3x4 b1 = int3x4(2098715503, 608933527, 183989010, 1596056507, 1027318999, 146281093, 358911716, 874278078, 1106057699, 1256807459, 2111973919, 1736480659);
-            bool3x4 r1 = bool3x4(true, false, false, false, false, false, false, false, false, false, true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            int a1 = (728539891);
+            int3x4 b1 = int3x4(480507742, 1696553040, 540223931, 1840493353, 146833656, 798115946, 2002002066, 1011261705, 783550942, 1093071215, 598253401, 1432416562);
+            bool3x4 r1 = bool3x4(false, true, false, true, false, true, true, true, true, true, false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            int a2 = (810406400);
-            int3x4 b2 = int3x4(1329939911, 1276652605, 593690439, 771851138, 590897155, 386688344, 1290583204, 1984930954, 743544838, 1473400608, 1300775973, 1351720916);
-            bool3x4 r2 = bool3x4(true, true, false, false, false, false, true, true, false, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            int a2 = (1863582169);
+            int3x4 b2 = int3x4(103622950, 775175960, 116908309, 1213433625, 1428954824, 1760442490, 1208143947, 751820805, 1491872302, 560004484, 2065157473, 310839658);
+            bool3x4 r2 = bool3x4(false, false, false, false, false, false, false, false, false, false, true, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            int a3 = (168788814);
-            int3x4 b3 = int3x4(670661854, 168118205, 894264935, 1763013903, 1647476162, 699045651, 1813273687, 900504872, 1574770031, 1684716245, 1458270033, 685700324);
-            bool3x4 r3 = bool3x4(true, false, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            int a3 = (697329242);
+            int3x4 b3 = int3x4(898786601, 1448893980, 1204091943, 1933043135, 828031833, 1737703663, 1672512847, 1112905025, 1666248737, 1352503217, 406395888, 1734008932);
+            bool3x4 r3 = bool3x4(true, true, true, true, true, true, true, true, true, true, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_wide_wide()
         {
-            int3x4 a0 = int3x4(592884447, 2133928932, 918957182, 1284069471, 194584707, 739120780, 241654068, 1340158550, 2099542537, 1182623667, 1399607274, 789301637);
-            int3x4 b0 = int3x4(138737040, 192863971, 1700841444, 1044631301, 1391589821, 730837695, 253553987, 2078872742, 910845808, 976047676, 202633078, 1223618940);
-            bool3x4 r0 = bool3x4(true, true, false, true, false, true, false, false, true, true, true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int3x4 a0 = int3x4(2087717754, 1725569452, 1298066182, 1693943616, 1319019629, 70674491, 1042499725, 1002821508, 1021857133, 1744374599, 821751047, 467646903);
+            int3x4 b0 = int3x4(85148514, 293632137, 1151128249, 409440398, 1115020183, 1508500597, 1834583302, 1755218534, 1788761753, 1128238489, 834223713, 1578743290);
+            bool3x4 r0 = bool3x4(true, true, true, true, true, false, false, false, false, true, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int3x4 a1 = int3x4(180400925, 594688333, 1877031463, 1360073500, 1091782422, 546676424, 348221770, 716039145, 458742739, 1365508046, 1523167942, 1574478622);
-            int3x4 b1 = int3x4(641600530, 1830470354, 1570701388, 1104256103, 1838646932, 740166101, 1549021845, 1457092873, 1790630950, 907793213, 555122804, 1418910265);
-            bool3x4 r1 = bool3x4(false, false, true, true, false, false, false, false, false, true, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int3x4 a1 = int3x4(2029731638, 1377214212, 1207816926, 474621063, 20781266, 366593779, 2068457387, 10181449, 793634464, 144474612, 99947390, 930377263);
+            int3x4 b1 = int3x4(1647150256, 1756397855, 1131080201, 1208965204, 1495161099, 1283714281, 908051907, 412849651, 815822687, 730271942, 40756039, 883326140);
+            bool3x4 r1 = bool3x4(true, false, true, false, false, false, true, false, false, false, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int3x4 a2 = int3x4(1295065160, 715285504, 1130323487, 677530432, 1496919050, 12463046, 1106153111, 1315083485, 31516321, 1786538920, 1854361210, 1730650972);
-            int3x4 b2 = int3x4(335209251, 1094341422, 1465325455, 390251369, 910309992, 277356652, 1601082764, 771366966, 1782348324, 550490783, 599992449, 550520692);
-            bool3x4 r2 = bool3x4(true, false, false, true, true, false, false, true, false, true, true, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int3x4 a2 = int3x4(683686232, 742803073, 918292048, 875621429, 1764985258, 411384146, 1921397684, 1349107119, 640399120, 1487719331, 1467989523, 1834244794);
+            int3x4 b2 = int3x4(476260632, 1024136446, 1440596667, 1253494041, 146826162, 1798399573, 2085029408, 187939428, 1009192934, 1694822273, 1866590874, 113805226);
+            bool3x4 r2 = bool3x4(true, false, false, false, true, false, false, true, false, false, false, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int3x4 a3 = int3x4(194806663, 517304937, 984608679, 1847934645, 1214605555, 535405194, 855415884, 2121416263, 1161116500, 1390730698, 1536558799, 350939762);
-            int3x4 b3 = int3x4(1873014441, 1756459971, 2028992071, 1772761768, 1323261715, 1541822212, 265732078, 1773940614, 156425055, 1585395425, 438682493, 1005143622);
-            bool3x4 r3 = bool3x4(false, false, false, true, false, false, true, true, true, false, true, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int3x4 a3 = int3x4(1778580304, 334604025, 689749101, 1478795900, 716772993, 1072711623, 388277128, 290673156, 619539670, 1666212670, 496667761, 638935614);
+            int3x4 b3 = int3x4(1331524948, 5928360, 1884858608, 1988975599, 493888072, 731556294, 1597968264, 727668246, 1260583385, 1921631225, 359265523, 856088703);
+            bool3x4 r3 = bool3x4(true, true, false, false, true, true, false, false, false, false, true, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_wide_scalar()
         {
-            int3x4 a0 = int3x4(1097138316, 211763648, 1883002501, 56406996, 43662641, 1923456111, 1437755186, 1219010035, 2125058448, 304028799, 893125636, 48044515);
-            int b0 = (438688675);
-            bool3x4 r0 = bool3x4(true, false, true, false, false, true, true, true, true, false, true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int3x4 a0 = int3x4(1208626274, 239697208, 1979453345, 1253474001, 1590192876, 1487911635, 1673945595, 1662650098, 222749855, 1433540517, 566635217, 1773305960);
+            int b0 = (1715176566);
+            bool3x4 r0 = bool3x4(false, false, true, false, false, false, false, false, false, false, false, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int3x4 a1 = int3x4(711945018, 577943770, 572743717, 1016617211, 2063134811, 1577403353, 64009107, 1462961460, 1143565920, 3715845, 689362811, 263973424);
-            int b1 = (1035679270);
-            bool3x4 r1 = bool3x4(false, false, false, false, true, true, false, true, true, false, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int3x4 a1 = int3x4(1850273578, 325913453, 333381537, 1905567362, 2053577491, 570397194, 2128431130, 1735325311, 529971908, 1663525234, 1972984241, 1587865063);
+            int b1 = (206147145);
+            bool3x4 r1 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int3x4 a2 = int3x4(1045140419, 524569092, 1183316983, 1107974092, 212839726, 523727054, 112709358, 614746280, 1000986708, 1683117650, 1451781409, 61102732);
-            int b2 = (1058332184);
-            bool3x4 r2 = bool3x4(false, false, true, true, false, false, false, false, false, true, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int3x4 a2 = int3x4(488268523, 812076921, 181082921, 1281638484, 1818357732, 116518997, 1397728785, 1924199337, 742950077, 1463993051, 1598027926, 842851852);
+            int b2 = (121921923);
+            bool3x4 r2 = bool3x4(true, true, true, true, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int3x4 a3 = int3x4(1284938191, 2125085618, 467075658, 1019531089, 2028286621, 940955706, 1037153304, 1184928188, 1260010015, 1456174269, 174216269, 1930086291);
-            int b3 = (1452639553);
-            bool3x4 r3 = bool3x4(false, true, false, false, true, false, false, false, false, true, false, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int3x4 a3 = int3x4(160842093, 540338405, 174088887, 1609299242, 425486336, 1462766889, 651513452, 1122649822, 771802057, 839323192, 325778683, 406189885);
+            int b3 = (1226313895);
+            bool3x4 r3 = bool3x4(false, false, false, true, false, true, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_scalar_wide()
         {
-            int a0 = (2024896938);
-            int3x4 b0 = int3x4(599356784, 185671342, 1932327391, 2025591013, 1257191721, 1312388500, 1443698859, 779217735, 691047512, 741776730, 732565983, 668302204);
-            bool3x4 r0 = bool3x4(true, true, true, false, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            int a0 = (480938827);
+            int3x4 b0 = int3x4(1824731899, 921496110, 586859044, 946430596, 1231356727, 1390167458, 1785807092, 28949024, 2037899283, 595656760, 1778095771, 1233500439);
+            bool3x4 r0 = bool3x4(false, false, false, false, false, false, false, true, false, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            int a1 = (1556466996);
-            int3x4 b1 = int3x4(858599525, 1896917159, 701542098, 1052151621, 1023307544, 1435392907, 1858177345, 299897686, 632930355, 1387203601, 483722222, 863042711);
-            bool3x4 r1 = bool3x4(true, false, true, true, true, true, false, true, true, true, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            int a1 = (1696302238);
+            int3x4 b1 = int3x4(1445965340, 484020151, 1586962841, 1361740714, 265628948, 2003122957, 332267433, 1128353075, 377919478, 982113135, 1117675960, 630865591);
+            bool3x4 r1 = bool3x4(true, true, true, true, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            int a2 = (1713088900);
-            int3x4 b2 = int3x4(315569296, 292652611, 1002628348, 927789921, 108145064, 425005337, 2093233588, 2063431853, 2079035844, 849337819, 1769234051, 358948261);
-            bool3x4 r2 = bool3x4(true, true, true, true, true, true, false, false, false, true, false, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            int a2 = (1550679736);
+            int3x4 b2 = int3x4(895945757, 287025687, 643452096, 660504007, 613135893, 633307118, 514276792, 1377364317, 84491736, 746768197, 1282879723, 589415384);
+            bool3x4 r2 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            int a3 = (267985383);
-            int3x4 b3 = int3x4(126402553, 2055164423, 577620406, 1167389614, 474380256, 1163355187, 1782967398, 1648397169, 845981950, 630459977, 1033887217, 1480829811);
-            bool3x4 r3 = bool3x4(true, false, false, false, false, false, false, false, false, false, false, false);
-            TestUtils.AreEqual(a3 > b3, r3);
+            int a3 = (363082240);
+            int3x4 b3 = int3x4(1774333756, 741005890, 413100725, 702141547, 1434366582, 1489794027, 1710601432, 1914069735, 1811684885, 1007116016, 1883396218, 318035497);
+            bool3x4 r3 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_equal_wide_wide()
         {
-            int3x4 a0 = int3x4(1577248162, 2043073061, 1688380407, 176431985, 223299035, 1502802140, 1691709825, 386789394, 117182003, 1665770435, 1958490731, 420032601);
-            int3x4 b0 = int3x4(903445031, 2108974565, 210822256, 1281704747, 453681718, 66138830, 1229799377, 1620922595, 1715833766, 1366430432, 13102000, 46919981);
-            bool3x4 r0 = bool3x4(false, true, false, true, true, false, false, true, true, false, false, false);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int3x4 a0 = int3x4(154092149, 1515170149, 1083970332, 785807178, 1401094881, 310537627, 868328962, 1990816725, 2035349541, 457043352, 1123282035, 1001842946);
+            int3x4 b0 = int3x4(77984380, 1712054191, 1566203809, 254834519, 450519938, 389457083, 1298669505, 207343167, 1214449047, 2059561026, 896534357, 1897470050);
+            bool3x4 r0 = bool3x4(false, true, true, false, false, true, true, false, false, true, false, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int3x4 a1 = int3x4(1251092689, 2011681765, 749743684, 183784440, 1150674774, 1633828822, 1719442172, 336047314, 743733218, 1393995865, 1854442658, 1498138884);
-            int3x4 b1 = int3x4(486470891, 1709514236, 2145785285, 854254454, 1273278658, 810263315, 1862773824, 201799013, 974166844, 1320622967, 2058099616, 522102017);
-            bool3x4 r1 = bool3x4(false, false, true, true, true, false, true, false, true, false, true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int3x4 a1 = int3x4(1387761992, 195272789, 659549000, 888761458, 283706617, 1790185840, 899029812, 848317418, 1743712447, 1504407474, 1798441490, 1902791952);
+            int3x4 b1 = int3x4(521075677, 1848221945, 374708019, 1573731118, 2093466449, 1660210829, 1568778785, 1352157589, 1212771905, 1457525058, 1493446008, 1784768208);
+            bool3x4 r1 = bool3x4(false, true, false, true, true, false, true, true, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int3x4 a2 = int3x4(912169992, 1992682021, 1619593455, 1883313982, 483412430, 857881876, 346624138, 531961063, 269897278, 1062947703, 1743454202, 2048964070);
-            int3x4 b2 = int3x4(620752145, 1213693681, 1281818305, 1564146162, 1996153080, 1201909516, 614401396, 224997397, 648547686, 418431167, 1724009726, 401891826);
-            bool3x4 r2 = bool3x4(false, false, false, false, true, true, true, false, true, false, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int3x4 a2 = int3x4(606340844, 1994437705, 301831413, 654230470, 1223625081, 324292199, 1370931020, 1742769166, 1709242127, 105750466, 1655967312, 1455797002);
+            int3x4 b2 = int3x4(1993422493, 1378671664, 1447376929, 1405041439, 1765183746, 562894655, 1085068880, 1026386862, 884290156, 922346160, 330605896, 466570756);
+            bool3x4 r2 = bool3x4(true, false, true, true, true, true, false, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int3x4 a3 = int3x4(1379786452, 622697214, 766589782, 339960970, 1135815654, 797344244, 153103264, 1382144646, 1537448323, 326850885, 1004891948, 2002658522);
-            int3x4 b3 = int3x4(1463971422, 984323887, 1246893281, 1340476720, 1489579748, 128991539, 1117574406, 2016340116, 69682660, 1870772739, 1281621445, 129331822);
-            bool3x4 r3 = bool3x4(true, true, true, true, true, false, true, true, false, true, true, false);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int3x4 a3 = int3x4(366131629, 315848579, 1539610530, 99028560, 765767372, 1241881101, 527753961, 1271899705, 1439235979, 436585748, 1244486586, 2128710216);
+            int3x4 b3 = int3x4(1252369410, 2057993777, 1691801535, 2041799631, 557988228, 813610154, 1657573441, 983813335, 385144401, 1281329713, 285422763, 658643567);
+            bool3x4 r3 = bool3x4(true, true, true, true, false, false, true, false, false, true, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_equal_wide_scalar()
         {
-            int3x4 a0 = int3x4(1722165358, 1219858357, 860410743, 411099660, 348104022, 1963256951, 212084836, 58924407, 1459242706, 1745758438, 532949158, 262559763);
-            int b0 = (1688048545);
-            bool3x4 r0 = bool3x4(false, true, true, true, true, false, true, true, true, false, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int3x4 a0 = int3x4(1479531977, 1427983411, 415250630, 1245345407, 1112546666, 1072990632, 1579912858, 101048307, 1070894375, 509818792, 1910488590, 85452501);
+            int b0 = (2004563877);
+            bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int3x4 a1 = int3x4(690091301, 2091514001, 1857173043, 1617221948, 2017733017, 804204255, 981729559, 2032949254, 910922522, 2079225209, 26179915, 238796519);
-            int b1 = (1806172431);
-            bool3x4 r1 = bool3x4(true, false, false, true, false, true, true, false, true, false, true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int3x4 a1 = int3x4(518127023, 1097326500, 1964410699, 1968139888, 1191853379, 662096238, 1140643434, 754434551, 155343473, 995927387, 974873240, 1773400038);
+            int b1 = (1246249980);
+            bool3x4 r1 = bool3x4(true, true, false, false, true, true, true, true, true, true, true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int3x4 a2 = int3x4(1917813750, 20607406, 1337879822, 959460446, 1599429457, 1279143037, 1551937606, 626254356, 1162369122, 1021674613, 127839058, 1974631244);
-            int b2 = (1258115260);
-            bool3x4 r2 = bool3x4(false, true, false, true, false, false, false, true, true, true, true, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int3x4 a2 = int3x4(497436329, 527516420, 1477043363, 1378470734, 96190147, 37188105, 839762283, 781102710, 766321672, 1145011483, 139031840, 127837780);
+            int b2 = (1825940497);
+            bool3x4 r2 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int3x4 a3 = int3x4(426908235, 487782623, 1454736163, 465255784, 686095683, 2012624010, 1427922646, 1129062501, 1896996725, 1609784025, 1413823266, 1483727269);
-            int b3 = (1818566980);
-            bool3x4 r3 = bool3x4(true, true, true, true, true, false, true, true, false, true, true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int3x4 a3 = int3x4(817806943, 649140851, 913173654, 1530989756, 856611228, 479496140, 287809619, 626008542, 2075114788, 269756518, 1123999963, 1061241170);
+            int b3 = (1248492707);
+            bool3x4 r3 = bool3x4(true, true, true, false, true, true, true, true, false, true, true, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_less_equal_scalar_wide()
         {
-            int a0 = (1777585);
-            int3x4 b0 = int3x4(1181030049, 1787703989, 1729760948, 1816537388, 1359786460, 874999193, 1678863148, 1711365839, 762067160, 11953554, 1131583906, 1175393186);
-            bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, true, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            int a0 = (1899193992);
+            int3x4 b0 = int3x4(915011820, 980913757, 1337699683, 1476321359, 1102143668, 660493983, 184664508, 381579707, 1954892821, 1295090571, 1440368586, 1696003686);
+            bool3x4 r0 = bool3x4(false, false, false, false, false, false, false, false, true, false, false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            int a1 = (1293698493);
-            int3x4 b1 = int3x4(48893340, 66196247, 1958607116, 1576473309, 861890786, 478252419, 957887737, 117849810, 1348693584, 105489302, 259034238, 530713566);
-            bool3x4 r1 = bool3x4(false, false, true, true, false, false, false, false, true, false, false, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            int a1 = (88708652);
+            int3x4 b1 = int3x4(1332251857, 1310713644, 2112132784, 48951945, 1888568027, 39340955, 1108242207, 260777425, 593122164, 291471959, 253457314, 1264570386);
+            bool3x4 r1 = bool3x4(true, true, true, false, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            int a2 = (601413850);
-            int3x4 b2 = int3x4(830430286, 145552297, 1697295044, 1150680564, 2091065664, 1796096704, 1572008712, 1556906486, 205552788, 620963188, 1156705971, 1121867260);
-            bool3x4 r2 = bool3x4(true, false, true, true, true, true, true, true, false, true, true, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            int a2 = (699618012);
+            int3x4 b2 = int3x4(927735863, 2063158939, 932253787, 1168754049, 749328788, 1882694892, 168499987, 378173027, 339963627, 832906712, 559482768, 53067420);
+            bool3x4 r2 = bool3x4(true, true, true, true, true, true, false, false, false, true, false, false);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            int a3 = (733876180);
-            int3x4 b3 = int3x4(1570208446, 541165966, 644414754, 734807383, 938714737, 591783460, 56988751, 790541516, 1811299247, 1308256680, 549490410, 1987696011);
-            bool3x4 r3 = bool3x4(true, false, false, true, true, false, false, true, true, true, false, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            int a3 = (1895722478);
+            int3x4 b3 = int3x4(809981860, 591790551, 1680760399, 653274934, 1664284538, 1283249545, 767500110, 1334099884, 1271622829, 1270706578, 56782179, 505839576);
+            bool3x4 r3 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_equal_wide_wide()
         {
-            int3x4 a0 = int3x4(263000030, 744235661, 1893760267, 237248, 1062370984, 1676977687, 816766880, 1089431546, 1394493730, 1176473380, 1193988637, 1703862455);
-            int3x4 b0 = int3x4(1395535146, 1178373944, 1237373760, 1364855321, 600811864, 362060472, 290870624, 1839067862, 396958580, 1336888643, 1019684398, 1697684196);
-            bool3x4 r0 = bool3x4(false, false, true, false, true, true, true, false, true, false, true, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int3x4 a0 = int3x4(8538378, 2131749726, 265427108, 523609761, 994991818, 839709564, 101288202, 1886280970, 2032074826, 631221455, 1456286159, 961342752);
+            int3x4 b0 = int3x4(903145828, 1697992986, 1432491982, 169789504, 1059357300, 1744255222, 1606584463, 1905414425, 1448794969, 136181998, 1678754836, 2069656857);
+            bool3x4 r0 = bool3x4(false, true, false, true, false, false, false, false, true, true, false, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int3x4 a1 = int3x4(1806186947, 1253571980, 589397635, 1951842887, 798931197, 808426484, 744869638, 1959531616, 207430702, 1533946595, 1148381840, 2011549474);
-            int3x4 b1 = int3x4(1227300220, 2044269675, 1898323839, 874509380, 1873505472, 1268843918, 1606949562, 1263896445, 1805518202, 1412091359, 1240330374, 1955056253);
-            bool3x4 r1 = bool3x4(true, false, false, true, false, false, false, true, false, true, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            int3x4 a1 = int3x4(424526026, 788481984, 1662488497, 870326690, 708712581, 1260182701, 1165630721, 138247561, 1108650168, 1933222913, 672493999, 1541402159);
+            int3x4 b1 = int3x4(398982689, 243317404, 740939613, 1894753119, 301760792, 1260647988, 3608523, 52576030, 903420465, 1648820371, 627296845, 1679808907);
+            bool3x4 r1 = bool3x4(true, true, true, false, true, false, true, true, true, true, true, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int3x4 a2 = int3x4(605043041, 1707339660, 2038122892, 345761584, 1839156338, 1519670644, 2131285427, 775457686, 796452624, 1710612922, 1629927787, 1094198224);
-            int3x4 b2 = int3x4(2025187918, 750755999, 869709740, 1390799279, 1194035112, 666460047, 103451220, 1311530792, 802468307, 1090745055, 1968071275, 1935027815);
-            bool3x4 r2 = bool3x4(false, true, true, false, true, true, true, false, false, true, false, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int3x4 a2 = int3x4(1921596027, 1557351956, 147242547, 892772168, 2089286723, 1273466960, 644009998, 654784654, 189030610, 1035542641, 346401762, 739783704);
+            int3x4 b2 = int3x4(1719102039, 1718081638, 655586949, 477267189, 62092869, 2013928066, 280292357, 254052205, 1092440092, 1947011057, 625632982, 2028466303);
+            bool3x4 r2 = bool3x4(true, false, false, true, true, false, true, true, false, false, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int3x4 a3 = int3x4(584910611, 1129457941, 1633221450, 549302356, 1363234393, 1439226634, 190984179, 983870135, 1527743888, 1577171227, 87278918, 1280094665);
-            int3x4 b3 = int3x4(2060060582, 1535954082, 291771096, 565856573, 1445999374, 711693364, 1201086888, 2076705104, 1565110852, 1698318173, 1293071569, 103979482);
-            bool3x4 r3 = bool3x4(false, false, true, false, false, true, false, false, false, false, false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int3x4 a3 = int3x4(1310547408, 1175015477, 1893015570, 1397162858, 1005064177, 469205024, 1331071304, 1747510572, 1556472271, 1318844912, 877625210, 1556049679);
+            int3x4 b3 = int3x4(578645425, 552865694, 1460006028, 1944712828, 1256156724, 2090870105, 1299728699, 53125632, 782915512, 1103537852, 271803142, 828357811);
+            bool3x4 r3 = bool3x4(true, true, true, false, false, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_equal_wide_scalar()
         {
-            int3x4 a0 = int3x4(2112791350, 1043657935, 101764761, 1529909067, 556026890, 281734132, 1186600258, 815093894, 609211196, 1604309397, 829548642, 244604867);
-            int b0 = (1470533736);
-            bool3x4 r0 = bool3x4(true, false, false, true, false, false, false, false, false, true, false, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int3x4 a0 = int3x4(2049236663, 182691143, 634973382, 1197012109, 439837565, 1367606469, 1108037359, 351147187, 1898505669, 411667685, 1998610091, 4652390);
+            int b0 = (1061998015);
+            bool3x4 r0 = bool3x4(true, false, false, true, false, true, true, false, true, false, true, false);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int3x4 a1 = int3x4(1419295004, 1819986195, 1460027917, 1646290021, 196833647, 1596738181, 1905036391, 1771391775, 1584946560, 370941146, 440219668, 1607345862);
-            int b1 = (471843809);
-            bool3x4 r1 = bool3x4(true, true, true, true, false, true, true, true, true, false, false, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            int3x4 a1 = int3x4(996159180, 727766399, 96217144, 814085575, 1525995206, 1293933760, 1732973229, 1473283041, 899444524, 1023753195, 1373738074, 518164359);
+            int b1 = (2111455181);
+            bool3x4 r1 = bool3x4(false, false, false, false, false, false, false, false, false, false, false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int3x4 a2 = int3x4(1449142607, 379014762, 1719435169, 258833609, 1389585003, 612593660, 42612027, 1138747386, 1491562090, 917503963, 353608194, 1526792895);
-            int b2 = (1223010129);
-            bool3x4 r2 = bool3x4(true, false, true, false, true, false, false, false, true, false, false, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int3x4 a2 = int3x4(717850464, 1826820341, 527594558, 1816542874, 839185150, 1143596061, 1819554651, 160724539, 993212636, 878086499, 363122662, 1989978759);
+            int b2 = (1765188600);
+            bool3x4 r2 = bool3x4(false, true, false, true, false, false, true, false, false, false, false, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int3x4 a3 = int3x4(192092521, 367754234, 1738737389, 523396822, 594728703, 1332667659, 1627604854, 1542713928, 1997611484, 191413337, 1230701700, 702382564);
-            int b3 = (909358617);
-            bool3x4 r3 = bool3x4(false, false, true, false, false, true, true, true, true, false, true, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int3x4 a3 = int3x4(2145562949, 122055824, 1432184946, 690328424, 638547285, 403700518, 569358695, 1988815901, 933324785, 1709851817, 1451640349, 1782506169);
+            int b3 = (491416140);
+            bool3x4 r3 = bool3x4(true, false, true, true, true, false, true, true, true, true, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_greater_equal_scalar_wide()
         {
-            int a0 = (1525542481);
-            int3x4 b0 = int3x4(1503244746, 861711266, 817773856, 925984572, 571221723, 683686810, 118252990, 1653952090, 1240253990, 1947039008, 1869136019, 152012637);
-            bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, false, true, false, false, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            int a0 = (1859811087);
+            int3x4 b0 = int3x4(1070365918, 1783869452, 830091760, 377157428, 327199016, 90384229, 1154649706, 376758501, 1079802834, 2054742898, 1328349472, 434061447);
+            bool3x4 r0 = bool3x4(true, true, true, true, true, true, true, true, true, false, true, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            int a1 = (1214546726);
-            int3x4 b1 = int3x4(917376832, 303549425, 2111728811, 945321577, 173706579, 625318949, 519443238, 1583588379, 1026799433, 1713083717, 394922760, 1216218189);
-            bool3x4 r1 = bool3x4(true, true, false, true, true, true, true, false, true, false, true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            int a1 = (951207723);
+            int3x4 b1 = int3x4(598695892, 975131651, 1714007943, 177416473, 1267232721, 31082860, 216791741, 119054289, 1905107583, 89559116, 55041824, 691334141);
+            bool3x4 r1 = bool3x4(true, false, false, true, false, true, true, true, false, true, true, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            int a2 = (1336522452);
-            int3x4 b2 = int3x4(233894308, 479913036, 984991199, 172993285, 2121050903, 465645173, 788510727, 337378780, 273010835, 1898553615, 1111540136, 717385513);
-            bool3x4 r2 = bool3x4(true, true, true, true, false, true, true, true, true, false, true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            int a2 = (462326883);
+            int3x4 b2 = int3x4(1658303669, 914628512, 1134364322, 1677134711, 1955614770, 2067009301, 1454405405, 299467282, 1584922149, 561776357, 564147844, 398216936);
+            bool3x4 r2 = bool3x4(false, false, false, false, false, false, false, true, false, false, false, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            int a3 = (474197678);
-            int3x4 b3 = int3x4(1417152771, 1476091619, 1312849725, 243299324, 1470872301, 1443256118, 1203165035, 2138148138, 1543595760, 186659728, 807288168, 1274079907);
-            bool3x4 r3 = bool3x4(false, false, false, true, false, false, false, false, false, true, false, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            int a3 = (1478439642);
+            int3x4 b3 = int3x4(958973988, 725612832, 1586062302, 1992817431, 732550238, 1151725147, 11183347, 643483664, 1846311608, 999376922, 1029876878, 1092702918);
+            bool3x4 r3 = bool3x4(true, true, false, false, true, true, true, true, false, true, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_add_wide_wide()
         {
-            int3x4 a0 = int3x4(2049228671, 1658660009, 491719392, 937013355, 81108663, 1063894558, 86954702, 843159721, 698977704, 192867135, 1683407172, 137301303);
-            int3x4 b0 = int3x4(2088751567, 645762023, 306868786, 4360271, 506047997, 2094559874, 1634712736, 1601474440, 1586485231, 908746788, 1812370320, 1247342357);
-            int3x4 r0 = int3x4(-156987058, -1990545264, 798588178, 941373626, 587156660, -1136512864, 1721667438, -1850333135, -2009504361, 1101613923, -799189804, 1384643660);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int3x4 a0 = int3x4(2135171378, 21433296, 1954723494, 683604307, 1054212315, 1762680995, 1963655852, 1257853062, 2043493600, 976898058, 1915056423, 121374462);
+            int3x4 b0 = int3x4(1013431952, 366718162, 359290756, 1393163294, 1962236872, 1263270041, 1862666629, 1077447887, 821693806, 487316539, 350922520, 1583012528);
+            int3x4 r0 = int3x4(-1146363966, 388151458, -1980953046, 2076767601, -1278518109, -1269016260, -468644815, -1959666347, -1429779890, 1464214597, -2028988353, 1704386990);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int3x4 a1 = int3x4(2103582820, 526139155, 447937230, 2127411006, 1670579390, 1914969141, 997691756, 857841794, 2129024875, 267535529, 978891383, 657092366);
-            int3x4 b1 = int3x4(2043773873, 223363428, 175115707, 985928617, 507662836, 1231457019, 776127866, 607782424, 1160366210, 1384832242, 702057048, 703554905);
-            int3x4 r1 = int3x4(-147610603, 749502583, 623052937, -1181627673, -2116725070, -1148541136, 1773819622, 1465624218, -1005576211, 1652367771, 1680948431, 1360647271);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int3x4 a1 = int3x4(1218855698, 700538222, 1702057277, 1788251699, 1534939160, 398651016, 1674272498, 374510467, 824322986, 1217622199, 1122376670, 642613771);
+            int3x4 b1 = int3x4(1951595076, 1024851344, 874302782, 1383969588, 1767968088, 900721406, 1659790033, 1792273749, 443844328, 633981449, 2010244807, 335566991);
+            int3x4 r1 = int3x4(-1124516522, 1725389566, -1718607237, -1122746009, -992060048, 1299372422, -960904765, -2128183080, 1268167314, 1851603648, -1162345819, 978180762);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int3x4 a2 = int3x4(941872903, 906908654, 1940071697, 862186205, 1951450264, 689662850, 1928213278, 1703906688, 526120638, 423980484, 1867227242, 603782684);
-            int3x4 b2 = int3x4(2106992817, 1994483489, 539473, 236858351, 411317652, 595429166, 713649927, 2053476603, 77965941, 1726775513, 1759186349, 2070333485);
-            int3x4 r2 = int3x4(-1246101576, -1393575153, 1940611170, 1099044556, -1932199380, 1285092016, -1653104091, -537584005, 604086579, -2144211299, -668553705, -1620851127);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int3x4 a2 = int3x4(1097903998, 359042741, 929182687, 1713065399, 892057490, 1295346111, 1806236181, 1838589664, 173985173, 1875814528, 1464015613, 1550659036);
+            int3x4 b2 = int3x4(521931102, 544297835, 1681549647, 1784248858, 585904415, 3128418, 1806236610, 179909533, 378711407, 195687764, 357131656, 383703567);
+            int3x4 r2 = int3x4(1619835100, 903340576, -1684234962, -797653039, 1477961905, 1298474529, -682494505, 2018499197, 552696580, 2071502292, 1821147269, 1934362603);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int3x4 a3 = int3x4(728643437, 927205560, 1544834791, 268450974, 1386681507, 1428974172, 1415690700, 1193340567, 1792960278, 1427490402, 86465016, 827052793);
-            int3x4 b3 = int3x4(1732568358, 523040962, 899952708, 1401525772, 1970067897, 488428060, 132927517, 1670039917, 1678110790, 586374104, 262412628, 1415374948);
-            int3x4 r3 = int3x4(-1833755501, 1450246522, -1850179797, 1669976746, -938217892, 1917402232, 1548618217, -1431586812, -823896228, 2013864506, 348877644, -2052539555);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int3x4 a3 = int3x4(447183339, 1810477200, 1280783968, 460635858, 1308981305, 2074430993, 515260041, 454786901, 54902689, 8663916, 364443922, 2133521215);
+            int3x4 b3 = int3x4(1332107956, 1471212095, 1634876660, 1356094538, 364971231, 1180126175, 1243953864, 2000873160, 761885805, 1088368083, 371382049, 1165570023);
+            int3x4 r3 = int3x4(1779291295, -1013278001, -1379306668, 1816730396, 1673952536, -1040410128, 1759213905, -1839307235, 816788494, 1097031999, 735825971, -995876058);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_add_wide_scalar()
         {
-            int3x4 a0 = int3x4(2038218457, 134923711, 875689667, 1338884463, 997710928, 340490871, 1067888129, 70433301, 2003021861, 1635971971, 1160398286, 85446202);
-            int b0 = (2124409227);
-            int3x4 r0 = int3x4(-132339612, -2035634358, -1294868402, -831673606, -1172847141, -1830067198, -1102669940, -2100124768, -167536208, -534586098, -1010159783, -2085111867);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int3x4 a0 = int3x4(665815972, 1783729250, 1591678394, 1284528538, 977850224, 71069732, 1138577680, 1200356017, 565982008, 1246759684, 1088001167, 57252642);
+            int b0 = (1334043849);
+            int3x4 r0 = int3x4(1999859821, -1177194197, -1369245053, -1676394909, -1983073223, 1405113581, -1822345767, -1760567430, 1900025857, -1714163763, -1872922280, 1391296491);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int3x4 a1 = int3x4(1068152966, 1497676888, 1727477485, 1095438654, 756559204, 1818718931, 658923552, 1610518921, 1585755398, 692843300, 1068593469, 1704776233);
-            int b1 = (1239387100);
-            int3x4 r1 = int3x4(-1987427230, -1557903308, -1328102711, -1960141542, 1995946304, -1236861265, 1898310652, -1445061275, -1469824798, 1932230400, -1986986727, -1350803963);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int3x4 a1 = int3x4(678921480, 512157429, 1470648741, 1490096953, 1467033531, 182608093, 1707296407, 1703724354, 1333833947, 653973063, 1139546735, 1834005844);
+            int b1 = (625943813);
+            int3x4 r1 = int3x4(1304865293, 1138101242, 2096592554, 2116040766, 2092977344, 808551906, -1961727076, -1965299129, 1959777760, 1279916876, 1765490548, -1835017639);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int3x4 a2 = int3x4(577782260, 711894571, 564257439, 2051736283, 1572837697, 1628006545, 1855700263, 656748782, 272774516, 1917133199, 828322973, 2116810190);
-            int b2 = (736972565);
-            int3x4 r2 = int3x4(1314754825, 1448867136, 1301230004, -1506258448, -1985157034, -1929988186, -1702294468, 1393721347, 1009747081, -1640861532, 1565295538, -1441184541);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int3x4 a2 = int3x4(184572739, 1858520040, 97099208, 421437295, 1251829854, 166844260, 1568146789, 82548613, 533562157, 1464065228, 716600557, 831997894);
+            int b2 = (1980578280);
+            int3x4 r2 = int3x4(-2129816277, -455868976, 2077677488, -1892951721, -1062559162, 2147422540, -746242227, 2063126893, -1780826859, -850323788, -1597788459, -1482391122);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int3x4 a3 = int3x4(2092767444, 1236931273, 504264449, 794292574, 1518058681, 1604636324, 354873417, 685247897, 227781140, 321182517, 1210575914, 1340503111);
-            int b3 = (973587865);
-            int3x4 r3 = int3x4(-1228611987, -2084448158, 1477852314, 1767880439, -1803320750, -1716743107, 1328461282, 1658835762, 1201369005, 1294770382, -2110803517, -1980876320);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int3x4 a3 = int3x4(861575416, 1590793088, 240051362, 656307111, 1116911778, 1508531454, 1488841996, 651080626, 850104335, 697550029, 1501177275, 308656842);
+            int b3 = (1614335536);
+            int3x4 r3 = int3x4(-1819056344, -1089838672, 1854386898, -2024324649, -1563719982, -1172100306, -1191789764, -2029551134, -1830527425, -1983081731, -1179454485, 1922992378);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_add_scalar_wide()
         {
-            int a0 = (391092078);
-            int3x4 b0 = int3x4(519908870, 851424292, 328314822, 135622204, 740923360, 655394201, 1451896269, 1781697072, 996031825, 1557774949, 779774940, 1111541302);
-            int3x4 r0 = int3x4(911000948, 1242516370, 719406900, 526714282, 1132015438, 1046486279, 1842988347, -2122178146, 1387123903, 1948867027, 1170867018, 1502633380);
-            TestUtils.AreEqual(a0 + b0, r0);
+            int a0 = (359966320);
+            int3x4 b0 = int3x4(2146146202, 767103309, 851002415, 311531406, 1491262941, 1016891373, 1954228994, 1671335850, 727870747, 551151834, 1390261152, 1699060326);
+            int3x4 r0 = int3x4(-1788854774, 1127069629, 1210968735, 671497726, 1851229261, 1376857693, -1980771982, 2031302170, 1087837067, 911118154, 1750227472, 2059026646);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            int a1 = (783046445);
-            int3x4 b1 = int3x4(1130163944, 288279584, 1397683861, 1636583489, 673263339, 1469300874, 14855965, 1116636999, 1488863300, 1600990886, 190651301, 1307459768);
-            int3x4 r1 = int3x4(1913210389, 1071326029, -2114236990, -1875337362, 1456309784, -2042619977, 797902410, 1899683444, -2023057551, -1910929965, 973697746, 2090506213);
-            TestUtils.AreEqual(a1 + b1, r1);
+            int a1 = (115021619);
+            int3x4 b1 = int3x4(1964440175, 440700758, 1556692550, 185414255, 933106731, 1217866784, 729761881, 1742597318, 1090109152, 1467373815, 1066072609, 138237856);
+            int3x4 r1 = int3x4(2079461794, 555722377, 1671714169, 300435874, 1048128350, 1332888403, 844783500, 1857618937, 1205130771, 1582395434, 1181094228, 253259475);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            int a2 = (920085839);
-            int3x4 b2 = int3x4(2082229835, 1992405574, 1213924458, 505841452, 981421162, 1488337699, 1113826640, 1806146508, 1841791222, 206610851, 526971953, 1236359886);
-            int3x4 r2 = int3x4(-1292651622, -1382475883, 2134010297, 1425927291, 1901507001, -1886543758, 2033912479, -1568734949, -1533090235, 1126696690, 1447057792, -2138521571);
-            TestUtils.AreEqual(a2 + b2, r2);
+            int a2 = (634834665);
+            int3x4 b2 = int3x4(993603553, 347587889, 2050191349, 670698672, 1658205080, 1874808705, 2082982954, 869839589, 118460267, 2126166073, 1826004041, 1976984739);
+            int3x4 r2 = int3x4(1628438218, 982422554, -1609941282, 1305533337, -2001927551, -1785323926, -1577149677, 1504674254, 753294932, -1533966558, -1834128590, -1683147892);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            int a3 = (1459523189);
-            int3x4 b3 = int3x4(965740631, 82842799, 1298403201, 1805809772, 1978864191, 415003386, 1906304148, 722870197, 744248796, 1677223559, 303376031, 1275565021);
-            int3x4 r3 = int3x4(-1869703476, 1542365988, -1537040906, -1029634335, -856579916, 1874526575, -929139959, -2112573910, -2091195311, -1158220548, 1762899220, -1559879086);
-            TestUtils.AreEqual(a3 + b3, r3);
+            int a3 = (1612682951);
+            int3x4 b3 = int3x4(1509218893, 283188530, 175981795, 290469072, 90401332, 92990995, 1697612984, 10695923, 584353656, 1985077669, 261483046, 1433592717);
+            int3x4 r3 = int3x4(-1173065452, 1895871481, 1788664746, 1903152023, 1703084283, 1705673946, -984671361, 1623378874, -2097930689, -697206676, 1874165997, -1248691628);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_sub_wide_wide()
         {
-            int3x4 a0 = int3x4(1353441118, 797269833, 659988112, 56022121, 365847472, 2062899435, 1380988474, 799885138, 1306058185, 579775276, 1239163824, 344591081);
-            int3x4 b0 = int3x4(1332656812, 1827794007, 972557431, 2078233689, 1508184327, 1372307701, 810327977, 936799885, 71562303, 1418723328, 1971342989, 1226053395);
-            int3x4 r0 = int3x4(20784306, -1030524174, -312569319, -2022211568, -1142336855, 690591734, 570660497, -136914747, 1234495882, -838948052, -732179165, -881462314);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int3x4 a0 = int3x4(1410318491, 1097280168, 1827039044, 28881338, 328720965, 875487868, 212936325, 231977215, 1740021315, 2011295463, 48079003, 591379285);
+            int3x4 b0 = int3x4(1315897366, 799052018, 1580289673, 1094686261, 1954325726, 1197734816, 229886366, 915679176, 1746884850, 918743925, 1007797419, 257421324);
+            int3x4 r0 = int3x4(94421125, 298228150, 246749371, -1065804923, -1625604761, -322246948, -16950041, -683701961, -6863535, 1092551538, -959718416, 333957961);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int3x4 a1 = int3x4(86359575, 1049709943, 721529513, 1767221271, 7652784, 545192611, 176298787, 1477774126, 1426963688, 2032787858, 2059525977, 445200454);
-            int3x4 b1 = int3x4(136565478, 1979903295, 600719425, 837912956, 632054793, 711091688, 904695656, 1640069560, 750244414, 1385118097, 1102391291, 1221949855);
-            int3x4 r1 = int3x4(-50205903, -930193352, 120810088, 929308315, -624402009, -165899077, -728396869, -162295434, 676719274, 647669761, 957134686, -776749401);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int3x4 a1 = int3x4(1125909359, 1842588095, 848561896, 614448464, 2067598029, 1618238416, 318516219, 1090119767, 1991095823, 949592162, 1951912339, 1457818751);
+            int3x4 b1 = int3x4(287249342, 1617287463, 1653916102, 123586847, 502107404, 672875302, 1256481116, 1975569142, 1794443030, 1327558915, 330955394, 1596041731);
+            int3x4 r1 = int3x4(838660017, 225300632, -805354206, 490861617, 1565490625, 945363114, -937964897, -885449375, 196652793, -377966753, 1620956945, -138222980);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int3x4 a2 = int3x4(425848588, 2026967474, 1128492011, 61421784, 988065731, 1741434432, 2070331135, 1356704176, 1888446703, 1364654917, 265135366, 760501098);
-            int3x4 b2 = int3x4(609588723, 1054324682, 1678086165, 1529581776, 1718700085, 523422634, 223602473, 1912611694, 1224986479, 748933681, 88793450, 401362529);
-            int3x4 r2 = int3x4(-183740135, 972642792, -549594154, -1468159992, -730634354, 1218011798, 1846728662, -555907518, 663460224, 615721236, 176341916, 359138569);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int3x4 a2 = int3x4(1642553126, 2114366549, 1420516260, 596841760, 724518081, 1820626306, 1885185225, 246124365, 1339877262, 1277620434, 759131597, 597162957);
+            int3x4 b2 = int3x4(1069074732, 1120817099, 2076417364, 402521072, 839858844, 1539789702, 559077522, 822288510, 751901021, 1858312568, 1706585560, 483540199);
+            int3x4 r2 = int3x4(573478394, 993549450, -655901104, 194320688, -115340763, 280836604, 1326107703, -576164145, 587976241, -580692134, -947453963, 113622758);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int3x4 a3 = int3x4(741271824, 2139243287, 2086038778, 1314011065, 1838848671, 1554054707, 721235598, 1856904592, 570633009, 1870509604, 1310744871, 1717222072);
-            int3x4 b3 = int3x4(1087189363, 488919410, 1106956631, 1131451931, 1975243735, 111940790, 712896589, 477050266, 1163094482, 605082349, 954351492, 1203361215);
-            int3x4 r3 = int3x4(-345917539, 1650323877, 979082147, 182559134, -136395064, 1442113917, 8339009, 1379854326, -592461473, 1265427255, 356393379, 513860857);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int3x4 a3 = int3x4(656765083, 1075131749, 58205257, 452992632, 976914238, 2122217984, 1687033200, 850554234, 2052749291, 2095840868, 1583338457, 90383917);
+            int3x4 b3 = int3x4(35726321, 401119620, 1411304017, 794953965, 246546364, 1926970811, 1641115012, 2138664312, 1215717344, 1626141022, 1697813712, 1432018301);
+            int3x4 r3 = int3x4(621038762, 674012129, -1353098760, -341961333, 730367874, 195247173, 45918188, -1288110078, 837031947, 469699846, -114475255, -1341634384);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_sub_wide_scalar()
         {
-            int3x4 a0 = int3x4(1176369558, 1934521195, 309452150, 1417634074, 108910717, 1306356714, 1502312334, 1451794815, 281174200, 87530840, 1913724431, 2041593336);
-            int b0 = (462232403);
-            int3x4 r0 = int3x4(714137155, 1472288792, -152780253, 955401671, -353321686, 844124311, 1040079931, 989562412, -181058203, -374701563, 1451492028, 1579360933);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int3x4 a0 = int3x4(1508669340, 1594795463, 266707545, 643102647, 287705008, 1475644328, 1113286221, 979450511, 2082174113, 1108005498, 304369206, 999244508);
+            int b0 = (998008471);
+            int3x4 r0 = int3x4(510660869, 596786992, -731300926, -354905824, -710303463, 477635857, 115277750, -18557960, 1084165642, 109997027, -693639265, 1236037);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int3x4 a1 = int3x4(557239990, 1590376732, 819090189, 816382635, 815920639, 1829033117, 1792801932, 1113440549, 1418937976, 1277257189, 2092779398, 642236742);
-            int b1 = (1119051448);
-            int3x4 r1 = int3x4(-561811458, 471325284, -299961259, -302668813, -303130809, 709981669, 673750484, -5610899, 299886528, 158205741, 973727950, -476814706);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int3x4 a1 = int3x4(1806482044, 2101812429, 1482736902, 266654115, 1470212363, 1190349300, 958542155, 1185075537, 1738124835, 499527536, 1612473406, 1696960099);
+            int b1 = (1994553647);
+            int3x4 r1 = int3x4(-188071603, 107258782, -511816745, -1727899532, -524341284, -804204347, -1036011492, -809478110, -256428812, -1495026111, -382080241, -297593548);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int3x4 a2 = int3x4(1605250794, 1468003019, 128303186, 553494257, 1017126971, 1999744782, 2017272758, 1817991764, 1280985500, 676974855, 1638032613, 949761204);
-            int b2 = (819644478);
-            int3x4 r2 = int3x4(785606316, 648358541, -691341292, -266150221, 197482493, 1180100304, 1197628280, 998347286, 461341022, -142669623, 818388135, 130116726);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int3x4 a2 = int3x4(1287292743, 1032360376, 1779621585, 964948785, 1739264125, 94254551, 968533883, 2075770560, 946189008, 1074604044, 1171596880, 1033389665);
+            int b2 = (1360229454);
+            int3x4 r2 = int3x4(-72936711, -327869078, 419392131, -395280669, 379034671, -1265974903, -391695571, 715541106, -414040446, -285625410, -188632574, -326839789);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int3x4 a3 = int3x4(1835969317, 976947310, 1304246606, 1456780208, 1554022712, 769804365, 2057831687, 758136579, 670433255, 603231411, 1673268965, 941598524);
-            int b3 = (919015590);
-            int3x4 r3 = int3x4(916953727, 57931720, 385231016, 537764618, 635007122, -149211225, 1138816097, -160879011, -248582335, -315784179, 754253375, 22582934);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int3x4 a3 = int3x4(1905912138, 372717946, 658343960, 572101777, 361378660, 1043302867, 1535109165, 695707807, 153321516, 1464557635, 308141270, 69622833);
+            int b3 = (1219683758);
+            int3x4 r3 = int3x4(686228380, -846965812, -561339798, -647581981, -858305098, -176380891, 315425407, -523975951, -1066362242, 244873877, -911542488, -1150060925);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_sub_scalar_wide()
         {
-            int a0 = (1691534405);
-            int3x4 b0 = int3x4(2022393810, 1612688515, 496689713, 887037586, 2097630964, 374934538, 939035482, 935242277, 1789300421, 264712893, 1231856067, 1818112748);
-            int3x4 r0 = int3x4(-330859405, 78845890, 1194844692, 804496819, -406096559, 1316599867, 752498923, 756292128, -97766016, 1426821512, 459678338, -126578343);
-            TestUtils.AreEqual(a0 - b0, r0);
+            int a0 = (893369501);
+            int3x4 b0 = int3x4(2051906184, 1699714311, 442603706, 1735141684, 274533585, 811580259, 1196354320, 1524097023, 533621527, 2080845793, 143958837, 1620668660);
+            int3x4 r0 = int3x4(-1158536683, -806344810, 450765795, -841772183, 618835916, 81789242, -302984819, -630727522, 359747974, -1187476292, 749410664, -727299159);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            int a1 = (1428436109);
-            int3x4 b1 = int3x4(1258745460, 1077380396, 1330722719, 518111829, 967128529, 344666254, 1082267918, 907866696, 1816885123, 460340568, 962154498, 557113461);
-            int3x4 r1 = int3x4(169690649, 351055713, 97713390, 910324280, 461307580, 1083769855, 346168191, 520569413, -388449014, 968095541, 466281611, 871322648);
-            TestUtils.AreEqual(a1 - b1, r1);
+            int a1 = (1135989346);
+            int3x4 b1 = int3x4(1367044745, 554088609, 552670373, 1265516124, 1254902543, 1857695581, 1619865274, 1313559400, 99812999, 843597298, 420111239, 1299949060);
+            int3x4 r1 = int3x4(-231055399, 581900737, 583318973, -129526778, -118913197, -721706235, -483875928, -177570054, 1036176347, 292392048, 715878107, -163959714);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            int a2 = (1701216709);
-            int3x4 b2 = int3x4(1980098777, 730060552, 1444397827, 853570556, 138836432, 1013190428, 718089530, 506757390, 1216448041, 936312747, 1997286455, 1969982026);
-            int3x4 r2 = int3x4(-278882068, 971156157, 256818882, 847646153, 1562380277, 688026281, 983127179, 1194459319, 484768668, 764903962, -296069746, -268765317);
-            TestUtils.AreEqual(a2 - b2, r2);
+            int a2 = (531009038);
+            int3x4 b2 = int3x4(1103306550, 104920105, 1137308312, 1207332725, 103438360, 1157123503, 1174401240, 701247193, 1498366995, 467017290, 109208355, 1594646461);
+            int3x4 r2 = int3x4(-572297512, 426088933, -606299274, -676323687, 427570678, -626114465, -643392202, -170238155, -967357957, 63991748, 421800683, -1063637423);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            int a3 = (902880656);
-            int3x4 b3 = int3x4(1161220697, 1442464725, 622960765, 730968909, 614823841, 1889779020, 918322352, 133929920, 213123108, 1835450460, 521068072, 2066839749);
-            int3x4 r3 = int3x4(-258340041, -539584069, 279919891, 171911747, 288056815, -986898364, -15441696, 768950736, 689757548, -932569804, 381812584, -1163959093);
-            TestUtils.AreEqual(a3 - b3, r3);
+            int a3 = (1252691221);
+            int3x4 b3 = int3x4(919863765, 2826939, 1969148647, 1576198850, 2075870798, 1610641273, 1783880129, 59074246, 1766624573, 521313783, 1333637752, 509364704);
+            int3x4 r3 = int3x4(332827456, 1249864282, -716457426, -323507629, -823179577, -357950052, -531188908, 1193616975, -513933352, 731377438, -80946531, 743326517);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mul_wide_wide()
         {
-            int3x4 a0 = int3x4(245827027, 208934650, 1019478917, 568231809, 877289039, 1585782440, 2111178729, 1186019069, 571481445, 1570087048, 629447153, 619383734);
-            int3x4 b0 = int3x4(759663997, 350129201, 477450108, 1635735015, 388710278, 757722665, 1509388321, 1841703980, 1826369331, 1524322467, 1605207974, 428419155);
-            int3x4 r0 = int3x4(-632811769, 1402281434, 332447596, -1932977561, -1670918566, 1455036648, 2128344329, -594088068, -1654168033, 2093463192, -1207506618, -1133560830);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int3x4 a0 = int3x4(61417577, 219585476, 1362520891, 1511084277, 1481211272, 58211871, 1459591173, 567624644, 1169935583, 1835691886, 385626539, 85934842);
+            int3x4 b0 = int3x4(578042444, 1620527213, 200516468, 309339115, 542853019, 299467282, 1479641221, 1428338601, 1497302909, 1596889147, 427413842, 265122693);
+            int3x4 r0 = int3x4(-1426863828, 1326150260, -990894148, -1322856473, 1973926232, 88546350, -863919463, -582821788, 556671459, 1098186330, 1848083398, -58320414);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int3x4 a1 = int3x4(2055121568, 700402816, 263414349, 187830569, 2048056680, 546694675, 853585367, 933370718, 990212476, 1915885905, 1984212358, 368146234);
-            int3x4 b1 = int3x4(1460605791, 1968043860, 771161742, 2037340417, 322304267, 651448359, 1608326767, 1427155898, 1092185338, 665119139, 223634707, 694718952);
-            int3x4 r1 = int3x4(990589280, -938173952, -1341723466, 1156600361, 649177976, 678952165, 1063621177, -1611682740, -2142428392, -573253741, -1652113678, 1626072720);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int3x4 a1 = int3x4(522856538, 278370196, 289217012, 2083410174, 1293162798, 1939730122, 2075923048, 1116477212, 1686101741, 783310758, 248585944, 1093377716);
+            int3x4 b1 = int3x4(689376654, 1120457204, 516903000, 873091659, 1353196495, 1384773500, 1596528529, 2122329305, 1033200564, 996795088, 1137754930, 232014195);
+            int3x4 r1 = int3x4(2005201900, 651971856, -1721160736, -110160278, -119429582, -536965160, -2049587992, -759667012, 1443849636, 550781664, -959017424, -353108260);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int3x4 a2 = int3x4(899438811, 1765718681, 409003054, 2069758852, 140280263, 442491280, 1924530939, 1372320666, 200879709, 857149632, 962693646, 988118613);
-            int3x4 b2 = int3x4(675813713, 999254223, 1326064110, 788102700, 1927999142, 1706356773, 747671596, 106127297, 1695925670, 1788874462, 534570710, 1110638325);
-            int3x4 r2 = int3x4(1891467339, 335415735, 1128927428, -1656253776, -1433851638, 479369680, -366628060, -250163942, 48406862, -1997863296, -275121228, -1483457191);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int3x4 a2 = int3x4(797038788, 1838048120, 1892922904, 1952024781, 492107602, 1097670675, 2069629919, 20122103, 606926492, 1153788131, 1687394746, 1499899200);
+            int3x4 b2 = int3x4(1080950243, 1613216909, 463529448, 1781487382, 2101946430, 673144237, 390627073, 964308272, 1332603859, 106394678, 1330334791, 1720890701);
+            int3x4 r2 = int3x4(-1093604916, 264300824, -121602624, 1825729694, -241519140, -1246587945, -2064143137, -251115184, 1004304020, -330302494, 638638742, 892728384);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int3x4 a3 = int3x4(892998613, 534109991, 1836805716, 591690444, 1092459557, 1068605049, 1152926708, 1628337363, 400029062, 511168096, 1165835487, 1650108606);
-            int3x4 b3 = int3x4(142931150, 1684745462, 2101748242, 1831486861, 5683864, 1735084283, 1336059993, 721992570, 1906075622, 1073069872, 1374497592, 242540880);
-            int3x4 r3 = int3x4(293009766, -617864326, 1179445736, -481780132, -1586128904, 1397450915, 487571412, -405680754, 326598756, 995119616, 638698952, 1153153376);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int3x4 a3 = int3x4(380825697, 2058271053, 1791586731, 16536749, 1743482585, 323418416, 826338527, 1127652402, 1548655361, 892665898, 498857854, 52699386);
+            int3x4 b3 = int3x4(1860846228, 1499909622, 1236623401, 1532585255, 46356001, 1355750416, 470193265, 829633350, 158242740, 2121460265, 443332975, 1295474668);
+            int3x4 r3 = int3x4(-1474954732, 1744222462, -976595869, -1560402085, -1646186503, 1971376896, 936606319, -24990804, -400518220, -1235785030, -276669022, -1790890888);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mul_wide_scalar()
         {
-            int3x4 a0 = int3x4(1762033447, 465343930, 1570757881, 1326409563, 1824319147, 1356578909, 72749215, 154616909, 975743632, 573770299, 1958912969, 971327747);
-            int b0 = (1476837906);
-            int3x4 r0 = int3x4(-1313177922, 1326807828, -2138555518, -276153754, -65548794, -1318584182, -1839224530, -1720506518, 1736252960, -1699123674, -1534863838, -1853528010);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int3x4 a0 = int3x4(871746615, 492532311, 570557670, 2142306629, 1610315153, 1526163563, 118471734, 257439514, 364291059, 1186560810, 1584938026, 1357601203);
+            int b0 = (442064533);
+            int3x4 r0 = int3x4(338365955, 1081376419, -1729147426, -1015409879, -873485467, -175501241, -838181010, 513646114, 1627104879, 1523063666, 1353478258, -517607633);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int3x4 a1 = int3x4(1818877398, 660611671, 1279757657, 391009467, 1186856590, 890343818, 800117742, 606927173, 1338014500, 1688964615, 1439447294, 387721300);
-            int b1 = (1324050764);
-            int3x4 r1 = int3x4(1927061896, 645718228, -588613780, -844440956, -567685080, -1684615432, -1092253528, 133057916, -1582148944, -1029961452, -248833688, 100822256);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int3x4 a1 = int3x4(638897141, 1007838321, 1163240135, 1619806399, 1444659979, 1127580168, 464517916, 1508043166, 745488654, 636691139, 1851670006, 357357967);
+            int b1 = (268562104);
+            int3x4 r1 = int3x4(-796565992, -1156956360, -2052521720, 154458952, 643000808, 258008512, 1024230432, 1508298128, 2139080208, -1546303960, -1890763568, -1961996088);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int3x4 a2 = int3x4(1192501703, 76318055, 124378112, 970518733, 1370700538, 1978842602, 1451974062, 987919119, 1659987051, 1325430351, 948943118, 1743760648);
-            int b2 = (1613845584);
-            int3x4 r2 = int3x4(-394864080, -1335460816, 692371456, 973833232, 1630959136, -1678368480, -191340960, 1516495024, 2027781488, 471196848, -2125435808, 1043640960);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int3x4 a2 = int3x4(1095280227, 945802744, 1464398841, 51061000, 802418971, 407442471, 638315697, 1889264235, 584402164, 1343048690, 2144106255, 1634890111);
+            int b2 = (702779195);
+            int3x4 r2 = int3x4(91792849, -586547160, 350441827, 2098992344, -2022201799, -2001834499, -1477874741, -280497239, 1627861052, -99438906, -1544695435, 1566775621);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int3x4 a3 = int3x4(227492421, 370371313, 309869840, 1389753586, 1895557060, 1449787207, 1817244670, 2117623142, 1951266912, 206918942, 382686790, 396984449);
-            int b3 = (217698851);
-            int3x4 r3 = int3x4(269461871, 1120555251, 1293383984, 1838219542, -1271695412, 1677010101, 1900394426, 512258290, -238570208, -508870886, 1697920914, 1359963043);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int3x4 a3 = int3x4(425282134, 676185747, 1562817045, 379402138, 866868743, 624571724, 889442510, 39498317, 219559094, 211033504, 2076045580, 1838674974);
+            int b3 = (997231492);
+            int3x4 r3 = int3x4(-452524456, -1002687284, -891995692, -677295768, 1887062172, -1573667024, 1014465592, 910409396, -810418216, -1099618688, 689032752, -1157224072);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mul_scalar_wide()
         {
-            int a0 = (99541948);
-            int3x4 b0 = int3x4(1764461774, 657072478, 1459784358, 1610646683, 1632058826, 868441654, 1408757883, 335917146, 2105124483, 1178393968, 1963904348, 1409533767);
-            int3x4 r0 = int3x4(-950398648, -102049016, 1260585960, 1158730452, -1606056, -466153048, 2108402516, 1966690328, 1623617844, -1691554240, -830512240, -1283699420);
-            TestUtils.AreEqual(a0 * b0, r0);
+            int a0 = (1152242766);
+            int3x4 b0 = int3x4(1276636134, 2105929407, 499007702, 124002565, 1956335172, 1288034953, 832676555, 337389733, 99268757, 2005055247, 2011389505, 1348110859);
+            int3x4 r0 = int3x4(-2129504236, 999811634, 1179056436, -801426554, 404105400, 1339492798, -381766182, -1111620026, 2131796326, 1519334034, -952005682, -1420416166);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            int a1 = (243286231);
-            int3x4 b1 = int3x4(1336308795, 517963367, 1733623488, 459880225, 994616533, 1420531535, 1821413700, 677771573, 2132626845, 1158827713, 640102997, 944551639);
-            int3x4 r1 = int3x4(-648389235, -1563629439, -401476800, -1314550601, 62369507, -76557479, -1413808100, -328103037, 2038656731, -2070911977, -1476360861, -1549578607);
-            TestUtils.AreEqual(a1 * b1, r1);
+            int a1 = (399689191);
+            int3x4 b1 = int3x4(2007606374, 2076691289, 1825721194, 769885235, 153314735, 1066325369, 84289667, 984486192, 1325213504, 1643957457, 1576395620, 2095980601);
+            int3x4 r1 = int3x4(-1958619638, 1053162063, 1757322918, -2082633467, -1631687703, 1080737071, 1177640245, 1336635984, 136489664, -1087658601, -2065423556, -2022903697);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            int a2 = (1323243330);
-            int3x4 b2 = int3x4(1186460236, 657101857, 1275563580, 1031291523, 1008470115, 1155301041, 1046199281, 2138825098, 1273008873, 1788343477, 1994364082, 597340263);
-            int3x4 r2 = int3x4(-94024808, 50866050, 1979584376, -2129139002, 2084048518, -630615902, 1987582754, -2107012204, -1274032366, 1909741994, 2131645412, 527678350);
-            TestUtils.AreEqual(a2 * b2, r2);
+            int a2 = (907671947);
+            int3x4 b2 = int3x4(836919582, 1412159342, 2037926630, 366590562, 493177763, 2058824164, 497936968, 2136548816, 1211907591, 2113626509, 345443734, 353147704);
+            int3x4 r2 = int3x4(374270282, -1776945478, -912236318, -2095872714, 1098685569, -126450996, 1465269528, 1820252144, 1505328333, 774184079, 299976306, -1454784664);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            int a3 = (2022856151);
-            int3x4 b3 = int3x4(1375763101, 1007501105, 1162446628, 96412054, 1676576573, 1763698296, 729299033, 1534484, 1053621089, 1978013043, 796620370, 890235481);
-            int3x4 r3 = int3x4(-1935205669, -686991577, -1926794436, -1053293830, -653994693, -1849661752, 1198448575, -1186284852, -1561308297, -1930349931, -910321442, 938433983);
-            TestUtils.AreEqual(a3 * b3, r3);
+            int a3 = (688487056);
+            int3x4 b3 = int3x4(2038986981, 1991273614, 393095943, 838257274, 1646548338, 480051387, 1077685034, 421911953, 1757438926, 1584698689, 1237695787, 426426495);
+            int3x4 r3 = int3x4(1399726800, 1710668768, 1354271216, 1603930272, -936745952, -465795280, 216288160, 872201104, 470175712, 1493036688, 1155786288, 1195363696);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_div_wide_wide()
         {
-            int3x4 a0 = int3x4(1590198532, 507812502, 126627032, 1058247011, 427387861, 290676154, 1829594484, 1127868739, 499016351, 1341209632, 134906097, 785470242);
-            int3x4 b0 = int3x4(1434703236, 911965201, 390415521, 128746927, 525835375, 816946613, 878264647, 146789678, 2089524057, 254213018, 1916850021, 1737806518);
-            int3x4 r0 = int3x4(1, 0, 0, 8, 0, 0, 2, 7, 0, 5, 0, 0);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int3x4 a0 = int3x4(333171510, 858154903, 1181365836, 671357749, 1090606752, 803759420, 788404166, 296807814, 575260195, 166625280, 1493729000, 1831739736);
+            int3x4 b0 = int3x4(698897823, 440199998, 655557473, 1658534285, 2127220100, 315653188, 1814290360, 992173243, 914851653, 664340325, 224323977, 246981573);
+            int3x4 r0 = int3x4(0, 1, 1, 0, 0, 2, 0, 0, 0, 0, 6, 7);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int3x4 a1 = int3x4(788249865, 1099825433, 1552968283, 1822367139, 1021812060, 1937073018, 645757349, 1097576782, 1246027674, 1152153253, 1900577195, 172149343);
-            int3x4 b1 = int3x4(1906634983, 437754923, 825037958, 902508708, 896853614, 49452028, 1921327824, 787000669, 1032149621, 858558868, 1422112429, 837098844);
-            int3x4 r1 = int3x4(0, 2, 1, 2, 1, 39, 0, 1, 1, 1, 1, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int3x4 a1 = int3x4(200852358, 129983172, 500176108, 472051781, 414699094, 1446535974, 1278480457, 930910505, 263295881, 1626759436, 450830871, 21439121);
+            int3x4 b1 = int3x4(285573983, 819471609, 2012476015, 1783179572, 223253978, 169515029, 1694929006, 1992168131, 1155972447, 1768506696, 422325410, 1508417406);
+            int3x4 r1 = int3x4(0, 0, 0, 0, 1, 8, 0, 0, 0, 0, 1, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int3x4 a2 = int3x4(1735128704, 816492592, 2012272185, 632330092, 649232994, 123715336, 1438073735, 723262291, 850951883, 1942618200, 1088675276, 1648515976);
-            int3x4 b2 = int3x4(616122946, 2035322800, 1324534444, 1820832158, 917489631, 367475696, 620492088, 1749833550, 1535651093, 932740870, 1078416711, 725172174);
-            int3x4 r2 = int3x4(2, 0, 1, 0, 0, 0, 2, 0, 0, 2, 1, 2);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int3x4 a2 = int3x4(521337599, 127756712, 200601965, 412554396, 1014641734, 239347640, 525574301, 1158358177, 1655168319, 2048437741, 367754386, 1861176433);
+            int3x4 b2 = int3x4(605462475, 66917170, 2014683461, 108847533, 611173330, 895791853, 1999369787, 1225614384, 1168063495, 565150188, 127292785, 1027814836);
+            int3x4 r2 = int3x4(0, 1, 0, 3, 1, 0, 0, 0, 1, 3, 2, 1);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int3x4 a3 = int3x4(991947275, 1155668991, 764696768, 1984712970, 1734485640, 850109866, 8545366, 1037720170, 264523522, 1547702681, 1797612488, 1496410581);
-            int3x4 b3 = int3x4(554208963, 1250240123, 2074395021, 1513621083, 262726589, 936845337, 1934527986, 1844761263, 116240860, 1875751365, 730101086, 625535586);
-            int3x4 r3 = int3x4(1, 0, 0, 1, 6, 0, 0, 0, 2, 0, 2, 2);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int3x4 a3 = int3x4(2131424795, 401044444, 745048188, 1943634349, 264134862, 298134010, 1884719303, 1582577607, 1958183229, 1302356942, 1455581366, 1466593830);
+            int3x4 b3 = int3x4(321940796, 337756553, 63233040, 1926010595, 769049413, 2042197280, 405134611, 547499280, 1337688441, 667307127, 35118652, 411409741);
+            int3x4 r3 = int3x4(6, 1, 11, 1, 0, 0, 4, 2, 1, 1, 41, 3);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_div_wide_scalar()
         {
-            int3x4 a0 = int3x4(560951562, 1218680769, 375341724, 1613542090, 1919409166, 1397425408, 1349573078, 524526253, 341995568, 495895326, 1515313790, 1676971657);
-            int b0 = (947861580);
-            int3x4 r0 = int3x4(0, 1, 0, 1, 2, 1, 1, 0, 0, 0, 1, 1);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int3x4 a0 = int3x4(1433072926, 1073958635, 1195142312, 536596719, 1274375693, 464756346, 806462546, 906504670, 1380905136, 25493909, 1196815948, 123300377);
+            int b0 = (1434025872);
+            int3x4 r0 = int3x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int3x4 a1 = int3x4(2131487088, 1017891310, 542666029, 1646044372, 1447236569, 107215658, 19616726, 896899915, 707389627, 1249475421, 1486968988, 1738891885);
-            int b1 = (2105094094);
-            int3x4 r1 = int3x4(1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int3x4 a1 = int3x4(643754735, 2047825037, 458304263, 741331531, 466443901, 2110004616, 1500687214, 1453264263, 1617154145, 2040203220, 2103351724, 485536709);
+            int b1 = (2084019932);
+            int3x4 r1 = int3x4(0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int3x4 a2 = int3x4(1919705924, 1200843642, 206442634, 1508567412, 1825701056, 1117255783, 929925156, 1725332114, 1949103348, 1383839785, 2136282541, 159847918);
-            int b2 = (1244966864);
-            int3x4 r2 = int3x4(1, 0, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int3x4 a2 = int3x4(402141749, 1629069474, 1549487015, 670594363, 2040479674, 155415284, 207130003, 1596922206, 1730223836, 1528374182, 1878500631, 1245757182);
+            int b2 = (1477264254);
+            int3x4 r2 = int3x4(0, 1, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int3x4 a3 = int3x4(1515555001, 1033495687, 1947230231, 1969254260, 1948672400, 757256792, 2099218773, 455629883, 324433498, 1679339858, 2024651647, 1222061694);
-            int b3 = (614923813);
-            int3x4 r3 = int3x4(2, 1, 3, 3, 3, 1, 3, 0, 0, 2, 3, 1);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int3x4 a3 = int3x4(1471308702, 251821475, 1328085649, 1950145317, 794269329, 174603836, 678361822, 1820872200, 1455358409, 778273070, 2067965131, 127176068);
+            int b3 = (1733304186);
+            int3x4 r3 = int3x4(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 0);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_div_scalar_wide()
         {
-            int a0 = (1161272038);
-            int3x4 b0 = int3x4(187325733, 1594107378, 2016183849, 1589343709, 388768753, 1417077283, 1773486938, 1154044032, 81831373, 1476877645, 653688843, 45756703);
-            int3x4 r0 = int3x4(6, 0, 0, 0, 2, 0, 0, 1, 14, 0, 1, 25);
-            TestUtils.AreEqual(a0 / b0, r0);
+            int a0 = (519165704);
+            int3x4 b0 = int3x4(1295178177, 775214121, 467772046, 1156881598, 310396565, 759759959, 243837702, 1616314235, 1053470225, 1320630160, 378773841, 4223608);
+            int3x4 r0 = int3x4(0, 0, 1, 0, 1, 0, 2, 0, 0, 0, 1, 122);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            int a1 = (631027637);
-            int3x4 b1 = int3x4(396671391, 784365696, 1250594097, 1818363859, 1653451772, 270557729, 48974453, 1796936382, 1427856423, 981056957, 1955700573, 705450043);
-            int3x4 r1 = int3x4(1, 0, 0, 0, 0, 2, 12, 0, 0, 0, 0, 0);
-            TestUtils.AreEqual(a1 / b1, r1);
+            int a1 = (1971105754);
+            int3x4 b1 = int3x4(2054406020, 219939614, 1603672651, 2006134295, 888535397, 1493077923, 615835131, 1045603945, 452709946, 1074919059, 467037221, 1485241506);
+            int3x4 r1 = int3x4(0, 8, 1, 0, 2, 1, 3, 1, 4, 1, 4, 1);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            int a2 = (1054404890);
-            int3x4 b2 = int3x4(351914083, 131970646, 1320586926, 366944102, 1575786200, 257204865, 1582754309, 2114509003, 1266146708, 45105265, 2092444751, 407744534);
-            int3x4 r2 = int3x4(2, 7, 0, 2, 0, 4, 0, 0, 0, 23, 0, 2);
-            TestUtils.AreEqual(a2 / b2, r2);
+            int a2 = (1775728786);
+            int3x4 b2 = int3x4(481521341, 68149923, 80867357, 1294049272, 470535313, 1235850199, 631464286, 687722755, 412827650, 1258012095, 1286792622, 1799223034);
+            int3x4 r2 = int3x4(3, 26, 21, 1, 3, 1, 2, 2, 4, 1, 1, 0);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            int a3 = (126616016);
-            int3x4 b3 = int3x4(1900058250, 523718813, 414718546, 1828540203, 860638950, 1827704212, 182494419, 669579562, 717750865, 560379939, 681272719, 638134699);
-            int3x4 r3 = int3x4(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            TestUtils.AreEqual(a3 / b3, r3);
+            int a3 = (766890491);
+            int3x4 b3 = int3x4(2080374598, 711612151, 700420132, 1832408481, 1806438353, 237636410, 562498090, 1695805237, 2075783388, 2094216740, 1612536340, 885282904);
+            int3x4 r3 = int3x4(0, 1, 1, 0, 0, 3, 1, 0, 0, 0, 0, 0);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mod_wide_wide()
         {
-            int3x4 a0 = int3x4(146150818, 1846543305, 1071447756, 308965362, 659881575, 1002365460, 861198439, 1510617532, 778525078, 1458458044, 101987897, 1249565173);
-            int3x4 b0 = int3x4(983050390, 771341152, 942375212, 367361754, 749500619, 750718852, 2095151755, 88438806, 769227442, 647214624, 1026513788, 1544950956);
-            int3x4 r0 = int3x4(146150818, 303861001, 129072544, 308965362, 659881575, 251646608, 861198439, 7157830, 9297636, 164028796, 101987897, 1249565173);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int3x4 a0 = int3x4(258342924, 1454754891, 723352342, 1981431473, 531756042, 716993627, 1667903349, 1331097004, 1776856101, 17598216, 1474345080, 1681376293);
+            int3x4 b0 = int3x4(1990080167, 1197348066, 651970512, 1659454050, 241005212, 1866255454, 1440101415, 595220963, 408818410, 198222574, 549504274, 239973807);
+            int3x4 r0 = int3x4(258342924, 257406825, 71381830, 321977423, 49745618, 716993627, 227801934, 140655078, 141582461, 17598216, 375336532, 1559644);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int3x4 a1 = int3x4(938026607, 1692541775, 1518877124, 1806965510, 1325139851, 994457255, 1372400564, 1770508529, 100255877, 452674793, 1545968777, 629019189);
-            int3x4 b1 = int3x4(160166322, 1099108075, 1158422232, 1798905209, 164686701, 327889784, 1082162785, 1213537518, 608481038, 329133821, 1824387961, 1223426748);
-            int3x4 r1 = int3x4(137194997, 593433700, 360454892, 8060301, 7646243, 10787903, 290237779, 556971011, 100255877, 123540972, 1545968777, 629019189);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int3x4 a1 = int3x4(813624265, 1617478722, 498370451, 780075943, 1754430321, 653235398, 1517128354, 966216200, 590067427, 1283434795, 1910903650, 1125967790);
+            int3x4 b1 = int3x4(321398087, 658171840, 1511495237, 1048325585, 1126739824, 666641241, 38017598, 418797691, 618700513, 1941062990, 158556432, 1081063558);
+            int3x4 r1 = int3x4(170828091, 301135042, 498370451, 780075943, 627690497, 653235398, 34442032, 128620818, 590067427, 1283434795, 8226466, 44904232);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int3x4 a2 = int3x4(1402964707, 2138294579, 1641714420, 1782022072, 1880968864, 1980798192, 1397317084, 995968277, 1090018756, 1573062648, 1100694500, 863521889);
-            int3x4 b2 = int3x4(798137669, 79717779, 1233582258, 1267120677, 301592349, 911281434, 1357340934, 1648942990, 1350943898, 696511738, 1182727748, 1843845940);
-            int3x4 r2 = int3x4(604827038, 65632325, 408132162, 514901395, 71414770, 158235324, 39976150, 995968277, 1090018756, 180039172, 1100694500, 863521889);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int3x4 a2 = int3x4(1180537254, 308567230, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599, 1608412916, 111825133, 786866017, 1225576256);
+            int3x4 b2 = int3x4(427329468, 148111230, 1251162672, 1856322297, 1214781084, 401954255, 1323259633, 1167744452, 1816151689, 541163525, 664455763, 1738838503);
+            int3x4 r2 = int3x4(325878318, 12344770, 543945394, 483834400, 308703874, 383723801, 1181975437, 1161083599, 1608412916, 111825133, 122410254, 1225576256);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int3x4 a3 = int3x4(1146202560, 546958747, 573838995, 2146465826, 1678630780, 1843627015, 1167611300, 157190789, 530148276, 594404567, 1248848240, 1963704081);
-            int3x4 b3 = int3x4(244920526, 1640990506, 920431352, 1261122293, 469115027, 720739455, 1727247731, 91557593, 1874820225, 1070808215, 859227095, 890398590);
-            int3x4 r3 = int3x4(166520456, 546958747, 573838995, 885343533, 271285699, 402148105, 1167611300, 65633196, 530148276, 594404567, 389621145, 182906901);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int3x4 a3 = int3x4(1590085857, 1755638794, 1413553126, 476553804, 1342913944, 1625118233, 1202928007, 504380191, 642905424, 357937367, 1801777444, 1384305901);
+            int3x4 b3 = int3x4(1746284172, 855644567, 1887796950, 655067833, 536415164, 71040983, 631964713, 503267649, 944396748, 302347270, 564261945, 1414291441);
+            int3x4 r3 = int3x4(1590085857, 44349660, 1413553126, 476553804, 270083616, 62216607, 570963294, 1112542, 642905424, 55590097, 108991609, 1384305901);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mod_wide_scalar()
         {
-            int3x4 a0 = int3x4(164800505, 1062177828, 1898749675, 1701653318, 820393245, 19002208, 128329633, 1464010899, 896587769, 405208598, 1982762194, 959236935);
-            int b0 = (883951171);
-            int3x4 r0 = int3x4(164800505, 178226657, 130847333, 817702147, 820393245, 19002208, 128329633, 580059728, 12636598, 405208598, 214859852, 75285764);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int3x4 a0 = int3x4(560988938, 629524514, 767711194, 434281967, 1399805893, 792916846, 1663690927, 598661916, 1776636144, 1287035793, 1743722161, 475209785);
+            int b0 = (1156862367);
+            int3x4 r0 = int3x4(560988938, 629524514, 767711194, 434281967, 242943526, 792916846, 506828560, 598661916, 619773777, 130173426, 586859794, 475209785);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int3x4 a1 = int3x4(712321026, 1540068445, 1085897743, 1607489717, 165478511, 647846716, 915707999, 1602830401, 928191283, 1084934806, 488509689, 2087820912);
-            int b1 = (172564850);
-            int3x4 r1 = int3x4(22061626, 159549645, 50508643, 54406067, 165478511, 130152166, 52883749, 49746751, 65367033, 49545706, 143379989, 17042712);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int3x4 a1 = int3x4(327476870, 379853074, 477430114, 858399046, 712734431, 1506629323, 199829950, 362269020, 1986626876, 1351725413, 1549678101, 431765276);
+            int b1 = (1617696916);
+            int3x4 r1 = int3x4(327476870, 379853074, 477430114, 858399046, 712734431, 1506629323, 199829950, 362269020, 368929960, 1351725413, 1549678101, 431765276);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int3x4 a2 = int3x4(377501313, 1216011754, 812183417, 1153802502, 1642671870, 1924710742, 665297470, 1568090825, 2050982942, 435886407, 453990946, 1731665372);
-            int b2 = (1778384846);
-            int3x4 r2 = int3x4(377501313, 1216011754, 812183417, 1153802502, 1642671870, 146325896, 665297470, 1568090825, 272598096, 435886407, 453990946, 1731665372);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int3x4 a2 = int3x4(1315833792, 615834034, 780055604, 104179235, 629966219, 1810536428, 1747026206, 1799535061, 875754431, 2049775667, 303673867, 93301056);
+            int b2 = (1664893153);
+            int3x4 r2 = int3x4(1315833792, 615834034, 780055604, 104179235, 629966219, 145643275, 82133053, 134641908, 875754431, 384882514, 303673867, 93301056);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int3x4 a3 = int3x4(586777590, 1585649515, 1414579860, 1891664981, 1262495021, 1400758118, 1529532008, 430295164, 1386414018, 2130346558, 666621411, 1524342239);
-            int b3 = (1475597526);
-            int3x4 r3 = int3x4(586777590, 110051989, 1414579860, 416067455, 1262495021, 1400758118, 53934482, 430295164, 1386414018, 654749032, 666621411, 48744713);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int3x4 a3 = int3x4(1944511005, 1065919801, 1342701312, 1356734788, 1593032231, 475449806, 1983416442, 776300612, 591854273, 2061957684, 1865797266, 1982663429);
+            int b3 = (2135291183);
+            int3x4 r3 = int3x4(1944511005, 1065919801, 1342701312, 1356734788, 1593032231, 475449806, 1983416442, 776300612, 591854273, 2061957684, 1865797266, 1982663429);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_mod_scalar_wide()
         {
-            int a0 = (242383789);
-            int3x4 b0 = int3x4(740000543, 1556450291, 1104736385, 437976569, 1911837205, 1507212038, 1906405167, 247693265, 293460573, 1495295166, 873323603, 530681233);
-            int3x4 r0 = int3x4(242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789, 242383789);
-            TestUtils.AreEqual(a0 % b0, r0);
+            int a0 = (933347930);
+            int3x4 b0 = int3x4(549923387, 243114953, 1884274390, 1428033594, 655531454, 1622674954, 1107563514, 1614111094, 914801920, 1432263179, 564431096, 1967013901);
+            int3x4 r0 = int3x4(383424543, 204003071, 933347930, 933347930, 277816476, 933347930, 933347930, 933347930, 18546010, 933347930, 368916834, 933347930);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            int a1 = (1298102643);
-            int3x4 b1 = int3x4(2057984657, 1000742091, 1461372131, 1859742342, 797184687, 821888842, 1083192997, 840114986, 1894865954, 615159964, 1485575122, 2028738);
-            int3x4 r1 = int3x4(1298102643, 297360552, 1298102643, 1298102643, 500917956, 476213801, 214909646, 457987657, 1298102643, 67782715, 1298102643, 1739061);
-            TestUtils.AreEqual(a1 % b1, r1);
+            int a1 = (1709750152);
+            int3x4 b1 = int3x4(1080102613, 13120773, 2042535998, 1505698002, 1640058084, 974167554, 758635306, 1387264978, 611743343, 1139002766, 1913935748, 1086810076);
+            int3x4 r1 = int3x4(629647539, 4049662, 1709750152, 204052150, 69692068, 735582598, 192479540, 322485174, 486263466, 570747386, 1709750152, 622940076);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            int a2 = (2122220318);
-            int3x4 b2 = int3x4(164578061, 730088119, 1444946139, 1305792037, 1110829011, 872723581, 166847388, 1477846418, 511428733, 1642227542, 1962310765, 207128894);
-            int3x4 r2 = int3x4(147283586, 662044080, 677274179, 816428281, 1011391307, 376773156, 120051662, 644373900, 76505386, 479992776, 159909553, 50931378);
-            TestUtils.AreEqual(a2 % b2, r2);
+            int a2 = (991846486);
+            int3x4 b2 = int3x4(922870408, 35007468, 891877602, 157349181, 83267982, 801093706, 546272767, 1665089132, 1889242068, 1179889796, 1690033703, 1333252321);
+            int3x4 r2 = int3x4(68976078, 11637382, 99968884, 47751400, 75898684, 190752780, 445573719, 991846486, 991846486, 991846486, 991846486, 991846486);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            int a3 = (1342085447);
-            int3x4 b3 = int3x4(448361286, 334667519, 705465751, 753088773, 1146344010, 275140144, 1074480141, 2092749846, 1631900558, 2088387496, 1098441751, 1648646354);
-            int3x4 r3 = int3x4(445362875, 3415371, 636619696, 588996674, 195741437, 241524871, 267605306, 1342085447, 1342085447, 1342085447, 243643696, 1342085447);
-            TestUtils.AreEqual(a3 % b3, r3);
+            int a3 = (1960636489);
+            int3x4 b3 = int3x4(960755248, 698650125, 313994074, 1830992514, 2049496523, 507742240, 739436968, 1012724736, 2089810815, 329356442, 384427687, 713578570);
+            int3x4 r3 = int3x4(39125993, 563336239, 76672045, 129643975, 1960636489, 437409769, 481762553, 947911753, 1960636489, 313854279, 38498054, 533479349);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_plus()
         {
-            int3x4 a0 = int3x4(1643476803, 907898539, 379615839, 1140483021, 1735287433, 1743199272, 1472881565, 339091479, 401565897, 1287765427, 849339193, 174532915);
-            int3x4 r0 = int3x4(1643476803, 907898539, 379615839, 1140483021, 1735287433, 1743199272, 1472881565, 339091479, 401565897, 1287765427, 849339193, 174532915);
-            TestUtils.AreEqual(+a0, r0);
+            int3x4 a0 = int3x4(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785, 264115671, 1084131995, 195779102, 2131702223);
+            int3x4 r0 = int3x4(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277, 1689763402, 291471785, 264115671, 1084131995, 195779102, 2131702223);
+            TestUtils.AreEqual(r0, +a0);
 
-            int3x4 a1 = int3x4(1864850812, 1145639744, 1615499926, 2049663954, 1723005749, 409076474, 591286416, 1706631096, 1079164488, 1808261782, 1201290141, 82958939);
-            int3x4 r1 = int3x4(1864850812, 1145639744, 1615499926, 2049663954, 1723005749, 409076474, 591286416, 1706631096, 1079164488, 1808261782, 1201290141, 82958939);
-            TestUtils.AreEqual(+a1, r1);
+            int3x4 a1 = int3x4(715660442, 69731564, 1317851903, 1957501908, 531426536, 2012985092, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471);
+            int3x4 r1 = int3x4(715660442, 69731564, 1317851903, 1957501908, 531426536, 2012985092, 1334133318, 1539671418, 935436165, 1575048895, 2119066258, 781435471);
+            TestUtils.AreEqual(r1, +a1);
 
-            int3x4 a2 = int3x4(308695413, 2067379018, 1673126612, 500666137, 640289062, 836003812, 336058393, 829347661, 33442669, 381670450, 277507230, 361395485);
-            int3x4 r2 = int3x4(308695413, 2067379018, 1673126612, 500666137, 640289062, 836003812, 336058393, 829347661, 33442669, 381670450, 277507230, 361395485);
-            TestUtils.AreEqual(+a2, r2);
+            int3x4 a2 = int3x4(1659000230, 1153431944, 1360657696, 578750954, 150348334, 1791553179, 1288641627, 735146513, 328684789, 1370099515, 1575634098, 36481877);
+            int3x4 r2 = int3x4(1659000230, 1153431944, 1360657696, 578750954, 150348334, 1791553179, 1288641627, 735146513, 328684789, 1370099515, 1575634098, 36481877);
+            TestUtils.AreEqual(r2, +a2);
 
-            int3x4 a3 = int3x4(1012749225, 2092803800, 1459040742, 531853559, 2093894901, 1589622197, 1559976318, 619729461, 731886792, 1441425968, 1921783986, 1257555634);
-            int3x4 r3 = int3x4(1012749225, 2092803800, 1459040742, 531853559, 2093894901, 1589622197, 1559976318, 619729461, 731886792, 1441425968, 1921783986, 1257555634);
-            TestUtils.AreEqual(+a3, r3);
+            int3x4 a3 = int3x4(1832055170, 1370934466, 1126708142, 511229253, 1297664549, 1444401655, 1292097101, 1377029046, 1680766483, 249526091, 656501406, 195015813);
+            int3x4 r3 = int3x4(1832055170, 1370934466, 1126708142, 511229253, 1297664549, 1444401655, 1292097101, 1377029046, 1680766483, 249526091, 656501406, 195015813);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_neg()
         {
-            int3x4 a0 = int3x4(1955022112, 662160019, 370300775, 2141283773, 1004505619, 28153593, 33894270, 505708349, 1115028238, 1636274969, 694995093, 1542206286);
-            int3x4 r0 = int3x4(-1955022112, -662160019, -370300775, -2141283773, -1004505619, -28153593, -33894270, -505708349, -1115028238, -1636274969, -694995093, -1542206286);
-            TestUtils.AreEqual(-a0, r0);
+            int3x4 a0 = int3x4(1385088677, 94114564, 1350664872, 1458616659, 2067164853, 218122493, 958484951, 270553961, 446497525, 270503114, 1928771252, 1427605822);
+            int3x4 r0 = int3x4(-1385088677, -94114564, -1350664872, -1458616659, -2067164853, -218122493, -958484951, -270553961, -446497525, -270503114, -1928771252, -1427605822);
+            TestUtils.AreEqual(r0, -a0);
 
-            int3x4 a1 = int3x4(213087293, 341522275, 841085242, 574159094, 1687250035, 2057919693, 1175014732, 1259809073, 1212465326, 1190569920, 2047955772, 2120729864);
-            int3x4 r1 = int3x4(-213087293, -341522275, -841085242, -574159094, -1687250035, -2057919693, -1175014732, -1259809073, -1212465326, -1190569920, -2047955772, -2120729864);
-            TestUtils.AreEqual(-a1, r1);
+            int3x4 a1 = int3x4(2051940607, 485368391, 908365416, 1742096480, 990033169, 1368056141, 1350976157, 12802586, 1934372287, 576597401, 785136322, 559205611);
+            int3x4 r1 = int3x4(-2051940607, -485368391, -908365416, -1742096480, -990033169, -1368056141, -1350976157, -12802586, -1934372287, -576597401, -785136322, -559205611);
+            TestUtils.AreEqual(r1, -a1);
 
-            int3x4 a2 = int3x4(1440774928, 431666091, 1387601718, 1745651998, 319115626, 1119959806, 739132284, 1954173314, 1709857098, 1836511050, 1662806453, 506144868);
-            int3x4 r2 = int3x4(-1440774928, -431666091, -1387601718, -1745651998, -319115626, -1119959806, -739132284, -1954173314, -1709857098, -1836511050, -1662806453, -506144868);
-            TestUtils.AreEqual(-a2, r2);
+            int3x4 a2 = int3x4(1959833280, 1200036971, 95281343, 1969004480, 1381288239, 252975075, 1961335692, 1607042487, 832886233, 1300359361, 8438338, 431498011);
+            int3x4 r2 = int3x4(-1959833280, -1200036971, -95281343, -1969004480, -1381288239, -252975075, -1961335692, -1607042487, -832886233, -1300359361, -8438338, -431498011);
+            TestUtils.AreEqual(r2, -a2);
 
-            int3x4 a3 = int3x4(650922971, 1273997249, 1474445187, 1853826947, 1695573773, 729452512, 345069360, 575867536, 594119038, 1201840609, 1342872551, 1768435578);
-            int3x4 r3 = int3x4(-650922971, -1273997249, -1474445187, -1853826947, -1695573773, -729452512, -345069360, -575867536, -594119038, -1201840609, -1342872551, -1768435578);
-            TestUtils.AreEqual(-a3, r3);
+            int3x4 a3 = int3x4(1534415387, 866625695, 2105773520, 1249998702, 1704935592, 59004141, 257619538, 392825753, 1868257049, 1472660509, 928823577, 2138036799);
+            int3x4 r3 = int3x4(-1534415387, -866625695, -2105773520, -1249998702, -1704935592, -59004141, -257619538, -392825753, -1868257049, -1472660509, -928823577, -2138036799);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_prefix_inc()
         {
-            int3x4 a0 = int3x4(864455342, 2035793213, 1275443862, 971919915, 411610189, 446210725, 395072276, 115573442, 913293639, 432884105, 1208161871, 1385544935);
-            int3x4 r0 = int3x4(864455343, 2035793214, 1275443863, 971919916, 411610190, 446210726, 395072277, 115573443, 913293640, 432884106, 1208161872, 1385544936);
-            TestUtils.AreEqual(++a0, r0);
+            int3x4 a0 = int3x4(780471723, 954741756, 272723451, 2142862245, 606294309, 1514814550, 250124151, 444189162, 1833356994, 1915989169, 1348278302, 129540735);
+            int3x4 r0 = int3x4(780471724, 954741757, 272723452, 2142862246, 606294310, 1514814551, 250124152, 444189163, 1833356995, 1915989170, 1348278303, 129540736);
+            TestUtils.AreEqual(r0, ++a0);
 
-            int3x4 a1 = int3x4(1835605516, 388229350, 696475402, 1786514683, 993189311, 752093909, 1622410417, 1398865015, 241906003, 1705625817, 609525897, 172599489);
-            int3x4 r1 = int3x4(1835605517, 388229351, 696475403, 1786514684, 993189312, 752093910, 1622410418, 1398865016, 241906004, 1705625818, 609525898, 172599490);
-            TestUtils.AreEqual(++a1, r1);
+            int3x4 a1 = int3x4(1584496757, 986715680, 1701179230, 1397451003, 483952900, 1494652811, 1268688387, 2014528731, 453850931, 1112537171, 621362788, 2063486914);
+            int3x4 r1 = int3x4(1584496758, 986715681, 1701179231, 1397451004, 483952901, 1494652812, 1268688388, 2014528732, 453850932, 1112537172, 621362789, 2063486915);
+            TestUtils.AreEqual(r1, ++a1);
 
-            int3x4 a2 = int3x4(504806865, 281942776, 1541894135, 924683935, 259568871, 1349062584, 1120518661, 65514038, 1495168208, 1321109497, 1366348660, 1777734111);
-            int3x4 r2 = int3x4(504806866, 281942777, 1541894136, 924683936, 259568872, 1349062585, 1120518662, 65514039, 1495168209, 1321109498, 1366348661, 1777734112);
-            TestUtils.AreEqual(++a2, r2);
+            int3x4 a2 = int3x4(1612870531, 1083861484, 1583359796, 82587894, 810087437, 72436569, 1094485773, 912422931, 1011314676, 261771874, 2042016403, 1102472175);
+            int3x4 r2 = int3x4(1612870532, 1083861485, 1583359797, 82587895, 810087438, 72436570, 1094485774, 912422932, 1011314677, 261771875, 2042016404, 1102472176);
+            TestUtils.AreEqual(r2, ++a2);
 
-            int3x4 a3 = int3x4(1414867743, 539531120, 886558347, 1733014170, 1586973907, 1145067277, 884064327, 82551838, 1001250037, 924273925, 242241802, 413165245);
-            int3x4 r3 = int3x4(1414867744, 539531121, 886558348, 1733014171, 1586973908, 1145067278, 884064328, 82551839, 1001250038, 924273926, 242241803, 413165246);
-            TestUtils.AreEqual(++a3, r3);
+            int3x4 a3 = int3x4(976635804, 607693651, 1788488571, 1912059986, 420746703, 1703260621, 501684292, 1809882373, 1989306461, 786299198, 1729269500, 411043860);
+            int3x4 r3 = int3x4(976635805, 607693652, 1788488572, 1912059987, 420746704, 1703260622, 501684293, 1809882374, 1989306462, 786299199, 1729269501, 411043861);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_postfix_inc()
         {
-            int3x4 a0 = int3x4(1751003569, 2063707595, 1500486291, 969189211, 1007848192, 2028651936, 1643023524, 1190630527, 1396179607, 708474528, 177416855, 1524860667);
-            int3x4 r0 = int3x4(1751003569, 2063707595, 1500486291, 969189211, 1007848192, 2028651936, 1643023524, 1190630527, 1396179607, 708474528, 177416855, 1524860667);
-            TestUtils.AreEqual(a0++, r0);
+            int3x4 a0 = int3x4(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244, 1425753247, 1384002775, 389844650, 1159795446);
+            int3x4 r0 = int3x4(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229, 903047443, 1213663244, 1425753247, 1384002775, 389844650, 1159795446);
+            TestUtils.AreEqual(r0, a0++);
 
-            int3x4 a1 = int3x4(1408994706, 1580130369, 1676086778, 717006530, 506142468, 732199129, 2026873940, 130175844, 1513142653, 420613464, 1219979307, 586574160);
-            int3x4 r1 = int3x4(1408994706, 1580130369, 1676086778, 717006530, 506142468, 732199129, 2026873940, 130175844, 1513142653, 420613464, 1219979307, 586574160);
-            TestUtils.AreEqual(a1++, r1);
+            int3x4 a1 = int3x4(1343289659, 947635082, 137930180, 451018043, 1634297552, 2009552507, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327);
+            int3x4 r1 = int3x4(1343289659, 947635082, 137930180, 451018043, 1634297552, 2009552507, 1176922170, 388721494, 2381860, 2062858295, 715101397, 1725384327);
+            TestUtils.AreEqual(r1, a1++);
 
-            int3x4 a2 = int3x4(357567451, 1949784665, 1127356901, 101238629, 2131648021, 423320704, 827539403, 1919960927, 840371710, 2010345998, 1047836590, 586887730);
-            int3x4 r2 = int3x4(357567451, 1949784665, 1127356901, 101238629, 2131648021, 423320704, 827539403, 1919960927, 840371710, 2010345998, 1047836590, 586887730);
-            TestUtils.AreEqual(a2++, r2);
+            int3x4 a2 = int3x4(446867079, 1460883320, 1683365096, 1319511974, 1418603655, 1938539756, 592683318, 1576213022, 1150548583, 904484472, 253685095, 70826818);
+            int3x4 r2 = int3x4(446867079, 1460883320, 1683365096, 1319511974, 1418603655, 1938539756, 592683318, 1576213022, 1150548583, 904484472, 253685095, 70826818);
+            TestUtils.AreEqual(r2, a2++);
 
-            int3x4 a3 = int3x4(1209169651, 1479717664, 1874959449, 104723114, 817246348, 1972950889, 1784631804, 1550936382, 718649502, 872906800, 717529320, 1995020676);
-            int3x4 r3 = int3x4(1209169651, 1479717664, 1874959449, 104723114, 817246348, 1972950889, 1784631804, 1550936382, 718649502, 872906800, 717529320, 1995020676);
-            TestUtils.AreEqual(a3++, r3);
+            int3x4 a3 = int3x4(1423673637, 257117856, 964412816, 1148726183, 1820437224, 1087435092, 475319856, 1950385959, 1172607661, 1139700625, 1386106060, 612787013);
+            int3x4 r3 = int3x4(1423673637, 257117856, 964412816, 1148726183, 1820437224, 1087435092, 475319856, 1950385959, 1172607661, 1139700625, 1386106060, 612787013);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void int3x4_operator_prefix_dec()
         {
-            int3x4 a0 = int3x4(200904609, 871077500, 968578728, 638967721, 1995396216, 435367037, 1782514098, 1589827826, 1434377580, 596759698, 1699290403, 1758478358);
-            int3x4 r0 = int3x4(200904608, 871077499, 968578727, 638967720, 1995396215, 435367036, 1782514097, 1589827825, 1434377579, 596759697, 1699290402, 1758478357);
-            TestUtils.AreEqual(--a0, r0);
+            int3x4 a0 = int3x4(1331961415, 1612382200, 1401591249, 2042075388, 1757136546, 1895858159, 1467742422, 578341664, 1336115745, 2059077641, 1169239112, 1862369220);
+            int3x4 r0 = int3x4(1331961414, 1612382199, 1401591248, 2042075387, 1757136545, 1895858158, 1467742421, 578341663, 1336115744, 2059077640, 1169239111, 1862369219);
+            TestUtils.AreEqual(r0, --a0);
 
-            int3x4 a1 = int3x4(1914114460, 389120307, 1022184392, 1310293956, 356565557, 18299409, 906734601, 799006218, 1383897383, 1040798388, 1469596990, 1719228297);
-            int3x4 r1 = int3x4(1914114459, 389120306, 1022184391, 1310293955, 356565556, 18299408, 906734600, 799006217, 1383897382, 1040798387, 1469596989, 1719228296);
-            TestUtils.AreEqual(--a1, r1);
+            int3x4 a1 = int3x4(312317355, 1595492535, 1426262619, 1426620468, 674685792, 1423852012, 1459529624, 2092317419, 107501474, 1261583506, 512900840, 1496855314);
+            int3x4 r1 = int3x4(312317354, 1595492534, 1426262618, 1426620467, 674685791, 1423852011, 1459529623, 2092317418, 107501473, 1261583505, 512900839, 1496855313);
+            TestUtils.AreEqual(r1, --a1);
 
-            int3x4 a2 = int3x4(220897829, 678025545, 14227726, 293093918, 1065286595, 1249415499, 1009503100, 157482354, 965385343, 1797304434, 1083672612, 929765380);
-            int3x4 r2 = int3x4(220897828, 678025544, 14227725, 293093917, 1065286594, 1249415498, 1009503099, 157482353, 965385342, 1797304433, 1083672611, 929765379);
-            TestUtils.AreEqual(--a2, r2);
+            int3x4 a2 = int3x4(777588547, 1487639376, 625907330, 1452782388, 804650978, 2076275981, 120447533, 262357170, 1887136873, 412907314, 846648478, 473291493);
+            int3x4 r2 = int3x4(777588546, 1487639375, 625907329, 1452782387, 804650977, 2076275980, 120447532, 262357169, 1887136872, 412907313, 846648477, 473291492);
+            TestUtils.AreEqual(r2, --a2);
 
-            int3x4 a3 = int3x4(2083512379, 323646560, 1395297406, 583796119, 999841714, 1788073019, 1618852114, 1777032041, 1252764958, 1070818447, 219340317, 767990877);
-            int3x4 r3 = int3x4(2083512378, 323646559, 1395297405, 583796118, 999841713, 1788073018, 1618852113, 1777032040, 1252764957, 1070818446, 219340316, 767990876);
-            TestUtils.AreEqual(--a3, r3);
+            int3x4 a3 = int3x4(286048219, 1237897291, 1412498905, 346348942, 953070054, 2028727932, 2006551142, 1345994403, 1356250542, 1202345509, 497982699, 982734742);
+            int3x4 r3 = int3x4(286048218, 1237897290, 1412498904, 346348941, 953070053, 2028727931, 2006551141, 1345994402, 1356250541, 1202345508, 497982698, 982734741);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_postfix_dec()
         {
-            int3x4 a0 = int3x4(283970262, 1109329936, 1073216143, 649439137, 1932646215, 1174104498, 484207852, 524156737, 691209285, 2017728859, 802721301, 377162390);
-            int3x4 r0 = int3x4(283970262, 1109329936, 1073216143, 649439137, 1932646215, 1174104498, 484207852, 524156737, 691209285, 2017728859, 802721301, 377162390);
-            TestUtils.AreEqual(a0--, r0);
+            int3x4 a0 = int3x4(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351, 1015253889, 862428933, 1401191870, 2080259851);
+            int3x4 r0 = int3x4(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869, 940247280, 1818778351, 1015253889, 862428933, 1401191870, 2080259851);
+            TestUtils.AreEqual(r0, a0--);
 
-            int3x4 a1 = int3x4(526366486, 590919177, 60677868, 1867810045, 2095777993, 670715645, 324944916, 242636153, 1659736954, 1316734088, 1030072405, 1751972064);
-            int3x4 r1 = int3x4(526366486, 590919177, 60677868, 1867810045, 2095777993, 670715645, 324944916, 242636153, 1659736954, 1316734088, 1030072405, 1751972064);
-            TestUtils.AreEqual(a1--, r1);
+            int3x4 a1 = int3x4(653673271, 1928164223, 1760916301, 1174531383, 634036198, 993137684, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745);
+            int3x4 r1 = int3x4(653673271, 1928164223, 1760916301, 1174531383, 634036198, 993137684, 1669210509, 874927437, 1393579866, 471308632, 620865961, 220103745);
+            TestUtils.AreEqual(r1, a1--);
 
-            int3x4 a2 = int3x4(1868889881, 1931943579, 175622377, 181847458, 665549439, 530897466, 635466911, 416440036, 1447690298, 1444496274, 296146626, 1209855130);
-            int3x4 r2 = int3x4(1868889881, 1931943579, 175622377, 181847458, 665549439, 530897466, 635466911, 416440036, 1447690298, 1444496274, 296146626, 1209855130);
-            TestUtils.AreEqual(a2--, r2);
+            int3x4 a2 = int3x4(1407678826, 1426931482, 488775250, 1681733117, 1916879863, 2060905976, 636358505, 1379709480, 451326084, 497925052, 549367303, 925145385);
+            int3x4 r2 = int3x4(1407678826, 1426931482, 488775250, 1681733117, 1916879863, 2060905976, 636358505, 1379709480, 451326084, 497925052, 549367303, 925145385);
+            TestUtils.AreEqual(r2, a2--);
 
-            int3x4 a3 = int3x4(2016700604, 647102652, 1948542169, 659874422, 2009120584, 1577004911, 1809041177, 518526567, 1464738365, 1815629310, 1216839298, 569144612);
-            int3x4 r3 = int3x4(2016700604, 647102652, 1948542169, 659874422, 2009120584, 1577004911, 1809041177, 518526567, 1464738365, 1815629310, 1216839298, 569144612);
-            TestUtils.AreEqual(a3--, r3);
+            int3x4 a3 = int3x4(55306458, 18471540, 1907671409, 2010375112, 459674494, 1339288497, 548526029, 2061115550, 1130246689, 681734791, 1169678318, 640772261);
+            int3x4 r3 = int3x4(55306458, 18471540, 1907671409, 2010375112, 459674494, 1339288497, 548526029, 2061115550, 1130246689, 681734791, 1169678318, 640772261);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_and_wide_wide()
         {
-            int3x4 a0 = int3x4(779935043, 1097962163, 1939593304, 800599247, 952140918, 782792558, 1608557706, 396446406, 2039894114, 1286974642, 442394124, 1759739564);
-            int3x4 b0 = int3x4(307705143, 1710882162, 866836769, 532490608, 679371720, 1794035877, 1439832202, 519529812, 23633139, 1209152681, 646737179, 1255867027);
-            int3x4 r0 = int3x4(39064835, 1097961522, 864731136, 263727168, 675283008, 715673636, 1438646410, 379666500, 16781410, 1209017504, 34366472, 1220739712);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int3x4 a0 = int3x4(1055241304, 859321394, 1088358961, 2090949513, 300561740, 651904515, 1331035868, 2012752753, 1298126656, 53199569, 1752363533, 1303061302);
+            int3x4 b0 = int3x4(749698416, 748105424, 1842764797, 9990577, 1989102105, 1666634755, 58116798, 868036607, 1420638875, 1308767169, 564040763, 478617502);
+            int3x4 r0 = int3x4(749024336, 537928720, 1087769137, 8409473, 277479432, 575816707, 55888540, 867707761, 1141707264, 33686209, 538087433, 209912598);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int3x4 a1 = int3x4(233435438, 665207770, 1942050241, 1022352952, 60340400, 329119345, 406517382, 1126764634, 343425836, 1957552749, 1624478957, 341972372);
-            int3x4 b1 = int3x4(1900854122, 413173763, 1409138251, 2087190272, 563439483, 354579077, 642224854, 1650432515, 755290290, 902865191, 661389406, 2134212586);
-            int3x4 r1 = int3x4(21541162, 10485762, 1405162561, 1013440000, 26222640, 285241857, 168582, 1107890178, 67125280, 880844837, 541065292, 337646976);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int3x4 a1 = int3x4(1929998247, 1504941434, 470682792, 713577376, 1493231658, 1340884669, 1577921467, 44846626, 1105094388, 1143008413, 333009589, 2116296009);
+            int3x4 b1 = int3x4(806150474, 674015378, 1505309955, 36064977, 1779639327, 808650076, 1634437037, 1997568501, 1930853951, 1901503461, 1508772523, 2010961769);
+            int3x4 r1 = int3x4(805855490, 136347666, 403178496, 33571456, 1207967754, 2098204, 1074332585, 33572896, 1091986996, 1073782917, 298320545, 1979979081);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int3x4 a2 = int3x4(181537307, 130347414, 1240828622, 526120460, 695449226, 1477446724, 201628999, 737924014, 1804502415, 1733695477, 1110712857, 113012430);
-            int3x4 b2 = int3x4(1855189321, 185194029, 810374380, 133197864, 1989578783, 38739182, 387425484, 1690486314, 843085933, 1045118223, 41867329, 1397669260);
-            int3x4 r2 = int3x4(177340425, 50384900, 4522188, 122712072, 538087434, 3140, 67404868, 549634602, 570425357, 641864965, 36962305, 34352268);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int3x4 a2 = int3x4(2067254825, 121795325, 2122365250, 1088796653, 1594120761, 965590824, 337823363, 1686791432, 1275524729, 173403097, 864715776, 1437598787);
+            int3x4 b2 = int3x4(1495957269, 1914669725, 1263994006, 491200541, 380703892, 282208487, 1416934135, 942735432, 615839538, 1698880188, 1204102677, 1811173266);
+            int3x4 r2 = int3x4(1495420417, 33686173, 1241513986, 4530189, 369102864, 276834336, 337674883, 536870920, 67434032, 4246168, 58721280, 1102054402);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int3x4 a3 = int3x4(1044352152, 865726845, 836668077, 1778871717, 1558881750, 231636456, 1278790837, 846361650, 37319023, 1806613498, 1312261777, 1448803516);
-            int3x4 b3 = int3x4(1784025774, 1834587481, 856874373, 1719529679, 678478831, 86860920, 837158923, 1397449667, 195921481, 564422246, 1088025452, 2103483999);
-            int3x4 r3 = int3x4(706085000, 555323737, 823298181, 1644519557, 140542406, 84698216, 2099201, 306339842, 36241481, 564404834, 1074889216, 1413520412);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int3x4 a3 = int3x4(1375792249, 203672781, 1568515997, 145607913, 837338112, 754244200, 1383514630, 61183374, 690842674, 1362012962, 668846213, 1659745138);
+            int3x4 b3 = int3x4(203114715, 1968993229, 1549041488, 421225724, 1641463312, 1122209170, 946391298, 229237652, 849684128, 1197217575, 1910121786, 1835643900);
+            int3x4 r3 = int3x4(18521, 67125453, 1549018896, 134825192, 566264832, 14714880, 274776066, 27361668, 539304992, 1091306274, 567803904, 1617539952);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_and_wide_scalar()
         {
-            int3x4 a0 = int3x4(443615469, 490057985, 2042441263, 1524760558, 1405175110, 510212004, 1941875181, 1236735839, 1365509729, 428270198, 607982857, 650270920);
-            int b0 = (93423598);
-            int3x4 r0 = int3x4(1114348, 85033216, 26281518, 8488942, 25232710, 67176356, 26247660, 26281806, 16778848, 25199206, 68224264, 75497672);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int3x4 a0 = int3x4(1513158868, 284695609, 734595037, 1566510707, 1601252476, 84213838, 314333543, 430856908, 753481263, 327392481, 1619794917, 2143619546);
+            int b0 = (1173647397);
+            int3x4 r0 = int3x4(1076916228, 15732769, 29360133, 1163132961, 1164976164, 84148228, 11816997, 27545604, 81801253, 25169953, 1082396709, 1170472960);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int3x4 a1 = int3x4(1249238550, 1862276471, 143502472, 861733033, 1408932942, 957693145, 1567715668, 1102952410, 322053683, 1599352836, 208656708, 1272226025);
-            int b1 = (814629680);
-            int3x4 r1 = int3x4(279056, 536871216, 9175040, 806092832, 277479424, 805568528, 268452112, 9175824, 268567088, 268697600, 934144, 8650784);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int3x4 a1 = int3x4(1873208293, 651482651, 1383096952, 1689107088, 1368301071, 366962092, 1729929586, 989550739, 1914435619, 1592791064, 2047510829, 678485991);
+            int b1 = (126982769);
+            int3x4 r1 = int3x4(125862497, 110137873, 34603632, 75602448, 25205249, 93388832, 118521968, 43063313, 34707489, 110104592, 33589281, 1088097);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int3x4 a2 = int3x4(462670926, 1466722981, 1817277774, 818900583, 772681077, 1630437952, 546018772, 872875431, 1143080525, 708719245, 1764446048, 1527981061);
-            int b2 = (1817145060);
-            int3x4 r2 = int3x4(134433860, 1145858724, 1816224836, 542076516, 739126372, 1611530816, 537593028, 604439716, 1140983364, 672014980, 1745571424, 1208165380);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int3x4 a2 = int3x4(586400261, 309059606, 131945492, 1707451796, 394184188, 1943201012, 558008097, 1070093422, 34324916, 258102213, 1800249857, 922911179);
+            int b2 = (771972179);
+            int3x4 r2 = int3x4(570638337, 33767442, 100750352, 604046352, 100811856, 570573904, 537003009, 771773506, 33767440, 235032641, 704708609, 637665347);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int3x4 a3 = int3x4(398141788, 554819377, 1683835293, 972562207, 393685571, 2118911919, 1503487659, 283854137, 1911282206, 312686024, 384581172, 1826788967);
-            int b3 = (156911041);
-            int3x4 r3 = int3x4(18481472, 17843457, 5783937, 156763393, 22151233, 138937729, 152585345, 4867329, 21643264, 132544, 4719616, 138544193);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int3x4 a3 = int3x4(1719705954, 1162961184, 851638827, 889902874, 1622363409, 785352441, 1741477119, 452211039, 1144654389, 641588835, 1574197624, 568430284);
+            int b3 = (609219265);
+            int3x4 r3 = int3x4(604020800, 71393280, 541258241, 604688896, 537083905, 609190593, 609013953, 4468801, 67764737, 604885569, 71585856, 541164224);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_and_scalar_wide()
         {
-            int a0 = (1144543590);
-            int3x4 b0 = int3x4(420346723, 562416448, 1393127318, 1560699552, 851218057, 703880958, 1159378889, 2031211279, 1089518981, 270607307, 1349288930, 520199596);
-            int3x4 r0 = int3x4(547170, 18752, 1074284806, 1140867104, 3672064, 3168358, 1142427968, 1074811142, 1076893956, 2097474, 1076363618, 67115300);
-            TestUtils.AreEqual(a0 & b0, r0);
+            int a0 = (477163326);
+            int3x4 b0 = int3x4(110453385, 703240362, 2075630560, 1884904031, 1734899436, 947945203, 1664399051, 458879298, 158491426, 79772356, 2054527944, 202228212);
+            int3x4 r0 = int3x4(68182536, 140544042, 405834528, 273697310, 73426476, 402681394, 3188234, 407953666, 141583138, 71313924, 410028808, 201376052);
+            TestUtils.AreEqual(r0, a0 & b0);
 
-            int a1 = (1763483957);
-            int3x4 b1 = int3x4(1248975349, 236938635, 185023291, 1085233038, 1845693112, 946052961, 1436238522, 2042776519, 56356886, 1770159840, 1872339579, 1439201366);
-            int3x4 r1 = int3x4(1209041205, 136061185, 151265585, 1074528516, 1744830512, 671121697, 1092091952, 1761607941, 18391060, 1761615904, 1763221553, 1091051540);
-            TestUtils.AreEqual(a1 & b1, r1);
+            int a1 = (359225061);
+            int3x4 b1 = int3x4(639811396, 1821945318, 1821303024, 2030124055, 1985961756, 579780373, 2061831301, 1139618293, 1145191868, 1121606282, 1414714065, 688688277);
+            int3x4 r1 = int3x4(69211716, 67634404, 67649760, 285283333, 340350468, 529925, 274793605, 23662821, 71308452, 4739712, 339759809, 17302661);
+            TestUtils.AreEqual(r1, a1 & b1);
 
-            int a2 = (1233066417);
-            int3x4 b2 = int3x4(1214109404, 2255485, 1814885263, 1711986588, 1286898282, 915476451, 1870138851, 372814411, 1623486506, 211665304, 1668985777, 348112007);
-            int3x4 r2 = int3x4(1214058640, 2230321, 1210847617, 1074401680, 1211367456, 1116577, 1232603553, 3674113, 1078202400, 136118672, 1098518961, 4128897);
-            TestUtils.AreEqual(a2 & b2, r2);
+            int a2 = (1508875606);
+            int3x4 b2 = int3x4(664318814, 2092766410, 1010043618, 599967779, 47076367, 1325716015, 1119912335, 2083412385, 1805692137, 1689798540, 265665838, 1616867488);
+            int3x4 r2 = int3x4(25727318, 1487737922, 405014594, 29526018, 13505542, 1225035782, 1086357766, 1479416064, 1235258432, 1084753156, 163945734, 1078923264);
+            TestUtils.AreEqual(r2, a2 & b2);
 
-            int a3 = (1808619374);
-            int3x4 b3 = int3x4(1516730209, 1647041932, 350465899, 1641369007, 1555310928, 857924828, 1980404095, 34923708, 1073528483, 742357726, 1244015681, 1980296380);
-            int3x4 r3 = int3x4(1246058336, 1644778764, 12650346, 1640318254, 1216610624, 587220044, 1644695918, 33834028, 734795298, 671961678, 1241777216, 1644708908);
-            TestUtils.AreEqual(a3 & b3, r3);
+            int a3 = (244288538);
+            int3x4 b3 = int3x4(688929004, 1157047188, 1381359113, 1562107079, 944933664, 1994959125, 1413414673, 1280114143, 1373827711, 1107998701, 890185579, 195053206);
+            int3x4 r3 = int3x4(134219784, 75956240, 33917960, 202083330, 134383616, 109611024, 68062224, 202148890, 8552474, 34243592, 68092938, 176161810);
+            TestUtils.AreEqual(r3, a3 & b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_or_wide_wide()
         {
-            int3x4 a0 = int3x4(1731159103, 659068416, 382702471, 1821032196, 1565773438, 1004000514, 948501377, 600951835, 669346222, 396691477, 2108560248, 2117522137);
-            int3x4 b0 = int3x4(1583847161, 692672727, 1161585489, 1756207130, 1321374429, 1287357212, 2075767170, 1273513430, 1610830169, 1316929125, 511625048, 573925879);
-            int3x4 r0 = int3x4(2138044159, 793370327, 1476391895, 1823457054, 1607720703, 2147473182, 2075786115, 1811533279, 1743223295, 1610595957, 2147407736, 2117598207);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int3x4 a0 = int3x4(1920951869, 1750772852, 1420019191, 732977093, 1169579447, 229437930, 1966721348, 2039812323, 113550869, 1912038362, 1569990624, 1490718227);
+            int3x4 b0 = int3x4(214585254, 275414367, 858759675, 190211455, 1218691723, 2129565457, 1862809466, 495728846, 868064152, 1756913766, 933656055, 247722084);
+            int3x4 r0 = int3x4(2130669503, 2021326207, 2008016383, 737572863, 1303895999, 2146367483, 2134507390, 2107455727, 939376541, 2046780414, 2142664695, 1591475831);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int3x4 a1 = int3x4(330307355, 818676817, 1774459567, 1117506257, 1254511182, 1017865993, 1883021644, 1140203470, 759288967, 2122744307, 335621148, 715028074);
-            int3x4 b1 = int3x4(1502255628, 1841676448, 1682928938, 1115131952, 1541423910, 1416096228, 188606371, 1041599540, 219545389, 560097663, 1087543661, 936383841);
-            int3x4 r1 = int3x4(1538957087, 2110637297, 1842315183, 1124063985, 1541821294, 2096099309, 2067654639, 2146934782, 760610735, 2145839615, 1423162749, 1071544171);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int3x4 a1 = int3x4(1686257697, 2137727522, 1569900650, 856504729, 2033376384, 2086259889, 671790684, 1189001916, 1756048437, 417084592, 2024165808, 966008272);
+            int3x4 b1 = int3x4(1884195075, 1804207631, 1913174711, 1815920856, 1226577606, 1696467642, 186912044, 1778908130, 1461256625, 1142152181, 272117331, 1162254035);
+            int3x4 r1 = int3x4(1959708963, 2146117167, 2140863231, 2134768089, 2034163398, 2103430843, 724483964, 1860172798, 2142973365, 1558183925, 2025750515, 2111217619);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int3x4 a2 = int3x4(543305337, 662107399, 1934997335, 436754869, 1613808671, 362365372, 342908672, 2129231210, 203868172, 32846030, 1057901177, 1537975433);
-            int3x4 b2 = int3x4(108816721, 1694053551, 452638547, 1219534055, 85142537, 1027930490, 2126839395, 2030328147, 2036352209, 1554561114, 1332339254, 480739851);
-            int3x4 r2 = int3x4(645820281, 1744827823, 2080356183, 1522064887, 1697901599, 1037957630, 2129985379, 2146270587, 2103889117, 1576909022, 2138040959, 1605346955);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int3x4 a2 = int3x4(2031026290, 1461019191, 1071959084, 1645847295, 871350674, 736640317, 868515800, 767794452, 362186994, 96189073, 1924033224, 1971421809);
+            int3x4 b2 = int3x4(870448102, 1845053992, 257334526, 987295814, 1503050768, 1683307763, 1076253109, 1403888383, 561000721, 740143742, 343344681, 2074122472);
+            int3x4 r2 = int3x4(2079325174, 2147314239, 1073143038, 2061103871, 2080374162, 1878867455, 1944485885, 2146418687, 905361907, 767539967, 1996451561, 2141297401);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int3x4 a3 = int3x4(470626699, 557640158, 536364388, 238304731, 787227554, 1298371111, 1020821539, 1327618264, 1104669041, 1949771204, 1973724646, 698690868);
-            int3x4 b3 = int3x4(1502575584, 1889014859, 1557424474, 1390247341, 2029776623, 1665642846, 1570936353, 801872635, 1945815585, 1797879107, 112272980, 779933219);
-            int3x4 r3 = int3x4(1569684459, 1908211167, 1610378622, 1593671167, 2130702319, 1869067135, 2113574435, 1877727995, 1946151793, 2134865351, 2008393718, 805175095);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int3x4 a3 = int3x4(1826545883, 865329, 516571463, 371039923, 918186803, 1920664988, 452155520, 743961772, 1728213958, 825116968, 1597755374, 910392330);
+            int3x4 b3 = int3x4(133130232, 108733999, 348566046, 1414140366, 975473487, 699452548, 1158934384, 1776041858, 1098964075, 1316223563, 1653177800, 679795328);
+            int3x4 r3 = int3x4(1879042043, 109000255, 516879199, 1449107455, 1052699519, 2080099740, 1609826288, 1843396526, 1736638447, 2139093867, 2143027182, 1053294218);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_or_wide_scalar()
         {
-            int3x4 a0 = int3x4(961259683, 471103264, 1733389229, 1591585258, 386953869, 1148351449, 1048929715, 1814263250, 860336789, 1637162093, 1227888278, 774029856);
-            int b0 = (1666102508);
-            int3x4 r0 = int3x4(2068823279, 2136930284, 1734344685, 2145369582, 2002712301, 1736374269, 2144335359, 1869608446, 1934604029, 1675607277, 1803466494, 1869543148);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int3x4 a0 = int3x4(1295304853, 1307252624, 350194630, 1128063578, 1774824542, 2085245467, 1988423804, 999162350, 2110327307, 1050875188, 341855232, 1317039676);
+            int b0 = (1305527136);
+            int3x4 r0 = int3x4(1307888629, 1308350448, 1574947814, 1341973370, 1842999166, 2111492987, 2144662396, 2145305582, 2111425387, 2146686836, 1576062816, 1339092860);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int3x4 a1 = int3x4(879300408, 797240690, 1977614655, 46921989, 1980838747, 284225881, 64304104, 313591807, 1393862490, 1890090886, 521303722, 2021379070);
-            int b1 = (1179087439);
-            int3x4 r1 = int3x4(1987018623, 1875378047, 2011657087, 1188035407, 1985442655, 1459090271, 1205302255, 1459058687, 1465382751, 1995407311, 1599567599, 2122316799);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int3x4 a1 = int3x4(228656898, 1536908787, 606786773, 1739461580, 2040936581, 1350320187, 1377874553, 1522262112, 1496806239, 1732466858, 1535976093, 375675620);
+            int b1 = (41280811);
+            int3x4 r1 = int3x4(267773739, 1543503355, 645920255, 1744828399, 2079849903, 1383982395, 1383462779, 1526719851, 1534588799, 1735916971, 1543366591, 376831983);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int3x4 a2 = int3x4(2055963359, 1775629833, 1142751163, 1767274359, 1421981808, 1501294791, 485944015, 539526284, 310877895, 1815369493, 529427586, 358352200);
-            int b2 = (1511253082);
-            int3x4 r2 = int3x4(2057037535, 2077750875, 1579155451, 2069362559, 1590951034, 1534850271, 1593306847, 2050745566, 1519910623, 2117597023, 1604316378, 1600120154);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int3x4 a2 = int3x4(1614193383, 697385997, 112556963, 1614163749, 1583289054, 1370656810, 1286074530, 1155438844, 1835671387, 440002979, 1569359727, 5393691);
+            int b2 = (226059393);
+            int3x4 r2 = int3x4(1837098727, 771318925, 268271523, 1837068197, 1602189023, 1576793259, 1308619939, 1308622077, 1836810203, 528084387, 1576789999, 226192795);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int3x4 a3 = int3x4(1353013374, 1624839772, 1369983151, 666444298, 207757238, 257316089, 409252967, 1919967661, 1452040383, 2012115244, 1149949643, 142082352);
-            int b3 = (1349149982);
-            int3x4 r3 = int3x4(1357872510, 1895528286, 1374318015, 2012964638, 1550483390, 1602123263, 1483666815, 1920624063, 1458464191, 2012116286, 1424685023, 1484416318);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int3x4 a3 = int3x4(774282482, 212144562, 1525899482, 463019249, 1531812233, 1944160603, 953179348, 1692078056, 1331652826, 183129856, 1305664018, 626899632);
+            int b3 = (1217128427);
+            int3x4 r3 = int3x4(1857028091, 1286600699, 1526458363, 1536950267, 1540358123, 2079059963, 2027683839, 1826353131, 1340076027, 1256978411, 1306263547, 1843396603);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_or_scalar_wide()
         {
-            int a0 = (1213433101);
-            int3x4 b0 = int3x4(1212928242, 1614462616, 936937728, 764766995, 306352095, 574719481, 1283571271, 2109131012, 979469710, 1348323481, 1407542578, 697517649);
-            int3x4 r0 = int3x4(1213978111, 1752940445, 2145094925, 1842867999, 1515425759, 1783858685, 1288945487, 2113391885, 2054391183, 1482673565, 1542972735, 1775486813);
-            TestUtils.AreEqual(a0 | b0, r0);
+            int a0 = (1768627592);
+            int3x4 b0 = int3x4(1849658052, 1759912154, 729979455, 975926310, 1987690876, 1809506714, 1160695341, 408963395, 314072711, 1560007537, 1709003416, 977086639);
+            int3x4 r0 = int3x4(1870634956, 1777286618, 1810603967, 2070642094, 2138824188, 1811676570, 1836048301, 2037079499, 2080071567, 2113658873, 1845452696, 2071936431);
+            TestUtils.AreEqual(r0, a0 | b0);
 
-            int a1 = (1059093741);
-            int3x4 b1 = int3x4(627815046, 418822515, 83214352, 424663473, 447949225, 527022375, 1947148461, 305251437, 1254601325, 1752329425, 1592402684, 1587055329);
-            int3x4 r1 = int3x4(1064042223, 1073151487, 1073085693, 1064304125, 1068727789, 1063910895, 2133818605, 1060240621, 2145910509, 2138209533, 2146074365, 2142830317);
-            TestUtils.AreEqual(a1 | b1, r1);
+            int a1 = (1448375596);
+            int3x4 b1 = int3x4(1689568808, 595543345, 559778387, 621080913, 438994183, 1742637145, 1219409263, 1602932494, 1204461702, 2111538444, 836730895, 1207638621);
+            int3x4 r1 = int3x4(1995765548, 2004841789, 2002648959, 2002056573, 1585378607, 2011102589, 1593767279, 1608449838, 1474229678, 2145383724, 2011165999, 1476362109);
+            TestUtils.AreEqual(r1, a1 | b1);
 
-            int a2 = (1088734150);
-            int3x4 b2 = int3x4(298563808, 2052547661, 582843231, 656983670, 1944993640, 1081208038, 829763560, 990961386, 547309556, 1307122961, 263229121, 1518227598);
-            int3x4 r2 = int3x4(1374682086, 2063067087, 1660812255, 1743570934, 1945042926, 1089859558, 1911943150, 2079645678, 1627375606, 1307434967, 1341444039, 1526649806);
-            TestUtils.AreEqual(a2 | b2, r2);
+            int a2 = (802100209);
+            int3x4 b2 = int3x4(1089077339, 1315030334, 249047666, 1604790897, 1848168086, 347254235, 1777613639, 1876731927, 842785732, 1023558747, 1567635900, 1888818835);
+            int3x4 r2 = int3x4(1877939195, 1877989375, 803159027, 2146384881, 1877991415, 1073725435, 1878998007, 1876933623, 1073738741, 1070553083, 2147433469, 2145327091);
+            TestUtils.AreEqual(r2, a2 | b2);
 
-            int a3 = (1098359242);
-            int3x4 b3 = int3x4(997941952, 1075751132, 996271847, 623986648, 1091787263, 1548400620, 2022447724, 433714471, 963197960, 1639565037, 1287986616, 1326199854);
-            int3x4 r3 = int3x4(2071978954, 1098885598, 2071455727, 1702356954, 1098381823, 1568651246, 2046802926, 1509946863, 2038414794, 1644161007, 1308081658, 1333769710);
-            TestUtils.AreEqual(a3 | b3, r3);
+            int a3 = (1681286114);
+            int3x4 b3 = int3x4(816160472, 669874393, 856364582, 957707703, 533888601, 707380794, 1472392035, 1658477097, 490006292, 1104319323, 1803275943, 1843251082);
+            int3x4 r3 = int3x4(1958215674, 1744796667, 2000648166, 2100787191, 2146861051, 1849681914, 2012670947, 1727953899, 2100750326, 1710683131, 1870655463, 1845487594);
+            TestUtils.AreEqual(r3, a3 | b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_xor_wide_wide()
         {
-            int3x4 a0 = int3x4(1556324760, 207002929, 1843444873, 1632079131, 1460334334, 1607815585, 220623650, 38668553, 47193340, 643663548, 1371932564, 94957188);
-            int3x4 b0 = int3x4(1054997548, 1523759632, 251164872, 110472397, 384031112, 1109163205, 535118981, 179106262, 1523031711, 1713313372, 1294118730, 520360641);
-            int3x4 r0 = int3x4(1646419380, 1451501345, 1662567489, 1741824470, 1105803126, 499723620, 314783655, 149092575, 1477935715, 1078104288, 484747486, 447544389);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int3x4 a0 = int3x4(1843655608, 362425681, 640805534, 1342040268, 945678755, 980321850, 390165019, 1682422658, 303897251, 230477768, 1103646442, 1503102919);
+            int3x4 b0 = int3x4(1422803441, 1234691140, 119589253, 1101464929, 121896337, 1880109018, 1000210266, 1718938232, 464406940, 884337881, 34199854, 1430659227);
+            int3x4 r0 = int3x4(959296073, 1544407317, 554771227, 240840109, 1058935858, 1249815008, 752651585, 36917754, 162747199, 956900113, 1136760772, 215066460);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int3x4 a1 = int3x4(700973621, 370621508, 2087573076, 351476570, 1340815927, 681577472, 314138777, 446857644, 1368661599, 1672499683, 1259759761, 2049102405);
-            int3x4 b1 = int3x4(1040688781, 1020757245, 1143954843, 1281933464, 175288469, 326874157, 1192052687, 1087083643, 1900865484, 1521193463, 569695524, 1622101483);
-            int3x4 r1 = int3x4(399484088, 717273273, 943885263, 1486609346, 1167690402, 1004255277, 1437869910, 1516836311, 551090579, 958119956, 1793242549, 445489070);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int3x4 a1 = int3x4(26631152, 1016475570, 1862440929, 379588576, 1943580404, 691527166, 723280696, 497086939, 1640104913, 893178410, 1596765788, 664096470);
+            int3x4 b1 = int3x4(126415540, 1069919967, 1810763253, 2082802224, 941097951, 27782297, 156353074, 607061607, 470737131, 1151564598, 8268481, 434405645);
+            int3x4 r1 = int3x4(102672708, 55804269, 82614804, 1787102672, 1270918443, 680538471, 575512842, 965736380, 2110579514, 1906288924, 1599249565, 1047646171);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int3x4 a2 = int3x4(1972524935, 91962333, 1960780785, 1303778459, 960040360, 822786011, 2028027011, 170382968, 32554542, 1915830925, 2001025156, 2012451132);
-            int3x4 b2 = int3x4(1340735463, 546583617, 1034420616, 262206030, 1834125935, 802756092, 611321886, 316379491, 325882121, 45335181, 1859278043, 1002624300);
-            int3x4 r2 = int3x4(981182560, 636424092, 1232544377, 1108797141, 1416333255, 517186087, 1553020061, 419186459, 312225575, 1887600640, 429354079, 1278297104);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int3x4 a2 = int3x4(2043360590, 799560121, 287637604, 696169196, 2067184169, 1208059988, 1250597330, 1386507647, 1889791408, 2084012261, 308683100, 995657536);
+            int3x4 b2 = int3x4(519003095, 1880915120, 608970922, 1809455754, 1079250101, 514389994, 272120301, 1282399149, 1045003273, 1596550715, 1654640361, 147544177);
+            int3x4 r2 = int3x4(1730440857, 1605643529, 896084174, 1118087270, 996325020, 1453948862, 1521655871, 516667090, 1323995577, 589229790, 1895428021, 865328945);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int3x4 a3 = int3x4(1076174067, 344651773, 1769102694, 1408084527, 1139070023, 1195715957, 1051992510, 1468636326, 1018993657, 1514317444, 369266676, 1206540279);
-            int3x4 b3 = int3x4(1704063552, 1618550727, 721247372, 131278097, 896003672, 746837613, 1952376600, 306395311, 419371442, 627496489, 1791585199, 757339713);
-            int3x4 r3 = int3x4(632614579, 1962141754, 1133445610, 1413386046, 1988311583, 1808202520, 1256900262, 1170908169, 608404043, 2133094573, 2093737051, 1791902134);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int3x4 a3 = int3x4(2114803648, 1391716615, 1288505091, 1981377086, 1609802717, 1174043024, 1011203132, 1795164620, 244928755, 108081775, 1095776733, 1503947924);
+            int3x4 b3 = int3x4(1770899808, 632909311, 351538321, 18362671, 582069925, 1343437834, 646157103, 1334609482, 1029555059, 1791514242, 2130180592, 1367984612);
+            int3x4 r3 = int3x4(394305184, 2001372408, 1480133522, 1996577553, 2101480824, 367609242, 449195795, 613191558, 868520832, 1824089325, 1067958317, 137209200);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_xor_wide_scalar()
         {
-            int3x4 a0 = int3x4(2124666952, 177397845, 574879617, 1937385541, 1136545648, 213863690, 535061373, 289301586, 1305234431, 353786540, 1308626970, 1267729267);
-            int b0 = (493665894);
-            int3x4 r0 = int3x4(1674536494, 402546227, 1060063719, 1846973987, 1590882582, 299103084, 42523931, 206756404, 1352725913, 142271690, 1399631484, 1459404053);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int3x4 a0 = int3x4(169345668, 176087064, 2084362901, 1663924004, 193851255, 517476661, 905336222, 863800783, 365003873, 835837496, 954341348, 1464576786);
+            int b0 = (354464228);
+            int3x4 r0 = int3x4(523809632, 526275068, 1763470193, 1980614336, 514678419, 200843473, 550954106, 643578923, 14759301, 619802588, 767731200, 1114315510);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int3x4 a1 = int3x4(125659640, 1730088797, 116862046, 375757978, 491079274, 191750702, 187129429, 967051293, 549951551, 653124416, 788984, 1479174924);
-            int b1 = (1315625690);
-            int3x4 r1 = int3x4(1226289954, 695588231, 1218311812, 1477396032, 1395629232, 1158101236, 1162708111, 2010043079, 1856848613, 1753692570, 1315361570, 373338582);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int3x4 a1 = int3x4(625604047, 2003392824, 1481813598, 1077374714, 1043379893, 1991576049, 781860967, 60088394, 1196907956, 858716109, 858484213, 178843494);
+            int b1 = (1700827127);
+            int3x4 r1 = int3x4(1076460088, 302634703, 1026695593, 626516237, 1531984194, 332760582, 1274728336, 1727295421, 574083651, 1447983162, 1447813634, 1875402897);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int3x4 a2 = int3x4(1680011736, 890841598, 293394300, 527727631, 529042816, 1382138962, 1206186973, 1059509471, 744733291, 64097148, 1814786305, 716239);
-            int b2 = (447453839);
-            int3x4 r2 = int3x4(2122935127, 800240497, 198659571, 98559616, 86185743, 1221222109, 1565485394, 630017616, 919085284, 427397619, 1988160398, 446789440);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int3x4 a2 = int3x4(1223183458, 1771693181, 1206307664, 2037729583, 1324393116, 497725784, 1367278685, 962962860, 906632547, 1570278596, 1744797352, 574677361);
+            int b2 = (866652388);
+            int3x4 r2 = int3x4(2067815558, 1513223321, 1951325108, 1256020427, 2102964856, 771924412, 1658262713, 181253448, 94506375, 1848679456, 1415016012, 300478869);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int3x4 a3 = int3x4(476052372, 2058208914, 41260658, 1316660543, 2113008061, 256229982, 111578612, 1207271814, 2099944258, 1913013312, 870798185, 1771744425);
-            int b3 = (92561487);
-            int3x4 r3 = int3x4(433822683, 2133436125, 133297725, 1274987888, 2020970994, 180462097, 52620731, 1114759625, 2024733453, 2005017615, 912470822, 1813957862);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int3x4 a3 = int3x4(1363709514, 801937870, 1010182360, 1851940033, 346084804, 1153678862, 443991213, 53881334, 2016754499, 1219039118, 98879165, 1431003548);
+            int b3 = (1256194849);
+            int3x4 r3 = int3x4(464031083, 1697422063, 1993747449, 612524000, 1581307621, 237223215, 1352058764, 1238772439, 852834402, 38341807, 1325712796, 531325629);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_xor_scalar_wide()
         {
-            int a0 = (1288453276);
-            int3x4 b0 = int3x4(1077599928, 884741329, 212164516, 1585020328, 152985454, 1775851275, 1416249064, 1309317737, 1773918217, 1509843030, 1206045972, 1154916424);
-            int3x4 r0 = int3x4(217506340, 2020616269, 1080648504, 313868596, 1171416050, 622160791, 413532788, 46573301, 628614293, 355622090, 187625864, 135961812);
-            TestUtils.AreEqual(a0 ^ b0, r0);
+            int a0 = (1361775641);
+            int3x4 b0 = int3x4(1452773578, 459050892, 1986218254, 1689037698, 999278344, 1229114508, 1087843538, 733699740, 106187872, 1533632738, 1107817672, 492506236);
+            int3x4 r0 = int3x4(129801427, 1249346453, 659047703, 898082715, 1789184785, 409583765, 301736139, 2056278661, 1467957369, 172125435, 321714385, 1282408549);
+            TestUtils.AreEqual(r0, a0 ^ b0);
 
-            int a1 = (1947871003);
-            int3x4 b1 = int3x4(1774252400, 1946113778, 1079717492, 290620937, 1382343363, 939045099, 1309568053, 221134131, 885841718, 612068188, 194068085, 1396957881);
-            int3x4 r1 = int3x4(500881003, 132477417, 876677487, 1699258642, 645842392, 1138923504, 974408494, 2033457704, 1087830061, 1348553799, 2139822446, 660194722);
-            TestUtils.AreEqual(a1 ^ b1, r1);
+            int a1 = (597602329);
+            int3x4 b1 = int3x4(1439603382, 1001169118, 1231718216, 1693179077, 1050897427, 1796435561, 1100532547, 2106589181, 79691722, 851486414, 381749210, 1743618507);
+            int3x4 r1 = int3x4(1984965295, 405934279, 1794389841, 1198877916, 490593290, 1217257072, 1644591962, 1578192868, 656494547, 291378903, 895465411, 1148400082);
+            TestUtils.AreEqual(r1, a1 ^ b1);
 
-            int a2 = (573581481);
-            int3x4 b2 = int3x4(1813817520, 86594349, 2006985393, 1431761813, 905646837, 1522414781, 192882943, 714832744, 374210759, 215701593, 1573378082, 779254615);
-            int3x4 r2 = int3x4(1311539225, 655981444, 1435501080, 2003229500, 399194716, 2022579220, 693043286, 145445825, 880683118, 787181808, 2146955403, 205673470);
-            TestUtils.AreEqual(a2 ^ b2, r2);
+            int a2 = (2038827673);
+            int3x4 b2 = int3x4(1680906962, 161437943, 171927307, 277703584, 1344718195, 1634011177, 28540247, 1205447252, 150341716, 899457210, 1927941858, 1213321665);
+            int3x4 r2 = int3x4(498503755, 1880707694, 1941532050, 1762353465, 698404842, 417530544, 2016769998, 1046454477, 1903166157, 1276815907, 191628411, 836229976);
+            TestUtils.AreEqual(r2, a2 ^ b2);
 
-            int a3 = (711527976);
-            int3x4 b3 = int3x4(710611783, 223429246, 593102399, 1444947259, 302938485, 684673240, 1417651941, 1426772271, 948720266, 177752267, 2005602645, 896851285);
-            int3x4 r3 = int3x4(3284335, 658000982, 154339351, 2085169939, 946304861, 44451568, 2115414221, 2137251591, 317021346, 552683235, 1575100285, 522048381);
-            TestUtils.AreEqual(a3 ^ b3, r3);
+            int a3 = (1943899052);
+            int3x4 b3 = int3x4(1166699955, 244059986, 698605361, 770240668, 1451322609, 409403288, 227252138, 455879262, 1859170556, 2135312326, 436746325, 843204844);
+            int3x4 r3 = int3x4(911730207, 2102494462, 1518228637, 1580563248, 626845533, 1807447092, 2119572486, 1760666098, 487406416, 211537002, 1775612921, 1100989248);
+            TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_left_shift()
         {
-            int3x4 a0 = int3x4(197771193, 622182602, 1283988958, 1327917304, 473415985, 432425717, 870301196, 2058433484, 1200694230, 1531607705, 1360008038, 1008296534);
-            int b0 = (1321149625);
-            int3x4 r0 = int3x4(1912602624, -1811939328, -1140850688, -268435456, 1644167168, -369098752, 402653184, -1744830464, -1409286144, 838860800, -872415232, -1409286144);
-            TestUtils.AreEqual(a0 << b0, r0);
+            int3x4 a0 = int3x4(1129100049, 829482269, 1571297368, 443753193, 1872142968, 249554593, 892627436, 980302862, 62369727, 849916599, 1271350845, 108441902);
+            int b0 = (218351941);
+            int3x4 r0 = int3x4(1771463200, 773628832, -1258091776, 1315200288, -220967168, -604187616, -1500693120, 1304920512, 1995831264, 1427527392, 2028521376, -824826432);
+            TestUtils.AreEqual(r0, a0 << b0);
 
-            int3x4 a1 = int3x4(1447702302, 35667343, 1664454606, 2045594989, 2077023268, 592678686, 297755411, 1722762487, 1161625759, 37265945, 997793693, 1521705181);
-            int b1 = (1079614371);
-            int3x4 r1 = int3x4(-1303283472, 285338744, 430734960, -815109272, -563683040, 446462192, -1912924008, 897198008, 703071480, 298127560, -607585048, -711260440);
-            TestUtils.AreEqual(a1 << b1, r1);
+            int3x4 a1 = int3x4(1959056531, 1451674188, 2082026915, 1149883636, 1380536034, 186532735, 1487486874, 1498738574, 752067504, 1647167336, 772453640, 456967739);
+            int b1 = (1779118882);
+            int3x4 r1 = int3x4(-753708468, 1511729456, -261826932, 304567248, 1227176840, 746130940, 1654980200, 1699987000, -1286697280, -2001265248, -1205152736, 1827870956);
+            TestUtils.AreEqual(r1, a1 << b1);
 
-            int3x4 a2 = int3x4(263886278, 2084190583, 230910816, 71403448, 481375728, 1176038816, 1382694875, 1824729613, 1535276688, 1581610518, 407677878, 1208958192);
-            int b2 = (221147365);
-            int3x4 r2 = int3x4(-145573696, -2025378080, -1200788480, -2010056960, -1775845888, -1021463552, 1296563040, -1738194528, 1884213760, -928070976, 160790208, 31956480);
-            TestUtils.AreEqual(a2 << b2, r2);
+            int3x4 a2 = int3x4(947384545, 1315516161, 640579158, 56630178, 1650899378, 2142944517, 565484033, 965161323, 1634169280, 1821547426, 1959741996, 1189216014);
+            int b2 = (1463252873);
+            int3x4 r2 = int3x4(-270417408, -765591040, 1559014400, -1070119936, -848075776, 1970932224, 1765016064, 241358336, -823951360, 624378880, -1634445312, -1006756864);
+            TestUtils.AreEqual(r2, a2 << b2);
 
-            int3x4 a3 = int3x4(740058147, 880835937, 2063772405, 430594634, 281771991, 1130057990, 1127968177, 1628217625, 979935914, 17663275, 956738326, 1996060114);
-            int b3 = (946058001);
-            int3x4 r3 = int3x4(-934936576, -87949312, 1441398784, -1265369088, -5373952, -1576271872, -614334464, 1110573056, 1163132928, 173408256, 1445724160, -341573632);
-            TestUtils.AreEqual(a3 << b3, r3);
+            int3x4 a3 = int3x4(2088913234, 1765476869, 1716088059, 2042799042, 1560870407, 1332136179, 1595140080, 1067324801, 948699739, 1516035622, 1153563832, 1430593538);
+            int b3 = (331636352);
+            int3x4 r3 = int3x4(2088913234, 1765476869, 1716088059, 2042799042, 1560870407, 1332136179, 1595140080, 1067324801, 948699739, 1516035622, 1153563832, 1430593538);
+            TestUtils.AreEqual(r3, a3 << b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_right_shift()
         {
-            int3x4 a0 = int3x4(548167301, 1161338299, 1617625829, 1860731847, 713958715, 196552656, 770466193, 1265099998, 572763124, 506619530, 426807581, 2031319045);
-            int b0 = (1266801540);
-            int3x4 r0 = int3x4(34260456, 72583643, 101101614, 116295740, 44622419, 12284541, 48154137, 79068749, 35797695, 31663720, 26675473, 126957440);
-            TestUtils.AreEqual(a0 >> b0, r0);
+            int3x4 a0 = int3x4(809126085, 908563670, 763568837, 1986717290, 1174507510, 646821842, 1242726074, 390811632, 1521420393, 1923166649, 102096936, 400863878);
+            int b0 = (994800051);
+            int3x4 r0 = int3x4(1543, 1732, 1456, 3789, 2240, 1233, 2370, 745, 2901, 3668, 194, 764);
+            TestUtils.AreEqual(r0, a0 >> b0);
 
-            int3x4 a1 = int3x4(701927980, 569504877, 185593382, 1102123711, 334005460, 1624751550, 280138733, 1598620011, 1840564178, 736389149, 1279158873, 408822762);
-            int b1 = (917785020);
-            int3x4 r1 = int3x4(2, 2, 0, 4, 1, 6, 1, 5, 6, 2, 4, 1);
-            TestUtils.AreEqual(a1 >> b1, r1);
+            int3x4 a1 = int3x4(667378673, 307750782, 479442287, 2014389412, 1673938174, 1075916177, 1248577253, 848199210, 813936577, 848976170, 500930883, 662405800);
+            int b1 = (1611921244);
+            int3x4 r1 = int3x4(2, 1, 1, 7, 6, 4, 4, 3, 3, 3, 1, 2);
+            TestUtils.AreEqual(r1, a1 >> b1);
 
-            int3x4 a2 = int3x4(763607760, 1568185874, 774126687, 1587054000, 600069797, 29576474, 1880981389, 352174824, 1164508476, 425441430, 186542511, 1099859381);
-            int b2 = (348013684);
-            int3x4 r2 = int3x4(728, 1495, 738, 1513, 572, 28, 1793, 335, 1110, 405, 177, 1048);
-            TestUtils.AreEqual(a2 >> b2, r2);
+            int3x4 a2 = int3x4(126875849, 1199000503, 955487090, 1013356510, 391605984, 185228398, 87452680, 2021602226, 1401766495, 275199908, 664576720, 363706280);
+            int b2 = (1103917083);
+            int3x4 r2 = int3x4(0, 8, 7, 7, 2, 1, 0, 15, 10, 2, 4, 2);
+            TestUtils.AreEqual(r2, a2 >> b2);
 
-            int3x4 a3 = int3x4(1234295294, 761662151, 1254855819, 903402043, 1180315725, 182990778, 958706431, 1075621082, 1409488892, 1576738052, 700893981, 1435331003);
-            int b3 = (1028666766);
-            int3x4 r3 = int3x4(75335, 46488, 76590, 55139, 72040, 11168, 58514, 65650, 86028, 96236, 42779, 87605);
-            TestUtils.AreEqual(a3 >> b3, r3);
+            int3x4 a3 = int3x4(1600231415, 1403250657, 1132760506, 388419548, 1563117590, 1786307084, 1386128491, 1614558171, 370772389, 47213745, 1348912303, 1452132416);
+            int b3 = (19835299);
+            int3x4 r3 = int3x4(200028926, 175406332, 141595063, 48552443, 195389698, 223288385, 173266061, 201819771, 46346548, 5901718, 168614037, 181516552);
+            TestUtils.AreEqual(r3, a3 >> b3);
         }
 
         [TestCompiler]
         public static void int3x4_operator_bitwise_not()
         {
-            int3x4 a0 = int3x4(1403358969, 831360921, 2088190243, 976721016, 878283189, 308994339, 1935567517, 1420884856, 472965491, 771711426, 627580960, 2061524024);
-            int3x4 r0 = int3x4(-1403358970, -831360922, -2088190244, -976721017, -878283190, -308994340, -1935567518, -1420884857, -472965492, -771711427, -627580961, -2061524025);
-            TestUtils.AreEqual(~a0, r0);
+            int3x4 a0 = int3x4(111796841, 603562399, 745091931, 853183268, 1110916612, 381888399, 1891338755, 1506860135, 771210628, 787710759, 875964607, 96456785);
+            int3x4 r0 = int3x4(-111796842, -603562400, -745091932, -853183269, -1110916613, -381888400, -1891338756, -1506860136, -771210629, -787710760, -875964608, -96456786);
+            TestUtils.AreEqual(r0, ~a0);
 
-            int3x4 a1 = int3x4(753208488, 1303022493, 664744603, 1289372466, 1635981125, 1951018596, 1545651937, 717936457, 1284504687, 1342785385, 869629475, 2045854321);
-            int3x4 r1 = int3x4(-753208489, -1303022494, -664744604, -1289372467, -1635981126, -1951018597, -1545651938, -717936458, -1284504688, -1342785386, -869629476, -2045854322);
-            TestUtils.AreEqual(~a1, r1);
+            int3x4 a1 = int3x4(916013379, 1172294211, 1020232736, 683852713, 375158799, 881353367, 1218471344, 1174233245, 592898220, 443427914, 1385118179, 215320517);
+            int3x4 r1 = int3x4(-916013380, -1172294212, -1020232737, -683852714, -375158800, -881353368, -1218471345, -1174233246, -592898221, -443427915, -1385118180, -215320518);
+            TestUtils.AreEqual(r1, ~a1);
 
-            int3x4 a2 = int3x4(1282546942, 1824824810, 1736570715, 508906058, 2060752880, 1867418756, 388530274, 695179852, 1766938039, 897923626, 1816190464, 1362906829);
-            int3x4 r2 = int3x4(-1282546943, -1824824811, -1736570716, -508906059, -2060752881, -1867418757, -388530275, -695179853, -1766938040, -897923627, -1816190465, -1362906830);
-            TestUtils.AreEqual(~a2, r2);
+            int3x4 a2 = int3x4(860122767, 1349739899, 686325107, 829984855, 191189901, 319233142, 156019905, 1467719681, 1193642973, 957020051, 610113447, 1906177458);
+            int3x4 r2 = int3x4(-860122768, -1349739900, -686325108, -829984856, -191189902, -319233143, -156019906, -1467719682, -1193642974, -957020052, -610113448, -1906177459);
+            TestUtils.AreEqual(r2, ~a2);
 
-            int3x4 a3 = int3x4(1227946838, 189609278, 956441808, 2123488810, 1593014251, 19223061, 1722107954, 1636875694, 1914097392, 1382545027, 1285277010, 722020848);
-            int3x4 r3 = int3x4(-1227946839, -189609279, -956441809, -2123488811, -1593014252, -19223062, -1722107955, -1636875695, -1914097393, -1382545028, -1285277011, -722020849);
-            TestUtils.AreEqual(~a3, r3);
+            int3x4 a3 = int3x4(1022824453, 1876376887, 479785538, 1454477141, 1062967600, 864049393, 916152339, 1644897753, 1624633488, 210894078, 759733457, 40062168);
+            int3x4 r3 = int3x4(-1022824454, -1876376888, -479785539, -1454477142, -1062967601, -864049394, -916152340, -1644897754, -1624633489, -210894079, -759733458, -40062169);
+            TestUtils.AreEqual(r3, ~a3);
         }
 
 

@@ -32,7 +32,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from four bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool z, bool w)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -42,7 +42,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from two bool values and a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool2 zw)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = zw.x;
@@ -52,7 +52,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from a bool value, a bool2 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool2 yz, bool w)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -62,7 +62,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from a bool value and a bool3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool3 yzw)
-        { 
+        {
             this.x = x;
             this.y = yzw.x;
             this.z = yzw.y;
@@ -72,7 +72,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from a bool2 vector and two bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool2 xy, bool z, bool w)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -82,7 +82,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from two bool2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool2 xy, bool2 zw)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = zw.x;
@@ -92,7 +92,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from a bool3 vector and a bool value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool3 xyz, bool w)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
@@ -102,7 +102,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool4 vector from a bool4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool4 xyzw)
-        { 
+        {
             this.x = xyzw.x;
             this.y = xyzw.y;
             this.z = xyzw.z;

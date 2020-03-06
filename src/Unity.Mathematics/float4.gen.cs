@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from four float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float z, float w)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from two float values and a float2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float y, float2 zw)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = zw.x;
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from a float value, a float2 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float2 yz, float w)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -59,7 +59,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from a float value and a float3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float x, float3 yzw)
-        { 
+        {
             this.x = x;
             this.y = yzw.x;
             this.z = yzw.y;
@@ -69,7 +69,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from a float2 vector and two float values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float2 xy, float z, float w)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -79,7 +79,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float2 xy, float2 zw)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = zw.x;
@@ -89,7 +89,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from a float3 vector and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float3 xyz, float w)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
@@ -99,7 +99,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a float4 vector from a float4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4(float4 xyzw)
-        { 
+        {
             this.x = xyzw.x;
             this.y = xyzw.y;
             this.z = xyzw.z;

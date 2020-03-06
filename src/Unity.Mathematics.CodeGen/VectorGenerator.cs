@@ -200,6 +200,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Generate auto generated comment
             text = s_AutoGenHeader + text;
 
+            // Trim trailing spaces that could have come from code gen.
+            char[] trim = { ' ' };
+            var lines = text.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+
+            for (int i = 0; i < lines.Length; ++i)
+            {
+                lines[i] = lines[i].TrimEnd(trim);
+            }
+
+            text = string.Join(Environment.NewLine, lines);
+
             System.IO.File.WriteAllText(filename, text);
         }
 
@@ -1942,7 +1953,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 BeginTest(str, m_TypeName + "_zero");
                 for (int row = 0; row < m_Rows; row++)
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.{1}, {2});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual({2}, {0}.zero.{1});\n", m_TypeName, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
             }
             else
@@ -1950,7 +1961,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 BeginTest(str, m_TypeName + "_zero");
                 for(int column = 0; column < m_Columns; column++)
                     for (int row = 0; row < m_Rows; row++)
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.zero.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({3}, {0}.zero.c{1}.{2});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, 0));
                 EndTest(str);
 
                 if(m_Columns == m_Rows)
@@ -1958,7 +1969,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     BeginTest(str, m_TypeName + "_identity");
                     for (int column = 0; column < m_Columns; column++)
                         for (int row = 0; row < m_Rows; row++)
-                            str.AppendFormat("\t\t\tTestUtils.AreEqual({0}.identity.c{1}.{2}, {3});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
+                            str.AppendFormat("\t\t\tTestUtils.AreEqual({3}, {0}.identity.c{1}.{2});\n", m_TypeName, column, components[row], ToTypedLiteral(m_BaseType, column == row ? 1 : 0));
                     EndTest(str);
                 }
             }
@@ -1987,7 +1998,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], value);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({1}, a.{0});\n", components[row], value);
                     }
                 }
                 else
@@ -1998,7 +2009,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     for (int row = 0; row < m_Rows; row++)
                     {
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a.{0}, {1});\n", components[row], values[row]);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual({1}, a.{0});\n", components[row], values[row]);
                     }
                 }
 
@@ -2019,9 +2030,36 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
+        static int StableStringHash(string str)
+        {
+            unsafe
+            {
+                fixed (char* src = str)
+                {
+                    int hash1 = (5381 << 16) + 5381;
+                    int hash2 = hash1;
+
+                    int* pint = (int*)src;
+                    int len = str.Length;
+                    while (len > 2)
+                    {
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+                        hash2 = ((hash2 << 5) + hash2 + (hash2 >> 27)) ^ pint[1];
+                        pint += 2;
+                        len -= 4;
+                    }
+
+                    if (len > 0)
+                        hash1 = ((hash1 << 5) + hash1 + (hash1 >> 27)) ^ pint[0];
+
+                    return hash1 + (hash2 * 1566083941);
+                }
+            }
+        }
+
         private void TestOperator(StringBuilder str, bool lhsWide, bool rhsWide, string lhsType, string rhsType, string returnType, string op, string opName, bool isBinary, bool isPrefix)
         {
-            var rnd = new Random(opName.GetHashCode());
+            var rnd = new Random(StableStringHash(opName));
 
             BeginTest(str, m_TypeName + "_operator_" + opName);
 
@@ -2209,7 +2247,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     AddParenthesized(str, resultValues);
                     str.Append(";\n");
 
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1} {0} b{1}, r{1});\n", op, pass);
+                    str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, a{1} {0} b{1});\n", op, pass);
                 }
                 else
                 {
@@ -2218,9 +2256,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     str.Append(";\n");
 
                     if (isPrefix)
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual({0}a{1}, r{1});\n", op, pass);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, {0}a{1});\n", op, pass);
                     else
-                        str.AppendFormat("\t\t\tTestUtils.AreEqual(a{1}{0}, r{1});\n", op, pass);
+                        str.AppendFormat("\t\t\tTestUtils.AreEqual(r{1}, a{1}{0});\n", op, pass);
                 }
 
                 if (pass != numPasses - 1)
@@ -2279,19 +2317,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             shuffleIndices[i] = rnd.Next(m_Rows * 2);
                     }
 
-                    str.Append("\t\t\tTestUtils.AreEqual(shuffle(a, b");
+                    str.Append("\t\t\tTestUtils.AreEqual(");
+                    if (resultComponents > 1)
+                        str.Append(resultType);
+
                     for(int i = 0; i < resultComponents; i++)
                     {
                         int t = shuffleIndices[i];
                         shuffleValues[i] = t >= m_Rows ? b_data[t - m_Rows] : a_data[t];
-                        str.AppendFormat(", ShuffleComponent.{0}", shuffleComponents[t >= m_Rows ? (t - m_Rows + 4) : t]);
                     }
-                    str.Append("), ");
-                    if (resultComponents > 1)
-                        str.Append(resultType);
 
                     AddParenthesized(str, shuffleValues);
-                    str.Append(");\n");
+                    str.Append(", shuffle(a, b");
+                    for(int i = 0; i < resultComponents; i++)
+                    {
+                        int t = shuffleIndices[i];
+                        str.AppendFormat(", ShuffleComponent.{0}", shuffleComponents[t >= m_Rows ? (t - m_Rows + 4) : t]);
+                    }
+                    str.Append("));\n");
                 }
 
 
@@ -2385,7 +2428,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (f == float.MinValue)
                     return "float.MinValue";
                 else if (float.IsNaN(f))
-                    return uf >= 0x80000000u ? "float.NaN" : "-float.NaN";
+                    return uf < 0x80000000u ? "TestUtils.UnsignedFloatQNaN()" : "TestUtils.SignedFloatQNaN()";
                 else if (uf == 0x80000000u)
                     return "-0.0f";
                 else
@@ -2404,7 +2447,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (d == double.MinValue)
                     return "double.MinValue";
                 else if (double.IsNaN(d))
-                    return ud >= 0x8000000000000000ul ? "double.NaN" : "-double.NaN";
+                    return ud < 0x8000000000000000ul ? "TestUtils.UnsignedDoubleQNaN()" : "TestUtils.SignedDoubleQNaN()";
                 else if (ud == 0x8000000000000000ul)
                     return "-0.0";
                 else
@@ -2480,15 +2523,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 BeginTest(str, functionName + "_" + inputTypeName + (numComponents > 1 ? ("" + numComponents) : ""));
                 for (int test = 0; test < numTests; test += numComponents)
                 {
-                    str.AppendFormat("\t\t\tTestUtils.AreEqual({0}(", functionName);
+                    str.Append("\t\t\tTestUtils.AreEqual(");
+                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+                    str.Append(", ");
+                    str.AppendFormat("{0}(", functionName);
                     for (int param = 0; param < numParams; param++)
                     {
                         if (param > 0)
                             str.Append(", ");
                         GenerateComponentWiseParam<I>(str, inputTypeName, numComponents, GetColumn(input, param), test);
                     }
-                    str.Append("), ");
-                    GenerateComponentWiseParam<O>(str, outputTypeName, numComponents, output, test);
+
+                    str.Append(")");
 
                     if((typeof(O) == typeof(float) || typeof(O) == typeof(double)) && maxUps > 0)
                     {
@@ -2513,6 +2559,43 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateComponentWiseTest(str, functionName, inputFloat, outputFloat, 4, floatMaxEps, signedZeroEqual);
             GenerateComponentWiseTest(str, functionName, input, output, 4, doubleMaxEps, signedZeroEqual);
         }
+
+        static float UnsignedFloatQNaN()
+        {
+            UIntFloatUnion u;
+            u.floatValue = 0.0f;
+            u.uintValue = 0x7fc0_0000u;
+
+            return u.floatValue;
+        }
+
+        static double UnsignedDoubleQNaN()
+        {
+            ULongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.ulongValue = 0x7ff8_0000_0000_0000ul;
+
+            return u.doubleValue;
+        }
+
+        static float SignedFloatQNaN()
+        {
+            UIntFloatUnion u;
+            u.floatValue = 0.0f;
+            u.uintValue = 0xffc0_0000u;
+
+            return u.floatValue;
+        }
+
+        static double SignedDoubleQNaN()
+        {
+            ULongDoubleUnion u;
+            u.doubleValue = 0.0;
+            u.ulongValue = 0xfff8_0000_0000_0000ul;
+
+            return u.doubleValue;
+        }
+
         private void GenerateMathTests(StringBuilder str)
         {
             str.Append("using NUnit.Framework;\n");
@@ -2528,17 +2611,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTestFloatAndDouble(str, "abs", new double[,] { { 0.0 }, { -1.1 }, { 2.2 }, { double.NegativeInfinity }, { double.PositiveInfinity } }, new double[] { 0.0, 1.1, 2.2, double.PositiveInfinity, double.PositiveInfinity }, 0, 0, false);
 
-            GenerateComponentWiseTest(str, "isfinite", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isfinite", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { false, false, true, true, true, true, true, false, false }, 4);
-            GenerateComponentWiseTest(str, "isfinite", new double[,] { { -float.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isfinite", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { false, false, true, true, true, true, true, false, false }, 4);
-            GenerateComponentWiseTest(str, "isinf", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isinf", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { false, true, false, false, false, false, false, true, false }, 4);
-            GenerateComponentWiseTest(str, "isinf", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isinf", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { false, true, false, false, false, false, false, true, false }, 4);
-            GenerateComponentWiseTest(str, "isnan", new float[,] { { -float.NaN }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { float.NaN } },
+            GenerateComponentWiseTest(str, "isnan", new float[,] { { SignedFloatQNaN() }, { float.NegativeInfinity }, { float.MinValue }, { -1.0f }, { 0.0f }, { 1.0f }, { float.MaxValue }, { float.PositiveInfinity }, { UnsignedFloatQNaN() } },
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
-            GenerateComponentWiseTest(str, "isnan", new double[,] { { -double.NaN }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { double.NaN } },
+            GenerateComponentWiseTest(str, "isnan", new double[,] { { SignedDoubleQNaN() }, { double.NegativeInfinity }, { double.MinValue }, { -1.0 }, { 0.0 }, { 1.0 }, { double.MaxValue }, { double.PositiveInfinity }, { UnsignedDoubleQNaN() } },
                                                                    new bool[] { true, false, false, false, false, false, false, false, true }, 4);
 
             GenerateComponentWiseTestFloatAndDouble(str, "sin", new double[,] { { -1000000.0 }, { -1.2 }, { 0.0 }, { 1.2 }, { 1000000.0 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
@@ -2859,6 +2942,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTest(str, "ceilpow2", new ulong[,] { { 0UL }, { 1UL }, { 2UL }, { 3UL }, { 1019642234UL }, { 1823423423UL }, { 2147483648UL }, { 4294967295UL }, { 4294967296UL }, { 7227372236554874814UL }, { 10223372036854775808UL } },
                                                        new ulong[] { 0UL, 1UL, 2UL, 4UL, 1073741824UL, 2147483648UL, 2147483648UL, 4294967296UL, 4294967296UL, 9223372036854775808UL, 0L }, 1);
+            GenerateComponentWiseTest(str, "floorlog2", new int[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { (1 << 15) - 1 }, { 1 << 15 }, { (1 << 15) + 1 }, { Int32.MaxValue } }, new int[] { 0, 1, 1, 2, 2, 14, 15, 15, 30 }, 4);
+            GenerateComponentWiseTest(str, "floorlog2", new uint[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { (1 << 15) - 1 }, { 1 << 15 }, { (1 << 15) + 1 }, { Int32.MaxValue } }, new int[] { 0, 1, 1, 2, 2, 14, 15, 15, 30 }, 4);
+
+
+            GenerateComponentWiseTest(str, "ceillog2", new int[,] { { 1 }, { 2 }, { 3 }, { 4 }, { 5 }, { 63 }, { 64 }, { 65 }, { (1 << 24) - 1 }, { 1 << 24 }, { (1 << 24) + 1 }, { 2147483646 }, { 2147483647 } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24, 25, 31, 31 }, 4);
+            GenerateComponentWiseTest(str, "ceillog2", new uint[,] { { 1u }, { 2u }, { 3u }, { 4u }, { 5u }, { 63u }, { 64u }, { 65u }, { (1u << 24) - 1u }, { 1u << 24 }, { (1u << 24) + 1u }, { 4294967294u }, { 4294967295u } }, new int[] { 0, 1, 2, 2, 3, 6, 6, 7, 24, 24 ,25, 32, 32 }, 4);
+            GenerateComponentWiseTest(str, "ispow2", new int[,] { { -3 }, { -2 }, { -1 }, { 0 }, { 1 }, { 2 }, { 3 }, { 4 }, { (1 << 15) - 1}, { 1 << 15 }, { (1 << 15) + 1}, { (1 << 21) - 1}, { 1 << 21 }, { 268431360 }  }, new bool[] { false, false, false, false, true, true, false, true, false, true, false, false, true, false, false }, 4);
+            GenerateComponentWiseTest(str, "ispow2", new uint[,] { { 0u }, { 1u }, { 2u }, { 3u }, { 4u }, { (1u << 15) - 1}, { 1u << 15 }, { (1u << 15) + 1 }, { (1u << 21) - 1}, { 1u << 21 }, { (1u << 21) + 1 }, { 268431360u } }, new bool[] { false, true, true, false, true, false, true, false, false, true, false, false }, 4);
 
             str.Append("\n\t}");
             str.Append("\n}\n");

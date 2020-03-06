@@ -27,7 +27,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint2 vector from two uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
-        { 
+        {
             this.x = x;
             this.y = y;
         }
@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint2 vector from a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint2 xy)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
         }

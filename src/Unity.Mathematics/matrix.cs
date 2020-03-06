@@ -10,7 +10,7 @@ namespace Unity.Mathematics
         {
             float s, c;
             sincos(angle, out s, out c);
-            return float2x2(c, -s, 
+            return float2x2(c, -s,
                             s,  c);
         }
 
@@ -37,6 +37,17 @@ namespace Unity.Mathematics
 
     public partial struct float3x3
     {
+        /// <summary>
+        /// Constructs a float3x3 from the upper left 3x3 of a float4x4.
+        /// </summary>
+        /// <param name="f4x4"><see cref="float4x4"/> to extract a float3x3 from.</param>
+        public float3x3(float4x4 f4x4)
+        {
+            c0 = f4x4.c0.xyz;
+            c1 = f4x4.c1.xyz;
+            c2 = f4x4.c2.xyz;
+        }
+
         /// <summary>Constructs a float3x3 matrix from a unit quaternion.</summary>
         public float3x3(quaternion q)
         {
@@ -372,7 +383,7 @@ namespace Unity.Mathematics
         {
             float forwardLengthSq = dot(forward, forward);
             float upLengthSq = dot(up, up);
-            
+
             forward *= rsqrt(forwardLengthSq);
             up *= rsqrt(upLengthSq);
 
@@ -389,6 +400,8 @@ namespace Unity.Mathematics
                 select(float3(0,1,0), cross(forward, t), accept),
                 select(float3(0,0,1), forward, accept));
         }
+
+        public static explicit operator float3x3(float4x4 f4x4) => new float3x3(f4x4);
     }
 
     public partial struct float4x4
@@ -854,6 +867,16 @@ namespace Unity.Mathematics
 
     partial class math
     {
+        /// <summary>
+        /// Extracts a float3x3 from the upper left 3x3 of a float4x4.
+        /// </summary>
+        /// <param name="f4x4"><see cref="float4x4"/> to extract a float3x3 from.</param>
+        /// <returns>Upper left 3x3 matrix as float3x3.</returns>
+        public static float3x3 float3x3(float4x4 f4x4)
+        {
+            return new float3x3(f4x4);
+        }
+
         /// <summary>Returns a float3x3 matrix constructed from a quaternion.</summary>
         public static float3x3 float3x3(quaternion rotation)
         {

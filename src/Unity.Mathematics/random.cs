@@ -495,7 +495,7 @@ namespace Unity.Mathematics
             float3 rnd = NextFloat3(float3(2.0f * PI, 2.0f * PI, 1.0f));
             float u1 = rnd.z;
             float2 theta_rho = rnd.xy;
-            
+
             float i = sqrt(1.0f - u1);
             float j = sqrt(u1);
 
@@ -526,7 +526,7 @@ namespace Unity.Mathematics
                 throw new System.ArgumentException("Seed must be non-zero");
 #endif
         }
-        
+
         [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
         private void CheckState()
         {

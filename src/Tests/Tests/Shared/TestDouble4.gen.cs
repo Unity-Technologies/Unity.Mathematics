@@ -18,962 +18,962 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void double4_zero()
         {
-            TestUtils.AreEqual(double4.zero.x, 0.0);
-            TestUtils.AreEqual(double4.zero.y, 0.0);
-            TestUtils.AreEqual(double4.zero.z, 0.0);
-            TestUtils.AreEqual(double4.zero.w, 0.0);
+            TestUtils.AreEqual(0.0, double4.zero.x);
+            TestUtils.AreEqual(0.0, double4.zero.y);
+            TestUtils.AreEqual(0.0, double4.zero.z);
+            TestUtils.AreEqual(0.0, double4.zero.w);
         }
 
         [TestCompiler]
         public static void double4_constructor()
         {
             double4 a = new double4(1, 2, 3, 4);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
-            TestUtils.AreEqual(a.z, 3);
-            TestUtils.AreEqual(a.w, 4);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
+            TestUtils.AreEqual(3, a.z);
+            TestUtils.AreEqual(4, a.w);
         }
 
         [TestCompiler]
         public static void double4_scalar_constructor()
         {
             double4 a = new double4(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
-            TestUtils.AreEqual(a.z, 17.0);
-            TestUtils.AreEqual(a.w, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
+            TestUtils.AreEqual(17.0, a.z);
+            TestUtils.AreEqual(17.0, a.w);
         }
 
         [TestCompiler]
         public static void double4_static_constructor()
         {
             double4 a = double4(1, 2, 3, 4);
-            TestUtils.AreEqual(a.x, 1);
-            TestUtils.AreEqual(a.y, 2);
-            TestUtils.AreEqual(a.z, 3);
-            TestUtils.AreEqual(a.w, 4);
+            TestUtils.AreEqual(1, a.x);
+            TestUtils.AreEqual(2, a.y);
+            TestUtils.AreEqual(3, a.z);
+            TestUtils.AreEqual(4, a.w);
         }
 
         [TestCompiler]
         public static void double4_static_scalar_constructor()
         {
             double4 a = double4(17.0);
-            TestUtils.AreEqual(a.x, 17.0);
-            TestUtils.AreEqual(a.y, 17.0);
-            TestUtils.AreEqual(a.z, 17.0);
-            TestUtils.AreEqual(a.w, 17.0);
+            TestUtils.AreEqual(17.0, a.x);
+            TestUtils.AreEqual(17.0, a.y);
+            TestUtils.AreEqual(17.0, a.z);
+            TestUtils.AreEqual(17.0, a.w);
         }
 
         [TestCompiler]
         public static void double4_operator_equal_wide_wide()
         {
-            double4 a0 = double4(-135.18925172425304, -49.094127439471947, 169.12980778940482, 240.80529772527757);
-            double4 b0 = double4(-220.01464591734793, 66.980020792679852, 499.20158576369363, -371.113114291389);
+            double4 a0 = double4(492.15758275061728, -495.20632027797694, 227.45765195947968, -147.37405950733182);
+            double4 b0 = double4(192.56880888369346, -235.61102472786376, -254.04311740307281, -412.62472052715009);
             bool4 r0 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double4 a1 = double4(314.73919382446411, 442.39301916695808, 177.92444881141398, 335.53340283759564);
-            double4 b1 = double4(208.44865212610398, 390.80369133074009, -72.443806920407269, 362.97643273089841);
+            double4 a1 = double4(-222.68201909897942, 64.093720704360749, -23.890404473939157, -16.8197190839889);
+            double4 b1 = double4(471.90480945627428, -6.4727852374654162, -339.10237447316865, 488.1875700839737);
             bool4 r1 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double4 a2 = double4(168.1544516869609, 350.72955982327903, 367.17843668869625, 46.941470406456574);
-            double4 b2 = double4(194.6783255053117, 471.6448635867074, -404.04466719368691, -144.69675476136467);
+            double4 a2 = double4(163.23210890741655, -165.27101071424363, 470.87767980568003, -423.94255967808078);
+            double4 b2 = double4(-379.5965842584132, -308.41700258311675, -82.333374300195544, -102.92108087563935);
             bool4 r2 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double4 a3 = double4(188.76415094582558, -97.211392209497944, -293.3210057193977, -234.82292353120766);
-            double4 b3 = double4(-494.44664334433463, -252.97038209297244, 234.41711746641306, 398.72397465199413);
+            double4 a3 = double4(109.63436918595539, 462.69031283943468, -335.38147727371262, 357.23446934168896);
+            double4 b3 = double4(226.51573835430463, -356.90132896830391, -362.91277544708589, -427.89843746083716);
             bool4 r3 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double4_operator_equal_wide_scalar()
         {
-            double4 a0 = double4(65.671194345537174, 404.41550440546848, -269.7301577393572, 83.630607882342588);
-            double b0 = (-155.8157547245807);
+            double4 a0 = double4(-303.2300766926399, 451.52631327674089, -253.65587413201848, -105.20363502632995);
+            double b0 = (123.5445759871717);
             bool4 r0 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double4 a1 = double4(152.99450476141385, 314.67125597348024, 386.36515325417986, 290.04894007837811);
-            double b1 = (-155.86829836474186);
+            double4 a1 = double4(-500.6910920090466, 159.87609656149334, -59.558379439431405, -57.477391031327386);
+            double b1 = (-426.19248338518315);
             bool4 r1 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double4 a2 = double4(-132.63519460178691, -69.683271678948415, -191.19075521789063, 186.84520086406042);
-            double b2 = (-65.667489797653388);
+            double4 a2 = double4(-182.04973968400139, 370.88599866017978, -172.03530629539642, 455.40001198993991);
+            double b2 = (406.51375861024189);
             bool4 r2 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double4 a3 = double4(-232.89569221851218, -49.701092981594172, -300.88189925853248, 333.39685193328046);
-            double b3 = (-319.14406481345372);
+            double4 a3 = double4(-11.338988547836891, -27.150561106927, -325.97606507221985, -290.35904254129116);
+            double b3 = (363.93823044557973);
             bool4 r3 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double4_operator_equal_scalar_wide()
         {
-            double a0 = (36.383921878591195);
-            double4 b0 = double4(-400.48919958644046, -71.286823544319191, 156.97811491646712, -225.23872791288363);
+            double a0 = (-253.39728534100453);
+            double4 b0 = double4(19.952187785856495, -185.79199346610903, 407.8136052600172, -87.2766969610363);
             bool4 r0 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a0 == b0, r0);
+            TestUtils.AreEqual(r0, a0 == b0);
 
-            double a1 = (499.14180993435059);
-            double4 b1 = double4(-211.97992358542047, 428.31192394174263, -489.50133322621758, -5.6915457275190988);
+            double a1 = (-206.27469382354741);
+            double4 b1 = double4(160.503138855334, -274.77081478516141, -2.6315281403397535, 448.35453602688131);
             bool4 r1 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a1 == b1, r1);
+            TestUtils.AreEqual(r1, a1 == b1);
 
-            double a2 = (-30.865948453017495);
-            double4 b2 = double4(-362.98307221149241, 184.50319322594589, -160.47062142215231, 316.66882315122928);
+            double a2 = (-410.03524251004461);
+            double4 b2 = double4(247.32901465489022, 355.53915350303942, -298.06671180299793, 414.10151429385951);
             bool4 r2 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a2 == b2, r2);
+            TestUtils.AreEqual(r2, a2 == b2);
 
-            double a3 = (390.36923879681581);
-            double4 b3 = double4(505.10510301268891, -294.64870967280524, 443.19909283295226, 96.559236333034619);
+            double a3 = (-481.30262707234482);
+            double4 b3 = double4(196.55074438664633, 34.60100008668428, 113.76156645350227, -386.45337861890596);
             bool4 r3 = bool4(false, false, false, false);
-            TestUtils.AreEqual(a3 == b3, r3);
+            TestUtils.AreEqual(r3, a3 == b3);
         }
 
         [TestCompiler]
         public static void double4_operator_not_equal_wide_wide()
         {
-            double4 a0 = double4(279.99414576217259, -43.342018386042696, -465.72473523846116, 317.46655645848557);
-            double4 b0 = double4(-460.912120318465, -476.00904844515446, 468.13642070635058, -341.01254312182431);
+            double4 a0 = double4(430.8425316432689, 104.69001798736394, 225.80243478799355, -310.57017841496048);
+            double4 b0 = double4(210.02470622305975, -55.203330304102678, -269.92533672504373, -234.54673372700194);
             bool4 r0 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double4 a1 = double4(85.714987079480238, 360.89050572034466, 366.08152668833804, 154.5428384070018);
-            double4 b1 = double4(-62.658060341448561, -458.80166718866752, -457.73023316717251, -59.523265627922171);
+            double4 a1 = double4(-418.61945815506363, 304.12820281839379, -509.32682561749908, -160.53807719076895);
+            double4 b1 = double4(25.917412054686565, -63.726991444699024, -484.55371092471933, -425.333599050219);
             bool4 r1 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double4 a2 = double4(332.426219856565, 397.11323160543725, -431.3749584776233, 489.01079319837072);
-            double4 b2 = double4(3.024243117787023, 155.81276352508587, -19.839918384253963, -6.0169332055453992);
+            double4 a2 = double4(-203.30197606016975, -505.76325368590807, 162.17220623892365, 1.1561973100324394);
+            double4 b2 = double4(-53.274394775402925, 328.1944192984115, 15.963139303011417, 461.71412417931208);
             bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double4 a3 = double4(398.43358320669904, -489.81794594685454, 171.4049242340983, -67.829682620162941);
-            double4 b3 = double4(-406.20792145571107, -102.42070083619126, -40.362921018322425, 452.67542645552919);
+            double4 a3 = double4(65.662074358045174, 102.78780250567377, 172.93008120960098, 26.621009123800832);
+            double4 b3 = double4(-113.36304455313973, -240.07297264787974, 495.11916970420589, 203.5583661550462);
             bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double4_operator_not_equal_wide_scalar()
         {
-            double4 a0 = double4(-155.44111282911206, -19.426602134214079, 174.63305409934048, 507.9207296352464);
-            double b0 = (-393.41354173860213);
+            double4 a0 = double4(-16.914588697680529, 168.83411486858233, -462.71352145760949, 130.30776959765137);
+            double b0 = (-145.37277109239847);
             bool4 r0 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double4 a1 = double4(59.177048472304364, -58.923273352404692, -398.17684835855704, 492.20105361016522);
-            double b1 = (171.15146430356026);
+            double4 a1 = double4(214.50161443208424, -197.12796053529155, -169.09985860115842, -386.61117595555783);
+            double b1 = (-440.26328178879959);
             bool4 r1 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double4 a2 = double4(-165.24150879925185, -380.24326222960059, 501.8990516615562, -134.34545642433011);
-            double b2 = (270.34102333259818);
+            double4 a2 = double4(-281.02101362916687, -403.96372313236992, -269.80570877241234, 299.65422763473089);
+            double b2 = (-270.26885593601912);
             bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double4 a3 = double4(458.40042302496749, 161.45995123752391, 261.51423442620512, -145.61239559278471);
-            double b3 = (46.771004937016869);
+            double4 a3 = double4(-71.750904831919286, -457.36312100727258, -13.519590622521719, 273.87305773136814);
+            double b3 = (-432.75573917513515);
             bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double4_operator_not_equal_scalar_wide()
         {
-            double a0 = (478.35313938481409);
-            double4 b0 = double4(459.55319592894671, 436.45324369727314, -488.71416806090349, 392.76794475725296);
+            double a0 = (275.79582823244664);
+            double4 b0 = double4(-57.196896341255353, -382.4325279586169, 97.820359990848374, -161.46364529499022);
             bool4 r0 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a0 != b0, r0);
+            TestUtils.AreEqual(r0, a0 != b0);
 
-            double a1 = (-266.73665369056937);
-            double4 b1 = double4(338.55788270503183, -338.10012475498957, -152.3145445102428, -452.82067868338);
+            double a1 = (-458.39563367254829);
+            double4 b1 = double4(-499.61786364932448, 327.92217818271467, 367.57121699283425, 59.7863667289663);
             bool4 r1 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a1 != b1, r1);
+            TestUtils.AreEqual(r1, a1 != b1);
 
-            double a2 = (209.43931422449612);
-            double4 b2 = double4(50.107968592135194, 372.4343656843688, -488.0213141329686, 489.74075697816011);
+            double a2 = (-209.58068118318016);
+            double4 b2 = double4(-62.580453186566217, -479.97497604786184, -49.494519495169868, -114.68521338081229);
             bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 != b2, r2);
+            TestUtils.AreEqual(r2, a2 != b2);
 
-            double a3 = (270.40006149485714);
-            double4 b3 = double4(-472.8467831429312, -286.85046090132113, -384.69186681541237, 443.42352959300558);
+            double a3 = (109.93924599044919);
+            double4 b3 = double4(-176.28482755286842, -347.48529903380449, 85.540928165214609, -356.65954868712441);
             bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 != b3, r3);
+            TestUtils.AreEqual(r3, a3 != b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_wide_wide()
         {
-            double4 a0 = double4(51.710243010758518, -313.85556450200062, 283.04767359562572, 235.02188621974642);
-            double4 b0 = double4(-261.83523881707117, -19.810742149041403, -149.25882084167506, 205.99822316225539);
-            bool4 r0 = bool4(false, true, false, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double4 a0 = double4(196.84256825076534, 336.40979997087732, 251.96372115424072, 257.65591466503963);
+            double4 b0 = double4(-465.34502313348696, -256.15239751346053, -314.814018634527, 364.56673662949663);
+            bool4 r0 = bool4(false, false, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double4 a1 = double4(44.0783565249659, -207.25566659088042, 3.3829410091894943, -144.30134326978651);
-            double4 b1 = double4(-306.02438535635565, 102.12168006884008, 231.90633760760829, 179.49885305180158);
-            bool4 r1 = bool4(false, true, true, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double4 a1 = double4(430.04588647840819, -62.419644146421774, 8.8392293494376872, -333.81671563434259);
+            double4 b1 = double4(100.21050290959442, 182.56098636545289, 3.116978885194726, -259.43047893207074);
+            bool4 r1 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double4 a2 = double4(-69.369597705718888, -135.66796762108243, -194.78736576567746, -33.473868147225062);
-            double4 b2 = double4(473.22488496882136, 15.891647107848712, 270.04990614114786, 490.91400240869916);
-            bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double4 a2 = double4(164.67880662003472, -350.94487516532877, 3.84143662631584, 125.40972024081725);
+            double4 b2 = double4(-437.33490749696966, -456.0437321402336, -394.2559718537405, 401.91369099259077);
+            bool4 r2 = bool4(false, false, false, true);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double4 a3 = double4(-19.675088653189619, 423.23796697297973, -71.698315415390937, -501.88598870760109);
-            double4 b3 = double4(-185.73412164753961, 76.433086669274189, 97.75231246731812, 419.30080600236579);
-            bool4 r3 = bool4(false, false, true, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double4 a3 = double4(-111.12994127680076, 70.005523475820951, 448.19828173527412, -419.98711200244122);
+            double4 b3 = double4(313.43916454605721, 121.28668194696616, -28.012290729215522, -282.96589697663012);
+            bool4 r3 = bool4(true, true, false, true);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_wide_scalar()
         {
-            double4 a0 = double4(-221.86977325280651, -121.54646807608498, -97.52392511140738, 479.88107775146193);
-            double b0 = (199.06751808853244);
-            bool4 r0 = bool4(true, true, true, false);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double4 a0 = double4(-132.05731708000292, -192.46500477216438, -66.834607870706634, -379.01750081545561);
+            double b0 = (-156.01021845452965);
+            bool4 r0 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double4 a1 = double4(67.118990214131259, 282.96659601990439, 258.27909362422258, -111.41316061439608);
-            double b1 = (137.32880574899207);
-            bool4 r1 = bool4(true, false, false, true);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double4 a1 = double4(-360.28242199508588, -158.24074537970159, 437.34587522845061, -20.452607402788772);
+            double b1 = (20.927834282129879);
+            bool4 r1 = bool4(true, true, false, true);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double4 a2 = double4(-288.08113278452356, -361.64292042406413, -68.088202269788951, 12.788020378345664);
-            double b2 = (82.665427008022334);
-            bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double4 a2 = double4(225.29148517609178, 274.01523292903562, 373.54965584983563, 398.52368301829495);
+            double b2 = (307.48418607725023);
+            bool4 r2 = bool4(true, true, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double4 a3 = double4(-66.703050406045747, 25.727694284975428, 101.37087182950734, -330.442660724019);
-            double b3 = (-78.762971199472872);
-            bool4 r3 = bool4(false, false, false, true);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double4 a3 = double4(105.0301654827922, 109.67008810381878, -108.853174498702, -44.971252223929014);
+            double b3 = (-58.010895994496934);
+            bool4 r3 = bool4(false, false, true, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_scalar_wide()
         {
-            double a0 = (-250.4849370692321);
-            double4 b0 = double4(-377.19654887597846, -505.14754104295167, 375.92672198634909, 110.17393474940855);
-            bool4 r0 = bool4(false, false, true, true);
-            TestUtils.AreEqual(a0 < b0, r0);
+            double a0 = (-423.117411095238);
+            double4 b0 = double4(385.09483617595151, -123.93348532725753, 86.376572887588509, 133.44217378154497);
+            bool4 r0 = bool4(true, true, true, true);
+            TestUtils.AreEqual(r0, a0 < b0);
 
-            double a1 = (-118.09757452742082);
-            double4 b1 = double4(-40.45089079833167, -299.74430932651478, 31.437125935888389, -458.904539560389);
-            bool4 r1 = bool4(true, false, true, false);
-            TestUtils.AreEqual(a1 < b1, r1);
+            double a1 = (161.45794947513286);
+            double4 b1 = double4(229.75426660746064, 222.57159934871436, 315.53116360098647, -447.20351883731945);
+            bool4 r1 = bool4(true, true, true, false);
+            TestUtils.AreEqual(r1, a1 < b1);
 
-            double a2 = (13.684679276163024);
-            double4 b2 = double4(-458.50690839183841, 248.27646624682302, 389.23142999654237, 488.74553679337055);
-            bool4 r2 = bool4(false, true, true, true);
-            TestUtils.AreEqual(a2 < b2, r2);
+            double a2 = (271.83385790131695);
+            double4 b2 = double4(-393.60531324595462, 317.48689737798964, -164.6051085761772, -282.87605370342544);
+            bool4 r2 = bool4(false, true, false, false);
+            TestUtils.AreEqual(r2, a2 < b2);
 
-            double a3 = (-221.63786731550368);
-            double4 b3 = double4(-424.26720329013989, 249.05904948388184, -22.136127720650336, -442.24773928255206);
-            bool4 r3 = bool4(false, true, true, false);
-            TestUtils.AreEqual(a3 < b3, r3);
+            double a3 = (296.97953071118309);
+            double4 b3 = double4(-254.40115582868509, 365.61562054493265, -441.98425671178114, -131.42866021554391);
+            bool4 r3 = bool4(false, true, false, false);
+            TestUtils.AreEqual(r3, a3 < b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_wide_wide()
         {
-            double4 a0 = double4(-229.29066501804192, 505.536608216137, -73.80706862071861, 100.29203777215071);
-            double4 b0 = double4(-445.84502407808088, -420.03529210576568, 299.02440108872224, -13.880978829171966);
-            bool4 r0 = bool4(true, true, false, true);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double4 a0 = double4(483.50140141113729, 310.81563415695712, 106.9661896726891, 295.73526038589671);
+            double4 b0 = double4(-471.39802454011425, -371.98528617060992, 36.900723236101044, -316.76360407320954);
+            bool4 r0 = bool4(true, true, true, true);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double4 a1 = double4(-419.21478124112582, -159.55974753180504, -396.7703608929973, 127.03739482119556);
-            double4 b1 = double4(151.56173593903043, -163.5094302461992, -391.09603733154762, 479.2837710228207);
-            bool4 r1 = bool4(false, true, false, false);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double4 a1 = double4(116.95757179938141, -478.29977653841479, -14.897393471979228, -33.817441717636484);
+            double4 b1 = double4(19.683055648432628, 207.3091381561519, 362.79748861994483, 324.95341816775192);
+            bool4 r1 = bool4(true, false, false, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double4 a2 = double4(489.13989733585151, 51.91890885863404, 155.38475544535777, -135.63165027258526);
-            double4 b2 = double4(-77.674873149802409, -46.5841996886694, -415.37701888353422, 71.466978344818131);
-            bool4 r2 = bool4(true, true, true, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double4 a2 = double4(-24.740548383789417, 319.78262701620474, -120.15856581561201, -289.00857962714906);
+            double4 b2 = double4(340.94807140014507, 25.986035120666997, -114.2111352021858, 240.80346428640348);
+            bool4 r2 = bool4(false, true, false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double4 a3 = double4(-425.97813554572787, -228.430505143679, 383.03834909155887, 136.53358298937496);
-            double4 b3 = double4(-206.06102643071722, 360.83628218287424, 236.96878658838978, 14.550342328171382);
-            bool4 r3 = bool4(false, false, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double4 a3 = double4(455.85146662958505, 144.70691139283917, 63.931990891663304, -285.68304099034663);
+            double4 b3 = double4(273.42244757033063, 325.51576224226312, 27.341068995809678, 64.479532510265472);
+            bool4 r3 = bool4(true, false, true, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_wide_scalar()
         {
-            double4 a0 = double4(11.156317000815761, -411.02322382993214, 385.88556188432756, -485.10304831206008);
-            double b0 = (-302.81693877969724);
-            bool4 r0 = bool4(true, false, true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double4 a0 = double4(64.317918092160426, -397.70346445483318, 431.87690826499693, 85.702980796668157);
+            double b0 = (305.85991992888034);
+            bool4 r0 = bool4(false, false, true, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double4 a1 = double4(-491.18003033622171, 173.57509740329124, 69.269281181166548, 501.30683183172107);
-            double b1 = (405.17534632476759);
-            bool4 r1 = bool4(false, false, false, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double4 a1 = double4(246.26305233978803, 286.1994608781298, 280.81334818564972, -405.78459210218148);
+            double b1 = (197.49155602114809);
+            bool4 r1 = bool4(true, true, true, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double4 a2 = double4(-367.027771405423, -489.09058998948456, -172.51816066192379, -18.149639853346002);
-            double b2 = (-86.124509613087639);
-            bool4 r2 = bool4(false, false, false, true);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double4 a2 = double4(171.56538661362856, 333.57817498481745, 370.27919524269146, -413.70138116073861);
+            double b2 = (-241.80727326209063);
+            bool4 r2 = bool4(true, true, true, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double4 a3 = double4(-236.41493498367021, -27.239137900638923, 471.77934072528933, 240.16453253485474);
-            double b3 = (-238.8945134798505);
-            bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double4 a3 = double4(-356.5923551789449, 396.64532608382649, 467.22205541432936, -240.0134228393498);
+            double b3 = (-353.03129522550444);
+            bool4 r3 = bool4(false, true, true, true);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_scalar_wide()
         {
-            double a0 = (453.54610201974685);
-            double4 b0 = double4(-226.20441423459187, -423.46500487973213, 409.40550227156166, 453.87706277048073);
-            bool4 r0 = bool4(true, true, true, false);
-            TestUtils.AreEqual(a0 > b0, r0);
+            double a0 = (-282.67049635698572);
+            double4 b0 = double4(358.09997360692353, -72.5964134077525, -232.16380106292843, -60.706723956720282);
+            bool4 r0 = bool4(false, false, false, false);
+            TestUtils.AreEqual(r0, a0 > b0);
 
-            double a1 = (87.475727837288673);
-            double4 b1 = double4(113.79560308987072, 176.40926154721956, -140.44002944810319, -182.48286804113673);
-            bool4 r1 = bool4(false, false, true, true);
-            TestUtils.AreEqual(a1 > b1, r1);
+            double a1 = (75.156642710397364);
+            double4 b1 = double4(150.88350040786133, 339.53917924479538, -498.19602965665797, 459.74610326241054);
+            bool4 r1 = bool4(false, false, true, false);
+            TestUtils.AreEqual(r1, a1 > b1);
 
-            double a2 = (-158.29329188088576);
-            double4 b2 = double4(-162.68531830733889, -193.328676075362, 230.18129955519987, -102.58784227379965);
-            bool4 r2 = bool4(true, true, false, false);
-            TestUtils.AreEqual(a2 > b2, r2);
+            double a2 = (-227.96872316485678);
+            double4 b2 = double4(335.86213485145106, 76.178844248959308, 296.85993899817572, 177.49000390688423);
+            bool4 r2 = bool4(false, false, false, false);
+            TestUtils.AreEqual(r2, a2 > b2);
 
-            double a3 = (392.5205878655056);
-            double4 b3 = double4(-177.47865947404813, -10.295010809924008, -24.048938524000789, 172.44867499752377);
-            bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 > b3, r3);
+            double a3 = (-281.20120657663847);
+            double4 b3 = double4(244.72285162877427, 137.32857257562159, -385.33824724021287, 443.16345879210326);
+            bool4 r3 = bool4(false, false, true, false);
+            TestUtils.AreEqual(r3, a3 > b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_equal_wide_wide()
         {
-            double4 a0 = double4(240.09053169940159, 462.2131528622532, 293.08251561461134, -427.87067361728782);
-            double4 b0 = double4(-81.203838624620744, 493.63743876555816, -411.47211451617636, 99.164449499530974);
-            bool4 r0 = bool4(false, true, false, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double4 a0 = double4(-438.52313753521219, 210.48942837980087, 4.8773329280677444, -137.29793817237857);
+            double4 b0 = double4(-474.8141498392514, 304.3710555063426, 234.8241737982371, -390.48543209139513);
+            bool4 r0 = bool4(false, true, true, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double4 a1 = double4(-405.5227226715175, 204.59190211286386, 294.670105832941, -327.56444445604666);
-            double4 b1 = double4(-295.66769875943089, -480.46254824123463, 74.414040361723892, 260.916124226952);
-            bool4 r1 = bool4(true, false, false, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double4 a1 = double4(156.09410174009111, -363.92412035722475, -97.948485181642923, 437.29539009430232);
+            double4 b1 = double4(-297.17535295019638, -326.29239121372461, 107.2538764976216, -413.13107342884462);
+            bool4 r1 = bool4(false, true, true, false);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double4 a2 = double4(-456.12326667091031, 282.3012408140587, 421.8811549720732, -311.71284809322697);
-            double4 b2 = double4(306.17329730939741, 139.56480438055689, -505.75247955031341, -489.62680958659706);
-            bool4 r2 = bool4(true, false, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double4 a2 = double4(458.53029153241323, -294.06474675520542, 23.622613679441884, -34.284056441059363);
+            double4 b2 = double4(67.094432623635271, 470.07522724106684, -84.499104777583455, 392.78422683886447);
+            bool4 r2 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double4 a3 = double4(84.5674827492644, 447.24461647832982, -154.49435217422172, -424.36474986763892);
-            double4 b3 = double4(-280.03260267899958, 303.15991058161478, 511.19015788994272, -104.65973358259527);
-            bool4 r3 = bool4(false, false, true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double4 a3 = double4(149.736484835733, -418.8866781754823, -197.50252899783783, -88.2055118494693);
+            double4 b3 = double4(-263.53175485484849, 369.30090039284005, -333.32529298091555, 238.41347443238533);
+            bool4 r3 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_equal_wide_scalar()
         {
-            double4 a0 = double4(309.1924356469849, 69.673792633076118, -101.72418622939114, -315.97240629604664);
-            double b0 = (292.92427148154206);
-            bool4 r0 = bool4(false, true, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double4 a0 = double4(193.4958237118534, 168.91555197952107, -313.9930695565385, 81.826965131716292);
+            double b0 = (443.85054299042122);
+            bool4 r0 = bool4(true, true, true, true);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double4 a1 = double4(-346.01106731314724, -410.87006945669191, -483.90265320423185, 183.82114538169515);
-            double b1 = (424.15386577330241);
-            bool4 r1 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double4 a1 = double4(18.503590830836288, 241.36115776810846, -463.81641242644582, -1.3577692515020203);
+            double b1 = (-0.35819602029312136);
+            bool4 r1 = bool4(false, false, true, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double4 a2 = double4(320.44249287268258, -386.801748694294, -182.9388249772316, 349.25012962392077);
-            double b2 = (-257.87003791419329);
-            bool4 r2 = bool4(false, true, false, false);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double4 a2 = double4(-268.89945591096739, -471.253072242836, -264.93778264938749, 82.258299150624453);
+            double b2 = (398.9919504593089);
+            bool4 r2 = bool4(true, true, true, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double4 a3 = double4(485.31159304329731, 259.15151822713744, 450.13007828692446, -128.5255282523695);
-            double b3 = (373.56911652794531);
-            bool4 r3 = bool4(false, true, false, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double4 a3 = double4(11.246050124636895, 426.48223157715154, 56.319978501796754, -196.28791126808522);
+            double b3 = (424.7040156911612);
+            bool4 r3 = bool4(true, false, true, true);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_less_equal_scalar_wide()
         {
-            double a0 = (-511.15238141974078);
-            double4 b0 = double4(51.159012579898786, 340.44369022010062, 312.81429519914752, 354.19252626699983);
-            bool4 r0 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a0 <= b0, r0);
+            double a0 = (393.60626644343427);
+            double4 b0 = double4(-75.688363825757222, -44.2638714519627, 125.86491566797019, 191.96488174794467);
+            bool4 r0 = bool4(false, false, false, false);
+            TestUtils.AreEqual(r0, a0 <= b0);
 
-            double a1 = (136.39671165142056);
-            double4 b1 = double4(-94.767871185563422, 288.544332877055, 304.04282369466625, -148.61806089646092);
-            bool4 r1 = bool4(false, true, true, false);
-            TestUtils.AreEqual(a1 <= b1, r1);
+            double a1 = (13.543054825413492);
+            double4 b1 = double4(-197.0519259893577, -423.945100743298, -330.04861680141119, 420.16553779140372);
+            bool4 r1 = bool4(false, false, false, true);
+            TestUtils.AreEqual(r1, a1 <= b1);
 
-            double a2 = (-506.30010127755816);
-            double4 b2 = double4(27.581254256694251, 48.471146844546865, 104.88351326104419, -488.6858386884843);
-            bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 <= b2, r2);
+            double a2 = (105.54730777887039);
+            double4 b2 = double4(174.82126363311954, 296.71757831085358, -469.70041845259277, 123.26718979853536);
+            bool4 r2 = bool4(true, true, false, true);
+            TestUtils.AreEqual(r2, a2 <= b2);
 
-            double a3 = (-480.43516968210935);
-            double4 b3 = double4(421.9366516647566, 239.72105299668431, -101.01844673092404, -283.95147551407638);
-            bool4 r3 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a3 <= b3, r3);
+            double a3 = (112.9969695140594);
+            double4 b3 = double4(495.14339493920249, -488.65789364681478, 388.53941148730894, -493.24077080806751);
+            bool4 r3 = bool4(true, false, true, false);
+            TestUtils.AreEqual(r3, a3 <= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_equal_wide_wide()
         {
-            double4 a0 = double4(-386.59181302906563, -157.12078221008215, 391.01526445477054, -511.88687133783793);
-            double4 b0 = double4(153.44301350109424, 49.892483019219981, 78.025787628267835, 138.81373292711271);
-            bool4 r0 = bool4(false, false, true, false);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            double4 a0 = double4(-507.92858409692, 504.49748181947393, -385.43449205226938, -262.32340944107784);
+            double4 b0 = double4(-81.346509732933043, 297.66615047010885, 171.06540616371922, -431.03805538222105);
+            bool4 r0 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double4 a1 = double4(-5.4220387960886569, 287.64527501149348, -122.53520184500849, 7.4814426933794493);
-            double4 b1 = double4(-225.51057802211056, -339.35611335344436, -373.302078182484, 364.9358934671319);
-            bool4 r1 = bool4(true, true, true, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double4 a1 = double4(-37.550928848586466, -111.59527759980193, -463.70202157632542, 387.44885772627265);
+            double4 b1 = double4(-6.859075311040101, 319.72570362674333, 254.079170106947, 396.5724000393285);
+            bool4 r1 = bool4(false, false, false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double4 a2 = double4(152.94642765491574, 48.986223482054811, 57.338148859021317, 300.46493138953338);
-            double4 b2 = double4(-322.71539870030961, 125.47818165900105, -25.776589167200314, 297.51890792395864);
-            bool4 r2 = bool4(true, false, true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            double4 a2 = double4(456.96878573716094, -211.01015506079892, 182.41135391146474, -53.596053863687473);
+            double4 b2 = double4(178.83927615864172, -447.06336304501787, 288.49268569075161, 474.88929460704765);
+            bool4 r2 = bool4(true, true, false, false);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double4 a3 = double4(349.25705139211243, 85.749700824613569, -230.95330654408468, 418.7112159294594);
-            double4 b3 = double4(73.222349439385539, 462.78374288174496, 393.19134515951919, -95.001432224643168);
-            bool4 r3 = bool4(true, false, false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double4 a3 = double4(-309.57021608463032, -136.02249127999994, 280.73629082401112, -96.9958942388165);
+            double4 b3 = double4(-321.75022831640683, -395.97722048125104, -158.69246037243516, 391.48869318118727);
+            bool4 r3 = bool4(true, true, true, false);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_equal_wide_scalar()
         {
-            double4 a0 = double4(495.457423679278, -14.345115906719627, -463.47478053694346, 217.51749215718246);
-            double b0 = (189.20512804258851);
+            double4 a0 = double4(465.15218732559686, -424.8860745024337, -209.22109685150025, 58.779852656079356);
+            double b0 = (-5.5998842742293391);
             bool4 r0 = bool4(true, false, false, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double4 a1 = double4(-246.86571776441565, 53.815095211293169, -123.33294373533357, -221.50546441856096);
-            double b1 = (-377.65869706573835);
-            bool4 r1 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double4 a1 = double4(-302.26910533675414, 16.353385694489475, -344.55997316192838, 393.27804846003562);
+            double b1 = (140.12558252183976);
+            bool4 r1 = bool4(false, false, false, true);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double4 a2 = double4(252.99433410027734, -395.36331028275345, 164.77259667439978, -287.00733889593153);
-            double b2 = (-116.44038277326172);
-            bool4 r2 = bool4(true, false, true, false);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            double4 a2 = double4(-315.70155086913218, -509.78156757251435, -36.994287269652943, 494.82028865014217);
+            double b2 = (441.0115565923096);
+            bool4 r2 = bool4(false, false, false, true);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double4 a3 = double4(355.83704559683667, 273.01225555735277, -418.14240308205706, 249.38409697701411);
-            double b3 = (184.19556316369938);
-            bool4 r3 = bool4(true, true, false, true);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double4 a3 = double4(-164.97393830352183, -123.8137477020797, 215.65121779947128, 104.99569730879534);
+            double b3 = (-466.12009046325466);
+            bool4 r3 = bool4(true, true, true, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_greater_equal_scalar_wide()
         {
-            double a0 = (215.43534169692327);
-            double4 b0 = double4(204.80295310020585, -101.10404853760451, -122.05503827056617, -70.456147941973143);
+            double a0 = (374.82703393270594);
+            double4 b0 = double4(-1.609757185731894, 338.61524049314448, -116.18140392945213, -332.15732375353451);
             bool4 r0 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a0 >= b0, r0);
+            TestUtils.AreEqual(r0, a0 >= b0);
 
-            double a1 = (-239.62025677395064);
-            double4 b1 = double4(-185.99272426683115, -455.61258027312, 276.66581476697036, 79.39918831707871);
-            bool4 r1 = bool4(false, true, false, false);
-            TestUtils.AreEqual(a1 >= b1, r1);
+            double a1 = (-355.9793509710484);
+            double4 b1 = double4(-468.90144107719021, 38.579884785497484, -332.34754697063357, 2.8901150240051265);
+            bool4 r1 = bool4(true, false, false, false);
+            TestUtils.AreEqual(r1, a1 >= b1);
 
-            double a2 = (416.42054791768112);
-            double4 b2 = double4(379.27350801009379, -439.51472612820322, 67.141009600433108, -74.560638224035813);
+            double a2 = (467.77776477661814);
+            double4 b2 = double4(121.40638762405445, -305.02337303060267, -58.428812292604164, -226.51955209789776);
             bool4 r2 = bool4(true, true, true, true);
-            TestUtils.AreEqual(a2 >= b2, r2);
+            TestUtils.AreEqual(r2, a2 >= b2);
 
-            double a3 = (-367.25635474140586);
-            double4 b3 = double4(494.950765601802, -61.235545425319856, -429.17024846988278, -213.82468924942646);
-            bool4 r3 = bool4(false, false, true, false);
-            TestUtils.AreEqual(a3 >= b3, r3);
+            double a3 = (-47.020994446715804);
+            double4 b3 = double4(305.3026770582901, -427.40123315686418, 92.263649745035764, -497.17853736187266);
+            bool4 r3 = bool4(false, true, false, true);
+            TestUtils.AreEqual(r3, a3 >= b3);
         }
 
         [TestCompiler]
         public static void double4_operator_add_wide_wide()
         {
-            double4 a0 = double4(465.14837644302679, 278.91072548502621, -277.52992237616792, -65.197214395365336);
-            double4 b0 = double4(483.99436186440028, -204.07667193379098, -365.67356007437854, -509.92086076639634);
-            double4 r0 = double4(949.14273830742707, 74.834053551235229, -643.20348245054652, -575.11807516176168);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double4 a0 = double4(506.12905263627374, -501.77980803967444, 420.08479638587903, -186.03206476291274);
+            double4 b0 = double4(-28.757987751047096, -337.135153689019, -340.676816860529, 152.31202633320913);
+            double4 r0 = double4(477.37106488522664, -838.91496172869347, 79.407979525350015, -33.720038429703607);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double4 a1 = double4(-473.32437561141529, -4.6955420992782138, -470.53676698661258, -109.95011453980118);
-            double4 b1 = double4(-270.69751108377125, 486.76397846954126, 267.49177587567442, 251.6425212601398);
-            double4 r1 = double4(-744.02188669518659, 482.06843637026304, -203.04499111093816, 141.69240672033862);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double4 a1 = double4(-9.3123953385801883, 328.51179686585056, 424.34407659263536, 87.791079800478656);
+            double4 b1 = double4(423.66745420157326, 90.374096674087468, 376.18866246574964, 1.7671887882831925);
+            double4 r1 = double4(414.35505886299308, 418.885893539938, 800.532739058385, 89.558268588761848);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double4 a2 = double4(-178.70145782209067, -420.03378339299644, 290.71109236903078, -446.5296368294068);
-            double4 b2 = double4(244.4951094335388, -78.675763882079991, 352.20551340291536, 82.779185095233515);
-            double4 r2 = double4(65.793651611448126, -498.70954727507643, 642.91660577194614, -363.75045173417328);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double4 a2 = double4(462.41368148402012, -46.178705952213477, 401.17006296718966, -454.12414643453627);
+            double4 b2 = double4(-120.18586045139745, -279.62936628965167, -344.66710273580026, 242.8391956029642);
+            double4 r2 = double4(342.22782103262267, -325.80807224186515, 56.502960231389409, -211.28495083157208);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double4 a3 = double4(491.066454400805, -261.11730039358014, -298.40688409395835, 502.42861890347149);
-            double4 b3 = double4(462.54732606492348, -405.492017696375, -428.4983238785054, -41.872599859662614);
-            double4 r3 = double4(953.6137804657285, -666.6093180899552, -726.90520797246381, 460.55601904380887);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double4 a3 = double4(69.195687564646732, -177.95734485329939, 299.60415544156183, 340.7048587001417);
+            double4 b3 = double4(418.5930504363929, -23.312797318823982, -95.099945827899489, 147.92812568877275);
+            double4 r3 = double4(487.78873800103963, -201.27014217212337, 204.50420961366234, 488.63298438891445);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double4_operator_add_wide_scalar()
         {
-            double4 a0 = double4(459.89829728561369, -447.66336104258119, -94.438627525436971, 126.42986279652916);
-            double b0 = (500.99725913489112);
-            double4 r0 = double4(960.89555642050482, 53.333898092309937, 406.55863160945415, 627.42712193142029);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double4 a0 = double4(-194.51420387742769, 338.54838696985894, 246.97140252169754, 100.51093797595752);
+            double b0 = (124.121678171736);
+            double4 r0 = double4(-70.3925257056917, 462.67006514159493, 371.09308069343354, 224.63261614769351);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double4 a1 = double4(-36.254356162741033, -2.7912590516690443, -478.41478489265535, 443.11525246273504);
-            double b1 = (-349.64130060264904);
-            double4 r1 = double4(-385.89565676539007, -352.43255965431808, -828.05608549530439, 93.473951860086);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double4 a1 = double4(-45.724677822424439, 30.916145577522116, 60.37435224483454, -242.1187475855084);
+            double b1 = (-478.11131094308166);
+            double4 r1 = double4(-523.835988765506, -447.19516536555955, -417.73695869824712, -720.23005852859);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double4 a2 = double4(268.092225914864, -471.25607584009697, -2.6649749291431704, 78.985822952811532);
-            double b2 = (41.32102133767728);
-            double4 r2 = double4(309.41324725254128, -429.93505450241969, 38.65604640853411, 120.30684429048881);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double4 a2 = double4(82.50134495762245, -484.69981287638649, -188.26501068298938, -213.52673087526426);
+            double b2 = (6.7993848355483806);
+            double4 r2 = double4(89.300729793170831, -477.90042804083811, -181.465625847441, -206.72734603971588);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double4 a3 = double4(202.14799151297098, 10.345855002452595, -151.24445898423181, 355.23276703210206);
-            double b3 = (311.7254551908585);
-            double4 r3 = double4(513.87344670382947, 322.07131019331109, 160.48099620662668, 666.95822222296056);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double4 a3 = double4(-267.78430688929944, 198.53359684652355, 187.53610023648298, -424.92567582844089);
+            double b3 = (189.25996669999324);
+            double4 r3 = double4(-78.5243401893062, 387.79356354651679, 376.79606693647622, -235.66570912844765);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double4_operator_add_scalar_wide()
         {
-            double a0 = (-325.51276484388518);
-            double4 b0 = double4(-264.08813178915909, -106.00925998855814, -355.44729320865463, -447.33029362528134);
-            double4 r0 = double4(-589.60089663304427, -431.52202483244332, -680.96005805253981, -772.84305846916652);
-            TestUtils.AreEqual(a0 + b0, r0);
+            double a0 = (-340.35468284243473);
+            double4 b0 = double4(511.36225652665007, -146.21663791789518, -106.21042661844308, -363.45024960276214);
+            double4 r0 = double4(171.00757368421534, -486.57132076032991, -446.56510946087781, -703.80493244519687);
+            TestUtils.AreEqual(r0, a0 + b0);
 
-            double a1 = (-158.70021040677102);
-            double4 b1 = double4(-199.48369154682553, 180.31809123806568, 337.57936898692481, -37.05501486596421);
-            double4 r1 = double4(-358.18390195359655, 21.617880831294656, 178.87915858015378, -195.75522527273523);
-            TestUtils.AreEqual(a1 + b1, r1);
+            double a1 = (199.08958325120136);
+            double4 b1 = double4(-27.108407271610758, 419.84900041103788, 284.95503748811552, -164.92418129971446);
+            double4 r1 = double4(171.9811759795906, 618.93858366223924, 484.04462073931688, 34.1654019514869);
+            TestUtils.AreEqual(r1, a1 + b1);
 
-            double a2 = (230.80498014707348);
-            double4 b2 = double4(-140.17433339924287, 18.02419591789328, -138.61435825126915, 26.904163611542458);
-            double4 r2 = double4(90.63064674783061, 248.82917606496676, 92.190621895804327, 257.70914375861594);
-            TestUtils.AreEqual(a2 + b2, r2);
+            double a2 = (-249.19032561461921);
+            double4 b2 = double4(150.92817718858282, 298.17509784278229, -457.15341803857751, 424.71807094324288);
+            double4 r2 = double4(-98.26214842603639, 48.984772228163081, -706.34374365319673, 175.52774532862367);
+            TestUtils.AreEqual(r2, a2 + b2);
 
-            double a3 = (-374.53758233345);
-            double4 b3 = double4(154.4676006559597, 268.3838204203098, -190.96302255939833, 188.61725362977813);
-            double4 r3 = double4(-220.06998167749032, -106.15376191314022, -565.50060489284829, -185.92032870367188);
-            TestUtils.AreEqual(a3 + b3, r3);
+            double a3 = (-301.85750283946163);
+            double4 b3 = double4(230.28885208363124, -423.58759351428023, -67.060037882560891, 68.7241366229598);
+            double4 r3 = double4(-71.56865075583039, -725.44509635374186, -368.91754072202252, -233.13336621650183);
+            TestUtils.AreEqual(r3, a3 + b3);
         }
 
         [TestCompiler]
         public static void double4_operator_sub_wide_wide()
         {
-            double4 a0 = double4(133.37101680290471, -131.8321183341705, -197.29314407952739, -485.286571013409);
-            double4 b0 = double4(123.46028739002543, 359.56010048443454, -48.24847819667707, 478.97904680621764);
-            double4 r0 = double4(9.9107294128792773, -491.39221881860504, -149.04466588285032, -964.26561781962664);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double4 a0 = double4(160.4922617229131, 11.223957305412682, 359.20010607279846, -498.22830485656311);
+            double4 b0 = double4(115.46876078260539, -130.98230630298252, 241.54083716196044, 9.9870860623135513);
+            double4 r0 = double4(45.023500940307713, 142.2062636083952, 117.65926891083802, -508.21539091887666);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double4 a1 = double4(-337.55033103448818, 471.66710470228782, 146.5066197600712, -130.58504372955537);
-            double4 b1 = double4(207.15832886805686, 142.36730462981723, -125.60551005490379, -65.299004823574307);
-            double4 r1 = double4(-544.708659902545, 329.29980007247059, 272.112129814975, -65.286038905981059);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double4 a1 = double4(-355.25362913462038, -94.534852787170053, -410.46404786150163, -401.38464398001537);
+            double4 b1 = double4(419.89512582304656, 59.124466208333388, -402.38163847587145, -75.370143687059226);
+            double4 r1 = double4(-775.14875495766694, -153.65931899550344, -8.0824093856301715, -326.01450029295614);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double4 a2 = double4(110.77707367333448, -235.54160486699158, 78.879356659427, -347.68616811730254);
-            double4 b2 = double4(-477.876434787119, 164.50000031501986, 428.00958915614035, 72.6278169493321);
-            double4 r2 = double4(588.65350846045351, -400.04160518201144, -349.13023249671335, -420.31398506663464);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double4 a2 = double4(317.70681944382693, 447.0604133303558, -489.07414482956477, -230.00838218909149);
+            double4 b2 = double4(320.97960796997859, -73.908757482612884, -31.444742455819949, -389.25194734579509);
+            double4 r2 = double4(-3.2727885261516576, 520.96917081296874, -457.62940237374482, 159.2435651567036);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double4 a3 = double4(-470.82054565419469, -11.459293609233271, -167.94791730118351, 330.67676917215658);
-            double4 b3 = double4(-446.880505531505, 432.09146114443035, -225.55465637219822, -112.45196705332586);
-            double4 r3 = double4(-23.940040122689709, -443.55075475366363, 57.606739071014715, 443.12873622548244);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double4 a3 = double4(24.875419389864192, 366.61447136784648, -107.3741567634857, -219.0081404275299);
+            double4 b3 = double4(-375.02884000122026, 259.18275821357167, 276.648654351313, -453.06919905779381);
+            double4 r3 = double4(399.90425939108445, 107.4317131542748, -384.02281111479869, 234.06105863026391);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double4_operator_sub_wide_scalar()
         {
-            double4 a0 = double4(48.936717294592768, 410.45158953706346, -364.44171612544062, 163.98060353285666);
-            double b0 = (-291.59041442144212);
-            double4 r0 = double4(340.52713171603489, 702.04200395850557, -72.8513017039985, 455.57101795429878);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double4 a0 = double4(207.38960108877609, 248.45773684627272, -384.82393211164697, -205.34476122881506);
+            double b0 = (-36.112476604111691);
+            double4 r0 = double4(243.50207769288778, 284.57021345038441, -348.71145550753528, -169.23228462470337);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double4 a1 = double4(-460.06732318367222, 204.35834441164434, 180.26971420099483, -377.92569344952972);
-            double b1 = (110.91942339340198);
-            double4 r1 = double4(-570.9867465770742, 93.438921018242354, 69.350290807592842, -488.8451168429317);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double4 a1 = double4(-374.81156152058929, 18.856238135535364, -44.96160151667965, 480.85798738936796);
+            double b1 = (191.64204820973896);
+            double4 r1 = double4(-566.45360973032825, -172.7858100742036, -236.60364972641861, 289.215939179629);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double4 a2 = double4(-470.26204297983185, 461.50756499800252, -246.28726660753006, 21.605312595891405);
-            double b2 = (400.53491968686455);
-            double4 r2 = double4(-870.79696266669634, 60.972645311137967, -646.82218629439467, -378.92960709097315);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double4 a2 = double4(16.338193185784917, -35.523088233323335, 349.39776460705218, 439.07729336203886);
+            double b2 = (-366.86545269883493);
+            double4 r2 = double4(383.20364588461985, 331.34236446551159, 716.26321730588711, 805.94274606087379);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double4 a3 = double4(246.35072171238755, -122.71842413894757, -122.93872099879138, 360.15095417581074);
-            double b3 = (-121.42736178330489);
-            double4 r3 = double4(367.77808349569244, -1.29106235564268, -1.5113592154864932, 481.57831595911563);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double4 a3 = double4(490.2222661870635, -384.84940952102158, 189.05188545447402, 55.602777745389744);
+            double b3 = (195.02405104181923);
+            double4 r3 = double4(295.19821514524426, -579.87346056284082, -5.9721655873452164, -139.42127329642949);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double4_operator_sub_scalar_wide()
         {
-            double a0 = (294.58645905861);
-            double4 b0 = double4(452.35251757705237, 256.98980891750648, -275.159888634067, -89.027518075437968);
-            double4 r0 = double4(-157.76605851844238, 37.59665014110351, 569.746347692677, 383.61397713404796);
-            TestUtils.AreEqual(a0 - b0, r0);
+            double a0 = (-86.008225719448262);
+            double4 b0 = double4(466.42511413359318, 298.48694219183506, -300.95010652251085, 315.38003006362362);
+            double4 r0 = double4(-552.43333985304139, -384.49516791128332, 214.94188080306259, -401.38825578307188);
+            TestUtils.AreEqual(r0, a0 - b0);
 
-            double a1 = (488.22838829840919);
-            double4 b1 = double4(-333.21728030462623, -64.232989102710519, -66.041730196234653, 341.20492831859963);
-            double4 r1 = double4(821.44566860303541, 552.46137740111976, 554.27011849464384, 147.02345997980956);
-            TestUtils.AreEqual(a1 - b1, r1);
+            double a1 = (-381.09218543632522);
+            double4 b1 = double4(-125.00837546447684, 58.466194418476107, 214.74609361158036, -257.54942739082009);
+            double4 r1 = double4(-256.08380997184838, -439.55837985480133, -595.83827904790564, -123.54275804550514);
+            TestUtils.AreEqual(r1, a1 - b1);
 
-            double a2 = (-385.775056303374);
-            double4 b2 = double4(75.394746577085357, 354.94371645289641, 169.13141520746581, 88.216608326982964);
-            double4 r2 = double4(-461.16980288045937, -740.71877275627048, -554.90647151083976, -473.991664630357);
-            TestUtils.AreEqual(a2 - b2, r2);
+            double a2 = (480.22459505508868);
+            double4 b2 = double4(-443.35507723472784, 260.79503858312728, 29.681931747906788, 139.85773164586055);
+            double4 r2 = double4(923.57967228981647, 219.4295564719614, 450.5426633071819, 340.36686340922813);
+            TestUtils.AreEqual(r2, a2 - b2);
 
-            double a3 = (1.7350065716240124);
-            double4 b3 = double4(122.53803997977548, -264.94502771317264, -50.837180399725753, -347.65032283759228);
-            double4 r3 = double4(-120.80303340815146, 266.68003428479665, 52.572186971349765, 349.3853294092163);
-            TestUtils.AreEqual(a3 - b3, r3);
+            double a3 = (-247.78996216868512);
+            double4 b3 = double4(-248.4662297929014, 91.445112509394562, 86.384162704639266, 373.81828206303453);
+            double4 r3 = double4(0.67626762421627973, -339.23507467807968, -334.17412487332439, -621.60824423171971);
+            TestUtils.AreEqual(r3, a3 - b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mul_wide_wide()
         {
-            double4 a0 = double4(-394.78053898121254, -412.37219519744264, -25.874570143350638, -241.04595886964626);
-            double4 b0 = double4(-149.76397831261346, -345.04538671348496, -284.33404721148963, 267.97923648915219);
-            double4 r0 = double4(59123.904078224172, 142287.1235617903, 7357.0212487164608, -64595.312016683383);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double4 a0 = double4(-482.71381710596097, -407.29348559272171, 137.70058995937029, 208.54113278563182);
+            double4 b0 = double4(-236.36788355389979, 260.72759139757954, -416.38629718142852, -364.49561541364324);
+            double4 r0 = double4(114098.04331156026, -106192.64949051509, -57336.638772880389, -76012.328533757158);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double4 a1 = double4(-93.675987525692221, 244.15999257013198, 494.68846606402121, 53.537962700025105);
-            double4 b1 = double4(-326.64849558782225, -150.68967754705329, 207.73243794577775, 366.19289248352538);
-            double4 r1 = double4(30599.120397970968, -36792.390550284115, 102762.84107913627, 19605.221418797286);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double4 a1 = double4(194.296573967811, -484.24241684574747, 183.98730739578014, -241.33547770294149);
+            double4 b1 = double4(-253.14750897751537, -369.20287220981106, 193.54791531038836, 169.08491976982214);
+            double4 r1 = double4(-49185.69370281692, 178783.69114527057, 35610.359790024842, -40806.189885013562);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double4 a2 = double4(-239.49641167349017, 236.67584644848284, -211.85620818466703, -216.65482030466887);
-            double4 b2 = double4(358.88076202891807, 214.85359368792433, 253.42280900358355, -307.71382751488773);
-            double4 r2 = double4(-85950.654724573629, 50850.6561485879, -53689.195383006307, 66667.684005499876);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double4 a2 = double4(45.868758938214114, 363.32610266438041, -328.11893692990714, -471.02307413100408);
+            double4 b2 = double4(201.96966442930034, 249.45608317547294, -308.19319810913555, -385.57964843585137);
+            double4 r2 = double4(9264.0978505395742, 90633.9064860661, 101124.02453259782, 181616.91132860651);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double4 a3 = double4(467.95832870339893, -178.02191146557311, -386.3942503344241, -422.43540521265726);
-            double4 b3 = double4(184.4711149597872, 426.43644185850235, -144.28142625851621, 459.47961518703016);
-            double4 r3 = double4(86324.794650634591, -75915.030498228327, 55749.513536340863, -194100.45742848891);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double4 a3 = double4(-262.68257415605831, -379.26274674910246, -374.09058182970182, 481.44738720424812);
+            double4 b3 = double4(-183.27959522198864, 22.275629292370581, -265.52144229855458, -95.677454277722859);
+            double4 r3 = double4(48144.355863192381, -8448.3163509892329, 99329.070837727879, -46063.660376363579);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mul_wide_scalar()
         {
-            double4 a0 = double4(328.20302191758674, -290.10672272839895, 236.99572454998065, 120.48136692889102);
-            double b0 = (192.21119055161773);
-            double4 r0 = double4(63084.293585418032, -55761.758562653624, 45553.230371395039, 23157.866976688449);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double4 a0 = double4(-96.318821236639678, -277.14229239017811, -239.93690191951436, 509.53140544776409);
+            double b0 = (-301.20720424373042);
+            double4 r0 = double4(29011.922860739887, 83477.255068544036, 72270.723422079071, -153474.5301092997);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double4 a1 = double4(357.90315811610924, -477.31047104173825, -438.272912467957, -46.729179165665585);
-            double b1 = (134.86723214707672);
-            double4 r1 = double4(48269.408311817213, -64373.542104216656, -59108.654629591387, -6302.235054578161);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double4 a1 = double4(255.85810172551226, -455.50827500573746, -389.24327367788334, -338.29248658674419);
+            double b1 = (215.73149667295229);
+            double4 r1 = double4(55196.651221145235, -98267.481913902491, -83972.034000409345, -72980.344444572955);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double4 a2 = double4(-238.40500103608008, -48.83483722099794, 355.30832998608628, 119.35660391643489);
-            double b2 = (422.08249374017237);
-            double4 r2 = double4(-100626.57735743705, -20612.3298756342, 149969.42596718337, 50378.333025406864);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double4 a2 = double4(53.796284939067618, 135.35469991311186, -207.35010275959507, -383.93960946795517);
+            double b2 = (243.75734459783757);
+            double4 r2 = double4(13113.239565975766, 32993.702229657305, -50543.11045076765, -93588.099689839524);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double4 a3 = double4(-196.995807977857, -325.55215683837991, 53.937323833786536, -87.4509838034636);
-            double b3 = (98.2360046367329);
-            double4 r3 = double4(-19352.081105929705, -31980.943188673486, 5298.5871942288177, -8590.8352504039049);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double4 a3 = double4(-31.425238862366086, 260.38388049806645, 176.86755927692525, 25.672123205695357);
+            double b3 = (42.676120539510634);
+            double4 r3 = double4(-1341.1072816732492, 11112.173870681016, 7548.021279231104, 1095.5866244314232);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mul_scalar_wide()
         {
-            double a0 = (-464.534700371574);
-            double4 b0 = double4(329.36093846399376, -198.68342671109525, 184.07942518223047, 256.01618754864489);
-            double4 r0 = double4(-152999.58486347177, 92295.346096036214, -85511.280621599, -118928.40297318244);
-            TestUtils.AreEqual(a0 * b0, r0);
+            double a0 = (37.432166355397612);
+            double4 b0 = double4(96.747546479454058, 492.18539427788244, -274.05458534604617, -452.87096926796761);
+            double4 r0 = double4(3621.4702542954869, 18423.565556306661, -10258.456829132712, -16951.941459168724);
+            TestUtils.AreEqual(r0, a0 * b0);
 
-            double a1 = (266.22629297255833);
-            double4 b1 = double4(-97.894749448585685, 159.74810583877752, -351.82222263506719, 491.80157660497423);
-            double4 r1 = double4(-26062.156247174364, 42529.146026845636, -93664.326117500037, 130930.51061760196);
-            TestUtils.AreEqual(a1 * b1, r1);
+            double a1 = (420.85330434369541);
+            double4 b1 = double4(102.18292694081686, -114.94887762654054, -351.12003843445336, -464.66496799172131);
+            double4 r1 = double4(43004.022450553188, -48376.614979728663, -147770.02839642504, -195555.78719207339);
+            TestUtils.AreEqual(r1, a1 * b1);
 
-            double a2 = (49.902031206480274);
-            double4 b2 = double4(424.46256871915546, 160.11807616060514, -395.99208492599058, 125.20168858636248);
-            double4 r2 = double4(21181.544350206073, 7990.2172332881028, -19760.809379495968, 6247.8185709406853);
-            TestUtils.AreEqual(a2 * b2, r2);
+            double a2 = (444.08484646495663);
+            double4 b2 = double4(447.10525605040846, 130.82935124767448, -321.41334191030512, 445.30131861441828);
+            double4 r2 = double4(198552.66898682076, 58099.332361933404, -142734.79459402646, 197751.56770752667);
+            TestUtils.AreEqual(r2, a2 * b2);
 
-            double a3 = (-265.01581991138676);
-            double4 b3 = double4(314.65609779705107, -292.71202029507236, -37.729878681586058, 165.3622206027444);
-            double4 r3 = double4(-83388.843747802981, 77573.316056417083, 9999.0147339576815, -43823.604475403918);
-            TestUtils.AreEqual(a3 * b3, r3);
+            double a3 = (478.24357317306271);
+            double4 b3 = double4(358.57170622356784, -144.89011222910608, -438.89383741789209, -3.536441089369589);
+            double4 r3 = double4(171484.61402312081, -69292.764989893767, -209898.15705036998, -1691.2802228961507);
+            TestUtils.AreEqual(r3, a3 * b3);
         }
 
         [TestCompiler]
         public static void double4_operator_div_wide_wide()
         {
-            double4 a0 = double4(246.26574933075619, -269.85612953354428, -451.61952588130697, -7.38850236283082);
-            double4 b0 = double4(172.11981423763552, -77.141104972521362, -325.8353723612779, -450.60868117334724);
-            double4 r0 = double4(1.4307809383918566, 3.4982144685336105, 1.3860359070548143, 0.016396715535066435);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double4 a0 = double4(-353.13144390337703, -102.79985456485292, 51.319128298814917, -191.87167868012176);
+            double4 b0 = double4(-178.73954805114283, -302.09628381491467, -199.40583739029518, 278.85077561012042);
+            double4 r0 = double4(1.97567604793504, 0.34028837848212429, -0.25736021056579439, -0.68808013268139567);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double4 a1 = double4(-308.20558681534862, -373.394808704683, 360.41863482092447, 25.80972458133931);
-            double4 b1 = double4(-261.26215398556656, -122.44949847201326, -93.210781379235357, -442.00522705633438);
-            double4 r1 = double4(1.1796794220427942, 3.0493780159501847, -3.8667054335113131, -0.05839235149599218);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double4 a1 = double4(8.0418245829836223, -128.73764210973758, -136.05959779399427, -370.4710053738537);
+            double4 b1 = double4(502.33758782890516, -361.48483078623417, 353.121059820578, -38.894930142394685);
+            double4 r1 = double4(0.016008805189634039, 0.35613566917796119, -0.3853058151307277, 9.5249176182488586);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double4 a2 = double4(-274.050461181463, 127.53858977534742, -447.6717600522897, -137.4586017771897);
-            double4 b2 = double4(484.36271380091216, -390.78178686219348, 402.02531714086672, 316.65072193585831);
-            double4 r2 = double4(-0.56579594872388561, -0.32636779415802974, -1.1135412148569459, -0.43410165287743668);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double4 a2 = double4(-237.69456326109105, -432.54687496300176, 200.26549181727012, 361.44157068871039);
+            double4 b2 = double4(-75.764737402910725, -195.21784719974636, -405.03399224068687, -394.2300085473014);
+            double4 r2 = double4(3.1372716570909582, 2.2157137842034547, -0.49444119667433889, -0.9168291678773689);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double4 a3 = double4(-136.13317424437645, 12.43763423545181, 228.51298319013461, 356.9723681681661);
-            double4 b3 = double4(397.15440744774151, -303.26218643005109, -118.59124451437555, -81.650312223308845);
-            double4 r3 = double4(-0.3427714050039572, -0.041012809351094658, -1.9268959030313104, -4.37196574572633);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double4 a3 = double4(-416.22613234828509, -450.01919362042992, -273.49744594911925, -286.90817011841955);
+            double4 b3 = double4(-375.82771342612227, -121.24548655433836, 447.623344391409, 338.28628007429018);
+            double4 r3 = double4(1.1074918572499153, 3.7116366671409717, -0.61099906735420106, -0.84812239519560884);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double4_operator_div_wide_scalar()
         {
-            double4 a0 = double4(-244.51745116175965, 69.112274917360537, -333.02311888943575, 257.39682519500923);
-            double b0 = (-60.024377612408443);
-            double4 r0 = double4(4.0736357608014941, -1.1514034408425655, 5.5481311449798705, -4.2882048166676752);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double4 a0 = double4(171.34242184988341, 0.10338377957384637, 57.888263967767443, -256.13074529177078);
+            double b0 = (171.79682191265601);
+            double4 r0 = double4(0.99735501473360411, 0.00060177934855167557, 0.33695771157628673, -1.4908933846400916);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double4 a1 = double4(403.24561257066466, 131.52659160062979, -261.88639200007844, -348.92380516087815);
-            double b1 = (154.34436066185322);
-            double4 r1 = double4(2.6126358672353378, 0.85216324740743876, -1.6967668327956258, -2.2606838608462096);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double4 a1 = double4(95.6696842162263, -127.44869118903239, -79.7448890580539, 146.46688110496234);
+            double b1 = (-290.38690461329509);
+            double4 r1 = double4(-0.32945591793689361, 0.43889269510536072, 0.27461599607685222, -0.50438528314494968);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double4 a2 = double4(-275.53868187383688, 287.64239968342815, 504.37224626185946, 491.78708600056689);
-            double b2 = (210.55792174607416);
-            double4 r2 = double4(-1.308612279171939, 1.3660963087882074, 2.39540855114497, 2.3356380131527215);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double4 a2 = double4(-499.84355687529012, -453.20579859856787, -205.03382143985192, 481.73814247629514);
+            double b2 = (58.686315802245531);
+            double4 r2 = double4(-8.5172079733136776, -7.7225123506769311, -3.4937245358995028, 8.2086962844899229);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double4 a3 = double4(-26.63160015392657, 272.89512098622276, 178.09617313095191, -460.87559030059521);
-            double b3 = (-253.23667275776933);
-            double4 r3 = double4(0.10516486361910435, -1.0776287573769281, -0.70327954948810989, 1.8199401582781043);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double4 a3 = double4(464.47907159499778, -158.50557930697948, -289.5822156824089, 494.12860535743118);
+            double b3 = (-293.46349753693841);
+            double4 r3 = double4(-1.5827490488370997, 0.54012025562745947, 0.9867742261402, -1.683782172245238);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double4_operator_div_scalar_wide()
         {
-            double a0 = (41.737658758525527);
-            double4 b0 = double4(-422.676129776368, 248.12963235011773, 449.39137741988122, 245.85813796047967);
-            double4 r0 = double4(-0.098746193168297289, 0.1682090863683405, 0.092875967042706856, 0.16976317767945767);
-            TestUtils.AreEqual(a0 / b0, r0);
+            double a0 = (-264.44250095283729);
+            double4 b0 = double4(105.58908157497137, -142.34910137129441, -288.94890679463231, 39.644133824689334);
+            double4 r0 = double4(-2.5044492954044237, 1.85770404172122, 0.915187753732487, -6.670406827961755);
+            TestUtils.AreEqual(r0, a0 / b0);
 
-            double a1 = (-326.62061253498337);
-            double4 b1 = double4(163.71510489457989, 333.664472020075, 38.291076916405473, -472.97976062864984);
-            double4 r1 = double4(-1.9950548408181534, -0.97888939316060053, -8.5299406242357652, 0.69055938482624146);
-            TestUtils.AreEqual(a1 / b1, r1);
+            double a1 = (-363.99138396046658);
+            double4 b1 = double4(-149.71822006521666, -395.72912306139671, 258.71868693955184, -9.6662514254759344);
+            double4 r1 = double4(2.4311762710103912, 0.91979933431382543, -1.4069002446874319, 37.655898645585339);
+            TestUtils.AreEqual(r1, a1 / b1);
 
-            double a2 = (192.23013958345643);
-            double4 b2 = double4(-200.29686960964318, -490.18150376257557, -211.10257468517057, -322.85234108700058);
-            double4 r2 = double4(-0.95972613030893628, -0.3921611446125986, -0.91060063985548412, -0.59541194261204144);
-            TestUtils.AreEqual(a2 / b2, r2);
+            double a2 = (117.72553282497711);
+            double4 b2 = double4(-331.38655797177296, -509.98602676297821, 427.8964666928614, 467.61712882836218);
+            double4 r2 = double4(-0.35525138239012338, -0.23084070277810059, 0.275126209232008, 0.25175624579866063);
+            TestUtils.AreEqual(r2, a2 / b2);
 
-            double a3 = (-137.98529035317961);
-            double4 b3 = double4(84.32973555677097, 355.06345550858578, 276.42724455354141, -382.9880213136729);
-            double4 r3 = double4(-1.6362590187453818, -0.38862149346102726, -0.49917398907636662, 0.36028617782843814);
-            TestUtils.AreEqual(a3 / b3, r3);
+            double a3 = (-407.12461943511136);
+            double4 b3 = double4(252.69070994699871, 444.59937664708093, -88.313306134340053, 199.95503411067421);
+            double4 r3 = double4(-1.6111578439923842, -0.91571117914158318, 4.6100031496477243, -2.0360808681104259);
+            TestUtils.AreEqual(r3, a3 / b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mod_wide_wide()
         {
-            double4 a0 = double4(-442.30985924336585, 368.50046246522129, -1.0938966279355213, -364.67383473211612);
-            double4 b0 = double4(-43.245045443645211, -144.19587690392319, -62.640481739603217, -336.82826510855381);
-            double4 r0 = double4(-9.8594048069137443, 80.1087086573749, -1.0938966279355213, -27.845569623562312);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double4 a0 = double4(-388.81249422059045, 181.68118842955732, -167.07872470052854, 432.82015319951813);
+            double4 b0 = double4(436.94417187056695, 58.940049437312382, -201.11623368091705, 279.2893537391393);
+            double4 r0 = double4(-388.81249422059045, 4.8610401176201776, -167.07872470052854, 153.53079946037883);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double4 a1 = double4(-197.34394487987458, -34.034902350062, -101.34858350704826, 208.31857142612273);
-            double4 b1 = double4(-154.6102545981343, -154.02935583611452, 487.0462093237071, -469.82909105244516);
-            double4 r1 = double4(-42.73369028174028, -34.034902350062, -101.34858350704826, 208.31857142612273);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double4 a1 = double4(-258.43895995730486, -170.11079629236406, 283.318293464984, 122.71651297561664);
+            double4 b1 = double4(-397.07975954426445, 377.89994758083481, 174.69386657266591, -228.17652736798698);
+            double4 r1 = double4(-258.43895995730486, -170.11079629236406, 108.62442689231807, 122.71651297561664);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double4 a2 = double4(-140.77031404374645, 183.446989383291, -463.36838100076113, 83.839106360375467);
-            double4 b2 = double4(-145.20377237405802, -203.38401780062543, -22.520082245823062, 224.6900237652892);
-            double4 r2 = double4(-140.77031404374645, 183.446989383291, -12.966736084299896, 83.839106360375467);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double4 a2 = double4(335.27101413126616, -503.60851668920765, 191.02251848532933, 289.74269379756538);
+            double4 b2 = double4(-317.06019106370405, -417.48011107811709, -249.9759434433542, -397.57157177364991);
+            double4 r2 = double4(18.210823067562103, -86.128405611090557, 191.02251848532933, 289.74269379756538);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double4 a3 = double4(-64.714058190916717, 295.06681050689281, 212.257051805154, 349.62829916068745);
-            double4 b3 = double4(-435.62674614210925, 12.095571285158144, 40.378765363422531, 345.78484813579587);
-            double4 r3 = double4(-64.714058190916717, 4.773099663097355, 10.363224988041338, 3.8434510248915785);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double4 a3 = double4(-124.03371745163281, 259.27395761165485, -274.35845030208975, -140.03080398404541);
+            double4 b3 = double4(-358.74544947163452, -198.1592100589346, 208.73709378425826, -12.119406944196385);
+            double4 r3 = double4(-124.03371745163281, 61.114747552720246, -65.621356517831487, -6.7173275978851734);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mod_wide_scalar()
         {
-            double4 a0 = double4(-433.41699548876704, -5.5141427542614565, 393.39439958771425, 299.41153277988155);
-            double b0 = (-90.499235433758827);
-            double4 r0 = double4(-71.420053753731736, -5.5141427542614565, 31.39745785267894, 27.913826478605074);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double4 a0 = double4(-244.49962889612635, -211.81931958525411, -145.92677576184587, -304.91822090042672);
+            double b0 = (39.634963769295723);
+            double4 r0 = double4(-6.6898462803520147, -13.644500738775491, -27.021884453958705, -27.473474515356656);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double4 a1 = double4(-120.80601626299602, -450.80766245853511, 186.09479698263794, -84.473635951277629);
-            double b1 = (-502.939041133476);
-            double4 r1 = double4(-120.80601626299602, -450.80766245853511, 186.09479698263794, -84.473635951277629);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double4 a1 = double4(155.47946436492703, 281.30965412841624, -226.53575311719243, 335.16613046041039);
+            double b1 = (-133.90778428591221);
+            double4 r1 = double4(21.571680079014811, 13.494085556591813, -92.627968831280214, 67.350561888585958);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double4 a2 = double4(-318.78148356023314, -54.6001856581309, -172.33886607565864, -429.71466728193434);
-            double b2 = (433.45469041981482);
-            double4 r2 = double4(-318.78148356023314, -54.6001856581309, -172.33886607565864, -429.71466728193434);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double4 a2 = double4(101.70649032560482, -285.40231646476423, -355.84685985923136, 259.37800061860025);
+            double b2 = (319.47152033423606);
+            double4 r2 = double4(101.70649032560482, -285.40231646476423, -36.3753395249953, 259.37800061860025);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double4 a3 = double4(222.36186109406958, 254.51082885196, -433.09369703433185, -203.08261284748215);
-            double b3 = (5.796394112425105);
-            double4 r3 = double4(2.09888482191559, 5.2658820176804966, -4.16053271487408, -0.20881891260347629);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double4 a3 = double4(-330.87193957477433, -102.68343811048356, -172.14173921017988, 206.41684517935698);
+            double b3 = (-284.34358109363518);
+            double4 r3 = double4(-46.528358481139151, -102.68343811048356, -172.14173921017988, 206.41684517935698);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double4_operator_mod_scalar_wide()
         {
-            double a0 = (-396.4224028049141);
-            double4 b0 = double4(-159.14024384279747, 230.17333399046834, 14.779358632294134, -303.15649738123477);
-            double4 r0 = double4(-78.141915119319151, -166.24906881444576, -12.159078365266623, -93.265905423679328);
-            TestUtils.AreEqual(a0 % b0, r0);
+            double a0 = (-66.945025236785909);
+            double4 b0 = double4(-249.77609479137516, -396.07375664081133, 386.49204582091977, 168.93948109864232);
+            double4 r0 = double4(-66.945025236785909, -66.945025236785909, -66.945025236785909, -66.945025236785909);
+            TestUtils.AreEqual(r0, a0 % b0);
 
-            double a1 = (399.63502020371845);
-            double4 b1 = double4(206.69470534412881, 397.04482263934096, -393.89064735634747, -372.06709426085797);
-            double4 r1 = double4(192.94031485958965, 2.5901975643774904, 5.7443728473709825, 27.567925942860484);
-            TestUtils.AreEqual(a1 % b1, r1);
+            double a1 = (-199.4182442163202);
+            double4 b1 = double4(261.7517141130528, 16.127438791155555, 257.66814744550186, -75.788451945310669);
+            double4 r1 = double4(-199.4182442163202, -5.8889787224535439, -199.4182442163202, -47.841340325698866);
+            TestUtils.AreEqual(r1, a1 % b1);
 
-            double a2 = (201.01229796233224);
-            double4 b2 = double4(-95.5668547598491, -258.95146882671463, 106.98357563232241, 469.3235559264773);
-            double4 r2 = double4(9.8785884426340544, 201.01229796233224, 94.028722330009828, 201.01229796233224);
-            TestUtils.AreEqual(a2 % b2, r2);
+            double a2 = (170.95630439136005);
+            double4 b2 = double4(-242.85828005655588, 425.94531913564788, 303.27240409668184, 3.033060790520608);
+            double4 r2 = double4(170.95630439136005, 170.95630439136005, 170.95630439136005, 1.1049001222060042);
+            TestUtils.AreEqual(r2, a2 % b2);
 
-            double a3 = (-34.808985011097491);
-            double4 b3 = double4(184.83653434777466, 374.79425376224992, -131.87271911086174, -120.09286003936683);
-            double4 r3 = double4(-34.808985011097491, -34.808985011097491, -34.808985011097491, -34.808985011097491);
-            TestUtils.AreEqual(a3 % b3, r3);
+            double a3 = (-505.74352788633831);
+            double4 b3 = double4(461.95706126743789, 205.97275672013529, 270.04063642678807, -47.480711720642034);
+            double4 r3 = double4(-43.78646661890042, -93.798014446067725, -235.70289145955024, -30.936410679917969);
+            TestUtils.AreEqual(r3, a3 % b3);
         }
 
         [TestCompiler]
         public static void double4_operator_plus()
         {
-            double4 a0 = double4(271.6708086802023, -79.080240524876956, -330.98506203805334, 31.824682965793045);
-            double4 r0 = double4(271.6708086802023, -79.080240524876956, -330.98506203805334, 31.824682965793045);
-            TestUtils.AreEqual(+a0, r0);
+            double4 a0 = double4(-418.82956357432045, -405.79894823851015, -34.041791216489742, 236.99924456188421);
+            double4 r0 = double4(-418.82956357432045, -405.79894823851015, -34.041791216489742, 236.99924456188421);
+            TestUtils.AreEqual(r0, +a0);
 
-            double4 a1 = double4(315.44952860262686, 190.32466015141677, -350.30858270745193, -320.51845875406565);
-            double4 r1 = double4(315.44952860262686, 190.32466015141677, -350.30858270745193, -320.51845875406565);
-            TestUtils.AreEqual(+a1, r1);
+            double4 a1 = double4(-459.83910129025537, 293.74197902052754, -373.015422279488, -386.059833944803);
+            double4 r1 = double4(-459.83910129025537, 293.74197902052754, -373.015422279488, -386.059833944803);
+            TestUtils.AreEqual(r1, +a1);
 
-            double4 a2 = double4(102.0544069288552, -428.77622075973835, 377.23016208095021, 234.77393042052813);
-            double4 r2 = double4(102.0544069288552, -428.77622075973835, 377.23016208095021, 234.77393042052813);
-            TestUtils.AreEqual(+a2, r2);
+            double4 a2 = double4(4.9544198536101476, 504.47483062393724, -170.74650843941907, 439.55937572920664);
+            double4 r2 = double4(4.9544198536101476, 504.47483062393724, -170.74650843941907, 439.55937572920664);
+            TestUtils.AreEqual(r2, +a2);
 
-            double4 a3 = double4(34.283600107898792, 465.35593555185756, 309.59316530339106, -316.93713655925222);
-            double4 r3 = double4(34.283600107898792, 465.35593555185756, 309.59316530339106, -316.93713655925222);
-            TestUtils.AreEqual(+a3, r3);
+            double4 a3 = double4(-478.74939916969714, 421.40964742256779, -258.5960806620289, 447.86609122150867);
+            double4 r3 = double4(-478.74939916969714, 421.40964742256779, -258.5960806620289, 447.86609122150867);
+            TestUtils.AreEqual(r3, +a3);
         }
 
         [TestCompiler]
         public static void double4_operator_neg()
         {
-            double4 a0 = double4(420.22718854445372, -196.25749811728366, -335.42683068636188, 509.04366969924592);
-            double4 r0 = double4(-420.22718854445372, 196.25749811728366, 335.42683068636188, -509.04366969924592);
-            TestUtils.AreEqual(-a0, r0);
+            double4 a0 = double4(148.46174890755753, -467.12267873581624, 132.04719954917539, 183.52262290917463);
+            double4 r0 = double4(-148.46174890755753, 467.12267873581624, -132.04719954917539, -183.52262290917463);
+            TestUtils.AreEqual(r0, -a0);
 
-            double4 a1 = double4(-33.014395013923945, -495.8379526063045, -270.85946787095605, 19.686896571743773);
-            double4 r1 = double4(33.014395013923945, 495.8379526063045, 270.85946787095605, -19.686896571743773);
-            TestUtils.AreEqual(-a1, r1);
+            double4 a1 = double4(473.7010145009034, -54.958759571872065, -382.98981803608581, -299.09338893512887);
+            double4 r1 = double4(-473.7010145009034, 54.958759571872065, 382.98981803608581, 299.09338893512887);
+            TestUtils.AreEqual(r1, -a1);
 
-            double4 a2 = double4(268.23670662019254, 223.38126312167446, -410.39206070936848, -395.68154186554324);
-            double4 r2 = double4(-268.23670662019254, -223.38126312167446, 410.39206070936848, 395.68154186554324);
-            TestUtils.AreEqual(-a2, r2);
+            double4 a2 = double4(-383.01406377508027, 168.73550351370852, 466.44152829909763, 171.90249474900895);
+            double4 r2 = double4(383.01406377508027, -168.73550351370852, -466.44152829909763, -171.90249474900895);
+            TestUtils.AreEqual(r2, -a2);
 
-            double4 a3 = double4(-349.14948885010062, -238.21960913307015, 292.54351224216794, 469.29257867731735);
-            double4 r3 = double4(349.14948885010062, 238.21960913307015, -292.54351224216794, -469.29257867731735);
-            TestUtils.AreEqual(-a3, r3);
+            double4 a3 = double4(-280.55831564616335, 318.69633522569029, -39.91539694737429, 140.34000284054321);
+            double4 r3 = double4(280.55831564616335, -318.69633522569029, 39.91539694737429, -140.34000284054321);
+            TestUtils.AreEqual(r3, -a3);
         }
 
         [TestCompiler]
         public static void double4_operator_prefix_inc()
         {
-            double4 a0 = double4(-99.79557113526181, 458.74185082816609, 96.179026886904126, -48.552469514567633);
-            double4 r0 = double4(-98.79557113526181, 459.74185082816609, 97.179026886904126, -47.552469514567633);
-            TestUtils.AreEqual(++a0, r0);
+            double4 a0 = double4(-139.84208137348389, -56.743654039103376, -381.955324589254, 509.79634380237962);
+            double4 r0 = double4(-138.84208137348389, -55.743654039103376, -380.955324589254, 510.79634380237962);
+            TestUtils.AreEqual(r0, ++a0);
 
-            double4 a1 = double4(-315.728967098393, -323.61485853959567, -456.89028832730384, -76.507656371457358);
-            double4 r1 = double4(-314.728967098393, -322.61485853959567, -455.89028832730384, -75.507656371457358);
-            TestUtils.AreEqual(++a1, r1);
+            double4 a1 = double4(-222.89634452708827, -392.73151058365193, -300.19410218866267, 362.21273939787068);
+            double4 r1 = double4(-221.89634452708827, -391.73151058365193, -299.19410218866267, 363.21273939787068);
+            TestUtils.AreEqual(r1, ++a1);
 
-            double4 a2 = double4(-305.58477344437722, 148.67930967578627, 363.2849182390072, -115.5592263283018);
-            double4 r2 = double4(-304.58477344437722, 149.67930967578627, 364.2849182390072, -114.5592263283018);
-            TestUtils.AreEqual(++a2, r2);
+            double4 a2 = double4(401.614830919362, -450.23016402229212, 243.54693114177644, 46.19202735190845);
+            double4 r2 = double4(402.614830919362, -449.23016402229212, 244.54693114177644, 47.19202735190845);
+            TestUtils.AreEqual(r2, ++a2);
 
-            double4 a3 = double4(-326.87781992874937, 339.8765849265626, -38.410431164507941, -153.3736775635619);
-            double4 r3 = double4(-325.87781992874937, 340.8765849265626, -37.410431164507941, -152.3736775635619);
-            TestUtils.AreEqual(++a3, r3);
+            double4 a3 = double4(-41.497298975241051, 154.35656530892311, -281.23327435237974, 200.70599922943211);
+            double4 r3 = double4(-40.497298975241051, 155.35656530892311, -280.23327435237974, 201.70599922943211);
+            TestUtils.AreEqual(r3, ++a3);
         }
 
         [TestCompiler]
         public static void double4_operator_postfix_inc()
         {
-            double4 a0 = double4(322.94356623429042, 472.05246542024076, 203.48761925636211, -49.854570650427888);
-            double4 r0 = double4(322.94356623429042, 472.05246542024076, 203.48761925636211, -49.854570650427888);
-            TestUtils.AreEqual(a0++, r0);
+            double4 a0 = double4(-396.6697396695007, 511.20749378167443, 249.11127030528678, -128.81731301584153);
+            double4 r0 = double4(-396.6697396695007, 511.20749378167443, 249.11127030528678, -128.81731301584153);
+            TestUtils.AreEqual(r0, a0++);
 
-            double4 a1 = double4(-31.420532002775246, 271.45466840986842, 55.736877228942149, 153.75031645305);
-            double4 r1 = double4(-31.420532002775246, 271.45466840986842, 55.736877228942149, 153.75031645305);
-            TestUtils.AreEqual(a1++, r1);
+            double4 a1 = double4(-259.49027669592306, -81.393423356764686, 66.719732554033271, 167.85212691493894);
+            double4 r1 = double4(-259.49027669592306, -81.393423356764686, 66.719732554033271, 167.85212691493894);
+            TestUtils.AreEqual(r1, a1++);
 
-            double4 a2 = double4(-174.17301925186672, 215.11022744658874, 159.86103184514729, -333.05045262586816);
-            double4 r2 = double4(-174.17301925186672, 215.11022744658874, 159.86103184514729, -333.05045262586816);
-            TestUtils.AreEqual(a2++, r2);
+            double4 a2 = double4(147.94395048354932, 41.033564825092185, 128.5304239394751, 73.155582223625629);
+            double4 r2 = double4(147.94395048354932, 41.033564825092185, 128.5304239394751, 73.155582223625629);
+            TestUtils.AreEqual(r2, a2++);
 
-            double4 a3 = double4(241.46487509527469, -170.10464366250886, -270.65246380057766, -162.86024792625579);
-            double4 r3 = double4(241.46487509527469, -170.10464366250886, -270.65246380057766, -162.86024792625579);
-            TestUtils.AreEqual(a3++, r3);
+            double4 a3 = double4(-60.132380275117384, -296.93783797739906, 267.29380071689081, 446.22930714405572);
+            double4 r3 = double4(-60.132380275117384, -296.93783797739906, 267.29380071689081, 446.22930714405572);
+            TestUtils.AreEqual(r3, a3++);
         }
 
         [TestCompiler]
         public static void double4_operator_prefix_dec()
         {
-            double4 a0 = double4(-416.20121712992022, -96.637880131899351, -50.145671629414721, -207.31644759295341);
-            double4 r0 = double4(-417.20121712992022, -97.637880131899351, -51.145671629414721, -208.31644759295341);
-            TestUtils.AreEqual(--a0, r0);
+            double4 a0 = double4(123.12869626056806, 256.8437465433235, 156.33078844674435, 461.73742530389563);
+            double4 r0 = double4(122.12869626056806, 255.8437465433235, 155.33078844674435, 460.73742530389563);
+            TestUtils.AreEqual(r0, --a0);
 
-            double4 a1 = double4(439.47906156977592, 337.96895734312432, 246.08898293510492, 171.96452935597142);
-            double4 r1 = double4(438.47906156977592, 336.96895734312432, 245.08898293510492, 170.96452935597142);
-            TestUtils.AreEqual(--a1, r1);
+            double4 a1 = double4(325.86799755965728, 187.87412580655609, -236.2252043393558, 125.10963517292851);
+            double4 r1 = double4(324.86799755965728, 186.87412580655609, -237.2252043393558, 124.10963517292851);
+            TestUtils.AreEqual(r1, --a1);
 
-            double4 a2 = double4(-227.44280134301761, 326.50782338087811, 400.720900006928, -478.03137253133178);
-            double4 r2 = double4(-228.44280134301761, 325.50782338087811, 399.720900006928, -479.03137253133178);
-            TestUtils.AreEqual(--a2, r2);
+            double4 a2 = double4(469.8447313112415, 376.04684680329956, -363.07547991493504, -22.028951416736902);
+            double4 r2 = double4(468.8447313112415, 375.04684680329956, -364.07547991493504, -23.028951416736902);
+            TestUtils.AreEqual(r2, --a2);
 
-            double4 a3 = double4(-326.45297852459038, 112.79684668071422, -341.97629300783217, -503.27416181158003);
-            double4 r3 = double4(-327.45297852459038, 111.79684668071422, -342.97629300783217, -504.27416181158003);
-            TestUtils.AreEqual(--a3, r3);
+            double4 a3 = double4(248.79012667797042, 168.26565011230559, -190.284744112885, 166.9455474200405);
+            double4 r3 = double4(247.79012667797042, 167.26565011230559, -191.284744112885, 165.9455474200405);
+            TestUtils.AreEqual(r3, --a3);
         }
 
         [TestCompiler]
         public static void double4_operator_postfix_dec()
         {
-            double4 a0 = double4(-376.59242719066907, 16.969734438215255, -0.25066399585949739, -202.32328734282555);
-            double4 r0 = double4(-376.59242719066907, 16.969734438215255, -0.25066399585949739, -202.32328734282555);
-            TestUtils.AreEqual(a0--, r0);
+            double4 a0 = double4(379.68831723727669, 302.69287814884115, -176.07134040448409, -291.25267066212962);
+            double4 r0 = double4(379.68831723727669, 302.69287814884115, -176.07134040448409, -291.25267066212962);
+            TestUtils.AreEqual(r0, a0--);
 
-            double4 a1 = double4(409.55752940175944, -281.11170376516492, -262.062590959511, -182.40572866350681);
-            double4 r1 = double4(409.55752940175944, -281.11170376516492, -262.062590959511, -182.40572866350681);
-            TestUtils.AreEqual(a1--, r1);
+            double4 a1 = double4(470.56758401848731, -63.655158787805192, 355.26110069605568, -27.889220489137415);
+            double4 r1 = double4(470.56758401848731, -63.655158787805192, 355.26110069605568, -27.889220489137415);
+            TestUtils.AreEqual(r1, a1--);
 
-            double4 a2 = double4(450.12809559801974, -332.15495768755443, -261.00890052551819, 205.46112570793423);
-            double4 r2 = double4(450.12809559801974, -332.15495768755443, -261.00890052551819, 205.46112570793423);
-            TestUtils.AreEqual(a2--, r2);
+            double4 a2 = double4(-100.76183824462902, 479.94519613680677, -200.30429491787419, -445.0269393609031);
+            double4 r2 = double4(-100.76183824462902, 479.94519613680677, -200.30429491787419, -445.0269393609031);
+            TestUtils.AreEqual(r2, a2--);
 
-            double4 a3 = double4(-230.22777878038016, 378.64123433578811, 487.34482287212495, -192.17785772689518);
-            double4 r3 = double4(-230.22777878038016, 378.64123433578811, 487.34482287212495, -192.17785772689518);
-            TestUtils.AreEqual(a3--, r3);
+            double4 a3 = double4(407.42034907239508, 48.0602071509046, -209.66798100698179, -38.435048836485976);
+            double4 r3 = double4(407.42034907239508, 48.0602071509046, -209.66798100698179, -38.435048836485976);
+            TestUtils.AreEqual(r3, a3--);
         }
 
         [TestCompiler]
@@ -982,14 +982,14 @@ namespace Unity.Mathematics.Tests
             double4 a = double4(0, 1, 2, 3);
             double4 b = double4(4, 5, 6, 7);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX), (0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY), (1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ), (2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW), (3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX), (4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY), (5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ), (6));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW), (7));
+            TestUtils.AreEqual((0), shuffle(a, b, ShuffleComponent.LeftX));
+            TestUtils.AreEqual((1), shuffle(a, b, ShuffleComponent.LeftY));
+            TestUtils.AreEqual((2), shuffle(a, b, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual((3), shuffle(a, b, ShuffleComponent.LeftW));
+            TestUtils.AreEqual((4), shuffle(a, b, ShuffleComponent.RightX));
+            TestUtils.AreEqual((5), shuffle(a, b, ShuffleComponent.RightY));
+            TestUtils.AreEqual((6), shuffle(a, b, ShuffleComponent.RightZ));
+            TestUtils.AreEqual((7), shuffle(a, b, ShuffleComponent.RightW));
         }
 
         [TestCompiler]
@@ -998,22 +998,22 @@ namespace Unity.Mathematics.Tests
             double4 a = double4(0, 1, 2, 3);
             double4 b = double4(4, 5, 6, 7);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightZ), double2(5, 6));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX), double2(6, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX), double2(1, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftW), double2(7, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftZ), double2(7, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftW), double2(2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW), double2(5, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX), double2(7, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightW), double2(6, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftZ), double2(5, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ), double2(6, 6));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX), double2(7, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX), double2(5, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightY), double2(7, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX), double2(4, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW), double2(1, 3));
+            TestUtils.AreEqual(double2(5, 6), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double2(6, 4), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(1, 4), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(7, 3), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftW));
+            TestUtils.AreEqual(double2(7, 2), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double2(2, 3), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.LeftW));
+            TestUtils.AreEqual(double2(5, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW));
+            TestUtils.AreEqual(double2(7, 0), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(6, 7), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double2(5, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double2(6, 6), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double2(7, 0), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(5, 4), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double2(7, 5), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double2(4, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double2(1, 3), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW));
         }
 
         [TestCompiler]
@@ -1022,22 +1022,22 @@ namespace Unity.Mathematics.Tests
             double4 a = double4(0, 1, 2, 3);
             double4 b = double4(4, 5, 6, 7);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightY), double3(2, 7, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.LeftW), double3(6, 0, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightX), double3(2, 7, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftZ), double3(5, 0, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightZ, ShuffleComponent.LeftZ), double3(7, 6, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.LeftY), double3(3, 1, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightX), double3(3, 5, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightW), double3(3, 1, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY, ShuffleComponent.RightZ), double3(6, 5, 6));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY), double3(5, 4, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightW, ShuffleComponent.LeftX), double3(7, 7, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightY), double3(6, 1, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightW), double3(6, 1, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightY), double3(3, 5, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightY), double3(6, 0, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightW), double3(5, 1, 7));
+            TestUtils.AreEqual(double3(2, 7, 5), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(6, 0, 3), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.LeftW));
+            TestUtils.AreEqual(double3(2, 7, 4), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightW, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(5, 0, 2), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double3(7, 6, 2), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightZ, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double3(3, 1, 1), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(3, 5, 4), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double3(3, 1, 7), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.LeftY, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double3(6, 5, 6), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightY, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double3(5, 4, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double3(7, 7, 0), shuffle(a, b, ShuffleComponent.RightW, ShuffleComponent.RightW, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double3(6, 1, 5), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(6, 1, 7), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double3(3, 5, 5), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightY, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(6, 0, 5), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double3(5, 1, 7), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.RightW));
         }
 
         [TestCompiler]
@@ -1046,22 +1046,22 @@ namespace Unity.Mathematics.Tests
             double4 a = double4(0, 1, 2, 3);
             double4 b = double4(4, 5, 6, 7);
 
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ), double4(1, 3, 4, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightZ), double4(5, 3, 6, 6));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ, ShuffleComponent.RightW, ShuffleComponent.LeftZ), double4(6, 6, 7, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftZ, ShuffleComponent.LeftZ), double4(4, 5, 2, 2));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftX), double4(6, 1, 1, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightW), double4(4, 5, 5, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightW, ShuffleComponent.LeftX, ShuffleComponent.RightW), double4(1, 7, 0, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftX), double4(5, 0, 1, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightW, ShuffleComponent.LeftW, ShuffleComponent.LeftY), double4(4, 7, 3, 1));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX), double4(5, 4, 1, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX), double4(0, 2, 6, 0));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightW, ShuffleComponent.RightW), double4(2, 5, 7, 7));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ, ShuffleComponent.RightX), double4(3, 4, 2, 4));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.LeftW), double4(4, 0, 2, 3));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY), double4(6, 4, 0, 5));
-            TestUtils.AreEqual(shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.LeftY, ShuffleComponent.RightY), double4(3, 7, 1, 5));
+            TestUtils.AreEqual(double4(1, 3, 4, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double4(5, 3, 6, 6), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftW, ShuffleComponent.RightZ, ShuffleComponent.RightZ));
+            TestUtils.AreEqual(double4(6, 6, 7, 2), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightZ, ShuffleComponent.RightW, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double4(4, 5, 2, 2), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.LeftZ, ShuffleComponent.LeftZ));
+            TestUtils.AreEqual(double4(6, 1, 1, 0), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.LeftY, ShuffleComponent.LeftY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(4, 5, 5, 7), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightY, ShuffleComponent.RightY, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double4(1, 7, 0, 7), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.RightW, ShuffleComponent.LeftX, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double4(5, 0, 1, 0), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.LeftY, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(4, 7, 3, 1), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.RightW, ShuffleComponent.LeftW, ShuffleComponent.LeftY));
+            TestUtils.AreEqual(double4(5, 4, 1, 4), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightX, ShuffleComponent.LeftY, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(0, 2, 6, 0), shuffle(a, b, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.RightZ, ShuffleComponent.LeftX));
+            TestUtils.AreEqual(double4(2, 5, 7, 7), shuffle(a, b, ShuffleComponent.LeftZ, ShuffleComponent.RightY, ShuffleComponent.RightW, ShuffleComponent.RightW));
+            TestUtils.AreEqual(double4(3, 4, 2, 4), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightX, ShuffleComponent.LeftZ, ShuffleComponent.RightX));
+            TestUtils.AreEqual(double4(4, 0, 2, 3), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftZ, ShuffleComponent.LeftW));
+            TestUtils.AreEqual(double4(6, 4, 0, 5), shuffle(a, b, ShuffleComponent.RightZ, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.RightY));
+            TestUtils.AreEqual(double4(3, 7, 1, 5), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.LeftY, ShuffleComponent.RightY));
         }
 
 

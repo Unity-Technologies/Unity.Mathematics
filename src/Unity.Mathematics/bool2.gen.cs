@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool2 vector from two bool values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool x, bool y)
-        { 
+        {
             this.x = x;
             this.y = y;
         }
@@ -36,7 +36,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a bool2 vector from a bool2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2(bool2 xy)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
         }

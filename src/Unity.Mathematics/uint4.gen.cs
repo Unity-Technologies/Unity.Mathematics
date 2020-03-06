@@ -29,7 +29,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from four uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint y, uint z, uint w)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = z;
@@ -39,7 +39,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from two uint values and a uint2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint y, uint2 zw)
-        { 
+        {
             this.x = x;
             this.y = y;
             this.z = zw.x;
@@ -49,7 +49,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from a uint value, a uint2 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint2 yz, uint w)
-        { 
+        {
             this.x = x;
             this.y = yz.x;
             this.z = yz.y;
@@ -59,7 +59,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from a uint value and a uint3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint x, uint3 yzw)
-        { 
+        {
             this.x = x;
             this.y = yzw.x;
             this.z = yzw.y;
@@ -69,7 +69,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from a uint2 vector and two uint values.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint2 xy, uint z, uint w)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = z;
@@ -79,7 +79,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from two uint2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint2 xy, uint2 zw)
-        { 
+        {
             this.x = xy.x;
             this.y = xy.y;
             this.z = zw.x;
@@ -89,7 +89,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from a uint3 vector and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint3 xyz, uint w)
-        { 
+        {
             this.x = xyz.x;
             this.y = xyz.y;
             this.z = xyz.z;
@@ -99,7 +99,7 @@ namespace Unity.Mathematics
         /// <summary>Constructs a uint4 vector from a uint4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4(uint4 xyzw)
-        { 
+        {
             this.x = xyzw.x;
             this.y = xyzw.y;
             this.z = xyzw.z;
