@@ -17,7 +17,7 @@ namespace Unity.Mathematics.PerformanceTests
 {
     public partial class TestShuffle
     {
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_shuffle
         {
             public struct Arguments : IDisposable
@@ -69,7 +69,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -113,7 +113,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3_shuffle
         {
             public struct Arguments : IDisposable
@@ -165,7 +165,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -209,7 +209,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_shuffle
         {
             public struct Arguments : IDisposable
@@ -261,7 +261,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);

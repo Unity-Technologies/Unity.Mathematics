@@ -17,7 +17,7 @@ namespace Unity.Mathematics.PerformanceTests
 {
     public partial class TestNoise
     {
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise2D
         {
             public struct Arguments : IDisposable
@@ -53,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -97,7 +97,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise3D
         {
             public struct Arguments : IDisposable
@@ -133,7 +133,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -177,7 +177,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise4D
         {
             public struct Arguments : IDisposable
@@ -213,7 +213,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -257,7 +257,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise3Dgrad
         {
             public struct Arguments : IDisposable
@@ -301,7 +301,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -345,7 +345,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise2D
         {
             public struct Arguments : IDisposable
@@ -381,7 +381,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -425,7 +425,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise3D
         {
             public struct Arguments : IDisposable
@@ -461,7 +461,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -505,7 +505,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise4D
         {
             public struct Arguments : IDisposable
@@ -541,7 +541,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -585,7 +585,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise2D
         {
             public struct Arguments : IDisposable
@@ -621,7 +621,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -665,7 +665,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise3D
         {
             public struct Arguments : IDisposable
@@ -701,7 +701,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -745,7 +745,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise4D
         {
             public struct Arguments : IDisposable
@@ -781,7 +781,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -825,7 +825,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2D
         {
             public struct Arguments : IDisposable
@@ -861,7 +861,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -905,7 +905,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular3D
         {
             public struct Arguments : IDisposable
@@ -941,7 +941,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -985,7 +985,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2x2
         {
             public struct Arguments : IDisposable
@@ -1021,7 +1021,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1065,7 +1065,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2x2x2
         {
             public struct Arguments : IDisposable
@@ -1101,7 +1101,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1145,7 +1145,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class psrdnoise
         {
             public struct Arguments : IDisposable
@@ -1181,7 +1181,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1225,7 +1225,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class psrnoise
         {
             public struct Arguments : IDisposable
@@ -1261,7 +1261,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1305,7 +1305,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class srdnoise
         {
             public struct Arguments : IDisposable
@@ -1341,7 +1341,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1385,7 +1385,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class srnoise
         {
             public struct Arguments : IDisposable
@@ -1421,7 +1421,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);

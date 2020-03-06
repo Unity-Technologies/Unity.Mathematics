@@ -3494,7 +3494,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GeneratePerformanceTest(StringBuilder str, string testName, PerformanceTestArrayArgument[] testArguments, string loopBody, int loopIterations)
         {
-            str.AppendFormat("        [BurstCompile]\n");
+            str.AppendFormat("        [BurstCompile(CompileSynchronously = true)]\n");
             str.AppendFormat("        public unsafe class {0}\n", testName);
             str.AppendFormat("        {{\n");
             str.AppendFormat("            public struct Arguments : IDisposable\n");
@@ -3542,7 +3542,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("            {{\n");
             str.AppendFormat("                CommonTestFunction(ref args);\n");
             str.AppendFormat("            }}\n\n");
-            str.AppendFormat("            [BurstCompile]\n");
+            str.AppendFormat("            [BurstCompile(CompileSynchronously = true)]\n");
             str.AppendFormat("            public static void BurstTestFunction(ref Arguments args)\n");
             str.AppendFormat("            {{\n");
             str.AppendFormat("                CommonTestFunction(ref args);\n");

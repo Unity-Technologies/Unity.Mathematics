@@ -17,7 +17,7 @@ namespace Unity.Mathematics.PerformanceTests
 {
     public partial class TestRotation
     {
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_EulerXYZ
         {
             public struct Arguments : IDisposable
@@ -61,7 +61,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -105,7 +105,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_EulerXYZ
         {
             public struct Arguments : IDisposable
@@ -149,7 +149,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -193,7 +193,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_AxisAngle
         {
             public struct Arguments : IDisposable
@@ -245,7 +245,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -289,7 +289,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_AxisAngle
         {
             public struct Arguments : IDisposable
@@ -341,7 +341,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -385,7 +385,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_LookRotation
         {
             public struct Arguments : IDisposable
@@ -437,7 +437,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -481,7 +481,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_LookRotationSafe
         {
             public struct Arguments : IDisposable
@@ -533,7 +533,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -577,7 +577,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_LookAt
         {
             public struct Arguments : IDisposable
@@ -637,7 +637,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);

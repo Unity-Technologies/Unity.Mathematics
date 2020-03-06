@@ -17,7 +17,7 @@ namespace Unity.Mathematics.PerformanceTests
 {
     public partial class TestTranspose
     {
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float4x4
         {
             public struct Arguments : IDisposable
@@ -53,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -97,7 +97,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float3x3
         {
             public struct Arguments : IDisposable
@@ -133,7 +133,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -177,7 +177,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float2x2
         {
             public struct Arguments : IDisposable
@@ -213,7 +213,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -257,7 +257,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double4x4
         {
             public struct Arguments : IDisposable
@@ -293,7 +293,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -337,7 +337,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double3x3
         {
             public struct Arguments : IDisposable
@@ -373,7 +373,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -417,7 +417,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double2x2
         {
             public struct Arguments : IDisposable
@@ -453,7 +453,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);

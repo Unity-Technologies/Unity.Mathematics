@@ -17,7 +17,7 @@ namespace Unity.Mathematics.PerformanceTests
 {
     public partial class TestHash
     {
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_hash
         {
             public struct Arguments : IDisposable
@@ -61,7 +61,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -105,7 +105,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3_hash
         {
             public struct Arguments : IDisposable
@@ -149,7 +149,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -193,7 +193,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_hash
         {
             public struct Arguments : IDisposable
@@ -237,7 +237,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -281,7 +281,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class double2_hash
         {
             public struct Arguments : IDisposable
@@ -325,7 +325,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -369,7 +369,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class double3_hash
         {
             public struct Arguments : IDisposable
@@ -413,7 +413,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -457,7 +457,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class double4_hash
         {
             public struct Arguments : IDisposable
@@ -501,7 +501,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -545,7 +545,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_hash
         {
             public struct Arguments : IDisposable
@@ -589,7 +589,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -633,7 +633,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_hash
         {
             public struct Arguments : IDisposable
@@ -677,7 +677,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -721,7 +721,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_hash
         {
             public struct Arguments : IDisposable
@@ -765,7 +765,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -809,7 +809,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_hashwide
         {
             public struct Arguments : IDisposable
@@ -853,7 +853,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -897,7 +897,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_hashwide
         {
             public struct Arguments : IDisposable
@@ -941,7 +941,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -985,7 +985,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_hashwide
         {
             public struct Arguments : IDisposable
@@ -1029,7 +1029,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
@@ -1073,7 +1073,7 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
-        [BurstCompile]
+        [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_hashwide
         {
             public struct Arguments : IDisposable
@@ -1117,7 +1117,7 @@ namespace Unity.Mathematics.PerformanceTests
                 CommonTestFunction(ref args);
             }
 
-            [BurstCompile]
+            [BurstCompile(CompileSynchronously = true)]
             public static void BurstTestFunction(ref Arguments args)
             {
                 CommonTestFunction(ref args);
