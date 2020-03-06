@@ -27,8 +27,8 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float2x2 matrix from two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2x2(float2 c0, float2 c1)
-        {
+        public float2x2(in float2 c0, in float2 c1)
+        { 
             this.c0 = c0;
             this.c1 = c1;
         }
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2x2(float m00, float m01,
                         float m10, float m11)
-        {
+        { 
             this.c0 = new float2(m00, m10);
             this.c1 = new float2(m01, m11);
         }
@@ -60,7 +60,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float2x2 matrix from a bool2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2x2(bool2x2 v)
+        public float2x2(in bool2x2 v)
         {
             this.c0 = math.select(new float2(0.0f), new float2(1.0f), v.c0);
             this.c1 = math.select(new float2(0.0f), new float2(1.0f), v.c1);
@@ -76,7 +76,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float2x2 matrix from a int2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2x2(int2x2 v)
+        public float2x2(in int2x2 v)
         {
             this.c0 = v.c0;
             this.c1 = v.c1;
@@ -92,7 +92,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float2x2 matrix from a uint2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2x2(uint2x2 v)
+        public float2x2(in uint2x2 v)
         {
             this.c0 = v.c0;
             this.c1 = v.c1;
@@ -108,7 +108,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a float2x2 matrix from a double2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public float2x2(double2x2 v)
+        public float2x2(in double2x2 v)
         {
             this.c0 = (float2)v.c0;
             this.c1 = (float2)v.c1;
@@ -125,7 +125,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a bool2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float2x2(bool2x2 v) { return new float2x2(v); }
+        public static explicit operator float2x2(in bool2x2 v) { return new float2x2(v); }
 
         /// <summary>Implicitly converts a single int value to a float2x2 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -133,7 +133,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a int2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2x2(int2x2 v) { return new float2x2(v); }
+        public static implicit operator float2x2(in int2x2 v) { return new float2x2(v); }
 
         /// <summary>Implicitly converts a single uint value to a float2x2 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -141,7 +141,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a uint2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float2x2(uint2x2 v) { return new float2x2(v); }
+        public static implicit operator float2x2(in uint2x2 v) { return new float2x2(v); }
 
         /// <summary>Explicitly converts a single double value to a float2x2 matrix by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -149,72 +149,72 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a double2x2 matrix to a float2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator float2x2(double2x2 v) { return new float2x2(v); }
+        public static explicit operator float2x2(in double2x2 v) { return new float2x2(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator * (float2x2 lhs, float2x2 rhs) { return new float2x2 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1); }
+        public static float2x2 operator * (in float2x2 lhs, in float2x2 rhs) { return new float2x2 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator * (float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 * rhs, lhs.c1 * rhs); }
+        public static float2x2 operator * (in float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 * rhs, lhs.c1 * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator * (float lhs, float2x2 rhs) { return new float2x2 (lhs * rhs.c0, lhs * rhs.c1); }
+        public static float2x2 operator * (float lhs, in float2x2 rhs) { return new float2x2 (lhs * rhs.c0, lhs * rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator + (float2x2 lhs, float2x2 rhs) { return new float2x2 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1); }
+        public static float2x2 operator + (in float2x2 lhs, in float2x2 rhs) { return new float2x2 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator + (float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 + rhs, lhs.c1 + rhs); }
+        public static float2x2 operator + (in float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 + rhs, lhs.c1 + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator + (float lhs, float2x2 rhs) { return new float2x2 (lhs + rhs.c0, lhs + rhs.c1); }
+        public static float2x2 operator + (float lhs, in float2x2 rhs) { return new float2x2 (lhs + rhs.c0, lhs + rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator - (float2x2 lhs, float2x2 rhs) { return new float2x2 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1); }
+        public static float2x2 operator - (in float2x2 lhs, in float2x2 rhs) { return new float2x2 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator - (float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 - rhs, lhs.c1 - rhs); }
+        public static float2x2 operator - (in float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 - rhs, lhs.c1 - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator - (float lhs, float2x2 rhs) { return new float2x2 (lhs - rhs.c0, lhs - rhs.c1); }
+        public static float2x2 operator - (float lhs, in float2x2 rhs) { return new float2x2 (lhs - rhs.c0, lhs - rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator / (float2x2 lhs, float2x2 rhs) { return new float2x2 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1); }
+        public static float2x2 operator / (in float2x2 lhs, in float2x2 rhs) { return new float2x2 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1); }
 
         /// <summary>Returns the result of a componentwise division operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator / (float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 / rhs, lhs.c1 / rhs); }
+        public static float2x2 operator / (in float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 / rhs, lhs.c1 / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator / (float lhs, float2x2 rhs) { return new float2x2 (lhs / rhs.c0, lhs / rhs.c1); }
+        public static float2x2 operator / (float lhs, in float2x2 rhs) { return new float2x2 (lhs / rhs.c0, lhs / rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator % (float2x2 lhs, float2x2 rhs) { return new float2x2 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1); }
+        public static float2x2 operator % (in float2x2 lhs, in float2x2 rhs) { return new float2x2 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator % (float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 % rhs, lhs.c1 % rhs); }
+        public static float2x2 operator % (in float2x2 lhs, float rhs) { return new float2x2 (lhs.c0 % rhs, lhs.c1 % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 operator % (float lhs, float2x2 rhs) { return new float2x2 (lhs % rhs.c0, lhs % rhs.c1); }
+        public static float2x2 operator % (float lhs, in float2x2 rhs) { return new float2x2 (lhs % rhs.c0, lhs % rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a float2x2 matrix.</summary>
@@ -229,54 +229,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator < (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }
+        public static bool2x2 operator < (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator < (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 < rhs, lhs.c1 < rhs); }
+        public static bool2x2 operator < (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 < rhs, lhs.c1 < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator < (float lhs, float2x2 rhs) { return new bool2x2 (lhs < rhs.c0, lhs < rhs.c1); }
+        public static bool2x2 operator < (float lhs, in float2x2 rhs) { return new bool2x2 (lhs < rhs.c0, lhs < rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator <= (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1); }
+        public static bool2x2 operator <= (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator <= (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 <= rhs, lhs.c1 <= rhs); }
+        public static bool2x2 operator <= (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 <= rhs, lhs.c1 <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator <= (float lhs, float2x2 rhs) { return new bool2x2 (lhs <= rhs.c0, lhs <= rhs.c1); }
+        public static bool2x2 operator <= (float lhs, in float2x2 rhs) { return new bool2x2 (lhs <= rhs.c0, lhs <= rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator > (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1); }
+        public static bool2x2 operator > (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator > (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 > rhs, lhs.c1 > rhs); }
+        public static bool2x2 operator > (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 > rhs, lhs.c1 > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator > (float lhs, float2x2 rhs) { return new bool2x2 (lhs > rhs.c0, lhs > rhs.c1); }
+        public static bool2x2 operator > (float lhs, in float2x2 rhs) { return new bool2x2 (lhs > rhs.c0, lhs > rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator >= (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1); }
+        public static bool2x2 operator >= (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator >= (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 >= rhs, lhs.c1 >= rhs); }
+        public static bool2x2 operator >= (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 >= rhs, lhs.c1 >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator >= (float lhs, float2x2 rhs) { return new bool2x2 (lhs >= rhs.c0, lhs >= rhs.c1); }
+        public static bool2x2 operator >= (float lhs, in float2x2 rhs) { return new bool2x2 (lhs >= rhs.c0, lhs >= rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a float2x2 matrix.</summary>
@@ -291,28 +291,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
+        public static bool2x2 operator == (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
+        public static bool2x2 operator == (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator == (float lhs, float2x2 rhs) { return new bool2x2 (lhs == rhs.c0, lhs == rhs.c1); }
+        public static bool2x2 operator == (float lhs, in float2x2 rhs) { return new bool2x2 (lhs == rhs.c0, lhs == rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two float2x2 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (float2x2 lhs, float2x2 rhs) { return new bool2x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
+        public static bool2x2 operator != (in float2x2 lhs, in float2x2 rhs) { return new bool2x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float2x2 matrix and a float value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
+        public static bool2x2 operator != (in float2x2 lhs, float rhs) { return new bool2x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float value and a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2x2 operator != (float lhs, float2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
+        public static bool2x2 operator != (float lhs, in float2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
 
 
@@ -362,7 +362,7 @@ namespace Unity.Mathematics
     {
         /// <summary>Returns a float2x2 matrix constructed from two float2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 float2x2(float2 c0, float2 c1) { return new float2x2(c0, c1); }
+        public static float2x2 float2x2(in float2 c0, in float2 c1) { return new float2x2(c0, c1); }
 
         /// <summary>Returns a float2x2 matrix constructed from from 4 float values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -383,7 +383,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a float2x2 matrix constructed from a bool2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 float2x2(bool2x2 v) { return new float2x2(v); }
+        public static float2x2 float2x2(in bool2x2 v) { return new float2x2(v); }
 
         /// <summary>Returns a float2x2 matrix constructed from a single int value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -391,7 +391,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a float2x2 matrix constructed from a int2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 float2x2(int2x2 v) { return new float2x2(v); }
+        public static float2x2 float2x2(in int2x2 v) { return new float2x2(v); }
 
         /// <summary>Returns a float2x2 matrix constructed from a single uint value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -399,7 +399,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a float2x2 matrix constructed from a uint2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 float2x2(uint2x2 v) { return new float2x2(v); }
+        public static float2x2 float2x2(in uint2x2 v) { return new float2x2(v); }
 
         /// <summary>Returns a float2x2 matrix constructed from a single double value by converting it to float and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -407,11 +407,11 @@ namespace Unity.Mathematics
 
         /// <summary>Return a float2x2 matrix constructed from a double2x2 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 float2x2(double2x2 v) { return new float2x2(v); }
+        public static float2x2 float2x2(in double2x2 v) { return new float2x2(v); }
 
         /// <summary>Return the float2x2 transpose of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 transpose(float2x2 v)
+        public static float2x2 transpose(in float2x2 v)
         {
             return float2x2(
                 v.c0.x, v.c0.y,
@@ -420,7 +420,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the float2x2 full inverse of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2x2 inverse(float2x2 m)
+        public static float2x2 inverse(in float2x2 m)
         {
             float a = m.c0.x;
             float b = m.c1.x;
@@ -434,7 +434,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the determinant of a float2x2 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float determinant(float2x2 m)
+        public static float determinant(in float2x2 m)
         {
             float a = m.c0.x;
             float b = m.c1.x;
@@ -446,9 +446,9 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a uint hash code of a float2x2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(float2x2 v)
+        public static uint hash(in float2x2 v)
         {
-            return csum(asuint(v.c0) * uint2(0x9C9F0823u, 0x5A9CA13Bu) +
+            return csum(asuint(v.c0) * uint2(0x9C9F0823u, 0x5A9CA13Bu) + 
                         asuint(v.c1) * uint2(0xAFCDD5EFu, 0xA88D187Du)) + 0xCF6EBA1Du;
         }
 
@@ -458,9 +458,9 @@ namespace Unity.Mathematics
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 hashwide(float2x2 v)
+        public static uint2 hashwide(in float2x2 v)
         {
-            return (asuint(v.c0) * uint2(0x9D88E5A1u, 0xEADF0775u) +
+            return (asuint(v.c0) * uint2(0x9D88E5A1u, 0xEADF0775u) + 
                     asuint(v.c1) * uint2(0x747A9D7Bu, 0x4111F799u)) + 0xB5F05AF1u;
         }
 

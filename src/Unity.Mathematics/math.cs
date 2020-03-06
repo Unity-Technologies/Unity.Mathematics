@@ -188,32 +188,32 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the bit pattern of an int2 as a uint2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(int2 x) { return uint2((uint)x.x, (uint)x.y); }
+        public static unsafe uint2 asuint(int2 x) { return *(uint2*)&x; }
 
         /// <summary>Returns the bit pattern of an int3 as a uint3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(int3 x) { return uint3((uint)x.x, (uint)x.y, (uint)x.z); }
+        public static unsafe uint3 asuint(int3 x) { return *(uint3*)&x; }
 
         /// <summary>Returns the bit pattern of an int4 as a uint4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(int4 x) { return uint4((uint)x.x, (uint)x.y, (uint)x.z, (uint)x.w); }
+        public static unsafe uint4 asuint(int4 x) { return *(uint4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a float as a uint.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float x) { return (uint)asint(x); }
+        public static unsafe uint asuint(float x) { return *(uint*)&x; }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
+        public static unsafe uint2 asuint(float2 x) { return *(uint2*)&x; }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
+        public static unsafe uint3 asuint(float3 x) { return *(uint3*)&x; }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
+        public static unsafe uint4 asuint(float4 x) { return *(uint4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
@@ -253,32 +253,32 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the bit pattern of an int2 as a float2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(int2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static unsafe float2 asfloat(int2 x) { return *(float2*)&x; }
 
         /// <summary>Returns the bit pattern of an int3 as a float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(int3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static unsafe float3 asfloat(int3 x) { return *(float3*)&x; }
 
         /// <summary>Returns the bit pattern of an int4 as a float4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(int4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static unsafe float4 asfloat(int4 x) { return *(float4*)&x; }
 
 
         /// <summary>Returns the bit pattern of a uint as a float.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float  asfloat(uint x) { return asfloat((int)x); }
+        public static unsafe float asfloat(uint x) { return *(float*)&x; }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static unsafe float2 asfloat(uint2 x) { return *(float2*)&x; }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static unsafe float3 asfloat(uint3 x) { return *(float3*)&x; }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static unsafe float4 asfloat(uint4 x) { return *(float4*)&x; }
 
         /// <summary>
         /// Returns a bitmask representation of a bool4. Storing one 1 bit per component

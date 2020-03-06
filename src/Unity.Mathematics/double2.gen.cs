@@ -58,7 +58,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a double2 vector from a bool2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2(bool2 v)
+        public double2(in bool2 v)
         {
             this.x = v.x ? 1.0 : 0.0;
             this.y = v.y ? 1.0 : 0.0;
@@ -74,7 +74,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a double2 vector from a int2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2(int2 v)
+        public double2(in int2 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -90,7 +90,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a double2 vector from a uint2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2(uint2 v)
+        public double2(in uint2 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -106,7 +106,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a double2 vector from a half2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2(half2 v)
+        public double2(in half2 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -122,7 +122,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a double2 vector from a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public double2(float2 v)
+        public double2(in float2 v)
         {
             this.x = v.x;
             this.y = v.y;
@@ -139,7 +139,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a bool2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator double2(bool2 v) { return new double2(v); }
+        public static explicit operator double2(in bool2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single int value to a double2 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -147,7 +147,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a int2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator double2(int2 v) { return new double2(v); }
+        public static implicit operator double2(in int2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single uint value to a double2 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -155,7 +155,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a uint2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator double2(uint2 v) { return new double2(v); }
+        public static implicit operator double2(in uint2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single half value to a double2 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -163,7 +163,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a half2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator double2(half2 v) { return new double2(v); }
+        public static implicit operator double2(in half2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single float value to a double2 vector by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -171,72 +171,72 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a float2 vector to a double2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator double2(float2 v) { return new double2(v); }
+        public static implicit operator double2(in float2 v) { return new double2(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double2 lhs, double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
+        public static double2 operator * (in double2 lhs, in double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
+        public static double2 operator * (in double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double lhs, double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
+        public static double2 operator * (double lhs, in double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double2 lhs, double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
+        public static double2 operator + (in double2 lhs, in double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
+        public static double2 operator + (in double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double lhs, double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
+        public static double2 operator + (double lhs, in double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double2 lhs, double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
+        public static double2 operator - (in double2 lhs, in double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
+        public static double2 operator - (in double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double lhs, double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
+        public static double2 operator - (double lhs, in double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double2 lhs, double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
+        public static double2 operator / (in double2 lhs, in double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
 
         /// <summary>Returns the result of a componentwise division operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
+        public static double2 operator / (in double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double lhs, double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
+        public static double2 operator / (double lhs, in double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double2 lhs, double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        public static double2 operator % (in double2 lhs, in double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
+        public static double2 operator % (in double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double lhs, double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
+        public static double2 operator % (double lhs, in double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a double2 vector.</summary>
@@ -251,54 +251,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double2 lhs, double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
+        public static bool2 operator < (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
+        public static bool2 operator < (in double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double lhs, double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
+        public static bool2 operator < (double lhs, in double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double2 lhs, double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
+        public static bool2 operator <= (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
+        public static bool2 operator <= (in double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double lhs, double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
+        public static bool2 operator <= (double lhs, in double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double2 lhs, double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
+        public static bool2 operator > (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
+        public static bool2 operator > (in double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double lhs, double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
+        public static bool2 operator > (double lhs, in double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double2 lhs, double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
+        public static bool2 operator >= (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
+        public static bool2 operator >= (in double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double lhs, double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
+        public static bool2 operator >= (double lhs, in double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a double2 vector.</summary>
@@ -313,28 +313,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double2 lhs, double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (in double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double lhs, double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (double lhs, in double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double2 lhs, double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (in double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double lhs, double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (double lhs, in double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
@@ -649,7 +649,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a double2 vector constructed from a bool2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 double2(bool2 v) { return new double2(v); }
+        public static double2 double2(in bool2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single int value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -657,7 +657,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a double2 vector constructed from a int2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 double2(int2 v) { return new double2(v); }
+        public static double2 double2(in int2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single uint value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -665,7 +665,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a double2 vector constructed from a uint2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 double2(uint2 v) { return new double2(v); }
+        public static double2 double2(in uint2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -673,7 +673,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a double2 vector constructed from a half2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 double2(half2 v) { return new double2(v); }
+        public static double2 double2(in half2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -681,11 +681,11 @@ namespace Unity.Mathematics
 
         /// <summary>Return a double2 vector constructed from a float2 vector by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 double2(float2 v) { return new double2(v); }
+        public static double2 double2(in float2 v) { return new double2(v); }
 
         /// <summary>Returns a uint hash code of a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(double2 v)
+        public static uint hash(in double2 v)
         {
             return csum(fold_to_uint(v) * uint2(0x9536A0F5u, 0xAF816615u)) + 0x9AF8D62Du;
         }
@@ -696,21 +696,21 @@ namespace Unity.Mathematics
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 hashwide(double2 v)
+        public static uint2 hashwide(in double2 v)
         {
             return (fold_to_uint(v) * uint2(0xE3600729u, 0x5F17300Du)) + 0x670D6809u;
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double shuffle(double2 a, double2 b, ShuffleComponent x)
+        public static double shuffle(in double2 a, in double2 b, ShuffleComponent x)
         {
             return select_shuffle_component(a, b, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y)
+        public static double2 shuffle(in double2 a, in double2 b, ShuffleComponent x, ShuffleComponent y)
         {
             return double2(
                 select_shuffle_component(a, b, x),
@@ -719,7 +719,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static double3 shuffle(in double2 a, in double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return double3(
                 select_shuffle_component(a, b, x),
@@ -729,7 +729,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double4 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static double4 shuffle(in double2 a, in double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return double4(
                 select_shuffle_component(a, b, x),
@@ -739,7 +739,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static double select_shuffle_component(double2 a, double2 b, ShuffleComponent component)
+        internal static double select_shuffle_component(in double2 a, in double2 b, ShuffleComponent component)
         {
             switch(component)
             {

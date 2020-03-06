@@ -28,8 +28,8 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a uint3x3 matrix from three uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3x3(uint3 c0, uint3 c1, uint3 c2)
-        {
+        public uint3x3(in uint3 c0, in uint3 c1, in uint3 c2)
+        { 
             this.c0 = c0;
             this.c1 = c1;
             this.c2 = c2;
@@ -40,7 +40,7 @@ namespace Unity.Mathematics
         public uint3x3(uint m00, uint m01, uint m02,
                        uint m10, uint m11, uint m12,
                        uint m20, uint m21, uint m22)
-        {
+        { 
             this.c0 = new uint3(m00, m10, m20);
             this.c1 = new uint3(m01, m11, m21);
             this.c2 = new uint3(m02, m12, m22);
@@ -66,7 +66,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a uint3x3 matrix from a bool3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3x3(bool3x3 v)
+        public uint3x3(in bool3x3 v)
         {
             this.c0 = math.select(new uint3(0u), new uint3(1u), v.c0);
             this.c1 = math.select(new uint3(0u), new uint3(1u), v.c1);
@@ -84,7 +84,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a uint3x3 matrix from a int3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3x3(int3x3 v)
+        public uint3x3(in int3x3 v)
         {
             this.c0 = (uint3)v.c0;
             this.c1 = (uint3)v.c1;
@@ -102,7 +102,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a uint3x3 matrix from a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3x3(float3x3 v)
+        public uint3x3(in float3x3 v)
         {
             this.c0 = (uint3)v.c0;
             this.c1 = (uint3)v.c1;
@@ -120,7 +120,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a uint3x3 matrix from a double3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public uint3x3(double3x3 v)
+        public uint3x3(in double3x3 v)
         {
             this.c0 = (uint3)v.c0;
             this.c1 = (uint3)v.c1;
@@ -138,7 +138,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a bool3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint3x3(bool3x3 v) { return new uint3x3(v); }
+        public static explicit operator uint3x3(in bool3x3 v) { return new uint3x3(v); }
 
         /// <summary>Explicitly converts a single int value to a uint3x3 matrix by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -146,7 +146,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a int3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint3x3(int3x3 v) { return new uint3x3(v); }
+        public static explicit operator uint3x3(in int3x3 v) { return new uint3x3(v); }
 
         /// <summary>Explicitly converts a single float value to a uint3x3 matrix by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -154,7 +154,7 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a float3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint3x3(float3x3 v) { return new uint3x3(v); }
+        public static explicit operator uint3x3(in float3x3 v) { return new uint3x3(v); }
 
         /// <summary>Explicitly converts a single double value to a uint3x3 matrix by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -162,72 +162,72 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a double3x3 matrix to a uint3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static explicit operator uint3x3(double3x3 v) { return new uint3x3(v); }
+        public static explicit operator uint3x3(in double3x3 v) { return new uint3x3(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator * (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2); }
+        public static uint3x3 operator * (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator * (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs); }
+        public static uint3x3 operator * (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator * (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2); }
+        public static uint3x3 operator * (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator + (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2); }
+        public static uint3x3 operator + (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator + (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs); }
+        public static uint3x3 operator + (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator + (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2); }
+        public static uint3x3 operator + (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator - (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2); }
+        public static uint3x3 operator - (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator - (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs); }
+        public static uint3x3 operator - (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator - (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2); }
+        public static uint3x3 operator - (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator / (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2); }
+        public static uint3x3 operator / (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator / (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs); }
+        public static uint3x3 operator / (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator / (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2); }
+        public static uint3x3 operator / (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator % (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2); }
+        public static uint3x3 operator % (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator % (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs); }
+        public static uint3x3 operator % (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator % (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2); }
+        public static uint3x3 operator % (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a uint3x3 matrix.</summary>
@@ -242,54 +242,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator < (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2); }
+        public static bool3x3 operator < (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator < (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs); }
+        public static bool3x3 operator < (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator < (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2); }
+        public static bool3x3 operator < (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator <= (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2); }
+        public static bool3x3 operator <= (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator <= (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs); }
+        public static bool3x3 operator <= (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator <= (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2); }
+        public static bool3x3 operator <= (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator > (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2); }
+        public static bool3x3 operator > (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator > (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs); }
+        public static bool3x3 operator > (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator > (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2); }
+        public static bool3x3 operator > (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator >= (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2); }
+        public static bool3x3 operator >= (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator >= (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs); }
+        public static bool3x3 operator >= (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator >= (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2); }
+        public static bool3x3 operator >= (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a uint3x3 matrix.</summary>
@@ -304,36 +304,36 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise left shift operation on a uint3x3 matrix by a number of bits specified by a single int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator << (uint3x3 x, int n) { return new uint3x3 (x.c0 << n, x.c1 << n, x.c2 << n); }
+        public static uint3x3 operator << (in uint3x3 x, int n) { return new uint3x3 (x.c0 << n, x.c1 << n, x.c2 << n); }
 
         /// <summary>Returns the result of a componentwise right shift operation on a uint3x3 matrix by a number of bits specified by a single int.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator >> (uint3x3 x, int n) { return new uint3x3 (x.c0 >> n, x.c1 >> n, x.c2 >> n); }
+        public static uint3x3 operator >> (in uint3x3 x, int n) { return new uint3x3 (x.c0 >> n, x.c1 >> n, x.c2 >> n); }
 
         /// <summary>Returns the result of a componentwise equality operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator == (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2); }
+        public static bool3x3 operator == (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator == (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
+        public static bool3x3 operator == (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator == (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
+        public static bool3x3 operator == (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator != (uint3x3 lhs, uint3x3 rhs) { return new bool3x3 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2); }
+        public static bool3x3 operator != (in uint3x3 lhs, in uint3x3 rhs) { return new bool3x3 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator != (uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
+        public static bool3x3 operator != (in uint3x3 lhs, uint rhs) { return new bool3x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3x3 operator != (uint lhs, uint3x3 rhs) { return new bool3x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
+        public static bool3x3 operator != (uint lhs, in uint3x3 rhs) { return new bool3x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on a uint3x3 matrix.</summary>
@@ -343,41 +343,41 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator & (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1, lhs.c2 & rhs.c2); }
+        public static uint3x3 operator & (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1, lhs.c2 & rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator & (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs); }
+        public static uint3x3 operator & (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator & (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2); }
+        public static uint3x3 operator & (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator | (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1, lhs.c2 | rhs.c2); }
+        public static uint3x3 operator | (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1, lhs.c2 | rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator | (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs); }
+        public static uint3x3 operator | (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator | (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2); }
+        public static uint3x3 operator | (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two uint3x3 matrices.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator ^ (uint3x3 lhs, uint3x3 rhs) { return new uint3x3 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1, lhs.c2 ^ rhs.c2); }
+        public static uint3x3 operator ^ (in uint3x3 lhs, in uint3x3 rhs) { return new uint3x3 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1, lhs.c2 ^ rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint3x3 matrix and a uint value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator ^ (uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
+        public static uint3x3 operator ^ (in uint3x3 lhs, uint rhs) { return new uint3x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint value and a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 operator ^ (uint lhs, uint3x3 rhs) { return new uint3x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
+        public static uint3x3 operator ^ (uint lhs, in uint3x3 rhs) { return new uint3x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
 
 
 
@@ -427,7 +427,7 @@ namespace Unity.Mathematics
     {
         /// <summary>Returns a uint3x3 matrix constructed from three uint3 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 uint3x3(uint3 c0, uint3 c1, uint3 c2) { return new uint3x3(c0, c1, c2); }
+        public static uint3x3 uint3x3(in uint3 c0, in uint3 c1, in uint3 c2) { return new uint3x3(c0, c1, c2); }
 
         /// <summary>Returns a uint3x3 matrix constructed from from 9 uint values given in row-major order.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -450,7 +450,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a uint3x3 matrix constructed from a bool3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 uint3x3(bool3x3 v) { return new uint3x3(v); }
+        public static uint3x3 uint3x3(in bool3x3 v) { return new uint3x3(v); }
 
         /// <summary>Returns a uint3x3 matrix constructed from a single int value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -458,7 +458,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a uint3x3 matrix constructed from a int3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 uint3x3(int3x3 v) { return new uint3x3(v); }
+        public static uint3x3 uint3x3(in int3x3 v) { return new uint3x3(v); }
 
         /// <summary>Returns a uint3x3 matrix constructed from a single float value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -466,7 +466,7 @@ namespace Unity.Mathematics
 
         /// <summary>Return a uint3x3 matrix constructed from a float3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 uint3x3(float3x3 v) { return new uint3x3(v); }
+        public static uint3x3 uint3x3(in float3x3 v) { return new uint3x3(v); }
 
         /// <summary>Returns a uint3x3 matrix constructed from a single double value by converting it to uint and assigning it to every component.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -474,11 +474,11 @@ namespace Unity.Mathematics
 
         /// <summary>Return a uint3x3 matrix constructed from a double3x3 matrix by componentwise conversion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 uint3x3(double3x3 v) { return new uint3x3(v); }
+        public static uint3x3 uint3x3(in double3x3 v) { return new uint3x3(v); }
 
         /// <summary>Return the uint3x3 transpose of a uint3x3 matrix.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3x3 transpose(uint3x3 v)
+        public static uint3x3 transpose(in uint3x3 v)
         {
             return uint3x3(
                 v.c0.x, v.c0.y, v.c0.z,
@@ -488,10 +488,10 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a uint hash code of a uint3x3 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint hash(uint3x3 v)
+        public static uint hash(in uint3x3 v)
         {
-            return csum(v.c0 * uint3(0xAC60D0C3u, 0x9263662Fu, 0xE69626FFu) +
-                        v.c1 * uint3(0xBD010EEBu, 0x9CEDE1D1u, 0x43BE0B51u) +
+            return csum(v.c0 * uint3(0xAC60D0C3u, 0x9263662Fu, 0xE69626FFu) + 
+                        v.c1 * uint3(0xBD010EEBu, 0x9CEDE1D1u, 0x43BE0B51u) + 
                         v.c2 * uint3(0xAF836EE1u, 0xB130C137u, 0x54834775u)) + 0x7C022221u;
         }
 
@@ -501,10 +501,10 @@ namespace Unity.Mathematics
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 hashwide(uint3x3 v)
+        public static uint3 hashwide(in uint3x3 v)
         {
-            return (v.c0 * uint3(0xA2D00EDFu, 0xA8977779u, 0x9F1C739Bu) +
-                    v.c1 * uint3(0x4B1BD187u, 0x9DF50593u, 0xF18EEB85u) +
+            return (v.c0 * uint3(0xA2D00EDFu, 0xA8977779u, 0x9F1C739Bu) + 
+                    v.c1 * uint3(0x4B1BD187u, 0x9DF50593u, 0xF18EEB85u) + 
                     v.c2 * uint3(0x9E19BFC3u, 0x8196B06Fu, 0xD24EFA19u)) + 0x7D8048BBu;
         }
 
