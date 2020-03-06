@@ -3,8 +3,7 @@
     "references": [
         "Unity.Mathematics",
         "Unity.PerformanceTesting",
-        "Unity.Burst",
-        "Unity.Collections"
+        "Unity.Burst"
     ],
     "includePlatforms": [
         "Editor"
