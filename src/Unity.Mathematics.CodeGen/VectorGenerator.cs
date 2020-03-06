@@ -1605,7 +1605,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} and {2}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 1), ToValueDescription(m_BaseType, rhsRows, rhsColumns, 1));
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
+            str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, Param(ToTypeName(m_BaseType, lhsRows, lhsColumns)), Param(ToTypeName(m_BaseType, rhsRows, rhsColumns)));
             str.Append(" { ");
             str.AppendFormat("return new {0} (", ToTypeName(resultType, resultRows, resultColumns));
 

@@ -176,67 +176,67 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise multiplication operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double2 lhs, double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
+        public static double2 operator * (in double2 lhs, in double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
+        public static double2 operator * (in double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator * (double lhs, double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
+        public static double2 operator * (double lhs, in double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double2 lhs, double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
+        public static double2 operator + (in double2 lhs, in double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
+        public static double2 operator + (in double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator + (double lhs, double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
+        public static double2 operator + (double lhs, in double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double2 lhs, double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
+        public static double2 operator - (in double2 lhs, in double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
+        public static double2 operator - (in double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator - (double lhs, double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
+        public static double2 operator - (double lhs, in double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double2 lhs, double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
+        public static double2 operator / (in double2 lhs, in double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
 
         /// <summary>Returns the result of a componentwise division operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
+        public static double2 operator / (in double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator / (double lhs, double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
+        public static double2 operator / (double lhs, in double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double2 lhs, double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
+        public static double2 operator % (in double2 lhs, in double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
+        public static double2 operator % (in double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 operator % (double lhs, double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
+        public static double2 operator % (double lhs, in double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a double2 vector.</summary>
@@ -251,54 +251,54 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise less than operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double2 lhs, double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
+        public static bool2 operator < (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
+        public static bool2 operator < (in double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator < (double lhs, double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
+        public static bool2 operator < (double lhs, in double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double2 lhs, double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
+        public static bool2 operator <= (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
+        public static bool2 operator <= (in double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator <= (double lhs, double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
+        public static bool2 operator <= (double lhs, in double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double2 lhs, double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
+        public static bool2 operator > (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
+        public static bool2 operator > (in double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator > (double lhs, double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
+        public static bool2 operator > (double lhs, in double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double2 lhs, double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
+        public static bool2 operator >= (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
+        public static bool2 operator >= (in double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator >= (double lhs, double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
+        public static bool2 operator >= (double lhs, in double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a double2 vector.</summary>
@@ -313,28 +313,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns the result of a componentwise equality operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double2 lhs, double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
+        public static bool2 operator == (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
+        public static bool2 operator == (in double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator == (double lhs, double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
+        public static bool2 operator == (double lhs, in double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two double2 vectors.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double2 lhs, double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
+        public static bool2 operator != (in double2 lhs, in double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double2 vector and a double value.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
+        public static bool2 operator != (in double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double value and a double2 vector.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 operator != (double lhs, double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
+        public static bool2 operator != (double lhs, in double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
