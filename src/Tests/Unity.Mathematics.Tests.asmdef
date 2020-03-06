@@ -4,8 +4,7 @@
         "TestAssemblies"
     ],
     "references": [
-        "Unity.Mathematics",
-        "Unity.PerformanceTesting"
+        "Unity.Mathematics"
     ],
     "includePlatforms": [
         "Editor"
