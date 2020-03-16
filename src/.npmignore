@@ -9,6 +9,7 @@ Documentation/ApiDocs/**
 QAReport.md
 QAReport.md.meta
 Unity.Mathematics.CodeGen
+Unity.Mathematics.PerformanceTests
 Unity.Mathematics.Shaders
 *.sln
 *.db
@@ -17,3 +18,10 @@ Unity.Mathematics.Shaders
 **/packages.config
 **/bin
 **/obj
+
+upm-ci~/**
+.Editor/**
+.yamato/**
+*.zip*
+TestRunnerOptions.json
+.idea/**
