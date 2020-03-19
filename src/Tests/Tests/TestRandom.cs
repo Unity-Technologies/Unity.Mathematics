@@ -1182,5 +1182,81 @@ namespace Unity.Mathematics.Tests
                 return double2(phi, z);
             });
         }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = i;
+                uint seed2 = i + 1;
+                r_test(() => new double2(Random.CreateFromHashedSeed(seed1++).NextUInt(), Random.CreateFromHashedSeed(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = 0x6E624EB7u + i;
+                uint seed2 = 0x6E624EB8u + i;
+                r_test(() => new double2(Random.CreateFromHashedSeed(seed1++).NextUInt(), Random.CreateFromHashedSeed(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0;
+            ks_test(() => Random.CreateFromHashedSeed(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0x6E624EB7u;
+            ks_test(() => Random.CreateFromHashedSeed(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void similar_seeds()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 1; i <= 1024; ++i)
+            {
+                var rnd1 = new Random(i);
+                var rnd2 = new Random(i + 1);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void similar_seeds2()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 0; i < 1024; ++i)
+            {
+                var rnd1 = new Random(0x6E624EB7u + i);
+                var rnd2 = new Random(0x6E624EB8u + i);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void hashed_seed_backup()
+        {
+            // 61 hashes to zero which breaks Random.  This checks that the backup is used instead.
+            uint backup = 1337u;
+            var rnd = Random.CreateFromHashedSeed(61u, backup);
+            var rnd_with_backup = new Random(backup);
+            Assert.AreEqual(rnd_with_backup.state, rnd.state);
+        }
     }
 }
