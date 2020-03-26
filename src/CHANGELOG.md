@@ -1,6 +1,6 @@
 # Changelog
 
-## [Not yet released]
+## [Unreleased]
 - Adding Random.CreateFromHashedSeed() to assist in creating Random instances with consecutive seeds.
 
 ## [1.1.0] - 2019-07-08
