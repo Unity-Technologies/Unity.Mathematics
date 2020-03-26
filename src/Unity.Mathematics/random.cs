@@ -28,7 +28,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Constructs a <see cref="Random"/> instance with a hashed seed.
+        /// Constructs a <see cref="Random"/> instance with a seed that gets hashed.  The seed must be non-zero.
         /// </summary>
         /// <remarks>
         /// Use this function when you expect to create several Random instances from consecutive or
@@ -38,32 +38,37 @@ namespace Unity.Mathematics
         /// <code>
         /// for (uint i = 0; i &lt; 4096; ++i)
         /// {
-        ///     Random rand = Random.CreateFromHashedSeed(i);
+        ///     // Add 1 to i to avoid using zero.
+        ///     Random rand = Random.CreateFromHashedSeed(i + 1u);
         ///
         ///     // Random numbers drawn from loop iteration j should be very different
-        ///     // from every other loop iteration.
+        ///     // from every other loop iteration k.
         ///     rand.NextUInt();
         /// }
         /// </code>
         /// </example>
-        /// <param name="seed_to_hash">A seed that will be hashed for Random creation.</param>
-        /// <param name="backup_nonzero_seed">In the event that <paramref name="seed_to_hash"/> hashes to zero, then the <see cref="Random"/> constructor will be called with this backup value as the seed instead.  No hashing is performed on the backup and it must be non-zero.</param>
-        /// <returns><see cref="Random"/> created from hashed seed.  If the seed hashes to zero, then the backup seed is used without hashing it.</returns>
+        /// <param name="seed_to_hash">A seed that will be hashed for Random creation.  Must be non-zero.</param>
+        /// <returns><see cref="Random"/> created from hashed seed.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Random CreateFromHashedSeed(uint seed_to_hash, uint backup_nonzero_seed = 1u)
+        public static Random CreateFromHashedSeed(uint seed_to_hash)
         {
+            // Wang hash (below) will hash 61 to zero.  Add 61 to the given seed
+            // so that zero hashes to zero.  This makes it so that seed_to_hash
+            // has the same constraints as the Random constructor and InitState().
+            seed_to_hash += 61u;
+
+            // https://gist.github.com/badboy/6267743#hash-function-construction-principles
             // Wang hash: this has the property that none of the outputs will
             // collide with each other, which is important for the purposes of
-            // seeding a random number generator.  This was verified empirically.
+            // seeding a random number generator.  This was verified empirically
+            // by checking all 2^32 uints.
             seed_to_hash = (seed_to_hash ^ 61u) ^ (seed_to_hash >> 16);
             seed_to_hash *= 9u;
             seed_to_hash = seed_to_hash ^ (seed_to_hash >> 4);
             seed_to_hash *= 0x27d4eb2du;
             seed_to_hash = seed_to_hash ^ (seed_to_hash >> 15);
 
-            // Random cannot accept zero as the seed, but the hashing process could generate zero
-            // so guard against that possibility.
-            return new Random(seed_to_hash != 0u ? seed_to_hash : backup_nonzero_seed);
+            return new Random(seed_to_hash);
         }
 
         /// <summary>

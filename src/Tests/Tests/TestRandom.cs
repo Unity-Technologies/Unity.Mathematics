@@ -1187,7 +1187,7 @@ namespace Unity.Mathematics.Tests
         public static void consecutive_seeds_r_test()
         {
             // Check that drawing 1 number from many consecutive seeds has no correlation.
-            for (uint i = 0; i < 128; ++i)
+            for (uint i = 1; i < 128; ++i)
             {
                 uint seed1 = i;
                 uint seed2 = i + 1;
@@ -1211,7 +1211,7 @@ namespace Unity.Mathematics.Tests
         public static void consecutive_seeds_ks_test()
         {
             // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
-            uint seed = 0;
+            uint seed = 1;
             ks_test(() => Random.CreateFromHashedSeed(seed++).NextDouble());
         }
 
@@ -1247,16 +1247,6 @@ namespace Unity.Mathematics.Tests
                 var rnd2 = new Random(0x6E624EB8u + i);
                 r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
             }
-        }
-
-        [TestCompiler]
-        public static void hashed_seed_backup()
-        {
-            // 61 hashes to zero which breaks Random.  This checks that the backup is used instead.
-            uint backup = 1337u;
-            var rnd = Random.CreateFromHashedSeed(61u, backup);
-            var rnd_with_backup = new Random(backup);
-            Assert.AreEqual(rnd_with_backup.state, rnd.state);
         }
     }
 }
