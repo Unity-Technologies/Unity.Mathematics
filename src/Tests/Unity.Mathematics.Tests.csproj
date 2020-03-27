@@ -104,6 +104,7 @@
     <Compile Include="Tests\Shared\TestMath.gen.cs" />
     <Compile Include="Tests\Shared\TestMatrix.cs" />
     <Compile Include="Tests\Shared\TestMinMaxAABB.cs" />
+    <Compile Include="Tests\Shared\TestNormalizedPlane.cs" />
     <Compile Include="Tests\Shared\TestQuaternion.cs" />
     <Compile Include="Tests\Shared\TestRigidTransform.cs" />
     <Compile Include="Tests\TestMath2.cs" />
