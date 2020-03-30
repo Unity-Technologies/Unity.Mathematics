@@ -4,7 +4,7 @@ using static Unity.Mathematics.math;
 namespace Unity.Mathematics.Extras
 {
     [Serializable]
-    public partial struct AABB
+    internal partial struct AABB
     {
         public float3 Center;
         public float3 Extents;
