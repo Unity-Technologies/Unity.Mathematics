@@ -1,7 +1,7 @@
 # Changelog
 
 ## [Unreleased]
-- Adding Random.CreateFromHashedSeed() to assist in creating Random instances with consecutive seeds.
+- Adding Random.CreateFromIndex() to assist in creating Random instances from loop indices.
 
 ## [1.1.0] - 2019-07-08
 
