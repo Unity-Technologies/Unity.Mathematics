@@ -4,7 +4,7 @@ using static Unity.Mathematics.math;
 namespace Unity.Mathematics.Extras
 {
     [System.Serializable]
-    public struct MinMaxAABB : IEquatable<MinMaxAABB>
+    internal struct MinMaxAABB : IEquatable<MinMaxAABB>
     {
         public float3 Min;
         public float3 Max;
