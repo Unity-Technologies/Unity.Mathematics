@@ -28,47 +28,46 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Constructs a <see cref="Random"/> instance with a seed that gets hashed.  The seed must be non-zero.
+        /// Constructs a <see cref="Random"/> instance with an index that gets hashed.  The index must not be uint.MaxValue.
         /// </summary>
         /// <remarks>
-        /// Use this function when you expect to create several Random instances from consecutive or
-        /// very similar seeds.
+        /// Use this function when you expect to create several Random instances in a loop.
         /// </remarks>
         /// <example>
         /// <code>
         /// for (uint i = 0; i &lt; 4096; ++i)
         /// {
-        ///     // Add 1 to i to avoid using zero.
-        ///     Random rand = Random.CreateFromHashedSeed(i + 1u);
+        ///     Random rand = Random.CreateFromIndex(i);
         ///
-        ///     // Random numbers drawn from loop iteration j should be very different
+        ///     // Random numbers drawn from loop iteration j will be very different
         ///     // from every other loop iteration k.
         ///     rand.NextUInt();
         /// }
         /// </code>
         /// </example>
-        /// <param name="seed_to_hash">A seed that will be hashed for Random creation.  Must be non-zero.</param>
-        /// <returns><see cref="Random"/> created from hashed seed.</returns>
+        /// <param name="index">An index that will be hashed for Random creation.  Must not be uint.MaxValue.</param>
+        /// <returns><see cref="Random"/> created from an index.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static Random CreateFromHashedSeed(uint seed_to_hash)
+        public static Random CreateFromIndex(uint index)
         {
-            // Wang hash (below) will hash 61 to zero.  Add 61 to the given seed
-            // so that zero hashes to zero.  This makes it so that seed_to_hash
-            // has the same constraints as the Random constructor and InitState().
-            seed_to_hash += 61u;
+            CheckIndexForHash(index);
+
+            // Wang hash (below) will hash 61 to zero so choose a different index to hash to zero.
+            // We want uint.MaxValue to hash to zero so offset the index to (Picard voice) Make It So.
+            index += 62u;
 
             // https://gist.github.com/badboy/6267743#hash-function-construction-principles
             // Wang hash: this has the property that none of the outputs will
             // collide with each other, which is important for the purposes of
             // seeding a random number generator.  This was verified empirically
             // by checking all 2^32 uints.
-            seed_to_hash = (seed_to_hash ^ 61u) ^ (seed_to_hash >> 16);
-            seed_to_hash *= 9u;
-            seed_to_hash = seed_to_hash ^ (seed_to_hash >> 4);
-            seed_to_hash *= 0x27d4eb2du;
-            seed_to_hash = seed_to_hash ^ (seed_to_hash >> 15);
+            index = (index ^ 61u) ^ (index >> 16);
+            index *= 9u;
+            index = index ^ (index >> 4);
+            index *= 0x27d4eb2du;
+            index = index ^ (index >> 15);
 
-            return new Random(seed_to_hash);
+            return new Random(index);
         }
 
         /// <summary>
@@ -569,6 +568,13 @@ namespace Unity.Mathematics
             if (state == 0)
                 throw new System.ArgumentException("Seed must be non-zero");
 #endif
+        }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        static void CheckIndexForHash(uint index)
+        {
+            if (index == uint.MaxValue)
+                throw new System.ArgumentException("Index must not be uint.MaxValue");
         }
 
         [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]

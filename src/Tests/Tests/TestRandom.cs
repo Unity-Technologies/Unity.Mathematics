@@ -1187,11 +1187,11 @@ namespace Unity.Mathematics.Tests
         public static void consecutive_seeds_r_test()
         {
             // Check that drawing 1 number from many consecutive seeds has no correlation.
-            for (uint i = 1; i < 128; ++i)
+            for (uint i = 0; i < 128; ++i)
             {
                 uint seed1 = i;
                 uint seed2 = i + 1;
-                r_test(() => new double2(Random.CreateFromHashedSeed(seed1++).NextUInt(), Random.CreateFromHashedSeed(seed2++).NextUInt()));
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
             }
         }
 
@@ -1203,7 +1203,7 @@ namespace Unity.Mathematics.Tests
             {
                 uint seed1 = 0x6E624EB7u + i;
                 uint seed2 = 0x6E624EB8u + i;
-                r_test(() => new double2(Random.CreateFromHashedSeed(seed1++).NextUInt(), Random.CreateFromHashedSeed(seed2++).NextUInt()));
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
             }
         }
 
@@ -1211,8 +1211,8 @@ namespace Unity.Mathematics.Tests
         public static void consecutive_seeds_ks_test()
         {
             // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
-            uint seed = 1;
-            ks_test(() => Random.CreateFromHashedSeed(seed++).NextDouble());
+            uint seed = 0;
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
         }
 
         [TestCompiler]
@@ -1220,7 +1220,7 @@ namespace Unity.Mathematics.Tests
         {
             // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
             uint seed = 0x6E624EB7u;
-            ks_test(() => Random.CreateFromHashedSeed(seed++).NextDouble());
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
         }
 
         [TestCompiler]
