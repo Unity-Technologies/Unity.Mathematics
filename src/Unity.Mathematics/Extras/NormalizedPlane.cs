@@ -52,7 +52,7 @@ namespace Unity.Mathematics.Extras
         /// Constructs a plane with two vectors and a point that all lie in the plane.
         /// </summary>
         /// <param name="vector1InPlane">A non-zero vector that lies in the plane.  It may be any length.</param>
-        /// <param name="vector2InPlane">A non-zero vector that lies in the plane.  It may be any length and must be different from <paramref name="vector1InPlane"/>.</param>
+        /// <param name="vector2InPlane">A non-zero vector that lies in the plane.  It may be any length and must not be a scalar multiple of <paramref name="vector1InPlane"/>.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public NormalizedPlane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
