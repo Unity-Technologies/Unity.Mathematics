@@ -79,7 +79,7 @@ namespace Unity.Mathematics.Extras
         }
 
         /// <summary>
-        /// Get the distance from the point to the plane.
+        /// Get the signed distance from the point to the plane.
         /// </summary>
         /// <remarks>
         /// Distance is positive if point is on side of the plane the normal points to, negative if on the opposite side
