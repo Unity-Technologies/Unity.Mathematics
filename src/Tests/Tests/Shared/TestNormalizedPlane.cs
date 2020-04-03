@@ -7,6 +7,8 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestNormalizedPlane
     {
+        static float Tolerance = 0.0000025f;
+
         [TestCompiler]
         public static void Empty()
         {
@@ -30,11 +32,25 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void ConstructWithNormalAndOrigin_NegativeDistance()
+        public static void ConstructWithNormalAndDistance_NonUnitLengthNormal()
+        {
+            var n = new float3(4.0f, -5.0f, 6.0f);
+            var d = 123.0f;
+            var p = new NormalizedPlane(n, d);
+            var expectedN = math.normalize(n);
+            var expectedD = d / math.length(n);
+
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p.NormalAndDistance, Tolerance);
+            TestUtils.AreEqual(expectedN, p.Normal, Tolerance);
+            TestUtils.AreEqual(expectedD, p.Distance, Tolerance);
+        }
+
+        [TestCompiler]
+        public static void ConstructWithNormalAndPointInPlane_NegativeDistance()
         {
             var n = math.up();
-            var origin = math.up();
-            var p = new NormalizedPlane(n, origin);
+            var pointInPlane = math.up();
+            var p = new NormalizedPlane(n, pointInPlane);
 
             TestUtils.AreEqual(new float4(math.up(), -1.0f), p.NormalAndDistance);
             TestUtils.AreEqual(n, p.Normal);
@@ -42,15 +58,29 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void ConstructWithNormalAndOrigin_PositiveDistance()
+        public static void ConstructWithNormalAndPointInPlane_PositiveDistance()
         {
             var n = math.down();
-            var origin = math.up();
-            var p = new NormalizedPlane(n, origin);
+            var pointInPlane = math.up();
+            var p = new NormalizedPlane(n, pointInPlane);
 
             TestUtils.AreEqual(new float4(math.down(), 1.0f), p.NormalAndDistance);
             TestUtils.AreEqual(n, p.Normal);
             TestUtils.AreEqual(1.0f, p.Distance);
+        }
+
+        [TestCompiler]
+        public static void ConstructWithNormalAndPointInPlane()
+        {
+            var normal = new float3(2.0f, 2.0f, 2.0f);
+            var pointInPlane = new float3(-2.0f, -2.0f, -2.0f);
+            var p = new NormalizedPlane(normal, pointInPlane);
+            var expectedN = math.normalize(normal);
+            var expectedD = math.length(pointInPlane);
+
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p.NormalAndDistance);
+            TestUtils.AreEqual(expectedN, p.Normal);
+            TestUtils.AreEqual(expectedD, p.Distance);
         }
 
         [TestCompiler]
@@ -120,23 +150,25 @@ namespace Unity.Mathematics.Tests
         public static void Flipped()
         {
             var normal = new float3(1.0f);
-            var n = math.normalize(normal);
-            var d = -1.0f;
+            var expectedN = -math.normalize(normal);
+            var expectedD = 1.0f;
+            var d = -expectedD * math.length(normal);
             var p = new NormalizedPlane(normal, d);
 
-            TestUtils.AreEqual(new float4(-n, -d), p.Flipped);
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p.Flipped, Tolerance);
         }
 
         [TestCompiler]
         public static void ImplicitToFloat4()
         {
             var normal = new float3(1.1f, -20.0f, 15.182f);
-            var n = math.normalize(normal);
-            var d = 18.9281f;
+            var expectedN = math.normalize(normal);
+            var expectedD = 18.9281f;
+            var d = expectedD * math.length(normal);
             var p = new NormalizedPlane(normal, d);
             float4 p_as_float4 = p;
 
-            TestUtils.AreEqual(new float4(n, d), p_as_float4);
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p_as_float4, Tolerance);
         }
     }
 }

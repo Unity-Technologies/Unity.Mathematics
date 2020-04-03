@@ -34,7 +34,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public NormalizedPlane(float3 normal, float distance)
         {
-            NormalAndDistance = new float4(math.normalize(normal), distance);
+            NormalAndDistance = new float4(normal, distance) * math.rsqrt(math.lengthsq(normal.xyz));
         }
 
         /// <summary>
@@ -45,6 +45,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public NormalizedPlane(float3 normal, float3 pointInPlane)
         {
+            normal = math.normalize(normal);
             NormalAndDistance = new float4(normal, -math.dot(normal, pointInPlane));
         }
 
