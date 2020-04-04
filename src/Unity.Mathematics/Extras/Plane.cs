@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 namespace Unity.Mathematics.Extras
 {
     /// <summary>
-    /// A plane represented by a unit length normal vector and a distance along the normal from the origin.
+    /// A plane represented by a normal vector and a distance along the normal from the origin.
     /// </summary>
     /// <remarks>
     /// A plane splits the 3D space in half.  The normal vector points to the positive half and the other half is
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Extras
         /// A plane in the form Ax + By + Cz + Dw = 0.
         /// </summary>
         /// <remarks>
-        /// Stores the coefficients A, B, C, D where (A, B, C) is a unit length normal and D is distance from the
+        /// Stores the coefficients A, B, C, D where (A, B, C) is a normal vector and D is distance from the
         /// origin along the normal.
         /// </remarks>
         public float4 NormalAndDistance;
