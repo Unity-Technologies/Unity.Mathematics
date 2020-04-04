@@ -1182,5 +1182,92 @@ namespace Unity.Mathematics.Tests
                 return double2(phi, z);
             });
         }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = i;
+                uint seed2 = i + 1;
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = 0x6E624EB7u + i;
+                uint seed2 = 0x6E624EB8u + i;
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0;
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0x6E624EB7u;
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void similar_seeds()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 1; i <= 1024; ++i)
+            {
+                var rnd1 = new Random(i);
+                var rnd2 = new Random(i + 1);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void similar_seeds2()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 0; i < 1024; ++i)
+            {
+                var rnd1 = new Random(0x6E624EB7u + i);
+                var rnd2 = new Random(0x6E624EB8u + i);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void wang_hash()
+        {
+            TestUtils.AreEqual(3232319850u, Random.WangHash(0u));
+            TestUtils.AreEqual(663891101u, Random.WangHash(1u));
+            TestUtils.AreEqual(3329832309u, Random.WangHash(2u));
+            TestUtils.AreEqual(2278584254u, Random.WangHash(3u));
+            TestUtils.AreEqual(3427349084u, Random.WangHash(4u));
+            TestUtils.AreEqual(3322605197u, Random.WangHash(5u));
+            TestUtils.AreEqual(1902946834u, Random.WangHash(6u));
+            TestUtils.AreEqual(851741419u, Random.WangHash(7u));
+            TestUtils.AreEqual(0u, Random.WangHash(61u));
+
+            unchecked
+            {
+                // Random.CreateFromIndex() takes zero as a valid input and makes uint.MaxValue invalid
+                // so check that we can make uint.MaxValue hash to zero.
+                TestUtils.AreEqual(0u, Random.WangHash(uint.MaxValue + 62u));
+            }
+        }
     }
 }
