@@ -14,7 +14,7 @@ namespace Unity.Mathematics.Extras
     // A plane described by a normal and a distance from the origin
     [DebuggerDisplay("{Normal}, {Distance}")]
     [Serializable]
-    internal struct NormalizedPlane
+    internal struct Plane
     {
         /// <summary>
         /// A plane in the form Ax + By + Cz + Dw = 0.
@@ -32,7 +32,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
         /// same direction as the normal while a positive value moves it in the opposite direction.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 normal, float distance)
+        public Plane(float3 normal, float distance)
         {
             NormalAndDistance = new float4(normal, distance) * math.rsqrt(math.lengthsq(normal.xyz));
         }
@@ -43,7 +43,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="normal">A non-zero vector that is perpendicular to the plane.  It may be any length.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 normal, float3 pointInPlane)
+        public Plane(float3 normal, float3 pointInPlane)
         {
             normal = math.normalize(normal);
             NormalAndDistance = new float4(normal, -math.dot(normal, pointInPlane));
@@ -56,7 +56,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="vector2InPlane">A non-zero vector that lies in the plane.  It may be any length and must not be a scalar multiple of <paramref name="vector1InPlane"/>.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
+        public Plane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
         : this(math.cross(vector1InPlane, vector2InPlane), pointInPlane)
         {
         }
@@ -112,14 +112,14 @@ namespace Unity.Mathematics.Extras
         /// <summary>
         /// Flips the plane so the normal points in the opposite direction.
         /// </summary>
-        public NormalizedPlane Flipped => new NormalizedPlane { NormalAndDistance = -NormalAndDistance };
+        public Plane Flipped => new Plane { NormalAndDistance = -NormalAndDistance };
 
         /// <summary>
-        /// Implicitly converts a <see cref="NormalizedPlane"/> to <see cref="float4"/>.
+        /// Implicitly converts a <see cref="Plane"/> to <see cref="float4"/>.
         /// </summary>
         /// <param name="plane">Plane to convert.</param>
         /// <returns>A <see cref="float4"/> representing the plane.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(NormalizedPlane plane) => plane.NormalAndDistance;
+        public static implicit operator float4(Plane plane) => plane.NormalAndDistance;
     }
 }

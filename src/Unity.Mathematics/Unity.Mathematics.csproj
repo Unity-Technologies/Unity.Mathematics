@@ -88,7 +88,7 @@
     <Compile Include="double4x3.gen.cs" />
     <Compile Include="double4x4.gen.cs" />
     <Compile Include="Extras\MinMaxAABB.cs" />
-    <Compile Include="Extras\NormalizedPlane.cs" />
+    <Compile Include="Extras\Plane.cs" />
     <Compile Include="float2.gen.cs" />
     <Compile Include="float2x2.gen.cs" />
     <Compile Include="float2x3.gen.cs" />
