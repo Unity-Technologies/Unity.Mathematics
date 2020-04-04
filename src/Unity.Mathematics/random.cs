@@ -28,6 +28,53 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
+        /// Constructs a <see cref="Random"/> instance with an index that gets hashed.  The index must not be uint.MaxValue.
+        /// </summary>
+        /// <remarks>
+        /// Use this function when you expect to create several Random instances in a loop.
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// for (uint i = 0; i &lt; 4096; ++i)
+        /// {
+        ///     Random rand = Random.CreateFromIndex(i);
+        ///
+        ///     // Random numbers drawn from loop iteration j will be very different
+        ///     // from every other loop iteration k.
+        ///     rand.NextUInt();
+        /// }
+        /// </code>
+        /// </example>
+        /// <param name="index">An index that will be hashed for Random creation.  Must not be uint.MaxValue.</param>
+        /// <returns><see cref="Random"/> created from an index.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Random CreateFromIndex(uint index)
+        {
+            CheckIndexForHash(index);
+
+            // Wang hash will hash 61 to zero but we want uint.MaxValue to hash to zero.  To make this happen
+            // we must offset by 62.
+            return new Random(WangHash(index + 62u));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint WangHash(uint n)
+        {
+            // https://gist.github.com/badboy/6267743#hash-function-construction-principles
+            // Wang hash: this has the property that none of the outputs will
+            // collide with each other, which is important for the purposes of
+            // seeding a random number generator.  This was verified empirically
+            // by checking all 2^32 uints.
+            n = (n ^ 61u) ^ (n >> 16);
+            n *= 9u;
+            n = n ^ (n >> 4);
+            n *= 0x27d4eb2du;
+            n = n ^ (n >> 15);
+
+            return n;
+        }
+
+        /// <summary>
         /// Initialized the state of the Random instance with a given seed value. The seed must be non-zero.
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -525,6 +572,13 @@ namespace Unity.Mathematics
             if (state == 0)
                 throw new System.ArgumentException("Seed must be non-zero");
 #endif
+        }
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        static void CheckIndexForHash(uint index)
+        {
+            if (index == uint.MaxValue)
+                throw new System.ArgumentException("Index must not be uint.MaxValue");
         }
 
         [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
