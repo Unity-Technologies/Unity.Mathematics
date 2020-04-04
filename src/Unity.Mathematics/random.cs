@@ -52,22 +52,26 @@ namespace Unity.Mathematics
         {
             CheckIndexForHash(index);
 
-            // Wang hash (below) will hash 61 to zero so choose a different index to hash to zero.
-            // We want uint.MaxValue to hash to zero so offset the index to (Picard voice) Make It So.
-            index += 62u;
+            // Wang hash will hash 61 to zero but we want uint.MaxValue to hash to zero.  To make this happen
+            // we must offset by 62.
+            return new Random(WangHash(index + 62u));
+        }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint WangHash(uint n)
+        {
             // https://gist.github.com/badboy/6267743#hash-function-construction-principles
             // Wang hash: this has the property that none of the outputs will
             // collide with each other, which is important for the purposes of
             // seeding a random number generator.  This was verified empirically
             // by checking all 2^32 uints.
-            index = (index ^ 61u) ^ (index >> 16);
-            index *= 9u;
-            index = index ^ (index >> 4);
-            index *= 0x27d4eb2du;
-            index = index ^ (index >> 15);
+            n = (n ^ 61u) ^ (n >> 16);
+            n *= 9u;
+            n = n ^ (n >> 4);
+            n *= 0x27d4eb2du;
+            n = n ^ (n >> 15);
 
-            return new Random(index);
+            return n;
         }
 
         /// <summary>

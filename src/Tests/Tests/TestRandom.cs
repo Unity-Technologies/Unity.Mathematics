@@ -1248,5 +1248,26 @@ namespace Unity.Mathematics.Tests
                 r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
             }
         }
+
+        [TestCompiler]
+        public static void wang_hash()
+        {
+            TestUtils.AreEqual(3232319850u, Random.WangHash(0u));
+            TestUtils.AreEqual(663891101u, Random.WangHash(1u));
+            TestUtils.AreEqual(3329832309u, Random.WangHash(2u));
+            TestUtils.AreEqual(2278584254u, Random.WangHash(3u));
+            TestUtils.AreEqual(3427349084u, Random.WangHash(4u));
+            TestUtils.AreEqual(3322605197u, Random.WangHash(5u));
+            TestUtils.AreEqual(1902946834u, Random.WangHash(6u));
+            TestUtils.AreEqual(851741419u, Random.WangHash(7u));
+            TestUtils.AreEqual(0u, Random.WangHash(61u));
+
+            unchecked
+            {
+                // Random.CreateFromIndex() takes zero as a valid input and makes uint.MaxValue invalid
+                // so check that we can make uint.MaxValue hash to zero.
+                TestUtils.AreEqual(0u, Random.WangHash(uint.MaxValue + 62u));
+            }
+        }
     }
 }
