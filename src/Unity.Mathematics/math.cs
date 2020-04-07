@@ -2536,6 +2536,239 @@ namespace Unity.Mathematics
             return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
         }
 
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Single.MaxValue) or when b's components are very small (close to FLT_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.float2,Unity.Mathematics.float2,Unity.Mathematics.float2)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 project(float2 a, float2 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Single.MaxValue) or when b's components are very small (close to FLT_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.float3,Unity.Mathematics.float3,Unity.Mathematics.float3)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 project(float3 a, float3 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Single.MaxValue) or when b's components are very small (close to FLT_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.float4,Unity.Mathematics.float4,Unity.Mathematics.float4)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 project(float4 a, float4 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.float2,Unity.Mathematics.float2)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 projectsafe(float2 a, float2 b, float2 defaultValue = new float2())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.float3,Unity.Mathematics.float3)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 projectsafe(float3 a, float3 b, float3 defaultValue = new float3())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.float4,Unity.Mathematics.float4)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 projectsafe(float4 a, float4 b, float4 defaultValue = new float4())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Double.MaxValue) or when b's components are very small (close to DBL_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.double2,Unity.Mathematics.double2,Unity.Mathematics.double2)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 project(double2 a, double2 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Double.MaxValue) or when b's components are very small (close to DBL_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.double3,Unity.Mathematics.double3,Unity.Mathematics.double3)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 project(double3 a, double3 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b.
+        /// </summary>
+        /// <remarks>
+        /// Some finite vectors a and b could generate a non-finite result. This is most likely when a's components
+        /// are very large (close to Double.MaxValue) or when b's components are very small (close to DBL_MIN_NORMAL).
+        /// In these cases, you can call <see cref="projectsafe(Unity.Mathematics.double4,Unity.Mathematics.double4,Unity.Mathematics.double4)"/>
+        /// which will use a given default value if the result is not finite.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <returns>Vector projection of a onto b.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 project(double4 a, double4 b)
+        {
+            return (dot(a, b) / dot(b, b)) * b;
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.double2,Unity.Mathematics.double2)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 projectsafe(double2 a, double2 b, double2 defaultValue = new double2())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.double3,Unity.Mathematics.double3)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 projectsafe(double3 a, double3 b, double3 defaultValue = new double3())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
+
+        /// <summary>
+        /// Compute vector projection of a onto b. If result is not finite, then return the default value instead.
+        /// </summary>
+        /// <remarks>
+        /// This function performs extra checks to see if the result of projecting a onto b is finite. If you know that
+        /// your inputs will generate a finite result or you don't care if the result is finite, then you can call
+        /// <see cref="project(Unity.Mathematics.double4,Unity.Mathematics.double4)"/> instead which is faster than this
+        /// function.
+        /// </remarks>
+        /// <param name="a">Vector to project.</param>
+        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="defaultValue">Default value to return if projection is not finite.</param>
+        /// <returns>Vector projection of a onto b or the default value.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 projectsafe(double4 a, double4 b, double4 defaultValue = new double4())
+        {
+            var proj = project(a, b);
+
+            return select(defaultValue, proj, all(isfinite(proj)));
+        }
 
         /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

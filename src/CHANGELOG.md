@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Added math.project() and math.projectsafe() for vector projection.
 - Added math.EPSILON, math.INFINITY, math.NAN and their double counterparts.
 - Added [Serializable] to RigidTransform.
 - Added math.ceillog2().

@@ -903,6 +903,135 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public static void project_float2()
+        {
+            var a = float2(-0.161021441221237182617f, 0.429202795028686523438f);
+            var b = float2(-0.0599312856793403625488f, -0.150524005293846130371f);
+            TestUtils.AreEqual(float2(0.125471457839012145996f, 0.315135329961776733398f), project(a, b), 1, true);
+            TestUtils.AreEqual(float2(1.0f, 0.0f), project(float2(1.0f), float2(1.0f, 0.0f)));
+        }
+
+        [TestCompiler]
+        public static void project_float3()
+        {
+            var a = float3(0.394884318113327026367f, 0.148208647966384887695f, -0.264224529266357421875f);
+            var b = float3(-0.101686701178550720215f, 0.206427112221717834473f, 0.232919931411743164063f);
+            TestUtils.AreEqual(float3(0.0674439668655395507813f, -0.136913314461708068848f, -0.15448474884033203125f), project(a, b), 1, true);
+            TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), project(float3(1.0f), float3(1.0f, 0.0f, 0.0f)));
+        }
+
+        [TestCompiler]
+        public static void project_float4()
+        {
+            var a = float4(0.122686818242073059082f, 0.465182095766067504883f, -0.388583064079284667969f, -0.15201015770435333252f);
+            var b = float4(-0.309838652610778808594f, -0.456567704677581787109f, 0.36733195185661315918f, -0.222711801528930664063f);
+            TestUtils.AreEqual(float4(0.227654770016670227051f, 0.335464328527450561523f, -0.269898116588592529297f, 0.163638085126876831055f), project(a, b), 1, true);
+            TestUtils.AreEqual(float4(1.0f, 0.0f, 0.0f, 0.0f), project(float4(1.0f), float4(1.0f, 0.0f, 0.0f, 0.0f)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_float2()
+        {
+            var a = float2(-0.161021441221237182617f, 0.429202795028686523438f);
+            var b = float2(-0.0599312856793403625488f, -0.150524005293846130371f);
+            TestUtils.AreEqual(float2(0.125471457839012145996f, 0.315135329961776733398f), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(float2(1.0f, 0.0f), projectsafe(float2(1.0f), float2(1.0f, 0.0f)));
+            TestUtils.AreEqual(float2(1.0f), projectsafe(a, float2(FLT_MIN_NORMAL), float2(1.0f)));
+            TestUtils.AreEqual(float2(3.0f), projectsafe(float2(Single.MaxValue), float2(1.0f), float2(3.0f)));
+            TestUtils.AreEqual(float2(4.0f), projectsafe(float2(NAN), float2(0.0f), float2(4.0f)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_float3()
+        {
+            var a = float3(0.394884318113327026367f, 0.148208647966384887695f, -0.264224529266357421875f);
+            var b = float3(-0.101686701178550720215f, 0.206427112221717834473f, 0.232919931411743164063f);
+            TestUtils.AreEqual(float3(0.0674439668655395507813f, -0.136913314461708068848f, -0.15448474884033203125f), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), projectsafe(float3(1.0f), float3(1.0f, 0.0f, 0.0f)));
+            TestUtils.AreEqual(float3(1.0f), projectsafe(a, float3(FLT_MIN_NORMAL), float3(1.0f)));
+            TestUtils.AreEqual(float3(3.0f), projectsafe(float3(Single.MaxValue), float3(1.0f), float3(3.0f)));
+            TestUtils.AreEqual(float3(4.0f), projectsafe(float3(NAN), float3(0.0f), float3(4.0f)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_float4()
+        {
+            var a = float4(0.122686818242073059082f, 0.465182095766067504883f, -0.388583064079284667969f, -0.15201015770435333252f);
+            var b = float4(-0.309838652610778808594f, -0.456567704677581787109f, 0.36733195185661315918f, -0.222711801528930664063f);
+            TestUtils.AreEqual(float4(0.227654770016670227051f, 0.335464328527450561523f, -0.269898116588592529297f, 0.163638085126876831055f), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(float4(1.0f, 0.0f, 0.0f, 0.0f), projectsafe(float4(1.0f), float4(1.0f, 0.0f, 0.0f, 0.0f)));
+            TestUtils.AreEqual(float4(1.0f), projectsafe(a, float4(FLT_MIN_NORMAL), float4(1.0f)));
+            TestUtils.AreEqual(float4(3.0f), projectsafe(float4(Single.MaxValue), float4(1.0f), float4(3.0f)));
+            TestUtils.AreEqual(float4(4.0f), projectsafe(float4(NAN), float4(0.0f), float4(4.0f)));
+        }
+
+        [TestCompiler]
+        public static void project_double2()
+        {
+            var a = double2(-0.435219509355847911092, -0.359623376546357509387);
+            var b = double2(-0.332390389310175893289, 0.358699148796679301299);
+            TestUtils.AreEqual(double2(-0.0217742941367157077925, 0.0234977334594353125252), project(a, b), 1, true);
+            TestUtils.AreEqual(double2(1.0, 0.0), project(double2(1.0), double2(1.0, 0.0)));
+            TestUtils.AreEqual(double2.zero, projectsafe(a, double2(DBL_MIN_NORMAL)));
+        }
+
+        [TestCompiler]
+        public static void project_double3()
+        {
+            var a = double3(-0.3102470377532390855, -0.255432695780735075086, -0.180834679740036918805);
+            var b = double3(-0.203341282534090506129, -0.470673723467076310367, -0.488817492459550251294);
+            TestUtils.AreEqual(double3(-0.110096727918742851027, -0.254840710284045091072, -0.26466443900892921981), project(a, b), 1, true);
+            TestUtils.AreEqual(double3(1.0, 0.0, 0.0), project(double3(1.0), double3(1.0, 0.0, 0.0)));
+            TestUtils.AreEqual(double3.zero, projectsafe(a, double3(DBL_MIN_NORMAL)));
+        }
+
+        [TestCompiler]
+        public static void project_double4()
+        {
+            var a = double4(0.452051837682779789063, -0.0365627422588526429514, 0.236716008642456676725, 0.397823192622046239997);
+            var b = double4(0.294256018645240757792, 0.062793063668604487404, 0.0790497661060386436205, 0.396864526681538709596);
+            TestUtils.AreEqual(double4(0.355631654768521932031, 0.0758903802316912984294, 0.0955378899598586933672, 0.479642146293154714165), project(a, b), 1, true);
+            TestUtils.AreEqual(double4(1.0, 0.0, 0.0, 0.0), project(double4(1.0), double4(1.0, 0.0, 0.0, 0.0)));
+            TestUtils.AreEqual(double4.zero, projectsafe(a, double4(DBL_MIN_NORMAL)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_double2()
+        {
+            var a = double2(-0.435219509355847911092, -0.359623376546357509387);
+            var b = double2(-0.332390389310175893289, 0.358699148796679301299);
+            TestUtils.AreEqual(double2(-0.0217742941367157077925, 0.0234977334594353125252), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(double2(1.0, 0.0), projectsafe(double2(1.0), double2(1.0, 0.0)));
+            TestUtils.AreEqual(double2(1.0), projectsafe(a, double2(DBL_MIN_NORMAL), double2(1.0)));
+            TestUtils.AreEqual(double2(3.0), projectsafe(double2(Double.MaxValue), double2(1.0), double2(3.0)));
+            TestUtils.AreEqual(double2(4.0), projectsafe(double2(NAN_DBL), double2(0.0), double2(4.0)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_double3()
+        {
+            var a = double3(-0.3102470377532390855, -0.255432695780735075086, -0.180834679740036918805);
+            var b = double3(-0.203341282534090506129, -0.470673723467076310367, -0.488817492459550251294);
+            TestUtils.AreEqual(double3(-0.110096727918742851027, -0.254840710284045091072, -0.26466443900892921981), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(double3(1.0, 0.0, 0.0), projectsafe(double3(1.0), double3(1.0, 0.0, 0.0)));
+            TestUtils.AreEqual(double3(1.0), projectsafe(a, double3(DBL_MIN_NORMAL), double3(1.0)));
+            TestUtils.AreEqual(double3(3.0), projectsafe(double3(Double.MaxValue), double3(1.0), double3(3.0)));
+            TestUtils.AreEqual(double3(4.0), projectsafe(double3(NAN_DBL), double3(0.0), double3(4.0)));
+        }
+
+        [TestCompiler]
+        public static void projectsafe_double4()
+        {
+            var a = double4(0.452051837682779789063, -0.0365627422588526429514, 0.236716008642456676725, 0.397823192622046239997);
+            var b = double4(0.294256018645240757792, 0.062793063668604487404, 0.0790497661060386436205, 0.396864526681538709596);
+            TestUtils.AreEqual(double4(0.355631654768521932031, 0.0758903802316912984294, 0.0955378899598586933672, 0.479642146293154714165), projectsafe(a, b), 1, true);
+            TestUtils.AreEqual(double4(1.0, 0.0, 0.0, 0.0), projectsafe(double4(1.0), double4(1.0, 0.0, 0.0, 0.0)));
+            TestUtils.AreEqual(double4(1.0), projectsafe(a, double4(DBL_MIN_NORMAL), double4(1.0)));
+            TestUtils.AreEqual(double4(3.0), projectsafe(double4(Double.MaxValue), double4(1.0), double4(3.0)));
+            TestUtils.AreEqual(double4(4.0), projectsafe(double4(NAN_DBL), double4(0.0), double4(4.0)));
+        }
+
+        [TestCompiler]
         public static void sincos_float()
         {
             float s, c;
