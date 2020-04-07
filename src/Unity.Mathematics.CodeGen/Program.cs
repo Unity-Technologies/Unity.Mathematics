@@ -40,8 +40,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 throw new InvalidOperationException($"The directory `{testDirectory.FullName}` must exist");
             }
 
+            var performanceTestDirectory = new DirectoryInfo(Path.Combine(parent.FullName, "Unity.Mathematics.PerformanceTests"));
+            if (!performanceTestDirectory.Exists)
+            {
+                throw new InvalidOperationException($"The directory `{performanceTestDirectory.FullName}` must exist");
+            }
+
             Console.WriteLine("Generating swizzle and operators: " + directory);
-            VectorGenerator.Write(implementationDirectory.FullName, testDirectory.FullName);
+            VectorGenerator.Write(implementationDirectory.FullName, testDirectory.FullName, performanceTestDirectory.FullName);
             Console.WriteLine("Done");
         }
     }

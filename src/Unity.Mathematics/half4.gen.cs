@@ -15,6 +15,7 @@ using System.Diagnostics;
 namespace Unity.Mathematics
 {
     [DebuggerTypeProxy(typeof(half4.DebuggerProxy))]
+    [System.Serializable]
     public partial struct half4 : System.IEquatable<half4>, IFormattable
     {
         public half x;
