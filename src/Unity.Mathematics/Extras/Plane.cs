@@ -34,7 +34,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Plane(float3 normal, float distance)
         {
-            NormalAndDistance = new float4(normal, distance) * math.rsqrt(math.lengthsq(normal.xyz));
+            NormalAndDistance = new float4(normal, distance);
         }
 
         /// <summary>
@@ -45,7 +45,6 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Plane(float3 normal, float3 pointInPlane)
         {
-            normal = math.normalize(normal);
             NormalAndDistance = new float4(normal, -math.dot(normal, pointInPlane));
         }
 
@@ -79,6 +78,13 @@ namespace Unity.Mathematics.Extras
             set => NormalAndDistance.w = value;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Plane Normalize(Plane plane)
+        {
+            float recipLength = math.rsqrt(math.lengthsq(plane.Normal));
+            return new Plane { NormalAndDistance = plane.NormalAndDistance * recipLength };
+        }
+
         /// <summary>
         /// Get the signed distance from the point to the plane.
         /// </summary>
@@ -92,7 +98,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float SignedDistanceToPoint(float3 point)
         {
-            return math.dot(NormalAndDistance, new float4(point, 1.0f));
+            return math.dot(Normalize(this), new float4(point, 1.0f));
         }
 
         /// <summary>

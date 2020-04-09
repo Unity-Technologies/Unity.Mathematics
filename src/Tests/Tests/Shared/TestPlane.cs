@@ -37,12 +37,8 @@ namespace Unity.Mathematics.Tests
             var n = new float3(4.0f, -5.0f, 6.0f);
             var d = 123.0f;
             var p = new Plane(n, d);
-            var expectedN = math.normalize(n);
-            var expectedD = d / math.length(n);
 
-            TestUtils.AreEqual(new float4(expectedN, expectedD), p.NormalAndDistance, Tolerance);
-            TestUtils.AreEqual(expectedN, p.Normal, Tolerance);
-            TestUtils.AreEqual(expectedD, p.Distance, Tolerance);
+            TestUtils.AreEqual(new float4(n, d), p.NormalAndDistance, Tolerance);
         }
 
         [TestCompiler]
@@ -75,12 +71,11 @@ namespace Unity.Mathematics.Tests
             var normal = new float3(2.0f, 2.0f, 2.0f);
             var pointInPlane = new float3(-2.0f, -2.0f, -2.0f);
             var p = new Plane(normal, pointInPlane);
-            var expectedN = math.normalize(normal);
-            var expectedD = math.length(pointInPlane);
+            var d = 12.0f;
 
-            TestUtils.AreEqual(new float4(expectedN, expectedD), p.NormalAndDistance);
-            TestUtils.AreEqual(expectedN, p.Normal);
-            TestUtils.AreEqual(expectedD, p.Distance);
+            TestUtils.AreEqual(new float4(normal, d), p.NormalAndDistance);
+            TestUtils.AreEqual(normal, p.Normal);
+            TestUtils.AreEqual(d, p.Distance);
         }
 
         [TestCompiler]
@@ -101,6 +96,22 @@ namespace Unity.Mathematics.Tests
             var p = new Plane(v2, v1, new float3(0.0f, 0.0f, 1.0f));
 
             TestUtils.AreEqual(new float4(0.0f, 0.0f, -1.0f, 1.0f), p);
+        }
+
+        [TestCompiler]
+        public static void SignedDistanceToPoint()
+        {
+            var vInPlane1 = new float3(2.0f, 1.0f, -0.18f);
+            var vInPlane2 = new float3(-0.9928f, 10.0f, 3.125f);
+            var n = math.normalize(math.cross(vInPlane1, vInPlane2));
+            var pointInPlane = new float3(10.0f, -25.8918f, 1.0f);
+            var p = new Plane(vInPlane1, vInPlane2, pointInPlane);
+
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane1));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane2));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(pointInPlane + n));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(pointInPlane - n));
         }
 
         [TestCompiler]
@@ -150,25 +161,21 @@ namespace Unity.Mathematics.Tests
         public static void Flipped()
         {
             var normal = new float3(1.0f);
-            var expectedN = -math.normalize(normal);
-            var expectedD = 1.0f;
-            var d = -expectedD * math.length(normal);
+            var d = 1.0f;
             var p = new Plane(normal, d);
 
-            TestUtils.AreEqual(new float4(expectedN, expectedD), p.Flipped, Tolerance);
+            TestUtils.AreEqual(new float4(-normal, -d), p.Flipped, Tolerance);
         }
 
         [TestCompiler]
         public static void ImplicitToFloat4()
         {
             var normal = new float3(1.1f, -20.0f, 15.182f);
-            var expectedN = math.normalize(normal);
-            var expectedD = 18.9281f;
-            var d = expectedD * math.length(normal);
+            var d = 18.9281f;
             var p = new Plane(normal, d);
             float4 p_as_float4 = p;
 
-            TestUtils.AreEqual(new float4(expectedN, expectedD), p_as_float4, Tolerance);
+            TestUtils.AreEqual(new float4(normal, d), p_as_float4, Tolerance);
         }
     }
 }
