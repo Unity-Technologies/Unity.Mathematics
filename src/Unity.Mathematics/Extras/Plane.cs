@@ -13,7 +13,7 @@ namespace Unity.Mathematics.Extras
     /// </remarks>
     [DebuggerDisplay("{Normal}, {Distance}")]
     [Serializable]
-    internal struct NormalizedPlane
+    internal struct Plane
     {
         /// <summary>
         /// A plane in the form Ax + By + Cz + Dw = 0.
@@ -25,7 +25,7 @@ namespace Unity.Mathematics.Extras
         public float4 NormalAndDistance;
 
         /// <summary>
-        /// Constructs a NormalizedPlane from arbitrary coefficients A, B, C, D of the plane equation Ax + By + Cz + Dw = 0.
+        /// Constructs a Plane from arbitrary coefficients A, B, C, D of the plane equation Ax + By + Cz + Dw = 0.
         /// </summary>
         /// <remarks>
         /// The constructed plane will be the normalized form of the plane specified by the given coefficients.  This
@@ -37,7 +37,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="coefficientC">Coefficient C from plane equation.</param>
         /// <param name="coefficientD">Coefficient D from plane equation.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float coefficientA, float coefficientB, float coefficientC, float coefficientD)
+        public Plane(float coefficientA, float coefficientB, float coefficientC, float coefficientD)
         {
             NormalAndDistance = Normalize(new float4(coefficientA, coefficientB, coefficientC, coefficientD));
         }
@@ -49,7 +49,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
         /// same direction as the normal while a positive value moves it in the opposite direction.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 unitNormal, float distance)
+        public Plane(float3 unitNormal, float distance)
         {
             NormalAndDistance = new float4(unitNormal, distance);
         }
@@ -60,7 +60,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 unitNormal, float3 pointInPlane)
+        public Plane(float3 unitNormal, float3 pointInPlane)
         {
             NormalAndDistance = new float4(unitNormal, -math.dot(unitNormal, pointInPlane));
         }
@@ -72,7 +72,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="vector2InPlane">A non-zero vector that lies in the plane.  It may be any length and must not be a scalar multiple of <paramref name="vector1InPlane"/>.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public NormalizedPlane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
+        public Plane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
         : this(math.normalize(math.cross(vector1InPlane, vector2InPlane)), pointInPlane)
         {
         }
@@ -82,7 +82,7 @@ namespace Unity.Mathematics.Extras
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(NormalizedPlane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
         /// </remarks>
         public float3 Normal
         {
@@ -95,7 +95,7 @@ namespace Unity.Mathematics.Extras
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(NormalizedPlane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
         /// </remarks>
         public float Distance
         {
@@ -104,23 +104,23 @@ namespace Unity.Mathematics.Extras
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static NormalizedPlane Normalize(NormalizedPlane plane)
+        public static Plane Normalize(Plane plane)
         {
-            return new NormalizedPlane { NormalAndDistance = Normalize(plane.NormalAndDistance) };
+            return new Plane { NormalAndDistance = Normalize(plane.NormalAndDistance) };
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 Normalize(float4 planeCoefficients)
         {
             float recipLength = math.rsqrt(math.lengthsq(planeCoefficients.xyz));
-            return new NormalizedPlane { NormalAndDistance = planeCoefficients * recipLength };
+            return new Plane { NormalAndDistance = planeCoefficients * recipLength };
         }
 
         /// <summary>
         /// Get the signed distance from the point to the plane.
         /// </summary>
         /// <remarks>
-        /// NormalizedPlane must be normalized prior to calling this function.  Distance is positive if point is on side of the
+        /// Plane must be normalized prior to calling this function.  Distance is positive if point is on side of the
         /// plane the normal points to, negative if on the opposite side and zero if the point lies in the plane.
         /// Avoid comparing equality with 0.0f when testing if a point lies exactly in the plane and use an approximate
         /// comparison instead.
@@ -137,7 +137,7 @@ namespace Unity.Mathematics.Extras
         /// Projects the given point onto the plane.
         /// </summary>
         /// <remarks>
-        /// NormalizedPlane must be normalized prior to calling this function.  The result is the position closest to the point
+        /// Plane must be normalized prior to calling this function.  The result is the position closest to the point
         /// that still lies in the plane.
         /// </remarks>
         /// <param name="point">Point to project onto the plane.</param>
@@ -151,14 +151,14 @@ namespace Unity.Mathematics.Extras
         /// <summary>
         /// Flips the plane so the normal points in the opposite direction.
         /// </summary>
-        public NormalizedPlane Flipped => new NormalizedPlane { NormalAndDistance = -NormalAndDistance };
+        public Plane Flipped => new Plane { NormalAndDistance = -NormalAndDistance };
 
         /// <summary>
-        /// Implicitly converts a <see cref="NormalizedPlane"/> to <see cref="float4"/>.
+        /// Implicitly converts a <see cref="Plane"/> to <see cref="float4"/>.
         /// </summary>
-        /// <param name="plane">NormalizedPlane to convert.</param>
+        /// <param name="plane">Plane to convert.</param>
         /// <returns>A <see cref="float4"/> representing the plane.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4(NormalizedPlane plane) => plane.NormalAndDistance;
+        public static implicit operator float4(Plane plane) => plane.NormalAndDistance;
     }
 }
