@@ -11,7 +11,6 @@ namespace Unity.Mathematics.Extras
     /// A plane splits the 3D space in half.  The normal vector points to the positive half and the other half is
     /// considered negative.
     /// </remarks>
-    // A plane described by a normal and a distance from the origin
     [DebuggerDisplay("{Normal}, {Distance}")]
     [Serializable]
     internal struct Plane
@@ -20,32 +19,50 @@ namespace Unity.Mathematics.Extras
         /// A plane in the form Ax + By + Cz + Dw = 0.
         /// </summary>
         /// <remarks>
-        /// Stores the coefficients A, B, C, D where (A, B, C) is a normal vector and D is distance from the
-        /// origin along the normal.
+        /// Stores the plane coefficients A, B, C, D where (A, B, C) is a unit normal vector and D is the distance
+        /// from the origin.  A plane stored with a unit normal vector is called a normalized plane.
         /// </remarks>
         public float4 NormalAndDistance;
 
         /// <summary>
-        /// Constructs a plane with a normal vector and distance from the origin.
+        /// Constructs a Plane from arbitrary coefficients A, B, C, D of the plane equation Ax + By + Cz + Dw = 0.
         /// </summary>
-        /// <param name="normal">A non-zero vector that is perpendicular to the plane.  It may be any length.</param>
-        /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
-        /// same direction as the normal while a positive value moves it in the opposite direction.</param>
+        /// <remarks>
+        /// The constructed plane will be the normalized form of the plane specified by the given coefficients.  This
+        /// constructor is useful if you have an arbitrary plane, but if you already have a unit length normal, prefer
+        /// using a different constructor.
+        /// </remarks>
+        /// <param name="coefficientA">Coefficient A from plane equation.</param>
+        /// <param name="coefficientB">Coefficient B from plane equation.</param>
+        /// <param name="coefficientC">Coefficient C from plane equation.</param>
+        /// <param name="coefficientD">Coefficient D from plane equation.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Plane(float3 normal, float distance)
+        public Plane(float coefficientA, float coefficientB, float coefficientC, float coefficientD)
         {
-            NormalAndDistance = new float4(normal, distance);
+            NormalAndDistance = Normalize(new float4(coefficientA, coefficientB, coefficientC, coefficientD));
         }
 
         /// <summary>
-        /// Constructs a plane with a normal vector and a point that lies in the plane.
+        /// Constructs a plane with a unit length normal vector and distance from the origin.
         /// </summary>
-        /// <param name="normal">A non-zero vector that is perpendicular to the plane.  It may be any length.</param>
+        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
+        /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
+        /// same direction as the normal while a positive value moves it in the opposite direction.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public Plane(float3 unitNormal, float distance)
+        {
+            NormalAndDistance = new float4(unitNormal, distance);
+        }
+
+        /// <summary>
+        /// Constructs a plane with a unit length normal vector and a point that lies in the plane.
+        /// </summary>
+        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Plane(float3 normal, float3 pointInPlane)
+        public Plane(float3 unitNormal, float3 pointInPlane)
         {
-            NormalAndDistance = new float4(normal, -math.dot(normal, pointInPlane));
+            NormalAndDistance = new float4(unitNormal, -math.dot(unitNormal, pointInPlane));
         }
 
         /// <summary>
@@ -56,13 +73,17 @@ namespace Unity.Mathematics.Extras
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Plane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
-        : this(math.cross(vector1InPlane, vector2InPlane), pointInPlane)
+        : this(math.normalize(math.cross(vector1InPlane, vector2InPlane)), pointInPlane)
         {
         }
 
         /// <summary>
         /// Get/set the normal vector of the plane.
         /// </summary>
+        /// <remarks>
+        /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// </remarks>
         public float3 Normal
         {
             get => NormalAndDistance.xyz;
@@ -72,6 +93,10 @@ namespace Unity.Mathematics.Extras
         /// <summary>
         /// Get/set the distance of the plane from the origin.  May be a negative value.
         /// </summary>
+        /// <remarks>
+        /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// </remarks>
         public float Distance
         {
             get => NormalAndDistance.w;
@@ -81,31 +106,39 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Plane Normalize(Plane plane)
         {
-            float recipLength = math.rsqrt(math.lengthsq(plane.Normal));
-            return new Plane { NormalAndDistance = plane.NormalAndDistance * recipLength };
+            return new Plane { NormalAndDistance = Normalize(plane.NormalAndDistance) };
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 Normalize(float4 planeCoefficients)
+        {
+            float recipLength = math.rsqrt(math.lengthsq(planeCoefficients.xyz));
+            return new Plane { NormalAndDistance = planeCoefficients * recipLength };
         }
 
         /// <summary>
         /// Get the signed distance from the point to the plane.
         /// </summary>
         /// <remarks>
-        /// Distance is positive if point is on side of the plane the normal points to, negative if on the opposite side
-        /// and zero if the point lies in the plane.  Avoid comparing equality with 0.0f when testing if a point lies exactly
-        /// in the plane and use an approximate comparison instead.
+        /// Plane must be normalized prior to calling this function.  Distance is positive if point is on side of the
+        /// plane the normal points to, negative if on the opposite side and zero if the point lies in the plane.
+        /// Avoid comparing equality with 0.0f when testing if a point lies exactly in the plane and use an approximate
+        /// comparison instead.
         /// </remarks>
         /// <param name="point">Point to find the signed distance with.</param>
         /// <returns>Signed distance of the point from the plane.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float SignedDistanceToPoint(float3 point)
         {
-            return math.dot(Normalize(this), new float4(point, 1.0f));
+            return math.dot(NormalAndDistance, new float4(point, 1.0f));
         }
 
         /// <summary>
         /// Projects the given point onto the plane.
         /// </summary>
         /// <remarks>
-        /// The result is the position closest to the point that still lies in the plane.
+        /// Plane must be normalized prior to calling this function.  The result is the position closest to the point
+        /// that still lies in the plane.
         /// </remarks>
         /// <param name="point">Point to project onto the plane.</param>
         /// <returns>Projected point that's inside the plane.</returns>

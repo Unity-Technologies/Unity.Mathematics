@@ -20,6 +20,22 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public static void Normal()
+        {
+            var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
+
+            TestUtils.AreEqual(new float3(1.0f, 2.0f, 3.0f), p.Normal);
+        }
+
+        [TestCompiler]
+        public static void Distance()
+        {
+            var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
+
+            TestUtils.AreEqual(4.0f, p.Distance);
+        }
+
+        [TestCompiler]
         public static void ConstructWithNormalAndDistance()
         {
             var n = math.normalize(new float3(4.0f, -5.0f, 6.0f));
@@ -32,13 +48,15 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void ConstructWithNormalAndDistance_NonUnitLengthNormal()
+        public static void ConstructWithCoefficients_NonUnitLengthNormal()
         {
-            var n = new float3(4.0f, -5.0f, 6.0f);
-            var d = 123.0f;
-            var p = new Plane(n, d);
+            var abcd = new float4(4.0f, -5.0f, 6.0f, 123.0f);
+            var p = new Plane(abcd.x, abcd.y, abcd.z, abcd.w);
+            var expected = abcd * math.rsqrt(math.lengthsq(abcd.xyz));
 
-            TestUtils.AreEqual(new float4(n, d), p.NormalAndDistance, Tolerance);
+            TestUtils.AreEqual(expected, p.NormalAndDistance, Tolerance);
+            TestUtils.AreEqual(expected.xyz, p.Normal);
+            TestUtils.AreEqual(expected.w, p.Distance);
         }
 
         [TestCompiler]
