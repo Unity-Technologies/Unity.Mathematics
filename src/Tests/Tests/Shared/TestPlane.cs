@@ -125,11 +125,11 @@ namespace Unity.Mathematics.Tests
             var pointInPlane = new float3(10.0f, -25.8918f, 1.0f);
             var p = new Plane(vInPlane1, vInPlane2, pointInPlane);
 
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane1));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane2));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(pointInPlane + n));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(pointInPlane - n));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane), Tolerance);
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane1), Tolerance);
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(pointInPlane + vInPlane2), Tolerance);
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(pointInPlane + n), Tolerance);
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(pointInPlane - n), Tolerance);
         }
 
         [TestCompiler]

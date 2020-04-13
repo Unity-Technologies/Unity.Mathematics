@@ -130,6 +130,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float SignedDistanceToPoint(float3 point)
         {
+            CheckPlaneIsNormalized();
             return math.dot(NormalAndDistance, new float4(point, 1.0f));
         }
 
@@ -145,6 +146,7 @@ namespace Unity.Mathematics.Extras
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3 Projection(float3 point)
         {
+            CheckPlaneIsNormalized();
             return point - Normal * SignedDistanceToPoint(point);
         }
 
@@ -160,5 +162,18 @@ namespace Unity.Mathematics.Extras
         /// <returns>A <see cref="float4"/> representing the plane.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4(Plane plane) => plane.NormalAndDistance;
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        void CheckPlaneIsNormalized()
+        {
+            float ll = math.lengthsq(Normal.xyz);
+            const float lowerBound = 0.999f * 0.999f;
+            const float upperBound = 1.001f * 1.001f;
+
+            if (ll < lowerBound || ll > upperBound)
+            {
+                throw new System.ArgumentException("Plane must be normalized. Call Plane.Normalize() to normalize plane.");
+            }
+        }
     }
 }
