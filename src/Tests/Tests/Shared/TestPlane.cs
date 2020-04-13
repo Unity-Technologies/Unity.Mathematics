@@ -7,6 +7,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestPlane
     {
+        // An arbitrary tolerance.
         static float Tolerance = 0.0000025f;
 
         [TestCompiler]
@@ -89,11 +90,12 @@ namespace Unity.Mathematics.Tests
             var normal = new float3(2.0f, 2.0f, 2.0f);
             var pointInPlane = new float3(-2.0f, -2.0f, -2.0f);
             var p = new Plane(normal, pointInPlane);
-            var d = 12.0f;
+            var expectedN = new float3(5.773502691896258e-01f);
+            var expectedD = 3.464101615137755f;
 
-            TestUtils.AreEqual(new float4(normal, d), p.NormalAndDistance);
-            TestUtils.AreEqual(normal, p.Normal);
-            TestUtils.AreEqual(d, p.Distance);
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p.NormalAndDistance);
+            TestUtils.AreEqual(expectedN, p.Normal);
+            TestUtils.AreEqual(expectedD, p.Distance);
         }
 
         [TestCompiler]
@@ -181,8 +183,10 @@ namespace Unity.Mathematics.Tests
             var normal = new float3(1.0f);
             var d = 1.0f;
             var p = new Plane(normal, d);
+            var expectedD = -5.773502691896258e-01f;
+            var expectedN = new float3(-5.773502691896258e-01f);
 
-            TestUtils.AreEqual(new float4(-normal, -d), p.Flipped, Tolerance);
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p.Flipped, Tolerance);
         }
 
         [TestCompiler]
@@ -191,9 +195,54 @@ namespace Unity.Mathematics.Tests
             var normal = new float3(1.1f, -20.0f, 15.182f);
             var d = 18.9281f;
             var p = new Plane(normal, d);
+            var expectedN = new float3(4.376593115243121e-02f, -7.957442027714765e-01f, 6.040494243238278e-01f);
+            var expectedD = 7.530962922239393e-01f;
             float4 p_as_float4 = p;
 
-            TestUtils.AreEqual(new float4(normal, d), p_as_float4, Tolerance);
+            TestUtils.AreEqual(new float4(expectedN, expectedD), p_as_float4, Tolerance);
+        }
+
+        [TestCompiler]
+        public static void NormalizeFloat4()
+        {
+            var p = new float4(8.215876543024162e-01f, 2.786574280629829e-01f, 8.121669997361285e-01f, 9.352839276497152e-01f);
+            var expected = new float4(6.913449765800294e-01f, 2.344830914500849e-01f, 6.834177369527146e-01f, 7.870174797181938e-01f);
+
+            TestUtils.AreEqual(expected, Plane.Normalize(p), Tolerance);
+        }
+
+        [TestCompiler]
+        public static void NormalizePlane()
+        {
+            var p = new Plane { NormalAndDistance = new float4(8.215876543024162e-01f, 2.786574280629829e-01f, 8.121669997361285e-01f, 9.352839276497152e-01f) };
+            var normalized = Plane.Normalize(p);
+            var expected = new float4(6.913449765800294e-01f, 2.344830914500849e-01f, 6.834177369527146e-01f, 7.870174797181938e-01f);
+
+            TestUtils.AreEqual(expected, normalized.NormalAndDistance, Tolerance);
+            TestUtils.AreEqual(expected.xyz, normalized.Normal, Tolerance);
+            TestUtils.AreEqual(expected.w, normalized.Distance, Tolerance);
+        }
+
+        [TestCompiler]
+        public static void CreateFromUnitNormalAndDistance()
+        {
+            var n = new float3(9.108767140247756e-02f, 3.966831912609620e-01f, 9.134251375397404e-01f);
+            var d = 9.120230523544353e-01f;
+            var expected = new float4(n, d);
+            var p = Plane.CreateFromUnitNormalAndDistance(n, d);
+
+            TestUtils.AreEqual(expected, p.NormalAndDistance);
+        }
+
+        [TestCompiler]
+        public static void CreateFromUnitNormalAndPointInPlane()
+        {
+            var n = new float3(4.724920516359185e-01f, 1.444614284194820e-01f, 8.694148358751899e-01f);
+            var pointInPlane = new float3(9.395666432987706f, 3.818578457438728f, 4.283295215216710f);
+            var expected = new float4(n, -8.714975414445176f);
+            var p = Plane.CreateFromUnitNormalAndPointInPlane(n, pointInPlane);
+
+            TestUtils.AreEqual(expected, p.NormalAndDistance);
         }
     }
 }

@@ -28,9 +28,7 @@ namespace Unity.Mathematics.Extras
         /// Constructs a Plane from arbitrary coefficients A, B, C, D of the plane equation Ax + By + Cz + Dw = 0.
         /// </summary>
         /// <remarks>
-        /// The constructed plane will be the normalized form of the plane specified by the given coefficients.  This
-        /// constructor is useful if you have an arbitrary plane, but if you already have a unit length normal, prefer
-        /// using a different constructor.
+        /// The constructed plane will be the normalized form of the plane specified by the given coefficients.
         /// </remarks>
         /// <param name="coefficientA">Coefficient A from plane equation.</param>
         /// <param name="coefficientB">Coefficient B from plane equation.</param>
@@ -43,31 +41,40 @@ namespace Unity.Mathematics.Extras
         }
 
         /// <summary>
-        /// Constructs a plane with a unit length normal vector and distance from the origin.
+        /// Constructs a plane with a normal vector and distance from the origin.
         /// </summary>
-        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
+        /// <remarks>
+        /// The constructed plane will be the normalized form of the plane specified by the inputs.
+        /// </remarks>
+        /// <param name="normal">A non-zero vector that is perpendicular to the plane.  It may be any length.</param>
         /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
         /// same direction as the normal while a positive value moves it in the opposite direction.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Plane(float3 unitNormal, float distance)
+        public Plane(float3 normal, float distance)
         {
-            NormalAndDistance = new float4(unitNormal, distance);
+            NormalAndDistance = Normalize(new float4(normal, distance));
         }
 
         /// <summary>
-        /// Constructs a plane with a unit length normal vector and a point that lies in the plane.
+        /// Constructs a plane with a normal vector and a point that lies in the plane.
         /// </summary>
-        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
+        /// <remarks>
+        /// The constructed plane will be the normalized form of the plane specified by the inputs.
+        /// </remarks>
+        /// <param name="normal">A non-zero vector that is perpendicular to the plane.  It may be any length.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public Plane(float3 unitNormal, float3 pointInPlane)
+        public Plane(float3 normal, float3 pointInPlane)
+        : this(normal, -math.dot(normal, pointInPlane))
         {
-            NormalAndDistance = new float4(unitNormal, -math.dot(unitNormal, pointInPlane));
         }
 
         /// <summary>
         /// Constructs a plane with two vectors and a point that all lie in the plane.
         /// </summary>
+        /// <remarks>
+        /// The constructed plane will be the normalized form of the plane specified by the inputs.
+        /// </remarks>
         /// <param name="vector1InPlane">A non-zero vector that lies in the plane.  It may be any length.</param>
         /// <param name="vector2InPlane">A non-zero vector that lies in the plane.  It may be any length and must not be a scalar multiple of <paramref name="vector1InPlane"/>.</param>
         /// <param name="pointInPlane">A point that lies in the plane.</param>
@@ -75,6 +82,39 @@ namespace Unity.Mathematics.Extras
         public Plane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
         : this(math.normalize(math.cross(vector1InPlane, vector2InPlane)), pointInPlane)
         {
+        }
+
+        /// <summary>
+        /// Creates a normalized Plane directly without normalization cost.
+        /// </summary>
+        /// <remarks>
+        /// If you have a unit length normal vector, you can create a Plane faster than using one of its constructors
+        /// by calling this function.
+        /// </remarks>
+        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
+        /// <param name="distance">Distance from the origin along the normal.  A negative value moves the plane in the
+        /// same direction as the normal while a positive value moves it in the opposite direction.</param>
+        /// <returns>Normalized Plane constructed from given inputs.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Plane CreateFromUnitNormalAndDistance(float3 unitNormal, float distance)
+        {
+            return new Plane { NormalAndDistance = new float4(unitNormal, distance) };
+        }
+
+        /// <summary>
+        /// Creates a normalized Plane without normalization cost.
+        /// </summary>
+        /// <remarks>
+        /// If you have a unit length normal vector, you can create a Plane faster than using one of its constructors
+        /// by calling this function.
+        /// </remarks>
+        /// <param name="unitNormal">A non-zero vector that is perpendicular to the plane.  It must be unit length.</param>
+        /// <param name="pointInPlane">A point that lies in the plane.</param>
+        /// <returns>Normalized Plane constructed from given inputs.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Plane CreateFromUnitNormalAndPointInPlane(float3 unitNormal, float3 pointInPlane)
+        {
+            return new Plane { NormalAndDistance = new float4(unitNormal, -math.dot(unitNormal, pointInPlane)) };
         }
 
         /// <summary>
@@ -103,12 +143,25 @@ namespace Unity.Mathematics.Extras
             set => NormalAndDistance.w = value;
         }
 
+        /// <summary>
+        /// Normalizes the given Plane.
+        /// </summary>
+        /// <param name="plane">Plane to normalize.</param>
+        /// <returns>Normalized Plane.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static Plane Normalize(Plane plane)
         {
             return new Plane { NormalAndDistance = Normalize(plane.NormalAndDistance) };
         }
 
+        /// <summary>
+        /// Normalizes the plane represented by the given plane coefficients.
+        /// </summary>
+        /// <remarks>
+        /// The plane coefficients are A, B, C, D and stored in that order in the <seealso cref="float4"/>.
+        /// </remarks>
+        /// <param name="planeCoefficients">Plane coefficients stored in a <seealso cref="float4"/>.</param>
+        /// <returns>Normalized plane coefficients.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 Normalize(float4 planeCoefficients)
         {
