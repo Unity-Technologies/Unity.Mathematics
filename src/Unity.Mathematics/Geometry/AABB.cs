@@ -1,7 +1,7 @@
 using System;
 using static Unity.Mathematics.math;
 
-namespace Unity.Mathematics.Extras
+namespace Unity.Mathematics.Geometry
 {
     [Serializable]
     internal partial struct AABB
