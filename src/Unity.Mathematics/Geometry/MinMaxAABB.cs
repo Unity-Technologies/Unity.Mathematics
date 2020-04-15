@@ -1,7 +1,7 @@
 using System;
 using static Unity.Mathematics.math;
 
-namespace Unity.Mathematics.Extras
+namespace Unity.Mathematics.Geometry
 {
     [System.Serializable]
     internal struct MinMaxAABB : IEquatable<MinMaxAABB>

@@ -2,7 +2,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
-namespace Unity.Mathematics.Extras
+namespace Unity.Mathematics.Geometry
 {
     /// <summary>
     /// A plane represented by a normal vector and a distance along the normal from the origin.
