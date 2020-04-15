@@ -21,7 +21,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void Normal()
+        public static void GetNormal()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
 
@@ -29,11 +29,29 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void Distance()
+        public static void GetDistance()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
 
             TestUtils.AreEqual(4.0f, p.Distance);
+        }
+
+        [TestCompiler]
+        public static void SetNormal()
+        {
+            var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
+            p.Normal = new float3(-1.0f, -2.0f, -3.0f);
+
+            TestUtils.AreEqual(new float3(-1.0f, -2.0f, -3.0f), p.Normal);
+        }
+
+        [TestCompiler]
+        public static void SetDistance()
+        {
+            var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
+            p.Distance = -4.0f;
+
+            TestUtils.AreEqual(-4.0f, p.Distance);
         }
 
         [TestCompiler]
@@ -242,7 +260,7 @@ namespace Unity.Mathematics.Tests
             var expected = new float4(n, -8.714975414445176f);
             var p = Plane.CreateFromUnitNormalAndPointInPlane(n, pointInPlane);
 
-            TestUtils.AreEqual(expected, p.NormalAndDistance);
+            TestUtils.AreEqual(expected, p.NormalAndDistance, Tolerance);
         }
     }
 }
