@@ -129,7 +129,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void ConstructWithTwoVectorsAndOrigin_NonZeroOrigin()
         {
-            var v1 = new float3(1.0f, 0.0f, 0.0f);
+            var v1 = new float3(5.0f, 0.0f, 0.0f);
             var v2 = new float3(0.0f, 1.0f, 0.0f);
             var p = new Plane(v2, v1, new float3(0.0f, 0.0f, 1.0f));
 

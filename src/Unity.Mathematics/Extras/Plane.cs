@@ -80,7 +80,7 @@ namespace Unity.Mathematics.Extras
         /// <param name="pointInPlane">A point that lies in the plane.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Plane(float3 vector1InPlane, float3 vector2InPlane, float3 pointInPlane)
-        : this(math.normalize(math.cross(vector1InPlane, vector2InPlane)), pointInPlane)
+        : this(math.cross(vector1InPlane, vector2InPlane), pointInPlane)
         {
         }
 
