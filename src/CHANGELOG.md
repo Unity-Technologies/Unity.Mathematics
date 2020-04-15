@@ -1,6 +1,7 @@
 # Changelog
 
 ## [Unreleased]
+- Added Unity.Mathematics.Extras.Plane to represent planes in 3D space.
 - Adding Random.CreateFromIndex() to assist in creating Random instances from loop indices.
 
 ## [1.1.0] - 2019-07-08
