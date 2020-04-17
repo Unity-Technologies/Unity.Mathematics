@@ -122,7 +122,7 @@ namespace Unity.Mathematics.Geometry
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
         /// </remarks>
         public float3 Normal
         {
@@ -135,7 +135,7 @@ namespace Unity.Mathematics.Geometry
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <seealso cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
         /// </remarks>
         public float Distance
         {
@@ -158,9 +158,9 @@ namespace Unity.Mathematics.Geometry
         /// Normalizes the plane represented by the given plane coefficients.
         /// </summary>
         /// <remarks>
-        /// The plane coefficients are A, B, C, D and stored in that order in the <seealso cref="float4"/>.
+        /// The plane coefficients are A, B, C, D and stored in that order in the <see cref="float4"/>.
         /// </remarks>
-        /// <param name="planeCoefficients">Plane coefficients stored in a <seealso cref="float4"/>.</param>
+        /// <param name="planeCoefficients">Plane coefficients A, B, C, D stored in x, y, z, w (respectively).</param>
         /// <returns>Normalized plane coefficients.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 Normalize(float4 planeCoefficients)
