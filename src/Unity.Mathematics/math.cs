@@ -448,7 +448,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="int2"/> input</param>
-        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool2"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 ispow2(int2 x)
         {
@@ -460,7 +460,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="int3"/> input</param>
-        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool3"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 ispow2(int3 x)
         {
@@ -472,7 +472,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="int4"/> input</param>
-        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool4"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 ispow2(int4 x)
         {
@@ -496,7 +496,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="uint2"/> input</param>
-        /// <returns><see cref="bool2"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool2"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 ispow2(uint2 x)
         {
@@ -508,7 +508,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="uint3"/> input</param>
-        /// <returns><see cref="bool3"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool3"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 ispow2(uint3 x)
         {
@@ -520,7 +520,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
         /// <param name="x"><see cref="uint4"/> input</param>
-        /// <returns><see cref="bool4"> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <returns><see cref="bool4"/> where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 ispow2(uint4 x)
         {
@@ -1776,21 +1776,21 @@ namespace Unity.Mathematics
         public static float modf(float x, out float i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a float2 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a float2 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static float2 modf(float2 x, out float2 i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a float3 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a float3 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static float3 modf(float3 x, out float3 i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a float4 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a float4 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static float4 modf(float4 x, out float4 i) { i = trunc(x); return x - i; }
 
 
@@ -1798,21 +1798,21 @@ namespace Unity.Mathematics
         public static double modf(double x, out double i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a double2 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a double2 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static double2 modf(double2 x, out double2 i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a double3 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a double3 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static double3 modf(double3 x, out double3 i) { i = trunc(x); return x - i; }
 
         /// <summary>
-        // Performs a componentwise split of a double4 vector into an integral part i and a fractional part that gets returned.
-        // Both parts take the sign of the corresponding input component.
-        // </summary>
+        /// Performs a componentwise split of a double4 vector into an integral part i and a fractional part that gets returned.
+        /// Both parts take the sign of the corresponding input component.
+        /// </summary>
         public static double4 modf(double4 x, out double4 i) { i = trunc(x); return x - i; }
 
 
@@ -2537,28 +2537,28 @@ namespace Unity.Mathematics
         }
 
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 faceforward(float2 n, float2 i, float2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 faceforward(float3 n, float3 i, float3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 faceforward(float4 n, float4 i, float4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 faceforward(double2 n, double2 i, double2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 faceforward(double3 n, double3 i, double3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) < 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 faceforward(double4 n, double4 i, double4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
