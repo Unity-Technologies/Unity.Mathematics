@@ -525,7 +525,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void wat1()
         {
-            half4 h = new half4(0x3c00);
+            half4 h = new half4(math.f16tof32(0x3c00));
             float4 f = new float4(h);
 
             TestUtils.AreEqual(new float4(1.0f), f);
@@ -534,7 +534,7 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void wat2()
         {
-            half4 h = new half4(0x3c00);
+            half4 h = new half4(math.f16tof32(0x3c00));
             uint4 u = asuint(h);
 
             TestUtils.AreEqual(new uint4(0x3f800000), u);
