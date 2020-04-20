@@ -521,5 +521,23 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7bff, max.z.value);
             TestUtils.AreEqual(0x7bff, max.w.value);
         }
+
+        [TestCompiler]
+        public static void wat1()
+        {
+            half4 h = new half4(0x3c00);
+            float4 f = new float4(h);
+
+            TestUtils.AreEqual(new float4(1.0f), f);
+        }
+
+        [TestCompiler]
+        public static void wat2()
+        {
+            half4 h = new half4(0x3c00);
+            uint4 u = asuint(h);
+
+            TestUtils.AreEqual(new uint4(0x3f800000), u);
+        }
     }
 }
