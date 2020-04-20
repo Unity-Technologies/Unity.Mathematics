@@ -11,11 +11,12 @@ using NUnit.Framework;
 using Unity.Collections;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.PerformanceTesting;
+using Unity.Mathematics.Geometry;
 using Unity.Burst;
 
 namespace Unity.Mathematics.PerformanceTests
 {
-    public partial class TestConversions
+    partial class TestConversions
     {
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_to_float3x3

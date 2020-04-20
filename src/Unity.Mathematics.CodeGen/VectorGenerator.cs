@@ -2977,10 +2977,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("using Unity.Collections;\n");
             str.AppendFormat("using Unity.Collections.LowLevel.Unsafe;\n");
             str.AppendFormat("using Unity.PerformanceTesting;\n");
+            str.AppendFormat("using Unity.Mathematics.Geometry;\n");
             str.AppendFormat("using Unity.Burst;\n\n");
             str.AppendFormat("namespace Unity.Mathematics.PerformanceTests\n");
             str.AppendFormat("{{\n");
-            str.AppendFormat("\tpublic partial class {0}\n", testSuiteName);
+            str.AppendFormat("\tpartial class {0}\n", testSuiteName);
             str.AppendFormat("\t{{\n");
         }
 
@@ -3484,6 +3485,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        void GeneratePlanePerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestPlane");
+
+            GeneratePerformanceTest(str, "Normalize_Plane", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "Plane", m_MemberName = "p", m_ElementInitializer = "new Plane { NormalAndDistance = new float4(1.0f) }" },
+            }, "args.p[i] = Plane.Normalize(args.p[i]);", 10000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3633,6 +3646,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder hashStr = new StringBuilder();
             GenerateHashPerformanceTests(hashStr);
             WriteFile(m_PerformanceTestDirectory + "/TestHash.gen.cs", hashStr.ToString());
+
+            StringBuilder planeStr = new StringBuilder();
+            GeneratePlanePerformanceTests(planeStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestPlane.gen.cs", planeStr.ToString());
         }
     }
 }
