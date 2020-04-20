@@ -1,7 +1,7 @@
 using System;
 using NUnit.Framework;
 using static Unity.Mathematics.math;
-using Unity.Mathematics.Extras;
+using Unity.Mathematics.Geometry;
 using Burst.Compiler.IL.Tests;
 
 namespace Unity.Mathematics.Tests
