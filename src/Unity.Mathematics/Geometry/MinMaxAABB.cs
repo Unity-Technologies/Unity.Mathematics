@@ -17,25 +17,25 @@ namespace Unity.Mathematics.Geometry
     internal struct MinMaxAABB : IEquatable<MinMaxAABB>
     {
         /// <summary>
-        /// The most minimum point contained by the AABB.
+        /// The minimum point contained by the AABB.
         /// </summary>
         /// <remarks>
-        /// If <see cref="Min"/> is greater than <see cref="Max"/> then this AABB is invalid.
+        /// If any component of <see cref="Min"/> is greater than <see cref="Max"/> then this AABB is invalid.
         /// </remarks>
         /// <seealso cref="IsValid"/>
         public float3 Min;
 
         /// <summary>
-        /// The most maximum point contained by the AABB.
+        /// The maximum point contained by the AABB.
         /// </summary>
         /// <remarks>
-        /// If <see cref="Max"/> is less than <see cref="Min"/> then this AABB is invalid.
+        /// If any component of <see cref="Max"/> is less than <see cref="Min"/> then this AABB is invalid.
         /// </remarks>
         /// <seealso cref="IsValid"/>
         public float3 Max;
 
         /// <summary>
-        /// Constructs the AABB with the given minimum and maximums.
+        /// Constructs the AABB with the given minimum and maximum.
         /// </summary>
         /// <remarks>
         /// If you have a center and extents, you can call <see cref="CreateFromCenterAndExtents"/> or <see cref="CreateFromCenterAndHalfExtents"/>
@@ -206,6 +206,7 @@ namespace Unity.Mathematics.Geometry
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator AABB(MinMaxAABB aabb)
         {
+            // AABB Extents are actually half extents.  The full extents in AABB is called Size.
             return new AABB { Center = aabb.Center, Extents = aabb.HalfExtents };
         }
 
