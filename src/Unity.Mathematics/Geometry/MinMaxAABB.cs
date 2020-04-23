@@ -5,11 +5,11 @@ using static Unity.Mathematics.math;
 namespace Unity.Mathematics.Geometry
 {
     /// <summary>
-    /// Axis aligned bounding box (AABB) stored in min/max form.
+    /// Axis aligned bounding box (AABB) stored in min and max form.
     /// </summary>
     /// <remarks>
     /// Axis aligned bounding boxes (AABB) are boxes where each side is parallel with one of the Cartesian coordinate axes
-    /// X, Y, and Z. AABBs are useful for approximating the region an object (or collection of objects) occupy and quickly
+    /// X, Y, and Z. AABBs are useful for approximating the region an object (or collection of objects) occupies and quickly
     /// testing whether or not that object (or collection of objects) is relevant. Because they are axis aligned, they
     /// are very cheap to construct and perform overlap tests with them.
     /// </remarks>
@@ -43,6 +43,7 @@ namespace Unity.Mathematics.Geometry
         /// </remarks>
         /// <param name="min">Minimum point inside AABB.</param>
         /// <param name="max">Maximum point inside AABB.</param>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public MinMaxAABB(float3 min, float3 max)
         {
             Min = min;
@@ -200,14 +201,13 @@ namespace Unity.Mathematics.Geometry
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator MinMaxAABB(AABB aabb)
         {
-            return new MinMaxAABB {Min = aabb.Center - aabb.Extents, Max = aabb.Center + aabb.Extents};
+            return new MinMaxAABB {Min = aabb.Center - aabb.HalfExtents, Max = aabb.Center + aabb.HalfExtents};
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator AABB(MinMaxAABB aabb)
         {
-            // AABB Extents are actually half extents.  The full extents in AABB is called Size.
-            return new AABB { Center = aabb.Center, Extents = aabb.HalfExtents };
+            return new AABB { Center = aabb.Center, HalfExtents = aabb.HalfExtents };
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -235,7 +235,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(RigidTransform transform, MinMaxAABB aabb)
+        public static MinMaxAABB Transform(in RigidTransform transform, in MinMaxAABB aabb)
         {
             float3 halfExtentsInA = aabb.HalfExtents;
 
@@ -262,7 +262,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(float4x4 transform, MinMaxAABB aabb)
+        public static MinMaxAABB Transform(in float4x4 transform, in MinMaxAABB aabb)
         {
             var transformed = Transform(new float3x3(transform), aabb);
             transformed.Min += transform.c3.xyz;
@@ -280,7 +280,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(float3x3 transform, MinMaxAABB aabb)
+        public static MinMaxAABB Transform(in float3x3 transform, in MinMaxAABB aabb)
         {
             // From Christer Ericson's Real-Time Collision Detection on page 86 and 87.
             // We want the transformed minimum and maximums of the AABB. Multiplying a 3x3 matrix on the left of a
