@@ -235,7 +235,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(in RigidTransform transform, in MinMaxAABB aabb)
+        public static MinMaxAABB Transform(RigidTransform transform, MinMaxAABB aabb)
         {
             float3 halfExtentsInA = aabb.HalfExtents;
 
@@ -262,7 +262,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(in float4x4 transform, in MinMaxAABB aabb)
+        public static MinMaxAABB Transform(float4x4 transform, MinMaxAABB aabb)
         {
             var transformed = Transform(new float3x3(transform), aabb);
             transformed.Min += transform.c3.xyz;
@@ -280,7 +280,7 @@ namespace Unity.Mathematics.Geometry
         /// <param name="aabb">AABB to be transformed.</param>
         /// <returns>Transformed AABB.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static MinMaxAABB Transform(in float3x3 transform, in MinMaxAABB aabb)
+        public static MinMaxAABB Transform(float3x3 transform, MinMaxAABB aabb)
         {
             // From Christer Ericson's Real-Time Collision Detection on page 86 and 87.
             // We want the transformed minimum and maximums of the AABB. Multiplying a 3x3 matrix on the left of a
