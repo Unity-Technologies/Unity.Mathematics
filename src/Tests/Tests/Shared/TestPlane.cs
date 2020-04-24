@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     public class TestPlane
     {
         // An arbitrary tolerance.
-        static float Tolerance = 0.0000025f;
+        const float Tolerance = 0.0000025f;
 
         [TestCompiler]
         public static void Empty()
