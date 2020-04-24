@@ -3497,6 +3497,22 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndPerformanceTestCodeGen(str);
         }
 
+        public void GenerateMinMaxAabbPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestMinMaxAABB");
+
+            GeneratePerformanceTest(str, "Transform_float4x4", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "Geometry.MinMaxAABB", m_MemberName = "a", m_ElementInitializer = "new Geometry.MinMaxAABB()" },
+            }, "args.a[i] = Geometry.Math.Transform(float4x4.identity, args.a[i]);", 100000);
+            GeneratePerformanceTest(str, "Transform_float3x3", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "Geometry.MinMaxAABB", m_MemberName = "a", m_ElementInitializer = "new Geometry.MinMaxAABB()" },
+            }, "args.a[i] = Geometry.Math.Transform(float3x3.identity, args.a[i]);", 100000);
+
+            EndPerformanceTestCodeGen(str);
+        }
+
         public struct PerformanceTestArrayArgument
         {
             public string m_ElementType;
@@ -3650,6 +3666,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder planeStr = new StringBuilder();
             GeneratePlanePerformanceTests(planeStr);
             WriteFile(m_PerformanceTestDirectory + "/TestPlane.gen.cs", planeStr.ToString());
+
+            StringBuilder minMaxAabbStr = new StringBuilder();
+            GenerateMinMaxAabbPerformanceTests(minMaxAabbStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestMinMaxAABB.gen.cs", minMaxAabbStr.ToString());
         }
     }
 }

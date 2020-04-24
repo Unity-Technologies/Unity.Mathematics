@@ -1,8 +1,10 @@
 # Changelog
 
 ## [Unreleased]
-- Added Unity.Mathematics.Extras.Plane to represent planes in 3D space.
+- Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
 - Adding Random.CreateFromIndex() to assist in creating Random instances from loop indices.
+- Added more MinMaxAABB functionality from Unity.Physics.Aabb.
+- Added Unity.Mathematics.Geometry.Math to hold static functions like AABB transformations.
 
 ## [1.1.0] - 2019-07-08
 
