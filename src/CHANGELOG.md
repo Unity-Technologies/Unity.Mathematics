@@ -1,10 +1,24 @@
 # Changelog
 
 ## [Unreleased]
-- Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
+- Added math.EPSILON, math.INFINITY, math.NAN and their double counterparts.
+- Added [Serializable] to RigidTransform.
+- Added math.ceillog2().
+- Added math.floorlog2().
+- Added math.down(), math.forward(), etc for Cartesian coordinate axes that match UnityEngine Vector3 equivalents.
+- Added math.ispow2().
+- Added half.MinValueAsHalf and half.MaxValueAsHalf to avoid having to explicitly convert from float.
+- Added a float3x3 constructor which takes a float4x4 as input.
+- Added [Serializable] to half types.
+- Added some performance tests which can be run from the Unity test project.
 - Adding Random.CreateFromIndex() to assist in creating Random instances from loop indices.
-- Added more MinMaxAABB functionality from Unity.Physics.Aabb.
-- Added Unity.Mathematics.Geometry.Math to hold static functions like AABB transformations.
+- Fixed documentation bug where quaternion.RotateX/Y/Z referred to a float4x4 instead of quaternion.
+- Fixed code generation bugs which could cause Windows and Mac to generate different test code.
+- Updated documentation for math.countbits() to include equivalent names on Intel and ARM architectures to aid in discoverability.
+- Internal: Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
+- Internal: Added more MinMaxAABB functionality from Unity.Physics.Aabb.
+- Internal: Added Unity.Mathematics.Geometry.Math to hold static functions like AABB transformations.
+- Internal: Added AABB and MinMaxAABB.
 
 ## [1.1.0] - 2019-07-08
 
