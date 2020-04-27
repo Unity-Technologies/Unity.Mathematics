@@ -11,7 +11,7 @@
 - Added a float3x3 constructor which takes a float4x4 as input.
 - Added [Serializable] to half types.
 - Added some performance tests which can be run from the Unity test project.
-- Adding Random.CreateFromIndex() to assist in creating Random instances from loop indices.
+- Added Random.CreateFromIndex() to assist in creating Random instances from loop indices.
 - Fixed documentation bug where quaternion.RotateX/Y/Z referred to a float4x4 instead of quaternion.
 - Fixed code generation bugs which could cause Windows and Mac to generate different test code.
 - Updated documentation for math.countbits() to include equivalent names on Intel and ARM architectures to aid in discoverability.
