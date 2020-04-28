@@ -53,7 +53,7 @@ validate_package_minimal:
     type: Unity::VM
     flavor: b1.large
   commands:
-    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - DISPLAY=:0.0 upm-ci package pack --package-path src/
     - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
@@ -77,7 +77,7 @@ validate_package_{{platform.name}}_{{editor.version}}:
     type: {{platform.type}}
     flavor: {{platform.flavor}}
   commands:
-    - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - {{platform.upm_cmd}} package pack --package-path src/
     - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
@@ -104,7 +104,7 @@ publish:
     image: package-ci/win10:stable
     flavor: m1.large
   commands:
-    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package publish --package-path src/
   artifacts:
     packages:
@@ -123,7 +123,7 @@ promote:
   variables:
     UPMCI_PROMOTION: 1
   commands:
-    - npm install upm-ci-utils@stable --registry https://api.bintray.com/npm/unity/unity-npm -g
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package promote --package-path src/
   artifacts:
     packages:
