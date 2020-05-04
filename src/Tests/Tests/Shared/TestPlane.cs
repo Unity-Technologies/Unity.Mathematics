@@ -81,11 +81,11 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void ConstructWithNormalAndPointInPlane_NegativeDistance()
         {
-            var n = float3.up();
-            var pointInPlane = float3.up();
+            var n = float3.up;
+            var pointInPlane = float3.up;
             var p = new Plane(n, pointInPlane);
 
-            TestUtils.AreEqual(new float4(float3.up(), -1.0f), p.NormalAndDistance);
+            TestUtils.AreEqual(new float4(float3.up, -1.0f), p.NormalAndDistance);
             TestUtils.AreEqual(n, p.Normal);
             TestUtils.AreEqual(-1.0f, p.Distance);
         }
@@ -93,11 +93,11 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void ConstructWithNormalAndPointInPlane_PositiveDistance()
         {
-            var n = float3.down();
-            var pointInPlane = float3.up();
+            var n = float3.down;
+            var pointInPlane = float3.up;
             var p = new Plane(n, pointInPlane);
 
-            TestUtils.AreEqual(new float4(float3.down(), 1.0f), p.NormalAndDistance);
+            TestUtils.AreEqual(new float4(float3.down, 1.0f), p.NormalAndDistance);
             TestUtils.AreEqual(n, p.Normal);
             TestUtils.AreEqual(1.0f, p.Distance);
         }
@@ -158,29 +158,29 @@ namespace Unity.Mathematics.Tests
             var p = new Plane(math.up(), 0.0f);
 
             TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.zero));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.left()));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.right()));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.forward()));
-            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.back()));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up()));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up() + float3.left()));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up() + float3.right()));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up() + float3.back()));
-            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up() + float3.forward()));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down()));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down() + float3.left()));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down() + float3.right()));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down() + float3.back()));
-            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down() + float3.forward()));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.left));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.right));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.forward));
+            TestUtils.AreEqual(0.0f, p.SignedDistanceToPoint(float3.back));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up + float3.left));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up + float3.right));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up + float3.back));
+            TestUtils.AreEqual(1.0f, p.SignedDistanceToPoint(float3.up + float3.forward));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down + float3.left));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down + float3.right));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down + float3.back));
+            TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(float3.down + float3.forward));
         }
 
         [TestCompiler]
         public static void ProjectionTrivial()
         {
-            var p = new Plane(float3.up(), 0.0f);
-            var expected = float3.left() + float3.forward();
+            var p = new Plane(float3.up, 0.0f);
+            var expected = float3.left + float3.forward;
 
-            TestUtils.AreEqual(expected, p.Projection(float3.up() + expected));
+            TestUtils.AreEqual(expected, p.Projection(float3.up + expected));
         }
 
         [TestCompiler]
