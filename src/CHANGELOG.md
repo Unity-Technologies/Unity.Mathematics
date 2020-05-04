@@ -5,7 +5,7 @@
 - Added [Serializable] to RigidTransform.
 - Added math.ceillog2().
 - Added math.floorlog2().
-- Added math.down(), math.forward(), etc for Cartesian coordinate axes that match UnityEngine Vector3 equivalents.
+- Added float3.down(), float3.forward(), etc for Cartesian coordinate axes that match UnityEngine Vector3 equivalents.
 - Added math.ispow2().
 - Added half.MinValueAsHalf and half.MaxValueAsHalf to avoid having to explicitly convert from float.
 - Added a float3x3 constructor which takes a float4x4 as input.

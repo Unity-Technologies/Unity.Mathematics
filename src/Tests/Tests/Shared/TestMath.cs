@@ -2992,12 +2992,12 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void helper_axes()
         {
-            TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), right());
-            TestUtils.AreEqual(float3(-1.0f, 0.0f, 0.0f), left());
-            TestUtils.AreEqual(float3(0.0f, 1.0f, 0.0f), up());
-            TestUtils.AreEqual(float3(0.0f, -1.0f, 0.0f), down());
-            TestUtils.AreEqual(float3(0.0f, 0.0f, 1.0f), forward());
-            TestUtils.AreEqual(float3(0.0f, 0.0f, -1.0f), back());
+            TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), float3.right());
+            TestUtils.AreEqual(float3(-1.0f, 0.0f, 0.0f), float3.left());
+            TestUtils.AreEqual(float3(0.0f, 1.0f, 0.0f), float3.up());
+            TestUtils.AreEqual(float3(0.0f, -1.0f, 0.0f), float3.down());
+            TestUtils.AreEqual(float3(0.0f, 0.0f, 1.0f), float3.forward());
+            TestUtils.AreEqual(float3(0.0f, 0.0f, -1.0f), float3.back());
         }
 
         [TestCompiler]
