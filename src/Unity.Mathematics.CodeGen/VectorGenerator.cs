@@ -67,6 +67,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
         static readonly string[] components = { "x", "y", "z", "w" };
+        static readonly string[] colorComponents = {"r", "g", "b", "a"};
         static readonly string[] vectorFields = { "x", "y", "z", "w" };
         static readonly string[] matrixFields = { "c0", "c1", "c2", "c3" };
         static readonly string[] shuffleComponents = { "LeftX", "LeftY", "LeftZ", "LeftW", "RightX", "RightY", "RightZ", "RightW" };
@@ -1777,7 +1778,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateSwizzles(StringBuilder str)
         {
+            bool baseTypeIsFloat = m_BaseType == "float";
             int count = m_Rows;
+            bool shouldGenerateColorSwizzles = baseTypeIsFloat && ((count == 3) || (count == 4));
+
             // float4 swizzles
             {
                 int[] swizzles = new int[4];
@@ -1795,6 +1799,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                 swizzles[3] = w;
 
                                 GenerateSwizzles(swizzles, str);
+
+                                if (shouldGenerateColorSwizzles)
+                                {
+                                    GenerateColorSwizzles(swizzles, str);
+                                }
                             }
                         }
                     }
@@ -1815,6 +1824,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             swizzles[2] = z;
 
                             GenerateSwizzles(swizzles, str);
+
+                            if (shouldGenerateColorSwizzles)
+                            {
+                                GenerateColorSwizzles(swizzles, str);
+                            }
                         }
                     }
                 }
@@ -1915,6 +1929,67 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.Append("\n\t\t}\n\n");
             str.Append("\n");
+        }
+
+        void GenerateColorSwizzles(int[] swizzle, StringBuilder str)
+        {
+            int bits = 0;
+            bool allowSetter = true;
+            for (int i = 0; i < swizzle.Length; i++)
+            {
+                int bit = 1 << swizzle[i];
+                if ((bits & bit) != 0)
+                    allowSetter = false;
+
+                bits |= 1 << swizzle[i];
+            }
+
+            bool hideAutoComplete = true;
+
+            // RGBA swizzles
+            if (hideAutoComplete)
+                str.Append(
+                    "\t\t[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n");
+
+            str.Append("\t\tpublic ");
+            str.Append(ToTypeName(m_BaseType, swizzle.Length, 1));
+            str.Append(' ');
+
+            for (int i = 0; i < swizzle.Length; i++)
+                str.Append(colorComponents[swizzle[i]]);
+
+            // Getter
+
+            str.Append("\n\t\t{");
+            if (swizzle.Length != 1)
+            {
+                str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
+                str.Append("\n\t\t\tget => ");
+            }
+            else
+                str.Append("\n\t\t\tget { return ");
+
+            for (int i = 0; i < swizzle.Length; i++)
+            {
+                str.Append(components[swizzle[i]]);
+            }
+
+            str.Append(";");
+
+            //Setter
+            if (allowSetter)
+            {
+                str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
+                str.Append("\n\t\t\tset => ");
+                for (int i = 0; i < swizzle.Length; i++)
+                {
+                    str.Append(components[swizzle[i]]);
+                }
+
+                str.Append(" = value;");
+            }
+
+            str.Append("\n\t\t}\n\n");
         }
 
         // Test Generation
