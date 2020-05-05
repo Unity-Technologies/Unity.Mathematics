@@ -1931,7 +1931,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         bool SupportsColor()
         {
-            return (m_Columns == 1) && (m_Rows == 3 || m_Rows == 4) && m_BaseType == "float";
+            return m_Columns == 1 && m_Rows <= 4 && m_BaseType == "float";
         }
 
         void GenerateColorSwizzles(StringBuilder str)
@@ -1975,6 +1975,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                             GenerateColorSwizzles(swizzles, str);
                         }
+                    }
+                }
+            }
+
+            // float2 swizzles
+            {
+                var swizzles = new int[2];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        swizzles[0] = x;
+                        swizzles[1] = y;
+
+                        GenerateColorSwizzles(swizzles, str);
                     }
                 }
             }
