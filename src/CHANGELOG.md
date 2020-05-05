@@ -18,7 +18,7 @@
 - Internal: Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
 - Internal: Added more MinMaxAABB functionality from Unity.Physics.Aabb.
 - Internal: Added Unity.Mathematics.Geometry.Math to hold static functions like AABB transformations.
-- Internal: Added AABB and MinMaxAABB.
+- Internal: Added MinMaxAABB.
 
 ## [1.1.0] - 2019-07-08
 
