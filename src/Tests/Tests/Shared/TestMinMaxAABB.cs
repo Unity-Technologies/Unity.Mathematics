@@ -156,24 +156,6 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void Convert_MinMaxAABB_to_AABB()
-        {
-            var minmax = new MinMaxAABB { Min = new float3(1.0f), Max = new float3(2.0f) };
-            AABB aabb = minmax;
-            TestUtils.AreEqual(new float3(1.5f), aabb.Center);
-            TestUtils.AreEqual(new float3(0.5f), aabb.HalfExtents);
-        }
-
-        [TestCompiler]
-        public static void Convert_AABB_to_MinMaxAABB()
-        {
-            AABB aabb = new AABB { Center = new float3(1.5f), HalfExtents = new float3(0.5f) };
-            MinMaxAABB minmax = aabb;
-            TestUtils.AreEqual(new float3(1.0f), minmax.Min);
-            TestUtils.AreEqual(new float3(2.0f), minmax.Max);
-        }
-
-        [TestCompiler]
         public static void Equals_trivial()
         {
             MinMaxAABB aabb = new MinMaxAABB();

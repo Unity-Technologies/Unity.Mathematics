@@ -199,18 +199,6 @@ namespace Unity.Mathematics.Geometry
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator MinMaxAABB(AABB aabb)
-        {
-            return new MinMaxAABB {Min = aabb.Center - aabb.HalfExtents, Max = aabb.Center + aabb.HalfExtents};
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator AABB(MinMaxAABB aabb)
-        {
-            return new AABB { Center = aabb.Center, HalfExtents = aabb.HalfExtents };
-        }
-
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(MinMaxAABB other)
         {
             return Min.Equals(other.Min) && Max.Equals(other.Max);
