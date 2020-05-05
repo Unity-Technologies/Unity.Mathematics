@@ -1982,6 +1982,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateColorSwizzles(int[] swizzle, StringBuilder str)
         {
+            // This color swizzle code generator is mostly copy/paste from the original swizzle generator.
+            // The key difference is that instead of getting/setting the xyzw members directly, it aliases
+            // the xyzw swizzles.
             int bits = 0;
             bool allowSetter = true;
             for (int i = 0; i < swizzle.Length; i++)
