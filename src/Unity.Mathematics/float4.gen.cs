@@ -436,12 +436,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxz
@@ -452,12 +466,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxyx
@@ -468,12 +496,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxyz
@@ -484,12 +526,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxzx
@@ -500,12 +556,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxzz
@@ -516,12 +586,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxwx
@@ -532,12 +616,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxwz
@@ -548,12 +646,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rrab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, x, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rraa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyxx
@@ -564,12 +676,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyxz
@@ -580,12 +706,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyyx
@@ -596,12 +736,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyyz
@@ -612,12 +766,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rggb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyzx
@@ -628,6 +796,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -636,12 +811,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyzw
@@ -654,6 +843,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyzw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xyzw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -662,12 +860,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xywx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xywy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xywz
@@ -680,12 +892,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xywz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xywz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, y, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rgaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzxx
@@ -696,12 +924,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzxz
@@ -712,12 +954,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzyx
@@ -728,6 +984,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -736,12 +999,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzyw
@@ -754,12 +1031,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzyw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xzyw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzzy
@@ -770,12 +1063,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzzw
@@ -786,12 +1093,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzzw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzwy
@@ -804,12 +1125,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzwy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xzwy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, z, w, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzwz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xzww
@@ -820,12 +1157,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rbaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rarr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwxy
@@ -836,12 +1187,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rarg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, x, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rarb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwxz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwxw
@@ -852,6 +1217,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rara
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwxw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -860,12 +1232,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ragr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ragg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwyz
@@ -878,6 +1264,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ragb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwyz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xwyz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -886,12 +1281,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwyw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rabr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwzy
@@ -904,12 +1313,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rabg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwzy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xwzy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 rabb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwzw
@@ -920,12 +1345,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwzw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwwy
@@ -936,12 +1375,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwwy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(x, w, w, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwwz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 xwww
@@ -952,12 +1405,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 raaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxxy
@@ -968,12 +1435,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, x, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxxw
@@ -984,12 +1465,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, y, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxyy
@@ -1000,12 +1495,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxyw
@@ -1016,12 +1525,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxzy
@@ -1032,12 +1555,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxzw
@@ -1050,6 +1587,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxzw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yxzw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1058,12 +1604,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxwz
@@ -1076,12 +1636,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 grab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxwz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yxwz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yxww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, x, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 graa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyxx
@@ -1092,12 +1668,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyxz
@@ -1108,12 +1698,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyyx
@@ -1124,12 +1728,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyyz
@@ -1140,12 +1758,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gggb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyzx
@@ -1156,12 +1788,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyzz
@@ -1172,12 +1818,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yywx
@@ -1188,12 +1848,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yywx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yywy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yywz
@@ -1204,12 +1878,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yywz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, y, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 ggaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzxx
@@ -1220,6 +1908,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1228,12 +1923,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, x, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzxz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzxw
@@ -1246,12 +1955,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzxw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yzxw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, y, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzyx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzyy
@@ -1262,12 +1987,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzyw
@@ -1278,12 +2017,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzyw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzzy
@@ -1294,6 +2047,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1302,12 +2062,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzwx
@@ -1320,12 +2094,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzwx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yzwx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzwz
@@ -1336,12 +2126,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 yzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, z, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gbaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywxx
@@ -1352,12 +2156,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 garr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 garg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywxz
@@ -1370,12 +2188,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 garb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywxz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => ywxz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gara
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywyx
@@ -1386,12 +2220,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gagr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gagg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywyz
@@ -1402,12 +2250,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gagb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywzx
@@ -1420,12 +2282,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gabr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywzx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => ywzx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gabg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywzz
@@ -1436,12 +2314,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gabb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywwx
@@ -1452,12 +2344,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywwz
@@ -1468,12 +2374,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 ywww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(y, w, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 gaaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxxx
@@ -1484,12 +2404,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxxz
@@ -1500,12 +2434,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxyx
@@ -1516,6 +2464,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1524,12 +2479,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxyw
@@ -1542,12 +2511,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxyw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zxyw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxzy
@@ -1558,12 +2543,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxzw
@@ -1574,12 +2573,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxzw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxwy
@@ -1592,12 +2605,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxwy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zxwy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, x, w, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 brab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxwz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zxww
@@ -1608,12 +2637,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 braa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyxy
@@ -1624,12 +2667,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, x, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyxz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyxw
@@ -1642,12 +2699,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyxw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zyxw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, y, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyyx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyyy
@@ -1658,12 +2731,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bggb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyyw
@@ -1674,12 +2761,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyyw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyzy
@@ -1690,6 +2791,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1698,12 +2806,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zywx
@@ -1716,12 +2838,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zywx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zywx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zywy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zywz
@@ -1732,12 +2870,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zywz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, y, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bgaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzxx
@@ -1748,12 +2900,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzxz
@@ -1764,12 +2930,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzyx
@@ -1780,12 +2960,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzyz
@@ -1796,12 +2990,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzzx
@@ -1812,12 +3020,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzzz
@@ -1828,12 +3050,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzwx
@@ -1844,12 +3080,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, z, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzwz
@@ -1860,6 +3110,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1868,12 +3125,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bbaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 barr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwxy
@@ -1886,6 +3157,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 barg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwxy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zwxy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -1894,12 +3174,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 barb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bara
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwyx
@@ -1912,12 +3206,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bagr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwyx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zwyx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bagg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwyz
@@ -1928,12 +3238,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 bagb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwzx
@@ -1944,12 +3268,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 babr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 babg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwzz
@@ -1960,12 +3298,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 babb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwwx
@@ -1976,12 +3328,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwwz
@@ -1992,12 +3358,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 zwww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(z, w, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 baaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxxx
@@ -2008,12 +3388,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxxz
@@ -2024,12 +3418,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxyx
@@ -2040,12 +3448,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 argr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 argg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxyz
@@ -2058,6 +3480,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 argb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxyz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wxyz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2066,12 +3497,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxyw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxzy
@@ -2084,12 +3529,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxzy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wxzy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxzw
@@ -2100,12 +3561,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxzw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxwy
@@ -2116,12 +3591,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxwy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, x, w, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 arab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxwz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wxww
@@ -2132,6 +3621,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 araa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2140,12 +3636,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyxz
@@ -2158,12 +3668,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyxz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wyxz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyyx
@@ -2174,12 +3700,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyyz
@@ -2190,12 +3730,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aggb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyzx
@@ -2208,12 +3762,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyzx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wyzx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyzz
@@ -2224,12 +3794,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wywx
@@ -2240,12 +3824,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wywx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, y, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wywy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wywz
@@ -2256,6 +3854,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wywz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wyww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2264,12 +3869,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 agaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzxy
@@ -2282,6 +3901,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzxy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wzxy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2290,12 +3918,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzyx
@@ -2308,12 +3950,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzyx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wzyx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzyz
@@ -2324,12 +3982,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzzx
@@ -2340,12 +4012,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzzz
@@ -2356,12 +4042,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzwx
@@ -2372,12 +4072,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzwz
@@ -2388,12 +4102,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wzww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, z, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 abaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwxx
@@ -2404,12 +4132,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aarr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aarg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwxz
@@ -2420,12 +4162,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aarb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aara
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwyx
@@ -2436,12 +4192,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aagr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aagg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwyz
@@ -2452,12 +4222,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aagb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwzx
@@ -2468,12 +4252,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aabr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwzx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, z, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aabg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwzy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwzz
@@ -2484,12 +4282,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aabb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwwx
@@ -2500,12 +4312,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwwx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwwy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwwz
@@ -2516,12 +4342,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float4 wwww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float4(w, w, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float4 aaaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xxx
@@ -2532,12 +4372,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xxz
@@ -2548,12 +4402,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rrb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xyx
@@ -2564,12 +4432,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xyz
@@ -2582,6 +4464,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xyz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2592,12 +4483,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xyw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xzy
@@ -2610,12 +4517,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xzy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xzw
@@ -2628,12 +4551,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xzw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xzw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xwy
@@ -2646,6 +4585,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xwy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2656,12 +4604,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 rab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xwz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xwz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 xww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(x, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 raa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xww;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yxx
@@ -2672,12 +4636,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 grr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yxy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(y, x, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 grg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yxz
@@ -2690,6 +4668,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 grb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yxz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2700,12 +4687,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yxw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(y, y, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 ggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yyy
@@ -2716,6 +4719,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 ggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2724,12 +4734,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 ggb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(y, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yzx
@@ -2742,6 +4766,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yzx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2750,12 +4783,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(y, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yzw
@@ -2768,6 +4815,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yzw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yzw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 ywx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2778,12 +4834,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => ywx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 ywy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(y, w, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 ywz
@@ -2796,6 +4868,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ywz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => ywz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 yww
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2804,12 +4885,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 gaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 brr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zxy
@@ -2822,12 +4917,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 brg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zxy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, x, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 brb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zxw
@@ -2840,6 +4951,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zxw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zxw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zyx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2850,6 +4970,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zyx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2858,12 +4987,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zyz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, y, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bgb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zyw
@@ -2876,12 +5019,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zyw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zyw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zzx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, z, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bbr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zzy
@@ -2892,6 +5051,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bbg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2900,12 +5066,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bbb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zzw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, z, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zzw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zwx
@@ -2918,6 +5098,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zwx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zwy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2928,12 +5117,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zwy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(z, w, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 bab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zwz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 zww
@@ -2944,12 +5149,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 baa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zww;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wxx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, x, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 arr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wxy
@@ -2962,6 +5181,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 arg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wxy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wxz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2972,12 +5200,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 arb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wxz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wxw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, x, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 ara
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wxw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wyx
@@ -2990,12 +5234,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 agr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wyx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wyy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 agg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyy;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wyz
@@ -3008,12 +5268,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 agb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wyz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wyw
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, y, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wyw;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wzx
@@ -3026,6 +5302,15 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 abr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wzx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wzy
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3036,12 +5321,28 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 abg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wzy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wzz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, z, z); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 abb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzz;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wzw
@@ -3052,12 +5353,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wzw;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wwx
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, w, x); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwx;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wwy
@@ -3068,6 +5383,13 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 wwz
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -3076,12 +5398,26 @@ namespace Unity.Mathematics
 
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wwz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float3 www
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
             get { return new float3(w, w, w); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float3 aaa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => www;
+        }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public float2 xx
