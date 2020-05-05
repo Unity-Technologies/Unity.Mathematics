@@ -2013,7 +2013,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             bool hideAutoComplete = true;
 
-            // RGBA swizzles
             if (hideAutoComplete)
                 str.Append(
                     "\t\t[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n");
@@ -2028,13 +2027,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Getter
 
             str.Append("\n\t\t{");
-            if (swizzle.Length != 1)
-            {
-                str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
-                str.Append("\n\t\t\tget => ");
-            }
-            else
-                str.Append("\n\t\t\tget { return ");
+            str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
+            str.Append("\n\t\t\tget => ");
 
             for (int i = 0; i < swizzle.Length; i++)
             {
@@ -2061,13 +2055,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateColorProperties(StringBuilder str)
         {
-            // public float r
-            // {
-            //     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            //     get => x;
-            //     [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            //     set => x = value;
-            // }
             for (int i = 0; i < m_Rows; ++i)
             {
                 str.Append($"\t\tpublic float {colorComponents[i]}\n");
