@@ -522,6 +522,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateMemberVariables(str);
 
+            if (SupportsColor())
+            {
+                GenerateColorProperties(str);
+            }
+
             GenerateStaticFields(str);
 
             GenerateConstructors(str, mathStr);
@@ -552,6 +557,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 str.Append("\n\n");
                 GenerateSwizzles(str);
+
+                if (SupportsColor())
+                {
+                    GenerateColorSwizzles(str);
+                }
+
                 GenerateShuffleImplementation(mathStr);
             }
 
@@ -1778,10 +1789,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateSwizzles(StringBuilder str)
         {
-            bool baseTypeIsFloat = m_BaseType == "float";
             int count = m_Rows;
-            bool shouldGenerateColorSwizzles = baseTypeIsFloat && ((count == 3) || (count == 4));
-
             // float4 swizzles
             {
                 int[] swizzles = new int[4];
@@ -1800,7 +1808,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                                 GenerateSwizzles(swizzles, str);
 
-                                if (shouldGenerateColorSwizzles)
+                                if (SupportsColor())
                                 {
                                     GenerateColorSwizzles(swizzles, str);
                                 }
@@ -1825,7 +1833,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                             GenerateSwizzles(swizzles, str);
 
-                            if (shouldGenerateColorSwizzles)
+                            if (SupportsColor())
                             {
                                 GenerateColorSwizzles(swizzles, str);
                             }
@@ -1931,6 +1939,72 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
+        bool SupportsColor()
+        {
+            return (m_Columns == 1) && (m_Rows == 3 || m_Rows == 4) && m_BaseType == "float";
+        }
+
+        void GenerateColorSwizzles(StringBuilder str)
+        {
+            int count = m_Rows;
+            // float4 swizzles
+            {
+                int[] swizzles = new int[4];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            for (int w = 0; w < count; w++)
+                            {
+                                swizzles[0] = x;
+                                swizzles[1] = y;
+                                swizzles[2] = z;
+                                swizzles[3] = w;
+
+                                GenerateColorSwizzles(swizzles, str);
+                            }
+                        }
+                    }
+                }
+            }
+
+            // float3 swizzles
+            {
+                var swizzles = new int[3];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            swizzles[0] = x;
+                            swizzles[1] = y;
+                            swizzles[2] = z;
+
+                            GenerateColorSwizzles(swizzles, str);
+                        }
+                    }
+                }
+            }
+
+            // float2 swizzles
+            {
+                var swizzles = new int[2];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        swizzles[0] = x;
+                        swizzles[1] = y;
+
+                        GenerateSwizzles(swizzles, str);
+                    }
+                }
+            }
+        }
+
         void GenerateColorSwizzles(int[] swizzle, StringBuilder str)
         {
             int bits = 0;
@@ -1990,6 +2064,27 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             str.Append("\n\t\t}\n\n");
+        }
+
+        void GenerateColorProperties(StringBuilder str)
+        {
+            // public float r
+            // {
+            //     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            //     get => x;
+            //     [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            //     set => x = value;
+            // }
+            for (int i = 0; i < m_Rows; ++i)
+            {
+                str.Append($"\t\tpublic float {colorComponents[i]}\n");
+                str.Append("\t\t{\n");
+                str.Append("\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+                str.Append($"\t\t\tget => {components[i]};\n");
+                str.Append("\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
+                str.Append($"\t\t\tset => {components[i]} = value;\n");
+                str.Append("\t\t}\n\n");
+            }
         }
 
         // Test Generation
