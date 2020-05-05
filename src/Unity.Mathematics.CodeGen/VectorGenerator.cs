@@ -1807,11 +1807,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                 swizzles[3] = w;
 
                                 GenerateSwizzles(swizzles, str);
-
-                                if (SupportsColor())
-                                {
-                                    GenerateColorSwizzles(swizzles, str);
-                                }
                             }
                         }
                     }
@@ -1832,11 +1827,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             swizzles[2] = z;
 
                             GenerateSwizzles(swizzles, str);
-
-                            if (SupportsColor())
-                            {
-                                GenerateColorSwizzles(swizzles, str);
-                            }
                         }
                     }
                 }
