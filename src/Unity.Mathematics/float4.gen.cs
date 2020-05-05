@@ -5603,6 +5603,142 @@ namespace Unity.Mathematics
             get => www;
         }
 
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ra
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ga
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 br
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 bg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 bb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zz;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ba
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zw;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zw = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ar
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ag
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 ab
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => wz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => wz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 aa
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => ww;
+        }
+
 
         /// <summary>Returns the float element at a specified index.</summary>
         unsafe public float this[int index]

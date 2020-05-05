@@ -2123,6 +2123,81 @@ namespace Unity.Mathematics
             get => zzz;
         }
 
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 rb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 gb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yz;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yz = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 br
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 bg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => zy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public float2 bb
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => zz;
+        }
+
 
         /// <summary>Returns the float element at a specified index.</summary>
         unsafe public float this[int index]
