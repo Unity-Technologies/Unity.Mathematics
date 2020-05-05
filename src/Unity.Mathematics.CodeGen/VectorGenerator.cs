@@ -1978,21 +1978,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     }
                 }
             }
-
-            // float2 swizzles
-            {
-                var swizzles = new int[2];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        swizzles[0] = x;
-                        swizzles[1] = y;
-
-                        GenerateSwizzles(swizzles, str);
-                    }
-                }
-            }
         }
 
         void GenerateColorSwizzles(int[] swizzle, StringBuilder str)
