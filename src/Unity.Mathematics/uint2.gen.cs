@@ -21,6 +21,22 @@ namespace Unity.Mathematics
         public uint x;
         public uint y;
 
+        public uint r
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => x;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => x = value;
+        }
+
+        public uint g
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => y;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => y = value;
+        }
+
         /// <summary>uint2 zero value.</summary>
         public static readonly uint2 zero;
 
@@ -594,6 +610,206 @@ namespace Unity.Mathematics
             get { return new uint2(y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rrrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rrrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rrgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rrgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rgrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rgrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 rggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 grrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 grrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 grgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 grgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 ggrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 ggrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 gggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint4 gggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 rrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 rrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 rgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 rgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 grr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 grg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 ggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint3 ggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint2 rr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint2 rg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint2 gr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public uint2 gg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yy;
+        }
 
 
         /// <summary>Returns the uint element at a specified index.</summary>

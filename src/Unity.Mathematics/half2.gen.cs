@@ -21,6 +21,22 @@ namespace Unity.Mathematics
         public half x;
         public half y;
 
+        public half r
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => x;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => x = value;
+        }
+
+        public half g
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => y;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => y = value;
+        }
+
         /// <summary>half2 zero value.</summary>
         public static readonly half2 zero;
 
@@ -357,6 +373,206 @@ namespace Unity.Mathematics
             get { return new half2(y, y); }
         }
 
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rrrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rrrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rrgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rrgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rgrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rgrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 rggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 grrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 grrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 grgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 grgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 ggrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 ggrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 gggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half4 gggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 rrr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 rrg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 rgr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 rgg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 grr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 grg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yxy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 ggr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half3 ggg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yyy;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half2 rr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xx;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half2 rg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => xy;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => xy = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half2 gr
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yx;
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            set => yx = value;
+        }
+
+        [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
+        public half2 gg
+        {
+            [MethodImpl(MethodImplOptions.AggressiveInlining)]
+            get => yy;
+        }
 
 
         /// <summary>Returns the half element at a specified index.</summary>
