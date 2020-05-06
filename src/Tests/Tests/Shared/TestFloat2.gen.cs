@@ -1053,6 +1053,35 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void float2_swizzle()
         {
+            var v = new float2(0, 1);
+            TestUtils.AreEqual(float4(0, 0, 0, 0), v.xxxx);
+            TestUtils.AreEqual(float4(0, 0, 0, 1), v.xxxy);
+            TestUtils.AreEqual(float4(0, 0, 1, 0), v.xxyx);
+            TestUtils.AreEqual(float4(0, 0, 1, 1), v.xxyy);
+            TestUtils.AreEqual(float4(0, 1, 0, 0), v.xyxx);
+            TestUtils.AreEqual(float4(0, 1, 0, 1), v.xyxy);
+            TestUtils.AreEqual(float4(0, 1, 1, 0), v.xyyx);
+            TestUtils.AreEqual(float4(0, 1, 1, 1), v.xyyy);
+            TestUtils.AreEqual(float4(1, 0, 0, 0), v.yxxx);
+            TestUtils.AreEqual(float4(1, 0, 0, 1), v.yxxy);
+            TestUtils.AreEqual(float4(1, 0, 1, 0), v.yxyx);
+            TestUtils.AreEqual(float4(1, 0, 1, 1), v.yxyy);
+            TestUtils.AreEqual(float4(1, 1, 0, 0), v.yyxx);
+            TestUtils.AreEqual(float4(1, 1, 0, 1), v.yyxy);
+            TestUtils.AreEqual(float4(1, 1, 1, 0), v.yyyx);
+            TestUtils.AreEqual(float4(1, 1, 1, 1), v.yyyy);
+            TestUtils.AreEqual(float3(0, 0, 0), v.xxx);
+            TestUtils.AreEqual(float3(0, 0, 1), v.xxy);
+            TestUtils.AreEqual(float3(0, 1, 0), v.xyx);
+            TestUtils.AreEqual(float3(0, 1, 1), v.xyy);
+            TestUtils.AreEqual(float3(1, 0, 0), v.yxx);
+            TestUtils.AreEqual(float3(1, 0, 1), v.yxy);
+            TestUtils.AreEqual(float3(1, 1, 0), v.yyx);
+            TestUtils.AreEqual(float3(1, 1, 1), v.yyy);
+            TestUtils.AreEqual(float2(0, 0), v.xx);
+            TestUtils.AreEqual(float2(0, 1), v.xy);
+            TestUtils.AreEqual(float2(1, 0), v.yx);
+            TestUtils.AreEqual(float2(1, 1), v.yy);
         }
 
         [TestCompiler]

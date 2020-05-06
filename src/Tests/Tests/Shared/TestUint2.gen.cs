@@ -1337,6 +1337,35 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void uint2_swizzle()
         {
+            var v = new uint2(0, 1);
+            TestUtils.AreEqual(uint4(0, 0, 0, 0), v.xxxx);
+            TestUtils.AreEqual(uint4(0, 0, 0, 1), v.xxxy);
+            TestUtils.AreEqual(uint4(0, 0, 1, 0), v.xxyx);
+            TestUtils.AreEqual(uint4(0, 0, 1, 1), v.xxyy);
+            TestUtils.AreEqual(uint4(0, 1, 0, 0), v.xyxx);
+            TestUtils.AreEqual(uint4(0, 1, 0, 1), v.xyxy);
+            TestUtils.AreEqual(uint4(0, 1, 1, 0), v.xyyx);
+            TestUtils.AreEqual(uint4(0, 1, 1, 1), v.xyyy);
+            TestUtils.AreEqual(uint4(1, 0, 0, 0), v.yxxx);
+            TestUtils.AreEqual(uint4(1, 0, 0, 1), v.yxxy);
+            TestUtils.AreEqual(uint4(1, 0, 1, 0), v.yxyx);
+            TestUtils.AreEqual(uint4(1, 0, 1, 1), v.yxyy);
+            TestUtils.AreEqual(uint4(1, 1, 0, 0), v.yyxx);
+            TestUtils.AreEqual(uint4(1, 1, 0, 1), v.yyxy);
+            TestUtils.AreEqual(uint4(1, 1, 1, 0), v.yyyx);
+            TestUtils.AreEqual(uint4(1, 1, 1, 1), v.yyyy);
+            TestUtils.AreEqual(uint3(0, 0, 0), v.xxx);
+            TestUtils.AreEqual(uint3(0, 0, 1), v.xxy);
+            TestUtils.AreEqual(uint3(0, 1, 0), v.xyx);
+            TestUtils.AreEqual(uint3(0, 1, 1), v.xyy);
+            TestUtils.AreEqual(uint3(1, 0, 0), v.yxx);
+            TestUtils.AreEqual(uint3(1, 0, 1), v.yxy);
+            TestUtils.AreEqual(uint3(1, 1, 0), v.yyx);
+            TestUtils.AreEqual(uint3(1, 1, 1), v.yyy);
+            TestUtils.AreEqual(uint2(0, 0), v.xx);
+            TestUtils.AreEqual(uint2(0, 1), v.xy);
+            TestUtils.AreEqual(uint2(1, 0), v.yx);
+            TestUtils.AreEqual(uint2(1, 1), v.yy);
         }
 
         [TestCompiler]
