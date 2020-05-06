@@ -2118,56 +2118,21 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Set up the test vectors to use for checking the swizzles.
             if (m_BaseType == "bool")
             {
-                /*
-                int permutation = 0;
-                string[] values = new string[2]{"false", "true"};
+                str.Append($"\t\t\tvar v = new {m_TypeName}(");
 
-                switch (m_Rows)
+                for (int i = 0; i < m_Rows; ++i)
                 {
-                    case 2:
+                    string value = (i & 1) > 0 ? "true" : "false";
+
+                    if (i + 1 < m_Rows)
                     {
-                        for (int x = 0; x < 2; ++x)
-                        {
-                            for (int y = 0; y < 2; ++y, ++permutation)
-                            {
-                                str.Append($"\t\t\tvar v{permutation} = new {m_TypeName}({values[x]}, {values[y]});\n");
-                            }
-                        }
-                        break;
+                        str.Append($"{value}, ");
                     }
-                    case 3:
+                    else
                     {
-                        for (int x = 0; x < 2; ++x)
-                        {
-                            for (int y = 0; y < 2; ++y)
-                            {
-                                for (int z = 0; z < 2; ++z, ++permutation)
-                                {
-                                    str.Append($"\t\t\tvar v{permutation} = new {m_TypeName}({values[x]}, {values[y]}, {values[z]});\n");
-                                }
-                            }
-                        }
-                        break;
-                    }
-                    case 4:
-                    {
-                        for (int x = 0; x < 2; ++x)
-                        {
-                            for (int y = 0; y < 2; ++y)
-                            {
-                                for (int z = 0; z < 2; ++z)
-                                {
-                                    for (int w = 0; w < 2; ++w, ++permutation)
-                                    {
-                                        str.Append($"\t\t\tvar v{permutation} = new {m_TypeName}({values[x]}, {values[y]}, {values[z]}, {values[w]});\n");
-                                    }
-                                }
-                            }
-                        }
-                        break;
+                        str.Append($"{value});");
                     }
                 }
-                */
             }
             else
             {
@@ -2184,18 +2149,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         str.Append($"{i});");
                     }
                 }
-
-                str.Append("\n");
             }
 
+            str.Append("\n");
             ForEachSwizzle(TestSwizzle, str);
             EndTest(str);
         }
 
         void TestSwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
         {
-            if (m_BaseType == "bool") return;
-
             // Set up the expected value.
             var expected = new StringBuilder($"{m_BaseType}{swizzles.Length}(");
 
@@ -2213,27 +2175,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else
             {
-                for (int i = 0; i + 1 < swizzles.Length; ++i)
+                for (int i = 0; i < swizzles.Length; ++i)
                 {
-                    if (swizzles[i] == 0)
-                    {
-                        expected.Append("false, ");
-                    }
-                    else
-                    {
-                        expected.Append("true, ");
-                    }
-                }
+                    string value = (swizzles[i] & 1) > 0 ? "true" : "false";
 
-                if (swizzles.Length > 0)
-                {
-                    if (swizzles[swizzles.Length - 1] == 0)
+                    if (i + 1 < swizzles.Length)
                     {
-                        expected.Append("false)");
+                        expected.Append($"{value}, ");
                     }
                     else
                     {
-                        expected.Append("true)");
+                        expected.Append($"{value})");
                     }
                 }
             }
