@@ -1064,6 +1064,16 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(3, 7, 1, 5), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.LeftY, ShuffleComponent.RightY));
         }
 
+        [TestCompiler]
+        public static void double4_swizzle()
+        {
+        }
+
+        [TestCompiler]
+        public static void double4_colorswizzle()
+        {
+        }
+
 
     }
 }

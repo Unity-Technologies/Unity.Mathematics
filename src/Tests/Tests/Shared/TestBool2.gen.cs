@@ -427,6 +427,16 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, !a3);
         }
 
+        [TestCompiler]
+        public static void bool2_swizzle()
+        {
+        }
+
+        [TestCompiler]
+        public static void bool2_colorswizzle()
+        {
+        }
+
 
     }
 }
