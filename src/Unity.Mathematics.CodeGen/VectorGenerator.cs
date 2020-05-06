@@ -1931,7 +1931,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         bool SupportsColor()
         {
-            return m_Columns == 1 && m_Rows <= 4 && m_BaseType != "bool";
+            return m_Columns == 1 && m_Rows <= 4;
         }
 
         void GenerateColorSwizzles(StringBuilder str)
