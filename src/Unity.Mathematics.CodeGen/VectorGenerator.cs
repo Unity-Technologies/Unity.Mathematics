@@ -522,7 +522,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateMemberVariables(str);
 
-            if (SupportsColor())
+            if (HasSwizzles)
             {
                 GenerateColorProperties(str);
             }
@@ -553,16 +553,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateHashFunction(mathStr, false);
             GenerateHashFunction(mathStr, true);
 
-            if (m_Columns == 1)
+            if (HasSwizzles)
             {
                 str.Append("\n\n");
                 GenerateSwizzles(str);
-
-                if (SupportsColor())
-                {
-                    GenerateColorSwizzles(str);
-                }
-
+                GenerateColorSwizzles(str);
                 GenerateShuffleImplementation(mathStr);
             }
 
@@ -1929,10 +1924,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
-        bool SupportsColor()
-        {
-            return m_Columns == 1 && m_Rows <= 4;
-        }
+        private bool HasSwizzles => m_Columns == 1 && m_Rows <= 4;
 
         void GenerateColorSwizzles(StringBuilder str)
         {
@@ -2172,6 +2164,116 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, false, true);
             TestConstructor(str, true, false);
             TestConstructor(str, true, true);
+        }
+
+        void TestSwizzles(StringBuilder str)
+        {
+            int count = m_Rows;
+            // float4 swizzles
+            {
+                int[] swizzles = new int[4];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            for (int w = 0; w < count; w++)
+                            {
+                                swizzles[0] = x;
+                                swizzles[1] = y;
+                                swizzles[2] = z;
+                                swizzles[3] = w;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // float3 swizzles
+            {
+                var swizzles = new int[3];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            swizzles[0] = x;
+                            swizzles[1] = y;
+                            swizzles[2] = z;
+                        }
+                    }
+                }
+            }
+
+            // float2 swizzles
+            {
+                var swizzles = new int[2];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        swizzles[0] = x;
+                        swizzles[1] = y;
+                    }
+                }
+            }
+        }
+
+        void TestColorSwizzles(StringBuilder str)
+        {
+            int count = m_Rows;
+            // float4 swizzles
+            {
+                int[] swizzles = new int[4];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            for (int w = 0; w < count; w++)
+                            {
+                                swizzles[0] = x;
+                                swizzles[1] = y;
+                                swizzles[2] = z;
+                                swizzles[3] = w;
+                            }
+                        }
+                    }
+                }
+            }
+
+            // float3 swizzles
+            {
+                var swizzles = new int[3];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        for (int z = 0; z < count; z++)
+                        {
+                            swizzles[0] = x;
+                            swizzles[1] = y;
+                            swizzles[2] = z;
+                        }
+                    }
+                }
+            }
+
+            // float2 swizzles
+            {
+                var swizzles = new int[2];
+                for (int x = 0; x < count; x++)
+                {
+                    for (int y = 0; y < count; y++)
+                    {
+                        swizzles[0] = x;
+                        swizzles[1] = y;
+                    }
+                }
+            }
         }
 
         static int StableStringHash(string str)
@@ -3115,6 +3217,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestStaticFields(str);
             TestConstructors(str);
             TestOperators(str);
+
+            if (HasSwizzles)
+            {
+                TestSwizzles(str);
+                TestColorSwizzles(str);
+            }
 
             str.Append("\n\t}");
             str.Append("\n}\n");
