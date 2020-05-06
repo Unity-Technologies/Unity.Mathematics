@@ -1782,7 +1782,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("); }\n\n\n");
         }
 
-        void GenerateSwizzles(StringBuilder str)
+        private bool HasSwizzles => m_Columns == 1 && m_Rows <= 4;
+
+        delegate void SwizzleDelegate(int[] swizzles, bool allowSetter, StringBuilder str);
+
+        void SwizzleForEach(SwizzleDelegate del, StringBuilder str)
         {
             int count = m_Rows;
             // float4 swizzles
@@ -1801,7 +1805,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                                 swizzles[2] = z;
                                 swizzles[3] = w;
 
-                                GenerateSwizzles(swizzles, str);
+                                del(swizzles, SwizzleShouldAllowSetter(swizzles), str);
                             }
                         }
                     }
@@ -1821,7 +1825,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                             swizzles[1] = y;
                             swizzles[2] = z;
 
-                            GenerateSwizzles(swizzles, str);
+                            del(swizzles, SwizzleShouldAllowSetter(swizzles), str);
                         }
                     }
                 }
@@ -1837,13 +1841,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         swizzles[0] = x;
                         swizzles[1] = y;
 
-                        GenerateSwizzles(swizzles, str);
+                        del(swizzles, SwizzleShouldAllowSetter(swizzles), str);
                     }
                 }
             }
         }
 
-        void GenerateSwizzles(int[] swizzle, StringBuilder str)
+        void GenerateSwizzles(StringBuilder str)
+        {
+            SwizzleForEach(GenerateSwizzles, str);
+        }
+
+        bool SwizzleShouldAllowSetter(int[] swizzle)
         {
             int bits = 0;
             bool allowSetter = true;
@@ -1856,6 +1865,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 bits |= 1 << swizzle[i];
             }
 
+            return allowSetter;
+        }
+
+        void GenerateSwizzles(int[] swizzle, bool allowSetter, StringBuilder str)
+        {
             bool hideAutoComplete = true;
 
             if (hideAutoComplete)
@@ -1924,85 +1938,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n");
         }
 
-        private bool HasSwizzles => m_Columns == 1 && m_Rows <= 4;
-
         void GenerateColorSwizzles(StringBuilder str)
         {
-            int count = m_Rows;
-            // float4 swizzles
-            {
-                int[] swizzles = new int[4];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            for (int w = 0; w < count; w++)
-                            {
-                                swizzles[0] = x;
-                                swizzles[1] = y;
-                                swizzles[2] = z;
-                                swizzles[3] = w;
-
-                                GenerateColorSwizzles(swizzles, str);
-                            }
-                        }
-                    }
-                }
-            }
-
-            // float3 swizzles
-            {
-                var swizzles = new int[3];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            swizzles[0] = x;
-                            swizzles[1] = y;
-                            swizzles[2] = z;
-
-                            GenerateColorSwizzles(swizzles, str);
-                        }
-                    }
-                }
-            }
-
-            // float2 swizzles
-            {
-                var swizzles = new int[2];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        swizzles[0] = x;
-                        swizzles[1] = y;
-
-                        GenerateColorSwizzles(swizzles, str);
-                    }
-                }
-            }
+            SwizzleForEach(GenerateColorSwizzles, str);
         }
 
-        void GenerateColorSwizzles(int[] swizzle, StringBuilder str)
+        void GenerateColorSwizzles(int[] swizzle, bool allowSetter, StringBuilder str)
         {
             // This color swizzle code generator is mostly copy/paste from the original swizzle generator.
             // The key difference is that instead of getting/setting the xyzw members directly, it aliases
             // the xyzw swizzles.
-            int bits = 0;
-            bool allowSetter = true;
-            for (int i = 0; i < swizzle.Length; i++)
-            {
-                int bit = 1 << swizzle[i];
-                if ((bits & bit) != 0)
-                    allowSetter = false;
-
-                bits |= 1 << swizzle[i];
-            }
-
             bool hideAutoComplete = true;
 
             if (hideAutoComplete)
@@ -2166,114 +2111,19 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
+
+        void TestDummySwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
+        {
+        }
+
         void TestSwizzles(StringBuilder str)
         {
-            int count = m_Rows;
-            // float4 swizzles
-            {
-                int[] swizzles = new int[4];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            for (int w = 0; w < count; w++)
-                            {
-                                swizzles[0] = x;
-                                swizzles[1] = y;
-                                swizzles[2] = z;
-                                swizzles[3] = w;
-                            }
-                        }
-                    }
-                }
-            }
-
-            // float3 swizzles
-            {
-                var swizzles = new int[3];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            swizzles[0] = x;
-                            swizzles[1] = y;
-                            swizzles[2] = z;
-                        }
-                    }
-                }
-            }
-
-            // float2 swizzles
-            {
-                var swizzles = new int[2];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        swizzles[0] = x;
-                        swizzles[1] = y;
-                    }
-                }
-            }
+            SwizzleForEach(TestDummySwizzle, str);
         }
 
         void TestColorSwizzles(StringBuilder str)
         {
-            int count = m_Rows;
-            // float4 swizzles
-            {
-                int[] swizzles = new int[4];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            for (int w = 0; w < count; w++)
-                            {
-                                swizzles[0] = x;
-                                swizzles[1] = y;
-                                swizzles[2] = z;
-                                swizzles[3] = w;
-                            }
-                        }
-                    }
-                }
-            }
-
-            // float3 swizzles
-            {
-                var swizzles = new int[3];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        for (int z = 0; z < count; z++)
-                        {
-                            swizzles[0] = x;
-                            swizzles[1] = y;
-                            swizzles[2] = z;
-                        }
-                    }
-                }
-            }
-
-            // float2 swizzles
-            {
-                var swizzles = new int[2];
-                for (int x = 0; x < count; x++)
-                {
-                    for (int y = 0; y < count; y++)
-                    {
-                        swizzles[0] = x;
-                        swizzles[1] = y;
-                    }
-                }
-            }
+            SwizzleForEach(TestDummySwizzle, str);
         }
 
         static int StableStringHash(string str)
