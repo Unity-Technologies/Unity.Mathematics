@@ -1931,7 +1931,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         bool SupportsColor()
         {
-            return m_Columns == 1 && m_Rows <= 4 && m_BaseType == "float";
+            return m_Columns == 1 && m_Rows <= 4 && m_BaseType != "bool";
         }
 
         void GenerateColorSwizzles(StringBuilder str)
@@ -2057,7 +2057,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             for (int i = 0; i < m_Rows; ++i)
             {
-                str.Append($"\t\tpublic float {colorComponents[i]}\n");
+                str.Append($"\t\tpublic {m_BaseType} {colorComponents[i]}\n");
                 str.Append("\t\t{\n");
                 str.Append("\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
                 str.Append($"\t\t\tget => {components[i]};\n");
