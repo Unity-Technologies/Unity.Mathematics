@@ -1786,7 +1786,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         delegate void SwizzleDelegate(int[] swizzles, bool allowSetter, StringBuilder str);
 
-        void SwizzleForEach(SwizzleDelegate del, StringBuilder str)
+        void ForEachSwizzle(SwizzleDelegate del, StringBuilder str)
         {
             int count = m_Rows;
             // float4 swizzles
@@ -1849,7 +1849,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateSwizzles(StringBuilder str)
         {
-            SwizzleForEach(GenerateSwizzles, str);
+            ForEachSwizzle(GenerateSwizzles, str);
         }
 
         bool SwizzleShouldAllowSetter(int[] swizzle)
@@ -1940,7 +1940,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateColorSwizzles(StringBuilder str)
         {
-            SwizzleForEach(GenerateColorSwizzles, str);
+            ForEachSwizzle(GenerateColorSwizzles, str);
         }
 
         void GenerateColorSwizzles(int[] swizzle, bool allowSetter, StringBuilder str)
@@ -2111,19 +2111,26 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
-
-        void TestDummySwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
-        {
-        }
-
         void TestSwizzles(StringBuilder str)
         {
-            SwizzleForEach(TestDummySwizzle, str);
+            BeginTest(str, m_TypeName + "_swizzle");
+            ForEachSwizzle(TestSwizzle, str);
+            EndTest(str);
+        }
+
+        void TestSwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
+        {
         }
 
         void TestColorSwizzles(StringBuilder str)
         {
-            SwizzleForEach(TestDummySwizzle, str);
+            BeginTest(str, m_TypeName + "_colorswizzle");
+            ForEachSwizzle(TestColorSwizzle, str);
+            EndTest(str);
+        }
+
+        void TestColorSwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
+        {
         }
 
         static int StableStringHash(string str)
