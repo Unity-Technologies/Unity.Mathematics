@@ -1371,6 +1371,35 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void int2_colorswizzle()
         {
+            var v = new int2(0, 1);
+            TestUtils.AreEqual(int4(0, 0, 0, 0), v.rrrr);
+            TestUtils.AreEqual(int4(0, 0, 0, 1), v.rrrg);
+            TestUtils.AreEqual(int4(0, 0, 1, 0), v.rrgr);
+            TestUtils.AreEqual(int4(0, 0, 1, 1), v.rrgg);
+            TestUtils.AreEqual(int4(0, 1, 0, 0), v.rgrr);
+            TestUtils.AreEqual(int4(0, 1, 0, 1), v.rgrg);
+            TestUtils.AreEqual(int4(0, 1, 1, 0), v.rggr);
+            TestUtils.AreEqual(int4(0, 1, 1, 1), v.rggg);
+            TestUtils.AreEqual(int4(1, 0, 0, 0), v.grrr);
+            TestUtils.AreEqual(int4(1, 0, 0, 1), v.grrg);
+            TestUtils.AreEqual(int4(1, 0, 1, 0), v.grgr);
+            TestUtils.AreEqual(int4(1, 0, 1, 1), v.grgg);
+            TestUtils.AreEqual(int4(1, 1, 0, 0), v.ggrr);
+            TestUtils.AreEqual(int4(1, 1, 0, 1), v.ggrg);
+            TestUtils.AreEqual(int4(1, 1, 1, 0), v.gggr);
+            TestUtils.AreEqual(int4(1, 1, 1, 1), v.gggg);
+            TestUtils.AreEqual(int3(0, 0, 0), v.rrr);
+            TestUtils.AreEqual(int3(0, 0, 1), v.rrg);
+            TestUtils.AreEqual(int3(0, 1, 0), v.rgr);
+            TestUtils.AreEqual(int3(0, 1, 1), v.rgg);
+            TestUtils.AreEqual(int3(1, 0, 0), v.grr);
+            TestUtils.AreEqual(int3(1, 0, 1), v.grg);
+            TestUtils.AreEqual(int3(1, 1, 0), v.ggr);
+            TestUtils.AreEqual(int3(1, 1, 1), v.ggg);
+            TestUtils.AreEqual(int2(0, 0), v.rr);
+            TestUtils.AreEqual(int2(0, 1), v.rg);
+            TestUtils.AreEqual(int2(1, 0), v.gr);
+            TestUtils.AreEqual(int2(1, 1), v.gg);
         }
 
 
