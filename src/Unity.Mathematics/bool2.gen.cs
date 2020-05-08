@@ -375,200 +375,200 @@ namespace Unity.Mathematics
         public bool4 rrrr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxxx; }
+            get => xxxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rrrg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxxy; }
+            get => xxxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rrgr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxyx; }
+            get => xxyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rrgg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxyy; }
+            get => xxyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rgrr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyxx; }
+            get => xyxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rgrg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyxy; }
+            get => xyxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rggr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyyx; }
+            get => xyyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 rggg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyyy; }
+            get => xyyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 grrr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxxx; }
+            get => yxxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 grrg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxxy; }
+            get => yxxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 grgr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxyx; }
+            get => yxyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 grgg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxyy; }
+            get => yxyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 ggrr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyxx; }
+            get => yyxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 ggrg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyxy; }
+            get => yyxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 gggr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyyx; }
+            get => yyyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 gggg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyyy; }
+            get => yyyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 rrr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxx; }
+            get => xxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 rrg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xxy; }
+            get => xxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 rgr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyx; }
+            get => xyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 rgg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xyy; }
+            get => xyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 grr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxx; }
+            get => yxx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 grg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yxy; }
+            get => yxy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 ggr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyx; }
+            get => yyx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 ggg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yyy; }
+            get => yyy;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 rr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xx; }
+            get => xx;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 rg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return xy; }
+            get => xy;
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            set { xy = value; }
+            set => xy = value;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 gr
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yx; }
+            get => yx;
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            set { yx = value; }
+            set => yx = value;
         }
 
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 gg
         {
             [MethodImpl(MethodImplOptions.AggressiveInlining)]
-            get { return yy; }
+            get => yy;
         }
 
 

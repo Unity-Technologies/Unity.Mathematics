@@ -1965,26 +1965,26 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.Append("\n\t\t{");
             str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
-            str.Append("\n\t\t\tget { return ");
+            str.Append("\n\t\t\tget => ");
 
             for (int i = 0; i < swizzle.Length; i++)
             {
                 str.Append(components[swizzle[i]]);
             }
 
-            str.Append("; }");
+            str.Append(";");
 
             //Setter
             if (allowSetter)
             {
                 str.AppendFormat("\n\t\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]");
-                str.Append("\n\t\t\tset { ");
+                str.Append("\n\t\t\tset => ");
                 for (int i = 0; i < swizzle.Length; i++)
                 {
                     str.Append(components[swizzle[i]]);
                 }
 
-                str.Append(" = value; }");
+                str.Append(" = value;");
             }
 
             str.Append("\n\t\t}\n\n");
