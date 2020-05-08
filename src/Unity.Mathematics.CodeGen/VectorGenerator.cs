@@ -2238,7 +2238,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if (allowSetter)
                 {
-                    // Init set to v1 so we have a well known initial state for testing the swizzle set.
+                    // Init set to getter var so we have a well known initial state for testing the swizzle set.
                     m_SetterTestBody.Append($"\t\t\t{m_SetterVarName} = {m_GetterVarName[0]};\n");
                     m_SetterTestBody.Append($"\t\t\t{m_SetterVarName}.");
 
@@ -2256,42 +2256,47 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     m_SetterTestBody.Append(";\n");
 
-                    // Build the new expected value for this swizzle set.
-                    int[] expectedValues = new int[m_NumComponents];
+                    string[] sourceValues = new string[m_NumComponents];
+                    string[] expectedValues = new string[m_NumComponents];
 
-                    for (int i = 0; i < m_NumComponents; ++i)
+                    // Initialize the source values to one of the getter vars.
+                    if (isBoolVector)
                     {
-                        expectedValues[i] = i;
+                        for (int i = 0; i < m_NumComponents; ++i)
+                        {
+                            string str = m_TrueFalseStrings[0, i & 1];
+                            sourceValues[i] = str;
+                            expectedValues[i] = str;
+                        }
+                    }
+                    else
+                    {
+                        for (int i = 0; i < m_NumComponents; ++i)
+                        {
+                            string str = i.ToString();
+                            sourceValues[i] = str;
+                            expectedValues[i] = str;
+                        }
                     }
 
                     expected.Clear();
                     expected.Append($"{m_VectorTypeName}(");
 
+                    // Perform the swizzle set to update the expected values.
                     for (int i = 0; i < swizzles.Length; ++i)
                     {
-                        expectedValues[swizzles[i]] = i;
+                        expectedValues[swizzles[i]] = sourceValues[i];
                     }
 
                     for (int i = 0; i < m_NumComponents; ++i)
                     {
-                        string value;
-
-                        if (isBoolVector)
-                        {
-                            value = m_TrueFalseStrings[0, expectedValues[i] & 1];
-                        }
-                        else
-                        {
-                            value = $"{expectedValues[i]}";
-                        }
-
                         if (i + 1 < m_NumComponents)
                         {
-                            expected.Append($"{value}, ");
+                            expected.Append($"{expectedValues[i]}, ");
                         }
                         else
                         {
-                            expected.Append($"{value})");
+                            expected.Append($"{expectedValues[i]})");
                         }
                     }
 
