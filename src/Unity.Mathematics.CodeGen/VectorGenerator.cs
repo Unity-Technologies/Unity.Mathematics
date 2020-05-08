@@ -2140,6 +2140,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if (isBoolVector)
                 {
+                    m_SourceValues = new string[][] {new string[m_NumComponents], new string[m_NumComponents]};
+
+                    for (int i = 0; i < m_NumComponents; ++i)
+                    {
+                        m_SourceValues[0][i] = (i & 1) > 0 ? "true" : "false";
+                        m_SourceValues[1][i] = (i & 1) > 0 ? "false" : "true";
+                    }
+
                     // Set up two different bool vectors to ensure we get good coverage
                     // for the swizzle tests.
                     for (int getterIndex = 0; getterIndex < m_GetterVarName.Length; ++getterIndex)
@@ -2150,7 +2158,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         {
                             // Use & 1 to ensure we only index with 0 or 1 since the second dim of m_TrueFalseStrings
                             // is length 2.
-                            string value = m_TrueFalseStrings[getterIndex, i & 1];
+                            string value = m_SourceValues[getterIndex][i & 1];
 
                             if (i + 1 < m_NumComponents)
                             {
@@ -2167,6 +2175,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
                 else
                 {
+                    m_SourceValues = new string[][] {new string[m_NumComponents]};
+
+                    for (int i = 0; i < m_NumComponents; ++i)
+                    {
+                        m_SourceValues[0][i] = i.ToString();
+                    }
+
                     // Non bool vector types don't need to have two source vectors for the swizzle tests
                     // because each component can have a completely different value.
                     m_GetterTestBody.Append($"\t\t\tvar {m_GetterVarName[0]} = new {m_VectorTypeName}(");
@@ -2175,11 +2190,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     {
                         if (i + 1 < m_NumComponents)
                         {
-                            m_GetterTestBody.Append($"{i}, ");
+                            m_GetterTestBody.Append($"{m_SourceValues[0][i]}, ");
                         }
                         else
                         {
-                            m_GetterTestBody.Append($"{i});\n");
+                            m_GetterTestBody.Append($"{m_SourceValues[0][i]});\n");
                         }
                     }
 
@@ -2194,25 +2209,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             public void Generate(int[] swizzles, bool allowSetter, StringBuilder _)
             {
+                GenerateInternal(swizzles, allowSetter, m_SourceValues[0], m_GetterVarName[0]);
+
+                if (m_IsBoolVector)
+                {
+                    GenerateInternal(swizzles, allowSetter, m_SourceValues[1], m_GetterVarName[1]);
+                }
+            }
+
+            void GenerateInternal(int[] swizzles, bool allowSetter, string[] sourceValues, string getterVarName)
+            {
                 // Set up the expected value.
                 var expected = new StringBuilder($"{m_BaseVectorTypeName}{swizzles.Length}(");
-                var isBoolVector = m_IsBoolVector;
-                var sourceValues = new string[m_NumComponents];
-
-                if (!isBoolVector)
-                {
-                    for (int i = 0; i < sourceValues.Length; ++i)
-                    {
-                        sourceValues[i] = i.ToString();
-                    }
-                }
-                else
-                {
-                    for (int i = 0; i < sourceValues.Length; ++i)
-                    {
-                        sourceValues[i] = m_TrueFalseStrings[0, i & 1];
-                    }
-                }
 
                 for (int i = 0; i + 1 < swizzles.Length; ++i)
                 {
@@ -2225,7 +2233,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
 
                 // Set up the actual value we want to test.
-                var actual = new StringBuilder($"{m_GetterVarName[0]}.");
+                var actual = new StringBuilder($"{getterVarName}.");
                 for (int i = 0; i < swizzles.Length; ++i)
                 {
                     actual.Append(m_ComponentNames[swizzles[i]]);
@@ -2236,7 +2244,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (allowSetter)
                 {
                     // Init set to getter var so we have a well known initial state for testing the swizzle set.
-                    m_SetterTestBody.Append($"\t\t\t{m_SetterVarName} = {m_GetterVarName[0]};\n");
+                    m_SetterTestBody.Append($"\t\t\t{m_SetterVarName} = {getterVarName};\n");
                     m_SetterTestBody.Append($"\t\t\t{m_SetterVarName}.");
 
                     for (int i = 0; i < swizzles.Length; ++i)
@@ -2244,7 +2252,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         m_SetterTestBody.Append($"{m_ComponentNames[swizzles[i]]}");
                     }
 
-                    m_SetterTestBody.Append($" = {m_GetterVarName[0]}.");
+                    m_SetterTestBody.Append($" = {getterVarName}.");
 
                     for (int i = 0; i < swizzles.Length; ++i)
                     {
@@ -2256,23 +2264,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     string[] expectedValues = new string[m_NumComponents];
 
                     // Initialize the source values to one of the getter vars.
-                    if (isBoolVector)
+                    for (int i = 0; i < m_NumComponents; ++i)
                     {
-                        for (int i = 0; i < m_NumComponents; ++i)
-                        {
-                            string str = m_TrueFalseStrings[0, i & 1];
-                            sourceValues[i] = str;
-                            expectedValues[i] = str;
-                        }
-                    }
-                    else
-                    {
-                        for (int i = 0; i < m_NumComponents; ++i)
-                        {
-                            string str = i.ToString();
-                            sourceValues[i] = str;
-                            expectedValues[i] = str;
-                        }
+                        expectedValues[i] = sourceValues[i];
                     }
 
                     expected.Clear();
@@ -2300,8 +2294,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
             }
 
-            string OddIsTrueAsString(int i) => (i & 1) > 0 ? "true" : "false";
-            string EvenIsTrueAsString(int i) => (i & 1) > 0 ? "false" : "true";
             public StringBuilder GetterTestBody => m_GetterTestBody;
             public StringBuilder SetterTestbody => m_SetterTestBody;
 
@@ -2312,9 +2304,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             private bool m_IsBoolVector;
             private StringBuilder m_GetterTestBody;
             private StringBuilder m_SetterTestBody;
+            private string[][] m_SourceValues;
             private static readonly string m_SetterVarName = "set";
             private static readonly string[] m_GetterVarName = {"v1", "v2"};
-            private static readonly string[,] m_TrueFalseStrings = {{"false", "true"}, {"true", "false"}};
         };
 
         void TestColorSwizzles(StringBuilder str)
