@@ -2111,9 +2111,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
-        string OddIsTrueAsString(int i) => (i & 1) > 0 ? "true" : "false";
-        string EvenIsTrueAsString(int i) => (i & 1) > 0 ? "false" : "true";
-
         void TestSwizzles(StringBuilder str)
         {
             var generator = new SwizzleTestGenerator(m_Rows, colorComponents, m_BaseType, m_TypeName, m_BaseType == "bool");
@@ -2147,7 +2144,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     // for the swizzle tests.
 
                     // v1 is a bool vector with the odd index components being true.
-                    m_GetterTestBody.Append($"\t\t\tvar v1 = new {m_VectorTypeName}(");
+                    m_GetterTestBody.Append($"\t\t\tvar {m_GetterVarName[0]} = new {m_VectorTypeName}(");
 
                     for (int i = 0; i < m_NumComponents; ++i)
                     {
@@ -2164,7 +2161,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     }
 
                     // v2 is a bool vector with even index components being true.
-                    m_GetterTestBody.Append($"\t\t\tvar v2 = new {m_VectorTypeName}(");
+                    m_GetterTestBody.Append($"\t\t\tvar {m_GetterVarName[1]} = new {m_VectorTypeName}(");
 
                     for (int i = 0; i < m_NumComponents; ++i)
                     {
@@ -2186,7 +2183,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 {
                     // Non bool vector types don't need to have two source vectors for the swizzle tests
                     // because each component can have a completely different value.
-                    m_GetterTestBody.Append($"\t\t\tvar v1 = new {m_VectorTypeName}(");
+                    m_GetterTestBody.Append($"\t\t\tvar {m_GetterVarName[0]} = new {m_VectorTypeName}(");
 
                     for (int i = 0; i < m_NumComponents; ++i)
                     {
@@ -2206,7 +2203,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 // Both the getter and setter tests use the same source vectors so append the getter's
                 // body so far to the setter body.
                 m_SetterTestBody.Append(m_GetterTestBody);
-                m_SetterTestBody.Append($"\t\t\tvar set = new {m_VectorTypeName}();\n\n");
+                m_SetterTestBody.Append($"\t\t\tvar {m_SetterVarName} = new {m_VectorTypeName}();\n\n");
             }
 
             public void Generate(int[] swizzles, bool allowSetter, StringBuilder _)
@@ -2245,7 +2242,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
 
                 // Set up the actual value we want to test.
-                var actual = new StringBuilder("v1.");
+                var actual = new StringBuilder($"{m_GetterVarName[0]}.");
                 for (int i = 0; i < swizzles.Length; ++i)
                 {
                     actual.Append(m_ComponentNames[swizzles[i]]);
@@ -2255,16 +2252,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 if (allowSetter)
                 {
-                    // Init v2 to v1 so we have a well known initial state for testing the swizzle set.
-                    m_SetterTestBody.Append("\t\t\tset = v1;\n");
-                    m_SetterTestBody.Append($"\t\t\tset.");
+                    // Init set to v1 so we have a well known initial state for testing the swizzle set.
+                    m_SetterTestBody.Append($"\t\t\t{m_SetterVarName} = {m_GetterVarName[0]};\n");
+                    m_SetterTestBody.Append($"\t\t\t{m_SetterVarName}.");
 
                     for (int i = 0; i < swizzles.Length; ++i)
                     {
                         m_SetterTestBody.Append($"{m_ComponentNames[swizzles[i]]}");
                     }
 
-                    m_SetterTestBody.Append(" = v1.");
+                    m_SetterTestBody.Append($" = {m_GetterVarName[0]}.");
 
                     for (int i = 0; i < swizzles.Length; ++i)
                     {
@@ -2312,7 +2309,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         }
                     }
 
-                    m_SetterTestBody.Append($"\t\t\tTestUtils.AreEqual({expected}, set);\n");
+                    m_SetterTestBody.Append($"\t\t\tTestUtils.AreEqual({expected}, {m_SetterVarName});\n");
                 }
             }
 
@@ -2328,114 +2325,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             private bool m_IsBoolVector;
             private StringBuilder m_GetterTestBody;
             private StringBuilder m_SetterTestBody;
+            private static readonly string m_SetterVarName = "set";
+            private static readonly string[] m_GetterVarName = {"v1", "v2"};
         };
-
-        void TestSwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
-        {
-            // Set up the expected value.
-            var expected = new StringBuilder($"{m_BaseType}{swizzles.Length}(");
-            var isBoolVector = m_BaseType == "bool";
-
-            if (!isBoolVector)
-            {
-                for (int i = 0; i + 1 < swizzles.Length; ++i)
-                {
-                    expected.Append($"{swizzles[i]}, ");
-                }
-
-                if (swizzles.Length > 0)
-                {
-                    expected.Append($"{swizzles[swizzles.Length - 1]})");
-                }
-            }
-            else
-            {
-                for (int i = 0; i < swizzles.Length; ++i)
-                {
-                    string value = OddIsTrueAsString(swizzles[i]);
-
-                    if (i + 1 < swizzles.Length)
-                    {
-                        expected.Append($"{value}, ");
-                    }
-                    else
-                    {
-                        expected.Append($"{value})");
-                    }
-                }
-            }
-
-            // Set up the actual value we want to test.
-            var actual = new StringBuilder("v1.");
-            for (int i = 0; i < swizzles.Length; ++i)
-            {
-                actual.Append(components[swizzles[i]]);
-            }
-
-            str.Append($"\t\t\tTestUtils.AreEqual({expected}, {actual});\n");
-
-            if (allowSetter)
-            {
-                // Init v2 to v1 so we have a well known initial state for testing the swizzle set.
-                str.Append("\t\t\tv2 = v1;\n");
-                str.Append($"\t\t\tv2.");
-
-                for (int i = 0; i < swizzles.Length; ++i)
-                {
-                    str.Append($"{components[swizzles[i]]}");
-                }
-
-                str.Append(" = v1.");
-
-                for (int i = 0; i < swizzles.Length; ++i)
-                {
-                    str.Append($"{components[i]}");
-                }
-
-                str.Append(";\n");
-
-                // Build the new expected value for this swizzle set.
-                int[] expectedValues = new int[m_Rows];
-
-                for (int i = 0; i < m_Rows; ++i)
-                {
-                    expectedValues[i] = i;
-                }
-
-                expected.Clear();
-                expected.Append($"{m_TypeName}(");
-
-                for (int i = 0; i < swizzles.Length; ++i)
-                {
-                    expectedValues[swizzles[i]] = i;
-                }
-
-                for (int i = 0; i < m_Rows; ++i)
-                {
-                    string value;
-
-                    if (isBoolVector)
-                    {
-                        value = OddIsTrueAsString(expectedValues[i]);
-                    }
-                    else
-                    {
-                        value = $"{expectedValues[i]}";
-                    }
-
-                    if (i + 1 < m_Rows)
-                    {
-                        expected.Append($"{value}, ");
-                    }
-                    else
-                    {
-                        expected.Append($"{value})");
-                    }
-                }
-
-                str.Append($"\t\t\tTestUtils.AreEqual({expected}, v2);\n");
-            }
-        }
 
         void TestColorSwizzles(StringBuilder str)
         {
