@@ -2118,7 +2118,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             // Set up the test vectors to use for checking the swizzles.
             if (m_BaseType == "bool")
             {
-                str.Append($"\t\t\tvar v = new {m_TypeName}(");
+                str.Append($"\t\t\tvar v1 = new {m_TypeName}(");
 
                 for (int i = 0; i < m_Rows; ++i)
                 {
@@ -2136,7 +2136,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else
             {
-                str.Append($"\t\t\tvar v = new {m_TypeName}(");
+                str.Append($"\t\t\tvar v1 = new {m_TypeName}(");
 
                 for (int i = 0; i < m_Rows; ++i)
                 {
@@ -2151,7 +2151,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 }
             }
 
-            str.Append("\n");
+            str.Append($"\n\t\t\tvar v2 = new {m_TypeName}();\n");
             ForEachSwizzle(TestSwizzle, str);
             EndTest(str);
         }
@@ -2160,8 +2160,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             // Set up the expected value.
             var expected = new StringBuilder($"{m_BaseType}{swizzles.Length}(");
+            var isBoolVector = m_BaseType == "bool";
 
-            if (m_BaseType != "bool")
+            if (!isBoolVector)
             {
                 for (int i = 0; i + 1 < swizzles.Length; ++i)
                 {
@@ -2191,13 +2192,75 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             // Set up the actual value we want to test.
-            var actual = new StringBuilder("v.");
+            var actual = new StringBuilder("v1.");
             for (int i = 0; i < swizzles.Length; ++i)
             {
                 actual.Append(components[swizzles[i]]);
             }
 
             str.Append($"\t\t\tTestUtils.AreEqual({expected}, {actual});\n");
+
+            if (allowSetter)
+            {
+                // Init v2 to v1 so we have a well known initial state for testing the swizzle set.
+                str.Append("\t\t\tv2 = v1;\n");
+                str.Append($"\t\t\tv2.");
+
+                for (int i = 0; i < swizzles.Length; ++i)
+                {
+                    str.Append($"{components[swizzles[i]]}");
+                }
+
+                str.Append(" = v1.");
+
+                for (int i = 0; i < swizzles.Length; ++i)
+                {
+                    str.Append($"{components[i]}");
+                }
+
+                str.Append(";\n");
+
+                // Build the new expected value for this swizzle set.
+                int[] expectedValues = new int[m_Rows];
+
+                for (int i = 0; i < m_Rows; ++i)
+                {
+                    expectedValues[i] = i;
+                }
+
+                expected.Clear();
+                expected.Append($"{m_TypeName}(");
+
+                for (int i = 0; i < swizzles.Length; ++i)
+                {
+                    expectedValues[swizzles[i]] = i;
+                }
+
+                for (int i = 0; i < m_Rows; ++i)
+                {
+                    string value;
+
+                    if (isBoolVector)
+                    {
+                        value = (expectedValues[i] & 1) > 0 ? "true" : "false";
+                    }
+                    else
+                    {
+                        value = $"{expectedValues[i]}";
+                    }
+
+                    if (i + 1 < m_Rows)
+                    {
+                        expected.Append($"{value}, ");
+                    }
+                    else
+                    {
+                        expected.Append($"{value})");
+                    }
+                }
+
+                str.Append($"\t\t\tTestUtils.AreEqual({expected}, v2);\n");
+            }
         }
 
         void TestColorSwizzles(StringBuilder str)
