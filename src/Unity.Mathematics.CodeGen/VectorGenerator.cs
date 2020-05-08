@@ -2122,7 +2122,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             EndTest(str);
 
             BeginTest(str, m_TypeName + "_swizzle_setters");
-            str.Append(generator.SetterTestbody);
+            str.Append(generator.SetterTestBody);
             EndTest(str);
         }
 
@@ -2295,7 +2295,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             public StringBuilder GetterTestBody => m_GetterTestBody;
-            public StringBuilder SetterTestbody => m_SetterTestBody;
+            public StringBuilder SetterTestBody => m_SetterTestBody;
 
             private int m_NumComponents;
             private string[] m_ComponentNames;
@@ -2311,13 +2311,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void TestColorSwizzles(StringBuilder str)
         {
-            BeginTest(str, m_TypeName + "_colorswizzle");
-            ForEachSwizzle(TestColorSwizzle, str);
-            EndTest(str);
-        }
+            var generator = new SwizzleTestGenerator(m_Rows, colorComponents, m_BaseType, m_TypeName, m_BaseType == "bool");
+            var _ = new StringBuilder();
+            ForEachSwizzle(generator.Generate, _);
 
-        void TestColorSwizzle(int[] swizzles, bool allowSetter, StringBuilder str)
-        {
+            BeginTest(str, m_TypeName + "_colorswizzle_getters");
+            str.Append(generator.GetterTestBody);
+            EndTest(str);
+
+            BeginTest(str, m_TypeName + "_colorswizzle_setters");
+            str.Append(generator.SetterTestBody);
+            EndTest(str);
         }
 
         static int StableStringHash(string str)
