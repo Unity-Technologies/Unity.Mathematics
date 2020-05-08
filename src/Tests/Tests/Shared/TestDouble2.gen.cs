@@ -1053,35 +1053,42 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void double2_swizzle()
         {
-            var v = new double2(0, 1);
-            TestUtils.AreEqual(double4(0, 0, 0, 0), v.xxxx);
-            TestUtils.AreEqual(double4(0, 0, 0, 1), v.xxxy);
-            TestUtils.AreEqual(double4(0, 0, 1, 0), v.xxyx);
-            TestUtils.AreEqual(double4(0, 0, 1, 1), v.xxyy);
-            TestUtils.AreEqual(double4(0, 1, 0, 0), v.xyxx);
-            TestUtils.AreEqual(double4(0, 1, 0, 1), v.xyxy);
-            TestUtils.AreEqual(double4(0, 1, 1, 0), v.xyyx);
-            TestUtils.AreEqual(double4(0, 1, 1, 1), v.xyyy);
-            TestUtils.AreEqual(double4(1, 0, 0, 0), v.yxxx);
-            TestUtils.AreEqual(double4(1, 0, 0, 1), v.yxxy);
-            TestUtils.AreEqual(double4(1, 0, 1, 0), v.yxyx);
-            TestUtils.AreEqual(double4(1, 0, 1, 1), v.yxyy);
-            TestUtils.AreEqual(double4(1, 1, 0, 0), v.yyxx);
-            TestUtils.AreEqual(double4(1, 1, 0, 1), v.yyxy);
-            TestUtils.AreEqual(double4(1, 1, 1, 0), v.yyyx);
-            TestUtils.AreEqual(double4(1, 1, 1, 1), v.yyyy);
-            TestUtils.AreEqual(double3(0, 0, 0), v.xxx);
-            TestUtils.AreEqual(double3(0, 0, 1), v.xxy);
-            TestUtils.AreEqual(double3(0, 1, 0), v.xyx);
-            TestUtils.AreEqual(double3(0, 1, 1), v.xyy);
-            TestUtils.AreEqual(double3(1, 0, 0), v.yxx);
-            TestUtils.AreEqual(double3(1, 0, 1), v.yxy);
-            TestUtils.AreEqual(double3(1, 1, 0), v.yyx);
-            TestUtils.AreEqual(double3(1, 1, 1), v.yyy);
-            TestUtils.AreEqual(double2(0, 0), v.xx);
-            TestUtils.AreEqual(double2(0, 1), v.xy);
-            TestUtils.AreEqual(double2(1, 0), v.yx);
-            TestUtils.AreEqual(double2(1, 1), v.yy);
+            var v1 = new double2(0, 1);
+            var v2 = new double2();
+            TestUtils.AreEqual(double4(0, 0, 0, 0), v1.xxxx);
+            TestUtils.AreEqual(double4(0, 0, 0, 1), v1.xxxy);
+            TestUtils.AreEqual(double4(0, 0, 1, 0), v1.xxyx);
+            TestUtils.AreEqual(double4(0, 0, 1, 1), v1.xxyy);
+            TestUtils.AreEqual(double4(0, 1, 0, 0), v1.xyxx);
+            TestUtils.AreEqual(double4(0, 1, 0, 1), v1.xyxy);
+            TestUtils.AreEqual(double4(0, 1, 1, 0), v1.xyyx);
+            TestUtils.AreEqual(double4(0, 1, 1, 1), v1.xyyy);
+            TestUtils.AreEqual(double4(1, 0, 0, 0), v1.yxxx);
+            TestUtils.AreEqual(double4(1, 0, 0, 1), v1.yxxy);
+            TestUtils.AreEqual(double4(1, 0, 1, 0), v1.yxyx);
+            TestUtils.AreEqual(double4(1, 0, 1, 1), v1.yxyy);
+            TestUtils.AreEqual(double4(1, 1, 0, 0), v1.yyxx);
+            TestUtils.AreEqual(double4(1, 1, 0, 1), v1.yyxy);
+            TestUtils.AreEqual(double4(1, 1, 1, 0), v1.yyyx);
+            TestUtils.AreEqual(double4(1, 1, 1, 1), v1.yyyy);
+            TestUtils.AreEqual(double3(0, 0, 0), v1.xxx);
+            TestUtils.AreEqual(double3(0, 0, 1), v1.xxy);
+            TestUtils.AreEqual(double3(0, 1, 0), v1.xyx);
+            TestUtils.AreEqual(double3(0, 1, 1), v1.xyy);
+            TestUtils.AreEqual(double3(1, 0, 0), v1.yxx);
+            TestUtils.AreEqual(double3(1, 0, 1), v1.yxy);
+            TestUtils.AreEqual(double3(1, 1, 0), v1.yyx);
+            TestUtils.AreEqual(double3(1, 1, 1), v1.yyy);
+            TestUtils.AreEqual(double2(0, 0), v1.xx);
+            TestUtils.AreEqual(double2(0, 1), v1.xy);
+            v2 = v1;
+            v2.xy = v1.xy;
+            TestUtils.AreEqual(double2(0, 1), v2);
+            TestUtils.AreEqual(double2(1, 0), v1.yx);
+            v2 = v1;
+            v2.yx = v1.xy;
+            TestUtils.AreEqual(double2(1, 0), v2);
+            TestUtils.AreEqual(double2(1, 1), v1.yy);
         }
 
         [TestCompiler]

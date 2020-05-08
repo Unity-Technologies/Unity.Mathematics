@@ -430,35 +430,42 @@ namespace Unity.Mathematics.Tests
         [TestCompiler]
         public static void bool2_swizzle()
         {
-            var v = new bool2(false, true);
-            TestUtils.AreEqual(bool4(false, false, false, false), v.xxxx);
-            TestUtils.AreEqual(bool4(false, false, false, true), v.xxxy);
-            TestUtils.AreEqual(bool4(false, false, true, false), v.xxyx);
-            TestUtils.AreEqual(bool4(false, false, true, true), v.xxyy);
-            TestUtils.AreEqual(bool4(false, true, false, false), v.xyxx);
-            TestUtils.AreEqual(bool4(false, true, false, true), v.xyxy);
-            TestUtils.AreEqual(bool4(false, true, true, false), v.xyyx);
-            TestUtils.AreEqual(bool4(false, true, true, true), v.xyyy);
-            TestUtils.AreEqual(bool4(true, false, false, false), v.yxxx);
-            TestUtils.AreEqual(bool4(true, false, false, true), v.yxxy);
-            TestUtils.AreEqual(bool4(true, false, true, false), v.yxyx);
-            TestUtils.AreEqual(bool4(true, false, true, true), v.yxyy);
-            TestUtils.AreEqual(bool4(true, true, false, false), v.yyxx);
-            TestUtils.AreEqual(bool4(true, true, false, true), v.yyxy);
-            TestUtils.AreEqual(bool4(true, true, true, false), v.yyyx);
-            TestUtils.AreEqual(bool4(true, true, true, true), v.yyyy);
-            TestUtils.AreEqual(bool3(false, false, false), v.xxx);
-            TestUtils.AreEqual(bool3(false, false, true), v.xxy);
-            TestUtils.AreEqual(bool3(false, true, false), v.xyx);
-            TestUtils.AreEqual(bool3(false, true, true), v.xyy);
-            TestUtils.AreEqual(bool3(true, false, false), v.yxx);
-            TestUtils.AreEqual(bool3(true, false, true), v.yxy);
-            TestUtils.AreEqual(bool3(true, true, false), v.yyx);
-            TestUtils.AreEqual(bool3(true, true, true), v.yyy);
-            TestUtils.AreEqual(bool2(false, false), v.xx);
-            TestUtils.AreEqual(bool2(false, true), v.xy);
-            TestUtils.AreEqual(bool2(true, false), v.yx);
-            TestUtils.AreEqual(bool2(true, true), v.yy);
+            var v1 = new bool2(false, true);
+            var v2 = new bool2();
+            TestUtils.AreEqual(bool4(false, false, false, false), v1.xxxx);
+            TestUtils.AreEqual(bool4(false, false, false, true), v1.xxxy);
+            TestUtils.AreEqual(bool4(false, false, true, false), v1.xxyx);
+            TestUtils.AreEqual(bool4(false, false, true, true), v1.xxyy);
+            TestUtils.AreEqual(bool4(false, true, false, false), v1.xyxx);
+            TestUtils.AreEqual(bool4(false, true, false, true), v1.xyxy);
+            TestUtils.AreEqual(bool4(false, true, true, false), v1.xyyx);
+            TestUtils.AreEqual(bool4(false, true, true, true), v1.xyyy);
+            TestUtils.AreEqual(bool4(true, false, false, false), v1.yxxx);
+            TestUtils.AreEqual(bool4(true, false, false, true), v1.yxxy);
+            TestUtils.AreEqual(bool4(true, false, true, false), v1.yxyx);
+            TestUtils.AreEqual(bool4(true, false, true, true), v1.yxyy);
+            TestUtils.AreEqual(bool4(true, true, false, false), v1.yyxx);
+            TestUtils.AreEqual(bool4(true, true, false, true), v1.yyxy);
+            TestUtils.AreEqual(bool4(true, true, true, false), v1.yyyx);
+            TestUtils.AreEqual(bool4(true, true, true, true), v1.yyyy);
+            TestUtils.AreEqual(bool3(false, false, false), v1.xxx);
+            TestUtils.AreEqual(bool3(false, false, true), v1.xxy);
+            TestUtils.AreEqual(bool3(false, true, false), v1.xyx);
+            TestUtils.AreEqual(bool3(false, true, true), v1.xyy);
+            TestUtils.AreEqual(bool3(true, false, false), v1.yxx);
+            TestUtils.AreEqual(bool3(true, false, true), v1.yxy);
+            TestUtils.AreEqual(bool3(true, true, false), v1.yyx);
+            TestUtils.AreEqual(bool3(true, true, true), v1.yyy);
+            TestUtils.AreEqual(bool2(false, false), v1.xx);
+            TestUtils.AreEqual(bool2(false, true), v1.xy);
+            v2 = v1;
+            v2.xy = v1.xy;
+            TestUtils.AreEqual(bool2(false, true), v2);
+            TestUtils.AreEqual(bool2(true, false), v1.yx);
+            v2 = v1;
+            v2.yx = v1.xy;
+            TestUtils.AreEqual(bool2(true, false), v2);
+            TestUtils.AreEqual(bool2(true, true), v1.yy);
         }
 
         [TestCompiler]
