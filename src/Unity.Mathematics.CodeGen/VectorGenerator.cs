@@ -2111,6 +2111,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestConstructor(str, true, true);
         }
 
+        string OddIsTrueAsString(int i) => (i & 1) > 0 ? "true" : "false";
+        string EvenIsTrueAsString(int i) => (i & 1) > 0 ? "false" : "true";
+
         void TestSwizzles(StringBuilder str)
         {
             BeginTest(str, m_TypeName + "_swizzle");
@@ -2122,7 +2125,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 for (int i = 0; i < m_Rows; ++i)
                 {
-                    string value = (i & 1) > 0 ? "true" : "false";
+                    string value = OddIsTrueAsString(i);
 
                     if (i + 1 < m_Rows)
                     {
@@ -2178,7 +2181,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 for (int i = 0; i < swizzles.Length; ++i)
                 {
-                    string value = (swizzles[i] & 1) > 0 ? "true" : "false";
+                    string value = OddIsTrueAsString(swizzles[i]);
 
                     if (i + 1 < swizzles.Length)
                     {
@@ -2242,7 +2245,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     if (isBoolVector)
                     {
-                        value = (expectedValues[i] & 1) > 0 ? "true" : "false";
+                        value = OddIsTrueAsString(expectedValues[i]);
                     }
                     else
                     {
