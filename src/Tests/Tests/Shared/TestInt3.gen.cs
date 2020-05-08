@@ -1511,8 +1511,172 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void int3_colorswizzle()
+        public static void int3_colorswizzle_getters()
         {
+            var v1 = new int3(0, 1, 2);
+
+            TestUtils.AreEqual(int4(0, 0, 0, 0), v1.rrrr);
+            TestUtils.AreEqual(int4(0, 0, 0, 1), v1.rrrg);
+            TestUtils.AreEqual(int4(0, 0, 0, 2), v1.rrrb);
+            TestUtils.AreEqual(int4(0, 0, 1, 0), v1.rrgr);
+            TestUtils.AreEqual(int4(0, 0, 1, 1), v1.rrgg);
+            TestUtils.AreEqual(int4(0, 0, 1, 2), v1.rrgb);
+            TestUtils.AreEqual(int4(0, 0, 2, 0), v1.rrbr);
+            TestUtils.AreEqual(int4(0, 0, 2, 1), v1.rrbg);
+            TestUtils.AreEqual(int4(0, 0, 2, 2), v1.rrbb);
+            TestUtils.AreEqual(int4(0, 1, 0, 0), v1.rgrr);
+            TestUtils.AreEqual(int4(0, 1, 0, 1), v1.rgrg);
+            TestUtils.AreEqual(int4(0, 1, 0, 2), v1.rgrb);
+            TestUtils.AreEqual(int4(0, 1, 1, 0), v1.rggr);
+            TestUtils.AreEqual(int4(0, 1, 1, 1), v1.rggg);
+            TestUtils.AreEqual(int4(0, 1, 1, 2), v1.rggb);
+            TestUtils.AreEqual(int4(0, 1, 2, 0), v1.rgbr);
+            TestUtils.AreEqual(int4(0, 1, 2, 1), v1.rgbg);
+            TestUtils.AreEqual(int4(0, 1, 2, 2), v1.rgbb);
+            TestUtils.AreEqual(int4(0, 2, 0, 0), v1.rbrr);
+            TestUtils.AreEqual(int4(0, 2, 0, 1), v1.rbrg);
+            TestUtils.AreEqual(int4(0, 2, 0, 2), v1.rbrb);
+            TestUtils.AreEqual(int4(0, 2, 1, 0), v1.rbgr);
+            TestUtils.AreEqual(int4(0, 2, 1, 1), v1.rbgg);
+            TestUtils.AreEqual(int4(0, 2, 1, 2), v1.rbgb);
+            TestUtils.AreEqual(int4(0, 2, 2, 0), v1.rbbr);
+            TestUtils.AreEqual(int4(0, 2, 2, 1), v1.rbbg);
+            TestUtils.AreEqual(int4(0, 2, 2, 2), v1.rbbb);
+            TestUtils.AreEqual(int4(1, 0, 0, 0), v1.grrr);
+            TestUtils.AreEqual(int4(1, 0, 0, 1), v1.grrg);
+            TestUtils.AreEqual(int4(1, 0, 0, 2), v1.grrb);
+            TestUtils.AreEqual(int4(1, 0, 1, 0), v1.grgr);
+            TestUtils.AreEqual(int4(1, 0, 1, 1), v1.grgg);
+            TestUtils.AreEqual(int4(1, 0, 1, 2), v1.grgb);
+            TestUtils.AreEqual(int4(1, 0, 2, 0), v1.grbr);
+            TestUtils.AreEqual(int4(1, 0, 2, 1), v1.grbg);
+            TestUtils.AreEqual(int4(1, 0, 2, 2), v1.grbb);
+            TestUtils.AreEqual(int4(1, 1, 0, 0), v1.ggrr);
+            TestUtils.AreEqual(int4(1, 1, 0, 1), v1.ggrg);
+            TestUtils.AreEqual(int4(1, 1, 0, 2), v1.ggrb);
+            TestUtils.AreEqual(int4(1, 1, 1, 0), v1.gggr);
+            TestUtils.AreEqual(int4(1, 1, 1, 1), v1.gggg);
+            TestUtils.AreEqual(int4(1, 1, 1, 2), v1.gggb);
+            TestUtils.AreEqual(int4(1, 1, 2, 0), v1.ggbr);
+            TestUtils.AreEqual(int4(1, 1, 2, 1), v1.ggbg);
+            TestUtils.AreEqual(int4(1, 1, 2, 2), v1.ggbb);
+            TestUtils.AreEqual(int4(1, 2, 0, 0), v1.gbrr);
+            TestUtils.AreEqual(int4(1, 2, 0, 1), v1.gbrg);
+            TestUtils.AreEqual(int4(1, 2, 0, 2), v1.gbrb);
+            TestUtils.AreEqual(int4(1, 2, 1, 0), v1.gbgr);
+            TestUtils.AreEqual(int4(1, 2, 1, 1), v1.gbgg);
+            TestUtils.AreEqual(int4(1, 2, 1, 2), v1.gbgb);
+            TestUtils.AreEqual(int4(1, 2, 2, 0), v1.gbbr);
+            TestUtils.AreEqual(int4(1, 2, 2, 1), v1.gbbg);
+            TestUtils.AreEqual(int4(1, 2, 2, 2), v1.gbbb);
+            TestUtils.AreEqual(int4(2, 0, 0, 0), v1.brrr);
+            TestUtils.AreEqual(int4(2, 0, 0, 1), v1.brrg);
+            TestUtils.AreEqual(int4(2, 0, 0, 2), v1.brrb);
+            TestUtils.AreEqual(int4(2, 0, 1, 0), v1.brgr);
+            TestUtils.AreEqual(int4(2, 0, 1, 1), v1.brgg);
+            TestUtils.AreEqual(int4(2, 0, 1, 2), v1.brgb);
+            TestUtils.AreEqual(int4(2, 0, 2, 0), v1.brbr);
+            TestUtils.AreEqual(int4(2, 0, 2, 1), v1.brbg);
+            TestUtils.AreEqual(int4(2, 0, 2, 2), v1.brbb);
+            TestUtils.AreEqual(int4(2, 1, 0, 0), v1.bgrr);
+            TestUtils.AreEqual(int4(2, 1, 0, 1), v1.bgrg);
+            TestUtils.AreEqual(int4(2, 1, 0, 2), v1.bgrb);
+            TestUtils.AreEqual(int4(2, 1, 1, 0), v1.bggr);
+            TestUtils.AreEqual(int4(2, 1, 1, 1), v1.bggg);
+            TestUtils.AreEqual(int4(2, 1, 1, 2), v1.bggb);
+            TestUtils.AreEqual(int4(2, 1, 2, 0), v1.bgbr);
+            TestUtils.AreEqual(int4(2, 1, 2, 1), v1.bgbg);
+            TestUtils.AreEqual(int4(2, 1, 2, 2), v1.bgbb);
+            TestUtils.AreEqual(int4(2, 2, 0, 0), v1.bbrr);
+            TestUtils.AreEqual(int4(2, 2, 0, 1), v1.bbrg);
+            TestUtils.AreEqual(int4(2, 2, 0, 2), v1.bbrb);
+            TestUtils.AreEqual(int4(2, 2, 1, 0), v1.bbgr);
+            TestUtils.AreEqual(int4(2, 2, 1, 1), v1.bbgg);
+            TestUtils.AreEqual(int4(2, 2, 1, 2), v1.bbgb);
+            TestUtils.AreEqual(int4(2, 2, 2, 0), v1.bbbr);
+            TestUtils.AreEqual(int4(2, 2, 2, 1), v1.bbbg);
+            TestUtils.AreEqual(int4(2, 2, 2, 2), v1.bbbb);
+            TestUtils.AreEqual(int3(0, 0, 0), v1.rrr);
+            TestUtils.AreEqual(int3(0, 0, 1), v1.rrg);
+            TestUtils.AreEqual(int3(0, 0, 2), v1.rrb);
+            TestUtils.AreEqual(int3(0, 1, 0), v1.rgr);
+            TestUtils.AreEqual(int3(0, 1, 1), v1.rgg);
+            TestUtils.AreEqual(int3(0, 1, 2), v1.rgb);
+            TestUtils.AreEqual(int3(0, 2, 0), v1.rbr);
+            TestUtils.AreEqual(int3(0, 2, 1), v1.rbg);
+            TestUtils.AreEqual(int3(0, 2, 2), v1.rbb);
+            TestUtils.AreEqual(int3(1, 0, 0), v1.grr);
+            TestUtils.AreEqual(int3(1, 0, 1), v1.grg);
+            TestUtils.AreEqual(int3(1, 0, 2), v1.grb);
+            TestUtils.AreEqual(int3(1, 1, 0), v1.ggr);
+            TestUtils.AreEqual(int3(1, 1, 1), v1.ggg);
+            TestUtils.AreEqual(int3(1, 1, 2), v1.ggb);
+            TestUtils.AreEqual(int3(1, 2, 0), v1.gbr);
+            TestUtils.AreEqual(int3(1, 2, 1), v1.gbg);
+            TestUtils.AreEqual(int3(1, 2, 2), v1.gbb);
+            TestUtils.AreEqual(int3(2, 0, 0), v1.brr);
+            TestUtils.AreEqual(int3(2, 0, 1), v1.brg);
+            TestUtils.AreEqual(int3(2, 0, 2), v1.brb);
+            TestUtils.AreEqual(int3(2, 1, 0), v1.bgr);
+            TestUtils.AreEqual(int3(2, 1, 1), v1.bgg);
+            TestUtils.AreEqual(int3(2, 1, 2), v1.bgb);
+            TestUtils.AreEqual(int3(2, 2, 0), v1.bbr);
+            TestUtils.AreEqual(int3(2, 2, 1), v1.bbg);
+            TestUtils.AreEqual(int3(2, 2, 2), v1.bbb);
+            TestUtils.AreEqual(int2(0, 0), v1.rr);
+            TestUtils.AreEqual(int2(0, 1), v1.rg);
+            TestUtils.AreEqual(int2(0, 2), v1.rb);
+            TestUtils.AreEqual(int2(1, 0), v1.gr);
+            TestUtils.AreEqual(int2(1, 1), v1.gg);
+            TestUtils.AreEqual(int2(1, 2), v1.gb);
+            TestUtils.AreEqual(int2(2, 0), v1.br);
+            TestUtils.AreEqual(int2(2, 1), v1.bg);
+            TestUtils.AreEqual(int2(2, 2), v1.bb);
+        }
+
+        [TestCompiler]
+        public static void int3_colorswizzle_setters()
+        {
+            var v1 = new int3(0, 1, 2);
+
+            var set = new int3();
+
+            set = v1;
+            set.rgb = v1.rgb;
+            TestUtils.AreEqual(int3(0, 1, 2), set);
+            set = v1;
+            set.rbg = v1.rgb;
+            TestUtils.AreEqual(int3(0, 2, 1), set);
+            set = v1;
+            set.grb = v1.rgb;
+            TestUtils.AreEqual(int3(1, 0, 2), set);
+            set = v1;
+            set.gbr = v1.rgb;
+            TestUtils.AreEqual(int3(2, 0, 1), set);
+            set = v1;
+            set.brg = v1.rgb;
+            TestUtils.AreEqual(int3(1, 2, 0), set);
+            set = v1;
+            set.bgr = v1.rgb;
+            TestUtils.AreEqual(int3(2, 1, 0), set);
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(int3(0, 1, 2), set);
+            set = v1;
+            set.rb = v1.rg;
+            TestUtils.AreEqual(int3(0, 1, 1), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(int3(1, 0, 2), set);
+            set = v1;
+            set.gb = v1.rg;
+            TestUtils.AreEqual(int3(0, 0, 1), set);
+            set = v1;
+            set.br = v1.rg;
+            TestUtils.AreEqual(int3(1, 1, 0), set);
+            set = v1;
+            set.bg = v1.rg;
+            TestUtils.AreEqual(int3(0, 1, 0), set);
         }
 
 

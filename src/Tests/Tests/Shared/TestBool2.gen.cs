@@ -514,8 +514,89 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void bool2_colorswizzle()
+        public static void bool2_colorswizzle_getters()
         {
+            var v1 = new bool2(false, true);
+            var v2 = new bool2(true, false);
+
+            TestUtils.AreEqual(bool4(false, false, false, false), v1.rrrr);
+            TestUtils.AreEqual(bool4(true, true, true, true), v2.rrrr);
+            TestUtils.AreEqual(bool4(false, false, false, true), v1.rrrg);
+            TestUtils.AreEqual(bool4(true, true, true, false), v2.rrrg);
+            TestUtils.AreEqual(bool4(false, false, true, false), v1.rrgr);
+            TestUtils.AreEqual(bool4(true, true, false, true), v2.rrgr);
+            TestUtils.AreEqual(bool4(false, false, true, true), v1.rrgg);
+            TestUtils.AreEqual(bool4(true, true, false, false), v2.rrgg);
+            TestUtils.AreEqual(bool4(false, true, false, false), v1.rgrr);
+            TestUtils.AreEqual(bool4(true, false, true, true), v2.rgrr);
+            TestUtils.AreEqual(bool4(false, true, false, true), v1.rgrg);
+            TestUtils.AreEqual(bool4(true, false, true, false), v2.rgrg);
+            TestUtils.AreEqual(bool4(false, true, true, false), v1.rggr);
+            TestUtils.AreEqual(bool4(true, false, false, true), v2.rggr);
+            TestUtils.AreEqual(bool4(false, true, true, true), v1.rggg);
+            TestUtils.AreEqual(bool4(true, false, false, false), v2.rggg);
+            TestUtils.AreEqual(bool4(true, false, false, false), v1.grrr);
+            TestUtils.AreEqual(bool4(false, true, true, true), v2.grrr);
+            TestUtils.AreEqual(bool4(true, false, false, true), v1.grrg);
+            TestUtils.AreEqual(bool4(false, true, true, false), v2.grrg);
+            TestUtils.AreEqual(bool4(true, false, true, false), v1.grgr);
+            TestUtils.AreEqual(bool4(false, true, false, true), v2.grgr);
+            TestUtils.AreEqual(bool4(true, false, true, true), v1.grgg);
+            TestUtils.AreEqual(bool4(false, true, false, false), v2.grgg);
+            TestUtils.AreEqual(bool4(true, true, false, false), v1.ggrr);
+            TestUtils.AreEqual(bool4(false, false, true, true), v2.ggrr);
+            TestUtils.AreEqual(bool4(true, true, false, true), v1.ggrg);
+            TestUtils.AreEqual(bool4(false, false, true, false), v2.ggrg);
+            TestUtils.AreEqual(bool4(true, true, true, false), v1.gggr);
+            TestUtils.AreEqual(bool4(false, false, false, true), v2.gggr);
+            TestUtils.AreEqual(bool4(true, true, true, true), v1.gggg);
+            TestUtils.AreEqual(bool4(false, false, false, false), v2.gggg);
+            TestUtils.AreEqual(bool3(false, false, false), v1.rrr);
+            TestUtils.AreEqual(bool3(true, true, true), v2.rrr);
+            TestUtils.AreEqual(bool3(false, false, true), v1.rrg);
+            TestUtils.AreEqual(bool3(true, true, false), v2.rrg);
+            TestUtils.AreEqual(bool3(false, true, false), v1.rgr);
+            TestUtils.AreEqual(bool3(true, false, true), v2.rgr);
+            TestUtils.AreEqual(bool3(false, true, true), v1.rgg);
+            TestUtils.AreEqual(bool3(true, false, false), v2.rgg);
+            TestUtils.AreEqual(bool3(true, false, false), v1.grr);
+            TestUtils.AreEqual(bool3(false, true, true), v2.grr);
+            TestUtils.AreEqual(bool3(true, false, true), v1.grg);
+            TestUtils.AreEqual(bool3(false, true, false), v2.grg);
+            TestUtils.AreEqual(bool3(true, true, false), v1.ggr);
+            TestUtils.AreEqual(bool3(false, false, true), v2.ggr);
+            TestUtils.AreEqual(bool3(true, true, true), v1.ggg);
+            TestUtils.AreEqual(bool3(false, false, false), v2.ggg);
+            TestUtils.AreEqual(bool2(false, false), v1.rr);
+            TestUtils.AreEqual(bool2(true, true), v2.rr);
+            TestUtils.AreEqual(bool2(false, true), v1.rg);
+            TestUtils.AreEqual(bool2(true, false), v2.rg);
+            TestUtils.AreEqual(bool2(true, false), v1.gr);
+            TestUtils.AreEqual(bool2(false, true), v2.gr);
+            TestUtils.AreEqual(bool2(true, true), v1.gg);
+            TestUtils.AreEqual(bool2(false, false), v2.gg);
+        }
+
+        [TestCompiler]
+        public static void bool2_colorswizzle_setters()
+        {
+            var v1 = new bool2(false, true);
+            var v2 = new bool2(true, false);
+
+            var set = new bool2();
+
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(bool2(false, true), set);
+            set = v2;
+            set.rg = v2.rg;
+            TestUtils.AreEqual(bool2(true, false), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(bool2(true, false), set);
+            set = v2;
+            set.gr = v2.rg;
+            TestUtils.AreEqual(bool2(false, true), set);
         }
 
 

@@ -1101,8 +1101,53 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void double2_colorswizzle()
+        public static void double2_colorswizzle_getters()
         {
+            var v1 = new double2(0, 1);
+
+            TestUtils.AreEqual(double4(0, 0, 0, 0), v1.rrrr);
+            TestUtils.AreEqual(double4(0, 0, 0, 1), v1.rrrg);
+            TestUtils.AreEqual(double4(0, 0, 1, 0), v1.rrgr);
+            TestUtils.AreEqual(double4(0, 0, 1, 1), v1.rrgg);
+            TestUtils.AreEqual(double4(0, 1, 0, 0), v1.rgrr);
+            TestUtils.AreEqual(double4(0, 1, 0, 1), v1.rgrg);
+            TestUtils.AreEqual(double4(0, 1, 1, 0), v1.rggr);
+            TestUtils.AreEqual(double4(0, 1, 1, 1), v1.rggg);
+            TestUtils.AreEqual(double4(1, 0, 0, 0), v1.grrr);
+            TestUtils.AreEqual(double4(1, 0, 0, 1), v1.grrg);
+            TestUtils.AreEqual(double4(1, 0, 1, 0), v1.grgr);
+            TestUtils.AreEqual(double4(1, 0, 1, 1), v1.grgg);
+            TestUtils.AreEqual(double4(1, 1, 0, 0), v1.ggrr);
+            TestUtils.AreEqual(double4(1, 1, 0, 1), v1.ggrg);
+            TestUtils.AreEqual(double4(1, 1, 1, 0), v1.gggr);
+            TestUtils.AreEqual(double4(1, 1, 1, 1), v1.gggg);
+            TestUtils.AreEqual(double3(0, 0, 0), v1.rrr);
+            TestUtils.AreEqual(double3(0, 0, 1), v1.rrg);
+            TestUtils.AreEqual(double3(0, 1, 0), v1.rgr);
+            TestUtils.AreEqual(double3(0, 1, 1), v1.rgg);
+            TestUtils.AreEqual(double3(1, 0, 0), v1.grr);
+            TestUtils.AreEqual(double3(1, 0, 1), v1.grg);
+            TestUtils.AreEqual(double3(1, 1, 0), v1.ggr);
+            TestUtils.AreEqual(double3(1, 1, 1), v1.ggg);
+            TestUtils.AreEqual(double2(0, 0), v1.rr);
+            TestUtils.AreEqual(double2(0, 1), v1.rg);
+            TestUtils.AreEqual(double2(1, 0), v1.gr);
+            TestUtils.AreEqual(double2(1, 1), v1.gg);
+        }
+
+        [TestCompiler]
+        public static void double2_colorswizzle_setters()
+        {
+            var v1 = new double2(0, 1);
+
+            var set = new double2();
+
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(double2(0, 1), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(double2(1, 0), set);
         }
 
 

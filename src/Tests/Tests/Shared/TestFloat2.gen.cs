@@ -1101,8 +1101,53 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void float2_colorswizzle()
+        public static void float2_colorswizzle_getters()
         {
+            var v1 = new float2(0, 1);
+
+            TestUtils.AreEqual(float4(0, 0, 0, 0), v1.rrrr);
+            TestUtils.AreEqual(float4(0, 0, 0, 1), v1.rrrg);
+            TestUtils.AreEqual(float4(0, 0, 1, 0), v1.rrgr);
+            TestUtils.AreEqual(float4(0, 0, 1, 1), v1.rrgg);
+            TestUtils.AreEqual(float4(0, 1, 0, 0), v1.rgrr);
+            TestUtils.AreEqual(float4(0, 1, 0, 1), v1.rgrg);
+            TestUtils.AreEqual(float4(0, 1, 1, 0), v1.rggr);
+            TestUtils.AreEqual(float4(0, 1, 1, 1), v1.rggg);
+            TestUtils.AreEqual(float4(1, 0, 0, 0), v1.grrr);
+            TestUtils.AreEqual(float4(1, 0, 0, 1), v1.grrg);
+            TestUtils.AreEqual(float4(1, 0, 1, 0), v1.grgr);
+            TestUtils.AreEqual(float4(1, 0, 1, 1), v1.grgg);
+            TestUtils.AreEqual(float4(1, 1, 0, 0), v1.ggrr);
+            TestUtils.AreEqual(float4(1, 1, 0, 1), v1.ggrg);
+            TestUtils.AreEqual(float4(1, 1, 1, 0), v1.gggr);
+            TestUtils.AreEqual(float4(1, 1, 1, 1), v1.gggg);
+            TestUtils.AreEqual(float3(0, 0, 0), v1.rrr);
+            TestUtils.AreEqual(float3(0, 0, 1), v1.rrg);
+            TestUtils.AreEqual(float3(0, 1, 0), v1.rgr);
+            TestUtils.AreEqual(float3(0, 1, 1), v1.rgg);
+            TestUtils.AreEqual(float3(1, 0, 0), v1.grr);
+            TestUtils.AreEqual(float3(1, 0, 1), v1.grg);
+            TestUtils.AreEqual(float3(1, 1, 0), v1.ggr);
+            TestUtils.AreEqual(float3(1, 1, 1), v1.ggg);
+            TestUtils.AreEqual(float2(0, 0), v1.rr);
+            TestUtils.AreEqual(float2(0, 1), v1.rg);
+            TestUtils.AreEqual(float2(1, 0), v1.gr);
+            TestUtils.AreEqual(float2(1, 1), v1.gg);
+        }
+
+        [TestCompiler]
+        public static void float2_colorswizzle_setters()
+        {
+            var v1 = new float2(0, 1);
+
+            var set = new float2();
+
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(float2(0, 1), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(float2(1, 0), set);
         }
 
 

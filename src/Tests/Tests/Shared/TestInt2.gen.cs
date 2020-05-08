@@ -1385,8 +1385,53 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void int2_colorswizzle()
+        public static void int2_colorswizzle_getters()
         {
+            var v1 = new int2(0, 1);
+
+            TestUtils.AreEqual(int4(0, 0, 0, 0), v1.rrrr);
+            TestUtils.AreEqual(int4(0, 0, 0, 1), v1.rrrg);
+            TestUtils.AreEqual(int4(0, 0, 1, 0), v1.rrgr);
+            TestUtils.AreEqual(int4(0, 0, 1, 1), v1.rrgg);
+            TestUtils.AreEqual(int4(0, 1, 0, 0), v1.rgrr);
+            TestUtils.AreEqual(int4(0, 1, 0, 1), v1.rgrg);
+            TestUtils.AreEqual(int4(0, 1, 1, 0), v1.rggr);
+            TestUtils.AreEqual(int4(0, 1, 1, 1), v1.rggg);
+            TestUtils.AreEqual(int4(1, 0, 0, 0), v1.grrr);
+            TestUtils.AreEqual(int4(1, 0, 0, 1), v1.grrg);
+            TestUtils.AreEqual(int4(1, 0, 1, 0), v1.grgr);
+            TestUtils.AreEqual(int4(1, 0, 1, 1), v1.grgg);
+            TestUtils.AreEqual(int4(1, 1, 0, 0), v1.ggrr);
+            TestUtils.AreEqual(int4(1, 1, 0, 1), v1.ggrg);
+            TestUtils.AreEqual(int4(1, 1, 1, 0), v1.gggr);
+            TestUtils.AreEqual(int4(1, 1, 1, 1), v1.gggg);
+            TestUtils.AreEqual(int3(0, 0, 0), v1.rrr);
+            TestUtils.AreEqual(int3(0, 0, 1), v1.rrg);
+            TestUtils.AreEqual(int3(0, 1, 0), v1.rgr);
+            TestUtils.AreEqual(int3(0, 1, 1), v1.rgg);
+            TestUtils.AreEqual(int3(1, 0, 0), v1.grr);
+            TestUtils.AreEqual(int3(1, 0, 1), v1.grg);
+            TestUtils.AreEqual(int3(1, 1, 0), v1.ggr);
+            TestUtils.AreEqual(int3(1, 1, 1), v1.ggg);
+            TestUtils.AreEqual(int2(0, 0), v1.rr);
+            TestUtils.AreEqual(int2(0, 1), v1.rg);
+            TestUtils.AreEqual(int2(1, 0), v1.gr);
+            TestUtils.AreEqual(int2(1, 1), v1.gg);
+        }
+
+        [TestCompiler]
+        public static void int2_colorswizzle_setters()
+        {
+            var v1 = new int2(0, 1);
+
+            var set = new int2();
+
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(int2(0, 1), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(int2(1, 0), set);
         }
 
 

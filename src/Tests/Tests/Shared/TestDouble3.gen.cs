@@ -1227,8 +1227,172 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void double3_colorswizzle()
+        public static void double3_colorswizzle_getters()
         {
+            var v1 = new double3(0, 1, 2);
+
+            TestUtils.AreEqual(double4(0, 0, 0, 0), v1.rrrr);
+            TestUtils.AreEqual(double4(0, 0, 0, 1), v1.rrrg);
+            TestUtils.AreEqual(double4(0, 0, 0, 2), v1.rrrb);
+            TestUtils.AreEqual(double4(0, 0, 1, 0), v1.rrgr);
+            TestUtils.AreEqual(double4(0, 0, 1, 1), v1.rrgg);
+            TestUtils.AreEqual(double4(0, 0, 1, 2), v1.rrgb);
+            TestUtils.AreEqual(double4(0, 0, 2, 0), v1.rrbr);
+            TestUtils.AreEqual(double4(0, 0, 2, 1), v1.rrbg);
+            TestUtils.AreEqual(double4(0, 0, 2, 2), v1.rrbb);
+            TestUtils.AreEqual(double4(0, 1, 0, 0), v1.rgrr);
+            TestUtils.AreEqual(double4(0, 1, 0, 1), v1.rgrg);
+            TestUtils.AreEqual(double4(0, 1, 0, 2), v1.rgrb);
+            TestUtils.AreEqual(double4(0, 1, 1, 0), v1.rggr);
+            TestUtils.AreEqual(double4(0, 1, 1, 1), v1.rggg);
+            TestUtils.AreEqual(double4(0, 1, 1, 2), v1.rggb);
+            TestUtils.AreEqual(double4(0, 1, 2, 0), v1.rgbr);
+            TestUtils.AreEqual(double4(0, 1, 2, 1), v1.rgbg);
+            TestUtils.AreEqual(double4(0, 1, 2, 2), v1.rgbb);
+            TestUtils.AreEqual(double4(0, 2, 0, 0), v1.rbrr);
+            TestUtils.AreEqual(double4(0, 2, 0, 1), v1.rbrg);
+            TestUtils.AreEqual(double4(0, 2, 0, 2), v1.rbrb);
+            TestUtils.AreEqual(double4(0, 2, 1, 0), v1.rbgr);
+            TestUtils.AreEqual(double4(0, 2, 1, 1), v1.rbgg);
+            TestUtils.AreEqual(double4(0, 2, 1, 2), v1.rbgb);
+            TestUtils.AreEqual(double4(0, 2, 2, 0), v1.rbbr);
+            TestUtils.AreEqual(double4(0, 2, 2, 1), v1.rbbg);
+            TestUtils.AreEqual(double4(0, 2, 2, 2), v1.rbbb);
+            TestUtils.AreEqual(double4(1, 0, 0, 0), v1.grrr);
+            TestUtils.AreEqual(double4(1, 0, 0, 1), v1.grrg);
+            TestUtils.AreEqual(double4(1, 0, 0, 2), v1.grrb);
+            TestUtils.AreEqual(double4(1, 0, 1, 0), v1.grgr);
+            TestUtils.AreEqual(double4(1, 0, 1, 1), v1.grgg);
+            TestUtils.AreEqual(double4(1, 0, 1, 2), v1.grgb);
+            TestUtils.AreEqual(double4(1, 0, 2, 0), v1.grbr);
+            TestUtils.AreEqual(double4(1, 0, 2, 1), v1.grbg);
+            TestUtils.AreEqual(double4(1, 0, 2, 2), v1.grbb);
+            TestUtils.AreEqual(double4(1, 1, 0, 0), v1.ggrr);
+            TestUtils.AreEqual(double4(1, 1, 0, 1), v1.ggrg);
+            TestUtils.AreEqual(double4(1, 1, 0, 2), v1.ggrb);
+            TestUtils.AreEqual(double4(1, 1, 1, 0), v1.gggr);
+            TestUtils.AreEqual(double4(1, 1, 1, 1), v1.gggg);
+            TestUtils.AreEqual(double4(1, 1, 1, 2), v1.gggb);
+            TestUtils.AreEqual(double4(1, 1, 2, 0), v1.ggbr);
+            TestUtils.AreEqual(double4(1, 1, 2, 1), v1.ggbg);
+            TestUtils.AreEqual(double4(1, 1, 2, 2), v1.ggbb);
+            TestUtils.AreEqual(double4(1, 2, 0, 0), v1.gbrr);
+            TestUtils.AreEqual(double4(1, 2, 0, 1), v1.gbrg);
+            TestUtils.AreEqual(double4(1, 2, 0, 2), v1.gbrb);
+            TestUtils.AreEqual(double4(1, 2, 1, 0), v1.gbgr);
+            TestUtils.AreEqual(double4(1, 2, 1, 1), v1.gbgg);
+            TestUtils.AreEqual(double4(1, 2, 1, 2), v1.gbgb);
+            TestUtils.AreEqual(double4(1, 2, 2, 0), v1.gbbr);
+            TestUtils.AreEqual(double4(1, 2, 2, 1), v1.gbbg);
+            TestUtils.AreEqual(double4(1, 2, 2, 2), v1.gbbb);
+            TestUtils.AreEqual(double4(2, 0, 0, 0), v1.brrr);
+            TestUtils.AreEqual(double4(2, 0, 0, 1), v1.brrg);
+            TestUtils.AreEqual(double4(2, 0, 0, 2), v1.brrb);
+            TestUtils.AreEqual(double4(2, 0, 1, 0), v1.brgr);
+            TestUtils.AreEqual(double4(2, 0, 1, 1), v1.brgg);
+            TestUtils.AreEqual(double4(2, 0, 1, 2), v1.brgb);
+            TestUtils.AreEqual(double4(2, 0, 2, 0), v1.brbr);
+            TestUtils.AreEqual(double4(2, 0, 2, 1), v1.brbg);
+            TestUtils.AreEqual(double4(2, 0, 2, 2), v1.brbb);
+            TestUtils.AreEqual(double4(2, 1, 0, 0), v1.bgrr);
+            TestUtils.AreEqual(double4(2, 1, 0, 1), v1.bgrg);
+            TestUtils.AreEqual(double4(2, 1, 0, 2), v1.bgrb);
+            TestUtils.AreEqual(double4(2, 1, 1, 0), v1.bggr);
+            TestUtils.AreEqual(double4(2, 1, 1, 1), v1.bggg);
+            TestUtils.AreEqual(double4(2, 1, 1, 2), v1.bggb);
+            TestUtils.AreEqual(double4(2, 1, 2, 0), v1.bgbr);
+            TestUtils.AreEqual(double4(2, 1, 2, 1), v1.bgbg);
+            TestUtils.AreEqual(double4(2, 1, 2, 2), v1.bgbb);
+            TestUtils.AreEqual(double4(2, 2, 0, 0), v1.bbrr);
+            TestUtils.AreEqual(double4(2, 2, 0, 1), v1.bbrg);
+            TestUtils.AreEqual(double4(2, 2, 0, 2), v1.bbrb);
+            TestUtils.AreEqual(double4(2, 2, 1, 0), v1.bbgr);
+            TestUtils.AreEqual(double4(2, 2, 1, 1), v1.bbgg);
+            TestUtils.AreEqual(double4(2, 2, 1, 2), v1.bbgb);
+            TestUtils.AreEqual(double4(2, 2, 2, 0), v1.bbbr);
+            TestUtils.AreEqual(double4(2, 2, 2, 1), v1.bbbg);
+            TestUtils.AreEqual(double4(2, 2, 2, 2), v1.bbbb);
+            TestUtils.AreEqual(double3(0, 0, 0), v1.rrr);
+            TestUtils.AreEqual(double3(0, 0, 1), v1.rrg);
+            TestUtils.AreEqual(double3(0, 0, 2), v1.rrb);
+            TestUtils.AreEqual(double3(0, 1, 0), v1.rgr);
+            TestUtils.AreEqual(double3(0, 1, 1), v1.rgg);
+            TestUtils.AreEqual(double3(0, 1, 2), v1.rgb);
+            TestUtils.AreEqual(double3(0, 2, 0), v1.rbr);
+            TestUtils.AreEqual(double3(0, 2, 1), v1.rbg);
+            TestUtils.AreEqual(double3(0, 2, 2), v1.rbb);
+            TestUtils.AreEqual(double3(1, 0, 0), v1.grr);
+            TestUtils.AreEqual(double3(1, 0, 1), v1.grg);
+            TestUtils.AreEqual(double3(1, 0, 2), v1.grb);
+            TestUtils.AreEqual(double3(1, 1, 0), v1.ggr);
+            TestUtils.AreEqual(double3(1, 1, 1), v1.ggg);
+            TestUtils.AreEqual(double3(1, 1, 2), v1.ggb);
+            TestUtils.AreEqual(double3(1, 2, 0), v1.gbr);
+            TestUtils.AreEqual(double3(1, 2, 1), v1.gbg);
+            TestUtils.AreEqual(double3(1, 2, 2), v1.gbb);
+            TestUtils.AreEqual(double3(2, 0, 0), v1.brr);
+            TestUtils.AreEqual(double3(2, 0, 1), v1.brg);
+            TestUtils.AreEqual(double3(2, 0, 2), v1.brb);
+            TestUtils.AreEqual(double3(2, 1, 0), v1.bgr);
+            TestUtils.AreEqual(double3(2, 1, 1), v1.bgg);
+            TestUtils.AreEqual(double3(2, 1, 2), v1.bgb);
+            TestUtils.AreEqual(double3(2, 2, 0), v1.bbr);
+            TestUtils.AreEqual(double3(2, 2, 1), v1.bbg);
+            TestUtils.AreEqual(double3(2, 2, 2), v1.bbb);
+            TestUtils.AreEqual(double2(0, 0), v1.rr);
+            TestUtils.AreEqual(double2(0, 1), v1.rg);
+            TestUtils.AreEqual(double2(0, 2), v1.rb);
+            TestUtils.AreEqual(double2(1, 0), v1.gr);
+            TestUtils.AreEqual(double2(1, 1), v1.gg);
+            TestUtils.AreEqual(double2(1, 2), v1.gb);
+            TestUtils.AreEqual(double2(2, 0), v1.br);
+            TestUtils.AreEqual(double2(2, 1), v1.bg);
+            TestUtils.AreEqual(double2(2, 2), v1.bb);
+        }
+
+        [TestCompiler]
+        public static void double3_colorswizzle_setters()
+        {
+            var v1 = new double3(0, 1, 2);
+
+            var set = new double3();
+
+            set = v1;
+            set.rgb = v1.rgb;
+            TestUtils.AreEqual(double3(0, 1, 2), set);
+            set = v1;
+            set.rbg = v1.rgb;
+            TestUtils.AreEqual(double3(0, 2, 1), set);
+            set = v1;
+            set.grb = v1.rgb;
+            TestUtils.AreEqual(double3(1, 0, 2), set);
+            set = v1;
+            set.gbr = v1.rgb;
+            TestUtils.AreEqual(double3(2, 0, 1), set);
+            set = v1;
+            set.brg = v1.rgb;
+            TestUtils.AreEqual(double3(1, 2, 0), set);
+            set = v1;
+            set.bgr = v1.rgb;
+            TestUtils.AreEqual(double3(2, 1, 0), set);
+            set = v1;
+            set.rg = v1.rg;
+            TestUtils.AreEqual(double3(0, 1, 2), set);
+            set = v1;
+            set.rb = v1.rg;
+            TestUtils.AreEqual(double3(0, 1, 1), set);
+            set = v1;
+            set.gr = v1.rg;
+            TestUtils.AreEqual(double3(1, 0, 2), set);
+            set = v1;
+            set.gb = v1.rg;
+            TestUtils.AreEqual(double3(0, 0, 1), set);
+            set = v1;
+            set.br = v1.rg;
+            TestUtils.AreEqual(double3(1, 1, 0), set);
+            set = v1;
+            set.bg = v1.rg;
+            TestUtils.AreEqual(double3(0, 1, 0), set);
         }
 
 
