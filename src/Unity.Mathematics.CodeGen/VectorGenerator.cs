@@ -2114,8 +2114,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         void TestSwizzles(StringBuilder str)
         {
             var generator = new SwizzleTestGenerator(m_Rows, components, m_BaseType, m_TypeName, m_BaseType == "bool");
-            var wtf = new StringBuilder();
-            ForEachSwizzle(generator.Generate, wtf);
+            var _ = new StringBuilder();
+            ForEachSwizzle(generator.Generate, _);
 
             BeginTest(str, m_TypeName + "_swizzle_getters");
             str.Append(generator.GetterTestBody);
