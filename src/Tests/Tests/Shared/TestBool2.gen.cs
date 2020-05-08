@@ -433,34 +433,34 @@ namespace Unity.Mathematics.Tests
             var v1 = new bool2(false, true);
             var v2 = new bool2(true, false);
 
-            TestUtils.AreEqual(bool4(false, false, false, false), v1.rrrr);
-            TestUtils.AreEqual(bool4(false, false, false, true), v1.rrrg);
-            TestUtils.AreEqual(bool4(false, false, true, false), v1.rrgr);
-            TestUtils.AreEqual(bool4(false, false, true, true), v1.rrgg);
-            TestUtils.AreEqual(bool4(false, true, false, false), v1.rgrr);
-            TestUtils.AreEqual(bool4(false, true, false, true), v1.rgrg);
-            TestUtils.AreEqual(bool4(false, true, true, false), v1.rggr);
-            TestUtils.AreEqual(bool4(false, true, true, true), v1.rggg);
-            TestUtils.AreEqual(bool4(true, false, false, false), v1.grrr);
-            TestUtils.AreEqual(bool4(true, false, false, true), v1.grrg);
-            TestUtils.AreEqual(bool4(true, false, true, false), v1.grgr);
-            TestUtils.AreEqual(bool4(true, false, true, true), v1.grgg);
-            TestUtils.AreEqual(bool4(true, true, false, false), v1.ggrr);
-            TestUtils.AreEqual(bool4(true, true, false, true), v1.ggrg);
-            TestUtils.AreEqual(bool4(true, true, true, false), v1.gggr);
-            TestUtils.AreEqual(bool4(true, true, true, true), v1.gggg);
-            TestUtils.AreEqual(bool3(false, false, false), v1.rrr);
-            TestUtils.AreEqual(bool3(false, false, true), v1.rrg);
-            TestUtils.AreEqual(bool3(false, true, false), v1.rgr);
-            TestUtils.AreEqual(bool3(false, true, true), v1.rgg);
-            TestUtils.AreEqual(bool3(true, false, false), v1.grr);
-            TestUtils.AreEqual(bool3(true, false, true), v1.grg);
-            TestUtils.AreEqual(bool3(true, true, false), v1.ggr);
-            TestUtils.AreEqual(bool3(true, true, true), v1.ggg);
-            TestUtils.AreEqual(bool2(false, false), v1.rr);
-            TestUtils.AreEqual(bool2(false, true), v1.rg);
-            TestUtils.AreEqual(bool2(true, false), v1.gr);
-            TestUtils.AreEqual(bool2(true, true), v1.gg);
+            TestUtils.AreEqual(bool4(false, false, false, false), v1.xxxx);
+            TestUtils.AreEqual(bool4(false, false, false, true), v1.xxxy);
+            TestUtils.AreEqual(bool4(false, false, true, false), v1.xxyx);
+            TestUtils.AreEqual(bool4(false, false, true, true), v1.xxyy);
+            TestUtils.AreEqual(bool4(false, true, false, false), v1.xyxx);
+            TestUtils.AreEqual(bool4(false, true, false, true), v1.xyxy);
+            TestUtils.AreEqual(bool4(false, true, true, false), v1.xyyx);
+            TestUtils.AreEqual(bool4(false, true, true, true), v1.xyyy);
+            TestUtils.AreEqual(bool4(true, false, false, false), v1.yxxx);
+            TestUtils.AreEqual(bool4(true, false, false, true), v1.yxxy);
+            TestUtils.AreEqual(bool4(true, false, true, false), v1.yxyx);
+            TestUtils.AreEqual(bool4(true, false, true, true), v1.yxyy);
+            TestUtils.AreEqual(bool4(true, true, false, false), v1.yyxx);
+            TestUtils.AreEqual(bool4(true, true, false, true), v1.yyxy);
+            TestUtils.AreEqual(bool4(true, true, true, false), v1.yyyx);
+            TestUtils.AreEqual(bool4(true, true, true, true), v1.yyyy);
+            TestUtils.AreEqual(bool3(false, false, false), v1.xxx);
+            TestUtils.AreEqual(bool3(false, false, true), v1.xxy);
+            TestUtils.AreEqual(bool3(false, true, false), v1.xyx);
+            TestUtils.AreEqual(bool3(false, true, true), v1.xyy);
+            TestUtils.AreEqual(bool3(true, false, false), v1.yxx);
+            TestUtils.AreEqual(bool3(true, false, true), v1.yxy);
+            TestUtils.AreEqual(bool3(true, true, false), v1.yyx);
+            TestUtils.AreEqual(bool3(true, true, true), v1.yyy);
+            TestUtils.AreEqual(bool2(false, false), v1.xx);
+            TestUtils.AreEqual(bool2(false, true), v1.xy);
+            TestUtils.AreEqual(bool2(true, false), v1.yx);
+            TestUtils.AreEqual(bool2(true, true), v1.yy);
         }
 
         [TestCompiler]
@@ -472,10 +472,10 @@ namespace Unity.Mathematics.Tests
             var set = new bool2();
 
             set = v1;
-            set.rg = v1.rg;
+            set.xy = v1.xy;
             TestUtils.AreEqual(bool2(false, true), set);
             set = v1;
-            set.gr = v1.rg;
+            set.yx = v1.xy;
             TestUtils.AreEqual(bool2(true, false), set);
         }
 

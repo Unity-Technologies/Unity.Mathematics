@@ -1339,34 +1339,34 @@ namespace Unity.Mathematics.Tests
         {
             var v1 = new uint2(0, 1);
 
-            TestUtils.AreEqual(uint4(0, 0, 0, 0), v1.rrrr);
-            TestUtils.AreEqual(uint4(0, 0, 0, 1), v1.rrrg);
-            TestUtils.AreEqual(uint4(0, 0, 1, 0), v1.rrgr);
-            TestUtils.AreEqual(uint4(0, 0, 1, 1), v1.rrgg);
-            TestUtils.AreEqual(uint4(0, 1, 0, 0), v1.rgrr);
-            TestUtils.AreEqual(uint4(0, 1, 0, 1), v1.rgrg);
-            TestUtils.AreEqual(uint4(0, 1, 1, 0), v1.rggr);
-            TestUtils.AreEqual(uint4(0, 1, 1, 1), v1.rggg);
-            TestUtils.AreEqual(uint4(1, 0, 0, 0), v1.grrr);
-            TestUtils.AreEqual(uint4(1, 0, 0, 1), v1.grrg);
-            TestUtils.AreEqual(uint4(1, 0, 1, 0), v1.grgr);
-            TestUtils.AreEqual(uint4(1, 0, 1, 1), v1.grgg);
-            TestUtils.AreEqual(uint4(1, 1, 0, 0), v1.ggrr);
-            TestUtils.AreEqual(uint4(1, 1, 0, 1), v1.ggrg);
-            TestUtils.AreEqual(uint4(1, 1, 1, 0), v1.gggr);
-            TestUtils.AreEqual(uint4(1, 1, 1, 1), v1.gggg);
-            TestUtils.AreEqual(uint3(0, 0, 0), v1.rrr);
-            TestUtils.AreEqual(uint3(0, 0, 1), v1.rrg);
-            TestUtils.AreEqual(uint3(0, 1, 0), v1.rgr);
-            TestUtils.AreEqual(uint3(0, 1, 1), v1.rgg);
-            TestUtils.AreEqual(uint3(1, 0, 0), v1.grr);
-            TestUtils.AreEqual(uint3(1, 0, 1), v1.grg);
-            TestUtils.AreEqual(uint3(1, 1, 0), v1.ggr);
-            TestUtils.AreEqual(uint3(1, 1, 1), v1.ggg);
-            TestUtils.AreEqual(uint2(0, 0), v1.rr);
-            TestUtils.AreEqual(uint2(0, 1), v1.rg);
-            TestUtils.AreEqual(uint2(1, 0), v1.gr);
-            TestUtils.AreEqual(uint2(1, 1), v1.gg);
+            TestUtils.AreEqual(uint4(0, 0, 0, 0), v1.xxxx);
+            TestUtils.AreEqual(uint4(0, 0, 0, 1), v1.xxxy);
+            TestUtils.AreEqual(uint4(0, 0, 1, 0), v1.xxyx);
+            TestUtils.AreEqual(uint4(0, 0, 1, 1), v1.xxyy);
+            TestUtils.AreEqual(uint4(0, 1, 0, 0), v1.xyxx);
+            TestUtils.AreEqual(uint4(0, 1, 0, 1), v1.xyxy);
+            TestUtils.AreEqual(uint4(0, 1, 1, 0), v1.xyyx);
+            TestUtils.AreEqual(uint4(0, 1, 1, 1), v1.xyyy);
+            TestUtils.AreEqual(uint4(1, 0, 0, 0), v1.yxxx);
+            TestUtils.AreEqual(uint4(1, 0, 0, 1), v1.yxxy);
+            TestUtils.AreEqual(uint4(1, 0, 1, 0), v1.yxyx);
+            TestUtils.AreEqual(uint4(1, 0, 1, 1), v1.yxyy);
+            TestUtils.AreEqual(uint4(1, 1, 0, 0), v1.yyxx);
+            TestUtils.AreEqual(uint4(1, 1, 0, 1), v1.yyxy);
+            TestUtils.AreEqual(uint4(1, 1, 1, 0), v1.yyyx);
+            TestUtils.AreEqual(uint4(1, 1, 1, 1), v1.yyyy);
+            TestUtils.AreEqual(uint3(0, 0, 0), v1.xxx);
+            TestUtils.AreEqual(uint3(0, 0, 1), v1.xxy);
+            TestUtils.AreEqual(uint3(0, 1, 0), v1.xyx);
+            TestUtils.AreEqual(uint3(0, 1, 1), v1.xyy);
+            TestUtils.AreEqual(uint3(1, 0, 0), v1.yxx);
+            TestUtils.AreEqual(uint3(1, 0, 1), v1.yxy);
+            TestUtils.AreEqual(uint3(1, 1, 0), v1.yyx);
+            TestUtils.AreEqual(uint3(1, 1, 1), v1.yyy);
+            TestUtils.AreEqual(uint2(0, 0), v1.xx);
+            TestUtils.AreEqual(uint2(0, 1), v1.xy);
+            TestUtils.AreEqual(uint2(1, 0), v1.yx);
+            TestUtils.AreEqual(uint2(1, 1), v1.yy);
         }
 
         [TestCompiler]
@@ -1377,10 +1377,10 @@ namespace Unity.Mathematics.Tests
             var set = new uint2();
 
             set = v1;
-            set.rg = v1.rg;
+            set.xy = v1.xy;
             TestUtils.AreEqual(uint2(0, 1), set);
             set = v1;
-            set.gr = v1.rg;
+            set.yx = v1.xy;
             TestUtils.AreEqual(uint2(1, 0), set);
         }
 
