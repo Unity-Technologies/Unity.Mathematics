@@ -2197,34 +2197,31 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 // Set up the expected value.
                 var expected = new StringBuilder($"{m_BaseVectorTypeName}{swizzles.Length}(");
                 var isBoolVector = m_IsBoolVector;
+                var sourceValues = new string[m_NumComponents];
 
                 if (!isBoolVector)
                 {
-                    for (int i = 0; i + 1 < swizzles.Length; ++i)
+                    for (int i = 0; i < sourceValues.Length; ++i)
                     {
-                        expected.Append($"{swizzles[i]}, ");
-                    }
-
-                    if (swizzles.Length > 0)
-                    {
-                        expected.Append($"{swizzles[swizzles.Length - 1]})");
+                        sourceValues[i] = i.ToString();
                     }
                 }
                 else
                 {
-                    for (int i = 0; i < swizzles.Length; ++i)
+                    for (int i = 0; i < sourceValues.Length; ++i)
                     {
-                        string value = m_TrueFalseStrings[0, swizzles[i] & 1];
-
-                        if (i + 1 < swizzles.Length)
-                        {
-                            expected.Append($"{value}, ");
-                        }
-                        else
-                        {
-                            expected.Append($"{value})");
-                        }
+                        sourceValues[i] = m_TrueFalseStrings[0, i & 1];
                     }
+                }
+
+                for (int i = 0; i + 1 < swizzles.Length; ++i)
+                {
+                    expected.Append($"{sourceValues[swizzles[i]]}, ");
+                }
+
+                if (swizzles.Length > 0)
+                {
+                    expected.Append($"{sourceValues[swizzles[swizzles.Length - 1]]})");
                 }
 
                 // Set up the actual value we want to test.
@@ -2256,7 +2253,6 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                     m_SetterTestBody.Append(";\n");
 
-                    string[] sourceValues = new string[m_NumComponents];
                     string[] expectedValues = new string[m_NumComponents];
 
                     // Initialize the source values to one of the getter vars.
