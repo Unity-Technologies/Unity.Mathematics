@@ -48,7 +48,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x3F800000, asint(1.0f));
             TestUtils.AreEqual(0x449A51EC, asint(1234.56f));
             TestUtils.AreEqual(0x7F800000, asint(float.PositiveInfinity));
-            TestUtils.AreEqual(unchecked((int)0xFFC00000), asint(float.NaN));
+            TestUtils.AreEqual(unchecked((int)0xFFC00000), asint(TestUtils.SignedFloatQNaN()));
+            TestUtils.AreEqual(unchecked((int)0x7FC00000), asint(TestUtils.UnsignedFloatQNaN()));
 
             TestUtils.AreEqual(unchecked((int)0xBF800000), asint(-1.0f));
             TestUtils.AreEqual(unchecked((int)0xC49A51EC), asint(-1234.56f));
@@ -59,7 +60,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float_signed_zero()
         {
-            TestUtils.AreEqual(unchecked((int)0x80000000), asint(-0.0f));
+            TestUtils.AreEqual(unchecked((int)0x80000000), asint(TestUtils.SignedFloatZero()));
         }
 
         [TestCompiler]
@@ -67,7 +68,8 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(int2(0, 0x3F800000), asint(float2(0.0f, 1.0f)));
             TestUtils.AreEqual(int2(0x449A51EC, 0x7F800000), asint(float2(1234.56f, float.PositiveInfinity)));
-            TestUtils.AreEqual(int2(unchecked((int)0xFFC00000), unchecked((int)0xBF800000)), asint(float2(float.NaN, -1.0f)));
+            TestUtils.AreEqual(int2(unchecked((int)0xFFC00000), unchecked((int)0xBF800000)), asint(float2(TestUtils.SignedFloatQNaN(), -1.0f)));
+            TestUtils.AreEqual(int2(unchecked((int)0x7FC00000), unchecked((int)0xBF800000)), asint(float2(TestUtils.UnsignedFloatQNaN(), -1.0f)));
 
             TestUtils.AreEqual(int2(unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)), asint(float2(-1234.56f, float.NegativeInfinity)));
             TestUtils.AreEqual(int2(0, 0), asint(float2(0.0f, 0.0f)));
@@ -77,14 +79,15 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float2_signed_zero()
         {
-            TestUtils.AreEqual(int2(unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float2(-0.0f, -0.0f)));
+            TestUtils.AreEqual(int2(unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         public static void asint_float3()
         {
             TestUtils.AreEqual(int3(0, 0x3F800000, 0x449A51EC), asint(float3(0.0f, 1.0f, 1234.56f)));
-            TestUtils.AreEqual(int3(0x7F800000, unchecked((int)0xFFC00000), unchecked((int)0xBF800000)), asint(float3(float.PositiveInfinity, float.NaN, -1.0f)));
+            TestUtils.AreEqual(int3(0x7F800000, unchecked((int)0xFFC00000), unchecked((int)0xBF800000)), asint(float3(float.PositiveInfinity, TestUtils.SignedFloatQNaN(), -1.0f)));
+            TestUtils.AreEqual(int3(0x7F800000, unchecked((int)0x7FC00000), unchecked((int)0xBF800000)), asint(float3(float.PositiveInfinity, TestUtils.UnsignedFloatQNaN(), -1.0f)));
             TestUtils.AreEqual(int3(unchecked((int)0xC49A51EC), unchecked((int)0xFF800000), 0), asint(float3(-1234.56f, float.NegativeInfinity, 0.0f)));
         }
 
@@ -92,21 +95,22 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float3_signed_zero()
         {
-            TestUtils.AreEqual(int3(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float3(-0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(int3(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         public static void asint_float4()
         {
             TestUtils.AreEqual(int4(0, 0x3F800000, 0x449A51EC, 0x7F800000), asint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)));
-            TestUtils.AreEqual(int4(unchecked((int)0xFFC00000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)), asint(float4(float.NaN, -1.0f, -1234.56f, float.NegativeInfinity)));
+            TestUtils.AreEqual(int4(unchecked((int)0xFFC00000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)), asint(float4(TestUtils.SignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
+            TestUtils.AreEqual(int4(unchecked((int)0x7FC00000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)), asint(float4(TestUtils.UnsignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float4_signed_zero()
         {
-            TestUtils.AreEqual(int4(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float4(-0.0f, -0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(int4(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
@@ -149,7 +153,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x3F800000u, asuint(1.0f));
             TestUtils.AreEqual(0x449A51ECu, asuint(1234.56f));
             TestUtils.AreEqual(0x7F800000u, asuint(float.PositiveInfinity));
-            TestUtils.AreEqual(0xFFC00000u, asuint(float.NaN));
+            TestUtils.AreEqual(0xFFC00000u, asuint(TestUtils.SignedFloatQNaN()));
+            TestUtils.AreEqual(0x7FC00000u, asuint(TestUtils.UnsignedFloatQNaN()));
 
             TestUtils.AreEqual(0xBF800000u, asuint(-1.0f));
             TestUtils.AreEqual(0xC49A51ECu, asuint(-1234.56f));
@@ -160,7 +165,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float_signed_zero()
         {
-            TestUtils.AreEqual(0x80000000u, asuint(-0.0f));
+            TestUtils.AreEqual(0x80000000u, asuint(TestUtils.SignedFloatZero()));
         }
 
         [TestCompiler]
@@ -168,7 +173,8 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(uint2(0u, 0x3F800000u), asuint(float2(0.0f, 1.0f)));
             TestUtils.AreEqual(uint2(0x449A51Ecu, 0x7F800000u), asuint(float2(1234.56f, float.PositiveInfinity)));
-            TestUtils.AreEqual(uint2(0xFFC00000u, 0xBF800000u), asuint(float2(float.NaN, -1.0f)));
+            TestUtils.AreEqual(uint2(0xFFC00000u, 0xBF800000u), asuint(float2(TestUtils.SignedFloatQNaN(), -1.0f)));
+            TestUtils.AreEqual(uint2(0x7FC00000u, 0xBF800000u), asuint(float2(TestUtils.UnsignedFloatQNaN(), -1.0f)));
 
             TestUtils.AreEqual(uint2(0xC49A51ECu, 0xFF800000u), asuint(float2(-1234.56f, float.NegativeInfinity)));
         }
@@ -177,14 +183,15 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float2_signed_zero()
         {
-            TestUtils.AreEqual(uint2(0x80000000u, 0x80000000u), asuint(float2(-0.0f, -0.0f)));
+            TestUtils.AreEqual(uint2(0x80000000u, 0x80000000u), asuint(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         public static void asuint_float3()
         {
             TestUtils.AreEqual(uint3(0u, 0x3F800000u, 0x449A51ECu), asuint(float3(0.0f, 1.0f, 1234.56f)));
-            TestUtils.AreEqual(uint3(0x7F800000u, 0xFFC00000u, 0xBF800000u), asuint(float3(float.PositiveInfinity, float.NaN, -1.0f)));
+            TestUtils.AreEqual(uint3(0x7F800000u, 0xFFC00000u, 0xBF800000u), asuint(float3(float.PositiveInfinity, TestUtils.SignedFloatQNaN(), -1.0f)));
+            TestUtils.AreEqual(uint3(0x7F800000u, 0x7FC00000u, 0xBF800000u), asuint(float3(float.PositiveInfinity, TestUtils.UnsignedFloatQNaN(), -1.0f)));
             TestUtils.AreEqual(uint3(0xC49A51ECu, 0xff800000u, 0u), asuint(float3(-1234.56f, float.NegativeInfinity, 0.0f)));
         }
 
@@ -192,21 +199,22 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float3_signed_zero()
         {
-            TestUtils.AreEqual(uint3(0x80000000u, 0x80000000u, 0x80000000u), asuint(float3(-0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(uint3(0x80000000u, 0x80000000u, 0x80000000u), asuint(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         public static void asuint_float4()
         {
             TestUtils.AreEqual(uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u), asuint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)));
-            TestUtils.AreEqual(uint4(0xFFC00000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u), asuint(float4(float.NaN, -1.0f, -1234.56f, float.NegativeInfinity)));
+            TestUtils.AreEqual(uint4(0xFFC00000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u), asuint(float4(TestUtils.SignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
+            TestUtils.AreEqual(uint4(0x7FC00000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u), asuint(float4(TestUtils.UnsignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float4_singed_zero()
         {
-            TestUtils.AreEqual(uint4(0x80000000u, 0x80000000u, 0x80000000u, 0x80000000u), asuint(float4(-0.0f, -0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(uint4(0x80000000u, 0x80000000u, 0x80000000u, 0x80000000u), asuint(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
@@ -227,7 +235,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x3FF0000000000000L, aslong(1.0));
             TestUtils.AreEqual(0x40934A3D70A3D70AL, aslong(1234.56));
             TestUtils.AreEqual(0x7FF0000000000000L, aslong(double.PositiveInfinity));
-            TestUtils.AreEqual(unchecked((long)0xFFF8000000000000UL), aslong(double.NaN));
+            TestUtils.AreEqual(unchecked((long)0xFFF8000000000000UL), aslong(TestUtils.SignedDoubleQNaN()));
 
             TestUtils.AreEqual(unchecked((long)0xBFF0000000000000UL), aslong(-1.0));
             TestUtils.AreEqual(unchecked((long)0xC0934A3D70A3D70AUL), aslong(-1234.56));
@@ -238,7 +246,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void aslong_double_signed_zero()
         {
-            TestUtils.AreEqual(unchecked((long)0x8000000000000000UL), aslong(-0.0));
+            TestUtils.AreEqual(unchecked((long)0x8000000000000000UL), aslong(TestUtils.SignedDoubleZero()));
         }
 
         [TestCompiler]
@@ -259,7 +267,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x3FF0000000000000UL, asulong(1.0));
             TestUtils.AreEqual(0x40934A3D70A3D70AUL, asulong(1234.56));
             TestUtils.AreEqual(0x7FF0000000000000UL, asulong(double.PositiveInfinity));
-            TestUtils.AreEqual(0xFFF8000000000000UL, asulong(double.NaN));
+            TestUtils.AreEqual(0xFFF8000000000000UL, asulong(TestUtils.SignedDoubleQNaN()));
 
             TestUtils.AreEqual(0xBFF0000000000000UL, asulong(-1.0));
             TestUtils.AreEqual(0xC0934A3D70A3D70AUL, asulong(-1234.56));
@@ -270,7 +278,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asulong_double_signed_zero()
         {
-            TestUtils.AreEqual(0x8000000000000000UL, asulong(-0.0));
+            TestUtils.AreEqual(0x8000000000000000UL, asulong(TestUtils.SignedDoubleZero()));
         }
 
         [TestCompiler]
@@ -285,7 +293,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1234.56f, asfloat(unchecked((int)0xC49A51EC)));
             TestUtils.AreEqual(float.NegativeInfinity, asfloat(unchecked((int)0xFF800000)));
 
-            TestUtils.AreEqual(asuint(float.NaN), asuint(asfloat(unchecked((int)0xFFC00000))));
+            TestUtils.AreEqual(asuint(TestUtils.SignedFloatQNaN()), asuint(asfloat(unchecked((int)0xFFC00000))));
+            TestUtils.AreEqual(asuint(TestUtils.UnsignedFloatQNaN()), asuint(asfloat(unchecked((int)0x7FC00000))));
         }
 
         [TestCompiler]
@@ -296,7 +305,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(-0.0f, -1.0f), asfloat(int2(unchecked((int)0x80000000), unchecked((int)0xBF800000))));
 
             TestUtils.AreEqual(float2(-1234.56f, float.NegativeInfinity), asfloat(int2(unchecked((int)0xC49A51EC), unchecked((int)0xFF800000))));
-            TestUtils.AreEqual(asuint(float2(float.NaN, float.NaN)), asuint(asfloat(int2(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float2(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(int2(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float2(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int2(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
         [TestCompiler]
@@ -306,7 +316,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(float.PositiveInfinity, -0.0f, -1.0f), asfloat(int3(0x7F800000, unchecked((int)0x80000000), unchecked((int)0xBF800000))));
 
             TestUtils.AreEqual(float3(-1234.56f, float.NegativeInfinity, 0.0f), asfloat(int3(unchecked((int)0xC49A51EC), unchecked((int)0xFF800000), 0)));
-            TestUtils.AreEqual(asuint(float3(float.NaN, float.NaN, float.NaN)), asuint(asfloat(int3(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float3(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(int3(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float3(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int3(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
         [TestCompiler]
@@ -315,7 +326,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity), asfloat(int4(0, 0x3F800000, 0x449A51EC, 0x7F800000)));
             TestUtils.AreEqual(float4(-0.0f, -1.0f, -1234.56f, float.NegativeInfinity), asfloat(int4(unchecked((int)0x80000000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000))));
 
-            TestUtils.AreEqual(asuint(float4(float.NaN, float.NaN, float.NaN, float.NaN)), asuint(asfloat(int4(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float4(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(int4(unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000), unchecked((int)0xFFC00000)))));
+            TestUtils.AreEqual(asuint(float4(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int4(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
         [TestCompiler]
@@ -330,7 +342,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1234.56f, asfloat(0xC49A51ECu));
             TestUtils.AreEqual(float.NegativeInfinity, asfloat(0xFF800000u));
 
-            TestUtils.AreEqual(asuint(float.NaN), asuint(asfloat(0xFFC00000u)));
+            TestUtils.AreEqual(asuint(TestUtils.SignedFloatQNaN()), asuint(asfloat(0xFFC00000u)));
+            TestUtils.AreEqual(asuint(TestUtils.UnsignedFloatQNaN()), asuint(asfloat(0x7FC00000u)));
         }
 
         [TestCompiler]
@@ -341,7 +354,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(-0.0f, -1.0f), asfloat(uint2(0x80000000u, 0xBF800000u)));
 
             TestUtils.AreEqual(float2(-1234.56f, float.NegativeInfinity), asfloat(uint2(0xC49A51ECu, 0xFF800000u)));
-            TestUtils.AreEqual(asuint(float2(float.NaN, float.NaN)), asuint(asfloat(uint2(0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float2(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(uint2(0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float2(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint2(0x7FC00000u, 0x7FC00000u))));
         }
 
         [TestCompiler]
@@ -351,7 +365,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(float.PositiveInfinity, -0.0f, -1.0f), asfloat(uint3(0x7F800000u, 0x80000000u, 0xBF800000u)));
 
             TestUtils.AreEqual(float3(-1234.56f, float.NegativeInfinity, 0.0f), asfloat(uint3(0xC49A51ECu, 0xFF800000u, 0u)));
-            TestUtils.AreEqual(asuint(float3(float.NaN, float.NaN, float.NaN)), asuint(asfloat(uint3(0xFFC00000u, 0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float3(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(uint3(0xFFC00000u, 0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float3(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint3(0x7FC00000u, 0x7FC00000u, 0x7FC00000u))));
         }
 
         [TestCompiler]
@@ -360,7 +375,8 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity), asfloat(uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u)));
             TestUtils.AreEqual(float4(-0.0f, -1.0f, -1234.56f, float.NegativeInfinity), asfloat(uint4(0x80000000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u)));
 
-            TestUtils.AreEqual(asuint(float4(float.NaN, float.NaN, float.NaN, float.NaN)), asuint(asfloat(uint4(0xFFC00000u, 0xFFC00000u, 0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float4(TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.SignedFloatQNaN())), asuint(asfloat(uint4(0xFFC00000u, 0xFFC00000u, 0xFFC00000u, 0xFFC00000u))));
+            TestUtils.AreEqual(asuint(float4(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint4(0x7FC00000u, 0x7FC00000u, 0x7FC00000u, 0x7FC00000u))));
         }
 
         [TestCompiler]
@@ -370,7 +386,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1.0, asdouble(0x3FF0000000000000L));
             TestUtils.AreEqual(1234.56, asdouble(0x40934A3D70A3D70AL));
             TestUtils.AreEqual(double.PositiveInfinity, asdouble(0x7FF0000000000000L));
-            TestUtils.AreEqual(double.NaN, asdouble(unchecked((long)0xFFF8000000000000UL)));
+            TestUtils.AreEqual(TestUtils.SignedDoubleQNaN(), asdouble(unchecked((long)0xFFF8000000000000UL)));
 
             TestUtils.AreEqual(-0.0, asdouble(unchecked((long)0x8000000000000000UL)));
             TestUtils.AreEqual(-1.0, asdouble(unchecked((long)0xBFF0000000000000UL)));
@@ -385,7 +401,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1.0, asdouble(0x3FF0000000000000UL));
             TestUtils.AreEqual(1234.56, asdouble(0x40934A3D70A3D70AUL));
             TestUtils.AreEqual(double.PositiveInfinity, asdouble(0x7FF0000000000000UL));
-            TestUtils.AreEqual(double.NaN, asdouble(0xFFF8000000000000UL));
+            TestUtils.AreEqual(TestUtils.SignedDoubleQNaN(), asdouble(0xFFF8000000000000UL));
 
             TestUtils.AreEqual(-0.0, asdouble(0x8000000000000000UL));
             TestUtils.AreEqual(-1.0, asdouble(0xBFF0000000000000UL));
@@ -725,7 +741,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7BFF, f32tof16(65504.0f));
             TestUtils.AreEqual(0x7C00, f32tof16(65520.0f));
             TestUtils.AreEqual(0x7C00, f32tof16(float.PositiveInfinity));
-            TestUtils.AreEqual(0xFE00, f32tof16(float.NaN));
+            TestUtils.AreEqual(0xFE00, f32tof16(TestUtils.SignedFloatQNaN()));
 
             TestUtils.AreEqual(0x8000, f32tof16(-2.98e-08f));
             TestUtils.AreEqual(0x8001, f32tof16(-5.96046448e-08f));
@@ -739,7 +755,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float_signed_zero()
         {
-            TestUtils.AreEqual(0x8000, f32tof16(-0.0f));
+            TestUtils.AreEqual(0x8000, f32tof16(TestUtils.SignedFloatZero()));
         }
 
         [TestCompiler]
@@ -748,7 +764,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(0x0000, 0x0000), f32tof16(float2(0.0f, 2.98e-08f)));
             TestUtils.AreEqual(uint2(0x0001, 0x57B6), f32tof16(float2(5.96046448e-08f, 123.4f)));
             TestUtils.AreEqual(uint2(0x7BFF, 0x7C00), f32tof16(float2(65504.0f, 65520.0f)));
-            TestUtils.AreEqual(uint2(0x7C00, 0xFE00), f32tof16(float2(float.PositiveInfinity, float.NaN)));
+            TestUtils.AreEqual(uint2(0x7C00, 0xFE00), f32tof16(float2(float.PositiveInfinity, TestUtils.SignedFloatQNaN())));
 
             TestUtils.AreEqual(uint2(0x8000, 0x8001), f32tof16(float2(-2.98e-08f, -5.96046448e-08f)));
             TestUtils.AreEqual(uint2(0xD7B6, 0xFBFF), f32tof16(float2(-123.4f, -65504.0f)));
@@ -760,7 +776,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float2_signed_zero()
         {
-            TestUtils.AreEqual(uint2(0x8000, 0x8000), f32tof16(float2(-0.0f, -0.0f)));
+            TestUtils.AreEqual(uint2(0x8000, 0x8000), f32tof16(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
@@ -768,7 +784,7 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.AreEqual(uint3(0x0000, 0x0000, 0x0001), f32tof16(float3(0.0f, 2.98e-08f, 5.96046448e-08f)));
             TestUtils.AreEqual(uint3(0x57B6, 0x7BFF, 0x7C00), f32tof16(float3(123.4f, 65504.0f, 65520.0f)));
-            TestUtils.AreEqual(uint3(0x7C00, 0xFE00, 0x8000), f32tof16(float3(float.PositiveInfinity, float.NaN, -2.98e-08f)));
+            TestUtils.AreEqual(uint3(0x7C00, 0xFE00, 0x8000), f32tof16(float3(float.PositiveInfinity, TestUtils.SignedFloatQNaN(), -2.98e-08f)));
 
             TestUtils.AreEqual(uint3(0x8001, 0xD7B6, 0xFBFF), f32tof16(float3(-5.96046448e-08f, -123.4f, -65504.0f)));
             TestUtils.AreEqual(uint3(0xFC00, 0xFC00, 0x0000), f32tof16(float3(-65520.0f, float.NegativeInfinity, 0.0f)));
@@ -778,14 +794,14 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float3_signed_zero()
         {
-            TestUtils.AreEqual(uint3(0x8000, 0x8000, 0x8000), f32tof16(float3(-0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(uint3(0x8000, 0x8000, 0x8000), f32tof16(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         public static void f32tof16_float4()
         {
             TestUtils.AreEqual(uint4(0x0000, 0x0000, 0x0001, 0x57B6), f32tof16(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f)));
-            TestUtils.AreEqual(uint4(0x7BFF, 0x7C00, 0x7C00, 0xFE00), f32tof16(float4(65504.0f, 65520.0f, float.PositiveInfinity, float.NaN)));
+            TestUtils.AreEqual(uint4(0x7BFF, 0x7C00, 0x7C00, 0xFE00), f32tof16(float4(65504.0f, 65520.0f, float.PositiveInfinity, TestUtils.SignedFloatQNaN())));
             TestUtils.AreEqual(uint4(0x8000, 0x8001, 0xD7B6, 0xFBFF), f32tof16(float4(-2.98e-08f, -5.96046448e-08f, -123.4f, -65504.0f)));
             TestUtils.AreEqual(uint4(0xFC00, 0xFC00, 0xFC00, 0x0000), f32tof16(float4(-65520.0f, float.NegativeInfinity, float.NegativeInfinity, 0.0f)));
         }
@@ -794,7 +810,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float4_signed_zero()
         {
-            TestUtils.AreEqual(uint4(0x8000, 0x8000, 0x8000, 0x8000), f32tof16(float4(-0.0f, -0.0f, -0.0f, -0.0f)));
+            TestUtils.AreEqual(uint4(0x8000, 0x8000, 0x8000, 0x8000), f32tof16(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
@@ -3133,29 +3149,29 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float_signed_zero()
         {
-            TestUtils.AreEqual(float.NegativeInfinity, rcp(-0.0f));
-            TestUtils.AreEqual(-0.0f, rcp(float.NegativeInfinity));
+            TestUtils.AreEqual(float.NegativeInfinity, rcp(TestUtils.SignedFloatZero()));
+            TestUtils.AreEqual(TestUtils.SignedFloatZero(), rcp(float.NegativeInfinity));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float2_signed_zero()
         {
-            TestUtils.AreEqual(float2(float.NegativeInfinity, -0.0f), rcp(float2(-0.0f, float.NegativeInfinity)));
+            TestUtils.AreEqual(float2(float.NegativeInfinity, TestUtils.SignedFloatZero()), rcp(float2(TestUtils.SignedFloatZero(), float.NegativeInfinity)));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float3_signed_zero()
         {
-            TestUtils.AreEqual(float3(float.NegativeInfinity, -0.0f, float.NegativeInfinity), rcp(float3(-0.0f, float.NegativeInfinity, -0.0f)));
+            TestUtils.AreEqual(float3(float.NegativeInfinity, TestUtils.SignedFloatZero(), float.NegativeInfinity), rcp(float3(TestUtils.SignedFloatZero(), float.NegativeInfinity, TestUtils.SignedFloatZero())));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float4_signed_zero()
         {
-            TestUtils.AreEqual(float4(float.NegativeInfinity, -0.0f, float.NegativeInfinity, -0.0f), rcp(float4(-0.0f, float.NegativeInfinity, -0.0f, float.NegativeInfinity)));
+            TestUtils.AreEqual(float4(float.NegativeInfinity, TestUtils.SignedFloatZero(), float.NegativeInfinity, TestUtils.SignedFloatZero()), rcp(float4(TestUtils.SignedFloatZero(), float.NegativeInfinity, TestUtils.SignedFloatZero(), float.NegativeInfinity)));
         }
 
 
@@ -3163,29 +3179,29 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double_signed_zero()
         {
-            TestUtils.AreEqual(double.NegativeInfinity, rcp(-0.0));
-            TestUtils.AreEqual(-0.0, rcp(double.NegativeInfinity));
+            TestUtils.AreEqual(double.NegativeInfinity, rcp(TestUtils.SignedDoubleZero()));
+            TestUtils.AreEqual(TestUtils.SignedDoubleZero(), rcp(double.NegativeInfinity));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double2_signed_zero()
         {
-            TestUtils.AreEqual(double2(double.NegativeInfinity, -0.0), rcp(double2(-0.0, double.NegativeInfinity)));
+            TestUtils.AreEqual(double2(double.NegativeInfinity, TestUtils.SignedDoubleZero()), rcp(double2(TestUtils.SignedDoubleZero(), double.NegativeInfinity)));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double3_signed_zero()
         {
-            TestUtils.AreEqual(double3(double.NegativeInfinity, -0.0, double.NegativeInfinity), rcp(double3(-0.0, double.NegativeInfinity, -0.0)));
+            TestUtils.AreEqual(double3(double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity), rcp(double3(TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero())));
         }
 
         [TestCompiler]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double4_signed_zero()
         {
-            TestUtils.AreEqual(double4(double.NegativeInfinity, -0.0, double.NegativeInfinity, -0.0), rcp(double4(-0.0, double.NegativeInfinity, -0.0, double.NegativeInfinity)));
+            TestUtils.AreEqual(double4(double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero()), rcp(double4(TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity)));
         }
 
         [TestCompiler]

@@ -733,5 +733,15 @@ namespace Unity.Mathematics.Tests
         {
             return asdouble(0xfff8_0000_0000_0000ul);
         }
+
+        public static float SignedFloatZero()
+        {
+            return asfloat(0x8000_0000u);
+        }
+
+        public static double SignedDoubleZero()
+        {
+            return asdouble(0x8000_0000_0000_0000ul);
+        }
     }
 }
