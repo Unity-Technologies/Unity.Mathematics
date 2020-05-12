@@ -3205,7 +3205,14 @@ namespace Unity.Mathematics.Tests
                         dest[i] = 0;
 
                     bool4 mask = bool4((m & 1) != 0, (m & 2) != 0, (m & 4) != 0, (m & 8) != 0);
-                    compress(ptr, offset, value, mask);
+                    int expectedOutputIndex = offset;
+
+                    if (mask.x) ++expectedOutputIndex;
+                    if (mask.y) ++expectedOutputIndex;
+                    if (mask.z) ++expectedOutputIndex;
+                    if (mask.w) ++expectedOutputIndex;
+
+                    int actualOutputIndex = compress(ptr, offset, value, mask);
 
                     for(int i = 0; i < 16; i++)
                     {
@@ -3221,6 +3228,99 @@ namespace Unity.Mathematics.Tests
                             }
                         }
                         TestUtils.AreEqual(v, dest[i]);
+                        TestUtils.AreEqual(expectedOutputIndex, actualOutputIndex);
+                    }
+                }
+            }
+        }
+
+        [TestCompiler]
+        unsafe public static void compress_uint4_test()
+        {
+            uint4 value = uint4(0x12345678u, 0x2468ACE0u, 0x369BE147u, 0x48C059D1u);
+
+            int ptrOffset = 4;
+            uint* dest = stackalloc uint[16];
+            uint* ptr = dest + ptrOffset;
+
+            for(int offset = -4; offset <= 4; offset++)
+            {
+                for (int m = 0; m < 16; m++)
+                {
+                    for (int i = 0; i < 16; i++)
+                        dest[i] = 0;
+
+                    bool4 mask = bool4((m & 1) != 0, (m & 2) != 0, (m & 4) != 0, (m & 8) != 0);
+                    int expectedOutputIndex = offset;
+
+                    if (mask.x) ++expectedOutputIndex;
+                    if (mask.y) ++expectedOutputIndex;
+                    if (mask.z) ++expectedOutputIndex;
+                    if (mask.w) ++expectedOutputIndex;
+
+                    int actualOutputIndex = compress(ptr, offset, value, mask);
+
+                    for(int i = 0; i < 16; i++)
+                    {
+                        int vectorIdx = i - (ptrOffset + offset);
+
+                        float v = 0;
+                        if (vectorIdx >= 0 && vectorIdx < 4)
+                        {
+                            for(int k = 0; k < 4; k++)
+                            {
+                                if (mask[k] && vectorIdx-- == 0)
+                                    v = value[k];
+                            }
+                        }
+                        TestUtils.AreEqual(v, dest[i]);
+                        TestUtils.AreEqual(expectedOutputIndex, actualOutputIndex);
+                    }
+                }
+            }
+        }
+
+        [TestCompiler]
+        unsafe public static void compress_float4_test()
+        {
+            float4 value = float4(float.PositiveInfinity,  EPSILON, PI, -0.25f);
+
+            int ptrOffset = 4;
+            float* dest = stackalloc float[16];
+            float* ptr = dest + ptrOffset;
+
+            for(int offset = -4; offset <= 4; offset++)
+            {
+                for (int m = 0; m < 16; m++)
+                {
+                    for (int i = 0; i < 16; i++)
+                        dest[i] = 0;
+
+                    bool4 mask = bool4((m & 1) != 0, (m & 2) != 0, (m & 4) != 0, (m & 8) != 0);
+                    int expectedOutputIndex = offset;
+
+                    if (mask.x) ++expectedOutputIndex;
+                    if (mask.y) ++expectedOutputIndex;
+                    if (mask.z) ++expectedOutputIndex;
+                    if (mask.w) ++expectedOutputIndex;
+
+                    int actualOutputIndex = compress(ptr, offset, value, mask);
+
+                    for(int i = 0; i < 16; i++)
+                    {
+                        int vectorIdx = i - (ptrOffset + offset);
+
+                        float v = 0;
+                        if (vectorIdx >= 0 && vectorIdx < 4)
+                        {
+                            for(int k = 0; k < 4; k++)
+                            {
+                                if (mask[k] && vectorIdx-- == 0)
+                                    v = value[k];
+                            }
+                        }
+                        TestUtils.AreEqual(v, dest[i]);
+                        TestUtils.AreEqual(expectedOutputIndex, actualOutputIndex);
                     }
                 }
             }
