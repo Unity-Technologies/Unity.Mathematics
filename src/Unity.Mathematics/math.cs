@@ -3790,10 +3790,19 @@ namespace Unity.Mathematics
         public static double csum(double4 x) { return (x.x + x.y) + (x.z + x.w); }
 
         /// <summary>
-        /// Packs components with an enabled mask (LSB) to the left
-        /// The value of components after the last packed component are undefined.
-        /// Returns the number of enabled mask bits. (0 ... 4)
+        /// Packs components with an enabled mask to the left.
         /// </summary>
+        /// <remarks>
+        /// This function is also known as left packing. The effect of this function is to filter out components that
+        /// are not enabled and leave an output buffer tightly packed with only the enabled components. A common use
+        /// case is if you perform intersection tests on arrays of data in structure of arrays (SoA) form and need to
+        /// produce an output array of the things that intersected.
+        /// </remarks>
+        /// <param name="output">Pointer to packed output array where enabled components should be stored to.</param>
+        /// <param name="index">Index into output array where first enabled component should be stored to.</param>
+        /// <param name="val">The value to to compress.</param>
+        /// <param name="mask">Mask indicating which components are enabled.</param>
+        /// <returns>Index to element after the last one stored.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static unsafe int compress(int* output, int index, int4 val, bool4 mask)
         {
@@ -3807,6 +3816,46 @@ namespace Unity.Mathematics
                 output[index++] = val.w;
 
             return index;
+        }
+
+        /// <summary>
+        /// Packs components with an enabled mask to the left.
+        /// </summary>
+        /// <remarks>
+        /// This function is also known as left packing. The effect of this function is to filter out components that
+        /// are not enabled and leave an output buffer tightly packed with only the enabled components. A common use
+        /// case is if you perform intersection tests on arrays of data in structure of arrays (SoA) form and need to
+        /// produce an output array of the things that intersected.
+        /// </remarks>
+        /// <param name="output">Pointer to packed output array where enabled components should be stored to.</param>
+        /// <param name="index">Index into output array where first enabled component should be stored to.</param>
+        /// <param name="val">The value to to compress.</param>
+        /// <param name="mask">Mask indicating which components are enabled.</param>
+        /// <returns>Index to element after the last one stored.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static unsafe int compress(uint* output, int index, uint4 val, bool4 mask)
+        {
+            return compress((int*)output, index, *(int4*)&val, mask);
+        }
+
+        /// <summary>
+        /// Packs components with an enabled mask to the left.
+        /// </summary>
+        /// <remarks>
+        /// This function is also known as left packing. The effect of this function is to filter out components that
+        /// are not enabled and leave an output buffer tightly packed with only the enabled components. A common use
+        /// case is if you perform intersection tests on arrays of data in structure of arrays (SoA) form and need to
+        /// produce an output array of the things that intersected.
+        /// </remarks>
+        /// <param name="output">Pointer to packed output array where enabled components should be stored to.</param>
+        /// <param name="index">Index into output array where first enabled component should be stored to.</param>
+        /// <param name="val">The value to to compress.</param>
+        /// <param name="mask">Mask indicating which components are enabled.</param>
+        /// <returns>Index to element after the last one stored.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static unsafe int compress(float* output, int index, float4 val, bool4 mask)
+        {
+            return compress((int*)output, index, *(int4*)&val, mask);
         }
 
         /// <summary>Returns the floating point representation of a half-precision floating point value.</summary>
