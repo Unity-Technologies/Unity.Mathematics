@@ -48,7 +48,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7BFF, half(65504.0f).value);
             TestUtils.AreEqual(0x7C00, half(65520.0f).value);
             TestUtils.AreEqual(0x7C00, half(float.PositiveInfinity).value);
-            TestUtils.AreEqual(0xFE00, half(float.NaN).value);
+            TestUtils.AreEqual(0xFE00, half(TestUtils.SignedFloatQNaN()).value);
 
             TestUtils.AreEqual(0x8000, half(-2.98e-08f).value);
             TestUtils.AreEqual(0x8001, half(-5.96046448e-08f).value);
@@ -62,7 +62,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half_from_float_construction_signed_zero()
         {
-            TestUtils.AreEqual(0x8000, half(-0.0f).value);
+            TestUtils.AreEqual(0x8000, half(TestUtils.SignedFloatZero()).value);
         }
 
         [TestCompiler]
@@ -71,7 +71,7 @@ namespace Unity.Mathematics.Tests
             half2 h0 = half2(float2(0.0f, 2.98e-08f));
             half2 h1 = half2(float2(5.96046448e-08f, 123.4f));
             half2 h2 = half2(float2(65504.0f, 65520.0f));
-            half2 h3 = half2(float2(float.PositiveInfinity, float.NaN));
+            half2 h3 = half2(float2(float.PositiveInfinity, TestUtils.SignedFloatQNaN()));
 
             half2 h4 = half2(float2(-2.98e-08f, -5.96046448e-08f));
             half2 h5 = half2(float2(-123.4f, -65504.0f));
@@ -93,7 +93,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half2_from_float2_construction_signed_zero()
         {
-            half2 h0 = half2(float2(-0.0f, -0.0f));
+            half2 h0 = half2(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero()));
             TestUtils.AreEqual(uint2(0x8000, 0x8000), uint2(h0.x.value, h0.y.value));
         }
 
@@ -102,7 +102,7 @@ namespace Unity.Mathematics.Tests
         {
             half3 h0 = half3(float3(0.0f, 2.98e-08f, 5.96046448e-08f));
             half3 h1 = half3(float3(123.4f, 65504.0f, 65520.0f));
-            half3 h2 = half3(float3(float.PositiveInfinity, float.NaN, -2.98e-08f));
+            half3 h2 = half3(float3(float.PositiveInfinity, TestUtils.SignedFloatQNaN(), -2.98e-08f));
             half3 h3 = half3(float3(-5.96046448e-08f, -123.4f, -65504.0f));
             half3 h4 = half3(float3(-65520.0f, float.NegativeInfinity, 0.0f));
 
@@ -118,7 +118,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half3_from_float3_construction_signed_zero()
         {
-            half3 h0 = half3(float3(-0.0f, -0.0f, -0.0f));
+            half3 h0 = half3(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero()));
             TestUtils.AreEqual(uint3(0x8000, 0x8000, 0x8000), uint3(h0.x.value, h0.y.value, h0.z.value));
         }
 
@@ -126,7 +126,7 @@ namespace Unity.Mathematics.Tests
         public static void half4_from_float4_construction()
         {
             half4 h0 = half4(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f));
-            half4 h1 = half4(float4(65504.0f, 65520.0f, float.PositiveInfinity, float.NaN));
+            half4 h1 = half4(float4(65504.0f, 65520.0f, float.PositiveInfinity, TestUtils.SignedFloatQNaN()));
             half4 h2 = half4(float4(-2.98e-08f, -5.96046448e-08f, -123.4f, -65504.0f));
             half4 h3 = half4(float4(-65520.0f, float.NegativeInfinity, float.NegativeInfinity, 0.0f));
 
@@ -140,7 +140,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half4_from_float4_construction_signed_zero()
         {
-            half4 h0 = half4(float4(-0.0f, -0.0f, -0.0f, -0.0f));
+            half4 h0 = half4(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero()));
             TestUtils.AreEqual(uint4(0x8000, 0x8000, 0x8000, 0x8000), uint4(h0.x.value, h0.y.value, h0.z.value, h0.w.value));
         }
 
@@ -155,7 +155,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7BFF, half(65504.0).value);
             TestUtils.AreEqual(0x7C00, half(65520.0).value);
             TestUtils.AreEqual(0x7C00, half(double.PositiveInfinity).value);
-            TestUtils.AreEqual(0xFE00, half(double.NaN).value);
+            TestUtils.AreEqual(0xFE00, half(TestUtils.SignedDoubleQNaN()).value);
 
             TestUtils.AreEqual(0x8000, half(-2.98e-08).value);
             TestUtils.AreEqual(0x8001, half(-5.96046448e-08).value);
@@ -169,7 +169,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half_from_double_construction_signed_zero()
         {
-            TestUtils.AreEqual(0x8000, half(-0.0).value);
+            TestUtils.AreEqual(0x8000, half(TestUtils.SignedDoubleZero()).value);
         }
 
         [TestCompiler]
@@ -178,7 +178,7 @@ namespace Unity.Mathematics.Tests
             half2 h0 = half2(double2(0.0, 2.98e-08));
             half2 h1 = half2(double2(5.96046448e-08, 123.4));
             half2 h2 = half2(double2(65504.0, 65520.0));
-            half2 h3 = half2(double2(double.PositiveInfinity, double.NaN));
+            half2 h3 = half2(double2(double.PositiveInfinity, TestUtils.SignedDoubleQNaN()));
 
             half2 h4 = half2(double2(-2.98e-08, -5.96046448e-08));
             half2 h5 = half2(double2(-123.4, -65504.0));
@@ -200,7 +200,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half2_from_double2_construction_signed_zero()
         {
-            half2 h0 = half2(double2(-0.0, -0.0));
+            half2 h0 = half2(double2(TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero()));
             TestUtils.AreEqual(uint2(0x8000, 0x8000), uint2(h0.x.value, h0.y.value));
         }
 
@@ -209,7 +209,7 @@ namespace Unity.Mathematics.Tests
         {
             half3 h0 = half3(double3(0.0, 2.98e-08, 5.96046448e-08));
             half3 h1 = half3(double3(123.4, 65504.0, 65520.0));
-            half3 h2 = half3(double3(double.PositiveInfinity, double.NaN, -2.98e-08));
+            half3 h2 = half3(double3(double.PositiveInfinity, TestUtils.SignedDoubleQNaN(), -2.98e-08));
             half3 h3 = half3(double3(-5.96046448e-08, -123.4, -65504.0));
             half3 h4 = half3(double3(-65520.0, double.NegativeInfinity, 0.0));
 
@@ -225,7 +225,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half3_from_double3_construction_signed_zero()
         {
-            half3 h0 = half3(double3(-0.0, -0.0, -0.0));
+            half3 h0 = half3(double3(TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero()));
             TestUtils.AreEqual(uint3(0x8000, 0x8000, 0x8000), uint3(h0.x.value, h0.y.value, h0.z.value));
         }
 
@@ -233,7 +233,7 @@ namespace Unity.Mathematics.Tests
         public static void half4_from_double4_construction()
         {
             half4 h0 = half4(double4(0.0, 2.98e-08, 5.96046448e-08, 123.4));
-            half4 h1 = half4(double4(65504.0, 65520.0, double.PositiveInfinity, double.NaN));
+            half4 h1 = half4(double4(65504.0, 65520.0, double.PositiveInfinity, TestUtils.SignedDoubleQNaN()));
             half4 h2 = half4(double4(-2.98e-08, -5.96046448e-08, -123.4, -65504.0));
             half4 h3 = half4(double4(-65520.0, double.NegativeInfinity, double.NegativeInfinity, 0.0));
 
@@ -247,7 +247,7 @@ namespace Unity.Mathematics.Tests
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void half4_from_double4_construction_signed_zero()
         {
-            half4 h0 = half4(double4(-0.0, -0.0, -0.0, -0.0));
+            half4 h0 = half4(double4(TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero(), TestUtils.SignedDoubleZero()));
             TestUtils.AreEqual(uint4(0x8000, 0x8000, 0x8000, 0x8000), uint4(h0.x.value, h0.y.value, h0.z.value, h0.w.value));
         }
 
