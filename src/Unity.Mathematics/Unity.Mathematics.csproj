@@ -5,6 +5,8 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
     <OutputPath>..\..\build\bin\$(Configuration)\</OutputPath>
+    <!--Version must remain to 1.0.0.0 for Burst unit tests-->
+    <Version>1.0.0.0</Version> 
   </PropertyGroup>
   <ItemGroup>
     <Compile Remove="math_unity_conversion.cs" />
