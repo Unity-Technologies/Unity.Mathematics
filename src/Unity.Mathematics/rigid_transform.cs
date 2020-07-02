@@ -239,6 +239,7 @@ namespace Unity.Mathematics
         public bool Equals(RigidTransform x) { return rot.Equals(x.rot) && pos.Equals(x.pos); }
 
         /// <summary>Returns true if the RigidTransform is equal to a given RigidTransform, false otherwise.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override bool Equals(object x) { return Equals((RigidTransform)x); }
 
         /// <summary>Returns a hash code for the RigidTransform.</summary>

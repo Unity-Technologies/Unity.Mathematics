@@ -1124,721 +1124,937 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the tangent of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tan(float x) { return (float)System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tan(float2 x) { return new float2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tan(float3 x) { return new float3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tan(float4 x) { return new float4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the tangent of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tan(double x) { return System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tan(double2 x) { return new double2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tan(double3 x) { return new double3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tan(double4 x) { return new double4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tanh(float x) { return (float)System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tanh(float2 x) { return new float2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tanh(float3 x) { return new float3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tanh(float4 x) { return new float4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tanh(double x) { return System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tanh(double2 x) { return new double2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tanh(double3 x) { return new double3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tanh(double4 x) { return new double4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
 
 
         /// <summary>Returns the arctangent of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float atan(float x) { return (float)System.Math.Atan(x); }
 
         /// <summary>Returns the componentwise arctangent of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 atan(float2 x) { return new float2(atan(x.x), atan(x.y)); }
 
         /// <summary>Returns the componentwise arctangent of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 atan(float3 x) { return new float3(atan(x.x), atan(x.y), atan(x.z)); }
 
         /// <summary>Returns the componentwise arctangent of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 atan(float4 x) { return new float4(atan(x.x), atan(x.y), atan(x.z), atan(x.w)); }
 
 
         /// <summary>Returns the arctangent of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double atan(double x) { return System.Math.Atan(x); }
 
         /// <summary>Returns the componentwise arctangent of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 atan(double2 x) { return new double2(atan(x.x), atan(x.y)); }
 
         /// <summary>Returns the componentwise arctangent of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 atan(double3 x) { return new double3(atan(x.x), atan(x.y), atan(x.z)); }
 
         /// <summary>Returns the componentwise arctangent of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 atan(double4 x) { return new double4(atan(x.x), atan(x.y), atan(x.z), atan(x.w)); }
 
 
         /// <summary>Returns the 2-argument arctangent of a pair of float values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float atan2(float y, float x) { return (float)System.Math.Atan2(y, x); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 atan2(float2 y, float2 x) { return new float2(atan2(y.x, x.x), atan2(y.y, x.y)); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 atan2(float3 y, float3 x) { return new float3(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z)); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 atan2(float4 y, float4 x) { return new float4(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z), atan2(y.w, x.w)); }
 
 
         /// <summary>Returns the 2-argument arctangent of a pair of double values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double atan2(double y, double x) { return System.Math.Atan2(y, x); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 atan2(double2 y, double2 x) { return new double2(atan2(y.x, x.x), atan2(y.y, x.y)); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 atan2(double3 y, double3 x) { return new double3(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z)); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 atan2(double4 y, double4 x) { return new double4(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z), atan2(y.w, x.w)); }
 
 
         /// <summary>Returns the cosine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cos(float x) { return (float)System.Math.Cos(x); }
 
         /// <summary>Returns the componentwise cosine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 cos(float2 x) { return new float2(cos(x.x), cos(x.y)); }
 
         /// <summary>Returns the componentwise cosine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cos(float3 x) { return new float3(cos(x.x), cos(x.y), cos(x.z)); }
 
         /// <summary>Returns the componentwise cosine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 cos(float4 x) { return new float4(cos(x.x), cos(x.y), cos(x.z), cos(x.w)); }
 
 
         /// <summary>Returns the cosine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cos(double x) { return System.Math.Cos(x); }
 
         /// <summary>Returns the componentwise cosine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 cos(double2 x) { return new double2(cos(x.x), cos(x.y)); }
 
         /// <summary>Returns the componentwise cosine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cos(double3 x) { return new double3(cos(x.x), cos(x.y), cos(x.z)); }
 
         /// <summary>Returns the componentwise cosine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 cos(double4 x) { return new double4(cos(x.x), cos(x.y), cos(x.z), cos(x.w)); }
 
 
         /// <summary>Returns the hyperbolic cosine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cosh(float x) { return (float)System.Math.Cosh(x); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 cosh(float2 x) { return new float2(cosh(x.x), cosh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cosh(float3 x) { return new float3(cosh(x.x), cosh(x.y), cosh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 cosh(float4 x) { return new float4(cosh(x.x), cosh(x.y), cosh(x.z), cosh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic cosine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cosh(double x) { return System.Math.Cosh(x); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 cosh(double2 x) { return new double2(cosh(x.x), cosh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cosh(double3 x) { return new double3(cosh(x.x), cosh(x.y), cosh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 cosh(double4 x) { return new double4(cosh(x.x), cosh(x.y), cosh(x.z), cosh(x.w)); }
 
 
         /// <summary>Returns the arccosine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float acos(float x) { return (float)System.Math.Acos((float)x); }
 
         /// <summary>Returns the componentwise arccosine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 acos(float2 x) { return new float2(acos(x.x), acos(x.y)); }
 
         /// <summary>Returns the componentwise arccosine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 acos(float3 x) { return new float3(acos(x.x), acos(x.y), acos(x.z)); }
 
         /// <summary>Returns the componentwise arccosine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 acos(float4 x) { return new float4(acos(x.x), acos(x.y), acos(x.z), acos(x.w)); }
 
 
         /// <summary>Returns the arccosine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double acos(double x) { return System.Math.Acos(x); }
 
         /// <summary>Returns the componentwise arccosine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 acos(double2 x) { return new double2(acos(x.x), acos(x.y)); }
 
         /// <summary>Returns the componentwise arccosine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 acos(double3 x) { return new double3(acos(x.x), acos(x.y), acos(x.z)); }
 
         /// <summary>Returns the componentwise arccosine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 acos(double4 x) { return new double4(acos(x.x), acos(x.y), acos(x.z), acos(x.w)); }
 
 
         /// <summary>Returns the sine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sin(float x) { return (float)System.Math.Sin((float)x); }
 
         /// <summary>Returns the componentwise sine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sin(float2 x) { return new float2(sin(x.x), sin(x.y)); }
 
         /// <summary>Returns the componentwise sine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sin(float3 x) { return new float3(sin(x.x), sin(x.y), sin(x.z)); }
 
         /// <summary>Returns the componentwise sine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sin(float4 x) { return new float4(sin(x.x), sin(x.y), sin(x.z), sin(x.w)); }
 
 
         /// <summary>Returns the sine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sin(double x) { return System.Math.Sin(x); }
 
         /// <summary>Returns the componentwise sine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sin(double2 x) { return new double2(sin(x.x), sin(x.y)); }
 
         /// <summary>Returns the componentwise sine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sin(double3 x) { return new double3(sin(x.x), sin(x.y), sin(x.z)); }
 
         /// <summary>Returns the componentwise sine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sin(double4 x) { return new double4(sin(x.x), sin(x.y), sin(x.z), sin(x.w)); }
 
 
         /// <summary>Returns the hyperbolic sine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sinh(float x) { return (float)System.Math.Sinh((float)x); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sinh(float2 x) { return new float2(sinh(x.x), sinh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sinh(float3 x) { return new float3(sinh(x.x), sinh(x.y), sinh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sinh(float4 x) { return new float4(sinh(x.x), sinh(x.y), sinh(x.z), sinh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic sine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sinh(double x) { return System.Math.Sinh(x); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sinh(double2 x) { return new double2(sinh(x.x), sinh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sinh(double3 x) { return new double3(sinh(x.x), sinh(x.y), sinh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sinh(double4 x) { return new double4(sinh(x.x), sinh(x.y), sinh(x.z), sinh(x.w)); }
 
 
         /// <summary>Returns the arcsine of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float asin(float x) { return (float)System.Math.Asin((float)x); }
 
         /// <summary>Returns the componentwise arcsine of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 asin(float2 x) { return new float2(asin(x.x), asin(x.y)); }
 
         /// <summary>Returns the componentwise arcsine of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 asin(float3 x) { return new float3(asin(x.x), asin(x.y), asin(x.z)); }
 
         /// <summary>Returns the componentwise arcsine of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asin(float4 x) { return new float4(asin(x.x), asin(x.y), asin(x.z), asin(x.w)); }
 
 
         /// <summary>Returns the arcsine of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asin(double x) { return System.Math.Asin(x); }
 
         /// <summary>Returns the componentwise arcsine of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 asin(double2 x) { return new double2(asin(x.x), asin(x.y)); }
 
         /// <summary>Returns the componentwise arcsine of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 asin(double3 x) { return new double3(asin(x.x), asin(x.y), asin(x.z)); }
 
         /// <summary>Returns the componentwise arcsine of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 asin(double4 x) { return new double4(asin(x.x), asin(x.y), asin(x.z), asin(x.w)); }
 
 
         /// <summary>Returns the result of rounding a float value up to the nearest integral value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float floor(float x) { return (float)System.Math.Floor((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 floor(float2 x) { return new float2(floor(x.x), floor(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 floor(float3 x) { return new float3(floor(x.x), floor(x.y), floor(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 floor(float4 x) { return new float4(floor(x.x), floor(x.y), floor(x.z), floor(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value up to the nearest integral value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double floor(double x) { return System.Math.Floor(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 floor(double2 x) { return new double2(floor(x.x), floor(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 floor(double3 x) { return new double3(floor(x.x), floor(x.y), floor(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value down to the nearest value less or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 floor(double4 x) { return new double4(floor(x.x), floor(x.y), floor(x.z), floor(x.w)); }
 
 
         /// <summary>Returns the result of rounding a float value up to the nearest integral value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ceil(float x) { return (float)System.Math.Ceiling((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value up to the nearest value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 ceil(float2 x) { return new float2(ceil(x.x), ceil(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value up to the nearest value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 ceil(float3 x) { return new float3(ceil(x.x), ceil(x.y), ceil(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value up to the nearest value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 ceil(float4 x) { return new float4(ceil(x.x), ceil(x.y), ceil(x.z), ceil(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value up to the nearest greater integral value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ceil(double x) { return System.Math.Ceiling(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value up to the nearest integral value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 ceil(double2 x) { return new double2(ceil(x.x), ceil(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value up to the nearest integral value greater or equal to the original value..</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 ceil(double3 x) { return new double3(ceil(x.x), ceil(x.y), ceil(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value up to the nearest integral value greater or equal to the original value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 ceil(double4 x) { return new double4(ceil(x.x), ceil(x.y), ceil(x.z), ceil(x.w)); }
 
 
         /// <summary>Returns the result of rounding a float value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float round(float x) { return (float)System.Math.Round((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 round(float2 x) { return new float2(round(x.x), round(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 round(float3 x) { return new float3(round(x.x), round(x.y), round(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 round(float4 x) { return new float4(round(x.x), round(x.y), round(x.z), round(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double round(double x) { return System.Math.Round(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 round(double2 x) { return new double2(round(x.x), round(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 round(double3 x) { return new double3(round(x.x), round(x.y), round(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value to the nearest integral value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 round(double4 x) { return new double4(round(x.x), round(x.y), round(x.z), round(x.w)); }
 
 
         /// <summary>Returns the result of truncating a float value to an integral float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float trunc(float x) { return (float)System.Math.Truncate((float)x); }
 
         /// <summary>Returns the result of a componentwise truncation of a float2 value to an integral float2 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 trunc(float2 x) { return new float2(trunc(x.x), trunc(x.y)); }
 
         /// <summary>Returns the result of a componentwise truncation of a float3 value to an integral float3 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 trunc(float3 x) { return new float3(trunc(x.x), trunc(x.y), trunc(x.z)); }
 
         /// <summary>Returns the result of a componentwise truncation of a float4 value to an integral float4 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 trunc(float4 x) { return new float4(trunc(x.x), trunc(x.y), trunc(x.z), trunc(x.w)); }
 
 
         /// <summary>Returns the result of truncating a double value to an integral double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double trunc(double x) { return System.Math.Truncate(x); }
 
         /// <summary>Returns the result of a componentwise truncation of a double2 value to an integral double2 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 trunc(double2 x) { return new double2(trunc(x.x), trunc(x.y)); }
 
         /// <summary>Returns the result of a componentwise truncation of a double3 value to an integral double3 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 trunc(double3 x) { return new double3(trunc(x.x), trunc(x.y), trunc(x.z)); }
 
         /// <summary>Returns the result of a componentwise truncation of a double4 value to an integral double4 value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 trunc(double4 x) { return new double4(trunc(x.x), trunc(x.y), trunc(x.z), trunc(x.w)); }
 
 
         /// <summary>Returns the fractional part of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float frac(float x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 frac(float2 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 frac(float3 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 frac(float4 x) { return x - floor(x); }
 
 
         /// <summary>Returns the fractional part of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double frac(double x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 frac(double2 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 frac(double3 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 frac(double4 x) { return x - floor(x); }
 
 
         /// <summary>Returns the reciprocal a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float rcp(float x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 rcp(float2 x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rcp(float3 x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 rcp(float4 x) { return 1.0f / x; }
 
 
         /// <summary>Returns the reciprocal a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double rcp(double x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 rcp(double2 x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 rcp(double3 x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 rcp(double4 x) { return 1.0 / x; }
 
 
         /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sign(float x) { return (x > 0.0f ? 1.0f : 0.0f) - (x < 0.0f ? 1.0f : 0.0f); }
 
         /// <summary>Returns the componentwise sign of a float2 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sign(float2 x) { return new float2(sign(x.x), sign(x.y)); }
 
         /// <summary>Returns the componentwise sign of a float3 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sign(float3 x) { return new float3(sign(x.x), sign(x.y), sign(x.z)); }
 
         /// <summary>Returns the componentwise sign of a float4 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sign(float4 x) { return new float4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
 
         /// <summary>Returns the sign of a double value. -1.0 if it is less than zero, 0.0 if it is zero and 1.0 if it greater than zero.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sign(double x) { return x == 0 ? 0 : (x > 0.0 ? 1.0 : 0.0) - (x < 0.0 ? 1.0 : 0.0); }
 
         /// <summary>Returns the componentwise sign of a double2 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sign(double2 x) { return new double2(sign(x.x), sign(x.y)); }
 
         /// <summary>Returns the componentwise sign of a double3 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sign(double3 x) { return new double3(sign(x.x), sign(x.y), sign(x.z)); }
 
         /// <summary>Returns the componentwise sign of a double4 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sign(double4 x) { return new double4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
 
         /// <summary>Returns x raised to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float pow(float x, float y) { return (float)System.Math.Pow((float)x, (float)y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 pow(float2 x, float2 y) { return new float2(pow(x.x, y.x), pow(x.y, y.y)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 pow(float3 x, float3 y) { return new float3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 pow(float4 x, float4 y) { return new float4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
         /// <summary>Returns x raised to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double pow(double x, double y) { return System.Math.Pow(x, y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 pow(double2 x, double2 y) { return new double2(pow(x.x, y.x), pow(x.y, y.y)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 pow(double3 x, double3 y) { return new double3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 pow(double4 x, double4 y) { return new double4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
         /// <summary>Returns the base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp(float x) { return (float)System.Math.Exp((float)x); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp(float2 x) { return new float2(exp(x.x), exp(x.y)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp(float3 x) { return new float3(exp(x.x), exp(x.y), exp(x.z)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp(float4 x) { return new float4(exp(x.x), exp(x.y), exp(x.z), exp(x.w)); }
 
 
         /// <summary>Returns the base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp(double x) { return System.Math.Exp(x); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp(double2 x) { return new double2(exp(x.x), exp(x.y)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp(double3 x) { return new double3(exp(x.x), exp(x.y), exp(x.z)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp(double4 x) { return new double4(exp(x.x), exp(x.y), exp(x.z), exp(x.w)); }
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp2(float x) { return (float)System.Math.Exp((float)x * 0.69314718f); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp2(float2 x) { return new float2(exp2(x.x), exp2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp2(float3 x) { return new float3(exp2(x.x), exp2(x.y), exp2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp2(float4 x) { return new float4(exp2(x.x), exp2(x.y), exp2(x.z), exp2(x.w)); }
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp2(double x) { return System.Math.Exp(x * 0.693147180559945309); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp2(double2 x) { return new double2(exp2(x.x), exp2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp2(double3 x) { return new double3(exp2(x.x), exp2(x.y), exp2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp2(double4 x) { return new double4(exp2(x.x), exp2(x.y), exp2(x.z), exp2(x.w)); }
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp10(float x) { return (float)System.Math.Exp((float)x * 2.30258509f); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp10(float2 x) { return new float2(exp10(x.x), exp10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp10(float3 x) { return new float3(exp10(x.x), exp10(x.y), exp10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp10(float4 x) { return new float4(exp10(x.x), exp10(x.y), exp10(x.z), exp10(x.w)); }
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp10(double x) { return System.Math.Exp(x * 2.302585092994045684); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp10(double2 x) { return new double2(exp10(x.x), exp10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp10(double3 x) { return new double3(exp10(x.x), exp10(x.y), exp10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp10(double4 x) { return new double4(exp10(x.x), exp10(x.y), exp10(x.z), exp10(x.w)); }
 
 
         /// <summary>Returns the natural logarithm of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log(float x) { return (float)System.Math.Log((float)x); }
 
         /// <summary>Returns the componentwise natural logarithm of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log(float2 x) { return new float2(log(x.x), log(x.y)); }
 
         /// <summary>Returns the componentwise natural logarithm of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log(float3 x) { return new float3(log(x.x), log(x.y), log(x.z)); }
 
         /// <summary>Returns the componentwise natural logarithm of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log(float4 x) { return new float4(log(x.x), log(x.y), log(x.z), log(x.w)); }
 
 
         /// <summary>Returns the natural logarithm of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log(double x) { return System.Math.Log(x); }
 
         /// <summary>Returns the componentwise natural logarithm of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log(double2 x) { return new double2(log(x.x), log(x.y)); }
 
         /// <summary>Returns the componentwise natural logarithm of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log(double3 x) { return new double3(log(x.x), log(x.y), log(x.z)); }
 
         /// <summary>Returns the componentwise natural logarithm of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log(double4 x) { return new double4(log(x.x), log(x.y), log(x.z), log(x.w)); }
 
 
         /// <summary>Returns the base-2 logarithm of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log2(float x) { return (float)System.Math.Log((float)x, 2.0f); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log2(float2 x) { return new float2(log2(x.x), log2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log2(float3 x) { return new float3(log2(x.x), log2(x.y), log2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log2(float4 x) { return new float4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
 
         /// <summary>Returns the base-2 logarithm of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log2(double x) { return System.Math.Log(x, 2.0); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log2(double2 x) { return new double2(log2(x.x), log2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log2(double3 x) { return new double3(log2(x.x), log2(x.y), log2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log2(double4 x) { return new double4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
         /// <summary>Returns the base-10 logarithm of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log10(float x) { return (float)System.Math.Log10((float)x); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log10(float2 x) { return new float2(log10(x.x), log10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log10(float3 x) { return new float3(log10(x.x), log10(x.y), log10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log10(float4 x) { return new float4(log10(x.x), log10(x.y), log10(x.z), log10(x.w)); }
 
 
         /// <summary>Returns the base-10 logarithm of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log10(double x) { return System.Math.Log10(x); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log10(double2 x) { return new double2(log10(x.x), log10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log10(double3 x) { return new double3(log10(x.x), log10(x.y), log10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log10(double4 x) { return new double4(log10(x.x), log10(x.y), log10(x.z), log10(x.w)); }
 
 
         /// <summary>Returns the floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float fmod(float x, float y) { return x % y; }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 fmod(float2 x, float2 y) { return new float2(x.x % y.x, x.y % y.y); }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 fmod(float3 x, float3 y) { return new float3(x.x % y.x, x.y % y.y, x.z % y.z); }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 fmod(float4 x, float4 y) { return new float4(x.x % y.x, x.y % y.y, x.z % y.z, x.w % y.w); }
 
 
         /// <summary>Returns the double precision floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double fmod(double x, double y) { return x % y; }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 fmod(double2 x, double2 y) { return new double2(x.x % y.x, x.y % y.y); }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 fmod(double3 x, double3 y) { return new double3(x.x % y.x, x.y % y.y, x.z % y.z); }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 fmod(double4 x, double4 y) { return new double4(x.x % y.x, x.y % y.y, x.z % y.z, x.w % y.w); }
 
 
         /// <summary>Splits a float value into an integral part i and a fractional part that gets returned. Both parts take the sign of the input.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float modf(float x, out float i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a float2 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 modf(float2 x, out float2 i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a float3 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 modf(float3 x, out float3 i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a float4 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 modf(float4 x, out float4 i) { i = trunc(x); return x - i; }
 
 
         /// <summary>Splits a double value into an integral part i and a fractional part that gets returned. Both parts take the sign of the input.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double modf(double x, out double i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a double2 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 modf(double2 x, out double2 i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a double3 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 modf(double3 x, out double3 i) { i = trunc(x); return x - i; }
 
         /// <summary>
         /// Performs a componentwise split of a double4 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 modf(double4 x, out double4 i) { i = trunc(x); return x - i; }
 
 
         /// <summary>Returns the square root of a float value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sqrt(float x) { return (float)System.Math.Sqrt((float)x); }
 
         /// <summary>Returns the componentwise square root of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sqrt(float2 x) { return new float2(sqrt(x.x), sqrt(x.y)); }
 
         /// <summary>Returns the componentwise square root of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sqrt(float3 x) { return new float3(sqrt(x.x), sqrt(x.y), sqrt(x.z)); }
 
         /// <summary>Returns the componentwise square root of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sqrt(float4 x) { return new float4(sqrt(x.x), sqrt(x.y), sqrt(x.z), sqrt(x.w)); }
 
 
         /// <summary>Returns the square root of a double value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sqrt(double x) { return System.Math.Sqrt(x); }
 
         /// <summary>Returns the componentwise square root of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sqrt(double2 x) { return new double2(sqrt(x.x), sqrt(x.y)); }
 
         /// <summary>Returns the componentwise square root of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sqrt(double3 x) { return new double3(sqrt(x.x), sqrt(x.y), sqrt(x.z)); }
 
         /// <summary>Returns the componentwise square root of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sqrt(double4 x) { return new double4(sqrt(x.x), sqrt(x.y), sqrt(x.z), sqrt(x.w)); }
 
 
@@ -1877,22 +2093,28 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a normalized version of the float2 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 normalize(float2 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the float3 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 normalize(float3 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the float4 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 normalize(float4 x) { return rsqrt(dot(x, x)) * x; }
 
 
         /// <summary>Returns a normalized version of the double2 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 normalize(double2 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the double3 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 normalize(double3 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the double4 vector x by scaling it by 1 / length(x).</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 normalize(double4 x) { return rsqrt(dot(x, x)) * x; }
 
 
@@ -1900,6 +2122,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float2 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float2 normalizesafe(float2 x, float2 defaultvalue = new float2())
         {
             float len = math.dot(x, x);
@@ -1910,6 +2133,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float3 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float3 normalizesafe(float3 x, float3 defaultvalue = new float3())
         {
             float len = math.dot(x, x);
@@ -1920,6 +2144,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float4 normalizesafe(float4 x, float4 defaultvalue = new float4())
         {
             float len = math.dot(x, x);
@@ -1931,6 +2156,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double2 normalizesafe(double2 x, double2 defaultvalue = new double2())
         {
             double len = math.dot(x, x);
@@ -1941,6 +2167,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double3 normalizesafe(double3 x, double3 defaultvalue = new double3())
         {
             double len = math.dot(x, x);
@@ -1951,6 +2178,7 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double4 normalizesafe(double4 x, double4 defaultvalue = new double4())
         {
             double len = math.dot(x, x);
@@ -1959,117 +2187,152 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the length of a float value. Equivalent to the absolute value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float x) { return abs(x); }
 
         /// <summary>Returns the length of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float2 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float3 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float4 x) { return sqrt(dot(x, x)); }
 
 
         /// <summary>Returns the length of a double value. Equivalent to the absolute value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double x) { return abs(x); }
 
         /// <summary>Returns the length of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double2 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double3 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double4 x) { return sqrt(dot(x, x)); }
 
 
         /// <summary>Returns the squared length of a float value. Equivalent to squaring the value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float x) { return x*x; }
 
         /// <summary>Returns the squared length of a float2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float2 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a float3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float3 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a float4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float4 x) { return dot(x, x); }
 
 
         /// <summary>Returns the squared length of a double value. Equivalent to squaring the value.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double x) { return x * x; }
 
         /// <summary>Returns the squared length of a double2 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double2 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a double3 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double3 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a double4 vector.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double4 x) { return dot(x, x); }
 
 
         /// <summary>Returns the distance between two float values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float x, float y) { return abs(y - x); }
 
         /// <summary>Returns the distance between two float2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float2 x, float2 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two float3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float3 x, float3 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two float4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float4 x, float4 y) { return length(y - x); }
 
 
         /// <summary>Returns the distance between two double values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double x, double y) { return abs(y - x); }
 
         /// <summary>Returns the distance between two double2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double2 x, double2 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two double3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double3 x, double3 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two double4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double4 x, double4 y) { return length(y - x); }
 
 
         /// <summary>Returns the distance between two float values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float x, float y) { return (y - x) * (y - x); }
 
         /// <summary>Returns the distance between two float2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float2 x, float2 y) { return lengthsq(y - x); }
 
         /// <summary>Returns the distance between two float3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float3 x, float3 y) { return lengthsq(y - x); }
 
         /// <summary>Returns the distance between two float4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float4 x, float4 y) { return lengthsq(y - x); }
 
 
         /// <summary>Returns the distance between two double values.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double x, double y) { return (y - x) * (y - x); }
 
         /// <summary>Returns the distance between two double2 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double2 x, double2 y) { return lengthsq(y - x); }
 
         /// <summary>Returns the distance between two double3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double3 x, double3 y) { return lengthsq(y - x); }
 
         /// <summary>Returns the distance between two double4 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double4 x, double4 y) { return lengthsq(y - x); }
 
 
         /// <summary>Returns the cross product of two float3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cross(float3 x, float3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
         /// <summary>Returns the cross product of two double3 vectors.</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cross(double3 x, double3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
 
         /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float smoothstep(float a, float b, float x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2077,6 +2340,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 smoothstep(float2 a, float2 b, float2 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2084,6 +2348,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 smoothstep(float3 a, float3 b, float3 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2091,6 +2356,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 smoothstep(float4 a, float4 b, float4 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2099,6 +2365,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double smoothstep(double a, double b, double x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2106,6 +2373,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 smoothstep(double2 a, double2 b, double2 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2113,6 +2381,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 smoothstep(double3 a, double3 b, double3 x)
         {
             var t = saturate((x - a) / (b - a));
@@ -2120,6 +2389,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 smoothstep(double4 a, double4 b, double4 x)
         {
             var t = saturate((x - a) / (b - a));
