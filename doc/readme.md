@@ -1,0 +1,67 @@
+Document written by Rune Stubbe, December 14th 2018
+
+Pseudorandom notes on Unity.Mathematics
+==============================================
+Differences between Mathematics and HLSL
+-----------------------------------------
+Unity.Mathematics tries to follow familiar HLSL conventions whenever possible. Formulas and computations are generally more succintly expressed in a HLSL-like syntax with swizzles and free function than the traditional C# Unity Math library. Unity.Mathematics is not HLSL, but is in most instances trivially portable. The large common subset allows for code to directly shared between the two in many cases.
+Due to inherent limitations in C# and for consistency reasons there are some notable differences between Unity.Mathematics and HLSL.
+1. Type conversion rules:
+HLSL will implicitly perform narrowing conversions. This could for instance be a float2 assigned directly to an int2/bool2.
+C# requires explict casts to perform these kinds of potentially lossy conversions. We have chosen to follow the C# conventions here for consistency with how the conversions already function with C#'s builtin types int/float/etc.
+2. Floating point literals:
+In HLSL the default floating point literal precision is float, while it is double in C#. The `1.5` float literal in HLSL corresponds to `1.5f` in C# and the likewise the double literal `3.2L` in HLSL corresponds to `3.2` in C#.
+3. Half precision floating point: `half`/`halfN` are supported in Mathematics, but only as storage types that implicitly convert to `float`/`double` types and can be explicitly converted to from these types. No arithmetic operation are defined on them as opposed to the HLSL types. We chose to do this as these operations would involve implicit conversion to and from `half`. These operations would be expensive and we believe that expensive operations should not happen implicitly.
+4. Implicit truncation:
+HLSL allows you to assign a float4 to a float2. As long as the source has at least as many components as the destination, the assignment is allowed. Any additional components are truncated away. We consider this behavior counter intuitive and error prone, so Unity.Mathematics does not try to mimic this behavior.
+Unity.Mathematics aims to be a lean core library without domain specific features such as collision detection primitives, color space conversions, etc. Within these constraints, we decided to make the following additions.
+1. Named constructors for matrix types:
+A lot of game code is centered around manipulating transforms. To ease this work we have added a number of constructors and conversions between various transform representations and added a number of named constructors for constructing various transforms for Rotation, Translation, Scaling, Orthographic/Perspective projections, LookAt transforms, etc.
+2. A `quaternion` type:
+Considering how ubiquitous quaternions are in games, it seems appropriate to provide a good standard implementation in core mathematics. Whenever possible `quaternion` is a drop in replacement for `float3x3`. `mul` is also defined for `quaternion` just as for `float3x3`, `quaternion` can be used to initialize matrices and `quaternion` defines the same set of named constructors as the equivalent `float3x3` type.
+3. Various additional utility functions:
+`inverse`/`fastinverse` for inverting a matrix or quaternion. Horizontal operations `csum`/`cmin`/`cmax`. `compress` for left packing a vector using a boolean mask. Squared length/distance functions `lengthsq/distancesq`. `orthonormalize` functions, and many others.
+4. Random Number Generator: `Random`. Basic PRNG with support for drawing uniformly random values of the basic scalar and vector types. It also has functions for generating uniformly random directions and rotation. The generator is based on the xor-shift algorithm. This algorithm was chosen primarily because it has a small state and unlike most PRNGs doesn't require integer multiplication, which is a problematic operation on lower-tier vector instruction sets.
+5. `RigidTransform` (quaternion + position) and Cellular/Perlin Noise: The current math library includes these, but while useful, they would would probably find a better home somewhere outside the core mathematics library.
+
+Generated code
+--------------
+Unity.Mathematics has a high degree of regularity that is not easily expressed in ordinary C# code. Constructors, conversion operators, arithmetic operators, swizzles, ToString-methods, Hash functions, etc. of the many vector and matrix type variants are all distinct, but all follow the same basic structure. To avoid the error prone process of writing and maintaining the many variants, we generate the code for these regular functions using the C# program **Unity.Mathematics.CodeGen**. The resulting generated files are easily recognizable by their *.gen.cs extension. To get test coverage of these functions, the corresponding tests are also generated by this program. 
+
+Tests
+---
+
+Unity.Mathematics includes thousands of unit tests to cover methods and operator overloads for the vector, matrix and quaternion types that can be found in the **Unity.Mathematics.Tests** project.
+The tests aim to exercise the entire set of Unity.Mathematics features using a combination of generated and manual tests. As Unity.Mathematics is intended to be used with the Burst compiler, we also include most of these tests as part of the Burst compiler tests in the **Burst.Compiler.IL.Tests** project. All shared tests between the two are in the `Tests/Shared` folder. A few tests have had to be omitted as the testing code it self uses unburstable code.
+
+Floating point precision and floating point overflow/underflow
+--------------------------------------------------------------
+
+Floating point precision in C# guarantees a minimum, but not a maximum precision. float might be evaluated as double (which mono likes to do) or double might be evaluated using extended precision (80bits). The precision is not even guaranteed to be consistent on a specific platform or even a concrete program. It might vary depending on how the JIT decides to optimize a particular piece of code!
+Anecdotely it seems these two otherwise semantically identical pieces of code can behave differently because of JIT optimization decisions (x86):
+1. Constants in array
+```C#
+var a = new double[2] = { -2.5e160, 1.2e160 };
+double d = System.Math.Sqrt(a[0] * a[0] + a[1] * a[1]);
+System.Console.WriteLine("" + d); // Debug Build: Infinity, Release Build: 2.86356e160.
+```
+2. Constants in local variables
+```C#
+double a = -2.6e160;
+double b = -1.2e160;
+double d = System.Math.Sqrt(a * a + b * b);
+System.Console.WriteLine("" + d); // Debug Build: Infinity, Release Build: Infinity.
+```
+You would expect the result to always be Infinity as the intermediate value inside the Sqrt (8.2e320) is outside the valid double precision range. But depending on the platform, whether optimizations are enabled and surprisingly even whether or not the constants come from a local variable or array, this might produce a finite value. Seemingly this happens because it might decide to perform the calculation in extended precision.
+This behavior is specified in the C# specification (9.3.7) where it states: "Floating-point operations may be performed with higher precision than the result type of the operation.".
+Due to this inconsistency, we have to avoid floating point overflow behavior, as it is simple not guaranteed even using Microsoft's own runtime!
+
+Signed zeros
+-------------
+
+According to the C# specification section 9.3.7 C# supports and distinguishes between positive and negative floating point zeros. In practice we have found this not to be the case on our current Linux Mono environment, where seemingly negative zeroes are initialized as positive zeros. We should investigate this further at some point, but so far the affected tests are simply disabled in Linux using the `[WindowsOnlyAttribute]`.
+
+Known issues
+------------
+
+1. In order for code to be burstable we have to define all class-like objects as structs, but unlike classes there is no way to enforce that a struct gets initialized in any particular way. Just declaring a struct will give the user a zero-initialized instance. One instance where this limitation is very apparent is with `Random`. There is no way for us to guarantee that the user doesn't accidentally declare a zero-initialized instance. Such an instance has the unfortunate property that it will be stuck perpetually generating nothing but zeros. This is by the nature of the xor-shift algorithm, but it seems unnecessarily error-prone. While we could work around the problem by internally remapping the seed space, it would incur some unnecessary additional overhead and it seems this problem is likely to arise in other class-like objects implemented with structs.
