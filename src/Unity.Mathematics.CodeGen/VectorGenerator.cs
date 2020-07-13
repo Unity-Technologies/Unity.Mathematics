@@ -2724,7 +2724,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (float.IsNaN(f))
                     return uf < 0x80000000u ? "TestUtils.UnsignedFloatQNaN()" : "TestUtils.SignedFloatQNaN()";
                 else if (uf == 0x80000000u)
-                    return "-0.0f";
+                    return "TestUtils.SignedFloatZero()";
                 else
                     return ((float)(object)value).ToString("R") + "f";
             }
@@ -2743,7 +2743,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 else if (double.IsNaN(d))
                     return ud < 0x8000000000000000ul ? "TestUtils.UnsignedDoubleQNaN()" : "TestUtils.SignedDoubleQNaN()";
                 else if (ud == 0x8000000000000000ul)
-                    return "-0.0";
+                    return "TestUtils.SignedDoubleZero()";
                 else
                 {
                     string s = ((double)(object)value).ToString("R");
@@ -3200,23 +3200,23 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             GenerateComponentWiseTestFloatAndDouble(str, "pow", new double[,] {     { double.NegativeInfinity, double.NegativeInfinity }, { -3.4, double.NegativeInfinity }, { -0.0, double.NegativeInfinity}, { 0.0, double.NegativeInfinity}, { 3.4, double.NegativeInfinity}, { double.PositiveInfinity, double.NegativeInfinity}, { double.NaN, double.NegativeInfinity},
 
-                                                                                    { double.NegativeInfinity, -2.6}, { -3.4, -2.6}, { -0.0, -2.6}, { 0.0, -2.6}, { 3.4, -2.6}, { double.PositiveInfinity, -2.6}, { double.NaN, -2.6},
+                                                                                    /*{ double.NegativeInfinity, -2.6} DOTS-1833 */ { -3.4, -2.6}, { -0.0, -2.6}, { 0.0, -2.6}, { 3.4, -2.6}, { double.PositiveInfinity, -2.6}, { double.NaN, -2.6},
 
                                                                                     { double.NegativeInfinity, -0.0}, { -3.4, -0.0}, { -0.0, -0.0}, { 0.0, -0.0}, { 3.4, -0.0}, { double.PositiveInfinity, -0.0}, // { double.NaN, -0.0}, // TODO: fails with burst
                                                                                     { double.NegativeInfinity, 0.0}, { -3.4, 0.0}, { -0.0, 0.0}, { 0.0, 0.0}, { 3.4, 0.0}, { double.PositiveInfinity, 0.0}, // { double.NaN, 0.0}, // TODO: fails with burst
 
-                                                                                    { double.NegativeInfinity, 2.6}, { -3.4, 2.6}, { -0.0, 2.6}, { 0.0, 2.6}, { 3.4, 2.6}, { double.PositiveInfinity, 2.6}, { double.NaN, 2.6},
+                                                                                    /*{ double.NegativeInfinity, 2.6}, DOTS-1833 */ { -3.4, 2.6}, { -0.0, 2.6}, { 0.0, 2.6}, { 3.4, 2.6}, { double.PositiveInfinity, 2.6}, { double.NaN, 2.6},
                                                                                     { double.NegativeInfinity, double.PositiveInfinity}, { -3.4, double.PositiveInfinity}, { -0.0, double.PositiveInfinity}, { 0.0, double.PositiveInfinity}, { 3.4, double.PositiveInfinity}, { double.PositiveInfinity, double.PositiveInfinity}, { double.NaN, double.PositiveInfinity},
                                                                                     { double.NegativeInfinity, double.NaN}, { -3.4, double.NaN}, { -0.0, double.NaN}, { 0.0, double.NaN}, { 3.4, double.NaN}, { double.PositiveInfinity, double.NaN}, { double.NaN, double.NaN},
 
                                                                                     },
                                                                  new double[]       {
                                                                                       0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.NaN,
-                                                                                      0.0, double.NaN, double.PositiveInfinity, double.PositiveInfinity, 0.041510199028461224, 0.0, double.NaN,
+                                                                                      /*0.0, DOTS-1833 */ double.NaN, double.PositiveInfinity, double.PositiveInfinity, 0.041510199028461224, 0.0, double.NaN,
                                                                                       1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
                                                                                       1.0, 1.0, 1.0, 1.0, 1.0, 1.0, // double.NaN, // TODO: fails with burst
 
-                                                                                      double.PositiveInfinity, double.NaN, 0.0, 0.0, 24.090465076169736, double.PositiveInfinity, double.NaN,
+                                                                                      /*double.PositiveInfinity, DOTS-1833 */ double.NaN, 0.0, 0.0, 24.090465076169736, double.PositiveInfinity, double.NaN,
 
                                                                                       double.PositiveInfinity, double.PositiveInfinity, 0.0, 0.0, double.PositiveInfinity, double.PositiveInfinity, double.NaN,
                                                                                       double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN, double.NaN,

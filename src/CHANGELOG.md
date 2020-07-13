@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+- Added [MethodImpl(MethodImplOptions.AggressiveInlining)] to many static functions to improve IL2CPP performance.
+- Added compress() that accepts a float4 and uint4.
 - Added math.project() and math.projectsafe() for vector projection.
 - Added math.EPSILON, math.INFINITY, math.NAN and their double counterparts.
 - Added [Serializable] to RigidTransform.
@@ -15,6 +17,7 @@
 - Added Random.CreateFromIndex() to assist in creating Random instances from loop indices.
 - Fixed documentation bug where quaternion.RotateX/Y/Z referred to a float4x4 instead of quaternion.
 - Fixed code generation bugs which could cause Windows and Mac to generate different test code.
+- Fixed some test asserts which used NaNs and signed zeros which failed in IL2CPP builds.
 - Updated documentation for math.countbits() to include equivalent names on Intel and ARM architectures to aid in discoverability.
 - Internal: Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
 - Internal: Added more MinMaxAABB functionality from Unity.Physics.Aabb.
