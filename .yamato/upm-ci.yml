@@ -3,21 +3,28 @@ build_platforms:
     type: Unity::VM
     image: sdet/burst-devimage:stable
     flavor: b1.large
-    npm_cmd: "npm"
-    upm_cmd: "upm-ci"
   - name: linux
     image: package-ci/ubuntu:stable
     type: Unity::VM
     flavor: b1.large
-    npm_cmd: "npm"
-    upm_cmd: "DISPLAY=:0.0 upm-ci"
   - name: macOS
     image: burst/burst_mac:stable
     type: Unity::VM::osx
     flavor: m1.mac
-    npm_cmd: "npm"
-    upm_cmd: "upm-ci"
 
+upmci_platforms:
+  - name: windows
+    type: Unity::VM
+    image: package-ci/win10:stable
+    flavor: m1.large
+  - name: linux
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+    flavor: b1.large
+  - name: macOS
+    image: package-ci/mac:stable
+    type: Unity::VM::osx
+    flavor: m1.mac
 
 editor_versions:
   - version: "2018.4"
@@ -31,7 +38,6 @@ editor_versions:
 run_tests_on_mono_{{platform.name}}:
   name: Tests NUnit on {{platform.name}}
   agent:
-      name: {{platform.name}}
       type: {{platform.type}}
       image: {{platform.image}}
       flavor: {{platform.flavor}}
@@ -48,14 +54,13 @@ run_tests_on_mono_{{platform.name}}:
 validate_package_minimal:
   name: Validate Package Linux Minimal
   agent:
-    name: linux
     image: package-ci/ubuntu:stable
     type: Unity::VM
     flavor: b1.large
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.1
   artifacts:
     packages:
       paths:
@@ -67,19 +72,18 @@ validate_package_minimal:
     {% endunless %}
     {% endfor %}
 
-  {% for platform in build_platforms %}
+  {% for platform in upmci_platforms %}
   {% for editor in editor_versions %}
 validate_package_{{platform.name}}_{{editor.version}}:
   name: Validate package {{platform.name}} {{editor.version}}
   agent:
-    name: {{platform.name}}
     image: {{platform.image}}
     type: {{platform.type}}
     flavor: {{platform.flavor}}
   commands:
-    - {{platform.npm_cmd}} install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - {{platform.upm_cmd}} package pack --package-path src/
-    - {{platform.upm_cmd}} package test --package-path src/ --unity-version {{ editor.version }}
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
     packages_{{platform.name}}_{{editor.version}}:
       paths:

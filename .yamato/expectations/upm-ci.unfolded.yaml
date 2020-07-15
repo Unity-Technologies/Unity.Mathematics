@@ -69,7 +69,6 @@ publish_ci:
 run_tests_on_mono_macOS: 
   name: Tests NUnit on macOS
   agent: 
-    name: macOS
     flavor: m1.mac
     image: burst/burst_mac:stable
     type: Unity::VM::osx
@@ -80,7 +79,6 @@ run_tests_on_mono_macOS:
 run_tests_on_mono_windows: 
   name: Tests NUnit on windows
   agent: 
-    name: windows
     flavor: b1.large
     image: sdet/burst-devimage:stable
     type: Unity::VM
@@ -92,7 +90,6 @@ run_tests_on_mono_windows:
 validate_package_linux_2018.4: 
   name: Validate package linux 2018.4
   agent: 
-    name: linux
     flavor: b1.large
     image: package-ci/ubuntu:stable
     type: Unity::VM
@@ -105,15 +102,14 @@ validate_package_linux_2018.4:
         - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2018.4
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2018.4
   dependencies:
     - .yamato/upm-ci.yml#run_tests_on_mono_windows
     - .yamato/upm-ci.yml#run_tests_on_mono_macOS
 validate_package_linux_2019.2: 
   name: Validate package linux 2019.2
   agent: 
-    name: linux
     flavor: b1.large
     image: package-ci/ubuntu:stable
     type: Unity::VM
@@ -126,15 +122,14 @@ validate_package_linux_2019.2:
         - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.2
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.2
   dependencies:
     - .yamato/upm-ci.yml#run_tests_on_mono_windows
     - .yamato/upm-ci.yml#run_tests_on_mono_macOS
 validate_package_linux_2019.3: 
   name: Validate package linux 2019.3
   agent: 
-    name: linux
     flavor: b1.large
     image: package-ci/ubuntu:stable
     type: Unity::VM
@@ -147,15 +142,14 @@ validate_package_linux_2019.3:
         - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.3
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.3
   dependencies:
     - .yamato/upm-ci.yml#run_tests_on_mono_windows
     - .yamato/upm-ci.yml#run_tests_on_mono_macOS
 validate_package_linux_trunk: 
   name: Validate package linux trunk
   agent: 
-    name: linux
     flavor: b1.large
     image: package-ci/ubuntu:stable
     type: Unity::VM
@@ -168,17 +162,16 @@ validate_package_linux_trunk:
         - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version trunk
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version trunk
   dependencies:
     - .yamato/upm-ci.yml#run_tests_on_mono_windows
     - .yamato/upm-ci.yml#run_tests_on_mono_macOS
 validate_package_macOS_2018.4: 
   name: Validate package macOS 2018.4
   agent: 
-    name: macOS
     flavor: m1.mac
-    image: burst/burst_mac:stable
+    image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
     packages_macOS_2018.4: 
@@ -197,9 +190,8 @@ validate_package_macOS_2018.4:
 validate_package_macOS_2019.2: 
   name: Validate package macOS 2019.2
   agent: 
-    name: macOS
     flavor: m1.mac
-    image: burst/burst_mac:stable
+    image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
     packages_macOS_2019.2: 
@@ -218,9 +210,8 @@ validate_package_macOS_2019.2:
 validate_package_macOS_2019.3: 
   name: Validate package macOS 2019.3
   agent: 
-    name: macOS
     flavor: m1.mac
-    image: burst/burst_mac:stable
+    image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
     packages_macOS_2019.3: 
@@ -239,9 +230,8 @@ validate_package_macOS_2019.3:
 validate_package_macOS_trunk: 
   name: Validate package macOS trunk
   agent: 
-    name: macOS
     flavor: m1.mac
-    image: burst/burst_mac:stable
+    image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
     packages_macOS_trunk: 
@@ -260,7 +250,6 @@ validate_package_macOS_trunk:
 validate_package_minimal: 
   name: Validate Package Linux Minimal
   agent: 
-    name: linux
     flavor: b1.large
     image: package-ci/ubuntu:stable
     type: Unity::VM
@@ -270,17 +259,16 @@ validate_package_minimal:
         - upm-ci~/packages/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
-    - DISPLAY=:0.0 upm-ci package pack --package-path src/
-    - DISPLAY=:0.0 upm-ci package test --package-path src/ --unity-version 2019.1
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.1
   dependencies:
     - .yamato/upm-ci.yml#run_tests_on_mono_windows
     - .yamato/upm-ci.yml#run_tests_on_mono_macOS
 validate_package_windows_2018.4: 
   name: Validate package windows 2018.4
   agent: 
-    name: windows
-    flavor: b1.large
-    image: sdet/burst-devimage:stable
+    flavor: m1.large
+    image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
     packages_windows_2018.4: 
@@ -299,9 +287,8 @@ validate_package_windows_2018.4:
 validate_package_windows_2019.2: 
   name: Validate package windows 2019.2
   agent: 
-    name: windows
-    flavor: b1.large
-    image: sdet/burst-devimage:stable
+    flavor: m1.large
+    image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
     packages_windows_2019.2: 
@@ -320,9 +307,8 @@ validate_package_windows_2019.2:
 validate_package_windows_2019.3: 
   name: Validate package windows 2019.3
   agent: 
-    name: windows
-    flavor: b1.large
-    image: sdet/burst-devimage:stable
+    flavor: m1.large
+    image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
     packages_windows_2019.3: 
@@ -341,9 +327,8 @@ validate_package_windows_2019.3:
 validate_package_windows_trunk: 
   name: Validate package windows trunk
   agent: 
-    name: windows
-    flavor: b1.large
-    image: sdet/burst-devimage:stable
+    flavor: m1.large
+    image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
     packages_windows_trunk: 
