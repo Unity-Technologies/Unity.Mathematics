@@ -267,7 +267,7 @@ validate_package_minimal:
 validate_package_windows_2018.4: 
   name: Validate package windows 2018.4
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
@@ -287,7 +287,7 @@ validate_package_windows_2018.4:
 validate_package_windows_2019.2: 
   name: Validate package windows 2019.2
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
@@ -307,7 +307,7 @@ validate_package_windows_2019.2:
 validate_package_windows_2019.3: 
   name: Validate package windows 2019.3
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
@@ -327,7 +327,7 @@ validate_package_windows_2019.3:
 validate_package_windows_trunk: 
   name: Validate package windows trunk
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
