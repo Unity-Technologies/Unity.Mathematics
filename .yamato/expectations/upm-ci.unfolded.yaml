@@ -1,0 +1,346 @@
+
+commit_ci: 
+  name: all CI pipeline
+  dependencies:
+    - .yamato/upm-ci.yml#validate_package_minimal
+  triggers: 
+    branches: 
+      only:
+        - /.*/
+nightly_ci: 
+  name: all Nightly Pipeline
+  dependencies:
+    - .yamato/upm-ci.yml#validate_package_windows_2018.4
+    - .yamato/upm-ci.yml#validate_package_windows_2019.2
+    - .yamato/upm-ci.yml#validate_package_windows_2019.3
+    - .yamato/upm-ci.yml#validate_package_windows_trunk
+    - .yamato/upm-ci.yml#validate_package_linux_2018.4
+    - .yamato/upm-ci.yml#validate_package_linux_2019.2
+    - .yamato/upm-ci.yml#validate_package_linux_2019.3
+    - .yamato/upm-ci.yml#validate_package_linux_trunk
+    - .yamato/upm-ci.yml#validate_package_macOS_2018.4
+    - .yamato/upm-ci.yml#validate_package_macOS_2019.2
+    - .yamato/upm-ci.yml#validate_package_macOS_2019.3
+    - .yamato/upm-ci.yml#validate_package_macOS_trunk
+  triggers: 
+    recurring:
+      - branch: master
+        frequency: daily
+promote: 
+  name: Promote
+  agent: 
+    flavor: m1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages: 
+      paths:
+        - upm-ci~/packages/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package promote --package-path src/
+  dependencies:
+    - .yamato/upm-ci.yml#publish
+  variables: 
+    UPMCI_PROMOTION: 1
+publish: 
+  name: Publish
+  agent: 
+    flavor: m1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages: 
+      paths:
+        - upm-ci~/packages/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package publish --package-path src/
+  dependencies:
+    - .yamato/upm-ci.yml#validate_package_minimal
+publish_ci: 
+  name: all Publish Pipeline
+  dependencies:
+    - .yamato/upm-ci.yml#publish
+  triggers: 
+    tags: 
+      only:
+        - /^\d+\.\d+\.\d+(-preview(\.\d+)?)?$/
+run_tests_on_mono_macOS: 
+  name: Tests NUnit on macOS
+  agent: 
+    flavor: m1.mac
+    image: burst/burst_mac:stable
+    type: Unity::VM::osx
+  commands:
+    - nuget restore src
+    - msbuild src/Unity.Mathematics.sln
+    - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
+run_tests_on_mono_windows: 
+  name: Tests NUnit on windows
+  agent: 
+    flavor: b1.large
+    image: sdet/burst-devimage:stable
+    type: Unity::VM
+  commands:
+    - choco install nuget.commandline
+    - nuget restore src
+    - msbuild src/Unity.Mathematics.sln
+    - mono src/packages/NUnit.ConsoleRunner.3.9.0/tools/nunit3-console.exe src/Tests/bin/Debug/Unity.Mathematics.Tests.dll --process=single
+validate_package_linux_2018.4: 
+  name: Validate package linux 2018.4
+  agent: 
+    flavor: b1.large
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+  artifacts: 
+    packages_linux_2018.4: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_linux_2018.4: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2018.4
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_linux_2019.2: 
+  name: Validate package linux 2019.2
+  agent: 
+    flavor: b1.large
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+  artifacts: 
+    packages_linux_2019.2: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_linux_2019.2: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.2
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_linux_2019.3: 
+  name: Validate package linux 2019.3
+  agent: 
+    flavor: b1.large
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+  artifacts: 
+    packages_linux_2019.3: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_linux_2019.3: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.3
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_linux_trunk: 
+  name: Validate package linux trunk
+  agent: 
+    flavor: b1.large
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+  artifacts: 
+    packages_linux_trunk: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_linux_trunk: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version trunk
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_macOS_2018.4: 
+  name: Validate package macOS 2018.4
+  agent: 
+    flavor: m1.mac
+    image: package-ci/mac:stable
+    type: Unity::VM::osx
+  artifacts: 
+    packages_macOS_2018.4: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_macOS_2018.4: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2018.4
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_macOS_2019.2: 
+  name: Validate package macOS 2019.2
+  agent: 
+    flavor: m1.mac
+    image: package-ci/mac:stable
+    type: Unity::VM::osx
+  artifacts: 
+    packages_macOS_2019.2: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_macOS_2019.2: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.2
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_macOS_2019.3: 
+  name: Validate package macOS 2019.3
+  agent: 
+    flavor: m1.mac
+    image: package-ci/mac:stable
+    type: Unity::VM::osx
+  artifacts: 
+    packages_macOS_2019.3: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_macOS_2019.3: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.3
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_macOS_trunk: 
+  name: Validate package macOS trunk
+  agent: 
+    flavor: m1.mac
+    image: package-ci/mac:stable
+    type: Unity::VM::osx
+  artifacts: 
+    packages_macOS_trunk: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_macOS_trunk: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version trunk
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_minimal: 
+  name: Validate Package Linux Minimal
+  agent: 
+    flavor: b1.large
+    image: package-ci/ubuntu:stable
+    type: Unity::VM
+  artifacts: 
+    packages: 
+      paths:
+        - upm-ci~/packages/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.1
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_windows_2018.4: 
+  name: Validate package windows 2018.4
+  agent: 
+    flavor: b1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages_windows_2018.4: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_windows_2018.4: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2018.4
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_windows_2019.2: 
+  name: Validate package windows 2019.2
+  agent: 
+    flavor: b1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages_windows_2019.2: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_windows_2019.2: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.2
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_windows_2019.3: 
+  name: Validate package windows 2019.3
+  agent: 
+    flavor: b1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages_windows_2019.3: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_windows_2019.3: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version 2019.3
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
+validate_package_windows_trunk: 
+  name: Validate package windows trunk
+  agent: 
+    flavor: b1.large
+    image: package-ci/win10:stable
+    type: Unity::VM
+  artifacts: 
+    packages_windows_trunk: 
+      paths:
+        - upm-ci~/packages/**/*
+    results_windows_trunk: 
+      paths:
+        - upm-ci~/**/*
+  commands:
+    - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - upm-ci package pack --package-path src/
+    - upm-ci package test --package-path src/ --unity-version trunk
+  dependencies:
+    - .yamato/upm-ci.yml#run_tests_on_mono_windows
+    - .yamato/upm-ci.yml#run_tests_on_mono_macOS
