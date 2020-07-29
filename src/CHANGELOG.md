@@ -1,28 +1,37 @@
 # Changelog
 
 ## [Unreleased]
-- Added [MethodImpl(MethodImplOptions.AggressiveInlining)] to many static functions to improve IL2CPP performance.
-- Added compress() that accepts a float4 and uint4.
-- Added math.project() and math.projectsafe() for vector projection.
-- Added math.EPSILON, math.INFINITY, math.NAN and their double counterparts.
-- Added [Serializable] to RigidTransform.
-- Added math.ceillog2().
-- Added math.floorlog2().
-- Added math.down(), math.forward(), etc for Cartesian coordinate axes that match UnityEngine Vector3 equivalents.
-- Added math.ispow2().
-- Added half.MinValueAsHalf and half.MaxValueAsHalf to avoid having to explicitly convert from float.
-- Added a float3x3 constructor which takes a float4x4 as input.
-- Added [Serializable] to half types.
-- Added some performance tests which can be run from the Unity test project.
-- Added Random.CreateFromIndex() to assist in creating Random instances from loop indices.
-- Fixed documentation bug where quaternion.RotateX/Y/Z referred to a float4x4 instead of quaternion.
-- Fixed code generation bugs which could cause Windows and Mac to generate different test code.
-- Fixed some test asserts which used NaNs and signed zeros which failed in IL2CPP builds.
-- Updated documentation for math.countbits() to include equivalent names on Intel and ARM architectures to aid in discoverability.
-- Internal: Added Unity.Mathematics.Geometry.Plane to represent planes in 3D space.
-- Internal: Added more MinMaxAABB functionality from Unity.Physics.Aabb.
-- Internal: Added Unity.Mathematics.Geometry.Math to hold static functions like AABB transformations.
-- Internal: Added MinMaxAABB.
+
+### Added
+* Added `[MethodImpl(MethodImplOptions.AggressiveInlining)]` to many static functions to improve IL2CPP performance.
+* Added `compress()` that accepts a `float4` and `uint4`.
+* Added `math.project()` and `math.projectsafe()` for vector projection.
+* Added `math.EPSILON`, `math.INFINITY`, `math.NAN` and their double counterparts.
+* Added `[Serializable]` to `RigidTransform`.
+* Added `math.ceillog2()`.
+* Added `math.floorlog2()`.
+* Added `math.down()`, `math.forward()`, etc for Cartesian coordinate axes that match UnityEngine Vector3 equivalents.
+* Added `math.ispow2()`.
+* Added `half.MinValueAsHalf` and `half.MaxValueAsHalf` to avoid having to explicitly convert from float.
+* Added a `float3x3` constructor which takes a `float4x4` as input.
+* Added `[Serializable]` to half types.
+* Added some performance tests which can be run from the Unity test project.
+* Added `Random.CreateFromIndex()` to assist in creating Random instances from loop indices.
+
+### Changed
+### Deprecated
+### Removed
+### Fixed
+* Fixed documentation bug where `quaternion.RotateX/Y/Z` referred to a `float4x4` instead of quaternion.
+* Fixed code generation bugs which could cause Windows and Mac to generate different test code.
+* Fixed some test asserts which used NaNs and signed zeros which failed in IL2CPP builds.
+* Updated documentation for `math.countbits()` to include equivalent names on Intel and ARM architectures to aid in discoverability.
+
+### Internal (Not ready for production)
+* Added `Unity.Mathematics.Geometry.Plane` to represent planes in 3D space.
+* Added more `MinMaxAABB` functionality from `Unity.Physics.Aabb`.
+* Added `Unity.Mathematics.Geometry.Math` to hold static functions like AABB transformations.
+* Added `MinMaxAABB`.
 
 ## [1.1.0] - 2019-07-08
 
