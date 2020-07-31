@@ -10,6 +10,7 @@ using System;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+using Unity.IL2CPP.CompilerServices;
 
 #pragma warning disable 0660, 0661
 
@@ -17,6 +18,7 @@ namespace Unity.Mathematics
 {
     [DebuggerTypeProxy(typeof(bool3.DebuggerProxy))]
     [System.Serializable]
+    [Il2CppEagerStaticClassConstruction]
     public partial struct bool3 : System.IEquatable<bool3>
     {
         [MarshalAs(UnmanagedType.U1)]

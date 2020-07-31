@@ -506,6 +506,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 str.Append("using System.Runtime.InteropServices;\n");  // for MarshalAs
             if (m_Columns == 1)
                 str.Append("using System.Diagnostics;\n");   // for DebuggerTypeProxy
+            str.Append("using Unity.IL2CPP.CompilerServices;\n");
             str.Append("\n");
             str.Append("#pragma warning disable 0660, 0661\n\n");
             str.Append("namespace Unity.Mathematics\n");
@@ -514,6 +515,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_Columns == 1)
                 str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
             str.Append("\t[System.Serializable]\n");
+            str.Append("\t[Il2CppEagerStaticClassConstruction]\n");
             str.AppendFormat("\tpublic partial struct {0} : System.IEquatable<{0}>", m_TypeName);
             if (m_BaseType != "bool")
                 str.Append(", IFormattable");

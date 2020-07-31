@@ -1,5 +1,6 @@
 using System;
 using System.Runtime.CompilerServices;
+using Unity.IL2CPP.CompilerServices;
 using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics.Geometry
@@ -14,6 +15,7 @@ namespace Unity.Mathematics.Geometry
     /// are very cheap to construct and perform overlap tests with them.
     /// </remarks>
     [System.Serializable]
+    [Il2CppEagerStaticClassConstruction]
     internal struct MinMaxAABB : IEquatable<MinMaxAABB>
     {
         /// <summary>
