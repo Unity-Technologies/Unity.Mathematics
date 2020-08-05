@@ -18,7 +18,11 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        // Classic Perlin noise
+        /// <summary>
+        /// Classic Perlin noise
+        /// </summary>
+        /// <param name="P">Point on a 3D grid of gradient vectors.</param>
+        /// <returns>Noise value.</returns>
         public static float cnoise(float3 P)
         {
             float3 Pi0 = floor(P); // Integer part for indexing
@@ -88,7 +92,12 @@ namespace Unity.Mathematics
             return 2.2f * n_xyz;
         }
 
-        // Classic Perlin noise, periodic variant
+        /// <summary>
+        /// Classic Perlin noise, periodic variant
+        /// </summary>
+        /// <param name="P">Point on a 3D grid of gradient vectors.</param>
+        /// <param name="rep">Period of repetition.</param>
+        /// <returns>Noise value.</returns>
         public static float pnoise(float3 P, float3 rep)
         {
             float3 Pi0 = fmod(floor(P), rep); // Integer part, math.modulo period
