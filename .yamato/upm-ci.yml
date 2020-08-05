@@ -10,7 +10,7 @@ build_platforms:
   - name: macOS
     image: burst/burst_mac:stable
     type: Unity::VM::osx
-    flavor: m1.mac
+    flavor: b1.large
 
 upmci_platforms:
   - name: windows
@@ -24,7 +24,7 @@ upmci_platforms:
   - name: macOS
     image: package-ci/mac:stable
     type: Unity::VM::osx
-    flavor: m1.mac
+    flavor: b1.large
 
 editor_versions:
   - version: "2018.4"
