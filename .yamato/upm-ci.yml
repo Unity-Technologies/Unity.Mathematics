@@ -65,6 +65,9 @@ validate_package_minimal:
     packages:
       paths:
         - "upm-ci~/packages/**/*"
+    results:
+      paths:
+        - "upm-ci~/**/*"
   dependencies:
     {% for platform in build_platforms %}
     {% unless platform.name == "linux" %}

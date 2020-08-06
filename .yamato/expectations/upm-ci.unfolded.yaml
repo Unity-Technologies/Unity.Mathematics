@@ -257,6 +257,9 @@ validate_package_minimal:
     packages: 
       paths:
         - upm-ci~/packages/**/*
+    results: 
+      paths:
+        - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
