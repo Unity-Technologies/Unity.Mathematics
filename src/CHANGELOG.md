@@ -1,5 +1,13 @@
 # Changelog
 
+## [Unreleased]
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+### Internal (Not ready for production)
+
 ## [1.2.0] - 2020-08-03
 
 ### Added
