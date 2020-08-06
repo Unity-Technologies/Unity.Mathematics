@@ -354,8 +354,6 @@ namespace Unity.Mathematics
 
         /// <summary>
         /// 2-D non-tiling simplex noise with fixed gradients and analytical derivative.
-        /// This function is implemented as a wrapper to "srdnoise",
-        /// at the math.minimal math.cost of three extra additions.
         /// </summary>
         /// <param name="pos">Input (x,y) coordinate.</param>
         /// <returns>The first component of the 3-element return vector is the noise value, and the second and third components are the x and y partial derivatives.</returns>
@@ -432,14 +430,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// 2-D non-tiling simplex noise with fixed gradients,
-        /// without the analytical derivative.
-        /// This function is implemented as a wrapper to "srnoise",
-        /// at the math.minimal math.cost of three extra additions.
-        /// Note: if this kind of noise is all you want, there are faster
-        /// GLSL implementations of non-tiling simplex noise out there.
-        /// This one is included mainly for completeness and compatibility
-        /// with the other functions in the file.
+        /// 2-D non-tiling simplex noise with fixed gradients, without the analytical derivative.
         /// </summary>
         /// <param name="pos">Input (x,y) coordinate.</param>
         /// <returns>Noise value.</returns>
