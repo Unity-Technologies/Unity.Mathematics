@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1] - 2020-08-06
+
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+* Fixed warnings for meta files existing even though the files they represent did not exist.
+
+### Internal (Not ready for production)
+
 ## [1.2.0] - 2020-08-03
 
 ### Added
