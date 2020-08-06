@@ -15,6 +15,11 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
+        /// <summary>
+        /// Simplex noise.
+        /// </summary>
+        /// <param name="v">Input coordinate.</param>
+        /// <returns>Noise value.</returns>
         public static float snoise(float2 v)
         {
             float4 C = float4(0.211324865405187f,  // (3.0-math.sqrt(3.0))/6.0
