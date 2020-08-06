@@ -27,6 +27,8 @@
 * Added `Random.CreateFromIndex()` to assist in creating Random instances from loop indices.
 
 ### Changed
+* Changed noise documentation in comments to xmldoc comments.
+
 ### Deprecated
 ### Removed
 ### Fixed
