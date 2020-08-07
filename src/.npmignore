@@ -8,13 +8,13 @@ Documentation/ApiDocs/**
 .gitignore
 QAReport.md
 QAReport.md.meta
-Unity.Mathematics.CodeGen
-Unity.Mathematics.PerformanceTests
-Unity.Mathematics.Shaders
-*.sln
-*.db
-**/*.csproj
-**/packages.config
+Unity.Mathematics.CodeGen*
+Unity.Mathematics.PerformanceTests*
+Unity.Mathematics.Shaders*
+*.sln*
+*.db*
+**/*.csproj*
+**/packages.config*
 **/bin
 **/obj
 

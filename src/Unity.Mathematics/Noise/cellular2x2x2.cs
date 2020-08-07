@@ -10,11 +10,14 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        // Cellular noise, returning F1 and F2 in a float2.
-        // Speeded up by umath.sing 2x2x2 search window instead of 3x3x3,
-        // at the expense of some pattern artifacts.
-        // F2 is often wrong and has sharp discontinuities.
-        // If you need a good F2, use the slower 3x3x3 version.
+        /// <summary>
+        /// 3D Cellular noise ("Worley noise") with a 2x2x2 search window.
+        /// </summary>
+        /// <remarks>
+        /// Faster than using 3x3x3, at the expense of some pattern artifacts. F2 is often wrong and has sharp discontinuities. If you need a smooth F2, use the slower 3x3x3 version.
+        /// </remarks>
+        /// <param name="P">A point in 3D space.</param>
+        /// <returns>Feature points. F1 is in the x component, F2 in the y component.</returns>
         public static float2 cellular2x2x2(float3 P)
         {
             const float K = 0.142857142857f; // 1/7

@@ -10,7 +10,7 @@ build_platforms:
   - name: macOS
     image: burst/burst_mac:stable
     type: Unity::VM::osx
-    flavor: m1.mac
+    flavor: b1.large
 
 upmci_platforms:
   - name: windows
@@ -24,7 +24,7 @@ upmci_platforms:
   - name: macOS
     image: package-ci/mac:stable
     type: Unity::VM::osx
-    flavor: m1.mac
+    flavor: b1.large
 
 editor_versions:
   - version: "2018.4"
@@ -65,6 +65,9 @@ validate_package_minimal:
     packages:
       paths:
         - "upm-ci~/packages/**/*"
+    test_results:
+      paths:
+          - "upm-ci~/**/*"
   dependencies:
     {% for platform in build_platforms %}
     {% unless platform.name == "linux" %}
@@ -106,7 +109,7 @@ publish:
   agent:
     type: Unity::VM
     image: package-ci/win10:stable
-    flavor: m1.large
+    flavor: b1.large
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package publish --package-path src/
@@ -123,7 +126,7 @@ promote:
   agent:
     type: Unity::VM
     image: package-ci/win10:stable
-    flavor: m1.large
+    flavor: b1.large
   variables:
     UPMCI_PROMOTION: 1
   commands:

@@ -29,7 +29,7 @@ nightly_ci:
 promote: 
   name: Promote
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
@@ -46,7 +46,7 @@ promote:
 publish: 
   name: Publish
   agent: 
-    flavor: m1.large
+    flavor: b1.large
     image: package-ci/win10:stable
     type: Unity::VM
   artifacts: 
@@ -69,7 +69,7 @@ publish_ci:
 run_tests_on_mono_macOS: 
   name: Tests NUnit on macOS
   agent: 
-    flavor: m1.mac
+    flavor: b1.large
     image: burst/burst_mac:stable
     type: Unity::VM::osx
   commands:
@@ -170,7 +170,7 @@ validate_package_linux_trunk:
 validate_package_macOS_2018.4: 
   name: Validate package macOS 2018.4
   agent: 
-    flavor: m1.mac
+    flavor: b1.large
     image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
@@ -190,7 +190,7 @@ validate_package_macOS_2018.4:
 validate_package_macOS_2019.2: 
   name: Validate package macOS 2019.2
   agent: 
-    flavor: m1.mac
+    flavor: b1.large
     image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
@@ -210,7 +210,7 @@ validate_package_macOS_2019.2:
 validate_package_macOS_2019.3: 
   name: Validate package macOS 2019.3
   agent: 
-    flavor: m1.mac
+    flavor: b1.large
     image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
@@ -230,7 +230,7 @@ validate_package_macOS_2019.3:
 validate_package_macOS_trunk: 
   name: Validate package macOS trunk
   agent: 
-    flavor: m1.mac
+    flavor: b1.large
     image: package-ci/mac:stable
     type: Unity::VM::osx
   artifacts: 
@@ -257,6 +257,9 @@ validate_package_minimal:
     packages: 
       paths:
         - upm-ci~/packages/**/*
+    test_results: 
+      paths:
+        - upm-ci~/**/*
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/

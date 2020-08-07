@@ -1,9 +1,20 @@
 # Changelog
 
 ## [Unreleased]
-
 ### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
+
+### Changed
+* Changed noise documentation in comments to xmldoc comments.
+
+### Deprecated
+### Removed
+### Fixed
+### Internal (Not ready for production)
+
+## [1.2.0] - 2020-08-03
+
+### Added
 * Added `[MethodImpl(MethodImplOptions.AggressiveInlining)]` to many static functions to improve IL2CPP performance.
 * Added `compress()` that accepts a `float4` and `uint4`.
 * Added `math.project()` and `math.projectsafe()` for vector projection.
