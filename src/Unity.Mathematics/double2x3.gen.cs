@@ -8,12 +8,14 @@
 //------------------------------------------------------------------------------
 using System;
 using System.Runtime.CompilerServices;
+using Unity.IL2CPP.CompilerServices;
 
 #pragma warning disable 0660, 0661
 
 namespace Unity.Mathematics
 {
     [System.Serializable]
+    [Il2CppEagerStaticClassConstruction]
     public partial struct double2x3 : System.IEquatable<double2x3>, IFormattable
     {
         public double2 c0;

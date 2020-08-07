@@ -2,7 +2,11 @@
 
 ## [Unreleased]
 ### Added
+* Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
+
 ### Changed
+* Changed noise documentation in comments to xmldoc comments.
+
 ### Deprecated
 ### Removed
 ### Fixed
@@ -27,8 +31,6 @@
 * Added `Random.CreateFromIndex()` to assist in creating Random instances from loop indices.
 
 ### Changed
-* Changed noise documentation in comments to xmldoc comments.
-
 ### Deprecated
 ### Removed
 ### Fixed

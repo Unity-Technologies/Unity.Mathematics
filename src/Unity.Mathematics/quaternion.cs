@@ -1,9 +1,11 @@
 using System;
 using System.Runtime.CompilerServices;
+using Unity.IL2CPP.CompilerServices;
 using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
+    [Il2CppEagerStaticClassConstruction]
     [Serializable]
     public partial struct quaternion : System.IEquatable<quaternion>, IFormattable
     {

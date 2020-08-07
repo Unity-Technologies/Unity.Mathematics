@@ -9,6 +9,7 @@
 using System;
 using System.Runtime.CompilerServices;
 using System.Diagnostics;
+using Unity.IL2CPP.CompilerServices;
 
 #pragma warning disable 0660, 0661
 
@@ -16,6 +17,7 @@ namespace Unity.Mathematics
 {
     [DebuggerTypeProxy(typeof(float3.DebuggerProxy))]
     [System.Serializable]
+    [Il2CppEagerStaticClassConstruction]
     public partial struct float3 : System.IEquatable<float3>, IFormattable
     {
         public float x;

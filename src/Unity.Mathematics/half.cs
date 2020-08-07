@@ -1,8 +1,10 @@
 using System;
 using System.Runtime.CompilerServices;
+using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    [Il2CppEagerStaticClassConstruction]
     [Serializable]
     public struct half : System.IEquatable<half>, IFormattable
     {

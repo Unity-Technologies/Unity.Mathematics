@@ -2,6 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
 using System.Diagnostics;
+using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
@@ -11,6 +12,7 @@ namespace Unity.Mathematics
     /// Core functionality is integer multiplication free to improve vectorization
     /// on less capable SIMD instruction sets.
     /// </summary>
+    [Il2CppEagerStaticClassConstruction]
     [Serializable]
     public partial struct Random
     {

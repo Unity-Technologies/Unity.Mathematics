@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Runtime.CompilerServices;
+using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics.Geometry
 {
@@ -13,6 +14,7 @@ namespace Unity.Mathematics.Geometry
     /// </remarks>
     [DebuggerDisplay("{Normal}, {Distance}")]
     [Serializable]
+    [Il2CppEagerStaticClassConstruction]
     internal struct Plane
     {
         /// <summary>
@@ -122,7 +124,7 @@ namespace Unity.Mathematics.Geometry
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Plane)"/>.
         /// </remarks>
         public float3 Normal
         {
@@ -135,7 +137,7 @@ namespace Unity.Mathematics.Geometry
         /// </summary>
         /// <remarks>
         /// It is assumed that the normal is unit length.  If you set a new plane such that Ax + By + Cz + Dw = 0 but
-        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Unity.Mathematics.Extras.Plane)"/>.
+        /// (A, B, C) is not unit length, then you must normalize the plane by calling <see cref="Normalize(Plane)"/>.
         /// </remarks>
         public float Distance
         {

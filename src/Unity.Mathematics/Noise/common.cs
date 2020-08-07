@@ -1,7 +1,9 @@
+using Unity.IL2CPP.CompilerServices;
 using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
+    [Il2CppEagerStaticClassConstruction]
     public static partial class noise
     {
         // Modulo 289 without a division (only multiplications)
