@@ -52,73 +52,25 @@ namespace Unity.Mathematics
         // Returns the absolute value of /value/.
         public static int Abs(int value) { return math.abs(value); }
 
-        /// *listonly*
-        public static float Min(float a, float b) { return math.min(a,b); }
-        // Returns the smallest of two or more values.
-        public static float Min(params float[] values)
-        {
-            int len = values.Length;
-            if (len == 0)
-                return 0;
-            float m = values[0];
-            for (int i = 1; i < len; i++)
-            {
-                if (values[i] < m)
-                    m = values[i];
-            }
-            return m;
-        }
+        // Returns smallest of two or more values.
+        public static float Min(float a, float b) { return math.min(a, b); }
+        public static float Min(float a, float b, float c) { return math.min(math.min(a, b), c); }
+        public static float Min(float a, float b, float c, float d) { return math.min(math.min(a, b), math.min(c, d)); }
 
-        /// *listonly*
-        public static int Min(int a, int b) { return math.min(a,b); }
         // Returns the smallest of two or more values.
-        public static int Min(params int[] values)
-        {
-            int len = values.Length;
-            if (len == 0)
-                return 0;
-            int m = values[0];
-            for (int i = 1; i < len; i++)
-            {
-                if (values[i] < m)
-                    m = values[i];
-            }
-            return m;
-        }
+        public static int Min(int a, int b) { return math.min(a, b); }
+        public static int Min(int a, int b, int c) { return math.min(math.min(a, b), c); }
+        public static int Min(int a, int b, int c, int d) { return math.min(math.min(a, b), math.min(c, d)); }
 
-        /// *listonly*
-        public static float Max(float a, float b) { return math.max(a,b); }
         // Returns largest of two or more values.
-        public static float Max(params float[] values)
-        {
-            int len = values.Length;
-            if (len == 0)
-                return 0;
-            float m = values[0];
-            for (int i = 1; i < len; i++)
-            {
-                if (values[i] > m)
-                    m = values[i];
-            }
-            return m;
-        }
+        public static float Max(float a, float b) { return math.max(a,b); }
+        public static float Max(float a, float b, float c) { return math.max(math.max(a, b), c); }
+        public static float Max(float a, float b, float c, float d) { return math.max(math.max(a, b), math.max(c,d)); }
 
-        /// *listonly*
-        public static int Max(int a, int b) { return math.max(a,b); }
         // Returns the largest of two or more values.
-        public static int Max(params int[] values)
-        {
-            int len = values.Length;
-            if (len == 0)
-                return 0;
-            int m = values[0];
-            for (int i = 1; i < len; i++)
-            {
-                if (values[i] > m)
-                    m = values[i];
-            }
-            return m;
-        }
+        public static int Max(int a, int b) { return math.max(a,b); }
+        public static int Max(int a, int b, int c) { return math.max(math.max(a, b), c); }
+        public static int Max(int a, int b, int c, int d) { return math.max(math.max(a, b), math.max(c,d)); }
 
         // Returns /f/ raised to power /p/.
         public static float Pow(float f, float p) { return math.pow(f, p); }
