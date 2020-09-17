@@ -119,6 +119,7 @@
     <Compile Include="int2.gen.cs" />
     <Compile Include="int3.gen.cs" />
     <Compile Include="int4.gen.cs" />
+    <Compile Include="mathf.cs" />
     <Compile Include="matrix.cs" />
     <Compile Include="matrix.gen.cs" />
     <Compile Include="Noise\cellular2D.cs" />
