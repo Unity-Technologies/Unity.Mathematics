@@ -23,37 +23,37 @@ namespace Unity.Mathematics
 #endif
 
         // Returns the sine of angle /f/ in radians.
-        public static float Sin(float f) { return (float)Math.Sin(f); }
+        public static float Sin(float f) { return math.sin(f); }
 
         // Returns the cosine of angle /f/ in radians.
-        public static float Cos(float f) { return (float)Math.Cos(f); }
+        public static float Cos(float f) { return math.cos(f); }
 
         // Returns the tangent of angle /f/ in radians.
-        public static float Tan(float f) { return (float)Math.Tan(f); }
+        public static float Tan(float f) { return math.tan(f); }
 
         // Returns the arc-sine of /f/ - the angle in radians whose sine is /f/.
-        public static float Asin(float f) { return (float)Math.Asin(f); }
+        public static float Asin(float f) { return math.asin(f); }
 
         // Returns the arc-cosine of /f/ - the angle in radians whose cosine is /f/.
-        public static float Acos(float f) { return (float)Math.Acos(f); }
+        public static float Acos(float f) { return math.acos(f); }
 
         // Returns the arc-tangent of /f/ - the angle in radians whose tangent is /f/.
-        public static float Atan(float f) { return (float)Math.Atan(f); }
+        public static float Atan(float f) { return math.atan(f); }
 
         // Returns the angle in radians whose ::ref::Tan is @@y/x@@.
-        public static float Atan2(float y, float x) { return (float)Math.Atan2(y, x); }
+        public static float Atan2(float y, float x) { return math.atan2(y, x); }
 
         // Returns square root of /f/.
-        public static float Sqrt(float f) { return (float)Math.Sqrt(f); }
+        public static float Sqrt(float f) { return math.sqrt(f); }
 
         // Returns the absolute value of /f/.
-        public static float Abs(float f) { return (float)Math.Abs(f); }
+        public static float Abs(float f) { return math.abs(f); }
 
         // Returns the absolute value of /value/.
-        public static int Abs(int value) { return Math.Abs(value); }
+        public static int Abs(int value) { return math.abs(value); }
 
         /// *listonly*
-        public static float Min(float a, float b) { return a < b ? a : b; }
+        public static float Min(float a, float b) { return math.min(a,b); }
         // Returns the smallest of two or more values.
         public static float Min(params float[] values)
         {
@@ -70,7 +70,7 @@ namespace Unity.Mathematics
         }
 
         /// *listonly*
-        public static int Min(int a, int b) { return a < b ? a : b; }
+        public static int Min(int a, int b) { return math.min(a,b); }
         // Returns the smallest of two or more values.
         public static int Min(params int[] values)
         {
@@ -87,7 +87,7 @@ namespace Unity.Mathematics
         }
 
         /// *listonly*
-        public static float Max(float a, float b) { return a > b ? a : b; }
+        public static float Max(float a, float b) { return math.max(a,b); }
         // Returns largest of two or more values.
         public static float Max(params float[] values)
         {
@@ -104,7 +104,7 @@ namespace Unity.Mathematics
         }
 
         /// *listonly*
-        public static int Max(int a, int b) { return a > b ? a : b; }
+        public static int Max(int a, int b) { return math.max(a,b); }
         // Returns the largest of two or more values.
         public static int Max(params int[] values)
         {
@@ -121,37 +121,37 @@ namespace Unity.Mathematics
         }
 
         // Returns /f/ raised to power /p/.
-        public static float Pow(float f, float p) { return (float)Math.Pow(f, p); }
+        public static float Pow(float f, float p) { return math.pow(f, p); }
 
         // Returns e raised to the specified power.
-        public static float Exp(float power) { return (float)Math.Exp(power); }
+        public static float Exp(float power) { return math.exp(power); }
 
         // Returns the logarithm of a specified number in a specified base.
         public static float Log(float f, float p) { return (float)Math.Log(f, p); }
 
         // Returns the natural (base e) logarithm of a specified number.
-        public static float Log(float f) { return (float)Math.Log(f); }
+        public static float Log(float f) { return math.log(f); }
 
         // Returns the base 10 logarithm of a specified number.
-        public static float Log10(float f) { return (float)Math.Log10(f); }
+        public static float Log10(float f) { return math.log10(f); }
 
         // Returns the smallest integer greater to or equal to /f/.
-        public static float Ceil(float f) { return (float)Math.Ceiling(f); }
+        public static float Ceil(float f) { return math.ceil(f); }
 
         // Returns the largest integer smaller to or equal to /f/.
-        public static float Floor(float f) { return (float)Math.Floor(f); }
+        public static float Floor(float f) { return math.floor(f); }
 
         // Returns /f/ rounded to the nearest integer.
-        public static float Round(float f) { return (float)Math.Round(f); }
+        public static float Round(float f) { return math.round(f); }
 
         // Returns the smallest integer greater to or equal to /f/.
-        public static int CeilToInt(float f) { return (int)Math.Ceiling(f); }
+        public static int CeilToInt(float f) { return (int)math.ceil(f); }
 
         // Returns the largest integer smaller to or equal to /f/.
-        public static int FloorToInt(float f) { return (int)Math.Floor(f); }
+        public static int FloorToInt(float f) { return (int)math.floor(f); }
 
         // Returns /f/ rounded to the nearest integer.
-        public static int RoundToInt(float f) { return (int)Math.Round(f); }
+        public static int RoundToInt(float f) { return (int)math.round(f); }
 
         // Returns the sign of /f/.
         public static float Sign(float f) { return f >= 0F ? 1F : -1F; }
@@ -160,10 +160,10 @@ namespace Unity.Mathematics
         public const float PI = (float)Math.PI;
 
         // A representation of positive infinity (RO).
-        public const float Infinity = Single.PositiveInfinity;
+        public const float Infinity = math.INFINITY;
 
         // A representation of negative infinity (RO).
-        public const float NegativeInfinity = Single.NegativeInfinity;
+        public const float NegativeInfinity = -math.INFINITY;
 
         // Degrees-to-radians conversion constant (RO).
         public const float Deg2Rad = PI * 2F / 360F;
@@ -179,11 +179,7 @@ namespace Unity.Mathematics
         // Clamps a value between a minimum float and maximum float value.
         public static float Clamp(float value, float min, float max)
         {
-            if (value < min)
-                value = min;
-            else if (value > max)
-                value = max;
-            return value;
+            return math.clamp(value, min, max);
         }
 
         // Clamps value between min and max and returns value.
@@ -192,34 +188,25 @@ namespace Unity.Mathematics
         //
         public static int Clamp(int value, int min, int max)
         {
-            if (value < min)
-                value = min;
-            else if (value > max)
-                value = max;
-            return value;
+            return math.clamp(value, min, max);
         }
 
         // Clamps value between 0 and 1 and returns value
         public static float Clamp01(float value)
         {
-            if (value < 0F)
-                return 0F;
-            else if (value > 1F)
-                return 1F;
-            else
-                return value;
+            return math.saturate(value);
         }
 
         // Interpolates between /a/ and /b/ by /t/. /t/ is clamped between 0 and 1.
         public static float Lerp(float a, float b, float t)
         {
-            return a + (b - a) * Clamp01(t);
+            return math.lerp(a, b, math.saturate(t));
         }
 
         // Interpolates between /a/ and /b/ by /t/ without clamping the interpolant.
         public static float LerpUnclamped(float a, float b, float t)
         {
-            return a + (b - a) * t;
+            return math.lerp(a, b, t);
         }
 
         // Same as ::ref::Lerp but makes sure the values interpolate correctly when they wrap around 360 degrees.
@@ -234,9 +221,9 @@ namespace Unity.Mathematics
         // Moves a value /current/ towards /target/.
         static public float MoveTowards(float current, float target, float maxDelta)
         {
-            if (Mathf.Abs(target - current) <= maxDelta)
+            if (math.abs(target - current) <= maxDelta)
                 return target;
-            return current + Mathf.Sign(target - current) * maxDelta;
+            return current + math.sign(target - current) * maxDelta;
         }
 
         // Same as ::ref::MoveTowards but makes sure the values interpolate correctly when they wrap around 360 degrees.
@@ -252,7 +239,7 @@ namespace Unity.Mathematics
         // Interpolates between /min/ and /max/ with smoothing at the limits.
         public static float SmoothStep(float from, float to, float t)
         {
-            t = Mathf.Clamp01(t);
+            t = math.saturate(t);
             t = -2.0F * t * t * t + 3.0F * t * t;
             return to * t + from * (1F - t);
         }
@@ -261,11 +248,11 @@ namespace Unity.Mathematics
         public static float Gamma(float value, float absmax, float gamma)
         {
             bool negative = value < 0F;
-            float absval = Abs(value);
+            float absval = math.abs(value);
             if (absval > absmax)
                 return negative ? -absval : absval;
 
-            float result = Pow(absval / absmax, gamma) * absmax;
+            float result = math.pow(absval / absmax, gamma) * absmax;
             return negative ? -result : result;
         }
 
@@ -279,14 +266,14 @@ namespace Unity.Mathematics
             // 1.000001f can be represented while 1.0000001f is rounded to zero,
             // thus we could use an epsilon of 0.000001f for comparing values close to 1.
             // We multiply this epsilon by the biggest magnitude of a and b.
-            return Abs(b - a) < Max(0.000001f * Max(Abs(a), Abs(b)), Epsilon * 8);
+            return math.abs(b - a) < math.max(0.000001f * math.max(math.abs(a), math.abs(b)), Epsilon * 8);
         }
 
         // Gradually changes a value towards a desired goal over time.
         public static float SmoothDamp(float current, float target, ref float currentVelocity, float smoothTime, float maxSpeed, float deltaTime)
         {
             // Based on Game Programming Gems 4 Chapter 1.10
-            smoothTime = Mathf.Max(0.0001F, smoothTime);
+            smoothTime = math.max(0.0001F, smoothTime);
             float omega = 2F / smoothTime;
 
             float x = omega * deltaTime;
@@ -296,7 +283,7 @@ namespace Unity.Mathematics
 
             // Clamp maximum speed
             float maxChange = maxSpeed * smoothTime;
-            change = Mathf.Clamp(change, -maxChange, maxChange);
+            change = math.clamp(change, -maxChange, maxChange);
             target = current - change;
 
             float temp = (currentVelocity + omega * change) * deltaTime;
@@ -323,21 +310,21 @@ namespace Unity.Mathematics
         // Loops the value t, so that it is never larger than length and never smaller than 0.
         public static float Repeat(float t, float length)
         {
-            return Clamp(t - Mathf.Floor(t / length) * length, 0.0f, length);
+            return math.clamp(t - math.floor(t / length) * length, 0.0f, length);
         }
 
         // PingPongs the value t, so that it is never larger than length and never smaller than 0.
         public static float PingPong(float t, float length)
         {
             t = Repeat(t, length * 2F);
-            return length - Mathf.Abs(t - length);
+            return length - math.abs(t - length);
         }
 
         // Calculates the ::ref::Lerp parameter between of two values.
         public static float InverseLerp(float a, float b, float value)
         {
             if (a != b)
-                return Clamp01((value - a) / (b - a));
+                return math.saturate((value - a) / (b - a));
             else
                 return 0.0f;
         }
@@ -402,11 +389,13 @@ namespace Unity.Mathematics
             return true;
         }
 
-        static internal long RandomToLong(System.Random r)
+        static internal long RandomToLong(ref Random r)
         {
-            var buffer = new byte[8];
-            r.NextBytes(buffer);
-            return (long)(System.BitConverter.ToUInt64(buffer, 0) & System.Int64.MaxValue);
+            var temp = r.NextUInt2();
+            long result = temp.y;
+            result <<= 32;
+            result |= temp.x;
+            return result & Int64.MaxValue;
         }
     }
 }
