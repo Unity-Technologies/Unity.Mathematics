@@ -1,0 +1,7 @@
+apiRules:
+  - exclude:
+      uidRegex: Tests$
+      type: Namespace
+  - exclude:
+      uidRegex: ^Unity\..*\.Tests\..*$
+      type: Namespace
