@@ -4242,6 +4242,61 @@ namespace Unity.Mathematics
             return h | (ux & ~msk) >> 16;
         }
 
+        /// <summary>
+        /// Generate an orthonormal basis given a single unit length normal vector.
+        /// </summary>
+        /// <remarks>
+        /// This implementation is from "Building an Orthonormal Basis, Revisited"
+        /// https://graphics.pixar.com/library/OrthonormalB/paper.pdf
+        /// </remarks>
+        /// <param name="normal">Unit length normal vector.</param>
+        /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
+        /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
+        public static void orthonormal_basis(in float3 normal, out float3 basis1, out float3 basis2)
+        {
+            if (normal.z < 0.0f)
+            {
+                float a = math.rcp(1.0f - normal.z);
+                float b = normal.x * normal.y * a;
+                basis1 = new float3(1.0f - normal.x * normal.x * a, -b, normal.x);
+                basis2 = new float3(b, normal.y * normal.y * a - 1.0f, -normal.y);
+            }
+            else
+            {
+                float a = math.rcp(1.0f + normal.z);
+                float b = -normal.x * normal.y * a;
+                basis1 = new float3(1.0f - normal.x * normal.x * a, b, -normal.x);
+                basis2 = new float3(b, 1.0f - normal.y * normal.y * a, -normal.y);
+            }
+        }
+
+        /// <summary>
+        /// Generate an orthonormal basis given a single unit length normal vector.
+        /// </summary>
+        /// <remarks>
+        /// This implementation is from "Building an Orthonormal Basis, Revisited"
+        /// https://graphics.pixar.com/library/OrthonormalB/paper.pdf
+        /// </remarks>
+        /// <param name="normal">Unit length normal vector.</param>
+        /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
+        /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
+        public static void orthonormal_basis(in double3 normal, out double3 basis1, out double3 basis2)
+        {
+            if (normal.z < 0.0)
+            {
+                double a = math.rcp(1.0 - normal.z);
+                double b = normal.x * normal.y * a;
+                basis1 = new double3(1.0 - normal.x * normal.x * a, -b, normal.x);
+                basis2 = new double3(b, normal.y * normal.y * a - 1.0, -normal.y);
+            }
+            else
+            {
+                double a = math.rcp(1.0 + normal.z);
+                double b = -normal.x * normal.y * a;
+                basis1 = new double3(1.0 - normal.x * normal.x * a, b, -normal.x);
+                basis2 = new double3(b, 1.0 - normal.y * normal.y * a, -normal.y);
+            }
+        }
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
