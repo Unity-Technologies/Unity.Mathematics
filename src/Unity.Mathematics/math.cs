@@ -4252,7 +4252,7 @@ namespace Unity.Mathematics
         /// <param name="normal">Unit length normal vector.</param>
         /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
         /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
-        public static void orthonormal_basis(in float3 normal, out float3 basis1, out float3 basis2)
+        public static void orthonormal_basis(float3 normal, out float3 basis1, out float3 basis2)
         {
             if (normal.z < 0.0f)
             {
@@ -4280,7 +4280,7 @@ namespace Unity.Mathematics
         /// <param name="normal">Unit length normal vector.</param>
         /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
         /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
-        public static void orthonormal_basis(in double3 normal, out double3 basis1, out double3 basis2)
+        public static void orthonormal_basis(double3 normal, out double3 basis1, out double3 basis2)
         {
             if (normal.z < 0.0)
             {

@@ -3349,7 +3349,7 @@ namespace Unity.Mathematics.Tests
         // their lengths (which should be one) and dot products (which should be zero).
         //
         // https://graphics.pixar.com/library/OrthonormalB/paper.pdf
-        static double OrthonormalBasisSquaredError(in double3 v1, in double3 v2, in double3 v3)
+        static double OrthonormalBasisSquaredError(double3 v1, double3 v2, double3 v3)
         {
             var d1 = math.length(v1) - 1.0;
             var d2 = math.length(v2) - 1.0;
