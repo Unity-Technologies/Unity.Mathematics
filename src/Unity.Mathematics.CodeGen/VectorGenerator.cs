@@ -3512,19 +3512,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "Geometry.MinMaxAABB", m_MemberName = "a", m_ElementInitializer = "new Geometry.MinMaxAABB()" },
             }, "args.a[i] = Geometry.Math.Transform(float3x3.identity, args.a[i]);", 100000);
 
-            GeneratePerformanceTest(str, "orthonormal_basis", new PerformanceTestArrayArgument[]
-            {
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v3", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-            }, "math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);", 10000000);
+            EndPerformanceTestCodeGen(str);
+        }
 
-            GeneratePerformanceTest(str, "orthonormal_basis2", new PerformanceTestArrayArgument[]
+        public void GenerateMathPerformanceTests(StringBuilder str)
+        {
+            BeginPerformanceTestCodeGen(str, "TestMath");
+
+            GeneratePerformanceTest(str, "orthonormal_basis_float", new PerformanceTestArrayArgument[]
             {
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v3", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
-            }, "math.orthonormal_basis2(args.v1[i], out args.v2[i], out args.v3[i]);", 10000000);
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "rng[0].NextFloat3Direction()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v3", m_ElementInitializer = "new float3()" },
+            }, "math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);", 1000000);
+
+            GeneratePerformanceTest(str, "orthonormal_basis_double", new PerformanceTestArrayArgument[]
+            {
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v1", m_ElementInitializer = "rng[0].NextDouble3Direction()" },
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v2", m_ElementInitializer = "new double()" },
+                new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v3", m_ElementInitializer = "new double()" },
+            }, "math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);", 1000000);
 
             EndPerformanceTestCodeGen(str);
         }
@@ -3686,6 +3697,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             StringBuilder minMaxAabbStr = new StringBuilder();
             GenerateMinMaxAabbPerformanceTests(minMaxAabbStr);
             WriteFile(m_PerformanceTestDirectory + "/TestMinMaxAABB.gen.cs", minMaxAabbStr.ToString());
+
+            StringBuilder mathStr = new StringBuilder();
+            GenerateMathPerformanceTests(mathStr);
+            WriteFile(m_PerformanceTestDirectory + "/TestMath.gen.cs", mathStr.ToString());
         }
     }
 }

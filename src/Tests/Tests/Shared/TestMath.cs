@@ -3361,12 +3361,13 @@ namespace Unity.Mathematics.Tests
             return ((d1 * d1) + (d2 * d2) + (d3 * d3) + (dot1 * dot1) + (dot2 * dot2) + (dot3 * dot3)) / 6.0;
         }
 
+        // The value chosen for tolerance here is the maximum error observed in
+        // "Building an Orthonormal Basis, Revisited" table 1.
+        private const double kOrthonormalBasisSqErrorTolerance = 1.04e-7d;
+
         [TestCompiler]
         public static void orthonormal_basis_float()
         {
-            // The value chosen for tolerance here is the maximum error observed in
-            // "Building an Orthonormal Basis, Revisited" table 1.
-            var kTolerance = 1.04e-7d;
             var random = new Random(8189782u);
 
             for (int i = 0; i < 10000; ++i)
@@ -3375,34 +3376,13 @@ namespace Unity.Mathematics.Tests
                 var v2 = new float3();
                 var v3 = new float3();
                 math.orthonormal_basis(v1, out v2, out v3);
-                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kTolerance);
-            }
-        }
-
-        [TestCompiler]
-        public static void orthonormal_basis2_float()
-        {
-            // The value chosen for tolerance here is the maximum error observed in
-            // "Building an Orthonormal Basis, Revisited" table 1.
-            var kTolerance = 1.04e-7d;
-            var random = new Random(8189782u);
-
-            for (int i = 0; i < 10000; ++i)
-            {
-                var v1 = random.NextFloat3Direction();
-                var v2 = new float3();
-                var v3 = new float3();
-                math.orthonormal_basis2(v1, out v2, out v3);
-                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kTolerance);
+                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
             }
         }
 
         [TestCompiler]
         public static void orthonormal_basis_double()
         {
-            // The value chosen for tolerance here is the maximum error observed in
-            // "Building an Orthonormal Basis, Revisited" table 1.
-            var kTolerance = 1.04e-7d;
             var random = new Random(99917872u);
 
             for (int i = 0; i < 10000; ++i)
@@ -3411,7 +3391,7 @@ namespace Unity.Mathematics.Tests
                 var v2 = new double3();
                 var v3 = new double3();
                 math.orthonormal_basis(v1, out v2, out v3);
-                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kTolerance);
+                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
             }
         }
     }

@@ -4254,25 +4254,7 @@ namespace Unity.Mathematics
         /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
         public static void orthonormal_basis(float3 normal, out float3 basis1, out float3 basis2)
         {
-            if (normal.z < 0.0f)
-            {
-                float a = math.rcp(1.0f - normal.z);
-                float b = normal.x * normal.y * a;
-                basis1 = new float3(1.0f - normal.x * normal.x * a, -b, normal.x);
-                basis2 = new float3(b, normal.y * normal.y * a - 1.0f, -normal.y);
-            }
-            else
-            {
-                float a = math.rcp(1.0f + normal.z);
-                float b = -normal.x * normal.y * a;
-                basis1 = new float3(1.0f - normal.x * normal.x * a, b, -normal.x);
-                basis2 = new float3(b, 1.0f - normal.y * normal.y * a, -normal.y);
-            }
-        }
-
-        public static void orthonormal_basis2(float3 normal, out float3 basis1, out float3 basis2)
-        {
-            float sign = normal.z >= 0.0f ? 1.0f : -1.0f;
+            var sign = normal.z >= 0.0f ? 1.0f : -1.0f;
             var a = -1.0f / (sign + normal.z);
             var b = normal.x * normal.y * a;
             basis1.x = 1.0f + sign * normal.x * normal.x * a;
@@ -4295,20 +4277,15 @@ namespace Unity.Mathematics
         /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
         public static void orthonormal_basis(double3 normal, out double3 basis1, out double3 basis2)
         {
-            if (normal.z < 0.0)
-            {
-                double a = math.rcp(1.0 - normal.z);
-                double b = normal.x * normal.y * a;
-                basis1 = new double3(1.0 - normal.x * normal.x * a, -b, normal.x);
-                basis2 = new double3(b, normal.y * normal.y * a - 1.0, -normal.y);
-            }
-            else
-            {
-                double a = math.rcp(1.0 + normal.z);
-                double b = -normal.x * normal.y * a;
-                basis1 = new double3(1.0 - normal.x * normal.x * a, b, -normal.x);
-                basis2 = new double3(b, 1.0 - normal.y * normal.y * a, -normal.y);
-            }
+            var sign = normal.z >= 0.0 ? 1.0 : -1.0;
+            var a = -1.0 / (sign + normal.z);
+            var b = normal.x * normal.y * a;
+            basis1.x = 1.0 + sign * normal.x * normal.x * a;
+            basis1.y = sign * b;
+            basis1.z = -sign * normal.x;
+            basis2.x = b;
+            basis2.y = sign + normal.y * normal.y * a;
+            basis2.z = -normal.y;
         }
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
