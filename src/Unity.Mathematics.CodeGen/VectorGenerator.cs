@@ -3512,6 +3512,20 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "Geometry.MinMaxAABB", m_MemberName = "a", m_ElementInitializer = "new Geometry.MinMaxAABB()" },
             }, "args.a[i] = Geometry.Math.Transform(float3x3.identity, args.a[i]);", 100000);
 
+            GeneratePerformanceTest(str, "orthonormal_basis", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v3", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+            }, "math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);", 10000000);
+
+            GeneratePerformanceTest(str, "orthonormal_basis2", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v1", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v2", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "v3", m_ElementInitializer = "new float3(1.0f, 0.0f, 0.0f)" },
+            }, "math.orthonormal_basis2(args.v1[i], out args.v2[i], out args.v3[i]);", 10000000);
+
             EndPerformanceTestCodeGen(str);
         }
 

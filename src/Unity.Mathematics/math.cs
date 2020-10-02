@@ -4270,6 +4270,19 @@ namespace Unity.Mathematics
             }
         }
 
+        public static void orthonormal_basis2(float3 normal, out float3 basis1, out float3 basis2)
+        {
+            float sign = normal.z >= 0.0f ? 1.0f : -1.0f;
+            var a = -1.0f / (sign + normal.z);
+            var b = normal.x * normal.y * a;
+            basis1.x = 1.0f + sign * normal.x * normal.x * a;
+            basis1.y = sign * b;
+            basis1.z = -sign * normal.x;
+            basis2.x = b;
+            basis2.y = sign + normal.y * normal.y * a;
+            basis2.z = -normal.y;
+        }
+
         /// <summary>
         /// Generate an orthonormal basis given a single unit length normal vector.
         /// </summary>
