@@ -189,10 +189,11 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
+                    var rng = new Random(1234u);
                     v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < 10000000; ++i)
                     {
-                        v1[i] = new float3(1.0f, 0.0f, 0.0f);
+                        v1[i] = rng.NextFloat3Direction();
                     }
 
                     v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
@@ -285,10 +286,12 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
+                    var rng = new Random(1234u);
+
                     v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < 10000000; ++i)
                     {
-                        v1[i] = new float3(1.0f, 0.0f, 0.0f);
+                        v1[i] = rng.NextFloat3Direction();
                     }
 
                     v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
