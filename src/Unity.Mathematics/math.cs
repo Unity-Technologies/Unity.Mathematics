@@ -4067,7 +4067,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float sqr(float x)
+        public static float square(float x)
         {
             return x * x;
         }
@@ -4078,7 +4078,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 sqr(float2 x)
+        public static float2 square(float2 x)
         {
             return x * x;
         }
@@ -4089,7 +4089,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 sqr(float3 x)
+        public static float3 square(float3 x)
         {
             return x * x;
         }
@@ -4100,7 +4100,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 sqr(float4 x)
+        public static float4 square(float4 x)
         {
             return x * x;
         }
@@ -4111,7 +4111,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double sqr(double x)
+        public static double square(double x)
         {
             return x * x;
         }
@@ -4122,7 +4122,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 sqr(double2 x)
+        public static double2 square(double2 x)
         {
             return x * x;
         }
@@ -4133,7 +4133,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 sqr(double3 x)
+        public static double3 square(double3 x)
         {
             return x * x;
         }
@@ -4144,7 +4144,7 @@ namespace Unity.Mathematics
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 sqr(double4 x)
+        public static double4 square(double4 x)
         {
             return x * x;
         }
@@ -4153,13 +4153,13 @@ namespace Unity.Mathematics
         /// Computes the square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x)</c> is positive. For example, <c>sqr(46341)</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(46341)</c>
         /// will return <c>-2147479015</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int sqr(int x)
+        public static int square(int x)
         {
             return x * x;
         }
@@ -4168,13 +4168,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x)</c> is positive. For example, <c>sqr(new int2(46341))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int2(46341))</c>
         /// will return <c>new int2(-2147479015)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 sqr(int2 x)
+        public static int2 square(int2 x)
         {
             return x * x;
         }
@@ -4183,13 +4183,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x)</c> is positive. For example, <c>sqr(new int3(46341))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int3(46341))</c>
         /// will return <c>new int3(-2147479015)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 sqr(int3 x)
+        public static int3 square(int3 x)
         {
             return x * x;
         }
@@ -4198,13 +4198,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x)</c> is positive. For example, <c>sqr(new int4(46341))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int4(46341))</c>
         /// will return <c>new int4(-2147479015)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 sqr(int4 x)
+        public static int4 square(int4 x)
         {
             return x * x;
         }
@@ -4213,13 +4213,13 @@ namespace Unity.Mathematics
         /// Computes the square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x) &gt;= x</c>. For example, <c>sqr(4294967295u)</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(4294967295u)</c>
         /// will return <c>1u</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint sqr(uint x)
+        public static uint square(uint x)
         {
             return x * x;
         }
@@ -4228,13 +4228,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x) &gt;= x</c>. For example, <c>sqr(new uint2(4294967295u))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint2(4294967295u))</c>
         /// will return <c>new uint2(1u)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 sqr(uint2 x)
+        public static uint2 square(uint2 x)
         {
             return x * x;
         }
@@ -4243,13 +4243,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x) &gt;= x</c>. For example, <c>sqr(new uint3(4294967295u))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint3(4294967295u))</c>
         /// will return <c>new uint3(1u)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 sqr(uint3 x)
+        public static uint3 square(uint3 x)
         {
             return x * x;
         }
@@ -4258,13 +4258,13 @@ namespace Unity.Mathematics
         /// Computes the component-wise square (x * x) of the input argument x.
         /// </summary>
         /// <remarks>
-        /// Due to integer overflow, it's not always guaranteed that <c>sqr(x) &gt;= x</c>. For example, <c>sqr(new uint4(4294967295u))</c>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint4(4294967295u))</c>
         /// will return <c>new uint4(1u)</c>.
         /// </remarks>
         /// <param name="x">Value to square.</param>
         /// <returns>Returns the square of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 sqr(uint4 x)
+        public static uint4 square(uint4 x)
         {
             return x * x;
         }
