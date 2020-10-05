@@ -387,7 +387,7 @@ namespace Unity.Mathematics
         public bool Equals(half2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the half2 is equal to a given half2, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((half2)o); }
+        public override bool Equals(object o) { return o is half2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the half2.</summary>

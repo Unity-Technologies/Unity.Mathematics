@@ -1348,6 +1348,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint4(3, 7, 1, 5), shuffle(a, b, ShuffleComponent.LeftW, ShuffleComponent.RightW, ShuffleComponent.LeftY, ShuffleComponent.RightY));
         }
 
+        [TestCase]
+        public static void uint4_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new uint4().Equals((object)new int()));
+            TestUtils.IsTrue(new uint4().Equals((object)new uint4()));
+        }
+
 
     }
 }

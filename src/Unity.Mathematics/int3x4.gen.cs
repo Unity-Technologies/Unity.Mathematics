@@ -410,7 +410,7 @@ namespace Unity.Mathematics
         public bool Equals(int3x4 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2) && c3.Equals(rhs.c3); }
 
         /// <summary>Returns true if the int3x4 is equal to a given int3x4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((int3x4)o); }
+        public override bool Equals(object o) { return o is int3x4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the int3x4.</summary>

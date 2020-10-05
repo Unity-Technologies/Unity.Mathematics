@@ -940,6 +940,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
+        [TestCase]
+        public static void float4x2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new float4x2().Equals((object)new int()));
+            TestUtils.IsTrue(new float4x2().Equals((object)new float4x2()));
+        }
+
 
     }
 }

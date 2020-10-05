@@ -335,7 +335,7 @@ namespace Unity.Mathematics
         public bool Equals(float4x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
 
         /// <summary>Returns true if the float4x2 is equal to a given float4x2, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((float4x2)o); }
+        public override bool Equals(object o) { return o is float4x2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the float4x2.</summary>

@@ -242,7 +242,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns true if the RigidTransform is equal to a given RigidTransform, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object x) { return Equals((RigidTransform)x); }
+        public override bool Equals(object x) { return x is RigidTransform converted && Equals(converted); }
 
         /// <summary>Returns a hash code for the RigidTransform.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -146,7 +146,7 @@ namespace Unity.Mathematics
         public bool Equals(bool2x3 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
 
         /// <summary>Returns true if the bool2x3 is equal to a given bool2x3, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((bool2x3)o); }
+        public override bool Equals(object o) { return o is bool2x3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the bool2x3.</summary>

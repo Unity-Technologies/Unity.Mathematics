@@ -1360,7 +1360,7 @@ namespace Unity.Mathematics
         public bool Equals(float3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
 
         /// <summary>Returns true if the float3 is equal to a given float3, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((float3)o); }
+        public override bool Equals(object o) { return o is float3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the float3.</summary>

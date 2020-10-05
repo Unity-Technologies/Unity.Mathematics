@@ -1386,7 +1386,7 @@ namespace Unity.Mathematics
         public bool Equals(uint3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
 
         /// <summary>Returns true if the uint3 is equal to a given uint3, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((uint3)o); }
+        public override bool Equals(object o) { return o is uint3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the uint3.</summary>

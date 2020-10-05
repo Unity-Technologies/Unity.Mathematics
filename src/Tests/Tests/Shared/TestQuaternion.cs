@@ -337,5 +337,12 @@ namespace Unity.Mathematics.Tests
             quaternion q2 = quaternion.LookRotationSafe(forward2, up2);
             TestUtils.AreEqual(quaternion.identity, q2, 0.001f);
         }
+
+        [TestCase]
+        public static void quaternion_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new quaternion().Equals((object) new int()));
+            TestUtils.IsTrue(new quaternion().Equals((object) new quaternion()));
+        }
     }
 }

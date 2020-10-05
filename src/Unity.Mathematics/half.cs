@@ -71,7 +71,7 @@ namespace Unity.Mathematics
         public bool Equals(half rhs) { return value == rhs.value; }
 
         /// <summary>Returns true if the half is equal to a given half, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((half)o); }
+        public override bool Equals(object o) { return o is half converted && Equals(converted); }
 
         /// <summary>Returns a hash code for the half.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

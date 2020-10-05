@@ -10,6 +10,8 @@
 ### Deprecated
 ### Removed
 ### Fixed
+* Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
+
 ### Internal (Not ready for production)
 
 ## [1.2.1] - 2020-08-06

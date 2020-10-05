@@ -5,7 +5,6 @@ namespace Unity.Mathematics.Tests
 {
     class TestUtils
     {
-
         public static void AreEqual(bool expected, bool actual)
         {
             Assert.AreEqual(expected, actual);
