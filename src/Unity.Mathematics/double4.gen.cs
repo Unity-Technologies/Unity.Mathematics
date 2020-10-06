@@ -3264,7 +3264,7 @@ namespace Unity.Mathematics
         public bool Equals(double4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
         /// <summary>Returns true if the double4 is equal to a given double4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((double4)o); }
+        public override bool Equals(object o) { return o is double4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the double4.</summary>

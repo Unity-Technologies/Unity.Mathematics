@@ -3288,7 +3288,7 @@ namespace Unity.Mathematics
         public bool Equals(uint4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
         /// <summary>Returns true if the uint4 is equal to a given uint4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((uint4)o); }
+        public override bool Equals(object o) { return o is uint4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the uint4.</summary>

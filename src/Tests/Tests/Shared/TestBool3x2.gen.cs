@@ -395,6 +395,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, !a3);
         }
 
+        [TestCase]
+        public static void bool3x2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new bool3x2().Equals((object)new int()));
+            TestUtils.IsTrue(new bool3x2().Equals((object)new bool3x2()));
+        }
+
 
     }
 }

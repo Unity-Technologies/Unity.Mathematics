@@ -624,7 +624,7 @@ namespace Unity.Mathematics
         public bool Equals(uint2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the uint2 is equal to a given uint2, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((uint2)o); }
+        public override bool Equals(object o) { return o is uint2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the uint2.</summary>

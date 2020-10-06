@@ -955,6 +955,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
+        [TestCase]
+        public static void float3x3_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new float3x3().Equals((object)new int()));
+            TestUtils.IsTrue(new float3x3().Equals((object)new float3x3()));
+        }
+
 
     }
 }

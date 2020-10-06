@@ -521,5 +521,33 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7bff, max.z.value);
             TestUtils.AreEqual(0x7bff, max.w.value);
         }
+
+        [TestCase]
+        public static void half_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new half().Equals((object) new int()));
+            TestUtils.IsTrue(new half().Equals((object) new half()));
+        }
+
+        [TestCase]
+        public static void half2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new half2().Equals((object) new int()));
+            TestUtils.IsTrue(new half2().Equals((object) new half2()));
+        }
+
+        [TestCase]
+        public static void half3_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new half3().Equals((object) new int()));
+            TestUtils.IsTrue(new half3().Equals((object) new half3()));
+        }
+
+        [TestCase]
+        public static void half4_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new half4().Equals((object) new int()));
+            TestUtils.IsTrue(new half4().Equals((object) new half4()));
+        }
     }
 }

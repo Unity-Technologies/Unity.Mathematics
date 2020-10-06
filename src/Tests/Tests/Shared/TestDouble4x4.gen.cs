@@ -969,6 +969,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
+        [TestCase]
+        public static void double4x4_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new double4x4().Equals((object)new int()));
+            TestUtils.IsTrue(new double4x4().Equals((object)new double4x4()));
+        }
+
 
     }
 }

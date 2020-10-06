@@ -596,7 +596,7 @@ namespace Unity.Mathematics
         public bool Equals(float2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the float2 is equal to a given float2, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((float2)o); }
+        public override bool Equals(object o) { return o is float2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the float2.</summary>
