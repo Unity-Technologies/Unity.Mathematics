@@ -3785,7 +3785,7 @@ namespace Unity.Mathematics.Tests
             // Random inputs.
             TestUtils.AreEqual(new uint4(3982663844u, 503153673u, 4101817232u, 2726088561u), math.square(new uint4(779359642u, 2488899075u, 407772844u, 2862593383u)));
         }
-      
+
         // This utility function comes from footnote 1 of "Building an Orthonormal Basis, Revisited" by
         // Duff, Burgess, Christensen, Hery, Kensler, Liani and Villemin.
         //
@@ -3837,5 +3837,6 @@ namespace Unity.Mathematics.Tests
                 math.orthonormal_basis(v1, out v2, out v3);
                 TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
             }
+        }
     }
 }
