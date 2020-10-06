@@ -4062,6 +4062,214 @@ namespace Unity.Mathematics
         public static double csum(double4 x) { return (x.x + x.y) + (x.z + x.w); }
 
         /// <summary>
+        /// Computes the square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float square(float x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 square(float2 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 square(float3 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 square(float4 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double square(double x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 square(double2 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 square(double3 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 square(double4 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(46341)</c>
+        /// will return <c>-2147479015</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int square(int x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int2(46341))</c>
+        /// will return <c>new int2(-2147479015)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int2 square(int2 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int3(46341))</c>
+        /// will return <c>new int3(-2147479015)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int3 square(int3 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x)</c> is positive. For example, <c>square(new int4(46341))</c>
+        /// will return <c>new int4(-2147479015)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static int4 square(int4 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(4294967295u)</c>
+        /// will return <c>1u</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint square(uint x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint2(4294967295u))</c>
+        /// will return <c>new uint2(1u)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint2 square(uint2 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint3(4294967295u))</c>
+        /// will return <c>new uint3(1u)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint3 square(uint3 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
+        /// Computes the component-wise square (x * x) of the input argument x.
+        /// </summary>
+        /// <remarks>
+        /// Due to integer overflow, it's not always guaranteed that <c>square(x) &gt;= x</c>. For example, <c>square(new uint4(4294967295u))</c>
+        /// will return <c>new uint4(1u)</c>.
+        /// </remarks>
+        /// <param name="x">Value to square.</param>
+        /// <returns>Returns the square of the input.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static uint4 square(uint4 x)
+        {
+            return x * x;
+        }
+
+        /// <summary>
         /// Packs components with an enabled mask to the left.
         /// </summary>
         /// <remarks>
