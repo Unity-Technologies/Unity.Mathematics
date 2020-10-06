@@ -1050,6 +1050,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(2, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
         }
 
+        [TestCase]
+        public static void float2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new float2().Equals((object)new int()));
+            TestUtils.IsTrue(new float2().Equals((object)new float2()));
+        }
+
 
     }
 }

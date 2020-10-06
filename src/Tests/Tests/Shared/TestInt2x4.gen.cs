@@ -1224,6 +1224,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ~a3);
         }
 
+        [TestCase]
+        public static void int2x4_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new int2x4().Equals((object)new int()));
+            TestUtils.IsTrue(new int2x4().Equals((object)new int2x4()));
+        }
+
 
     }
 }

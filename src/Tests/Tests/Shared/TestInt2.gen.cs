@@ -1334,6 +1334,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int4(2, 0, 0, 0), shuffle(a, b, ShuffleComponent.RightX, ShuffleComponent.LeftX, ShuffleComponent.LeftX, ShuffleComponent.LeftX));
         }
 
+        [TestCase]
+        public static void int2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new int2().Equals((object)new int()));
+            TestUtils.IsTrue(new int2().Equals((object)new int2()));
+        }
+
 
     }
 }

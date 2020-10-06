@@ -409,7 +409,7 @@ namespace Unity.Mathematics
         public bool Equals(uint2x4 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2) && c3.Equals(rhs.c3); }
 
         /// <summary>Returns true if the uint2x4 is equal to a given uint2x4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((uint2x4)o); }
+        public override bool Equals(object o) { return o is uint2x4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the uint2x4.</summary>

@@ -347,7 +347,7 @@ namespace Unity.Mathematics
         public bool Equals(double4x3 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
 
         /// <summary>Returns true if the double4x3 is equal to a given double4x3, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((double4x3)o); }
+        public override bool Equals(object o) { return o is double4x3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the double4x3.</summary>

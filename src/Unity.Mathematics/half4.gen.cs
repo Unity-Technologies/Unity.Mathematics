@@ -3043,7 +3043,7 @@ namespace Unity.Mathematics
         public bool Equals(half4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
         /// <summary>Returns true if the half4 is equal to a given half4, false otherwise.</summary>
-        public override bool Equals(object o) { return Equals((half4)o); }
+        public override bool Equals(object o) { return o is half4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the half4.</summary>

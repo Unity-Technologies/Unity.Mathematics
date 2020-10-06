@@ -159,5 +159,12 @@ namespace Unity.Mathematics.Tests
             float4 qvector1 = mul(q, float4(vector, 1));
             TestUtils.AreEqual(mvector1, qvector1, 0.0001f);
         }
+
+        [TestCase]
+        public static void rigid_transform_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new RigidTransform().Equals((object) new int()));
+            TestUtils.IsTrue(new RigidTransform().Equals((object) new RigidTransform()));
+        }
     }
 }

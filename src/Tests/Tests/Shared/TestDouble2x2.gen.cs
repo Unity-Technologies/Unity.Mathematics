@@ -945,6 +945,13 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
+        [TestCase]
+        public static void double2x2_EqualsObjectOverride()
+        {
+            TestUtils.IsFalse(new double2x2().Equals((object)new int()));
+            TestUtils.IsTrue(new double2x2().Equals((object)new double2x2()));
+        }
+
 
     }
 }

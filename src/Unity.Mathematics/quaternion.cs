@@ -386,7 +386,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns whether true if the quaternion is equal to a given quaternion, false otherwise.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override bool Equals(object x) { return Equals((quaternion)x); }
+        public override bool Equals(object x) { return x is quaternion converted && Equals(converted); }
 
         /// <summary>Returns a hash code for the quaternion.</summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

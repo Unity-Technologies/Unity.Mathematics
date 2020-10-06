@@ -1710,7 +1710,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("; }\n\n");
 
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
-            str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return Equals(({0})o); }}\n\n", m_TypeName);
+            str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return o is {0} converted && Equals(converted); }}\n\n", m_TypeName);
         }
 
         void GenerateGetHashCode(StringBuilder str)
@@ -1920,10 +1920,17 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         }
 
         // Test Generation
-
-        private void BeginTest(StringBuilder str, string name)
+        private void BeginTest(StringBuilder str, string name, bool testCompiler = true)
         {
-            str.Append("\t\t[TestCompiler]\n");
+            if (testCompiler)
+            {
+                str.Append("\t\t[TestCompiler]\n");
+            }
+            else
+            {
+                str.Append("\t\t[TestCase]\n");
+            }
+
             str.AppendFormat("\t\tpublic static void {0}()\n", name);
             str.Append("\t\t{\n");
         }
@@ -2951,6 +2958,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("\n}\n");
         }
 
+        void TestEqualsObjectOverride(StringBuilder str)
+        {
+            BeginTest(str, m_TypeName + "_EqualsObjectOverride", false);
+            str.Append($"\t\t\tTestUtils.IsFalse(new {m_TypeName}().Equals((object)new int()));\n");
+            str.Append($"\t\t\tTestUtils.IsTrue(new {m_TypeName}().Equals((object)new {m_TypeName}()));\n");
+            EndTest(str);
+        }
+
         private void GenerateTypeTests(StringBuilder str)
         {
             StringBuilder mathStr = new StringBuilder();
@@ -2967,6 +2982,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             TestStaticFields(str);
             TestConstructors(str);
             TestOperators(str);
+            TestEqualsObjectOverride(str);
 
             str.Append("\n\t}");
             str.Append("\n}\n");
