@@ -4450,6 +4450,51 @@ namespace Unity.Mathematics
             return h | (ux & ~msk) >> 16;
         }
 
+        /// <summary>
+        /// Generate an orthonormal basis given a single unit length normal vector.
+        /// </summary>
+        /// <remarks>
+        /// This implementation is from "Building an Orthonormal Basis, Revisited"
+        /// https://graphics.pixar.com/library/OrthonormalB/paper.pdf
+        /// </remarks>
+        /// <param name="normal">Unit length normal vector.</param>
+        /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
+        /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
+        public static void orthonormal_basis(float3 normal, out float3 basis1, out float3 basis2)
+        {
+            var sign = normal.z >= 0.0f ? 1.0f : -1.0f;
+            var a = -1.0f / (sign + normal.z);
+            var b = normal.x * normal.y * a;
+            basis1.x = 1.0f + sign * normal.x * normal.x * a;
+            basis1.y = sign * b;
+            basis1.z = -sign * normal.x;
+            basis2.x = b;
+            basis2.y = sign + normal.y * normal.y * a;
+            basis2.z = -normal.y;
+        }
+
+        /// <summary>
+        /// Generate an orthonormal basis given a single unit length normal vector.
+        /// </summary>
+        /// <remarks>
+        /// This implementation is from "Building an Orthonormal Basis, Revisited"
+        /// https://graphics.pixar.com/library/OrthonormalB/paper.pdf
+        /// </remarks>
+        /// <param name="normal">Unit length normal vector.</param>
+        /// <param name="basis1">Output unit length vector, orthogonal to normal vector.</param>
+        /// <param name="basis2">Output unit length vector, orthogonal to normal vector and basis1.</param>
+        public static void orthonormal_basis(double3 normal, out double3 basis1, out double3 basis2)
+        {
+            var sign = normal.z >= 0.0 ? 1.0 : -1.0;
+            var a = -1.0 / (sign + normal.z);
+            var b = normal.x * normal.y * a;
+            basis1.x = 1.0 + sign * normal.x * normal.x * a;
+            basis1.y = sign * b;
+            basis1.z = -sign * normal.x;
+            basis2.x = b;
+            basis2.y = sign + normal.y * normal.y * a;
+            basis2.z = -normal.y;
+        }
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>

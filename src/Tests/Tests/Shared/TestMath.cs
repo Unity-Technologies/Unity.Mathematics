@@ -3785,5 +3785,58 @@ namespace Unity.Mathematics.Tests
             // Random inputs.
             TestUtils.AreEqual(new uint4(3982663844u, 503153673u, 4101817232u, 2726088561u), math.square(new uint4(779359642u, 2488899075u, 407772844u, 2862593383u)));
         }
+
+        // This utility function comes from footnote 1 of "Building an Orthonormal Basis, Revisited" by
+        // Duff, Burgess, Christensen, Hery, Kensler, Liani and Villemin.
+        //
+        // It simply computes the average squared error of the basis vectors by taking into account
+        // their lengths (which should be one) and dot products (which should be zero).
+        //
+        // https://graphics.pixar.com/library/OrthonormalB/paper.pdf
+        static double OrthonormalBasisSquaredError(double3 v1, double3 v2, double3 v3)
+        {
+            var d1 = math.length(v1) - 1.0;
+            var d2 = math.length(v2) - 1.0;
+            var d3 = math.length(v3) - 1.0;
+            var dot1 = math.dot(v1, v2);
+            var dot2 = math.dot(v1, v3);
+            var dot3 = math.dot(v2, v3);
+
+            return ((d1 * d1) + (d2 * d2) + (d3 * d3) + (dot1 * dot1) + (dot2 * dot2) + (dot3 * dot3)) / 6.0;
+        }
+
+        // The value chosen for tolerance here is the maximum error observed in
+        // "Building an Orthonormal Basis, Revisited" table 1.
+        private const double kOrthonormalBasisSqErrorTolerance = 1.04e-7d;
+
+        [TestCompiler]
+        public static void orthonormal_basis_float()
+        {
+            var random = new Random(8189782u);
+
+            for (int i = 0; i < 10000; ++i)
+            {
+                var v1 = random.NextFloat3Direction();
+                var v2 = new float3();
+                var v3 = new float3();
+                math.orthonormal_basis(v1, out v2, out v3);
+                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
+            }
+        }
+
+        [TestCompiler]
+        public static void orthonormal_basis_double()
+        {
+            var random = new Random(99917872u);
+
+            for (int i = 0; i < 10000; ++i)
+            {
+                var v1 = random.NextDouble3Direction();
+                var v2 = new double3();
+                var v3 = new double3();
+                math.orthonormal_basis(v1, out v2, out v3);
+                TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
+            }
+        }
     }
 }
