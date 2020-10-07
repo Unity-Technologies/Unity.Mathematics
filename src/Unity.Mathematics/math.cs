@@ -3255,25 +3255,69 @@ namespace Unity.Mathematics
             return offset - (int)(u.longValue >> 52);
         }
 
-
-        /// <summary>Returns number of trailing zeros in the binary representations of an int value.</summary>
+        /// <summary>
+        /// Computes the trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int tzcnt(int x) { return tzcnt((uint)x); }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int2 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 tzcnt(int2 x) { return int2(tzcnt(x.x), tzcnt(x.y)); }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int3 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 tzcnt(int3 v) { return int3(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z)); }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int4 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 tzcnt(int4 v) { return int4(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z), tzcnt(v.w)); }
 
 
-        /// <summary>Returns number of trailing zeros in the binary representations of a uint value.</summary>
+        /// <summary>
+        /// Computes the trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int tzcnt(uint x)
         {
@@ -3288,25 +3332,68 @@ namespace Unity.Mathematics
             return (int)(u.longValue >> 52) - 0x3FF;
         }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an uint2 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 tzcnt(uint2 x) { return int2(tzcnt(x.x), tzcnt(x.y)); }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an uint3 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 tzcnt(uint3 x) { return int3(tzcnt(x.x), tzcnt(x.y), tzcnt(x.z)); }
 
-        /// <summary>Returns the componentwise number of leading zeros in the binary representations of an uint4 vector.</summary>
+        /// <summary>
+        /// Computes the component-wise trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 tzcnt(uint4 x) { return int4(tzcnt(x.x), tzcnt(x.y), tzcnt(x.z), tzcnt(x.w)); }
 
-
-        /// <summary>Returns number of trailing zeros in the binary representations of a long value.</summary>
+        /// <summary>
+        /// Computes the trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int tzcnt(long x) { return tzcnt((ulong)x); }
 
-
-        /// <summary>Returns number of trailing zeros in the binary representations of a ulong value.</summary>
+        /// <summary>
+        /// Computes the trailing zero count in the binary representation of the input value.
+        /// </summary>
+        /// <remarks>
+        /// Assuming that the least significant bit is on the right, the integer value 4 has a binary representation
+        /// 0100 and the trailing zero count is two. The integer value 1 has a binary representation 0001 and the
+        /// trailing zero count is zero.
+        /// </remarks>
+        /// <param name="x">Input to use when computing the trailing zero count.</param>
+        /// <returns>Returns the trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int tzcnt(ulong x)
         {
