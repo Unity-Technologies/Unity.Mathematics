@@ -346,9 +346,45 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void quaternion_ToEuler()
+        public static void quaternion_ToEuler_XYZ()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion()));
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.XYZ));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_XZY()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.XZY));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_YXZ()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.YXZ));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_YZX()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.YZX));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_ZXY()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.ZXY));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_ZYX()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.ZYX));
+        }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler_Default()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.Default));
         }
     }
 }
