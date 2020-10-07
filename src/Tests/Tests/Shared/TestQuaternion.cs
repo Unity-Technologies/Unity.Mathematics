@@ -344,5 +344,11 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(new quaternion().Equals((object) new int()));
             TestUtils.IsTrue(new quaternion().Equals((object) new quaternion()));
         }
+
+        [TestCompiler]
+        public static void quaternion_ToEuler()
+        {
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion()));
+        }
     }
 }
