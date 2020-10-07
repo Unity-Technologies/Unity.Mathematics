@@ -3292,7 +3292,7 @@ namespace Unity.Mathematics
         /// <param name="x">Input to use when computing the trailing zero count.</param>
         /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 tzcnt(int3 v) { return int3(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z)); }
+        public static int3 tzcnt(int3 x) { return int3(tzcnt(x.x), tzcnt(x.y), tzcnt(x.z)); }
 
         /// <summary>
         /// Computes the component-wise trailing zero count in the binary representation of the input value.
@@ -3305,7 +3305,7 @@ namespace Unity.Mathematics
         /// <param name="x">Input to use when computing the trailing zero count.</param>
         /// <returns>Returns the component-wise trailing zero count of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 tzcnt(int4 v) { return int4(tzcnt(v.x), tzcnt(v.y), tzcnt(v.z), tzcnt(v.w)); }
+        public static int4 tzcnt(int4 x) { return int4(tzcnt(x.x), tzcnt(x.y), tzcnt(x.z), tzcnt(x.w)); }
 
 
         /// <summary>
