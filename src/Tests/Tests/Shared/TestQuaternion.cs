@@ -345,46 +345,84 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(new quaternion().Equals((object) new quaternion()));
         }
 
+        // This is an arbitrary tolerance.
+        static float kQuaternionToEulerTolerance = 1e-5f;
+
         [TestCompiler]
         public static void quaternion_ToEuler_XYZ()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.XYZ));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.XYZ;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_XZY()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.XZY));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.XZY;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_YXZ()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.YXZ));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.YXZ;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_YZX()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.YZX));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.YZX;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_ZXY()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.ZXY));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.ZXY;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_ZYX()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.ZYX));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.ZYX;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_Default()
         {
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), RotationOrder.Default));
+            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
+            var rotationOrder = RotationOrder.Default;
+            var q = quaternion.Euler(rotation, rotationOrder);
+
+            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
+            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
         }
     }
 }
