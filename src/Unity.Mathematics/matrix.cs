@@ -5,7 +5,15 @@ namespace Unity.Mathematics
 {
     public partial struct float2x2
     {
-        /// <summary>Returns a float2x2 matrix representing a counter-clockwise rotation of angle degrees.</summary>
+        /// <summary>
+        /// Computes a float2x2 matrix representing a counter-clockwise rotation by an angle in radians.
+        /// </summary>
+        /// <remarks>
+        /// A positive rotation angle will produce a counter-clockwise rotation and a negative rotation angle will
+        /// produce a clockwise rotation.
+        /// </remarks>
+        /// <param name="angle">Rotation angle in radians.</param>
+        /// <returns>Returns the 2x2 rotation matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 Rotate(float angle)
         {
