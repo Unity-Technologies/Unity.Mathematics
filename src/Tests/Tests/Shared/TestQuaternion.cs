@@ -4,9 +4,60 @@ using Burst.Compiler.IL.Tests;
 
 namespace Unity.Mathematics.Tests
 {
+    unsafe struct TestAngles
+    {
+        public const int xAngleCount = 13;
+        public const int yAngleCount = 13;
+        public const int zAngleCount = 13;
+        public const int stepCount = 20;
+        public const int testAngleCountAsFloat3 = xAngleCount * yAngleCount * zAngleCount * stepCount;
+        public const int testAngleCountAsFloat = testAngleCountAsFloat3 * 3;
+
+        // This array really is a float3 array but we can't use fixed float3 so use floats instead.
+        public fixed float testAngles[testAngleCountAsFloat];
+
+        // From vec-quat-tests.cpp
+        public void Initialize()
+        {
+            const float kPiOverSix = PI / 6.0f;
+
+            // Generate all the test angles
+            int idx = 0;
+            for (int i = 0; i < xAngleCount; i++)
+            {
+                float x = -PI + i * kPiOverSix;
+                for (int j = 0; j < yAngleCount; j++)
+                {
+                    float y = -PI + j * kPiOverSix;
+                    for (int k = 0; k < zAngleCount; k++)
+                    {
+                        float z = -PI + k * kPiOverSix;
+                        for (int l = 0; l < stepCount; ++l)
+                        {
+                            var angle = new float3(x, y, z) * (0.99f + l * 0.001f);
+                            testAngles[idx + 0] = angle.x;
+                            testAngles[idx + 1] = angle.y;
+                            testAngles[idx + 2] = angle.z;
+                            idx += 3;
+                        }
+                    }
+                }
+            }
+        }
+
+        public float3 this[int index] => new float3(testAngles[3 * index], testAngles[3 * index + 1], testAngles[3 * index + 2]);
+    }
+
     [TestFixture]
     class TestQuaternion
     {
+        private static readonly TestAngles testAngles;
+
+        static TestQuaternion()
+        {
+            testAngles.Initialize();
+        }
+
         [TestCompiler]
         public static void quaternion_basic_constructors()
         {
@@ -345,84 +396,102 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(new quaternion().Equals((object) new quaternion()));
         }
 
-        // This is an arbitrary tolerance.
-        static float kQuaternionToEulerTolerance = 1e-5f;
-
         [TestCompiler]
         public static void quaternion_ToEuler_XYZ()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.XYZ;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.XYZ);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_XZY()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.XZY;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.XZY);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_YXZ()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.YXZ;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.YXZ);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_YZX()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.YZX;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.YZX);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_ZXY()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.ZXY;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.ZXY);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_ZYX()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.ZYX;
-            var q = quaternion.Euler(rotation, rotationOrder);
-
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+            quaternion_ToEuler(RotationOrder.ZYX);
         }
 
         [TestCompiler]
         public static void quaternion_ToEuler_Default()
         {
-            var rotation = new float3(PI, PI * 0.25f, PI * 0.5f);
-            var rotationOrder = RotationOrder.Default;
-            var q = quaternion.Euler(rotation, rotationOrder);
+            quaternion_ToEuler(RotationOrder.Default);
+        }
 
-            TestUtils.AreEqual(new float3(), quaternion.ToEuler(new quaternion(), rotationOrder));
-            TestUtils.AreEqual(rotation, quaternion.ToEuler(q, rotationOrder), kQuaternionToEulerTolerance);
+        // From vec-quat-tests.cpp
+        static quaternion testRefEulerToQuat(float3 angle, RotationOrder order)
+        {
+            var halfRot = new float3(angle * 0.5f);
+            float3 c, s;
+            sincos(halfRot, out s, out c);
+
+            var qX = new quaternion(s.x, 0.0f, 0.0f, c.x);
+            var qY = new quaternion(0.0f, s.y, 0.0f, c.y);
+            var qZ = new quaternion(0.0f, 0.0f, s.z, c.z);
+
+            switch (order)
+            {
+                case RotationOrder.XYZ: return math.mul(math.mul(qZ, qY), qX);
+                case RotationOrder.XZY: return math.mul(math.mul(qY, qZ), qX);
+                case RotationOrder.YZX: return math.mul(math.mul(qX, qZ), qY);
+                case RotationOrder.YXZ: return math.mul(math.mul(qZ, qX), qY);
+                case RotationOrder.ZXY: return math.mul(math.mul(qY, qX), qZ);
+                case RotationOrder.ZYX: return math.mul(math.mul(qX, qY), qZ);
+                default: return new quaternion(); // error.
+            }
+        }
+
+        // From vec-quat-tests.cpp
+        // returns the angle between two quaternions
+        static float quatDiff(quaternion a, quaternion b)
+        {
+            float diff = asin(length(normalize(mul(conjugate(a), b)).value.xyz));
+            return diff + diff;
+        }
+
+        // From vec-quat-tests.cpp (quatToEuler_GivesResultThatConvertsToConsistentQuat)
+        static void quaternion_ToEuler(RotationOrder order)
+        {
+            float epsilon = 0.0045f;
+            float maxError = 0;
+
+            for (int i = 0; i < TestAngles.testAngleCountAsFloat3; ++i)
+            {
+                // We cannot directly compare Euler angles, as different angles may represent the same rotation, so we have to transform them back to quats to test.
+                // We also need to create our initial test quaternion, as what we generated was euler angles.
+                var expected = testRefEulerToQuat(testAngles[i], RotationOrder.Default);
+
+                var actualEulers  = quaternion.ToEuler(expected, order);
+                var actualQuat = testRefEulerToQuat(actualEulers, order);
+
+                var error = quatDiff(expected, actualQuat);
+                TestUtils.AreEqual(0.0f, error, epsilon);
+                maxError = max(maxError, error);
+            }
+
+            TestUtils.IsTrue(maxError >= epsilon * 0.1f);
+            // The above max error assert corresponds to CHECK_MSG() below which came from the engine source.
+            //CHECK_MSG(maxError >= epsilon * 0.1f, Format("The maximum error witnessed in this test (%e) was less than 10%% of the epsilon value (%e), which means the test is too forgiving. The epsilon value should be tightened.", maxError, epsilon).c_str());
         }
     }
 }
