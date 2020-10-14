@@ -12,6 +12,7 @@
 ### Fixed
 * Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
 * Fixed incorrect `math.tzcnt` documentation which mentioned leading zero counts instead of trailing zero counts.
+* Fixed `float2x2.Rotate` documentation to mention radians instead of degrees.
 
 ### Internal (Not ready for production)
 
