@@ -5,6 +5,7 @@
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
 * Added `math.square()` to compute the square (x * x).
 * Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
+* Added `quaternion.ToEuler()` to convert a quaternion back to Euler angles.
 
 ### Changed
 * Changed noise documentation in comments to xmldoc comments.
