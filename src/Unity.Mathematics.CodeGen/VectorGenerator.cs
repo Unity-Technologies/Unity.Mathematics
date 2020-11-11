@@ -2686,6 +2686,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GenerateComponentWiseTestFloatAndDouble(str, "degrees", new double[,] { { -123.45 }, { 0.0 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { -7073.1639808900125122, 0.0, 7073.1639808900125122, double.NegativeInfinity, double.NaN, double.PositiveInfinity}, 1, 1);
 
+            GenerateComponentWiseTest(str, "sign", new int[,] { { -156 }, { -214748346 }, { 0 }, { 214748346 }, { 1537 }, { 17 }, { -39 }, { 0 }, { -15379 }, { 64583 }, { int.MaxValue }, { int.MinValue } },
+                                                   new int[] { -1, -1, 0, 1, 1, 1, -1, 0, -1, 1, 1, -1 }, 4);
+
             GenerateComponentWiseTestFloatAndDouble(str, "sign",new double[,] { { -123.45 }, { -1e-20 }, { 0.0 }, { 1e-10 }, { 123.45 }, { double.NegativeInfinity }, { double.NaN }, { double.PositiveInfinity } },
                                                                 new double[] { -1.0, -1.0, 0.0, 1.0, 1.0, -1.0, 0.0, 1.0 });
 

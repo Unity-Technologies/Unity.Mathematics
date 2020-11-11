@@ -1527,40 +1527,45 @@ namespace Unity.Mathematics.Tests
         public static void sign_int()
         {
             TestUtils.AreEqual(-1, sign(-156));
-            TestUtils.AreEqual(-1, sign(-2147483468));
+            TestUtils.AreEqual(-1, sign(-214748346));
             TestUtils.AreEqual(0, sign(0));
-            TestUtils.AreEqual(1, sign(2147483467));
-            TestUtils.AreEqual(1, sign(123));
-            TestUtils.AreEqual(1, sign(int.MaxValue));
-            TestUtils.AreEqual(-1, sign(int.MinValue));
+            TestUtils.AreEqual(1, sign(214748346));
+            TestUtils.AreEqual(1, sign(1537));
+            TestUtils.AreEqual(1, sign(17));
+            TestUtils.AreEqual(-1, sign(-39));
+            TestUtils.AreEqual(0, sign(0));
+            TestUtils.AreEqual(-1, sign(-15379));
+            TestUtils.AreEqual(1, sign(64583));
+            TestUtils.AreEqual(1, sign(2147483647));
+            TestUtils.AreEqual(-1, sign(-2147483648));
         }
 
         [TestCompiler]
         public static void sign_int2()
         {
-            TestUtils.AreEqual(int2(0, 0), sign(int2(0, 0)));
-            TestUtils.AreEqual(int2(0, 1), sign(int2(0, 125)));
-            TestUtils.AreEqual(int2(1, 1), sign(int2(125, 2147477267)));
-            TestUtils.AreEqual(int2(0, -1), sign(int2(0, -1637)));
-            TestUtils.AreEqual(int2(-1, -1), sign(int2(-1387, -2147482398)));
-            TestUtils.AreEqual(int2(-1, 1), sign(int2(int.MinValue, int.MaxValue)));
+            TestUtils.AreEqual(int2(-1, -1), sign(int2(-156, -214748346)));
+            TestUtils.AreEqual(int2(0, 1), sign(int2(0, 214748346)));
+            TestUtils.AreEqual(int2(1, 1), sign(int2(1537, 17)));
+            TestUtils.AreEqual(int2(-1, 0), sign(int2(-39, 0)));
+            TestUtils.AreEqual(int2(-1, 1), sign(int2(-15379, 64583)));
+            TestUtils.AreEqual(int2(1, -1), sign(int2(2147483647, -2147483648)));
         }
 
         [TestCompiler]
         public static void sign_int3()
         {
-            TestUtils.AreEqual(int3(0, 1, 1), sign(int3(0, 125, 2147477267)));
-            TestUtils.AreEqual(int3(1, 1, 1), sign(int3(297, 439, 2147477)));
-            TestUtils.AreEqual(int3(-1, 0, 1), sign(int3(-1637, 0, 2147231337)));
-            TestUtils.AreEqual(int3(-1, -1, -1), sign(int3(-34597, -1637, -2147174350)));
-            TestUtils.AreEqual(int3(-1, -1, 1), sign(int3(int.MinValue, -8183, int.MaxValue)));
+            TestUtils.AreEqual(int3(-1, -1, 0), sign(int3(-156, -214748346, 0)));
+            TestUtils.AreEqual(int3(1, 1, 1), sign(int3(214748346, 1537, 17)));
+            TestUtils.AreEqual(int3(-1, 0, -1), sign(int3(-39, 0, -15379)));
+            TestUtils.AreEqual(int3(1, 1, -1), sign(int3(64583, 2147483647, -2147483648)));
         }
 
         [TestCompiler]
         public static void sign_int4()
         {
-            TestUtils.AreEqual(int4(-1, -1, 0, 1), sign(int4(-3899, -97268, 0, 2097152)));
-            TestUtils.AreEqual(int4(1, -1, 0, 1), sign(int4(int.MaxValue, int.MinValue, 0, 39876539)));
+            TestUtils.AreEqual(int4(-1, -1, 0, 1), sign(int4(-156, -214748346, 0, 214748346)));
+            TestUtils.AreEqual(int4(1, 1, -1, 0), sign(int4(1537, 17, -39, 0)));
+            TestUtils.AreEqual(int4(-1, 1, 1, -1), sign(int4(-15379, 64583, 2147483647, -2147483648)));
         }
 
         [TestCompiler]
