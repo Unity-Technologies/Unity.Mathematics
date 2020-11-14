@@ -1524,6 +1524,51 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
+        public static void sign_int()
+        {
+            TestUtils.AreEqual(-1, sign(-156));
+            TestUtils.AreEqual(-1, sign(-214748346));
+            TestUtils.AreEqual(0, sign(0));
+            TestUtils.AreEqual(1, sign(214748346));
+            TestUtils.AreEqual(1, sign(1537));
+            TestUtils.AreEqual(1, sign(17));
+            TestUtils.AreEqual(-1, sign(-39));
+            TestUtils.AreEqual(0, sign(0));
+            TestUtils.AreEqual(-1, sign(-15379));
+            TestUtils.AreEqual(1, sign(64583));
+            TestUtils.AreEqual(1, sign(2147483647));
+            TestUtils.AreEqual(-1, sign(-2147483648));
+        }
+
+        [TestCompiler]
+        public static void sign_int2()
+        {
+            TestUtils.AreEqual(int2(-1, -1), sign(int2(-156, -214748346)));
+            TestUtils.AreEqual(int2(0, 1), sign(int2(0, 214748346)));
+            TestUtils.AreEqual(int2(1, 1), sign(int2(1537, 17)));
+            TestUtils.AreEqual(int2(-1, 0), sign(int2(-39, 0)));
+            TestUtils.AreEqual(int2(-1, 1), sign(int2(-15379, 64583)));
+            TestUtils.AreEqual(int2(1, -1), sign(int2(2147483647, -2147483648)));
+        }
+
+        [TestCompiler]
+        public static void sign_int3()
+        {
+            TestUtils.AreEqual(int3(-1, -1, 0), sign(int3(-156, -214748346, 0)));
+            TestUtils.AreEqual(int3(1, 1, 1), sign(int3(214748346, 1537, 17)));
+            TestUtils.AreEqual(int3(-1, 0, -1), sign(int3(-39, 0, -15379)));
+            TestUtils.AreEqual(int3(1, 1, -1), sign(int3(64583, 2147483647, -2147483648)));
+        }
+
+        [TestCompiler]
+        public static void sign_int4()
+        {
+            TestUtils.AreEqual(int4(-1, -1, 0, 1), sign(int4(-156, -214748346, 0, 214748346)));
+            TestUtils.AreEqual(int4(1, 1, -1, 0), sign(int4(1537, 17, -39, 0)));
+            TestUtils.AreEqual(int4(-1, 1, 1, -1), sign(int4(-15379, 64583, 2147483647, -2147483648)));
+        }
+
+        [TestCompiler]
         public static void sign_float()
         {
             TestUtils.AreEqual(-1f, sign(-123.45f));
