@@ -12,6 +12,25 @@ namespace Unity.Mathematics.Editor
     [CustomPropertyDrawer(typeof(DoNotNormalizeAttribute))]
     class PrimitiveVectorDrawer : PropertyDrawer
     {
+        private string _PropertyType;
+
+        string GetPropertyType(SerializedProperty property)
+        {
+            if (_PropertyType == null)
+            {
+                _PropertyType = property.type;
+                var isManagedRef = property.type.StartsWith("managedReference", StringComparison.Ordinal);
+                if (isManagedRef)
+                {
+                    var startIndex = "managedReference<".Length;
+                    var length = _PropertyType.Length - startIndex - 1;
+                    _PropertyType = _PropertyType.Substring("managedReference<".Length, length);
+                }
+            }
+
+            return _PropertyType;
+        }
+
         static class Content
         {
             public static readonly string doNotNormalizeCompatibility = L10n.Tr(
@@ -42,14 +61,7 @@ namespace Unity.Mathematics.Editor
         {
             var subLabels = Content.labels4;
             var startIter = "x";
-            var propertyType = property.type;
-            var isManagedRef = property.type.StartsWith("managedReference", StringComparison.Ordinal);
-            if (isManagedRef)
-            {
-                var startIndex = "managedReference<".Length;
-                var length = propertyType.Length - startIndex - 1;
-                propertyType = propertyType.Substring("managedReference<".Length, length);
-            }
+            var propertyType = GetPropertyType(property);
             switch (propertyType[propertyType.Length - 1])
             {
                 case '2':
