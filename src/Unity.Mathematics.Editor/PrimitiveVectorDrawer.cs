@@ -42,7 +42,15 @@ namespace Unity.Mathematics.Editor
         {
             var subLabels = Content.labels4;
             var startIter = "x";
-            switch (property.type[property.type.Length - 1])
+            var propertyType = property.type;
+            var isManagedRef = property.type.StartsWith("managedReference", StringComparison.Ordinal);
+            if (isManagedRef)
+            {
+                var startIndex = "managedReference<".Length;
+                var length = propertyType.Length - startIndex - 1;
+                propertyType = propertyType.Substring("managedReference<".Length, length);
+            }
+            switch (propertyType[propertyType.Length - 1])
             {
                 case '2':
                     subLabels = Content.labels2;
