@@ -14,6 +14,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 4x4 matrix of floats.</summary>
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct float4x4 : System.IEquatable<float4x4>, IFormattable

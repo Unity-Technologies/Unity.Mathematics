@@ -14,6 +14,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 3x3 matrix of ints.</summary>
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct int3x3 : System.IEquatable<int3x3>, IFormattable

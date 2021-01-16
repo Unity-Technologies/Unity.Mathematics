@@ -15,6 +15,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 4 component vector of halfs.</summary>
     [DebuggerTypeProxy(typeof(half4.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]

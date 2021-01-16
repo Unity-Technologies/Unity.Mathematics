@@ -533,6 +533,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
 
+            if (m_Columns > 1)
+            {
+                str.Append($"\t/// <summary>A {m_Rows}x{m_Columns} matrix of {m_BaseType}s.</summary>\n");
+            }
+            else
+            {
+                str.Append($"\t/// <summary>A {m_Rows} component vector of {m_BaseType}s.</summary>\n");
+            }
+
             if (m_Columns == 1)
                 str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
             str.Append("\t[System.Serializable]\n");

@@ -16,6 +16,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 3 component vector of bools.</summary>
     [DebuggerTypeProxy(typeof(bool3.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]

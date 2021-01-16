@@ -14,6 +14,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 3x4 matrix of bools.</summary>
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct bool3x4 : System.IEquatable<bool3x4>
