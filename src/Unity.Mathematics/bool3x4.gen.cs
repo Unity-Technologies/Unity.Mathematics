@@ -47,6 +47,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3x4 matrix from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x4(bool v)
         {
@@ -58,6 +59,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single bool value to a bool3x4 matrix by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3x4(bool v) { return new bool3x4(v); }
 
@@ -186,6 +188,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a bool3x4 matrix constructed from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x4 bool3x4(bool v) { return new bool3x4(v); }
 

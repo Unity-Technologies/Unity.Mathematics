@@ -109,6 +109,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a single half value by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half v)
         {
@@ -119,6 +120,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a single float value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(float v)
         {
@@ -129,6 +131,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(float4 v)
         {
@@ -139,6 +142,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a single double value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(double v)
         {
@@ -149,6 +153,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(double4 v)
         {
@@ -160,22 +165,27 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single half value to a half4 vector by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator half4(half v) { return new half4(v); }
 
         /// <summary>Explicitly converts a single float value to a half4 vector by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half4(float v) { return new half4(v); }
 
         /// <summary>Explicitly converts a float4 vector to a half4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half4(float4 v) { return new half4(v); }
 
         /// <summary>Explicitly converts a single double value to a half4 vector by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half4(double v) { return new half4(v); }
 
         /// <summary>Explicitly converts a double4 vector to a half4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half4(double4 v) { return new half4(v); }
 
@@ -3117,22 +3127,27 @@ namespace Unity.Mathematics
         public static half4 half4(half4 xyzw) { return new half4(xyzw); }
 
         /// <summary>Returns a half4 vector constructed from a single half value by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half v) { return new half4(v); }
 
         /// <summary>Returns a half4 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(float v) { return new half4(v); }
 
         /// <summary>Return a half4 vector constructed from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(float4 v) { return new half4(v); }
 
         /// <summary>Returns a half4 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(double v) { return new half4(v); }
 
         /// <summary>Return a half4 vector constructed from a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to half4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(double4 v) { return new half4(v); }
 

@@ -49,6 +49,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(double v)
         {
@@ -59,6 +60,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(bool v)
         {
@@ -69,6 +71,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a bool3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(bool3x4 v)
         {
@@ -79,6 +82,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(int v)
         {
@@ -89,6 +93,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a int3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(int3x4 v)
         {
@@ -99,6 +104,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(uint v)
         {
@@ -109,6 +115,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a uint3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(uint3x4 v)
         {
@@ -119,6 +126,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(float v)
         {
@@ -129,6 +137,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3x4 matrix from a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">float3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x4(float3x4 v)
         {
@@ -140,38 +149,47 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single double value to a double3x4 matrix by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(double v) { return new double3x4(v); }
 
         /// <summary>Explicitly converts a single bool value to a double3x4 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double3x4(bool v) { return new double3x4(v); }
 
         /// <summary>Explicitly converts a bool3x4 matrix to a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double3x4(bool3x4 v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a single int value to a double3x4 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(int v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a int3x4 matrix to a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(int3x4 v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a single uint value to a double3x4 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(uint v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a uint3x4 matrix to a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(uint3x4 v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a single float value to a double3x4 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(float v) { return new double3x4(v); }
 
         /// <summary>Implicitly converts a float3x4 matrix to a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">float3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3x4(float3x4 v) { return new double3x4(v); }
 
@@ -400,38 +418,47 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a double3x4 matrix constructed from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(double v) { return new double3x4(v); }
 
         /// <summary>Returns a double3x4 matrix constructed from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(bool v) { return new double3x4(v); }
 
         /// <summary>Return a double3x4 matrix constructed from a bool3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(bool3x4 v) { return new double3x4(v); }
 
         /// <summary>Returns a double3x4 matrix constructed from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(int v) { return new double3x4(v); }
 
         /// <summary>Return a double3x4 matrix constructed from a int3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(int3x4 v) { return new double3x4(v); }
 
         /// <summary>Returns a double3x4 matrix constructed from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(uint v) { return new double3x4(v); }
 
         /// <summary>Return a double3x4 matrix constructed from a uint3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(uint3x4 v) { return new double3x4(v); }
 
         /// <summary>Returns a double3x4 matrix constructed from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(float v) { return new double3x4(v); }
 
         /// <summary>Return a double3x4 matrix constructed from a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">float3x4 to convert to double3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3x4 double3x4(float3x4 v) { return new double3x4(v); }
 

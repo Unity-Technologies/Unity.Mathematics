@@ -64,6 +64,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double v)
         {
@@ -73,6 +74,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(bool v)
         {
@@ -82,6 +84,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a bool3 vector by componentwise conversion.</summary>
+        /// <param name="v">bool3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(bool3 v)
         {
@@ -91,6 +94,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(int v)
         {
@@ -100,6 +104,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a int3 vector by componentwise conversion.</summary>
+        /// <param name="v">int3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(int3 v)
         {
@@ -109,6 +114,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(uint v)
         {
@@ -118,6 +124,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a uint3 vector by componentwise conversion.</summary>
+        /// <param name="v">uint3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(uint3 v)
         {
@@ -127,6 +134,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(half v)
         {
@@ -136,6 +144,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a half3 vector by componentwise conversion.</summary>
+        /// <param name="v">half3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(half3 v)
         {
@@ -145,6 +154,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(float v)
         {
@@ -154,6 +164,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a float3 vector by componentwise conversion.</summary>
+        /// <param name="v">float3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(float3 v)
         {
@@ -164,46 +175,57 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single double value to a double3 vector by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(double v) { return new double3(v); }
 
         /// <summary>Explicitly converts a single bool value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double3(bool v) { return new double3(v); }
 
         /// <summary>Explicitly converts a bool3 vector to a double3 vector by componentwise conversion.</summary>
+        /// <param name="v">bool3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double3(bool3 v) { return new double3(v); }
 
         /// <summary>Implicitly converts a single int value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(int v) { return new double3(v); }
 
         /// <summary>Implicitly converts a int3 vector to a double3 vector by componentwise conversion.</summary>
+        /// <param name="v">int3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(int3 v) { return new double3(v); }
 
         /// <summary>Implicitly converts a single uint value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(uint v) { return new double3(v); }
 
         /// <summary>Implicitly converts a uint3 vector to a double3 vector by componentwise conversion.</summary>
+        /// <param name="v">uint3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(uint3 v) { return new double3(v); }
 
         /// <summary>Implicitly converts a single half value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(half v) { return new double3(v); }
 
         /// <summary>Implicitly converts a half3 vector to a double3 vector by componentwise conversion.</summary>
+        /// <param name="v">half3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(half3 v) { return new double3(v); }
 
         /// <summary>Implicitly converts a single float value to a double3 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(float v) { return new double3(v); }
 
         /// <summary>Implicitly converts a float3 vector to a double3 vector by componentwise conversion.</summary>
+        /// <param name="v">float3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double3(float3 v) { return new double3(v); }
 
@@ -1416,46 +1438,57 @@ namespace Unity.Mathematics
         public static double3 double3(double3 xyz) { return new double3(xyz); }
 
         /// <summary>Returns a double3 vector constructed from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double v) { return new double3(v); }
 
         /// <summary>Returns a double3 vector constructed from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(bool v) { return new double3(v); }
 
         /// <summary>Return a double3 vector constructed from a bool3 vector by componentwise conversion.</summary>
+        /// <param name="v">bool3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(bool3 v) { return new double3(v); }
 
         /// <summary>Returns a double3 vector constructed from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(int v) { return new double3(v); }
 
         /// <summary>Return a double3 vector constructed from a int3 vector by componentwise conversion.</summary>
+        /// <param name="v">int3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(int3 v) { return new double3(v); }
 
         /// <summary>Returns a double3 vector constructed from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(uint v) { return new double3(v); }
 
         /// <summary>Return a double3 vector constructed from a uint3 vector by componentwise conversion.</summary>
+        /// <param name="v">uint3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(uint3 v) { return new double3(v); }
 
         /// <summary>Returns a double3 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(half v) { return new double3(v); }
 
         /// <summary>Return a double3 vector constructed from a half3 vector by componentwise conversion.</summary>
+        /// <param name="v">half3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(half3 v) { return new double3(v); }
 
         /// <summary>Returns a double3 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(float v) { return new double3(v); }
 
         /// <summary>Return a double3 vector constructed from a float3 vector by componentwise conversion.</summary>
+        /// <param name="v">float3 to convert to double3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(float3 v) { return new double3(v); }
 

@@ -49,6 +49,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a single float value by assigning it to every component.</summary>
+        /// <param name="v">float to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(float v)
         {
@@ -59,6 +60,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a single bool value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(bool v)
         {
@@ -69,6 +71,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a bool3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(bool3x4 v)
         {
@@ -79,6 +82,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a single int value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">int to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(int v)
         {
@@ -89,6 +93,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a int3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(int3x4 v)
         {
@@ -99,6 +104,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a single uint value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(uint v)
         {
@@ -109,6 +115,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a uint3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(uint3x4 v)
         {
@@ -119,6 +126,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a single double value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">double to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(double v)
         {
@@ -129,6 +137,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x4 matrix from a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">double3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x4(double3x4 v)
         {
@@ -140,38 +149,47 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single float value to a float3x4 matrix by assigning it to every component.</summary>
+        /// <param name="v">float to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(float v) { return new float3x4(v); }
 
         /// <summary>Explicitly converts a single bool value to a float3x4 matrix by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x4(bool v) { return new float3x4(v); }
 
         /// <summary>Explicitly converts a bool3x4 matrix to a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x4(bool3x4 v) { return new float3x4(v); }
 
         /// <summary>Implicitly converts a single int value to a float3x4 matrix by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">int to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(int v) { return new float3x4(v); }
 
         /// <summary>Implicitly converts a int3x4 matrix to a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(int3x4 v) { return new float3x4(v); }
 
         /// <summary>Implicitly converts a single uint value to a float3x4 matrix by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(uint v) { return new float3x4(v); }
 
         /// <summary>Implicitly converts a uint3x4 matrix to a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(uint3x4 v) { return new float3x4(v); }
 
         /// <summary>Explicitly converts a single double value to a float3x4 matrix by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">double to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x4(double v) { return new float3x4(v); }
 
         /// <summary>Explicitly converts a double3x4 matrix to a float3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">double3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator float3x4(double3x4 v) { return new float3x4(v); }
 
@@ -400,38 +418,47 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float3x4 matrix constructed from a single float value by assigning it to every component.</summary>
+        /// <param name="v">float to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(float v) { return new float3x4(v); }
 
         /// <summary>Returns a float3x4 matrix constructed from a single bool value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(bool v) { return new float3x4(v); }
 
         /// <summary>Return a float3x4 matrix constructed from a bool3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(bool3x4 v) { return new float3x4(v); }
 
         /// <summary>Returns a float3x4 matrix constructed from a single int value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">int to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(int v) { return new float3x4(v); }
 
         /// <summary>Return a float3x4 matrix constructed from a int3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">int3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(int3x4 v) { return new float3x4(v); }
 
         /// <summary>Returns a float3x4 matrix constructed from a single uint value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(uint v) { return new float3x4(v); }
 
         /// <summary>Return a float3x4 matrix constructed from a uint3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(uint3x4 v) { return new float3x4(v); }
 
         /// <summary>Returns a float3x4 matrix constructed from a single double value by converting it to float and assigning it to every component.</summary>
+        /// <param name="v">double to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(double v) { return new float3x4(v); }
 
         /// <summary>Return a float3x4 matrix constructed from a double3x4 matrix by componentwise conversion.</summary>
+        /// <param name="v">double3x4 to convert to float3x4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x4 float3x4(double3x4 v) { return new float3x4(v); }
 

@@ -45,6 +45,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(double v)
         {
@@ -54,6 +55,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(bool v)
         {
@@ -63,6 +65,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a bool2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(bool2x3 v)
         {
@@ -72,6 +75,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(int v)
         {
@@ -81,6 +85,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a int2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">int2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(int2x3 v)
         {
@@ -90,6 +95,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(uint v)
         {
@@ -99,6 +105,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a uint2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(uint2x3 v)
         {
@@ -108,6 +115,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(float v)
         {
@@ -117,6 +125,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from a float2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(float2x3 v)
         {
@@ -127,38 +136,47 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single double value to a double2x3 matrix by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(double v) { return new double2x3(v); }
 
         /// <summary>Explicitly converts a single bool value to a double2x3 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2x3(bool v) { return new double2x3(v); }
 
         /// <summary>Explicitly converts a bool2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2x3(bool2x3 v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a single int value to a double2x3 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(int v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a int2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">int2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(int2x3 v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a single uint value to a double2x3 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(uint v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a uint2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(uint2x3 v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a single float value to a double2x3 matrix by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(float v) { return new double2x3(v); }
 
         /// <summary>Implicitly converts a float2x3 matrix to a double2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2x3(float2x3 v) { return new double2x3(v); }
 
@@ -385,38 +403,47 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a double2x3 matrix constructed from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(double v) { return new double2x3(v); }
 
         /// <summary>Returns a double2x3 matrix constructed from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(bool v) { return new double2x3(v); }
 
         /// <summary>Return a double2x3 matrix constructed from a bool2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(bool2x3 v) { return new double2x3(v); }
 
         /// <summary>Returns a double2x3 matrix constructed from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(int v) { return new double2x3(v); }
 
         /// <summary>Return a double2x3 matrix constructed from a int2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">int2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(int2x3 v) { return new double2x3(v); }
 
         /// <summary>Returns a double2x3 matrix constructed from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(uint v) { return new double2x3(v); }
 
         /// <summary>Return a double2x3 matrix constructed from a uint2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(uint2x3 v) { return new double2x3(v); }
 
         /// <summary>Returns a double2x3 matrix constructed from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(float v) { return new double2x3(v); }
 
         /// <summary>Return a double2x3 matrix constructed from a float2x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float2x3 to convert to double2x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(float2x3 v) { return new double2x3(v); }
 

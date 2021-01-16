@@ -47,6 +47,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a single int value by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(int v)
         {
@@ -56,6 +57,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a single bool value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(bool v)
         {
@@ -65,6 +67,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a bool4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(bool4x3 v)
         {
@@ -74,6 +77,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a single uint value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(uint v)
         {
@@ -83,6 +87,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a uint4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(uint4x3 v)
         {
@@ -92,6 +97,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a single float value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(float v)
         {
@@ -101,6 +107,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a float4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(float4x3 v)
         {
@@ -110,6 +117,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a single double value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(double v)
         {
@@ -119,6 +127,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x3 matrix from a double4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">double4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x3(double4x3 v)
         {
@@ -129,38 +138,47 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single int value to a int4x3 matrix by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int4x3(int v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a single bool value to a int4x3 matrix by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(bool v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a bool4x3 matrix to a int4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(bool4x3 v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a single uint value to a int4x3 matrix by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(uint v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a uint4x3 matrix to a int4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(uint4x3 v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a single float value to a int4x3 matrix by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(float v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a float4x3 matrix to a int4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(float4x3 v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a single double value to a int4x3 matrix by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(double v) { return new int4x3(v); }
 
         /// <summary>Explicitly converts a double4x3 matrix to a int4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">double4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4x3(double4x3 v) { return new int4x3(v); }
 
@@ -443,38 +461,47 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a int4x3 matrix constructed from a single int value by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(int v) { return new int4x3(v); }
 
         /// <summary>Returns a int4x3 matrix constructed from a single bool value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(bool v) { return new int4x3(v); }
 
         /// <summary>Return a int4x3 matrix constructed from a bool4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">bool4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(bool4x3 v) { return new int4x3(v); }
 
         /// <summary>Returns a int4x3 matrix constructed from a single uint value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(uint v) { return new int4x3(v); }
 
         /// <summary>Return a int4x3 matrix constructed from a uint4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">uint4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(uint4x3 v) { return new int4x3(v); }
 
         /// <summary>Returns a int4x3 matrix constructed from a single float value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(float v) { return new int4x3(v); }
 
         /// <summary>Return a int4x3 matrix constructed from a float4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">float4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(float4x3 v) { return new int4x3(v); }
 
         /// <summary>Returns a int4x3 matrix constructed from a single double value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(double v) { return new int4x3(v); }
 
         /// <summary>Return a int4x3 matrix constructed from a double4x3 matrix by componentwise conversion.</summary>
+        /// <param name="v">double4x3 to convert to int4x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 int4x3(double4x3 v) { return new int4x3(v); }
 

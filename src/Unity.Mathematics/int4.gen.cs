@@ -109,6 +109,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a single int value by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(int v)
         {
@@ -119,6 +120,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a single bool value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(bool v)
         {
@@ -129,6 +131,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a bool4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(bool4 v)
         {
@@ -139,6 +142,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a single uint value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(uint v)
         {
@@ -149,6 +153,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a uint4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(uint4 v)
         {
@@ -159,6 +164,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a single float value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(float v)
         {
@@ -169,6 +175,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(float4 v)
         {
@@ -179,6 +186,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a single double value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(double v)
         {
@@ -189,6 +197,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4 vector from a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4(double4 v)
         {
@@ -200,38 +209,47 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single int value to a int4 vector by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int4(int v) { return new int4(v); }
 
         /// <summary>Explicitly converts a single bool value to a int4 vector by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(bool v) { return new int4(v); }
 
         /// <summary>Explicitly converts a bool4 vector to a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(bool4 v) { return new int4(v); }
 
         /// <summary>Explicitly converts a single uint value to a int4 vector by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(uint v) { return new int4(v); }
 
         /// <summary>Explicitly converts a uint4 vector to a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(uint4 v) { return new int4(v); }
 
         /// <summary>Explicitly converts a single float value to a int4 vector by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(float v) { return new int4(v); }
 
         /// <summary>Explicitly converts a float4 vector to a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(float4 v) { return new int4(v); }
 
         /// <summary>Explicitly converts a single double value to a int4 vector by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(double v) { return new int4(v); }
 
         /// <summary>Explicitly converts a double4 vector to a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int4(double4 v) { return new int4(v); }
 
@@ -3362,38 +3380,47 @@ namespace Unity.Mathematics
         public static int4 int4(int4 xyzw) { return new int4(xyzw); }
 
         /// <summary>Returns a int4 vector constructed from a single int value by assigning it to every component.</summary>
+        /// <param name="v">int to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(int v) { return new int4(v); }
 
         /// <summary>Returns a int4 vector constructed from a single bool value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(bool v) { return new int4(v); }
 
         /// <summary>Return a int4 vector constructed from a bool4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(bool4 v) { return new int4(v); }
 
         /// <summary>Returns a int4 vector constructed from a single uint value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(uint v) { return new int4(v); }
 
         /// <summary>Return a int4 vector constructed from a uint4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(uint4 v) { return new int4(v); }
 
         /// <summary>Returns a int4 vector constructed from a single float value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">float to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(float v) { return new int4(v); }
 
         /// <summary>Return a int4 vector constructed from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(float4 v) { return new int4(v); }
 
         /// <summary>Returns a int4 vector constructed from a single double value by converting it to int and assigning it to every component.</summary>
+        /// <param name="v">double to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(double v) { return new int4(v); }
 
         /// <summary>Return a int4 vector constructed from a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">double4 to convert to int4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 int4(double4 v) { return new int4(v); }
 

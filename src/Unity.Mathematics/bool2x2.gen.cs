@@ -40,6 +40,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool2x2 matrix from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool2x2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool v)
         {
@@ -49,6 +50,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single bool value to a bool2x2 matrix by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool2x2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2x2(bool v) { return new bool2x2(v); }
 
@@ -175,6 +177,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a bool2x2 matrix constructed from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool2x2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 bool2x2(bool v) { return new bool2x2(v); }
 
