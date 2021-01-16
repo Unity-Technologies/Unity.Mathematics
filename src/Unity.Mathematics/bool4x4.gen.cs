@@ -236,6 +236,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a string representation of the bool4x4.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {

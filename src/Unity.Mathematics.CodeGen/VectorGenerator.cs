@@ -1649,11 +1649,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         public void GenerateToStringFunction(StringBuilder str, bool useFormat)
         {
-            if(useFormat)
+            if (useFormat)
+            {
                 str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0} using a specified format and culture-specific format information.</summary>\n", m_TypeName);
+                str.AppendFormat("\t\t/// <param name=\"format\">Format string to use during string formatting.</param>\n");
+                str.AppendFormat("\t\t/// <param name=\"formatProvider\">Format provider to use during string formatting.</param>\n");
+            }
             else
                 str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0}.</summary>\n", m_TypeName);
 
+            str.Append("\t\t/// <returns>String representation of the value.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             if(useFormat)
                 str.Append("\t\tpublic string ToString(string format, IFormatProvider formatProvider)\n\t\t{\n");

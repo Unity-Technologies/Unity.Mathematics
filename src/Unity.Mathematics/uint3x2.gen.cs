@@ -571,6 +571,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a string representation of the uint3x2.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -578,6 +579,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a string representation of the uint3x2 using a specified format and culture-specific format information.</summary>
+        /// <param name="format">Format string to use during string formatting.</param>
+        /// <param name="formatProvider">Format provider to use during string formatting.</param>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
