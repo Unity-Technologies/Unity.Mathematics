@@ -727,7 +727,9 @@ namespace Unity.Mathematics
             return res;
         }
 
-        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The inverted matrix.</returns>
         public static float4x4 fastinverse(float4x4 m)
         {
             float4 c0 = m.c0;

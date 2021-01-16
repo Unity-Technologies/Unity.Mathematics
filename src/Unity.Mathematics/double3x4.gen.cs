@@ -634,7 +634,9 @@ namespace Unity.Mathematics
                 v.c3.x, v.c3.y, v.c3.z);
         }
 
-        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
+        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The inverted matrix.</returns>
         public static double3x4 fastinverse(double3x4 m)
         {
             double3 c0 = m.c0;

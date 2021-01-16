@@ -1415,9 +1415,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Columns == 4 && m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
-        public static {0}3x4 fastinverse({0}3x4 m)
+                str.AppendFormat("        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>\n");
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}3x4 fastinverse({0}3x4 m)
         {{
             {0}3 c0 = m.c0;
             {0}3 c1 = m.c1;
@@ -1438,9 +1439,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             } else if(m_Columns == 4 && m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
-        public static {0}4x4 fastinverse({0}4x4 m)
+                str.AppendFormat("        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>\n");
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}4x4 fastinverse({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;
