@@ -33,6 +33,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float4x2 matrix from 8 float values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x2(float m00, float m01,
                         float m10, float m11,
@@ -483,6 +491,15 @@ namespace Unity.Mathematics
         public static float4x2 float4x2(float4 c0, float4 c1) { return new float4x2(c0, c1); }
 
         /// <summary>Returns a float4x2 matrix constructed from from 8 float values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
+        /// <returns>float4x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x2 float4x2(float m00, float m01,
                                         float m10, float m11,

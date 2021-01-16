@@ -35,6 +35,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2x3 matrix from 6 double values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x3(double m00, double m01, double m02,
                          double m10, double m11, double m12)
@@ -493,6 +499,13 @@ namespace Unity.Mathematics
         public static double2x3 double2x3(double2 c0, double2 c1, double2 c2) { return new double2x3(c0, c1, c2); }
 
         /// <summary>Returns a double2x3 matrix constructed from from 6 double values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <returns>double2x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x3 double2x3(double m00, double m01, double m02,
                                           double m10, double m11, double m12)

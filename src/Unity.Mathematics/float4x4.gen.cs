@@ -40,6 +40,22 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float4x4 matrix from 16 float values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m03">The matrix at row 0, column 3 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m13">The matrix at row 1, column 3 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <param name="m23">The matrix at row 2, column 3 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
+        /// <param name="m32">The matrix at row 3, column 2 will be set to this value.</param>
+        /// <param name="m33">The matrix at row 3, column 3 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x4(float m00, float m01, float m02, float m03,
                         float m10, float m11, float m12, float m13,
@@ -510,6 +526,23 @@ namespace Unity.Mathematics
         public static float4x4 float4x4(float4 c0, float4 c1, float4 c2, float4 c3) { return new float4x4(c0, c1, c2, c3); }
 
         /// <summary>Returns a float4x4 matrix constructed from from 16 float values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m03">The matrix at row 0, column 3 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m13">The matrix at row 1, column 3 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <param name="m23">The matrix at row 2, column 3 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
+        /// <param name="m32">The matrix at row 3, column 2 will be set to this value.</param>
+        /// <param name="m33">The matrix at row 3, column 3 will be set to this value.</param>
+        /// <returns>float4x4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float m00, float m01, float m02, float m03,
                                         float m10, float m11, float m12, float m13,

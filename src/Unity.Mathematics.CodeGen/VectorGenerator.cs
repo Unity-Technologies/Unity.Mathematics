@@ -1009,11 +1009,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             // Generate signatures
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
+
+            for (int row = 0; row < m_Rows; ++row)
+            {
+                for (int col = 0; col < m_Columns; ++col)
+                {
+                    constructorStr.Append($"\t\t/// <param name=\"m{row}{col}\">The matrix at row {row}, column {col} will be set to this value.</param>\n");
+                }
+            }
+
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
             mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
+
+            for (int row = 0; row < m_Rows; ++row)
+            {
+                for (int col = 0; col < m_Columns; ++col)
+                {
+                    mathStr.Append($"\t\t/// <param name=\"m{row}{col}\">The matrix at row {row}, column {col} will be set to this value.</param>\n");
+                }
+            }
+
+            mathStr.Append($"\t\t/// <returns>{m_TypeName} constructed from arguments.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);

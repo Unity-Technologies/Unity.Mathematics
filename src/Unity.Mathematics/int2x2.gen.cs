@@ -36,6 +36,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int2x2 matrix from 4 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x2(int m00, int m01,
                       int m10, int m11)
@@ -563,6 +567,11 @@ namespace Unity.Mathematics
         public static int2x2 int2x2(int2 c0, int2 c1) { return new int2x2(c0, c1); }
 
         /// <summary>Returns a int2x2 matrix constructed from from 4 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <returns>int2x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 int2x2(int m00, int m01,
                                     int m10, int m11)

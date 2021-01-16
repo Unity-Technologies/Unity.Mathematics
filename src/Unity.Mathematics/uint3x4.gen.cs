@@ -37,6 +37,18 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a uint3x4 matrix from 12 uint values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m03">The matrix at row 0, column 3 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m13">The matrix at row 1, column 3 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <param name="m23">The matrix at row 2, column 3 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3x4(uint m00, uint m01, uint m02, uint m03,
                        uint m10, uint m11, uint m12, uint m13,
@@ -585,6 +597,19 @@ namespace Unity.Mathematics
         public static uint3x4 uint3x4(uint3 c0, uint3 c1, uint3 c2, uint3 c3) { return new uint3x4(c0, c1, c2, c3); }
 
         /// <summary>Returns a uint3x4 matrix constructed from from 12 uint values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m03">The matrix at row 0, column 3 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m13">The matrix at row 1, column 3 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <param name="m23">The matrix at row 2, column 3 will be set to this value.</param>
+        /// <returns>uint3x4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x4 uint3x4(uint m00, uint m01, uint m02, uint m03,
                                       uint m10, uint m11, uint m12, uint m13,

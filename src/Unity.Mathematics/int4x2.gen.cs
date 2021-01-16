@@ -33,6 +33,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int4x2 matrix from 8 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4x2(int m00, int m01,
                       int m10, int m11,
@@ -562,6 +570,15 @@ namespace Unity.Mathematics
         public static int4x2 int4x2(int4 c0, int4 c1) { return new int4x2(c0, c1); }
 
         /// <summary>Returns a int4x2 matrix constructed from from 8 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m30">The matrix at row 3, column 0 will be set to this value.</param>
+        /// <param name="m31">The matrix at row 3, column 1 will be set to this value.</param>
+        /// <returns>int4x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x2 int4x2(int m00, int m01,
                                     int m10, int m11,

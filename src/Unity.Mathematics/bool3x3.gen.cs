@@ -33,6 +33,15 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3x3 matrix from 9 bool values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool m00, bool m01, bool m02,
                        bool m10, bool m11, bool m12,
@@ -218,6 +227,16 @@ namespace Unity.Mathematics
         public static bool3x3 bool3x3(bool3 c0, bool3 c1, bool3 c2) { return new bool3x3(c0, c1, c2); }
 
         /// <summary>Returns a bool3x3 matrix constructed from from 9 bool values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <returns>bool3x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 bool3x3(bool m00, bool m01, bool m02,
                                       bool m10, bool m11, bool m12,

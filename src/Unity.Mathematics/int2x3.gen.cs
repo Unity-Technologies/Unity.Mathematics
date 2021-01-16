@@ -35,6 +35,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int2x3 matrix from 6 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2x3(int m00, int m01, int m02,
                       int m10, int m11, int m12)
@@ -572,6 +578,13 @@ namespace Unity.Mathematics
         public static int2x3 int2x3(int2 c0, int2 c1, int2 c2) { return new int2x3(c0, c1, c2); }
 
         /// <summary>Returns a int2x3 matrix constructed from from 6 int values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <returns>int2x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(int m00, int m01, int m02,
                                     int m10, int m11, int m12)
