@@ -3868,9 +3868,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float value.</summary>
-        /// <param value="left">float4 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">float4 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting float.</param>
+        /// <param name="left">float4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">float4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting float.</param>
         /// <returns>float result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float shuffle(float4 left, float4 right, ShuffleComponent x)
@@ -3879,10 +3879,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float2 vector.</summary>
-        /// <param value="left">float4 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">float4 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting float2 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting float2 y component.</param>
+        /// <param name="left">float4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">float4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting float2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting float2 y component.</param>
         /// <returns>float2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 shuffle(float4 left, float4 right, ShuffleComponent x, ShuffleComponent y)
@@ -3893,11 +3893,11 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float3 vector.</summary>
-        /// <param value="left">float4 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">float4 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting float3 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting float3 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting float3 z component.</param>
+        /// <param name="left">float4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">float4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting float3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting float3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting float3 z component.</param>
         /// <returns>float3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 shuffle(float4 left, float4 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
@@ -3909,12 +3909,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two float4 vectors into a float4 vector.</summary>
-        /// <param value="left">float4 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">float4 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting float4 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting float4 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting float4 z component.</param>
-        /// <param value="w">The ShuffleComponent to use when setting the resulting float4 w component.</param>
+        /// <param name="left">float4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">float4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting float4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting float4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting float4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting float4 w component.</param>
         /// <returns>float4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 shuffle(float4 left, float4 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)

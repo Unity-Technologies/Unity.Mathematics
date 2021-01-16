@@ -1766,9 +1766,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two uint3 vectors into a uint value.</summary>
-        /// <param value="left">uint3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">uint3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting uint.</param>
+        /// <param name="left">uint3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">uint3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting uint.</param>
         /// <returns>uint result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint shuffle(uint3 left, uint3 right, ShuffleComponent x)
@@ -1777,10 +1777,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two uint3 vectors into a uint2 vector.</summary>
-        /// <param value="left">uint3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">uint3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting uint2 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting uint2 y component.</param>
+        /// <param name="left">uint3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">uint3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting uint2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting uint2 y component.</param>
         /// <returns>uint2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 shuffle(uint3 left, uint3 right, ShuffleComponent x, ShuffleComponent y)
@@ -1791,11 +1791,11 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two uint3 vectors into a uint3 vector.</summary>
-        /// <param value="left">uint3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">uint3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting uint3 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting uint3 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting uint3 z component.</param>
+        /// <param name="left">uint3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">uint3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting uint3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting uint3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting uint3 z component.</param>
         /// <returns>uint3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 shuffle(uint3 left, uint3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
@@ -1807,12 +1807,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two uint3 vectors into a uint4 vector.</summary>
-        /// <param value="left">uint3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">uint3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting uint4 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting uint4 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting uint4 z component.</param>
-        /// <param value="w">The ShuffleComponent to use when setting the resulting uint4 w component.</param>
+        /// <param name="left">uint3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">uint3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting uint4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting uint4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting uint4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting uint4 w component.</param>
         /// <returns>uint4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 shuffle(uint3 left, uint3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)

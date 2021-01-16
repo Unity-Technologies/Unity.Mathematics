@@ -1375,9 +1375,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool value.</summary>
-        /// <param value="left">bool3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">bool3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting bool.</param>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool.</param>
         /// <returns>bool result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool shuffle(bool3 left, bool3 right, ShuffleComponent x)
@@ -1386,10 +1386,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool2 vector.</summary>
-        /// <param value="left">bool3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">bool3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting bool2 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting bool2 y component.</param>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool2 y component.</param>
         /// <returns>bool2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y)
@@ -1400,11 +1400,11 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool3 vector.</summary>
-        /// <param value="left">bool3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">bool3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting bool3 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting bool3 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting bool3 z component.</param>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting bool3 z component.</param>
         /// <returns>bool3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
@@ -1416,12 +1416,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool4 vector.</summary>
-        /// <param value="left">bool3 to use as the left argument of the shuffle operation.</param>
-        /// <param value="right">bool3 to use as the right argument of the shuffle operation.</param>
-        /// <param value="x">The ShuffleComponent to use when setting the resulting bool4 x component.</param>
-        /// <param value="y">The ShuffleComponent to use when setting the resulting bool4 y component.</param>
-        /// <param value="z">The ShuffleComponent to use when setting the resulting bool4 z component.</param>
-        /// <param value="w">The ShuffleComponent to use when setting the resulting bool4 w component.</param>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting bool4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting bool4 w component.</param>
         /// <returns>bool4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)

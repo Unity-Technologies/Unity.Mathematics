@@ -637,18 +637,18 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 str.AppendFormat("\t\t/// <summary>Returns the result of specified shuffling of the components from {0} into {1}.</summary>\n",
                     ToValueDescription(m_BaseType, m_Rows, m_Columns, 2), ToValueDescription(m_BaseType, resultComponents, m_Columns, 1));
-                str.AppendFormat($"\t\t/// <param value=\"left\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the left argument of the shuffle operation.</param>\n");
-                str.AppendFormat($"\t\t/// <param value=\"right\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the right argument of the shuffle operation.</param>\n");
+                str.AppendFormat($"\t\t/// <param name=\"left\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the left argument of the shuffle operation.</param>\n");
+                str.AppendFormat($"\t\t/// <param name=\"right\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the right argument of the shuffle operation.</param>\n");
 
                 if (resultComponents == 1)
                 {
-                    str.AppendFormat($"\t\t/// <param value=\"{vectorFields[0]}\">The ShuffleComponent to use when setting the resulting {resultType}.</param>\n");
+                    str.AppendFormat($"\t\t/// <param name=\"{vectorFields[0]}\">The ShuffleComponent to use when setting the resulting {resultType}.</param>\n");
                 }
                 else
                 {
                     for (int i = 0; i < resultComponents; ++i)
                     {
-                        str.AppendFormat($"\t\t/// <param value=\"{vectorFields[i]}\">The ShuffleComponent to use when setting the resulting {resultType} {vectorFields[i]} component.</param>\n");
+                        str.AppendFormat($"\t\t/// <param name=\"{vectorFields[i]}\">The ShuffleComponent to use when setting the resulting {resultType} {vectorFields[i]} component.</param>\n");
                     }
                 }
 
