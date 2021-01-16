@@ -27,6 +27,10 @@ namespace Unity.Mathematics
         public static readonly uint2x4 zero;
 
         /// <summary>Constructs a uint2x4 matrix from four uint2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <param name="c3">The matrix column c3 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2x4(uint2 c0, uint2 c1, uint2 c2, uint2 c3)
         {
@@ -588,6 +592,11 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a uint2x4 matrix constructed from four uint2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <param name="c3">The matrix column c3 will be set to this value.</param>
+        /// <returns>uint2x4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2x4 uint2x4(uint2 c0, uint2 c1, uint2 c2, uint2 c3) { return new uint2x4(c0, c1, c2, c3); }
 

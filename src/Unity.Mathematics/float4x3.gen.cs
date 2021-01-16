@@ -26,6 +26,9 @@ namespace Unity.Mathematics
         public static readonly float4x3 zero;
 
         /// <summary>Constructs a float4x3 matrix from three float4 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4x3(float4 c0, float4 c1, float4 c2)
         {
@@ -503,6 +506,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a float4x3 matrix constructed from three float4 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <returns>float4x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x3 float4x3(float4 c0, float4 c1, float4 c2) { return new float4x3(c0, c1, c2); }
 

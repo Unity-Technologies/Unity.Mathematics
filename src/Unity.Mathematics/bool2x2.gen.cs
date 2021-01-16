@@ -23,6 +23,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Constructs a bool2x2 matrix from two bool2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x2(bool2 c0, bool2 c1)
         {
@@ -213,6 +215,9 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool2x2 matrix constructed from two bool2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <returns>bool2x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 bool2x2(bool2 c0, bool2 c1) { return new bool2x2(c0, c1); }
 

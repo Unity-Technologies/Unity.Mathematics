@@ -25,6 +25,10 @@ namespace Unity.Mathematics
 
 
         /// <summary>Constructs a bool3x4 matrix from four bool3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <param name="c3">The matrix column c3 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x4(bool3 c0, bool3 c1, bool3 c2, bool3 c3)
         {
@@ -230,6 +234,11 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool3x4 matrix constructed from four bool3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <param name="c3">The matrix column c3 will be set to this value.</param>
+        /// <returns>bool3x4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x4 bool3x4(bool3 c0, bool3 c1, bool3 c2, bool3 c3) { return new bool3x4(c0, c1, c2, c3); }
 

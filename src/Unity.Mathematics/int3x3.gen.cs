@@ -29,6 +29,9 @@ namespace Unity.Mathematics
         public static readonly int3x3 zero;
 
         /// <summary>Constructs a int3x3 matrix from three int3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3x3(int3 c0, int3 c1, int3 c2)
         {
@@ -581,6 +584,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a int3x3 matrix constructed from three int3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <returns>int3x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x3 int3x3(int3 c0, int3 c1, int3 c2) { return new int3x3(c0, c1, c2); }
 

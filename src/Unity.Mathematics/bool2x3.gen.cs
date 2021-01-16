@@ -24,6 +24,9 @@ namespace Unity.Mathematics
 
 
         /// <summary>Constructs a bool2x3 matrix from three bool2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2x3(bool2 c0, bool2 c1, bool2 c2)
         {
@@ -219,6 +222,10 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool2x3 matrix constructed from three bool2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <returns>bool2x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x3 bool2x3(bool2 c0, bool2 c1, bool2 c2) { return new bool2x3(c0, c1, c2); }
 

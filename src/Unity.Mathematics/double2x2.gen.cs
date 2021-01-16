@@ -28,6 +28,8 @@ namespace Unity.Mathematics
         public static readonly double2x2 zero;
 
         /// <summary>Constructs a double2x2 matrix from two double2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2x2(double2 c0, double2 c1)
         {
@@ -484,6 +486,9 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double2x2 matrix constructed from two double2 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <returns>double2x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x2 double2x2(double2 c0, double2 c1) { return new double2x2(c0, c1); }
 

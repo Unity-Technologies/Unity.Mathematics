@@ -25,6 +25,8 @@ namespace Unity.Mathematics
         public static readonly double4x2 zero;
 
         /// <summary>Constructs a double4x2 matrix from two double4 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4x2(double4 c0, double4 c1)
         {
@@ -487,6 +489,9 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double4x2 matrix constructed from two double4 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <returns>double4x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x2 double4x2(double4 c0, double4 c1) { return new double4x2(c0, c1); }
 

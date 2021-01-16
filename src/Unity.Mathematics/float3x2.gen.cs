@@ -25,6 +25,8 @@ namespace Unity.Mathematics
         public static readonly float3x2 zero;
 
         /// <summary>Constructs a float3x2 matrix from two float3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3x2(float3 c0, float3 c1)
         {
@@ -484,6 +486,9 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a float3x2 matrix constructed from two float3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <returns>float3x2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x2 float3x2(float3 c0, float3 c1) { return new float3x2(c0, c1); }
 
