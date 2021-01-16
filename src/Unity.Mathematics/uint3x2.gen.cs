@@ -134,46 +134,55 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single uint value to a uint3x2 matrix by assigning it to every component.</summary>
         /// <param name="v">uint to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator uint3x2(uint v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a single bool value to a uint3x2 matrix by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">bool to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(bool v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a bool3x2 matrix to a uint3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">bool3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(bool3x2 v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a single int value to a uint3x2 matrix by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">int to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(int v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a int3x2 matrix to a uint3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">int3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(int3x2 v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a single float value to a uint3x2 matrix by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">float to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(float v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a float3x2 matrix to a uint3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">float3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(float3x2 v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a single double value to a uint3x2 matrix by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">double to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(double v) { return new uint3x2(v); }
 
         /// <summary>Explicitly converts a double3x2 matrix to a uint3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">double3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator uint3x2(double3x2 v) { return new uint3x2(v); }
 
@@ -601,46 +610,55 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a uint3x2 matrix constructed from a single uint value by assigning it to every component.</summary>
         /// <param name="v">uint to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(uint v) { return new uint3x2(v); }
 
         /// <summary>Returns a uint3x2 matrix constructed from a single bool value by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">bool to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(bool v) { return new uint3x2(v); }
 
         /// <summary>Return a uint3x2 matrix constructed from a bool3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">bool3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(bool3x2 v) { return new uint3x2(v); }
 
         /// <summary>Returns a uint3x2 matrix constructed from a single int value by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">int to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(int v) { return new uint3x2(v); }
 
         /// <summary>Return a uint3x2 matrix constructed from a int3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">int3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(int3x2 v) { return new uint3x2(v); }
 
         /// <summary>Returns a uint3x2 matrix constructed from a single float value by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">float to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(float v) { return new uint3x2(v); }
 
         /// <summary>Return a uint3x2 matrix constructed from a float3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">float3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(float3x2 v) { return new uint3x2(v); }
 
         /// <summary>Returns a uint3x2 matrix constructed from a single double value by converting it to uint and assigning it to every component.</summary>
         /// <param name="v">double to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(double v) { return new uint3x2(v); }
 
         /// <summary>Return a uint3x2 matrix constructed from a double3x2 matrix by componentwise conversion.</summary>
         /// <param name="v">double3x2 to convert to uint3x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3x2 uint3x2(double3x2 v) { return new uint3x2(v); }
 

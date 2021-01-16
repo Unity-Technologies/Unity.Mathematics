@@ -86,6 +86,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool3 vector by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3(bool v) { return new bool3(v); }
 
@@ -1375,6 +1376,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool v) { return new bool3(v); }
 

@@ -367,21 +367,23 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if(sourceBaseType != m_BaseType)
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
-                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
-
                     str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
                     mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
                     opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
                 else
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
-
                     str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
                     mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
                     opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
             }
@@ -390,11 +392,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (sourceBaseType != m_BaseType)
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    mathStr.AppendFormat("\t\t/// <summary>Return a {0} {1} constructed from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
-                    opStr.AppendFormat("\t\t/// <summary>{0} converts a {1} {2} to a {3} {2} by componentwise conversion.</summary>\n", plicitlyString, sourceType, dstTypeCategory, m_TypeName);
-
                     str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    mathStr.AppendFormat("\t\t/// <summary>Return a {0} {1} constructed from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
                     mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
+                    opStr.AppendFormat("\t\t/// <summary>{0} converts a {1} {2} to a {3} {2} by componentwise conversion.</summary>\n", plicitlyString, sourceType, dstTypeCategory, m_TypeName);
                     opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
             }
@@ -426,9 +429,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             str.Append("\t\t}\n\n");
 
+            mathStr.Append("\t\t/// <returns>Converted value.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.AppendFormat("\t\tpublic static {0} {0}({1} v) {{ return new {0}(v); }}\n\n", m_TypeName, sourceType);
 
+            opStr.Append("\t\t/// <returns>Converted value.</returns>\n");
             opStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
         }

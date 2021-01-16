@@ -63,6 +63,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool4x2 matrix by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool4x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool4x2(bool v) { return new bool4x2(v); }
 
@@ -253,6 +254,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool4x2 matrix constructed from a single bool value by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool4x2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 bool4x2(bool v) { return new bool4x2(v); }
 

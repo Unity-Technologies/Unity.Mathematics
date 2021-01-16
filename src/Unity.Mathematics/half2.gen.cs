@@ -93,26 +93,31 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single half value to a half2 vector by assigning it to every component.</summary>
         /// <param name="v">half to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator half2(half v) { return new half2(v); }
 
         /// <summary>Explicitly converts a single float value to a half2 vector by converting it to half and assigning it to every component.</summary>
         /// <param name="v">float to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(float v) { return new half2(v); }
 
         /// <summary>Explicitly converts a float2 vector to a half2 vector by componentwise conversion.</summary>
         /// <param name="v">float2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(float2 v) { return new half2(v); }
 
         /// <summary>Explicitly converts a single double value to a half2 vector by converting it to half and assigning it to every component.</summary>
         /// <param name="v">double to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(double v) { return new half2(v); }
 
         /// <summary>Explicitly converts a double2 vector to a half2 vector by componentwise conversion.</summary>
         /// <param name="v">double2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(double2 v) { return new half2(v); }
 
@@ -498,26 +503,31 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half2 vector constructed from a single half value by assigning it to every component.</summary>
         /// <param name="v">half to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half v) { return new half2(v); }
 
         /// <summary>Returns a half2 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">float to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(float v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a float2 vector by componentwise conversion.</summary>
         /// <param name="v">float2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(float2 v) { return new half2(v); }
 
         /// <summary>Returns a half2 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">double to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(double v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a double2 vector by componentwise conversion.</summary>
         /// <param name="v">double2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(double2 v) { return new half2(v); }
 

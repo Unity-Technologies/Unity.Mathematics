@@ -58,6 +58,7 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single bool value to a bool2 vector by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool2(bool v) { return new bool2(v); }
 
@@ -509,6 +510,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a bool2 vector constructed from a single bool value by assigning it to every component.</summary>
         /// <param name="v">bool to convert to bool2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 bool2(bool v) { return new bool2(v); }
 

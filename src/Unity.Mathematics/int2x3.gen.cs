@@ -146,46 +146,55 @@ namespace Unity.Mathematics
 
         /// <summary>Implicitly converts a single int value to a int2x3 matrix by assigning it to every component.</summary>
         /// <param name="v">int to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator int2x3(int v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a single bool value to a int2x3 matrix by converting it to int and assigning it to every component.</summary>
         /// <param name="v">bool to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(bool v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a bool2x3 matrix to a int2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">bool2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(bool2x3 v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a single uint value to a int2x3 matrix by converting it to int and assigning it to every component.</summary>
         /// <param name="v">uint to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(uint v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a uint2x3 matrix to a int2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">uint2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(uint2x3 v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a single float value to a int2x3 matrix by converting it to int and assigning it to every component.</summary>
         /// <param name="v">float to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(float v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a float2x3 matrix to a int2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">float2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(float2x3 v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a single double value to a int2x3 matrix by converting it to int and assigning it to every component.</summary>
         /// <param name="v">double to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(double v) { return new int2x3(v); }
 
         /// <summary>Explicitly converts a double2x3 matrix to a int2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">double2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator int2x3(double2x3 v) { return new int2x3(v); }
 
@@ -612,46 +621,55 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a int2x3 matrix constructed from a single int value by assigning it to every component.</summary>
         /// <param name="v">int to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(int v) { return new int2x3(v); }
 
         /// <summary>Returns a int2x3 matrix constructed from a single bool value by converting it to int and assigning it to every component.</summary>
         /// <param name="v">bool to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(bool v) { return new int2x3(v); }
 
         /// <summary>Return a int2x3 matrix constructed from a bool2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">bool2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(bool2x3 v) { return new int2x3(v); }
 
         /// <summary>Returns a int2x3 matrix constructed from a single uint value by converting it to int and assigning it to every component.</summary>
         /// <param name="v">uint to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(uint v) { return new int2x3(v); }
 
         /// <summary>Return a int2x3 matrix constructed from a uint2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">uint2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(uint2x3 v) { return new int2x3(v); }
 
         /// <summary>Returns a int2x3 matrix constructed from a single float value by converting it to int and assigning it to every component.</summary>
         /// <param name="v">float to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(float v) { return new int2x3(v); }
 
         /// <summary>Return a int2x3 matrix constructed from a float2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">float2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(float2x3 v) { return new int2x3(v); }
 
         /// <summary>Returns a int2x3 matrix constructed from a single double value by converting it to int and assigning it to every component.</summary>
         /// <param name="v">double to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(double v) { return new int2x3(v); }
 
         /// <summary>Return a int2x3 matrix constructed from a double2x3 matrix by componentwise conversion.</summary>
         /// <param name="v">double2x3 to convert to int2x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x3 int2x3(double2x3 v) { return new int2x3(v); }
 
