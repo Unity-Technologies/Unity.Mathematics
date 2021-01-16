@@ -1884,6 +1884,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             bool hideAutoComplete = true;
 
+            str.Append("\t\t/// <summary>Swizzles the vector.</summary>\n");
+
             if (hideAutoComplete)
                 str.Append("\t\t[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n");
 
