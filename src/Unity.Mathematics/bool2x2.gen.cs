@@ -106,6 +106,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool2x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise not.</param>
+        /// <returns>bool2x2 result of the componentwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator ! (bool2x2 val) { return new bool2x2 (!val.c0, !val.c1); }
 

@@ -117,6 +117,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool3x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise not.</param>
+        /// <returns>bool3x3 result of the componentwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ! (bool3x3 val) { return new bool3x3 (!val.c0, !val.c1, !val.c2); }
 

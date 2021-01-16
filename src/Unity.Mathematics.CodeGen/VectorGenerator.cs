@@ -1846,6 +1846,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         void GenerateUnaryOperator(string op, StringBuilder str, string opDesc)
         {
             str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
+            str.Append($"\t\t/// <param name=\"val\">Value to use when computing the componentwise {opDesc}.</param>\n");
+            str.Append($"\t\t/// <returns>{m_TypeName} result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_TypeName, op);
             str.Append(" { ");

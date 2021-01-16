@@ -417,11 +417,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>double4 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator ++ (double4 val) { return new double4 (++val.x, ++val.y, ++val.z, ++val.w); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>double4 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator -- (double4 val) { return new double4 (--val.x, --val.y, --val.z, --val.w); }
 
@@ -515,11 +519,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>double4 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator - (double4 val) { return new double4 (-val.x, -val.y, -val.z, -val.w); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>double4 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator + (double4 val) { return new double4 (+val.x, +val.y, +val.z, +val.w); }
 

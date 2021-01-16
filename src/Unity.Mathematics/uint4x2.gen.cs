@@ -292,11 +292,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on a uint4x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>uint4x2 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 operator ++ (uint4x2 val) { return new uint4x2 (++val.c0, ++val.c1); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a uint4x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>uint4x2 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 operator -- (uint4x2 val) { return new uint4x2 (--val.c0, --val.c1); }
 
@@ -390,11 +394,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a uint4x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>uint4x2 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 operator - (uint4x2 val) { return new uint4x2 (-val.c0, -val.c1); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a uint4x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>uint4x2 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 operator + (uint4x2 val) { return new uint4x2 (+val.c0, +val.c1); }
 
@@ -452,6 +460,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on a uint4x2 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise bitwise not.</param>
+        /// <returns>uint4x2 result of the componentwise bitwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4x2 operator ~ (uint4x2 val) { return new uint4x2 (~val.c0, ~val.c1); }
 

@@ -284,11 +284,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on a uint2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>uint2 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ++ (uint2 val) { return new uint2 (++val.x, ++val.y); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a uint2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>uint2 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator -- (uint2 val) { return new uint2 (--val.x, --val.y); }
 
@@ -382,11 +386,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a uint2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>uint2 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator - (uint2 val) { return new uint2 ((uint)-val.x, (uint)-val.y); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a uint2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>uint2 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator + (uint2 val) { return new uint2 (+val.x, +val.y); }
 
@@ -444,6 +452,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on a uint2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise bitwise not.</param>
+        /// <returns>uint2 result of the componentwise bitwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator ~ (uint2 val) { return new uint2 (~val.x, ~val.y); }
 

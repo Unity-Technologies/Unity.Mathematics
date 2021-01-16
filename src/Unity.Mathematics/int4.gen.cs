@@ -385,11 +385,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on an int4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>int4 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator ++ (int4 val) { return new int4 (++val.x, ++val.y, ++val.z, ++val.w); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on an int4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>int4 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator -- (int4 val) { return new int4 (--val.x, --val.y, --val.z, --val.w); }
 
@@ -483,11 +487,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on an int4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>int4 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator - (int4 val) { return new int4 (-val.x, -val.y, -val.z, -val.w); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on an int4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>int4 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator + (int4 val) { return new int4 (+val.x, +val.y, +val.z, +val.w); }
 
@@ -545,6 +553,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on an int4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise bitwise not.</param>
+        /// <returns>int4 result of the componentwise bitwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 operator ~ (int4 val) { return new int4 (~val.x, ~val.y, ~val.z, ~val.w); }
 

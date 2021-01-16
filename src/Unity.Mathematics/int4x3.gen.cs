@@ -309,11 +309,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on an int4x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>int4x3 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 operator ++ (int4x3 val) { return new int4x3 (++val.c0, ++val.c1, ++val.c2); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on an int4x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>int4x3 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 operator -- (int4x3 val) { return new int4x3 (--val.c0, --val.c1, --val.c2); }
 
@@ -407,11 +411,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on an int4x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>int4x3 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 operator - (int4x3 val) { return new int4x3 (-val.c0, -val.c1, -val.c2); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on an int4x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>int4x3 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 operator + (int4x3 val) { return new int4x3 (+val.c0, +val.c1, +val.c2); }
 
@@ -469,6 +477,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise not operation on an int4x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise bitwise not.</param>
+        /// <returns>int4x3 result of the componentwise bitwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4x3 operator ~ (int4x3 val) { return new int4x3 (~val.c0, ~val.c1, ~val.c2); }
 

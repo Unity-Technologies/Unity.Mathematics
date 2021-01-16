@@ -312,11 +312,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise increment operation on a float2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>float2 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator ++ (float2 val) { return new float2 (++val.x, ++val.y); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a float2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>float2 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator -- (float2 val) { return new float2 (--val.x, --val.y); }
 
@@ -410,11 +414,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a float2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>float2 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator - (float2 val) { return new float2 (-val.x, -val.y); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a float2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>float2 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 operator + (float2 val) { return new float2 (+val.x, +val.y); }
 
