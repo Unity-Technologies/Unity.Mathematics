@@ -1840,6 +1840,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         void GenerateGetHashCode(StringBuilder str)
         {
             str.AppendFormat("\t\t/// <summary>Returns a hash code for the {0}.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <returns>The computed hash code.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.Append("\t\tpublic override int GetHashCode() { return (int)math.hash(this); }\n\n");
         }

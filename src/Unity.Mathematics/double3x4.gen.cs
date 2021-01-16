@@ -516,6 +516,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a hash code for the double3x4.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 

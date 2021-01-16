@@ -577,6 +577,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a hash code for the int2x3.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
