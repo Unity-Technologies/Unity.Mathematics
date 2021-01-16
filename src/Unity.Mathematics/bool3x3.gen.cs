@@ -269,7 +269,9 @@ namespace Unity.Mathematics
                 v.c2.x, v.c2.y, v.c2.z);
         }
 
-        /// <summary>Returns a uint hash code of a bool3x3 vector.</summary>
+        /// <summary>Returns a uint hash code of a bool3x3 matrix.</summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3x3 v)
         {
@@ -279,10 +281,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Returns a uint3 vector hash code of a bool3x3 vector.
+        /// Returns a uint3 vector hash code of a bool3x3 matrix.
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint3 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3x3 v)
         {

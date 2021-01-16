@@ -643,7 +643,9 @@ namespace Unity.Mathematics
                 v.c1.x, v.c1.y, v.c1.z);
         }
 
-        /// <summary>Returns a uint hash code of a int3x2 vector.</summary>
+        /// <summary>Returns a uint hash code of a int3x2 matrix.</summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(int3x2 v)
         {
@@ -652,10 +654,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Returns a uint3 vector hash code of a int3x2 vector.
+        /// Returns a uint3 vector hash code of a int3x2 matrix.
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint3 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(int3x2 v)
         {

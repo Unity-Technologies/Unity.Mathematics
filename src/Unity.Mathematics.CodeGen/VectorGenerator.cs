@@ -1538,21 +1538,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             string returnType = wide ? ToTypeName("uint", m_Rows, 1) : "uint";
             string functionName = wide ? "hashwide" : "hash";
+            string matrixOrVector = m_Columns > 1 ? "matrix" : "vector";
+            string capitalMatrixOrVector = m_Columns > 1 ? "Matrix" : "Vector";
 
             if(wide)
             {
                 str.AppendFormat("\t\t/// <summary>\n" +
-                            "\t\t/// Returns a {0} vector hash code of a {1} vector.\n" +
+                            "\t\t/// Returns a {0} vector hash code of a {1} {2}.\n" +
                             "\t\t/// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash\n" +
                             "\t\t/// that are only reduced to a narrow uint hash at the very end instead of at every step.\n" +
-                            "\t\t/// </summary>\n", returnType, m_TypeName);
+                            "\t\t/// </summary>\n", returnType, m_TypeName, matrixOrVector);
+                str.Append($"\t\t/// <param name=\"v\">{capitalMatrixOrVector} value to hash.</param>\n");
             }
             else
             {
-                str.AppendFormat("\t\t/// <summary>Returns a uint hash code of a {0} vector.</summary>\n", m_TypeName);
+                str.AppendFormat("\t\t/// <summary>Returns a uint hash code of a {0} {1}.</summary>\n", m_TypeName, matrixOrVector);
+                str.Append($"\t\t/// <param name=\"v\">{capitalMatrixOrVector} value to hash.</param>\n");
             }
 
-
+            str.Append($"\t\t/// <returns>{returnType} hash of the argument.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, m_TypeName);
             str.Append("\t\t{\n");
