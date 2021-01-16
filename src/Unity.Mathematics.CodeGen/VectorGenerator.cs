@@ -1282,9 +1282,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Rows == 2)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}2x2 full inverse of a {0}2x2 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat("        /// <summary>Returns the {0}2x2 full inverse of a {0}2x2 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0}2x2 inverse({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1302,9 +1303,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if(m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>
-        public static {0}3x3 inverse({0}3x3 m)
+                str.AppendFormat("        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}3x3 inverse({0}3x3 m)
         {{
             {0}3 c0 = m.c0;
             {0}3 c1 = m.c1;
@@ -1327,9 +1329,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if(m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}4x4 full inverse of a {0}4x4 matrix.</summary>
-        public static {0}4x4 inverse({0}4x4 m)
+                str.AppendFormat("        /// <summary>Returns the {0}4x4 full inverse of a {0}4x4 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}4x4 inverse({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;

@@ -599,6 +599,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the double3x3 full inverse of a double3x3 matrix.</summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The inverted matrix.</returns>
         public static double3x3 inverse(double3x3 m)
         {
             double3 c0 = m.c0;

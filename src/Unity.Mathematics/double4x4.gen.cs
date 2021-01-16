@@ -645,6 +645,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the double4x4 full inverse of a double4x4 matrix.</summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The inverted matrix.</returns>
         public static double4x4 inverse(double4x4 m)
         {
             double4 c0 = m.c0;

@@ -571,6 +571,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the double2x2 full inverse of a double2x2 matrix.</summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The inverted matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2x2 inverse(double2x2 m)
         {
