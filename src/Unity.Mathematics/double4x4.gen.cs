@@ -753,6 +753,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the determinant of a double4x4 matrix.</summary>
+        /// <param name="m">Matrix to use when computing determinant.</param>
+        /// <returns>The determinant of the matrix.</returns>
         public static double determinant(double4x4 m)
         {
             double4 c0 = m.c0;

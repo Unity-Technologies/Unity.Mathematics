@@ -1479,11 +1479,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_BaseType != "float" && m_BaseType != "double" && m_BaseType != "int")
                 return;
 
+            str.Append($"\t\t/// <summary>Returns the determinant of a {ToTypeName(m_BaseType, m_Rows, m_Columns)} matrix.</summary>\n");
+            str.Append($"\t\t/// <param name=\"m\">Matrix to use when computing determinant.</param>\n");
+            str.Append($"\t\t/// <returns>The determinant of the matrix.</returns>\n");
+
             if (m_Rows == 2)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}2x2 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1499,9 +1501,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}3x3 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}3x3 m)
         {{
             {0}3 c0 = m.c0;
@@ -1520,9 +1520,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}4x4 matrix.</summary>
-        public static {0} determinant({0}4x4 m)
+                str.AppendFormat(@"        public static {0} determinant({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;

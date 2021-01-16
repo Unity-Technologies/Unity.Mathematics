@@ -605,6 +605,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the determinant of a double2x2 matrix.</summary>
+        /// <param name="m">Matrix to use when computing determinant.</param>
+        /// <returns>The determinant of the matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double determinant(double2x2 m)
         {
