@@ -763,10 +763,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the double2 is equal to a given double2, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(double2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the double2 is equal to a given double2, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is double2 converted && Equals(converted); }
 
 

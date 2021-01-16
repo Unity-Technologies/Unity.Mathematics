@@ -1814,6 +1814,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <param name=\"rhs\">Right hand side argument to compare equality with.</param>\n");
+            str.AppendFormat("\t\t/// <returns>The result of the equality comparison.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
 
@@ -1830,6 +1832,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("; }\n\n");
 
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <param name=\"o\">Right hand side argument to compare equality with.</param>\n");
+            str.AppendFormat("\t\t/// <returns>The result of the equality comparison.</returns>\n");
             str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return o is {0} converted && Equals(converted); }}\n\n", m_TypeName);
         }
 

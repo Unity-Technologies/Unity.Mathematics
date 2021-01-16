@@ -556,10 +556,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the int4x2 is equal to a given int4x2, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(int4x2 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1); }
 
         /// <summary>Returns true if the int4x2 is equal to a given int4x2, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is int4x2 converted && Equals(converted); }
 
 

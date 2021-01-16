@@ -814,10 +814,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the int2 is equal to a given int2, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(int2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the int2 is equal to a given int2, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is int2 converted && Equals(converted); }
 
 
