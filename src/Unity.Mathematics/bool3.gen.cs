@@ -30,6 +30,9 @@ namespace Unity.Mathematics
 
 
         /// <summary>Constructs a bool3 vector from three bool values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
         {
@@ -39,6 +42,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool value and a bool2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool2 yz)
         {
@@ -48,6 +53,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool2 vector and a bool value.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool2 xy, bool z)
         {
@@ -57,6 +64,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool3 vector.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool3 xyz)
         {
@@ -1336,18 +1344,30 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool3 vector constructed from three bool values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool y, bool z) { return new bool3(x, y, z); }
 
         /// <summary>Returns a bool3 vector constructed from a bool value and a bool2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool2 yz) { return new bool3(x, yz); }
 
         /// <summary>Returns a bool3 vector constructed from a bool2 vector and a bool value.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool2 xy, bool z) { return new bool3(xy, z); }
 
         /// <summary>Returns a bool3 vector constructed from a bool3 vector.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 

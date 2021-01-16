@@ -27,6 +27,8 @@ namespace Unity.Mathematics
         public static readonly uint2 zero;
 
         /// <summary>Constructs a uint2 vector from two uint values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint x, uint y)
         {
@@ -35,6 +37,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a uint2 vector from a uint2 vector.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2(uint2 xy)
         {
@@ -834,10 +837,15 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a uint2 vector constructed from two uint values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <returns>uint2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint x, uint y) { return new uint2(x, y); }
 
         /// <summary>Returns a uint2 vector constructed from a uint2 vector.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <returns>uint2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 uint2(uint2 xy) { return new uint2(xy); }
 

@@ -32,6 +32,10 @@ namespace Unity.Mathematics
 
 
         /// <summary>Constructs a bool4 vector from four bool values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool z, bool w)
         {
@@ -42,6 +46,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from two bool values and a bool2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool y, bool2 zw)
         {
@@ -52,6 +59,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from a bool value, a bool2 vector and a bool value.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool2 yz, bool w)
         {
@@ -62,6 +72,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from a bool value and a bool3 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool x, bool3 yzw)
         {
@@ -72,6 +84,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from a bool2 vector and two bool values.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool2 xy, bool z, bool w)
         {
@@ -82,6 +97,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from two bool2 vectors.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool2 xy, bool2 zw)
         {
@@ -92,6 +109,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from a bool3 vector and a bool value.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool3 xyz, bool w)
         {
@@ -102,6 +121,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool4 vector from a bool4 vector.</summary>
+        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4(bool4 xyzw)
         {
@@ -3452,34 +3472,62 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool4 vector constructed from four bool values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool x, bool y, bool z, bool w) { return new bool4(x, y, z, w); }
 
         /// <summary>Returns a bool4 vector constructed from two bool values and a bool2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool x, bool y, bool2 zw) { return new bool4(x, y, zw); }
 
         /// <summary>Returns a bool4 vector constructed from a bool value, a bool2 vector and a bool value.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool x, bool2 yz, bool w) { return new bool4(x, yz, w); }
 
         /// <summary>Returns a bool4 vector constructed from a bool value and a bool3 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool x, bool3 yzw) { return new bool4(x, yzw); }
 
         /// <summary>Returns a bool4 vector constructed from a bool2 vector and two bool values.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool2 xy, bool z, bool w) { return new bool4(xy, z, w); }
 
         /// <summary>Returns a bool4 vector constructed from two bool2 vectors.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool2 xy, bool2 zw) { return new bool4(xy, zw); }
 
         /// <summary>Returns a bool4 vector constructed from a bool3 vector and a bool value.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool3 xyz, bool w) { return new bool4(xyz, w); }
 
         /// <summary>Returns a bool4 vector constructed from a bool4 vector.</summary>
+        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
+        /// <returns>bool4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 bool4(bool4 xyzw) { return new bool4(xyzw); }
 

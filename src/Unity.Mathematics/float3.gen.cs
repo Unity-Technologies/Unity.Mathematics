@@ -28,6 +28,9 @@ namespace Unity.Mathematics
         public static readonly float3 zero;
 
         /// <summary>Constructs a float3 vector from three float values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float y, float z)
         {
@@ -37,6 +40,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3 vector from a float value and a float2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float x, float2 yz)
         {
@@ -46,6 +51,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3 vector from a float2 vector and a float value.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float2 xy, float z)
         {
@@ -55,6 +62,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3 vector from a float3 vector.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3(float3 xyz)
         {
@@ -1638,18 +1646,30 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a float3 vector constructed from three float values.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <returns>float3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float x, float y, float z) { return new float3(x, y, z); }
 
         /// <summary>Returns a float3 vector constructed from a float value and a float2 vector.</summary>
+        /// <param name="x>The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <returns>float3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float x, float2 yz) { return new float3(x, yz); }
 
         /// <summary>Returns a float3 vector constructed from a float2 vector and a float value.</summary>
+        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <returns>float3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float2 xy, float z) { return new float3(xy, z); }
 
         /// <summary>Returns a float3 vector constructed from a float3 vector.</summary>
+        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <returns>float3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 float3(float3 xyz) { return new float3(xyz); }
 

@@ -854,12 +854,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
+
+            int componentIndex = 0;
+            for (int i = 0; i < numParameters; ++i)
+            {
+                int paramComponents = parameterComponents[i];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+                string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
+                constructorStr.Append($"\t\t/// <param name=\"{componentString}>The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                componentIndex += paramComponents;
+            }
+
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
 
             mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
+
+            componentIndex = 0;
+            for (int i = 0; i < numParameters; ++i)
+            {
+                int paramComponents = parameterComponents[i];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+                string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
+                mathStr.Append($"\t\t/// <param name=\"{componentString}>The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                componentIndex += paramComponents;
+            }
+
+            mathStr.Append($"\t\t/// <returns>{m_TypeName} constructed from arguments.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -867,7 +890,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             mathStr.Append(m_TypeName);
             mathStr.Append("(");
 
-            int componentIndex = 0;
+            componentIndex = 0;
             for (int i = 0; i < numParameters; i++)
             {
                 if (i != 0)
