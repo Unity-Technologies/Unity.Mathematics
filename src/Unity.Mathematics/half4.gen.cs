@@ -29,10 +29,10 @@ namespace Unity.Mathematics
         public static readonly half4 zero;
 
         /// <summary>Constructs a half4 vector from four half values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half y, half z, half w)
         {
@@ -43,9 +43,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from two half values and a half2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half y, half2 zw)
         {
@@ -56,9 +56,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a half value, a half2 vector and a half value.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half2 yz, half w)
         {
@@ -69,8 +69,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a half value and a half3 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half x, half3 yzw)
         {
@@ -81,9 +81,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a half2 vector and two half values.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half2 xy, half z, half w)
         {
@@ -94,8 +94,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from two half2 vectors.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half2 xy, half2 zw)
         {
@@ -106,8 +106,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a half3 vector and a half value.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half3 xyz, half w)
         {
@@ -118,7 +118,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half4 vector from a half4 vector.</summary>
-        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half4(half4 xyzw)
         {
@@ -3469,61 +3469,61 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a half4 vector constructed from four half values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half x, half y, half z, half w) { return new half4(x, y, z, w); }
 
         /// <summary>Returns a half4 vector constructed from two half values and a half2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half x, half y, half2 zw) { return new half4(x, y, zw); }
 
         /// <summary>Returns a half4 vector constructed from a half value, a half2 vector and a half value.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half x, half2 yz, half w) { return new half4(x, yz, w); }
 
         /// <summary>Returns a half4 vector constructed from a half value and a half3 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half x, half3 yzw) { return new half4(x, yzw); }
 
         /// <summary>Returns a half4 vector constructed from a half2 vector and two half values.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half2 xy, half z, half w) { return new half4(xy, z, w); }
 
         /// <summary>Returns a half4 vector constructed from two half2 vectors.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half2 xy, half2 zw) { return new half4(xy, zw); }
 
         /// <summary>Returns a half4 vector constructed from a half3 vector and a half value.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half3 xyz, half w) { return new half4(xyz, w); }
 
         /// <summary>Returns a half4 vector constructed from a half4 vector.</summary>
-        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
         /// <returns>half4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half4 half4(half4 xyzw) { return new half4(xyzw); }

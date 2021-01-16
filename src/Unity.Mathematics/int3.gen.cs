@@ -28,9 +28,9 @@ namespace Unity.Mathematics
         public static readonly int3 zero;
 
         /// <summary>Constructs a int3 vector from three int values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int y, int z)
         {
@@ -40,8 +40,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int3 vector from an int value and an int2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int x, int2 yz)
         {
@@ -51,8 +51,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int3 vector from an int2 vector and an int value.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int2 xy, int z)
         {
@@ -62,7 +62,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a int3 vector from an int3 vector.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3(int3 xyz)
         {
@@ -1705,29 +1705,29 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a int3 vector constructed from three int values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         /// <returns>int3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int x, int y, int z) { return new int3(x, y, z); }
 
         /// <summary>Returns a int3 vector constructed from an int value and an int2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
         /// <returns>int3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int x, int2 yz) { return new int3(x, yz); }
 
         /// <summary>Returns a int3 vector constructed from an int2 vector and an int value.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         /// <returns>int3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int2 xy, int z) { return new int3(xy, z); }
 
         /// <summary>Returns a int3 vector constructed from an int3 vector.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
         /// <returns>int3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 int3(int3 xyz) { return new int3(xyz); }

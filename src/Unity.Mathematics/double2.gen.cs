@@ -27,8 +27,8 @@ namespace Unity.Mathematics
         public static readonly double2 zero;
 
         /// <summary>Constructs a double2 vector from two double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double x, double y)
         {
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a double2 vector.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double2 xy)
         {
@@ -794,14 +794,14 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double2 vector constructed from two double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         /// <returns>double2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double x, double y) { return new double2(x, y); }
 
         /// <summary>Returns a double2 vector constructed from a double2 vector.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         /// <returns>double2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double2 xy) { return new double2(xy); }

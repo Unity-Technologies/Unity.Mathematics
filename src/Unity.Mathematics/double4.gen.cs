@@ -29,10 +29,10 @@ namespace Unity.Mathematics
         public static readonly double4 zero;
 
         /// <summary>Constructs a double4 vector from four double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double z, double w)
         {
@@ -43,9 +43,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from two double values and a double2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double2 zw)
         {
@@ -56,9 +56,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double value, a double2 vector and a double value.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double2 yz, double w)
         {
@@ -69,8 +69,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double value and a double3 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double3 yzw)
         {
@@ -81,9 +81,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double2 vector and two double values.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double z, double w)
         {
@@ -94,8 +94,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from two double2 vectors.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double2 zw)
         {
@@ -106,8 +106,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double3 vector and a double value.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double3 xyz, double w)
         {
@@ -118,7 +118,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double4 vector.</summary>
-        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double4 xyzw)
         {
@@ -3791,61 +3791,61 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double4 vector constructed from four double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double y, double z, double w) { return new double4(x, y, z, w); }
 
         /// <summary>Returns a double4 vector constructed from two double values and a double2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double y, double2 zw) { return new double4(x, y, zw); }
 
         /// <summary>Returns a double4 vector constructed from a double value, a double2 vector and a double value.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double2 yz, double w) { return new double4(x, yz, w); }
 
         /// <summary>Returns a double4 vector constructed from a double value and a double3 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yzw>The constructed vector's yzw components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double3 yzw) { return new double4(x, yzw); }
 
         /// <summary>Returns a double4 vector constructed from a double2 vector and two double values.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double2 xy, double z, double w) { return new double4(xy, z, w); }
 
         /// <summary>Returns a double4 vector constructed from two double2 vectors.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="zw>The constructed vector's zw components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double2 xy, double2 zw) { return new double4(xy, zw); }
 
         /// <summary>Returns a double4 vector constructed from a double3 vector and a double value.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
-        /// <param name="w>The constructed vector's w component will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double3 xyz, double w) { return new double4(xyz, w); }
 
         /// <summary>Returns a double4 vector constructed from a double4 vector.</summary>
-        /// <param name="xyzw>The constructed vector's xyzw components will be set to this value.</param>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
         /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double4 xyzw) { return new double4(xyzw); }

@@ -28,9 +28,9 @@ namespace Unity.Mathematics
         public static readonly double3 zero;
 
         /// <summary>Constructs a double3 vector from three double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double x, double y, double z)
         {
@@ -40,8 +40,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a double value and a double2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double x, double2 yz)
         {
@@ -51,8 +51,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a double2 vector and a double value.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double2 xy, double z)
         {
@@ -62,7 +62,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double3 vector from a double3 vector.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3(double3 xyz)
         {
@@ -1654,29 +1654,29 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double3 vector constructed from three double values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         /// <returns>double3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double x, double y, double z) { return new double3(x, y, z); }
 
         /// <summary>Returns a double3 vector constructed from a double value and a double2 vector.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="yz>The constructed vector's yz components will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
         /// <returns>double3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double x, double2 yz) { return new double3(x, yz); }
 
         /// <summary>Returns a double3 vector constructed from a double2 vector and a double value.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
-        /// <param name="z>The constructed vector's z component will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         /// <returns>double3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double2 xy, double z) { return new double3(xy, z); }
 
         /// <summary>Returns a double3 vector constructed from a double3 vector.</summary>
-        /// <param name="xyz>The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
         /// <returns>double3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 double3(double3 xyz) { return new double3(xyz); }

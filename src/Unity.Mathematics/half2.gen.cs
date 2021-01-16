@@ -27,8 +27,8 @@ namespace Unity.Mathematics
         public static readonly half2 zero;
 
         /// <summary>Constructs a half2 vector from two half values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(half x, half y)
         {
@@ -37,7 +37,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a half2 vector.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(half2 xy)
         {
@@ -484,14 +484,14 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a half2 vector constructed from two half values.</summary>
-        /// <param name="x>The constructed vector's x component will be set to this value.</param>
-        /// <param name="y>The constructed vector's y component will be set to this value.</param>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         /// <returns>half2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half x, half y) { return new half2(x, y); }
 
         /// <summary>Returns a half2 vector constructed from a half2 vector.</summary>
-        /// <param name="xy>The constructed vector's xy components will be set to this value.</param>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         /// <returns>half2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half2 xy) { return new half2(xy); }

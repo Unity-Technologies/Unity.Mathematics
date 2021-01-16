@@ -861,7 +861,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 int paramComponents = parameterComponents[i];
                 string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
                 string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
-                constructorStr.Append($"\t\t/// <param name=\"{componentString}>The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                constructorStr.Append($"\t\t/// <param name=\"{componentString}\">The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
                 componentIndex += paramComponents;
             }
 
@@ -878,7 +878,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 int paramComponents = parameterComponents[i];
                 string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
                 string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
-                mathStr.Append($"\t\t/// <param name=\"{componentString}>The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                mathStr.Append($"\t\t/// <param name=\"{componentString}\">The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
                 componentIndex += paramComponents;
             }
 
