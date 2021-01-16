@@ -674,6 +674,8 @@ namespace Unity.Mathematics
         public static int4x3 int4x3(double4x3 v) { return new int4x3(v); }
 
         /// <summary>Return the int3x4 transpose of a int4x3 matrix.</summary>
+        /// <param name="v">Value to transpose.</param>
+        /// <returns>Transposed value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x4 transpose(int4x3 v)
         {

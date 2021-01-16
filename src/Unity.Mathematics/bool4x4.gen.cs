@@ -285,6 +285,8 @@ namespace Unity.Mathematics
         public static bool4x4 bool4x4(bool v) { return new bool4x4(v); }
 
         /// <summary>Return the bool4x4 transpose of a bool4x4 matrix.</summary>
+        /// <param name="v">Value to transpose.</param>
+        /// <returns>Transposed value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x4 transpose(bool4x4 v)
         {

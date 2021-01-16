@@ -1246,6 +1246,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             string resultType = ToTypeName(m_BaseType, m_Columns, m_Rows);
             str.AppendFormat("\t\t/// <summary>Return the {0} transpose of a {1} matrix.</summary>\n", resultType, m_TypeName);
+            str.Append($"\t\t/// <param name=\"v\">Value to transpose.</param>\n");
+            str.Append($"\t\t/// <returns>Transposed value.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} transpose({1} v)\n", resultType, m_TypeName);
             str.Append("\t\t{\n");
