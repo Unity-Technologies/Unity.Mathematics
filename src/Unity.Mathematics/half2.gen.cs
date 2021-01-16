@@ -20,7 +20,9 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct half2 : System.IEquatable<half2>, IFormattable
     {
+        /// <summary>x component of the vector.</summary>
         public half x;
+        /// <summary>y component of the vector.</summary>
         public half y;
 
         /// <summary>half2 zero value.</summary>

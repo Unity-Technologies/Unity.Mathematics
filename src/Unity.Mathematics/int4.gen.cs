@@ -20,9 +20,13 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct int4 : System.IEquatable<int4>, IFormattable
     {
+        /// <summary>x component of the vector.</summary>
         public int x;
+        /// <summary>y component of the vector.</summary>
         public int y;
+        /// <summary>z component of the vector.</summary>
         public int z;
+        /// <summary>w component of the vector.</summary>
         public int w;
 
         /// <summary>int4 zero value.</summary>

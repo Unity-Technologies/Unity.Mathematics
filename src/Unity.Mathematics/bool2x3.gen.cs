@@ -18,8 +18,11 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct bool2x3 : System.IEquatable<bool2x3>
     {
+        /// <summary>Column 0 of the matrix.</summary>
         public bool2 c0;
+        /// <summary>Column 1 of the matrix.</summary>
         public bool2 c1;
+        /// <summary>Column 2 of the matrix.</summary>
         public bool2 c2;
 
 

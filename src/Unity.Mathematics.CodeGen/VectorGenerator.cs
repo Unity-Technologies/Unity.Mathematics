@@ -282,12 +282,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 string columnType = ToTypeName(m_BaseType, m_Rows, 1);
                 for (int i = 0; i < m_Columns; i++)
+                {
+                    str.AppendFormat($"\t\t/// <summary>Column {i} of the matrix.</summary>\n");
                     str.AppendFormat("\t\tpublic {0} {1};\n", columnType, matrixFields[i]);
+                }
             }
             else
             {
                 for (int i = 0; i < m_Rows; i++)
                 {
+                    str.AppendFormat($"\t\t/// <summary>{vectorFields[i]} component of the vector.</summary>\n");
                     if (m_Columns == 1 && m_BaseType == "bool")
                         str.Append("\t\t[MarshalAs(UnmanagedType.U1)]\n");
                     str.AppendFormat("\t\tpublic {0} {1};\n", m_BaseType, vectorFields[i]);

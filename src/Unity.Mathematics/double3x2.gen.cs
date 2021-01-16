@@ -18,7 +18,9 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct double3x2 : System.IEquatable<double3x2>, IFormattable
     {
+        /// <summary>Column 0 of the matrix.</summary>
         public double3 c0;
+        /// <summary>Column 1 of the matrix.</summary>
         public double3 c1;
 
         /// <summary>double3x2 zero value.</summary>

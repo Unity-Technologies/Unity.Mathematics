@@ -21,8 +21,10 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct bool2 : System.IEquatable<bool2>
     {
+        /// <summary>x component of the vector.</summary>
         [MarshalAs(UnmanagedType.U1)]
         public bool x;
+        /// <summary>y component of the vector.</summary>
         [MarshalAs(UnmanagedType.U1)]
         public bool y;
 

@@ -18,9 +18,13 @@ namespace Unity.Mathematics
     [Il2CppEagerStaticClassConstruction]
     public partial struct float3x4 : System.IEquatable<float3x4>, IFormattable
     {
+        /// <summary>Column 0 of the matrix.</summary>
         public float3 c0;
+        /// <summary>Column 1 of the matrix.</summary>
         public float3 c1;
+        /// <summary>Column 2 of the matrix.</summary>
         public float3 c2;
+        /// <summary>Column 3 of the matrix.</summary>
         public float3 c3;
 
         /// <summary>float3x4 zero value.</summary>
