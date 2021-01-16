@@ -877,40 +877,62 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int2 vectors into an int value.</summary>
+        /// <param value="left">int2 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">int2 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting int.</param>
+        /// <returns>int result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int shuffle(int2 a, int2 b, ShuffleComponent x)
+        public static int shuffle(int2 left, int2 right, ShuffleComponent x)
         {
-            return select_shuffle_component(a, b, x);
+            return select_shuffle_component(left, right, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int2 vectors into an int2 vector.</summary>
+        /// <param value="left">int2 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">int2 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting int2 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting int2 y component.</param>
+        /// <returns>int2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 shuffle(int2 a, int2 b, ShuffleComponent x, ShuffleComponent y)
+        public static int2 shuffle(int2 left, int2 right, ShuffleComponent x, ShuffleComponent y)
         {
             return int2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int2 vectors into an int3 vector.</summary>
+        /// <param value="left">int2 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">int2 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting int3 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting int3 y component.</param>
+        /// <param value="z">The ShuffleComponent to use when setting the resulting int3 z component.</param>
+        /// <returns>int3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 shuffle(int2 a, int2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static int3 shuffle(int2 left, int2 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return int3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two int2 vectors into an int4 vector.</summary>
+        /// <param value="left">int2 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">int2 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting int4 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting int4 y component.</param>
+        /// <param value="z">The ShuffleComponent to use when setting the resulting int4 z component.</param>
+        /// <param value="w">The ShuffleComponent to use when setting the resulting int4 w component.</param>
+        /// <returns>int4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 shuffle(int2 a, int2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static int4 shuffle(int2 left, int2 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return int4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z),
+                select_shuffle_component(left, right, w));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

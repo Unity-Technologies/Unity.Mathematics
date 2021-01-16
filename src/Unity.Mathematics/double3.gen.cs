@@ -1610,40 +1610,62 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double3 vectors into a double value.</summary>
+        /// <param value="left">double3 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">double3 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting double.</param>
+        /// <returns>double result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double shuffle(double3 a, double3 b, ShuffleComponent x)
+        public static double shuffle(double3 left, double3 right, ShuffleComponent x)
         {
-            return select_shuffle_component(a, b, x);
+            return select_shuffle_component(left, right, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double3 vectors into a double2 vector.</summary>
+        /// <param value="left">double3 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">double3 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting double2 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting double2 y component.</param>
+        /// <returns>double2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 shuffle(double3 a, double3 b, ShuffleComponent x, ShuffleComponent y)
+        public static double2 shuffle(double3 left, double3 right, ShuffleComponent x, ShuffleComponent y)
         {
             return double2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double3 vectors into a double3 vector.</summary>
+        /// <param value="left">double3 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">double3 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting double3 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting double3 y component.</param>
+        /// <param value="z">The ShuffleComponent to use when setting the resulting double3 z component.</param>
+        /// <returns>double3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 shuffle(double3 a, double3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static double3 shuffle(double3 left, double3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return double3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double3 vectors into a double4 vector.</summary>
+        /// <param value="left">double3 to use as the left argument of the shuffle operation.</param>
+        /// <param value="right">double3 to use as the right argument of the shuffle operation.</param>
+        /// <param value="x">The ShuffleComponent to use when setting the resulting double4 x component.</param>
+        /// <param value="y">The ShuffleComponent to use when setting the resulting double4 y component.</param>
+        /// <param value="z">The ShuffleComponent to use when setting the resulting double4 z component.</param>
+        /// <param value="w">The ShuffleComponent to use when setting the resulting double4 w component.</param>
+        /// <returns>double4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 shuffle(double3 a, double3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static double4 shuffle(double3 left, double3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return double4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z),
+                select_shuffle_component(left, right, w));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

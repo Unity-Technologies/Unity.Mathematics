@@ -637,8 +637,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 str.AppendFormat("\t\t/// <summary>Returns the result of specified shuffling of the components from {0} into {1}.</summary>\n",
                     ToValueDescription(m_BaseType, m_Rows, m_Columns, 2), ToValueDescription(m_BaseType, resultComponents, m_Columns, 1));
+                str.AppendFormat($"\t\t/// <param value=\"left\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the left argument of the shuffle operation.</param>\n");
+                str.AppendFormat($"\t\t/// <param value=\"right\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the right argument of the shuffle operation.</param>\n");
+
+                if (resultComponents == 1)
+                {
+                    str.AppendFormat($"\t\t/// <param value=\"{vectorFields[0]}\">The ShuffleComponent to use when setting the resulting {resultType}.</param>\n");
+                }
+                else
+                {
+                    for (int i = 0; i < resultComponents; ++i)
+                    {
+                        str.AppendFormat($"\t\t/// <param value=\"{vectorFields[i]}\">The ShuffleComponent to use when setting the resulting {resultType} {vectorFields[i]} component.</param>\n");
+                    }
+                }
+
+                str.AppendFormat($"\t\t/// <returns>{resultType} result of the shuffle operation.</returns>\n");
                 str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-                str.AppendFormat("\t\tpublic static {0} shuffle({1} a, {2} b", resultType, m_TypeName, m_TypeName);
+                str.AppendFormat("\t\tpublic static {0} shuffle({1} left, {2} right", resultType, m_TypeName, m_TypeName);
                 for(int i = 0; i < resultComponents; i++)
                 {
                     str.AppendFormat(", ShuffleComponent {0}", vectorFields[i]);
@@ -656,7 +672,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     if (resultComponents != 1)
                         str.Append("\t\t\t\t");
 
-                    str.AppendFormat("select_shuffle_component(a, b, {0})", vectorFields[i]);
+                    str.AppendFormat("select_shuffle_component(left, right, {0})", vectorFields[i]);
                     if(i != resultComponents - 1)
                         str.Append(",\n");
                 }
