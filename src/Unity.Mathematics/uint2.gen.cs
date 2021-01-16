@@ -411,10 +411,16 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise left shift operation on a uint2 vector by a number of bits specified by a single int.</summary>
+        /// <param name="x">The vector to left shift.</param>
+        /// <param name="n">The number of bits to left shift.</param>
+        /// <returns>The result of the componentwise left shift.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator << (uint2 x, int n) { return new uint2 (x.x << n, x.y << n); }
 
         /// <summary>Returns the result of a componentwise right shift operation on a uint2 vector by a number of bits specified by a single int.</summary>
+        /// <param name="x">The vector to right shift.</param>
+        /// <param name="n">The number of bits to right shift.</param>
+        /// <returns>The result of the componentwise right shift.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 operator >> (uint2 x, int n) { return new uint2 (x.x >> n, x.y >> n); }
 

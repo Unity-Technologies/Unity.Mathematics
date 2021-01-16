@@ -1860,8 +1860,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
+            string matrixOrVector = m_Columns > 1 ? "matrix" : "vector";
             string resultType = ToTypeName(resultBaseType, resultCount, 1);
             str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} by a number of bits specified by a single int.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
+            str.AppendFormat($"\t\t/// <param name=\"x\">The {matrixOrVector} to {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <param name=\"n\">The number of bits to {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <returns>The result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} x, int n)", m_TypeName, op);
             str.Append(" { ");

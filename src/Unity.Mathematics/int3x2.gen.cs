@@ -416,10 +416,16 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise left shift operation on an int3x2 matrix by a number of bits specified by a single int.</summary>
+        /// <param name="x">The matrix to left shift.</param>
+        /// <param name="n">The number of bits to left shift.</param>
+        /// <returns>The result of the componentwise left shift.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 operator << (int3x2 x, int n) { return new int3x2 (x.c0 << n, x.c1 << n); }
 
         /// <summary>Returns the result of a componentwise right shift operation on an int3x2 matrix by a number of bits specified by a single int.</summary>
+        /// <param name="x">The matrix to right shift.</param>
+        /// <param name="n">The number of bits to right shift.</param>
+        /// <returns>The result of the componentwise right shift.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3x2 operator >> (int3x2 x, int n) { return new int3x2 (x.c0 >> n, x.c1 >> n); }
 
