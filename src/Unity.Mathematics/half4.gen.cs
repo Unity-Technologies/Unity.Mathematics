@@ -191,27 +191,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two half4 vectors.</summary>
+        /// <param name="lhs">Left hand side half4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (half4 lhs, half4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half4 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (half4 lhs, half rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half4 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (half lhs, half4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half4 vectors.</summary>
+        /// <param name="lhs">Left hand side half4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (half4 lhs, half4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half4 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (half4 lhs, half rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half4 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (half lhs, half4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 

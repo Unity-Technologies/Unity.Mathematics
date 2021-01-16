@@ -173,66 +173,111 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise multiplication.</param>
+        /// <returns>int2x2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator * (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise multiplication.</param>
+        /// <returns>int2x2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator * (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 * rhs, lhs.c1 * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise multiplication.</param>
+        /// <returns>int2x2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator * (int lhs, int2x2 rhs) { return new int2x2 (lhs * rhs.c0, lhs * rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise addition.</param>
+        /// <returns>int2x2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator + (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1); }
 
         /// <summary>Returns the result of a componentwise addition operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise addition.</param>
+        /// <returns>int2x2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator + (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 + rhs, lhs.c1 + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise addition.</param>
+        /// <returns>int2x2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator + (int lhs, int2x2 rhs) { return new int2x2 (lhs + rhs.c0, lhs + rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise subtraction.</param>
+        /// <returns>int2x2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator - (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise subtraction.</param>
+        /// <returns>int2x2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator - (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 - rhs, lhs.c1 - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise subtraction.</param>
+        /// <returns>int2x2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator - (int lhs, int2x2 rhs) { return new int2x2 (lhs - rhs.c0, lhs - rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise division.</param>
+        /// <returns>int2x2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator / (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1); }
 
         /// <summary>Returns the result of a componentwise division operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise division.</param>
+        /// <returns>int2x2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator / (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 / rhs, lhs.c1 / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise division.</param>
+        /// <returns>int2x2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator / (int lhs, int2x2 rhs) { return new int2x2 (lhs / rhs.c0, lhs / rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise modulus.</param>
+        /// <returns>int2x2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator % (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1); }
 
         /// <summary>Returns the result of a componentwise modulus operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise modulus.</param>
+        /// <returns>int2x2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator % (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 % rhs, lhs.c1 % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise modulus.</param>
+        /// <returns>int2x2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator % (int lhs, int2x2 rhs) { return new int2x2 (lhs % rhs.c0, lhs % rhs.c1); }
 
@@ -248,53 +293,89 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise less than operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise less than.</param>
+        /// <returns>bool2x2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1); }
 
         /// <summary>Returns the result of a componentwise less than operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise less than.</param>
+        /// <returns>bool2x2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 < rhs, lhs.c1 < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise less than.</param>
+        /// <returns>bool2x2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator < (int lhs, int2x2 rhs) { return new bool2x2 (lhs < rhs.c0, lhs < rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise less or equal.</param>
+        /// <returns>bool2x2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator <= (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise less or equal.</param>
+        /// <returns>bool2x2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator <= (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 <= rhs, lhs.c1 <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise less or equal.</param>
+        /// <returns>bool2x2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator <= (int lhs, int2x2 rhs) { return new bool2x2 (lhs <= rhs.c0, lhs <= rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise greater than.</param>
+        /// <returns>bool2x2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator > (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1); }
 
         /// <summary>Returns the result of a componentwise greater than operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise greater than.</param>
+        /// <returns>bool2x2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator > (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 > rhs, lhs.c1 > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise greater than.</param>
+        /// <returns>bool2x2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator > (int lhs, int2x2 rhs) { return new bool2x2 (lhs > rhs.c0, lhs > rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2x2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator >= (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2x2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator >= (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 >= rhs, lhs.c1 >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2x2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator >= (int lhs, int2x2 rhs) { return new bool2x2 (lhs >= rhs.c0, lhs >= rhs.c1); }
 
@@ -318,27 +399,45 @@ namespace Unity.Mathematics
         public static int2x2 operator >> (int2x2 x, int n) { return new int2x2 (x.c0 >> n, x.c1 >> n); }
 
         /// <summary>Returns the result of a componentwise equality operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise equality.</param>
+        /// <returns>bool2x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator == (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
 
         /// <summary>Returns the result of a componentwise equality operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise equality.</param>
+        /// <returns>bool2x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator == (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise equality.</param>
+        /// <returns>bool2x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator == (int lhs, int2x2 rhs) { return new bool2x2 (lhs == rhs.c0, lhs == rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (int2x2 lhs, int2x2 rhs) { return new bool2x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
 
         /// <summary>Returns the result of a componentwise not equal operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise not equal.</param>
+        /// <returns>bool2x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (int2x2 lhs, int rhs) { return new bool2x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2x2 operator != (int lhs, int2x2 rhs) { return new bool2x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
@@ -349,40 +448,67 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise and.</param>
+        /// <returns>int2x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator & (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise bitwise and.</param>
+        /// <returns>int2x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator & (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 & rhs, lhs.c1 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise and.</param>
+        /// <returns>int2x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator & (int lhs, int2x2 rhs) { return new int2x2 (lhs & rhs.c0, lhs & rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator | (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise bitwise or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator | (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 | rhs, lhs.c1 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator | (int lhs, int2x2 rhs) { return new int2x2 (lhs | rhs.c0, lhs | rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two int2x2 matrices.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ^ (int2x2 lhs, int2x2 rhs) { return new int2x2 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on an int2x2 matrix and an int value.</summary>
+        /// <param name="lhs">Left hand side int2x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side int to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ^ (int2x2 lhs, int rhs) { return new int2x2 (lhs.c0 ^ rhs, lhs.c1 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on an int value and an int2x2 matrix.</summary>
+        /// <param name="lhs">Left hand side int to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side int2x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>int2x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2x2 operator ^ (int lhs, int2x2 rhs) { return new int2x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
 

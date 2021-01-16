@@ -1604,11 +1604,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateBinaryOperator(int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, string op, string resultType, int resultRows, int resultColumns, StringBuilder str, string opDesc)
         {
-            if(lhsRows == rhsRows && lhsColumns == rhsColumns)
+            if (lhsRows == rhsRows && lhsColumns == rhsColumns)
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 2));
             else
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} and {2}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 1), ToValueDescription(m_BaseType, rhsRows, rhsColumns, 1));
 
+            str.AppendFormat($"\t\t/// <param name=\"lhs\">Left hand side {ToTypeName(m_BaseType, lhsRows, lhsColumns)} to use to compute componentwise {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <param name=\"rhs\">Right hand side {ToTypeName(m_BaseType, rhsRows, rhsColumns)} to use to compute componentwise {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <returns>{ToTypeName(resultType, resultRows, resultColumns)} result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
             str.Append(" { ");

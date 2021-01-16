@@ -115,27 +115,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two half2 vectors.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half2 lhs, half2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half2 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half2 lhs, half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half2 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half lhs, half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half2 vectors.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half2 lhs, half2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half2 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half2 lhs, half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half2 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half lhs, half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 

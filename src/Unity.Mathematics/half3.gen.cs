@@ -141,27 +141,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two half3 vectors.</summary>
+        /// <param name="lhs">Left hand side half3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half3 to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (half3 lhs, half3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half3 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (half3 lhs, half rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half3 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half3 to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (half lhs, half3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half3 vectors.</summary>
+        /// <param name="lhs">Left hand side half3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (half3 lhs, half3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half3 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (half3 lhs, half rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half3 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (half lhs, half3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 

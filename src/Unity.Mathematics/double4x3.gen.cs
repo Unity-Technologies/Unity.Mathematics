@@ -184,66 +184,111 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise multiplication.</param>
+        /// <returns>double4x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator * (double4x3 lhs, double4x3 rhs) { return new double4x3 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise multiplication.</param>
+        /// <returns>double4x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator * (double4x3 lhs, double rhs) { return new double4x3 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise multiplication.</param>
+        /// <returns>double4x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator * (double lhs, double4x3 rhs) { return new double4x3 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise addition.</param>
+        /// <returns>double4x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator + (double4x3 lhs, double4x3 rhs) { return new double4x3 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise addition.</param>
+        /// <returns>double4x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator + (double4x3 lhs, double rhs) { return new double4x3 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise addition.</param>
+        /// <returns>double4x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator + (double lhs, double4x3 rhs) { return new double4x3 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise subtraction.</param>
+        /// <returns>double4x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator - (double4x3 lhs, double4x3 rhs) { return new double4x3 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise subtraction.</param>
+        /// <returns>double4x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator - (double4x3 lhs, double rhs) { return new double4x3 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise subtraction.</param>
+        /// <returns>double4x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator - (double lhs, double4x3 rhs) { return new double4x3 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise division.</param>
+        /// <returns>double4x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator / (double4x3 lhs, double4x3 rhs) { return new double4x3 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2); }
 
         /// <summary>Returns the result of a componentwise division operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise division.</param>
+        /// <returns>double4x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator / (double4x3 lhs, double rhs) { return new double4x3 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise division.</param>
+        /// <returns>double4x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator / (double lhs, double4x3 rhs) { return new double4x3 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise modulus.</param>
+        /// <returns>double4x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator % (double4x3 lhs, double4x3 rhs) { return new double4x3 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise modulus.</param>
+        /// <returns>double4x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator % (double4x3 lhs, double rhs) { return new double4x3 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise modulus.</param>
+        /// <returns>double4x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4x3 operator % (double lhs, double4x3 rhs) { return new double4x3 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2); }
 
@@ -259,53 +304,89 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise less than operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise less than.</param>
+        /// <returns>bool4x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator < (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less than.</param>
+        /// <returns>bool4x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator < (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise less than.</param>
+        /// <returns>bool4x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator < (double lhs, double4x3 rhs) { return new bool4x3 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator <= (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less or equal.</param>
+        /// <returns>bool4x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator <= (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator <= (double lhs, double4x3 rhs) { return new bool4x3 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise greater than.</param>
+        /// <returns>bool4x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator > (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater than.</param>
+        /// <returns>bool4x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator > (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise greater than.</param>
+        /// <returns>bool4x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator > (double lhs, double4x3 rhs) { return new bool4x3 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator >= (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator >= (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator >= (double lhs, double4x3 rhs) { return new bool4x3 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2); }
 
@@ -321,27 +402,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise equality.</param>
+        /// <returns>bool4x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator == (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise equality.</param>
+        /// <returns>bool4x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator == (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise equality.</param>
+        /// <returns>bool4x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator == (double lhs, double4x3 rhs) { return new bool4x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two double4x3 matrices.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool4x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator != (double4x3 lhs, double4x3 rhs) { return new bool4x3 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double4x3 matrix and a double value.</summary>
+        /// <param name="lhs">Left hand side double4x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise not equal.</param>
+        /// <returns>bool4x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator != (double4x3 lhs, double rhs) { return new bool4x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double value and a double4x3 matrix.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double4x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool4x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x3 operator != (double lhs, double4x3 rhs) { return new bool4x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
 

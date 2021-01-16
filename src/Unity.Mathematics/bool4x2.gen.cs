@@ -58,27 +58,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool4x2 matrices.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise equality.</param>
+        /// <returns>bool4x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator == (bool4x2 lhs, bool4x2 rhs) { return new bool4x2 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool4x2 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise equality.</param>
+        /// <returns>bool4x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator == (bool4x2 lhs, bool rhs) { return new bool4x2 (lhs.c0 == rhs, lhs.c1 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool4x2 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise equality.</param>
+        /// <returns>bool4x2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator == (bool lhs, bool4x2 rhs) { return new bool4x2 (lhs == rhs.c0, lhs == rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool4x2 matrices.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise not equal.</param>
+        /// <returns>bool4x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator != (bool4x2 lhs, bool4x2 rhs) { return new bool4x2 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool4x2 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise not equal.</param>
+        /// <returns>bool4x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator != (bool4x2 lhs, bool rhs) { return new bool4x2 (lhs.c0 != rhs, lhs.c1 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool4x2 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise not equal.</param>
+        /// <returns>bool4x2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator != (bool lhs, bool4x2 rhs) { return new bool4x2 (lhs != rhs.c0, lhs != rhs.c1); }
 
@@ -89,40 +107,67 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two bool4x2 matrices.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator & (bool4x2 lhs, bool4x2 rhs) { return new bool4x2 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool4x2 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise and.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator & (bool4x2 lhs, bool rhs) { return new bool4x2 (lhs.c0 & rhs, lhs.c1 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool4x2 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator & (bool lhs, bool4x2 rhs) { return new bool4x2 (lhs & rhs.c0, lhs & rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool4x2 matrices.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator | (bool4x2 lhs, bool4x2 rhs) { return new bool4x2 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool4x2 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator | (bool4x2 lhs, bool rhs) { return new bool4x2 (lhs.c0 | rhs, lhs.c1 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool4x2 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator | (bool lhs, bool4x2 rhs) { return new bool4x2 (lhs | rhs.c0, lhs | rhs.c1); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool4x2 matrices.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator ^ (bool4x2 lhs, bool4x2 rhs) { return new bool4x2 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool4x2 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool4x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator ^ (bool4x2 lhs, bool rhs) { return new bool4x2 (lhs.c0 ^ rhs, lhs.c1 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool4x2 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool4x2 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool4x2 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4x2 operator ^ (bool lhs, bool4x2 rhs) { return new bool4x2 (lhs ^ rhs.c0, lhs ^ rhs.c1); }
 

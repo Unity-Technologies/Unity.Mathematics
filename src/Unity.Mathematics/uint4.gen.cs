@@ -255,66 +255,111 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise multiplication.</param>
+        /// <returns>uint4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator * (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise multiplication.</param>
+        /// <returns>uint4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator * (uint4 lhs, uint rhs) { return new uint4 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise multiplication.</param>
+        /// <returns>uint4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator * (uint lhs, uint4 rhs) { return new uint4 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise addition.</param>
+        /// <returns>uint4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator + (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise addition.</param>
+        /// <returns>uint4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator + (uint4 lhs, uint rhs) { return new uint4 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise addition.</param>
+        /// <returns>uint4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator + (uint lhs, uint4 rhs) { return new uint4 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise subtraction.</param>
+        /// <returns>uint4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator - (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise subtraction.</param>
+        /// <returns>uint4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator - (uint4 lhs, uint rhs) { return new uint4 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise subtraction.</param>
+        /// <returns>uint4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator - (uint lhs, uint4 rhs) { return new uint4 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise division.</param>
+        /// <returns>uint4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator / (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise division.</param>
+        /// <returns>uint4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator / (uint4 lhs, uint rhs) { return new uint4 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise division.</param>
+        /// <returns>uint4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator / (uint lhs, uint4 rhs) { return new uint4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise modulus.</param>
+        /// <returns>uint4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator % (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z, lhs.w % rhs.w); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise modulus.</param>
+        /// <returns>uint4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator % (uint4 lhs, uint rhs) { return new uint4 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs, lhs.w % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise modulus.</param>
+        /// <returns>uint4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator % (uint lhs, uint4 rhs) { return new uint4 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w); }
 
@@ -330,53 +375,89 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise less than operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (uint4 lhs, uint rhs) { return new bool4 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (uint lhs, uint4 rhs) { return new bool4 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z, lhs.w <= rhs.w); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (uint4 lhs, uint rhs) { return new bool4 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (uint lhs, uint4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (uint4 lhs, uint rhs) { return new bool4 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (uint lhs, uint4 rhs) { return new bool4 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z, lhs.w >= rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (uint4 lhs, uint rhs) { return new bool4 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (uint lhs, uint4 rhs) { return new bool4 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w); }
 
@@ -400,27 +481,45 @@ namespace Unity.Mathematics
         public static uint4 operator >> (uint4 x, int n) { return new uint4 (x.x >> n, x.y >> n, x.z >> n, x.w >> n); }
 
         /// <summary>Returns the result of a componentwise equality operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (uint4 lhs, uint rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (uint lhs, uint4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (uint4 lhs, uint4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (uint4 lhs, uint rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (uint lhs, uint4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
@@ -431,40 +530,67 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise and.</param>
+        /// <returns>uint4 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator & (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z, lhs.w & rhs.w); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise bitwise and.</param>
+        /// <returns>uint4 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator & (uint4 lhs, uint rhs) { return new uint4 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs, lhs.w & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise and.</param>
+        /// <returns>uint4 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator & (uint lhs, uint4 rhs) { return new uint4 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z, lhs & rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise or.</param>
+        /// <returns>uint4 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator | (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x | rhs.x, lhs.y | rhs.y, lhs.z | rhs.z, lhs.w | rhs.w); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise bitwise or.</param>
+        /// <returns>uint4 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator | (uint4 lhs, uint rhs) { return new uint4 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs, lhs.w | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise or.</param>
+        /// <returns>uint4 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator | (uint lhs, uint4 rhs) { return new uint4 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z, lhs | rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two uint4 vectors.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>uint4 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator ^ (uint4 lhs, uint4 rhs) { return new uint4 (lhs.x ^ rhs.x, lhs.y ^ rhs.y, lhs.z ^ rhs.z, lhs.w ^ rhs.w); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint4 vector and a uint value.</summary>
+        /// <param name="lhs">Left hand side uint4 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side uint to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>uint4 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator ^ (uint4 lhs, uint rhs) { return new uint4 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs, lhs.w ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a uint value and a uint4 vector.</summary>
+        /// <param name="lhs">Left hand side uint to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side uint4 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>uint4 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 operator ^ (uint lhs, uint4 rhs) { return new uint4 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z, lhs ^ rhs.w); }
 

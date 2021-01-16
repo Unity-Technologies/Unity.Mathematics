@@ -186,66 +186,111 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise multiplication.</param>
+        /// <returns>float3x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator * (float3x3 lhs, float3x3 rhs) { return new float3x3 (lhs.c0 * rhs.c0, lhs.c1 * rhs.c1, lhs.c2 * rhs.c2); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise multiplication.</param>
+        /// <returns>float3x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator * (float3x3 lhs, float rhs) { return new float3x3 (lhs.c0 * rhs, lhs.c1 * rhs, lhs.c2 * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise multiplication.</param>
+        /// <returns>float3x3 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator * (float lhs, float3x3 rhs) { return new float3x3 (lhs * rhs.c0, lhs * rhs.c1, lhs * rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise addition.</param>
+        /// <returns>float3x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator + (float3x3 lhs, float3x3 rhs) { return new float3x3 (lhs.c0 + rhs.c0, lhs.c1 + rhs.c1, lhs.c2 + rhs.c2); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise addition.</param>
+        /// <returns>float3x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator + (float3x3 lhs, float rhs) { return new float3x3 (lhs.c0 + rhs, lhs.c1 + rhs, lhs.c2 + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise addition.</param>
+        /// <returns>float3x3 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator + (float lhs, float3x3 rhs) { return new float3x3 (lhs + rhs.c0, lhs + rhs.c1, lhs + rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise subtraction.</param>
+        /// <returns>float3x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator - (float3x3 lhs, float3x3 rhs) { return new float3x3 (lhs.c0 - rhs.c0, lhs.c1 - rhs.c1, lhs.c2 - rhs.c2); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise subtraction.</param>
+        /// <returns>float3x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator - (float3x3 lhs, float rhs) { return new float3x3 (lhs.c0 - rhs, lhs.c1 - rhs, lhs.c2 - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise subtraction.</param>
+        /// <returns>float3x3 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator - (float lhs, float3x3 rhs) { return new float3x3 (lhs - rhs.c0, lhs - rhs.c1, lhs - rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise division.</param>
+        /// <returns>float3x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator / (float3x3 lhs, float3x3 rhs) { return new float3x3 (lhs.c0 / rhs.c0, lhs.c1 / rhs.c1, lhs.c2 / rhs.c2); }
 
         /// <summary>Returns the result of a componentwise division operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise division.</param>
+        /// <returns>float3x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator / (float3x3 lhs, float rhs) { return new float3x3 (lhs.c0 / rhs, lhs.c1 / rhs, lhs.c2 / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise division.</param>
+        /// <returns>float3x3 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator / (float lhs, float3x3 rhs) { return new float3x3 (lhs / rhs.c0, lhs / rhs.c1, lhs / rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise modulus.</param>
+        /// <returns>float3x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator % (float3x3 lhs, float3x3 rhs) { return new float3x3 (lhs.c0 % rhs.c0, lhs.c1 % rhs.c1, lhs.c2 % rhs.c2); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise modulus.</param>
+        /// <returns>float3x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator % (float3x3 lhs, float rhs) { return new float3x3 (lhs.c0 % rhs, lhs.c1 % rhs, lhs.c2 % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise modulus.</param>
+        /// <returns>float3x3 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 operator % (float lhs, float3x3 rhs) { return new float3x3 (lhs % rhs.c0, lhs % rhs.c1, lhs % rhs.c2); }
 
@@ -261,53 +306,89 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise less than operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise less than.</param>
+        /// <returns>bool3x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator < (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 < rhs.c0, lhs.c1 < rhs.c1, lhs.c2 < rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise less than.</param>
+        /// <returns>bool3x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator < (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 < rhs, lhs.c1 < rhs, lhs.c2 < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise less than.</param>
+        /// <returns>bool3x3 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator < (float lhs, float3x3 rhs) { return new bool3x3 (lhs < rhs.c0, lhs < rhs.c1, lhs < rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise less or equal.</param>
+        /// <returns>bool3x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator <= (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 <= rhs.c0, lhs.c1 <= rhs.c1, lhs.c2 <= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise less or equal.</param>
+        /// <returns>bool3x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator <= (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 <= rhs, lhs.c1 <= rhs, lhs.c2 <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise less or equal.</param>
+        /// <returns>bool3x3 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator <= (float lhs, float3x3 rhs) { return new bool3x3 (lhs <= rhs.c0, lhs <= rhs.c1, lhs <= rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise greater than.</param>
+        /// <returns>bool3x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator > (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 > rhs.c0, lhs.c1 > rhs.c1, lhs.c2 > rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise greater than.</param>
+        /// <returns>bool3x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator > (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 > rhs, lhs.c1 > rhs, lhs.c2 > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise greater than.</param>
+        /// <returns>bool3x3 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator > (float lhs, float3x3 rhs) { return new bool3x3 (lhs > rhs.c0, lhs > rhs.c1, lhs > rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool3x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator >= (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 >= rhs.c0, lhs.c1 >= rhs.c1, lhs.c2 >= rhs.c2); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise greater or equal.</param>
+        /// <returns>bool3x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator >= (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 >= rhs, lhs.c1 >= rhs, lhs.c2 >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool3x3 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator >= (float lhs, float3x3 rhs) { return new bool3x3 (lhs >= rhs.c0, lhs >= rhs.c1, lhs >= rhs.c2); }
 
@@ -323,27 +404,45 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of a componentwise equality operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (float lhs, float3x3 rhs) { return new bool3x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two float3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (float3x3 lhs, float3x3 rhs) { return new bool3x3 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float3x3 matrix and a float value.</summary>
+        /// <param name="lhs">Left hand side float3x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side float to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (float3x3 lhs, float rhs) { return new bool3x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a float value and a float3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side float to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side float3x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (float lhs, float3x3 rhs) { return new bool3x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
 
