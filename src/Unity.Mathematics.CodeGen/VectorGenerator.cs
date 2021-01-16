@@ -553,10 +553,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
             {
 
-                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false,
-                    string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
-                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true,
-                    string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
+                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false, GenerateMulType.Rotate);
+                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true, GenerateMulType.Transform);
             }
 
             GenerateTransposeFunction(mathStr);
@@ -691,7 +689,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation, string desc)
+        enum GenerateMulType
+        {
+            Mul,
+            Rotate,
+            Transform
+        }
+
+        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation, GenerateMulType mulType)
         {
             // mul(a,b): if a is vector it is treated as a row vector. if b is a vector it is treaded as a column vector.
             bool isResultRowVector = (lhsRows == 1 && lhsColumns > 1);
@@ -701,18 +706,33 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string rhsType = ToTypeName(baseType, rhsRows, rhsColumns);
 
             bool isScalarResult = (resultRows == 1 && rhsColumns == 1);
+
+            switch (mulType)
+            {
+                case GenerateMulType.Mul:
+                    str.AppendFormat("\t\t/// <summary>Returns the {0} result of a matrix multiplication between {1} and {2}.</summary>\n",
+                        ToValueDescription(baseType, resultRows, rhsColumns, 0, true),
+                        ToValueDescription(baseType, lhsRows, lhsColumns, 1, true),
+                        ToValueDescription(baseType, rhsRows, rhsColumns, 1, true));
+                    str.AppendFormat("\t\t/// <param name=\"a\">Left hand side argument of the matrix multiply.</param>\n");
+                    str.AppendFormat("\t\t/// <param name=\"b\">Right hand side argument of the matrix multiply.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The computed matrix multiplication.</returns>\n");
+                    break;
+                case GenerateMulType.Rotate:
+                    str.AppendFormat("\t\t/// <summary>{0}</summary>\n", string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, rhsRows, rhsColumns), ToTypeName(m_BaseType, lhsRows, lhsColumns)));
+                    str.AppendFormat("\t\t/// <param name =\"a\">Left hand side matrix argument that specifies the rotation.</param>\n");
+                    str.AppendFormat("\t\t/// <param name =\"b\">Right hand side vector argument to be rotated.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The rotated vector.</returns>\n");
+                    break;
+                case GenerateMulType.Transform:
+                    str.AppendFormat("\t\t/// <summary>{0}</summary>\n", string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, rhsRows, rhsColumns), ToTypeName(m_BaseType, lhsRows, lhsColumns)));
+                    str.AppendFormat("\t\t/// <param name =\"a\">Left hand side matrix argument that specifies the transformation.</param>\n");
+                    str.AppendFormat("\t\t/// <param name =\"b\">Right hand side point argument to be transformed.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The transformed point.</returns>\n");
+                    break;
+            }
+
             bool needsSwizzle = (resultRows != lhsRows);
-            if(desc == "")
-            {
-                str.AppendFormat("\t\t/// <summary>Returns the {0} result of a matrix multiplication between {1} and {2}.</summary>\n",
-                    ToValueDescription(baseType, resultRows, rhsColumns, 0, true),
-                    ToValueDescription(baseType, lhsRows, lhsColumns, 1, true),
-                    ToValueDescription(baseType, rhsRows, rhsColumns, 1, true));
-            }
-            else
-            {
-                str.AppendFormat("\t\t/// <summary>{0}</summary>\n", desc);
-            }
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, lhsType, rhsType);
@@ -788,7 +808,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         if (m == 1 && k > 1)
                             continue;   // rhs cannot be row vector
 
-                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false, "");
+                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false, GenerateMulType.Mul);
                     }
                 }
             }

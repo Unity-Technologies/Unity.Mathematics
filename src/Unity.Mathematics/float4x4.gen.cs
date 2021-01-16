@@ -636,6 +636,9 @@ namespace Unity.Mathematics
         public static float4x4 float4x4(double4x4 v) { return new float4x4(v); }
 
         /// <summary>Return the result of rotating a float3 vector by a float4x4 matrix</summary>
+        /// <param name ="a">Left hand side matrix argument that specifies the rotation.</param>
+        /// <param name ="b">Right hand side vector argument to be rotated.</param>
+        /// <returns>The rotated vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rotate(float4x4 a, float3 b)
         {
@@ -643,6 +646,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Return the result of transforming a float3 point by a float4x4 matrix</summary>
+        /// <param name ="a">Left hand side matrix argument that specifies the transformation.</param>
+        /// <param name ="b">Right hand side point argument to be transformed.</param>
+        /// <returns>The transformed point.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 transform(float4x4 a, float3 b)
         {
