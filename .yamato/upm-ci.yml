@@ -30,6 +30,7 @@ editor_versions:
   - version: "2018.4"
   - version: "2019.2"
   - version: "2019.3"
+  - version: "2020.2/partner/staging"
   - version: "trunk"
 ---
 
