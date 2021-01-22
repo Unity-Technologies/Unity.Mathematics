@@ -4191,53 +4191,77 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the horizontal sum of components of an int2 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int2 x) { return x.x + x.y; }
 
         /// <summary>Returns the horizontal sum of components of an int3 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int3 x) { return x.x + x.y + x.z; }
 
         /// <summary>Returns the horizontal sum of components of an int4 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int csum(int4 x) { return x.x + x.y + x.z + x.w; }
 
 
         /// <summary>Returns the horizontal sum of components of a uint2 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint csum(uint2 x) { return x.x + x.y; }
 
         /// <summary>Returns the horizontal sum of components of a uint3 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint csum(uint3 x) { return x.x + x.y + x.z; }
 
         /// <summary>Returns the horizontal sum of components of a uint4 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint csum(uint4 x) { return x.x + x.y + x.z + x.w; }
 
 
         /// <summary>Returns the horizontal sum of components of a float2 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float2 x) { return x.x + x.y; }
 
         /// <summary>Returns the horizontal sum of components of a float3 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float3 x) { return x.x + x.y + x.z; }
 
         /// <summary>Returns the horizontal sum of components of a float4 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float csum(float4 x) { return (x.x + x.y) + (x.z + x.w); }
 
 
         /// <summary>Returns the horizontal sum of components of a double2 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double csum(double2 x) { return x.x + x.y; }
 
         /// <summary>Returns the horizontal sum of components of a double3 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double csum(double3 x) { return x.x + x.y + x.z; }
 
         /// <summary>Returns the horizontal sum of components of a double4 vector.</summary>
+        /// <param name="x">The vector to use when computing the horizontal sum.</param>
+        /// <returns>The horizontal sum of of components of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double csum(double4 x) { return (x.x + x.y) + (x.z + x.w); }
 
