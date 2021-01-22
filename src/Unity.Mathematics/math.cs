@@ -3676,6 +3676,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ceilpow2(int x)
         {
@@ -3689,6 +3691,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ceilpow2(int2 x)
         {
@@ -3702,6 +3706,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ceilpow2(int3 x)
         {
@@ -3715,6 +3721,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ceilpow2(int4 x)
         {
@@ -3729,6 +3737,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint ceilpow2(uint x)
         {
@@ -3742,6 +3752,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 ceilpow2(uint2 x)
         {
@@ -3755,6 +3767,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 ceilpow2(uint3 x)
         {
@@ -3768,6 +3782,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 ceilpow2(uint4 x)
         {
@@ -3782,6 +3798,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long ceilpow2(long x)
         {
@@ -3797,6 +3815,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong ceilpow2(ulong x)
         {
