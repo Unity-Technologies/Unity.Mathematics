@@ -146,23 +146,33 @@ namespace Unity.Mathematics
         public const float NAN = Single.NaN;
 
         /// <summary>Returns the bit pattern of a uint as an int.</summary>
+        /// <param name="x">The uint bits to copy.</param>
+        /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int asint(uint x) { return (int)x; }
 
         /// <summary>Returns the bit pattern of a uint2 as an int2.</summary>
+        /// <param name="x">The uint2 bits to copy.</param>
+        /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 asint(uint2 x) { return int2((int)x.x, (int)x.y); }
 
         /// <summary>Returns the bit pattern of a uint3 as an int3.</summary>
+        /// <param name="x">The uint3 bits to copy.</param>
+        /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 asint(uint3 x) { return int3((int)x.x, (int)x.y, (int)x.z); }
 
         /// <summary>Returns the bit pattern of a uint4 as an int4.</summary>
+        /// <param name="x">The uint4 bits to copy.</param>
+        /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 asint(uint4 x) { return int4((int)x.x, (int)x.y, (int)x.z, (int)x.w); }
 
 
         /// <summary>Returns the bit pattern of a float as an int.</summary>
+        /// <param name="x">The float bits to copy.</param>
+        /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int asint(float x) {
             IntFloatUnion u;
@@ -172,57 +182,83 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the bit pattern of a float2 as an int2.</summary>
+        /// <param name="x">The float2 bits to copy.</param>
+        /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 asint(float2 x) { return int2(asint(x.x), asint(x.y)); }
 
         /// <summary>Returns the bit pattern of a float3 as an int3.</summary>
+        /// <param name="x">The float3 bits to copy.</param>
+        /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 asint(float3 x) { return int3(asint(x.x), asint(x.y), asint(x.z)); }
 
         /// <summary>Returns the bit pattern of a float4 as an int4.</summary>
+        /// <param name="x">The float4 bits to copy.</param>
+        /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 asint(float4 x) { return int4(asint(x.x), asint(x.y), asint(x.z), asint(x.w)); }
 
 
         /// <summary>Returns the bit pattern of an int as a uint.</summary>
+        /// <param name="x">The int bits to copy.</param>
+        /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint asuint(int x) { return (uint)x; }
 
         /// <summary>Returns the bit pattern of an int2 as a uint2.</summary>
+        /// <param name="x">The int2 bits to copy.</param>
+        /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 asuint(int2 x) { return uint2((uint)x.x, (uint)x.y); }
 
         /// <summary>Returns the bit pattern of an int3 as a uint3.</summary>
+        /// <param name="x">The int3 bits to copy.</param>
+        /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 asuint(int3 x) { return uint3((uint)x.x, (uint)x.y, (uint)x.z); }
 
         /// <summary>Returns the bit pattern of an int4 as a uint4.</summary>
+        /// <param name="x">The int4 bits to copy.</param>
+        /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 asuint(int4 x) { return uint4((uint)x.x, (uint)x.y, (uint)x.z, (uint)x.w); }
 
 
         /// <summary>Returns the bit pattern of a float as a uint.</summary>
+        /// <param name="x">The float bits to copy.</param>
+        /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint asuint(float x) { return (uint)asint(x); }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
+        /// <param name="x">The float2 bits to copy.</param>
+        /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
+        /// <param name="x">The float3 bits to copy.</param>
+        /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
+        /// <param name="x">The float4 bits to copy.</param>
+        /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
 
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
+        /// <param name="x">The ulong bits to copy.</param>
+        /// <returns>The long with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(ulong x) { return (long)x; }
 
         /// <summary>Returns the bit pattern of a double as a long.</summary>
+        /// <param name="x">The double bits to copy.</param>
+        /// <returns>The long with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(double x)
         {
@@ -234,15 +270,21 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the bit pattern of a long as a ulong.</summary>
+        /// <param name="x">The long bits to copy.</param>
+        /// <returns>The ulong with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong asulong(long x) { return (ulong)x; }
 
         /// <summary>Returns the bit pattern of a double as a ulong.</summary>
+        /// <param name="x">The double bits to copy.</param>
+        /// <returns>The ulong with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong asulong(double x) { return (ulong) aslong(x); }
 
 
         /// <summary>Returns the bit pattern of an int as a float.</summary>
+        /// <param name="x">The int bits to copy.</param>
+        /// <returns>The float with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float asfloat(int x)
         {
@@ -254,31 +296,45 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the bit pattern of an int2 as a float2.</summary>
+        /// <param name="x">The int2 bits to copy.</param>
+        /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 asfloat(int2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
 
         /// <summary>Returns the bit pattern of an int3 as a float3.</summary>
+        /// <param name="x">The int3 bits to copy.</param>
+        /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 asfloat(int3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
 
         /// <summary>Returns the bit pattern of an int4 as a float4.</summary>
+        /// <param name="x">The int4 bits to copy.</param>
+        /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asfloat(int4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
 
 
         /// <summary>Returns the bit pattern of a uint as a float.</summary>
+        /// <param name="x">The uint bits to copy.</param>
+        /// <returns>The float with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float  asfloat(uint x) { return asfloat((int)x); }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
+        /// <param name="x">The uint2 bits to copy.</param>
+        /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
+        /// <param name="x">The uint3 bits to copy.</param>
+        /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
+        /// <param name="x">The uint4 bits to copy.</param>
+        /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
 
@@ -304,6 +360,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the bit pattern of a long as a double.</summary>
+        /// <param name="x">The long bits to copy.</param>
+        /// <returns>The double with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asdouble(long x)
         {
@@ -315,40 +373,58 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the bit pattern of a ulong as a double.</summary>
+        /// <param name="x">The ulong bits to copy.</param>
+        /// <returns>The double with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asdouble(ulong x) { return asdouble((long)x); }
 
 
         /// <summary>Returns true if the input float is a finite floating point value, false otherwise.</summary>
+        /// <param name="x">The float value to test.</param>
+        /// <returns>True if the float is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isfinite(float x) { return abs(x) < float.PositiveInfinity; }
 
         /// <summary>Returns a bool2 indicating for each component of a float2 whether it is a finite floating point value.</summary>
+        /// <param name="x">The float2 value to test.</param>
+        /// <returns>A bool2 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isfinite(float2 x) { return abs(x) < float.PositiveInfinity; }
 
         /// <summary>Returns a bool3 indicating for each component of a float3 whether it is a finite floating point value.</summary>
+        /// <param name="x">The float3 value to test.</param>
+        /// <returns>A bool3 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isfinite(float3 x) { return abs(x) < float.PositiveInfinity; }
 
         /// <summary>Returns a bool4 indicating for each component of a float4 whether it is a finite floating point value.</summary>
+        /// <param name="x">The float4 value to test.</param>
+        /// <returns>A bool4 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isfinite(float4 x) { return abs(x) < float.PositiveInfinity; }
 
 
         /// <summary>Returns true if the input double is a finite floating point value, false otherwise.</summary>
+        /// <param name="x">The double value to test.</param>
+        /// <returns>True if the double is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isfinite(double x) { return abs(x) < double.PositiveInfinity; }
 
         /// <summary>Returns a bool2 indicating for each component of a double2 whether it is a finite floating point value.</summary>
+        /// <param name="x">The double2 value to test.</param>
+        /// <returns>A bool2 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isfinite(double2 x) { return abs(x) < double.PositiveInfinity; }
 
         /// <summary>Returns a bool3 indicating for each component of a double3 whether it is a finite floating point value.</summary>
+        /// <param name="x">The double3 value to test.</param>
+        /// <returns>A bool3 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isfinite(double3 x) { return abs(x) < double.PositiveInfinity; }
 
         /// <summary>Returns a bool4 indicating for each component of a double4 whether it is a finite floating point value.</summary>
+        /// <param name="x">The double4 value to test.</param>
+        /// <returns>A bool4 where it is true in a component if that component is finite, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isfinite(double4 x) { return abs(x) < double.PositiveInfinity; }
 
