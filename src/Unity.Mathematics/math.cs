@@ -4087,105 +4087,153 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the minimum component of an int2 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int2 x) { return min(x.x, x.y); }
 
         /// <summary>Returns the minimum component of an int3 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int3 x) { return min(min(x.x, x.y), x.z); }
 
         /// <summary>Returns the minimum component of an int4 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmin(int4 x) { return min(min(x.x, x.y), min(x.z, x.w)); }
 
 
         /// <summary>Returns the minimum component of a uint2 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmin(uint2 x) { return min(x.x, x.y); }
 
         /// <summary>Returns the minimum component of a uint3 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmin(uint3 x) { return min(min(x.x, x.y), x.z); }
 
         /// <summary>Returns the minimum component of a uint4 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmin(uint4 x) { return min(min(x.x, x.y), min(x.z, x.w)); }
 
 
         /// <summary>Returns the minimum component of a float2 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float2 x) { return min(x.x, x.y); }
 
         /// <summary>Returns the minimum component of a float3 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float3 x) { return min(min(x.x, x.y), x.z); }
 
-        /// <summary>Returns the maximum component of a float3 vector.</summary>
+        /// <summary>Returns the minimum component of a float4 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmin(float4 x) { return min(min(x.x, x.y), min(x.z, x.w)); }
 
 
-        /// <summary>Returns the minimum component of a float2 vector.</summary>
+        /// <summary>Returns the minimum component of a double2 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmin(double2 x) { return min(x.x, x.y); }
 
-        /// <summary>Returns the minimum component of a float3 vector.</summary>
+        /// <summary>Returns the minimum component of a double3 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmin(double3 x) { return min(min(x.x, x.y), x.z); }
 
-        /// <summary>Returns the maximum component of a float3 vector.</summary>
+        /// <summary>Returns the minimum component of a double4 vector.</summary>
+        /// <param name="x">The vector to use when computing the minimum component.</param>
+        /// <returns>The value of the minimum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmin(double4 x) { return min(min(x.x, x.y), min(x.z, x.w)); }
 
 
         /// <summary>Returns the maximum component of an int2 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int2 x) { return max(x.x, x.y); }
 
         /// <summary>Returns the maximum component of an int3 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int3 x) { return max(max(x.x, x.y), x.z); }
 
         /// <summary>Returns the maximum component of an int4 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int cmax(int4 x) { return max(max(x.x, x.y), max(x.z, x.w)); }
 
 
         /// <summary>Returns the maximum component of a uint2 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmax(uint2 x) { return max(x.x, x.y); }
 
         /// <summary>Returns the maximum component of a uint3 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmax(uint3 x) { return max(max(x.x, x.y), x.z); }
 
         /// <summary>Returns the maximum component of a uint4 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint cmax(uint4 x) { return max(max(x.x, x.y), max(x.z, x.w)); }
 
 
         /// <summary>Returns the maximum component of a float2 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float2 x) { return max(x.x, x.y); }
 
         /// <summary>Returns the maximum component of a float3 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float3 x) { return max(max(x.x, x.y), x.z); }
 
         /// <summary>Returns the maximum component of a float4 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cmax(float4 x) { return max(max(x.x, x.y), max(x.z, x.w)); }
 
 
         /// <summary>Returns the maximum component of a double2 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmax(double2 x) { return max(x.x, x.y); }
 
         /// <summary>Returns the maximum component of a double3 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmax(double3 x) { return max(max(x.x, x.y), x.z); }
 
         /// <summary>Returns the maximum component of a double4 vector.</summary>
+        /// <param name="x">The vector to use when computing the maximum component.</param>
+        /// <returns>The value of the maximum component of the vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cmax(double4 x) { return max(max(x.x, x.y), max(x.z, x.w)); }
 
