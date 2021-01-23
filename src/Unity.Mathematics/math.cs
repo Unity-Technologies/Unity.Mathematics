@@ -3283,23 +3283,33 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int lzcnt(int x) { return lzcnt((uint)x); }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 lzcnt(int2 x) { return int2(lzcnt(x.x), lzcnt(x.y)); }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 lzcnt(int3 x) { return int3(lzcnt(x.x), lzcnt(x.y), lzcnt(x.z)); }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of an int4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 lzcnt(int4 x) { return int4(lzcnt(x.x), lzcnt(x.y), lzcnt(x.z), lzcnt(x.w)); }
 
 
         /// <summary>Returns number of leading zeros in the binary representations of a uint value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int lzcnt(uint x)
         {
@@ -3313,24 +3323,34 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of a uint2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 lzcnt(uint2 x) { return int2(lzcnt(x.x), lzcnt(x.y)); }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of a uint3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 lzcnt(uint3 x) { return int3(lzcnt(x.x), lzcnt(x.y), lzcnt(x.z)); }
 
         /// <summary>Returns the componentwise number of leading zeros in the binary representations of a uint4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 lzcnt(uint4 x) { return int4(lzcnt(x.x), lzcnt(x.y), lzcnt(x.z), lzcnt(x.w)); }
 
 
         /// <summary>Returns number of leading zeros in the binary representations of a long value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int lzcnt(long x) { return lzcnt((ulong)x); }
 
 
         /// <summary>Returns number of leading zeros in the binary representations of a ulong value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The number of leading zeros of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int lzcnt(ulong x)
         {
