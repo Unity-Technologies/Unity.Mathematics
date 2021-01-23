@@ -3509,23 +3509,33 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of performing a reversal of the bit pattern of an int value.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int reversebits(int x) { return (int)reversebits((uint)x); }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an int2 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 reversebits(int2 x) { return (int2)reversebits((uint2)x); }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an int3 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 reversebits(int3 x) { return (int3)reversebits((uint3)x); }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an int4 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 reversebits(int4 x) { return (int4)reversebits((uint4)x); }
 
 
         /// <summary>Returns the result of performing a reversal of the bit pattern of a uint value.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint reversebits(uint x) {
             x = ((x >> 1) & 0x55555555) | ((x & 0x55555555) << 1);
@@ -3536,6 +3546,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an uint2 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 reversebits(uint2 x)
         {
@@ -3547,6 +3559,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an uint3 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 reversebits(uint3 x)
         {
@@ -3558,6 +3572,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of performing a componentwise reversal of the bit pattern of an uint4 vector.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with componentwise reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 reversebits(uint4 x)
         {
@@ -3570,11 +3586,15 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of performing a reversal of the bit pattern of a long value.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long reversebits(long x) { return (long)reversebits((ulong)x); }
 
 
         /// <summary>Returns the result of performing a reversal of the bit pattern of a ulong value.</summary>
+        /// <param name="x">Value to reverse.</param>
+        /// <returns>Value with reversed bits.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong reversebits(ulong x)
         {
