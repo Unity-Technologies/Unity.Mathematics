@@ -3588,89 +3588,149 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of rotating the bits of an int left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int rol(int x, int n) { return (int)rol((uint)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int2 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 rol(int2 x, int n) { return (int2)rol((uint2)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int3 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 rol(int3 x, int n) { return (int3)rol((uint3)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int4 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 rol(int4 x, int n) { return (int4)rol((uint4)x, n); }
 
 
         /// <summary>Returns the result of rotating the bits of a uint left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint rol(uint x, int n) { return (x << n) | (x >> (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint2 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 rol(uint2 x, int n) { return (x << n) | (x >> (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint3 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 rol(uint3 x, int n) { return (x << n) | (x >> (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint4 left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 rol(uint4 x, int n) { return (x << n) | (x >> (32 - n)); }
 
 
         /// <summary>Returns the result of rotating the bits of a long left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long rol(long x, int n) { return (long)rol((ulong)x, n); }
 
 
         /// <summary>Returns the result of rotating the bits of a ulong left by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong rol(ulong x, int n) { return (x << n) | (x >> (64 - n)); }
 
 
         /// <summary>Returns the result of rotating the bits of an int right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int ror(int x, int n) { return (int)ror((uint)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int2 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ror(int2 x, int n) { return (int2)ror((uint2)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int3 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ror(int3 x, int n) { return (int3)ror((uint3)x, n); }
 
         /// <summary>Returns the componentwise result of rotating the bits of an int4 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ror(int4 x, int n) { return (int4)ror((uint4)x, n); }
 
 
         /// <summary>Returns the result of rotating the bits of a uint right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint ror(uint x, int n) { return (x >> n) | (x << (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint2 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 ror(uint2 x, int n) { return (x >> n) | (x << (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint3 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 ror(uint3 x, int n) { return (x >> n) | (x << (32 - n)); }
 
         /// <summary>Returns the componentwise result of rotating the bits of a uint4 right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The componentwise rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 ror(uint4 x, int n) { return (x >> n) | (x << (32 - n)); }
 
 
         /// <summary>Returns the result of rotating the bits of a long right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long ror(long x, int n) { return (long)ror((ulong)x, n); }
 
 
         /// <summary>Returns the result of rotating the bits of a ulong right by bits n.</summary>
+        /// <param name="x">Value to rotate.</param>
+        /// <param name="n">Number of bits to rotate.</param>
+        /// <returns>The rotated value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong ror(ulong x, int n) { return (x >> n) | (x << (64 - n)); }
 
