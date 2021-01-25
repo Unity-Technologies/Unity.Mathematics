@@ -2890,36 +2890,60 @@ namespace Unity.Mathematics
         public static double4 select(double4 a, double4 b, bool4 c) { return new double4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
 
 
-        /// <summary>Computes a step function. Returns 1.0f when x >= y, 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Value to be used as a threshold for returning 1.</param>
+        /// <param name="x">Value to compare against threshold y.</param>
+        /// <returns>1 if the comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float step(float y, float x) { return select(0.0f, 1.0f, x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 step(float2 y, float2 x) { return select(float2(0.0f), float2(1.0f), x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 step(float3 y, float3 x) { return select(float3(0.0f), float3(1.0f), x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 step(float4 y, float4 x) { return select(float4(0.0f), float4(1.0f), x >= y); }
 
 
-        /// <summary>Computes a step function. Returns 1.0 when x >= y, 0.0 otherwise.</summary>
+        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Values to compare against threshold y.</param>
+        /// <returns>1 if the comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double step(double y, double x) { return select(0.0, 1.0, x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 step(double2 y, double2 x) { return select(double2(0.0), double2(1.0), x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 step(double3 y, double3 x) { return select(double3(0.0), double3(1.0), x >= y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x >= y and 0.0f otherwise.</summary>
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
+        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold y.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 step(double4 y, double4 x) { return select(double4(0.0), double4(1.0), x >= y); }
 
