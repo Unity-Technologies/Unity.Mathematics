@@ -2623,18 +2623,34 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
+        /// <param name="a">Value to use if c is false.</param>
+        /// <param name="b">Value to use if c is true.</param>
+        /// <param name="c">Bool value to choose between a and b.</param>
+        /// <returns>The selection between a and b according to bool c.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int select(int a, int b, bool c)    { return c ? b : a; }
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
+        /// <param name="a">Value to use if c is false.</param>
+        /// <param name="b">Value to use if c is true.</param>
+        /// <param name="c">Bool value to choose between a and b.</param>
+        /// <returns>The selection between a and b according to bool c.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 select(int2 a, int2 b, bool c) { return c ? b : a; }
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
+        /// <param name="a">Value to use if c is false.</param>
+        /// <param name="b">Value to use if c is true.</param>
+        /// <param name="c">Bool value to choose between a and b.</param>
+        /// <returns>The selection between a and b according to bool c.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 select(int3 a, int3 b, bool c) { return c ? b : a; }
 
         /// <summary>Returns b if c is true, a otherwise.</summary>
+        /// <param name="a">Value to use if c is false.</param>
+        /// <param name="b">Value to use if c is true.</param>
+        /// <param name="c">Bool value to choose between a and b.</param>
+        /// <returns>The selection between a and b according to bool c.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 select(int4 a, int4 b, bool c) { return c ? b : a; }
 
