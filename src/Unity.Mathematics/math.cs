@@ -2350,78 +2350,132 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the distance between two float values.</summary>
+        /// <param name="x">First value to use in distance computation.</param>
+        /// <param name="y">Second value to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float x, float y) { return abs(y - x); }
 
         /// <summary>Returns the distance between two float2 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float2 x, float2 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two float3 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float3 x, float3 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two float4 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distance(float4 x, float4 y) { return length(y - x); }
 
 
         /// <summary>Returns the distance between two double values.</summary>
+        /// <param name="x">First value to use in distance computation.</param>
+        /// <param name="y">Second value to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double x, double y) { return abs(y - x); }
 
         /// <summary>Returns the distance between two double2 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double2 x, double2 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two double3 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double3 x, double3 y) { return length(y - x); }
 
         /// <summary>Returns the distance between two double4 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distance(double4 x, double4 y) { return length(y - x); }
 
 
-        /// <summary>Returns the distance between two float values.</summary>
+        /// <summary>Returns the squared distance between two float values.</summary>
+        /// <param name="x">First value to use in distance computation.</param>
+        /// <param name="y">Second value to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float x, float y) { return (y - x) * (y - x); }
 
-        /// <summary>Returns the distance between two float2 vectors.</summary>
+        /// <summary>Returns the squared distance between two float2 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float2 x, float2 y) { return lengthsq(y - x); }
 
-        /// <summary>Returns the distance between two float3 vectors.</summary>
+        /// <summary>Returns the squared distance between two float3 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float3 x, float3 y) { return lengthsq(y - x); }
 
-        /// <summary>Returns the distance between two float4 vectors.</summary>
+        /// <summary>Returns the squared distance between two float4 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float distancesq(float4 x, float4 y) { return lengthsq(y - x); }
 
 
-        /// <summary>Returns the distance between two double values.</summary>
+        /// <summary>Returns the squared distance between two double values.</summary>
+        /// <param name="x">First value to use in distance computation.</param>
+        /// <param name="y">Second value to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double x, double y) { return (y - x) * (y - x); }
 
-        /// <summary>Returns the distance between two double2 vectors.</summary>
+        /// <summary>Returns the squared distance between two double2 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double2 x, double2 y) { return lengthsq(y - x); }
 
-        /// <summary>Returns the distance between two double3 vectors.</summary>
+        /// <summary>Returns the squared distance between two double3 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double3 x, double3 y) { return lengthsq(y - x); }
 
-        /// <summary>Returns the distance between two double4 vectors.</summary>
+        /// <summary>Returns the squared distance between two double4 vectors.</summary>
+        /// <param name="x">First vector to use in distance computation.</param>
+        /// <param name="y">Second vector to use in distance computation.</param>
+        /// <returns>The squared distance between x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double distancesq(double4 x, double4 y) { return lengthsq(y - x); }
 
 
         /// <summary>Returns the cross product of two float3 vectors.</summary>
+        /// <param name="x">First vector to use in cross product.</param>
+        /// <param name="y">Second vector to use in cross product.</param>
+        /// <returns>The cross product of x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cross(float3 x, float3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
         /// <summary>Returns the cross product of two double3 vectors.</summary>
+        /// <param name="x">First vector to use in cross product.</param>
+        /// <param name="y">Second vector to use in cross product.</param>
+        /// <returns>The cross product of x and y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cross(double3 x, double3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
