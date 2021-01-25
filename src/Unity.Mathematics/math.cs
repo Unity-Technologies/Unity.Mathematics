@@ -2493,131 +2493,191 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns true if any component of the input bool2 vector is true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(bool2 x) { return x.x || x.y; }
 
         /// <summary>Returns true if any component of the input bool3 vector is true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(bool3 x) { return x.x || x.y || x.z; }
 
         /// <summary>Returns true if any components of the input bool4 vector is true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(bool4 x) { return x.x || x.y || x.z || x.w; }
 
 
         /// <summary>Returns true if any component of the input int2 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(int2 x) { return x.x != 0 || x.y != 0; }
 
         /// <summary>Returns true if any component of the input int3 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(int3 x) { return x.x != 0 || x.y != 0 || x.z != 0; }
 
         /// <summary>Returns true if any components of the input int4 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(int4 x) { return x.x != 0 || x.y != 0 || x.z != 0 || x.w != 0; }
 
 
         /// <summary>Returns true if any component of the input uint2 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(uint2 x) { return x.x != 0 || x.y != 0; }
 
         /// <summary>Returns true if any component of the input uint3 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(uint3 x) { return x.x != 0 || x.y != 0 || x.z != 0; }
 
         /// <summary>Returns true if any components of the input uint4 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(uint4 x) { return x.x != 0 || x.y != 0 || x.z != 0 || x.w != 0; }
 
 
         /// <summary>Returns true if any component of the input float2 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(float2 x) { return x.x != 0.0f || x.y != 0.0f; }
 
         /// <summary>Returns true if any component of the input float3 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(float3 x) { return x.x != 0.0f || x.y != 0.0f || x.z != 0.0f; }
 
         /// <summary>Returns true if any component of the input float4 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(float4 x) { return x.x != 0.0f || x.y != 0.0f || x.z != 0.0f || x.w != 0.0f; }
 
 
         /// <summary>Returns true if any component of the input double2 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(double2 x) { return x.x != 0.0 || x.y != 0.0; }
 
         /// <summary>Returns true if any component of the input double3 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(double3 x) { return x.x != 0.0 || x.y != 0.0 || x.z != 0.0; }
 
         /// <summary>Returns true if any component of the input double4 vector is non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if any the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool any(double4 x) { return x.x != 0.0 || x.y != 0.0 || x.z != 0.0 || x.w != 0.0; }
 
 
         /// <summary>Returns true if all components of the input bool2 vector are true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(bool2 x) { return x.x && x.y; }
 
         /// <summary>Returns true if all components of the input bool3 vector are true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(bool3 x) { return x.x && x.y && x.z; }
 
         /// <summary>Returns true if all components of the input bool4 vector are true, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are true, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(bool4 x) { return x.x && x.y && x.z && x.w; }
 
 
         /// <summary>Returns true if all components of the input int2 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(int2 x) { return x.x != 0 && x.y != 0; }
 
         /// <summary>Returns true if all components of the input int3 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(int3 x) { return x.x != 0 && x.y != 0 && x.z != 0; }
 
         /// <summary>Returns true if all components of the input int4 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(int4 x) { return x.x != 0 && x.y != 0 && x.z != 0 && x.w != 0; }
 
 
         /// <summary>Returns true if all components of the input uint2 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(uint2 x) { return x.x != 0 && x.y != 0; }
 
         /// <summary>Returns true if all components of the input uint3 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(uint3 x) { return x.x != 0 && x.y != 0 && x.z != 0; }
 
         /// <summary>Returns true if all components of the input uint4 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(uint4 x) { return x.x != 0 && x.y != 0 && x.z != 0 && x.w != 0; }
 
 
         /// <summary>Returns true if all components of the input float2 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(float2 x) { return x.x != 0.0f && x.y != 0.0f; }
 
         /// <summary>Returns true if all components of the input float3 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(float3 x) { return x.x != 0.0f && x.y != 0.0f && x.z != 0.0f; }
 
         /// <summary>Returns true if all components of the input float4 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(float4 x) { return x.x != 0.0f && x.y != 0.0f && x.z != 0.0f && x.w != 0.0f; }
 
 
         /// <summary>Returns true if all components of the input double2 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(double2 x) { return x.x != 0.0 && x.y != 0.0; }
 
         /// <summary>Returns true if all components of the input double3 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(double3 x) { return x.x != 0.0 && x.y != 0.0 && x.z != 0.0; }
 
         /// <summary>Returns true if all components of the input double4 vector are non-zero, false otherwise.</summary>
+        /// <param name="x">Vector of values to compare.</param>
+        /// <returns>True if all the components of x are non-zero, false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool all(double4 x) { return x.x != 0.0 && x.y != 0.0 && x.z != 0.0 && x.w != 0.0; }
 
