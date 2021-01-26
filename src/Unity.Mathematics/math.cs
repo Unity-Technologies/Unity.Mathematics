@@ -2120,69 +2120,101 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the square root of a float value.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sqrt(float x) { return (float)System.Math.Sqrt((float)x); }
 
         /// <summary>Returns the componentwise square root of a float2 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sqrt(float2 x) { return new float2(sqrt(x.x), sqrt(x.y)); }
 
         /// <summary>Returns the componentwise square root of a float3 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sqrt(float3 x) { return new float3(sqrt(x.x), sqrt(x.y), sqrt(x.z)); }
 
         /// <summary>Returns the componentwise square root of a float4 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sqrt(float4 x) { return new float4(sqrt(x.x), sqrt(x.y), sqrt(x.z), sqrt(x.w)); }
 
 
         /// <summary>Returns the square root of a double value.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sqrt(double x) { return System.Math.Sqrt(x); }
 
         /// <summary>Returns the componentwise square root of a double2 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sqrt(double2 x) { return new double2(sqrt(x.x), sqrt(x.y)); }
 
         /// <summary>Returns the componentwise square root of a double3 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sqrt(double3 x) { return new double3(sqrt(x.x), sqrt(x.y), sqrt(x.z)); }
 
         /// <summary>Returns the componentwise square root of a double4 vector.</summary>
+        /// <param name="x">Value to use when computing square root.</param>
+        /// <returns>The componentwise square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sqrt(double4 x) { return new double4(sqrt(x.x), sqrt(x.y), sqrt(x.z), sqrt(x.w)); }
 
 
         /// <summary>Returns the reciprocal square root of a float value.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float rsqrt(float x) { return 1.0f / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a float2 vector.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 rsqrt(float2 x) { return 1.0f / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a float3 vector.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rsqrt(float3 x) { return 1.0f / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a float4 vector</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 rsqrt(float4 x) { return 1.0f / sqrt(x); }
 
 
         /// <summary>Returns the reciprocal square root of a double value.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double rsqrt(double x) { return 1.0 / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a double2 vector.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 rsqrt(double2 x) { return 1.0 / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a double3 vector.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 rsqrt(double3 x) { return 1.0 / sqrt(x); }
 
         /// <summary>Returns the componentwise reciprocal square root of a double4 vector.</summary>
+        /// <param name="x">Value to use when computing reciprocal square root.</param>
+        /// <returns>The componentwise reciprocal square root.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 rsqrt(double4 x) { return 1.0 / sqrt(x); }
 
