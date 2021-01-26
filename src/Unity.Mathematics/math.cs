@@ -2282,69 +2282,101 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the length of a float value. Equivalent to the absolute value.</summary>
+        /// <param name="x">Value to use when computing length.</param>
+        /// <returns>Length of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float x) { return abs(x); }
 
         /// <summary>Returns the length of a float2 vector.</summary>
+        /// <param name="x">Vector to use when computing length.</param>
+        /// <returns>Length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float2 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a float3 vector.</summary>
+        /// <param name="x">Vector to use when computing length.</param>
+        /// <returns>Length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float3 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a float4 vector.</summary>
+        /// <param name="x">Vector to use when computing length.</param>
+        /// <returns>Length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(float4 x) { return sqrt(dot(x, x)); }
 
 
         /// <summary>Returns the length of a double value. Equivalent to the absolute value.</summary>
+        /// <param name="x">Value to use when computing squared length.</param>
+        /// <returns>Squared length of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double x) { return abs(x); }
 
         /// <summary>Returns the length of a double2 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double2 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a double3 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double3 x) { return sqrt(dot(x, x)); }
 
         /// <summary>Returns the length of a double4 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double length(double4 x) { return sqrt(dot(x, x)); }
 
 
         /// <summary>Returns the squared length of a float value. Equivalent to squaring the value.</summary>
+        /// <param name="x">Value to use when computing squared length.</param>
+        /// <returns>Squared length of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float x) { return x*x; }
 
         /// <summary>Returns the squared length of a float2 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float2 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a float3 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float3 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a float4 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(float4 x) { return dot(x, x); }
 
 
         /// <summary>Returns the squared length of a double value. Equivalent to squaring the value.</summary>
+        /// <param name="x">Value to use when computing squared length.</param>
+        /// <returns>Squared length of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double x) { return x * x; }
 
         /// <summary>Returns the squared length of a double2 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double2 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a double3 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double3 x) { return dot(x, x); }
 
         /// <summary>Returns the squared length of a double4 vector.</summary>
+        /// <param name="x">Vector to use when computing squared length.</param>
+        /// <returns>Squared length of vector x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lengthsq(double4 x) { return dot(x, x); }
 
