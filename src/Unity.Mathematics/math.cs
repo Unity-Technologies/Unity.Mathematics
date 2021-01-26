@@ -2034,40 +2034,67 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float fmod(float x, float y) { return x % y; }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 fmod(float2 x, float2 y) { return new float2(x.x % y.x, x.y % y.y); }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 fmod(float3 x, float3 y) { return new float3(x.x % y.x, x.y % y.y, x.z % y.z); }
 
         /// <summary>Returns the componentwise floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 fmod(float4 x, float4 y) { return new float4(x.x % y.x, x.y % y.y, x.z % y.z, x.w % y.w); }
 
 
         /// <summary>Returns the double precision floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double fmod(double x, double y) { return x % y; }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 fmod(double2 x, double2 y) { return new double2(x.x % y.x, x.y % y.y); }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 fmod(double3 x, double3 y) { return new double3(x.x % y.x, x.y % y.y, x.z % y.z); }
 
         /// <summary>Returns the componentwise double precision floating point remainder of x/y.</summary>
+        /// <param name="x">The dividend in x/y.</param>
+        /// <param name="y">The divisor in x/y.</param>
+        /// <returns>The componentwise remainder of x/y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 fmod(double4 x, double4 y) { return new double4(x.x % y.x, x.y % y.y, x.z % y.z, x.w % y.w); }
 
 
         /// <summary>Splits a float value into an integral part i and a fractional part that gets returned. Both parts take the sign of the input.</summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float modf(float x, out float i) { i = trunc(x); return x - i; }
 
@@ -2075,6 +2102,9 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a float2 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 modf(float2 x, out float2 i) { i = trunc(x); return x - i; }
 
@@ -2082,6 +2112,9 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a float3 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 modf(float3 x, out float3 i) { i = trunc(x); return x - i; }
 
@@ -2089,11 +2122,17 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a float4 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 modf(float4 x, out float4 i) { i = trunc(x); return x - i; }
 
 
         /// <summary>Splits a double value into an integral part i and a fractional part that gets returned. Both parts take the sign of the input.</summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double modf(double x, out double i) { i = trunc(x); return x - i; }
 
@@ -2101,6 +2140,9 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a double2 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 modf(double2 x, out double2 i) { i = trunc(x); return x - i; }
 
@@ -2108,6 +2150,9 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a double3 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 modf(double3 x, out double3 i) { i = trunc(x); return x - i; }
 
@@ -2115,6 +2160,9 @@ namespace Unity.Mathematics
         /// Performs a componentwise split of a double4 vector into an integral part i and a fractional part that gets returned.
         /// Both parts take the sign of the corresponding input component.
         /// </summary>
+        /// <param name="x">Value to split into integral and fractional part.</param>
+        /// <param name="i">Output value containing integral part of x.</param>
+        /// <returns>The componentwise fractional part of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 modf(double4 x, out double4 i) { i = trunc(x); return x - i; }
 
