@@ -2188,27 +2188,39 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a normalized version of the float2 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 normalize(float2 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the float3 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 normalize(float3 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the float4 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 normalize(float4 x) { return rsqrt(dot(x, x)) * x; }
 
 
         /// <summary>Returns a normalized version of the double2 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 normalize(double2 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the double3 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 normalize(double3 x) { return rsqrt(dot(x, x)) * x; }
 
         /// <summary>Returns a normalized version of the double4 vector x by scaling it by 1 / length(x).</summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <returns>The normalized vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 normalize(double4 x) { return rsqrt(dot(x, x)) * x; }
 
@@ -2217,6 +2229,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float2 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float2 normalizesafe(float2 x, float2 defaultvalue = new float2())
         {
@@ -2228,6 +2243,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float3 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float3 normalizesafe(float3 x, float3 defaultvalue = new float3())
         {
@@ -2239,6 +2257,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the float4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public float4 normalizesafe(float4 x, float4 defaultvalue = new float4())
         {
@@ -2251,6 +2272,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double2 normalizesafe(double2 x, double2 defaultvalue = new double2())
         {
@@ -2262,6 +2286,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double3 normalizesafe(double3 x, double3 defaultvalue = new double3())
         {
@@ -2273,6 +2300,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the double4 vector x by scaling it by 1 / length(x).
         /// Returns the given default value when 1 / length(x) does not produce a finite number.
         /// </summary>
+        /// <param name="x">Vector to normalize.</param>
+        /// <param name="defaultvalue">Vector to return if normalized vector is not finite.</param>
+        /// <returns>The normalized vector or the default value if the normalized vector is not finite.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static public double4 normalizesafe(double4 x, double4 defaultvalue = new double4())
         {
