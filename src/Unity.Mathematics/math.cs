@@ -1797,238 +1797,358 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns x raised to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float pow(float x, float y) { return (float)System.Math.Pow((float)x, (float)y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 pow(float2 x, float2 y) { return new float2(pow(x.x, y.x), pow(x.y, y.y)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 pow(float3 x, float3 y) { return new float3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 pow(float4 x, float4 y) { return new float4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
         /// <summary>Returns x raised to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double pow(double x, double y) { return System.Math.Pow(x, y); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 pow(double2 x, double2 y) { return new double2(pow(x.x, y.x), pow(x.y, y.y)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 pow(double3 x, double3 y) { return new double3(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z)); }
 
         /// <summary>Returns the componentwise result of raising x to the power y.</summary>
+        /// <param name="x">The exponent base.</param>
+        /// <param name="y">The exponent power.</param>
+        /// <returns>The componentwise result of raising x to the power y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 pow(double4 x, double4 y) { return new double4(pow(x.x, y.x), pow(x.y, y.y), pow(x.z, y.z), pow(x.w, y.w)); }
 
 
         /// <summary>Returns the base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp(float x) { return (float)System.Math.Exp((float)x); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp(float2 x) { return new float2(exp(x.x), exp(x.y)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp(float3 x) { return new float3(exp(x.x), exp(x.y), exp(x.z)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp(float4 x) { return new float4(exp(x.x), exp(x.y), exp(x.z), exp(x.w)); }
 
 
         /// <summary>Returns the base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp(double x) { return System.Math.Exp(x); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp(double2 x) { return new double2(exp(x.x), exp(x.y)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp(double3 x) { return new double3(exp(x.x), exp(x.y), exp(x.z)); }
 
         /// <summary>Returns the componentwise base-e exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-e exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp(double4 x) { return new double4(exp(x.x), exp(x.y), exp(x.z), exp(x.w)); }
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp2(float x) { return (float)System.Math.Exp((float)x * 0.69314718f); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp2(float2 x) { return new float2(exp2(x.x), exp2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp2(float3 x) { return new float3(exp2(x.x), exp2(x.y), exp2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp2(float4 x) { return new float4(exp2(x.x), exp2(x.y), exp2(x.z), exp2(x.w)); }
 
 
         /// <summary>Returns the base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp2(double x) { return System.Math.Exp(x * 0.693147180559945309); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp2(double2 x) { return new double2(exp2(x.x), exp2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp2(double3 x) { return new double3(exp2(x.x), exp2(x.y), exp2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp2(double4 x) { return new double4(exp2(x.x), exp2(x.y), exp2(x.z), exp2(x.w)); }
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float exp10(float x) { return (float)System.Math.Exp((float)x * 2.30258509f); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 exp10(float2 x) { return new float2(exp10(x.x), exp10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 exp10(float3 x) { return new float3(exp10(x.x), exp10(x.y), exp10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 exp10(float4 x) { return new float4(exp10(x.x), exp10(x.y), exp10(x.z), exp10(x.w)); }
 
 
         /// <summary>Returns the base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double exp10(double x) { return System.Math.Exp(x * 2.302585092994045684); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 exp10(double2 x) { return new double2(exp10(x.x), exp10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 exp10(double3 x) { return new double3(exp10(x.x), exp10(x.y), exp10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 exponential of x.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 exponential of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 exp10(double4 x) { return new double4(exp10(x.x), exp10(x.y), exp10(x.z), exp10(x.w)); }
 
 
         /// <summary>Returns the natural logarithm of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log(float x) { return (float)System.Math.Log((float)x); }
 
         /// <summary>Returns the componentwise natural logarithm of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log(float2 x) { return new float2(log(x.x), log(x.y)); }
 
         /// <summary>Returns the componentwise natural logarithm of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log(float3 x) { return new float3(log(x.x), log(x.y), log(x.z)); }
 
         /// <summary>Returns the componentwise natural logarithm of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log(float4 x) { return new float4(log(x.x), log(x.y), log(x.z), log(x.w)); }
 
 
         /// <summary>Returns the natural logarithm of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log(double x) { return System.Math.Log(x); }
 
         /// <summary>Returns the componentwise natural logarithm of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log(double2 x) { return new double2(log(x.x), log(x.y)); }
 
         /// <summary>Returns the componentwise natural logarithm of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log(double3 x) { return new double3(log(x.x), log(x.y), log(x.z)); }
 
         /// <summary>Returns the componentwise natural logarithm of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise natural logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log(double4 x) { return new double4(log(x.x), log(x.y), log(x.z), log(x.w)); }
 
 
         /// <summary>Returns the base-2 logarithm of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log2(float x) { return (float)System.Math.Log((float)x, 2.0f); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log2(float2 x) { return new float2(log2(x.x), log2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log2(float3 x) { return new float3(log2(x.x), log2(x.y), log2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log2(float4 x) { return new float4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
 
         /// <summary>Returns the base-2 logarithm of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log2(double x) { return System.Math.Log(x, 2.0); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log2(double2 x) { return new double2(log2(x.x), log2(x.y)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log2(double3 x) { return new double3(log2(x.x), log2(x.y), log2(x.z)); }
 
         /// <summary>Returns the componentwise base-2 logarithm of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-2 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log2(double4 x) { return new double4(log2(x.x), log2(x.y), log2(x.z), log2(x.w)); }
 
         /// <summary>Returns the base-10 logarithm of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float log10(float x) { return (float)System.Math.Log10((float)x); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 log10(float2 x) { return new float2(log10(x.x), log10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 log10(float3 x) { return new float3(log10(x.x), log10(x.y), log10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 log10(float4 x) { return new float4(log10(x.x), log10(x.y), log10(x.z), log10(x.w)); }
 
 
         /// <summary>Returns the base-10 logarithm of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double log10(double x) { return System.Math.Log10(x); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 log10(double2 x) { return new double2(log10(x.x), log10(x.y)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 log10(double3 x) { return new double3(log10(x.x), log10(x.y), log10(x.z)); }
 
         /// <summary>Returns the componentwise base-10 logarithm of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise base-10 logarithm of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 log10(double4 x) { return new double4(log10(x.x), log10(x.y), log10(x.z), log10(x.w)); }
 
