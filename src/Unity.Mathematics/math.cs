@@ -4277,32 +4277,54 @@ namespace Unity.Mathematics
 
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0f * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 reflect(float2 i, float2 n) { return i - 2f * n * dot(i, n); }
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0f * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 reflect(float3 i, float3 n) { return i - 2f * n * dot(i, n); }
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0f * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 reflect(float4 i, float4 n) { return i - 2f * n * dot(i, n); }
 
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0 * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 reflect(double2 i, double2 n) { return i - 2 * n * dot(i, n); }
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0 * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 reflect(double3 i, double3 n) { return i - 2 * n * dot(i, n); }
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0 * dot(i, n) * n.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <returns>Reflection vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 reflect(double4 i, double4 n) { return i - 2 * n * dot(i, n); }
 
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 refract(float2 i, float2 n, float eta)
         {
@@ -4312,6 +4334,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 refract(float3 i, float3 n, float eta)
         {
@@ -4321,6 +4347,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 refract(float4 i, float4 n, float eta)
         {
@@ -4331,6 +4361,10 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 refract(double2 i, double2 n, double eta)
         {
@@ -4340,6 +4374,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 refract(double3 i, double3 n, double eta)
         {
@@ -4349,6 +4387,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <param name="i">Incident vector.</param>
+        /// <param name="n">Normal vector.</param>
+        /// <param name="eta">Index of refraction.</param>
+        /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 refract(double4 i, double4 n, double eta)
         {
