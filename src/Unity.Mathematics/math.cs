@@ -2382,6 +2382,8 @@ namespace Unity.Mathematics
         public static float ceil(float x) { return (float)System.Math.Ceiling((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value up to the nearest value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 ceil(float2 x) { return new float2(ceil(x.x), ceil(x.y)); }
 
