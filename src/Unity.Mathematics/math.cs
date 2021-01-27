@@ -430,60 +430,106 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns true if the input float is an infinite floating point value, false otherwise.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the input was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isinf(float x) { return abs(x) == float.PositiveInfinity; }
 
         /// <summary>Returns a bool2 indicating for each component of a float2 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isinf(float2 x) { return abs(x) == float.PositiveInfinity; }
 
         /// <summary>Returns a bool3 indicating for each component of a float3 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isinf(float3 x) { return abs(x) == float.PositiveInfinity; }
 
         /// <summary>Returns a bool4 indicating for each component of a float4 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isinf(float4 x) { return abs(x) == float.PositiveInfinity; }
 
         /// <summary>Returns true if the input double is an infinite floating point value, false otherwise.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the input was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isinf(double x) { return abs(x) == double.PositiveInfinity; }
 
         /// <summary>Returns a bool2 indicating for each component of a double2 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isinf(double2 x) { return abs(x) == double.PositiveInfinity; }
 
         /// <summary>Returns a bool3 indicating for each component of a double3 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isinf(double3 x) { return abs(x) == double.PositiveInfinity; }
 
         /// <summary>Returns a bool4 indicating for each component of a double4 whether it is an infinite floating point value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was an infinite value; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isinf(double4 x) { return abs(x) == double.PositiveInfinity; }
 
 
         /// <summary>Returns true if the input float is a NaN (not a number) floating point value, false otherwise.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the value was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isnan(float x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
 
         /// <summary>Returns a bool2 indicating for each component of a float2 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isnan(float2 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
 
         /// <summary>Returns a bool3 indicating for each component of a float3 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isnan(float3 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
 
         /// <summary>Returns a bool4 indicating for each component of a float4 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isnan(float4 x) { return (asuint(x) & 0x7FFFFFFF) > 0x7F800000; }
 
 
         /// <summary>Returns true if the input double is a NaN (not a number) floating point value, false otherwise.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the value was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool isnan(double x) { return (asulong(x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000; }
 
         /// <summary>Returns a bool2 indicating for each component of a double2 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 isnan(double2 x) {
             return bool2((asulong(x.x) & 0x7FFFFFFFFFFFFFFF) > 0x7FF0000000000000,
@@ -491,6 +537,11 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a bool3 indicating for each component of a double3 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 isnan(double3 x)
         {
@@ -500,6 +551,11 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a bool4 indicating for each component of a double4 whether it is a NaN (not a number) floating point value.</summary>
+        /// <remarks>
+        /// NaN has several representations and may vary across architectures. Use this function to check if you have a NaN.
+        /// </remarks>
+        /// <param name="x">Input value.</param>
+        /// <returns>True if the component was NaN; false otherwise.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 isnan(double4 x)
         {
