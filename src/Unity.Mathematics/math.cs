@@ -1542,40 +1542,58 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of rounding a float value up to the nearest integral value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float floor(float x) { return (float)System.Math.Floor((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 floor(float2 x) { return new float2(floor(x.x), floor(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 floor(float3 x) { return new float3(floor(x.x), floor(x.y), floor(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 floor(float4 x) { return new float4(floor(x.x), floor(x.y), floor(x.z), floor(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value up to the nearest integral value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double floor(double x) { return System.Math.Floor(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 floor(double2 x) { return new double2(floor(x.x), floor(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 floor(double3 x) { return new double3(floor(x.x), floor(x.y), floor(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value down to the nearest value less or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 floor(double4 x) { return new double4(floor(x.x), floor(x.y), floor(x.z), floor(x.w)); }
 
 
         /// <summary>Returns the result of rounding a float value up to the nearest integral value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float ceil(float x) { return (float)System.Math.Ceiling((float)x); }
 
@@ -1584,214 +1602,314 @@ namespace Unity.Mathematics
         public static float2 ceil(float2 x) { return new float2(ceil(x.x), ceil(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value up to the nearest value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 ceil(float3 x) { return new float3(ceil(x.x), ceil(x.y), ceil(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value up to the nearest value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 ceil(float4 x) { return new float4(ceil(x.x), ceil(x.y), ceil(x.z), ceil(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value up to the nearest greater integral value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double ceil(double x) { return System.Math.Ceiling(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value up to the nearest integral value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 ceil(double2 x) { return new double2(ceil(x.x), ceil(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value up to the nearest integral value greater or equal to the original value..</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 ceil(double3 x) { return new double3(ceil(x.x), ceil(x.y), ceil(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value up to the nearest integral value greater or equal to the original value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round up to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 ceil(double4 x) { return new double4(ceil(x.x), ceil(x.y), ceil(x.z), ceil(x.w)); }
 
 
         /// <summary>Returns the result of rounding a float value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float round(float x) { return (float)System.Math.Round((float)x); }
 
         /// <summary>Returns the result of rounding each component of a float2 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 round(float2 x) { return new float2(round(x.x), round(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a float3 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 round(float3 x) { return new float3(round(x.x), round(x.y), round(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a float4 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 round(float4 x) { return new float4(round(x.x), round(x.y), round(x.z), round(x.w)); }
 
 
         /// <summary>Returns the result of rounding a double value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double round(double x) { return System.Math.Round(x); }
 
         /// <summary>Returns the result of rounding each component of a double2 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 round(double2 x) { return new double2(round(x.x), round(x.y)); }
 
         /// <summary>Returns the result of rounding each component of a double3 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 round(double3 x) { return new double3(round(x.x), round(x.y), round(x.z)); }
 
         /// <summary>Returns the result of rounding each component of a double4 vector value to the nearest integral value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise round to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 round(double4 x) { return new double4(round(x.x), round(x.y), round(x.z), round(x.w)); }
 
 
         /// <summary>Returns the result of truncating a float value to an integral float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float trunc(float x) { return (float)System.Math.Truncate((float)x); }
 
         /// <summary>Returns the result of a componentwise truncation of a float2 value to an integral float2 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 trunc(float2 x) { return new float2(trunc(x.x), trunc(x.y)); }
 
         /// <summary>Returns the result of a componentwise truncation of a float3 value to an integral float3 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 trunc(float3 x) { return new float3(trunc(x.x), trunc(x.y), trunc(x.z)); }
 
         /// <summary>Returns the result of a componentwise truncation of a float4 value to an integral float4 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 trunc(float4 x) { return new float4(trunc(x.x), trunc(x.y), trunc(x.z), trunc(x.w)); }
 
 
         /// <summary>Returns the result of truncating a double value to an integral double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double trunc(double x) { return System.Math.Truncate(x); }
 
         /// <summary>Returns the result of a componentwise truncation of a double2 value to an integral double2 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 trunc(double2 x) { return new double2(trunc(x.x), trunc(x.y)); }
 
         /// <summary>Returns the result of a componentwise truncation of a double3 value to an integral double3 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 trunc(double3 x) { return new double3(trunc(x.x), trunc(x.y), trunc(x.z)); }
 
         /// <summary>Returns the result of a componentwise truncation of a double4 value to an integral double4 value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise truncation of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 trunc(double4 x) { return new double4(trunc(x.x), trunc(x.y), trunc(x.z), trunc(x.w)); }
 
 
         /// <summary>Returns the fractional part of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float frac(float x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 frac(float2 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 frac(float3 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 frac(float4 x) { return x - floor(x); }
 
 
         /// <summary>Returns the fractional part of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double frac(double x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 frac(double2 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 frac(double3 x) { return x - floor(x); }
 
         /// <summary>Returns the componentwise fractional parts of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise fractional part of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 frac(double4 x) { return x - floor(x); }
 
 
         /// <summary>Returns the reciprocal a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float rcp(float x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 rcp(float2 x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rcp(float3 x) { return 1.0f / x; }
 
         /// <summary>Returns the componentwise reciprocal a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 rcp(float4 x) { return 1.0f / x; }
 
 
         /// <summary>Returns the reciprocal a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double rcp(double x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 rcp(double2 x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 rcp(double3 x) { return 1.0 / x; }
 
         /// <summary>Returns the componentwise reciprocal a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise reciprocal of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 rcp(double4 x) { return 1.0 / x; }
 
 
         /// <summary>Returns the sign of a int value. -1 if it is less than zero, 0 if it is zero and 1 if it greater than zero.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int sign(int x) { return (x > 0 ? 1 : 0) - (x < 0 ? 1 : 0); }
 
         /// <summary>Returns the componentwise sign of a int2 value. 1 for positive components, 0 for zero components and -1 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 sign(int2 x) { return new int2(sign(x.x), sign(x.y)); }
 
         /// <summary>Returns the componentwise sign of a int3 value. 1 for positive components, 0 for zero components and -1 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 sign(int3 x) { return new int3(sign(x.x), sign(x.y), sign(x.z)); }
 
         /// <summary>Returns the componentwise sign of a int4 value. 1 for positive components, 0 for zero components and -1 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 sign(int4 x) { return new int4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
 
         /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sign(float x) { return (x > 0.0f ? 1.0f : 0.0f) - (x < 0.0f ? 1.0f : 0.0f); }
 
         /// <summary>Returns the componentwise sign of a float2 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sign(float2 x) { return new float2(sign(x.x), sign(x.y)); }
 
         /// <summary>Returns the componentwise sign of a float3 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sign(float3 x) { return new float3(sign(x.x), sign(x.y), sign(x.z)); }
 
         /// <summary>Returns the componentwise sign of a float4 value. 1.0f for positive components, 0.0f for zero components and -1.0f for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sign(float4 x) { return new float4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
 
         /// <summary>Returns the sign of a double value. -1.0 if it is less than zero, 0.0 if it is zero and 1.0 if it greater than zero.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sign(double x) { return x == 0 ? 0 : (x > 0.0 ? 1.0 : 0.0) - (x < 0.0 ? 1.0 : 0.0); }
 
         /// <summary>Returns the componentwise sign of a double2 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sign(double2 x) { return new double2(sign(x.x), sign(x.y)); }
 
         /// <summary>Returns the componentwise sign of a double3 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sign(double3 x) { return new double3(sign(x.x), sign(x.y), sign(x.z)); }
 
         /// <summary>Returns the componentwise sign of a double4 value. 1.0 for positive components, 0.0 for zero components and -1.0 for negative components.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sign(double4 x) { return new double4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
 
