@@ -606,217 +606,423 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the minimum of two int values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int min(int x, int y) { return x < y ? x : y; }
 
         /// <summary>Returns the componentwise minimum of two int2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 min(int2 x, int2 y) { return new int2(min(x.x, y.x), min(x.y, y.y)); }
 
         /// <summary>Returns the componentwise minimum of two int3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 min(int3 x, int3 y) { return new int3(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z)); }
 
         /// <summary>Returns the componentwise minimum of two int4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 min(int4 x, int4 y) { return new int4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
 
 
         /// <summary>Returns the minimum of two uint values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint min(uint x, uint y) { return x < y ? x : y; }
 
         /// <summary>Returns the componentwise minimum of two uint2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 min(uint2 x, uint2 y) { return new uint2(min(x.x, y.x), min(x.y, y.y)); }
 
         /// <summary>Returns the componentwise minimum of two uint3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 min(uint3 x, uint3 y) { return new uint3(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z)); }
 
         /// <summary>Returns the componentwise minimum of two uint4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 min(uint4 x, uint4 y) { return new uint4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
 
 
         /// <summary>Returns the minimum of two long values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long min(long x, long y) { return x < y ? x : y; }
 
 
         /// <summary>Returns the minimum of two ulong values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong min(ulong x, ulong y) { return x < y ? x : y; }
 
 
         /// <summary>Returns the minimum of two float values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float min(float x, float y) { return float.IsNaN(y) || x < y ? x : y; }
 
         /// <summary>Returns the componentwise minimum of two float2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 min(float2 x, float2 y) { return new float2(min(x.x, y.x), min(x.y, y.y)); }
 
         /// <summary>Returns the componentwise minimum of two float3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 min(float3 x, float3 y) { return new float3(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z)); }
 
         /// <summary>Returns the componentwise minimum of two float4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 min(float4 x, float4 y) { return new float4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
 
 
         /// <summary>Returns the minimum of two double values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double min(double x, double y) { return double.IsNaN(y) || x < y ? x : y; }
 
         /// <summary>Returns the componentwise minimum of two double2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 min(double2 x, double2 y) { return new double2(min(x.x, y.x), min(x.y, y.y)); }
 
         /// <summary>Returns the componentwise minimum of two double3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 min(double3 x, double3 y) { return new double3(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z)); }
 
         /// <summary>Returns the componentwise minimum of two double4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise minimum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 min(double4 x, double4 y) { return new double4(min(x.x, y.x), min(x.y, y.y), min(x.z, y.z), min(x.w, y.w)); }
 
 
         /// <summary>Returns the maximum of two int values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int max(int x, int y) { return x > y ? x : y; }
 
         /// <summary>Returns the componentwise maximum of two int2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 max(int2 x, int2 y) { return new int2(max(x.x, y.x), max(x.y, y.y)); }
 
         /// <summary>Returns the componentwise maximum of two int3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 max(int3 x, int3 y) { return new int3(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z)); }
 
         /// <summary>Returns the componentwise maximum of two int4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 max(int4 x, int4 y) { return new int4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
         /// <summary>Returns the maximum of two uint values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint max(uint x, uint y) { return x > y ? x : y; }
 
         /// <summary>Returns the componentwise maximum of two uint2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 max(uint2 x, uint2 y) { return new uint2(max(x.x, y.x), max(x.y, y.y)); }
 
         /// <summary>Returns the componentwise maximum of two uint3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 max(uint3 x, uint3 y) { return new uint3(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z)); }
 
         /// <summary>Returns the componentwise maximum of two uint4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 max(uint4 x, uint4 y) { return new uint4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
         /// <summary>Returns the maximum of two long values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long max(long x, long y) { return x > y ? x : y; }
 
 
         /// <summary>Returns the maximum of two ulong values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong max(ulong x, ulong y) { return x > y ? x : y; }
 
 
         /// <summary>Returns the maximum of two float values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float max(float x, float y) { return float.IsNaN(y) || x > y ? x : y; }
 
         /// <summary>Returns the componentwise maximum of two float2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 max(float2 x, float2 y) { return new float2(max(x.x, y.x), max(x.y, y.y)); }
 
         /// <summary>Returns the componentwise maximum of two float3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 max(float3 x, float3 y) { return new float3(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z)); }
 
         /// <summary>Returns the componentwise maximum of two float4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 max(float4 x, float4 y) { return new float4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
         /// <summary>Returns the maximum of two double values.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double max(double x, double y) { return double.IsNaN(y) || x > y ? x : y; }
 
         /// <summary>Returns the componentwise maximum of two double2 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 max(double2 x, double2 y) { return new double2(max(x.x, y.x), max(x.y, y.y)); }
 
         /// <summary>Returns the componentwise maximum of two double3 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 max(double3 x, double3 y) { return new double3(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z)); }
 
         /// <summary>Returns the componentwise maximum of two double4 vectors.</summary>
+        /// <param name="x">The first input value.</param>
+        /// <param name="y">The second input value.</param>
+        /// <returns>The componentwise maximum of the two input values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 max(double4 x, double4 y) { return new double4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
         /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lerp(float x, float y, float s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 lerp(float2 x, float2 y, float s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 lerp(float3 x, float3 y, float s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 lerp(float4 x, float4 y, float s) { return x + s * (y - x); }
 
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 lerp(float2 x, float2 y, float2 s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 lerp(float3 x, float3 y, float3 s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 lerp(float4 x, float4 y, float4 s) { return x + s * (y - x); }
 
 
         /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double lerp(double x, double y, double s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 lerp(double2 x, double2 y, double s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 lerp(double3 x, double3 y, double s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 lerp(double4 x, double4 y, double s) { return x + s * (y - x); }
 
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 lerp(double2 x, double2 y, double2 s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 lerp(double3 x, double3 y, double3 s) { return x + s * (y - x); }
 
         /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 lerp(double4 x, double4 y, double4 s) { return x + s * (y - x); }
 
