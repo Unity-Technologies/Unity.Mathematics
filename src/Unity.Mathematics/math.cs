@@ -4591,28 +4591,52 @@ namespace Unity.Mathematics
             return select(defaultValue, proj, all(isfinite(proj)));
         }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 faceforward(float2 n, float2 i, float2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 faceforward(float3 n, float3 i, float3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 faceforward(float4 n, float4 i, float4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 faceforward(double2 n, double2 i, double2 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 faceforward(double3 n, double3 i, double3 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
-        /// <summary>Conditionally flips a vector n to face in the direction of i. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <summary>Conditionally flips a vector n if two vectors i and ng are pointing in the same direction. Returns n if dot(i, ng) &lt; 0, -n otherwise.</summary>
+        /// <param name="n">Vector to conditionally flip.</param>
+        /// <param name="i">First vector in direction comparison.</param>
+        /// <param name="ng">Second vector in direction comparison.</param>
+        /// <returns>-n if i and ng point in the same direction; otherwise return n unchanged.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 faceforward(double4 n, double4 i, double4 ng) { return select(n, -n, dot(ng, i) >= 0.0f); }
 
