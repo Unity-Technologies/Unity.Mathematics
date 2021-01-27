@@ -968,334 +968,496 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are int values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int clamp(int x, int a, int b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int2 x into the interval [a, b], where a and b are int2 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 clamp(int2 x, int2 a, int2 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int3 x into the interval [a, b], where x, a and b are int3 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 clamp(int3 x, int3 a, int3 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are int4 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 clamp(int4 x, int4 a, int4 b) { return max(a, min(b, x)); }
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are uint values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint clamp(uint x, uint a, uint b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint2 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 clamp(uint2 x, uint2 a, uint2 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint3 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 clamp(uint3 x, uint3 a, uint3 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint4 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are long values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long clamp(long x, long a, long b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are ulong values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static ulong clamp(ulong x, ulong a, ulong b) { return max(a, min(b, x)); }
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are float values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float clamp(float x, float a, float b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float2 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 clamp(float2 x, float2 a, float2 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float3 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 clamp(float3 x, float3 a, float3 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float4 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 clamp(float4 x, float4 a, float4 b) { return max(a, min(b, x)); }
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are double values.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double clamp(double x, double a, double b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double2 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 clamp(double2 x, double2 a, double2 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double3 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 clamp(double3 x, double3 a, double3 b) { return max(a, min(b, x)); }
 
         /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double4 vectors.</summary>
+        /// <param name="x">Input value to be clamped.</param>
+        /// <param name="a">Lower bound of the interval.</param>
+        /// <param name="b">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 clamp(double4 x, double4 a, double4 b) { return max(a, min(b, x)); }
 
 
         /// <summary>Returns the result of clamping the float value x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float saturate(float x) { return clamp(x, 0.0f, 1.0f); }
 
         /// <summary>Returns the result of a componentwise clamping of the float2 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 saturate(float2 x) { return clamp(x, new float2(0.0f), new float2(1.0f)); }
 
         /// <summary>Returns the result of a componentwise clamping of the float3 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 saturate(float3 x) { return clamp(x, new float3(0.0f), new float3(1.0f)); }
 
         /// <summary>Returns the result of a componentwise clamping of the float4 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 saturate(float4 x) { return clamp(x, new float4(0.0f), new float4(1.0f)); }
 
 
         /// <summary>Returns the result of clamping the double value x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double saturate(double x) { return clamp(x, 0.0, 1.0); }
 
         /// <summary>Returns the result of a componentwise clamping of the double2 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 saturate(double2 x) { return clamp(x, new double2(0.0), new double2(1.0)); }
 
         /// <summary>Returns the result of a componentwise clamping of the double3 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 saturate(double3 x) { return clamp(x, new double3(0.0), new double3(1.0)); }
 
         /// <summary>Returns the result of a componentwise clamping of the double4 vector x into the interval [0, 1].</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise clamping of the input into the interval [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 saturate(double4 x) { return clamp(x, new double4(0.0), new double4(1.0)); }
 
 
         /// <summary>Returns the absolute value of a int value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int abs(int x) { return max(-x, x); }
 
         /// <summary>Returns the componentwise absolute value of a int2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 abs(int2 x) { return max(-x, x); }
 
         /// <summary>Returns the componentwise absolute value of a int3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 abs(int3 x) { return max(-x, x); }
 
         /// <summary>Returns the componentwise absolute value of a int4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 abs(int4 x) { return max(-x, x); }
 
         /// <summary>Returns the absolute value of a long value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long abs(long x) { return max(-x, x); }
 
 
         /// <summary>Returns the absolute value of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float abs(float x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 abs(float2 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 abs(float3 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 abs(float4 x) { return asfloat(asuint(x) & 0x7FFFFFFF); }
 
 
         /// <summary>Returns the absolute value of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double abs(double x) { return asdouble(asulong(x) & 0x7FFFFFFFFFFFFFFF); }
 
         /// <summary>Returns the componentwise absolute value of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 abs(double2 x) { return double2(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF)); }
 
         /// <summary>Returns the componentwise absolute value of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 abs(double3 x) { return double3(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.z) & 0x7FFFFFFFFFFFFFFF)); }
 
         /// <summary>Returns the componentwise absolute value of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise absolute value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 abs(double4 x) { return double4(asdouble(asulong(x.x) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.y) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.z) & 0x7FFFFFFFFFFFFFFF), asdouble(asulong(x.w) & 0x7FFFFFFFFFFFFFFF)); }
 
 
         /// <summary>Returns the dot product of two int values. Equivalent to multiplication.</summary>
+        /// <param name="x">The first value.</param>
+        /// <param name="y">The second value.</param>
+        /// <returns>The dot product of two values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int dot(int x, int y) { return x * y; }
 
         /// <summary>Returns the dot product of two int2 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int dot(int2 x, int2 y) { return x.x * y.x + x.y * y.y; }
 
         /// <summary>Returns the dot product of two int3 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int dot(int3 x, int3 y) { return x.x * y.x + x.y * y.y + x.z * y.z; }
 
         /// <summary>Returns the dot product of two int4 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int dot(int4 x, int4 y) { return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w; }
 
 
         /// <summary>Returns the dot product of two uint values. Equivalent to multiplication.</summary>
+        /// <param name="x">The first value.</param>
+        /// <param name="y">The second value.</param>
+        /// <returns>The dot product of two values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint dot(uint x, uint y) { return x * y; }
 
         /// <summary>Returns the dot product of two uint2 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint dot(uint2 x, uint2 y) { return x.x * y.x + x.y * y.y; }
 
         /// <summary>Returns the dot product of two uint3 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint dot(uint3 x, uint3 y) { return x.x * y.x + x.y * y.y + x.z * y.z; }
 
         /// <summary>Returns the dot product of two uint4 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint dot(uint4 x, uint4 y) { return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w; }
 
 
         /// <summary>Returns the dot product of two float values. Equivalent to multiplication.</summary>
+        /// <param name="x">The first value.</param>
+        /// <param name="y">The second value.</param>
+        /// <returns>The dot product of two values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(float x, float y) { return x * y; }
 
         /// <summary>Returns the dot product of two float2 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(float2 x, float2 y) { return x.x * y.x + x.y * y.y; }
 
         /// <summary>Returns the dot product of two float3 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(float3 x, float3 y) { return x.x * y.x + x.y * y.y + x.z * y.z; }
 
         /// <summary>Returns the dot product of two float4 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(float4 x, float4 y) { return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w; }
 
 
         /// <summary>Returns the dot product of two double values. Equivalent to multiplication.</summary>
+        /// <param name="x">The first value.</param>
+        /// <param name="y">The second value.</param>
+        /// <returns>The dot product of two values.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double dot(double x, double y) { return x * y; }
 
         /// <summary>Returns the dot product of two double2 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double dot(double2 x, double2 y) { return x.x * y.x + x.y * y.y; }
 
         /// <summary>Returns the dot product of two double3 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double dot(double3 x, double3 y) { return x.x * y.x + x.y * y.y + x.z * y.z; }
 
         /// <summary>Returns the dot product of two double4 vectors.</summary>
+        /// <param name="x">The first vector.</param>
+        /// <param name="y">The second vector.</param>
+        /// <returns>The dot product of two vectors.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double dot(double4 x, double4 y) { return x.x * y.x + x.y * y.y + x.z * y.z + x.w * y.w; }
 
 
         /// <summary>Returns the tangent of a float value.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tan(float x) { return (float)System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a float2 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tan(float2 x) { return new float2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a float3 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tan(float3 x) { return new float3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a float4 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tan(float4 x) { return new float4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the tangent of a double value.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tan(double x) { return System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a double2 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tan(double2 x) { return new double2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a double3 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tan(double3 x) { return new double3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a double4 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tan(double4 x) { return new double4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a float value.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tanh(float x) { return (float)System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float2 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tanh(float2 x) { return new float2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float3 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tanh(float3 x) { return new float3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float4 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tanh(float4 x) { return new float4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a double value.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tanh(double x) { return System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double2 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tanh(double2 x) { return new double2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double3 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tanh(double3 x) { return new double3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double4 vector.</summary>
-        /// <param name="x">Input value.</param name>
+        /// <param name="x">Input value.</param>
         /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tanh(double4 x) { return new double4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
