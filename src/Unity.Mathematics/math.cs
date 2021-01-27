@@ -1202,341 +1202,509 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the tangent of a float value.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tan(float x) { return (float)System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a float2 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tan(float2 x) { return new float2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a float3 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tan(float3 x) { return new float3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a float4 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tan(float4 x) { return new float4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the tangent of a double value.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tan(double x) { return System.Math.Tan(x); }
 
         /// <summary>Returns the componentwise tangent of a double2 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tan(double2 x) { return new double2(tan(x.x), tan(x.y)); }
 
         /// <summary>Returns the componentwise tangent of a double3 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tan(double3 x) { return new double3(tan(x.x), tan(x.y), tan(x.z)); }
 
         /// <summary>Returns the componentwise tangent of a double4 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tan(double4 x) { return new double4(tan(x.x), tan(x.y), tan(x.z), tan(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a float value.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float tanh(float x) { return (float)System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float2 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 tanh(float2 x) { return new float2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float3 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 tanh(float3 x) { return new float3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a float4 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 tanh(float4 x) { return new float4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic tangent of a double value.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double tanh(double x) { return System.Math.Tanh(x); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double2 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 tanh(double2 x) { return new double2(tanh(x.x), tanh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double3 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 tanh(double3 x) { return new double3(tanh(x.x), tanh(x.y), tanh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic tangent of a double4 vector.</summary>
+        /// <param name="x">Input value.</param name>
+        /// <returns>The componentwise hyperbolic tangent of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 tanh(double4 x) { return new double4(tanh(x.x), tanh(x.y), tanh(x.z), tanh(x.w)); }
 
 
         /// <summary>Returns the arctangent of a float value.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float atan(float x) { return (float)System.Math.Atan(x); }
 
         /// <summary>Returns the componentwise arctangent of a float2 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 atan(float2 x) { return new float2(atan(x.x), atan(x.y)); }
 
         /// <summary>Returns the componentwise arctangent of a float3 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 atan(float3 x) { return new float3(atan(x.x), atan(x.y), atan(x.z)); }
 
         /// <summary>Returns the componentwise arctangent of a float4 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 atan(float4 x) { return new float4(atan(x.x), atan(x.y), atan(x.z), atan(x.w)); }
 
 
         /// <summary>Returns the arctangent of a double value.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double atan(double x) { return System.Math.Atan(x); }
 
         /// <summary>Returns the componentwise arctangent of a double2 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 atan(double2 x) { return new double2(atan(x.x), atan(x.y)); }
 
         /// <summary>Returns the componentwise arctangent of a double3 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 atan(double3 x) { return new double3(atan(x.x), atan(x.y), atan(x.z)); }
 
         /// <summary>Returns the componentwise arctangent of a double4 vector.</summary>
+        /// <param name="x">A tangent value, usually the ratio y/x on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the input, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 atan(double4 x) { return new double4(atan(x.x), atan(x.y), atan(x.z), atan(x.w)); }
 
 
         /// <summary>Returns the 2-argument arctangent of a pair of float values.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float atan2(float y, float x) { return (float)System.Math.Atan2(y, x); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats2 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 atan2(float2 y, float2 x) { return new float2(atan2(y.x, x.x), atan2(y.y, x.y)); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats3 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 atan2(float3 y, float3 x) { return new float3(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z)); }
 
         /// <summary>Returns the componentwise 2-argument arctangent of a pair of floats4 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 atan2(float4 y, float4 x) { return new float4(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z), atan2(y.w, x.w)); }
 
 
         /// <summary>Returns the 2-argument arctangent of a pair of double values.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double atan2(double y, double x) { return System.Math.Atan2(y, x); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double2 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 atan2(double2 y, double2 x) { return new double2(atan2(y.x, x.x), atan2(y.y, x.y)); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double3 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 atan2(double3 y, double3 x) { return new double3(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z)); }
 
         /// <summary>Returns the 2-argument arctangent of a pair of double4 vectors.</summary>
+        /// <param name="y">Numerator of the ratio y/x, usually the y component on the unit circle.</param>
+        /// <param name="x">Denominator of the ratio y/x, usually the x component on the unit circle.</param>
+        /// <returns>The componentwise arctangent of the ratio y/x, in radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 atan2(double4 y, double4 x) { return new double4(atan2(y.x, x.x), atan2(y.y, x.y), atan2(y.z, x.z), atan2(y.w, x.w)); }
 
 
         /// <summary>Returns the cosine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cos(float x) { return (float)System.Math.Cos(x); }
 
         /// <summary>Returns the componentwise cosine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 cos(float2 x) { return new float2(cos(x.x), cos(x.y)); }
 
         /// <summary>Returns the componentwise cosine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cos(float3 x) { return new float3(cos(x.x), cos(x.y), cos(x.z)); }
 
         /// <summary>Returns the componentwise cosine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 cos(float4 x) { return new float4(cos(x.x), cos(x.y), cos(x.z), cos(x.w)); }
 
 
         /// <summary>Returns the cosine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cos(double x) { return System.Math.Cos(x); }
 
         /// <summary>Returns the componentwise cosine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 cos(double2 x) { return new double2(cos(x.x), cos(x.y)); }
 
         /// <summary>Returns the componentwise cosine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cos(double3 x) { return new double3(cos(x.x), cos(x.y), cos(x.z)); }
 
         /// <summary>Returns the componentwise cosine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise cosine cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 cos(double4 x) { return new double4(cos(x.x), cos(x.y), cos(x.z), cos(x.w)); }
 
 
         /// <summary>Returns the hyperbolic cosine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float cosh(float x) { return (float)System.Math.Cosh(x); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 cosh(float2 x) { return new float2(cosh(x.x), cosh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 cosh(float3 x) { return new float3(cosh(x.x), cosh(x.y), cosh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 cosh(float4 x) { return new float4(cosh(x.x), cosh(x.y), cosh(x.z), cosh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic cosine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double cosh(double x) { return System.Math.Cosh(x); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 cosh(double2 x) { return new double2(cosh(x.x), cosh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 cosh(double3 x) { return new double3(cosh(x.x), cosh(x.y), cosh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic cosine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic cosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 cosh(double4 x) { return new double4(cosh(x.x), cosh(x.y), cosh(x.z), cosh(x.w)); }
 
 
         /// <summary>Returns the arccosine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float acos(float x) { return (float)System.Math.Acos((float)x); }
 
         /// <summary>Returns the componentwise arccosine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 acos(float2 x) { return new float2(acos(x.x), acos(x.y)); }
 
         /// <summary>Returns the componentwise arccosine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 acos(float3 x) { return new float3(acos(x.x), acos(x.y), acos(x.z)); }
 
         /// <summary>Returns the componentwise arccosine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 acos(float4 x) { return new float4(acos(x.x), acos(x.y), acos(x.z), acos(x.w)); }
 
 
         /// <summary>Returns the arccosine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double acos(double x) { return System.Math.Acos(x); }
 
         /// <summary>Returns the componentwise arccosine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 acos(double2 x) { return new double2(acos(x.x), acos(x.y)); }
 
         /// <summary>Returns the componentwise arccosine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 acos(double3 x) { return new double3(acos(x.x), acos(x.y), acos(x.z)); }
 
         /// <summary>Returns the componentwise arccosine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arccosine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 acos(double4 x) { return new double4(acos(x.x), acos(x.y), acos(x.z), acos(x.w)); }
 
 
         /// <summary>Returns the sine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sin(float x) { return (float)System.Math.Sin((float)x); }
 
         /// <summary>Returns the componentwise sine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sin(float2 x) { return new float2(sin(x.x), sin(x.y)); }
 
         /// <summary>Returns the componentwise sine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sin(float3 x) { return new float3(sin(x.x), sin(x.y), sin(x.z)); }
 
         /// <summary>Returns the componentwise sine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sin(float4 x) { return new float4(sin(x.x), sin(x.y), sin(x.z), sin(x.w)); }
 
 
         /// <summary>Returns the sine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sin(double x) { return System.Math.Sin(x); }
 
         /// <summary>Returns the componentwise sine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sin(double2 x) { return new double2(sin(x.x), sin(x.y)); }
 
         /// <summary>Returns the componentwise sine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sin(double3 x) { return new double3(sin(x.x), sin(x.y), sin(x.z)); }
 
         /// <summary>Returns the componentwise sine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sin(double4 x) { return new double4(sin(x.x), sin(x.y), sin(x.z), sin(x.w)); }
 
 
         /// <summary>Returns the hyperbolic sine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float sinh(float x) { return (float)System.Math.Sinh((float)x); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 sinh(float2 x) { return new float2(sinh(x.x), sinh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 sinh(float3 x) { return new float3(sinh(x.x), sinh(x.y), sinh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 sinh(float4 x) { return new float4(sinh(x.x), sinh(x.y), sinh(x.z), sinh(x.w)); }
 
 
         /// <summary>Returns the hyperbolic sine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double sinh(double x) { return System.Math.Sinh(x); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 sinh(double2 x) { return new double2(sinh(x.x), sinh(x.y)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 sinh(double3 x) { return new double3(sinh(x.x), sinh(x.y), sinh(x.z)); }
 
         /// <summary>Returns the componentwise hyperbolic sine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise hyperbolic sine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 sinh(double4 x) { return new double4(sinh(x.x), sinh(x.y), sinh(x.z), sinh(x.w)); }
 
 
         /// <summary>Returns the arcsine of a float value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float asin(float x) { return (float)System.Math.Asin((float)x); }
 
         /// <summary>Returns the componentwise arcsine of a float2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 asin(float2 x) { return new float2(asin(x.x), asin(x.y)); }
 
         /// <summary>Returns the componentwise arcsine of a float3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 asin(float3 x) { return new float3(asin(x.x), asin(x.y), asin(x.z)); }
 
         /// <summary>Returns the componentwise arcsine of a float4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 asin(float4 x) { return new float4(asin(x.x), asin(x.y), asin(x.z), asin(x.w)); }
 
 
         /// <summary>Returns the arcsine of a double value.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asin(double x) { return System.Math.Asin(x); }
 
         /// <summary>Returns the componentwise arcsine of a double2 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 asin(double2 x) { return new double2(asin(x.x), asin(x.y)); }
 
         /// <summary>Returns the componentwise arcsine of a double3 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 asin(double3 x) { return new double3(asin(x.x), asin(x.y), asin(x.z)); }
 
         /// <summary>Returns the componentwise arcsine of a double4 vector.</summary>
+        /// <param name="x">Input value.</param>
+        /// <returns>The componentwise arcsine of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 asin(double4 x) { return new double4(asin(x.x), asin(x.y), asin(x.z), asin(x.w)); }
 
