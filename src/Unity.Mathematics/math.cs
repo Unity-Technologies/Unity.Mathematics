@@ -3647,6 +3647,10 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float smoothstep(float a, float b, float x)
         {
@@ -3655,6 +3659,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 smoothstep(float2 a, float2 b, float2 x)
         {
@@ -3663,6 +3671,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 smoothstep(float3 a, float3 b, float3 x)
         {
@@ -3671,6 +3683,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 smoothstep(float4 a, float4 b, float4 x)
         {
@@ -3680,6 +3696,10 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double smoothstep(double a, double b, double x)
         {
@@ -3688,6 +3708,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 smoothstep(double2 a, double2 b, double2 x)
         {
@@ -3696,6 +3720,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 smoothstep(double3 a, double3 b, double3 x)
         {
@@ -3704,6 +3732,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
+        /// <param name="a">The minimum range of the x parameter.</param>
+        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <param name="x">The value to be interpolated.</param>
+        /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 smoothstep(double4 a, double4 b, double4 x)
         {
