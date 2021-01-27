@@ -1084,69 +1084,149 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float unlerp(float a, float b, float x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 unlerp(float2 a, float2 b, float2 x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 unlerp(float3 a, float3 b, float3 x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 unlerp(float4 a, float4 b, float4 x) { return (x - a) / (b - a); }
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double unlerp(double a, double b, double x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 unlerp(double2 a, double2 b, double2 x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 unlerp(double3 a, double3 b, double3 x) { return (x - a) / (b - a); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
+        /// <param name="a">The first endpoint of the range.</param>
+        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="x">The value to normalize to the range.</param>
+        /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 unlerp(double4 a, double4 b, double4 x) { return (x - a) / (b - a); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float remap(float a, float b, float c, float d, float x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 remap(float2 a, float2 b, float2 c, float2 d, float2 x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 remap(float3 a, float3 b, float3 c, float3 d, float3 x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 remap(float4 a, float4 b, float4 c, float4 d, float4 x) { return lerp(c, d, unlerp(a, b, x)); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double remap(double a, double b, double c, double d, double x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 remap(double2 a, double2 b, double2 c, double2 d, double2 x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double3 remap(double3 a, double3 b, double3 c, double3 d, double3 x) { return lerp(c, d, unlerp(a, b, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from [a, b] to [c, d].</summary>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
+        /// <param name="a">The first endpoint of the source range [a,b].</param>
+        /// <param name="b">The second endpoint of the source range [a, b].</param>
+        /// <param name="c">The first endpoint of the destination range [c, d].</param>
+        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <param name="x">The value to remap from the source to destination range.</param>
+        /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 remap(double4 a, double4 b, double4 c, double4 d, double4 x) { return lerp(c, d, unlerp(a, b, x)); }
 
