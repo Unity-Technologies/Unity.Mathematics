@@ -6297,6 +6297,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the floating point representation of a half-precision floating point value.</summary>
+        /// <param name="x">The half precision float.</param>
+        /// <returns>The single precision float representation of the half precision float.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float f16tof32(uint x)
         {
@@ -6311,6 +6313,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
+        /// <param name="x">The half precision float vector.</param>
+        /// <returns>The single precision float vector representation of the half precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2 f16tof32(uint2 x)
         {
@@ -6325,6 +6329,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
+        /// <param name="x">The half precision float vector.</param>
+        /// <returns>The single precision float vector representation of the half precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 f16tof32(uint3 x)
         {
@@ -6339,6 +6345,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the floating point representation of a half-precision floating point vector.</summary>
+        /// <param name="x">The half precision float vector.</param>
+        /// <returns>The single precision float vector representation of the half precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4 f16tof32(uint4 x)
         {
@@ -6353,6 +6361,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result converting a float value to its nearest half-precision floating point representation.</summary>
+        /// <param name="x">The single precision float.</param>
+        /// <returns>The half precision float representation of the single precision float.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint f32tof16(float x)
         {
@@ -6367,6 +6377,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float2 vector to its nearest half-precision floating point representation.</summary>
+        /// <param name="x">The single precision float vector.</param>
+        /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 f32tof16(float2 x)
         {
@@ -6381,6 +6393,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float3 vector to its nearest half-precision floating point representation.</summary>
+        /// <param name="x">The single precision float vector.</param>
+        /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 f32tof16(float3 x)
         {
@@ -6395,6 +6409,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float4 vector to its nearest half-precision floating point representation.</summary>
+        /// <param name="x">The single precision float vector.</param>
+        /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 f32tof16(float4 x)
         {
