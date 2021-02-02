@@ -410,22 +410,35 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a quaternion constructed from four float values.</summary>
+        /// <param name="x">The x component of the quaternion.</param>
+        /// <param name="y">The y component of the quaternion.</param>
+        /// <param name="z">The z component of the quaternion.</param>
+        /// <param name="w">The w component of the quaternion.</param>
+        /// <returns>The quaternion constructed from individual components.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float x, float y, float z, float w) { return new quaternion(x, y, z, w); }
 
         /// <summary>Returns a quaternion constructed from a float4 vector.</summary>
+        /// <param name="value">The float4 containing the components of the quaternion.</param>
+        /// <returns>The quaternion constructed from a float4.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4 value) { return new quaternion(value); }
 
         /// <summary>Returns a unit quaternion constructed from a float3x3 rotation matrix. The matrix must be orthonormal.</summary>
+        /// <param name="m">The float3x3 rotation matrix.</param>
+        /// <returns>The quaternion constructed from a float3x3 matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float3x3 m) { return new quaternion(m); }
 
         /// <summary>Returns a unit quaternion constructed from a float4x4 matrix. The matrix must be orthonormal.</summary>
+        /// <param name="m">The float4x4 matrix (must be orthonormal).</param>
+        /// <returns>The quaternion constructed from a float4x4 matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion quaternion(float4x4 m) { return new quaternion(m); }
 
        /// <summary>Returns the conjugate of a quaternion value.</summary>
+       /// <param name="q">The quaternion to conjugate.</param>
+       /// <returns>The conjugate of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion conjugate(quaternion q)
         {
@@ -433,6 +446,8 @@ namespace Unity.Mathematics
         }
 
        /// <summary>Returns the inverse of a quaternion value.</summary>
+       /// <param name="q">The quaternion to invert.</param>
+       /// <returns>The quaternion inverse of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion inverse(quaternion q)
         {
@@ -441,6 +456,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the dot product of two quaternions.</summary>
+        /// <param name="a">The first quaternion.</param>
+        /// <param name="b">The second quaternion.</param>
+        /// <returns>The dot product of two quaternions.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float dot(quaternion a, quaternion b)
         {
@@ -448,6 +466,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the length of a quaternion.</summary>
+        /// <param name="q">The input quaternion.</param>
+        /// <returns>The length of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float length(quaternion q)
         {
@@ -455,6 +475,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the squared length of a quaternion.</summary>
+        /// <param name="q">The input quaternion.</param>
+        /// <returns>The length squared of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float lengthsq(quaternion q)
         {
@@ -462,6 +484,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a normalized version of a quaternion q by scaling it by 1 / length(q).</summary>
+        /// <param name="q">The quaternion to normalize.</param>
+        /// <returns>The normalized quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion normalize(quaternion q)
         {
@@ -473,6 +497,8 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the q by scaling it by 1 / length(q).
         /// Returns the identity when 1 / length(q) does not produce a finite number.
         /// </summary>
+        /// <param name="q">The quaternion to normalize.</param>
+        /// <returns>The normalized quaternion or the identity quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion normalizesafe(quaternion q)
         {
@@ -485,6 +511,9 @@ namespace Unity.Mathematics
         /// Returns a safe normalized version of the q by scaling it by 1 / length(q).
         /// Returns the given default value when 1 / length(q) does not produce a finite number.
         /// </summary>
+        /// <param name="q">The quaternion to normalize.</param>
+        /// <param name="defaultvalue">The default value.</param>
+        /// <returns>The normalized quaternion or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion normalizesafe(quaternion q, quaternion defaultvalue)
         {
@@ -494,6 +523,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the natural exponent of a quaternion. Assumes w is zero.</summary>
+        /// <param name="q">The quaternion with w component equal to zero.</param>
+        /// <returns>The natural exponent of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion unitexp(quaternion q)
         {
@@ -505,6 +536,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the natural exponent of a quaternion.</summary>
+        /// <param name="q">The quaternion.</param>
+        /// <returns>The natural exponent of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion exp(quaternion q)
         {
@@ -516,6 +549,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the natural logarithm of a unit length quaternion.</summary>
+        /// <param name="q">The unit length quaternion.</param>
+        /// <returns>The natural logarithm of the unit length quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion unitlog(quaternion q)
         {
@@ -525,6 +560,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the natural logarithm of a quaternion.</summary>
+        /// <param name="q">The quaternion.</param>
+        /// <returns>The natural logarithm of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion log(quaternion q)
         {
@@ -536,6 +573,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of transforming the quaternion b by the quaternion a.</summary>
+        /// <param name="a">The quaternion on the left.</param>
+        /// <param name="b">The quaternion on the right.</param>
+        /// <returns>The result of transforming quaternion b by the quaternion a.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion mul(quaternion a, quaternion b)
         {
@@ -543,6 +583,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of transforming a vector by a quaternion.</summary>
+        /// <param name="q">The quaternion transformation.</param>
+        /// <param name="v">The vector to transform.</param>
+        /// <returns>The transformation of vector v by quaternion q.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(quaternion q, float3 v)
         {
@@ -551,6 +594,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of rotating a vector by a unit quaternion.</summary>
+        /// <param name="q">The quaternion rotation.</param>
+        /// <param name="v">The vector to rotate.</param>
+        /// <returns>The rotation of vector v by quaternion q.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 rotate(quaternion q, float3 v)
         {
@@ -559,6 +605,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a normalized linear interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
+        /// <remarks>
+        /// Prefer to use this over slerp() when you know the distance between q1 and q2 is small. This can be much
+        /// higher performance due to avoiding trigonometric function evaluations that occur in slerp().
+        /// </remarks>
+        /// <param name="q1">The first quaternion.</param>
+        /// <param name="q2">The second quaternion.</param>
+        /// <param name="t">The interpolation parameter.</param>
+        /// <returns>The normalized linear interpolation of two quaternions.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
         {
@@ -572,6 +626,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a spherical interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
+        /// <param name="q1">The first quaternion.</param>
+        /// <param name="q2">The second quaternion.</param>
+        /// <param name="t">The interpolation parameter.</param>
+        /// <returns>The spherical linear interpolation of two quaternions.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion slerp(quaternion q1, quaternion q2, float t)
         {
@@ -598,6 +656,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uint hash code of a quaternion.</summary>
+        /// <param name="q">The quaternion to hash.</param>
+        /// <returns>The hash code for the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(quaternion q)
         {
@@ -609,6 +669,8 @@ namespace Unity.Mathematics
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="q">The quaternion to hash.</param>
+        /// <returns>The uint4 vector hash code of the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(quaternion q)
         {
@@ -616,6 +678,11 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>
+        /// Transforms the forward vector by a quaternion.
+        /// </summary>
+        /// <param name="q">The quaternion transformation.</param>
+        /// <returns>The forward vector transformed by the input quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 forward(quaternion q) { return mul(q, float3(0, 0, 1)); }  // for compatibility
     }
