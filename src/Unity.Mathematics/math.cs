@@ -5,6 +5,9 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>
+    /// A static class to contain various math functions and constants.
+    /// </summary>
     [Il2CppEagerStaticClassConstruction]
     public static partial class math
     {
