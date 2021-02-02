@@ -3,6 +3,9 @@ using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
+    /// <summary>
+    /// A static class containing noise functions.
+    /// </summary>
     [Il2CppEagerStaticClassConstruction]
     public static partial class noise
     {

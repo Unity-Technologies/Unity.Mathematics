@@ -5,11 +5,21 @@ using static Unity.Mathematics.math;
 
 namespace Unity.Mathematics
 {
+    /// <summary>
+    /// A rigid transformation type.
+    /// </summary>
     [Il2CppEagerStaticClassConstruction]
     [Serializable]
     public struct RigidTransform
     {
+        /// <summary>
+        /// The rotation part of the rigid transformation.
+        /// </summary>
         public quaternion rot;
+
+        /// <summary>
+        /// The translation part of the rigid transformation.
+        /// </summary>
         public float3 pos;
 
         /// <summary>A RigidTransform representing the identity transform.</summary>
