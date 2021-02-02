@@ -6474,6 +6474,7 @@ namespace Unity.Mathematics
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>
         /// <param name="seed">Starting seed value.</param>
+        /// <returns>The 32 bit hash of the input data buffer.</returns>
         public static unsafe uint hash(void* pBuffer, int numBytes, uint seed = 0)
         {
             unchecked

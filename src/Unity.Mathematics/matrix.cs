@@ -928,6 +928,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float3x3 matrix constructed from a quaternion.</summary>
+        /// <param name="rotation">The quaternion representing a rotation.</param>
+        /// <returns>The float3x3 constructed from a quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(quaternion rotation)
         {
@@ -935,6 +937,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a float3x3 rotation matrix and a float3 translation vector.</summary>
+        /// <param name="rotation">The float3x3 rotation matrix.</param>
+        /// <param name="translation">The translation vector.</param>
+        /// <returns>The float4x4 constructed from a rotation and translation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float3x3 rotation, float3 translation)
         {
@@ -942,6 +947,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a quaternion and a float3 translation vector.</summary>
+        /// <param name="rotation">The quaternion rotation.</param>
+        /// <param name="translation">The translation vector.</param>
+        /// <returns>The float4x4 constructed from a rotation and translation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(quaternion rotation, float3 translation)
         {
@@ -949,6 +957,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a RigidTransform.</summary>
+        /// <param name="transform">The rigid transformation.</param>
+        /// <returns>The float4x4 constructed from a RigidTransform.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(RigidTransform transform)
         {
@@ -956,6 +966,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns an orthonormalized version of a float3x3 matrix.</summary>
+        /// <param name="i">The float3x3 to be orthonormalized.</param>
+        /// <returns>The orthonormalized float3x3 matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 orthonormalize(float3x3 i)
         {
