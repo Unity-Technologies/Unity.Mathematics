@@ -584,8 +584,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.int2"/> input</param>
-        /// <returns><see cref="Mathematics.bool2"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">int2 input</param>
+        /// <returns>bool2 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 ispow2(int2 x)
         {
@@ -596,8 +596,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.int3"/> input</param>
-        /// <returns><see cref="Mathematics.bool3"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">int3 input</param>
+        /// <returns>bool3 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 ispow2(int3 x)
         {
@@ -608,8 +608,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.int4"/> input</param>
-        /// <returns><see cref="Mathematics.bool4"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">int4 input</param>
+        /// <returns>bool4 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 ispow2(int4 x)
         {
@@ -632,8 +632,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint2"/> input</param>
-        /// <returns><see cref="Mathematics.bool2"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">uint2 input</param>
+        /// <returns>bool2 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 ispow2(uint2 x)
         {
@@ -644,8 +644,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint3"/> input</param>
-        /// <returns><see cref="Mathematics.bool3"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">uint3 input</param>
+        /// <returns>bool3 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 ispow2(uint3 x)
         {
@@ -656,8 +656,8 @@ namespace Unity.Mathematics
         /// Checks if each component of the input is a power of two.
         /// </summary>
         /// <remarks>If a component of x is less than or equal to zero, then this function returns false in that component.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint4"/> input</param>
-        /// <returns><see cref="Mathematics.bool4"/> where true in a component indicates the same component in the input was a power of two.</returns>
+        /// <param name="x">uint4 input</param>
+        /// <returns>bool4 where true in a component indicates the same component in the input was a power of two.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 ispow2(uint4 x)
         {
@@ -5507,7 +5507,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.int2"/> to be used as input.</param>
+        /// <param name="x">int2 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ceillog2(int2 x)
@@ -5521,7 +5521,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.int3"/> to be used as input.</param>
+        /// <param name="x">int3 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ceillog2(int3 x)
@@ -5535,7 +5535,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.int4"/> to be used as input.</param>
+        /// <param name="x">int4 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ceillog2(int4 x)
@@ -5563,7 +5563,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.uint2"/> to be used as input.</param>
+        /// <param name="x">uint2 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 ceillog2(uint2 x)
@@ -5577,7 +5577,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.uint3"/> to be used as input.</param>
+        /// <param name="x">uint3 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 ceillog2(uint3 x)
@@ -5591,7 +5591,7 @@ namespace Unity.Mathematics
         /// <remarks>
         /// Components of x must be greater than 0, otherwise the result for that component is undefined.
         /// </remarks>
-        /// <param name="x"><see cref="Mathematics.uint4"/> to be used as input.</param>
+        /// <param name="x">uint4 to be used as input.</param>
         /// <returns>Componentwise ceiling of the base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 ceillog2(uint4 x)
@@ -5615,7 +5615,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.int2"/> to be used as input.</param>
+        /// <param name="x">int2 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 floorlog2(int2 x)
@@ -5627,7 +5627,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.int3"/> to be used as input.</param>
+        /// <param name="x">int3 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 floorlog2(int3 x)
@@ -5639,7 +5639,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.int4"/> to be used as input.</param>
+        /// <param name="x">int4 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 floorlog2(int4 x)
@@ -5663,7 +5663,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint2"/> to be used as input.</param>
+        /// <param name="x">uint2 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int2 floorlog2(uint2 x)
@@ -5675,7 +5675,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint3"/> to be used as input.</param>
+        /// <param name="x">uint3 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int3 floorlog2(uint3 x)
@@ -5687,7 +5687,7 @@ namespace Unity.Mathematics
         /// Computes the componentwise floor of the base-2 logarithm of x.
         /// </summary>
         /// <remarks>Components of x must be greater than zero, otherwise the result of the component is undefined.</remarks>
-        /// <param name="x"><see cref="Mathematics.uint4"/> to be used as input.</param>
+        /// <param name="x">uint4 to be used as input.</param>
         /// <returns>Componentwise floor of base-2 logarithm of x.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 floorlog2(uint4 x)
