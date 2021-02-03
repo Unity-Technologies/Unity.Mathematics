@@ -4,7 +4,6 @@
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.1.4",
     "com.unity.mathematics": "file:../../src",
-    "com.unity.package-manager-doctools": "file:/Users/dale/code/com.unity.package-manager-doctools",
     "com.unity.package-validation-suite": "0.8.1-preview",
     "com.unity.properties": "0.10.4-preview",
     "com.unity.test-framework": "1.1.11",
