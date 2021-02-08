@@ -14,16 +14,23 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 3x3 matrix of bools.</summary>
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct bool3x3 : System.IEquatable<bool3x3>
     {
+        /// <summary>Column 0 of the matrix.</summary>
         public bool3 c0;
+        /// <summary>Column 1 of the matrix.</summary>
         public bool3 c1;
+        /// <summary>Column 2 of the matrix.</summary>
         public bool3 c2;
 
 
         /// <summary>Constructs a bool3x3 matrix from three bool3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool3 c0, bool3 c1, bool3 c2)
         {
@@ -33,6 +40,15 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3x3 matrix from 9 bool values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool m00, bool m01, bool m02,
                        bool m10, bool m11, bool m12,
@@ -44,6 +60,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3x3 matrix from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3x3(bool v)
         {
@@ -54,76 +71,125 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single bool value to a bool3x3 matrix by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3x3(bool v) { return new bool3x3(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (bool3x3 lhs, bool3x3 rhs) { return new bool3x3 (lhs.c0 == rhs.c0, lhs.c1 == rhs.c1, lhs.c2 == rhs.c2); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool3x3 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 == rhs, lhs.c1 == rhs, lhs.c2 == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise equality.</param>
+        /// <returns>bool3x3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator == (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs == rhs.c0, lhs == rhs.c1, lhs == rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (bool3x3 lhs, bool3x3 rhs) { return new bool3x3 (lhs.c0 != rhs.c0, lhs.c1 != rhs.c1, lhs.c2 != rhs.c2); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool3x3 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 != rhs, lhs.c1 != rhs, lhs.c2 != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3x3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator != (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs != rhs.c0, lhs != rhs.c1, lhs != rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool3x3 matrix.</summary>
+        /// <param name="val">Value to use when computing the componentwise not.</param>
+        /// <returns>bool3x3 result of the componentwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ! (bool3x3 val) { return new bool3x3 (!val.c0, !val.c1, !val.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two bool3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator & (bool3x3 lhs, bool3x3 rhs) { return new bool3x3 (lhs.c0 & rhs.c0, lhs.c1 & rhs.c1, lhs.c2 & rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool3x3 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator & (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 & rhs, lhs.c1 & rhs, lhs.c2 & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator & (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs & rhs.c0, lhs & rhs.c1, lhs & rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator | (bool3x3 lhs, bool3x3 rhs) { return new bool3x3 (lhs.c0 | rhs.c0, lhs.c1 | rhs.c1, lhs.c2 | rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool3x3 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator | (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 | rhs, lhs.c1 | rhs, lhs.c2 | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator | (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs | rhs.c0, lhs | rhs.c1, lhs | rhs.c2); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool3x3 matrices.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ^ (bool3x3 lhs, bool3x3 rhs) { return new bool3x3 (lhs.c0 ^ rhs.c0, lhs.c1 ^ rhs.c1, lhs.c2 ^ rhs.c2); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool3x3 matrix and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3x3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ^ (bool3x3 lhs, bool rhs) { return new bool3x3 (lhs.c0 ^ rhs, lhs.c1 ^ rhs, lhs.c2 ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool3x3 matrix.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool3x3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3x3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 operator ^ (bool lhs, bool3x3 rhs) { return new bool3x3 (lhs ^ rhs.c0, lhs ^ rhs.c1, lhs ^ rhs.c2); }
 
@@ -143,19 +209,25 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the bool3x3 is equal to a given bool3x3, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(bool3x3 rhs) { return c0.Equals(rhs.c0) && c1.Equals(rhs.c1) && c2.Equals(rhs.c2); }
 
         /// <summary>Returns true if the bool3x3 is equal to a given bool3x3, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is bool3x3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the bool3x3.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
         /// <summary>Returns a string representation of the bool3x3.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -167,10 +239,24 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool3x3 matrix constructed from three bool3 vectors.</summary>
+        /// <param name="c0">The matrix column c0 will be set to this value.</param>
+        /// <param name="c1">The matrix column c1 will be set to this value.</param>
+        /// <param name="c2">The matrix column c2 will be set to this value.</param>
+        /// <returns>bool3x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 bool3x3(bool3 c0, bool3 c1, bool3 c2) { return new bool3x3(c0, c1, c2); }
 
         /// <summary>Returns a bool3x3 matrix constructed from from 9 bool values given in row-major order.</summary>
+        /// <param name="m00">The matrix at row 0, column 0 will be set to this value.</param>
+        /// <param name="m01">The matrix at row 0, column 1 will be set to this value.</param>
+        /// <param name="m02">The matrix at row 0, column 2 will be set to this value.</param>
+        /// <param name="m10">The matrix at row 1, column 0 will be set to this value.</param>
+        /// <param name="m11">The matrix at row 1, column 1 will be set to this value.</param>
+        /// <param name="m12">The matrix at row 1, column 2 will be set to this value.</param>
+        /// <param name="m20">The matrix at row 2, column 0 will be set to this value.</param>
+        /// <param name="m21">The matrix at row 2, column 1 will be set to this value.</param>
+        /// <param name="m22">The matrix at row 2, column 2 will be set to this value.</param>
+        /// <returns>bool3x3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 bool3x3(bool m00, bool m01, bool m02,
                                       bool m10, bool m11, bool m12,
@@ -182,10 +268,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a bool3x3 matrix constructed from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3x3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 bool3x3(bool v) { return new bool3x3(v); }
 
         /// <summary>Return the bool3x3 transpose of a bool3x3 matrix.</summary>
+        /// <param name="v">Value to transpose.</param>
+        /// <returns>Transposed value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3x3 transpose(bool3x3 v)
         {
@@ -195,7 +285,9 @@ namespace Unity.Mathematics
                 v.c2.x, v.c2.y, v.c2.z);
         }
 
-        /// <summary>Returns a uint hash code of a bool3x3 vector.</summary>
+        /// <summary>Returns a uint hash code of a bool3x3 matrix.</summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3x3 v)
         {
@@ -205,10 +297,12 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Returns a uint3 vector hash code of a bool3x3 vector.
+        /// Returns a uint3 vector hash code of a bool3x3 matrix.
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Matrix value to hash.</param>
+        /// <returns>uint3 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3x3 v)
         {

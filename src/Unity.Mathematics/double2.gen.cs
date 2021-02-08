@@ -15,18 +15,23 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 2 component vector of doubles.</summary>
     [DebuggerTypeProxy(typeof(double2.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct double2 : System.IEquatable<double2>, IFormattable
     {
+        /// <summary>x component of the vector.</summary>
         public double x;
+        /// <summary>y component of the vector.</summary>
         public double y;
 
         /// <summary>double2 zero value.</summary>
         public static readonly double2 zero;
 
         /// <summary>Constructs a double2 vector from two double values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double x, double y)
         {
@@ -35,6 +40,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a double2 vector.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double2 xy)
         {
@@ -43,6 +49,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(double v)
         {
@@ -51,6 +58,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(bool v)
         {
@@ -59,6 +67,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a bool2 vector by componentwise conversion.</summary>
+        /// <param name="v">bool2 to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(bool2 v)
         {
@@ -67,6 +76,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(int v)
         {
@@ -75,6 +85,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a int2 vector by componentwise conversion.</summary>
+        /// <param name="v">int2 to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(int2 v)
         {
@@ -83,6 +94,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(uint v)
         {
@@ -91,6 +103,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a uint2 vector by componentwise conversion.</summary>
+        /// <param name="v">uint2 to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(uint2 v)
         {
@@ -99,6 +112,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(half v)
         {
@@ -107,6 +121,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a half2 vector by componentwise conversion.</summary>
+        /// <param name="v">half2 to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(half2 v)
         {
@@ -115,6 +130,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(float v)
         {
@@ -123,6 +139,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double2 vector from a float2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to double2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2(float2 v)
         {
@@ -132,215 +149,345 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single double value to a double2 vector by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(double v) { return new double2(v); }
 
         /// <summary>Explicitly converts a single bool value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2(bool v) { return new double2(v); }
 
         /// <summary>Explicitly converts a bool2 vector to a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">bool2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double2(bool2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single int value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(int v) { return new double2(v); }
 
         /// <summary>Implicitly converts a int2 vector to a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">int2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(int2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single uint value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(uint v) { return new double2(v); }
 
         /// <summary>Implicitly converts a uint2 vector to a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">uint2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(uint2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single half value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(half v) { return new double2(v); }
 
         /// <summary>Implicitly converts a half2 vector to a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">half2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(half2 v) { return new double2(v); }
 
         /// <summary>Implicitly converts a single float value to a double2 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(float v) { return new double2(v); }
 
         /// <summary>Implicitly converts a float2 vector to a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double2(float2 v) { return new double2(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise multiplication.</param>
+        /// <returns>double2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator * (double2 lhs, double2 rhs) { return new double2 (lhs.x * rhs.x, lhs.y * rhs.y); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise multiplication.</param>
+        /// <returns>double2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator * (double2 lhs, double rhs) { return new double2 (lhs.x * rhs, lhs.y * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise multiplication.</param>
+        /// <returns>double2 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator * (double lhs, double2 rhs) { return new double2 (lhs * rhs.x, lhs * rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise addition.</param>
+        /// <returns>double2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator + (double2 lhs, double2 rhs) { return new double2 (lhs.x + rhs.x, lhs.y + rhs.y); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise addition.</param>
+        /// <returns>double2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator + (double2 lhs, double rhs) { return new double2 (lhs.x + rhs, lhs.y + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise addition.</param>
+        /// <returns>double2 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator + (double lhs, double2 rhs) { return new double2 (lhs + rhs.x, lhs + rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise subtraction.</param>
+        /// <returns>double2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator - (double2 lhs, double2 rhs) { return new double2 (lhs.x - rhs.x, lhs.y - rhs.y); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise subtraction.</param>
+        /// <returns>double2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator - (double2 lhs, double rhs) { return new double2 (lhs.x - rhs, lhs.y - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise subtraction.</param>
+        /// <returns>double2 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator - (double lhs, double2 rhs) { return new double2 (lhs - rhs.x, lhs - rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise division.</param>
+        /// <returns>double2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator / (double2 lhs, double2 rhs) { return new double2 (lhs.x / rhs.x, lhs.y / rhs.y); }
 
         /// <summary>Returns the result of a componentwise division operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise division.</param>
+        /// <returns>double2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator / (double2 lhs, double rhs) { return new double2 (lhs.x / rhs, lhs.y / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise division.</param>
+        /// <returns>double2 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator / (double lhs, double2 rhs) { return new double2 (lhs / rhs.x, lhs / rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise modulus.</param>
+        /// <returns>double2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator % (double2 lhs, double2 rhs) { return new double2 (lhs.x % rhs.x, lhs.y % rhs.y); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise modulus.</param>
+        /// <returns>double2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator % (double2 lhs, double rhs) { return new double2 (lhs.x % rhs, lhs.y % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise modulus.</param>
+        /// <returns>double2 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator % (double lhs, double2 rhs) { return new double2 (lhs % rhs.x, lhs % rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a double2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>double2 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator ++ (double2 val) { return new double2 (++val.x, ++val.y); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a double2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>double2 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator -- (double2 val) { return new double2 (--val.x, --val.y); }
 
 
         /// <summary>Returns the result of a componentwise less than operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise less than.</param>
+        /// <returns>bool2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (double2 lhs, double2 rhs) { return new bool2 (lhs.x < rhs.x, lhs.y < rhs.y); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less than.</param>
+        /// <returns>bool2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (double2 lhs, double rhs) { return new bool2 (lhs.x < rhs, lhs.y < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise less than.</param>
+        /// <returns>bool2 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator < (double lhs, double2 rhs) { return new bool2 (lhs < rhs.x, lhs < rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise less or equal.</param>
+        /// <returns>bool2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (double2 lhs, double2 rhs) { return new bool2 (lhs.x <= rhs.x, lhs.y <= rhs.y); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less or equal.</param>
+        /// <returns>bool2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (double2 lhs, double rhs) { return new bool2 (lhs.x <= rhs, lhs.y <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise less or equal.</param>
+        /// <returns>bool2 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator <= (double lhs, double2 rhs) { return new bool2 (lhs <= rhs.x, lhs <= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise greater than.</param>
+        /// <returns>bool2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (double2 lhs, double2 rhs) { return new bool2 (lhs.x > rhs.x, lhs.y > rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater than.</param>
+        /// <returns>bool2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (double2 lhs, double rhs) { return new bool2 (lhs.x > rhs, lhs.y > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise greater than.</param>
+        /// <returns>bool2 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator > (double lhs, double2 rhs) { return new bool2 (lhs > rhs.x, lhs > rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (double2 lhs, double2 rhs) { return new bool2 (lhs.x >= rhs.x, lhs.y >= rhs.y); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (double2 lhs, double rhs) { return new bool2 (lhs.x >= rhs, lhs.y >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool2 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator >= (double lhs, double2 rhs) { return new bool2 (lhs >= rhs.x, lhs >= rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a double2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>double2 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator - (double2 val) { return new double2 (-val.x, -val.y); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a double2 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>double2 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 operator + (double2 val) { return new double2 (+val.x, +val.y); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (double2 lhs, double2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (double2 lhs, double rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (double lhs, double2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two double2 vectors.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (double2 lhs, double2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double2 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (double2 lhs, double rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double value and a double2 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (double lhs, double2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxx
         {
@@ -349,6 +496,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxy
         {
@@ -357,6 +505,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyx
         {
@@ -365,6 +514,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyy
         {
@@ -373,6 +523,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxx
         {
@@ -381,6 +532,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxy
         {
@@ -389,6 +541,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyx
         {
@@ -397,6 +550,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyy
         {
@@ -405,6 +559,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxx
         {
@@ -413,6 +568,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxy
         {
@@ -421,6 +577,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyx
         {
@@ -429,6 +586,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyy
         {
@@ -437,6 +595,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxx
         {
@@ -445,6 +604,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxy
         {
@@ -453,6 +613,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyx
         {
@@ -461,6 +622,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyy
         {
@@ -469,6 +631,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxx
         {
@@ -477,6 +640,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxy
         {
@@ -485,6 +649,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyx
         {
@@ -493,6 +658,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyy
         {
@@ -501,6 +667,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxx
         {
@@ -509,6 +676,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxy
         {
@@ -517,6 +685,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyx
         {
@@ -525,6 +694,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyy
         {
@@ -533,6 +703,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xx
         {
@@ -541,6 +712,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xy
         {
@@ -551,6 +723,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yx
         {
@@ -561,6 +734,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yy
         {
@@ -592,19 +766,25 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the double2 is equal to a given double2, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(double2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the double2 is equal to a given double2, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is double2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the double2.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
         /// <summary>Returns a string representation of the double2.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -612,6 +792,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a string representation of the double2 using a specified format and culture-specific format information.</summary>
+        /// <param name="format">Format string to use during string formatting.</param>
+        /// <param name="formatProvider">Format provider to use during string formatting.</param>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
@@ -634,58 +817,87 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double2 vector constructed from two double values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <returns>double2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double x, double y) { return new double2(x, y); }
 
         /// <summary>Returns a double2 vector constructed from a double2 vector.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <returns>double2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double2 xy) { return new double2(xy); }
 
         /// <summary>Returns a double2 vector constructed from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(double v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(bool v) { return new double2(v); }
 
         /// <summary>Return a double2 vector constructed from a bool2 vector by componentwise conversion.</summary>
+        /// <param name="v">bool2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(bool2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(int v) { return new double2(v); }
 
         /// <summary>Return a double2 vector constructed from a int2 vector by componentwise conversion.</summary>
+        /// <param name="v">int2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(int2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(uint v) { return new double2(v); }
 
         /// <summary>Return a double2 vector constructed from a uint2 vector by componentwise conversion.</summary>
+        /// <param name="v">uint2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(uint2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(half v) { return new double2(v); }
 
         /// <summary>Return a double2 vector constructed from a half2 vector by componentwise conversion.</summary>
+        /// <param name="v">half2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(half2 v) { return new double2(v); }
 
         /// <summary>Returns a double2 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(float v) { return new double2(v); }
 
         /// <summary>Return a double2 vector constructed from a float2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to double2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double2 double2(float2 v) { return new double2(v); }
 
         /// <summary>Returns a uint hash code of a double2 vector.</summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double2 v)
         {
@@ -697,6 +909,8 @@ namespace Unity.Mathematics
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint2 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(double2 v)
         {
@@ -704,40 +918,62 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double value.</summary>
+        /// <param name="left">double2 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double2 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double.</param>
+        /// <returns>double result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double shuffle(double2 a, double2 b, ShuffleComponent x)
+        public static double shuffle(double2 left, double2 right, ShuffleComponent x)
         {
-            return select_shuffle_component(a, b, x);
+            return select_shuffle_component(left, right, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double2 vector.</summary>
+        /// <param name="left">double2 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double2 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double2 y component.</param>
+        /// <returns>double2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y)
+        public static double2 shuffle(double2 left, double2 right, ShuffleComponent x, ShuffleComponent y)
         {
             return double2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double3 vector.</summary>
+        /// <param name="left">double2 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double2 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting double3 z component.</param>
+        /// <returns>double3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static double3 shuffle(double2 left, double2 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return double3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double2 vectors into a double4 vector.</summary>
+        /// <param name="left">double2 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double2 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting double4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting double4 w component.</param>
+        /// <returns>double4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 shuffle(double2 a, double2 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static double4 shuffle(double2 left, double2 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return double4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z),
+                select_shuffle_component(left, right, w));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -15,18 +15,23 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 2 component vector of halfs.</summary>
     [DebuggerTypeProxy(typeof(half2.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct half2 : System.IEquatable<half2>, IFormattable
     {
+        /// <summary>x component of the vector.</summary>
         public half x;
+        /// <summary>y component of the vector.</summary>
         public half y;
 
         /// <summary>half2 zero value.</summary>
         public static readonly half2 zero;
 
         /// <summary>Constructs a half2 vector from two half values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(half x, half y)
         {
@@ -35,6 +40,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a half2 vector.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(half2 xy)
         {
@@ -43,6 +49,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a single half value by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(half v)
         {
@@ -51,6 +58,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a single float value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(float v)
         {
@@ -59,6 +67,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a float2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to half2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(float2 v)
         {
@@ -67,6 +76,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a single double value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(double v)
         {
@@ -75,6 +85,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half2 vector from a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">double2 to convert to half2</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half2(double2 v)
         {
@@ -84,54 +95,83 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single half value to a half2 vector by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator half2(half v) { return new half2(v); }
 
         /// <summary>Explicitly converts a single float value to a half2 vector by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(float v) { return new half2(v); }
 
         /// <summary>Explicitly converts a float2 vector to a half2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(float2 v) { return new half2(v); }
 
         /// <summary>Explicitly converts a single double value to a half2 vector by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(double v) { return new half2(v); }
 
         /// <summary>Explicitly converts a double2 vector to a half2 vector by componentwise conversion.</summary>
+        /// <param name="v">double2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half2(double2 v) { return new half2(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two half2 vectors.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half2 lhs, half2 rhs) { return new bool2 (lhs.x == rhs.x, lhs.y == rhs.y); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half2 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half2 lhs, half rhs) { return new bool2 (lhs.x == rhs, lhs.y == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a half value and a half2 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise equality.</param>
+        /// <returns>bool2 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator == (half lhs, half2 rhs) { return new bool2 (lhs == rhs.x, lhs == rhs.y); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two half2 vectors.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half2 lhs, half2 rhs) { return new bool2 (lhs.x != rhs.x, lhs.y != rhs.y); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half2 vector and a half value.</summary>
+        /// <param name="lhs">Left hand side half2 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half2 lhs, half rhs) { return new bool2 (lhs.x != rhs, lhs.y != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a half value and a half2 vector.</summary>
+        /// <param name="lhs">Left hand side half to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side half2 to use to compute componentwise not equal.</param>
+        /// <returns>bool2 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool2 operator != (half lhs, half2 rhs) { return new bool2 (lhs != rhs.x, lhs != rhs.y); }
 
 
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xxxx
         {
@@ -140,6 +180,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xxxy
         {
@@ -148,6 +189,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xxyx
         {
@@ -156,6 +198,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xxyy
         {
@@ -164,6 +207,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xyxx
         {
@@ -172,6 +216,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xyxy
         {
@@ -180,6 +225,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xyyx
         {
@@ -188,6 +234,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 xyyy
         {
@@ -196,6 +243,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yxxx
         {
@@ -204,6 +252,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yxxy
         {
@@ -212,6 +261,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yxyx
         {
@@ -220,6 +270,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yxyy
         {
@@ -228,6 +279,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yyxx
         {
@@ -236,6 +288,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yyxy
         {
@@ -244,6 +297,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yyyx
         {
@@ -252,6 +306,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half4 yyyy
         {
@@ -260,6 +315,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 xxx
         {
@@ -268,6 +324,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 xxy
         {
@@ -276,6 +333,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 xyx
         {
@@ -284,6 +342,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 xyy
         {
@@ -292,6 +351,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 yxx
         {
@@ -300,6 +360,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 yxy
         {
@@ -308,6 +369,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 yyx
         {
@@ -316,6 +378,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half3 yyy
         {
@@ -324,6 +387,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half2 xx
         {
@@ -332,6 +396,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half2 xy
         {
@@ -342,6 +407,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half2 yx
         {
@@ -352,6 +418,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public half2 yy
         {
@@ -383,19 +450,25 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the half2 is equal to a given half2, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(half2 rhs) { return x == rhs.x && y == rhs.y; }
 
         /// <summary>Returns true if the half2 is equal to a given half2, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is half2 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the half2.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
         /// <summary>Returns a string representation of the half2.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -403,6 +476,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a string representation of the half2 using a specified format and culture-specific format information.</summary>
+        /// <param name="format">Format string to use during string formatting.</param>
+        /// <param name="formatProvider">Format provider to use during string formatting.</param>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
@@ -425,34 +501,51 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a half2 vector constructed from two half values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <returns>half2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half x, half y) { return new half2(x, y); }
 
         /// <summary>Returns a half2 vector constructed from a half2 vector.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <returns>half2 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half2 xy) { return new half2(xy); }
 
         /// <summary>Returns a half2 vector constructed from a single half value by assigning it to every component.</summary>
+        /// <param name="v">half to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(half v) { return new half2(v); }
 
         /// <summary>Returns a half2 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">float to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(float v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a float2 vector by componentwise conversion.</summary>
+        /// <param name="v">float2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(float2 v) { return new half2(v); }
 
         /// <summary>Returns a half2 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
+        /// <param name="v">double to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(double v) { return new half2(v); }
 
         /// <summary>Return a half2 vector constructed from a double2 vector by componentwise conversion.</summary>
+        /// <param name="v">double2 to convert to half2</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half2 half2(double2 v) { return new half2(v); }
 
         /// <summary>Returns a uint hash code of a half2 vector.</summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(half2 v)
         {
@@ -464,6 +557,8 @@ namespace Unity.Mathematics
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint2 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint2 hashwide(half2 v)
         {

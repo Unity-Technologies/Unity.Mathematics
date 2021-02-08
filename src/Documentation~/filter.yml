@@ -5,3 +5,9 @@ apiRules:
   - exclude:
       uidRegex: ^Unity\..*\.Tests\..*$
       type: Namespace
+  - exclude:
+      uidRegex: Unity\.Mathematics\.Shaders$
+      type: Namespace
+  - exclude:
+      uidRegex: Unity\.IL2CPP\.CompilerServices$
+      type: Namespace
