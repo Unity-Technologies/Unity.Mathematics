@@ -15,20 +15,29 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 4 component vector of doubles.</summary>
     [DebuggerTypeProxy(typeof(double4.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct double4 : System.IEquatable<double4>, IFormattable
     {
+        /// <summary>x component of the vector.</summary>
         public double x;
+        /// <summary>y component of the vector.</summary>
         public double y;
+        /// <summary>z component of the vector.</summary>
         public double z;
+        /// <summary>w component of the vector.</summary>
         public double w;
 
         /// <summary>double4 zero value.</summary>
         public static readonly double4 zero;
 
         /// <summary>Constructs a double4 vector from four double values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double z, double w)
         {
@@ -39,6 +48,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from two double values and a double2 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double y, double2 zw)
         {
@@ -49,6 +61,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double value, a double2 vector and a double value.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double2 yz, double w)
         {
@@ -59,6 +74,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double value and a double3 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double x, double3 yzw)
         {
@@ -69,6 +86,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double2 vector and two double values.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double z, double w)
         {
@@ -79,6 +99,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from two double2 vectors.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double2 xy, double2 zw)
         {
@@ -89,6 +111,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double3 vector and a double value.</summary>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double3 xyz, double w)
         {
@@ -99,6 +123,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a double4 vector.</summary>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double4 xyzw)
         {
@@ -109,6 +134,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(double v)
         {
@@ -119,6 +145,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(bool v)
         {
@@ -129,6 +156,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a bool4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(bool4 v)
         {
@@ -139,6 +167,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(int v)
         {
@@ -149,6 +178,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">int4 to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(int4 v)
         {
@@ -159,6 +189,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(uint v)
         {
@@ -169,6 +200,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a uint4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(uint4 v)
         {
@@ -179,6 +211,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(half v)
         {
@@ -189,6 +222,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a half4 vector by componentwise conversion.</summary>
+        /// <param name="v">half4 to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(half4 v)
         {
@@ -199,6 +233,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(float v)
         {
@@ -209,6 +244,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a double4 vector from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to double4</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4(float4 v)
         {
@@ -220,215 +256,345 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single double value to a double4 vector by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(double v) { return new double4(v); }
 
         /// <summary>Explicitly converts a single bool value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double4(bool v) { return new double4(v); }
 
         /// <summary>Explicitly converts a bool4 vector to a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator double4(bool4 v) { return new double4(v); }
 
         /// <summary>Implicitly converts a single int value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(int v) { return new double4(v); }
 
         /// <summary>Implicitly converts a int4 vector to a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">int4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(int4 v) { return new double4(v); }
 
         /// <summary>Implicitly converts a single uint value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(uint v) { return new double4(v); }
 
         /// <summary>Implicitly converts a uint4 vector to a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(uint4 v) { return new double4(v); }
 
         /// <summary>Implicitly converts a single half value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(half v) { return new double4(v); }
 
         /// <summary>Implicitly converts a half4 vector to a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">half4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(half4 v) { return new double4(v); }
 
         /// <summary>Implicitly converts a single float value to a double4 vector by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(float v) { return new double4(v); }
 
         /// <summary>Implicitly converts a float4 vector to a double4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator double4(float4 v) { return new double4(v); }
 
 
         /// <summary>Returns the result of a componentwise multiplication operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise multiplication.</param>
+        /// <returns>double4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator * (double4 lhs, double4 rhs) { return new double4 (lhs.x * rhs.x, lhs.y * rhs.y, lhs.z * rhs.z, lhs.w * rhs.w); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise multiplication.</param>
+        /// <returns>double4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator * (double4 lhs, double rhs) { return new double4 (lhs.x * rhs, lhs.y * rhs, lhs.z * rhs, lhs.w * rhs); }
 
         /// <summary>Returns the result of a componentwise multiplication operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise multiplication.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise multiplication.</param>
+        /// <returns>double4 result of the componentwise multiplication.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator * (double lhs, double4 rhs) { return new double4 (lhs * rhs.x, lhs * rhs.y, lhs * rhs.z, lhs * rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise addition operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise addition.</param>
+        /// <returns>double4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator + (double4 lhs, double4 rhs) { return new double4 (lhs.x + rhs.x, lhs.y + rhs.y, lhs.z + rhs.z, lhs.w + rhs.w); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise addition.</param>
+        /// <returns>double4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator + (double4 lhs, double rhs) { return new double4 (lhs.x + rhs, lhs.y + rhs, lhs.z + rhs, lhs.w + rhs); }
 
         /// <summary>Returns the result of a componentwise addition operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise addition.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise addition.</param>
+        /// <returns>double4 result of the componentwise addition.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator + (double lhs, double4 rhs) { return new double4 (lhs + rhs.x, lhs + rhs.y, lhs + rhs.z, lhs + rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise subtraction operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise subtraction.</param>
+        /// <returns>double4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator - (double4 lhs, double4 rhs) { return new double4 (lhs.x - rhs.x, lhs.y - rhs.y, lhs.z - rhs.z, lhs.w - rhs.w); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise subtraction.</param>
+        /// <returns>double4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator - (double4 lhs, double rhs) { return new double4 (lhs.x - rhs, lhs.y - rhs, lhs.z - rhs, lhs.w - rhs); }
 
         /// <summary>Returns the result of a componentwise subtraction operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise subtraction.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise subtraction.</param>
+        /// <returns>double4 result of the componentwise subtraction.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator - (double lhs, double4 rhs) { return new double4 (lhs - rhs.x, lhs - rhs.y, lhs - rhs.z, lhs - rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise division operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise division.</param>
+        /// <returns>double4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator / (double4 lhs, double4 rhs) { return new double4 (lhs.x / rhs.x, lhs.y / rhs.y, lhs.z / rhs.z, lhs.w / rhs.w); }
 
         /// <summary>Returns the result of a componentwise division operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise division.</param>
+        /// <returns>double4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator / (double4 lhs, double rhs) { return new double4 (lhs.x / rhs, lhs.y / rhs, lhs.z / rhs, lhs.w / rhs); }
 
         /// <summary>Returns the result of a componentwise division operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise division.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise division.</param>
+        /// <returns>double4 result of the componentwise division.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator / (double lhs, double4 rhs) { return new double4 (lhs / rhs.x, lhs / rhs.y, lhs / rhs.z, lhs / rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise modulus operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise modulus.</param>
+        /// <returns>double4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator % (double4 lhs, double4 rhs) { return new double4 (lhs.x % rhs.x, lhs.y % rhs.y, lhs.z % rhs.z, lhs.w % rhs.w); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise modulus.</param>
+        /// <returns>double4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator % (double4 lhs, double rhs) { return new double4 (lhs.x % rhs, lhs.y % rhs, lhs.z % rhs, lhs.w % rhs); }
 
         /// <summary>Returns the result of a componentwise modulus operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise modulus.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise modulus.</param>
+        /// <returns>double4 result of the componentwise modulus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator % (double lhs, double4 rhs) { return new double4 (lhs % rhs.x, lhs % rhs.y, lhs % rhs.z, lhs % rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise increment operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise increment.</param>
+        /// <returns>double4 result of the componentwise increment.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator ++ (double4 val) { return new double4 (++val.x, ++val.y, ++val.z, ++val.w); }
 
 
         /// <summary>Returns the result of a componentwise decrement operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise decrement.</param>
+        /// <returns>double4 result of the componentwise decrement.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator -- (double4 val) { return new double4 (--val.x, --val.y, --val.z, --val.w); }
 
 
         /// <summary>Returns the result of a componentwise less than operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (double4 lhs, double4 rhs) { return new bool4 (lhs.x < rhs.x, lhs.y < rhs.y, lhs.z < rhs.z, lhs.w < rhs.w); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (double4 lhs, double rhs) { return new bool4 (lhs.x < rhs, lhs.y < rhs, lhs.z < rhs, lhs.w < rhs); }
 
         /// <summary>Returns the result of a componentwise less than operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less than.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise less than.</param>
+        /// <returns>bool4 result of the componentwise less than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator < (double lhs, double4 rhs) { return new bool4 (lhs < rhs.x, lhs < rhs.y, lhs < rhs.z, lhs < rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise less or equal operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (double4 lhs, double4 rhs) { return new bool4 (lhs.x <= rhs.x, lhs.y <= rhs.y, lhs.z <= rhs.z, lhs.w <= rhs.w); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (double4 lhs, double rhs) { return new bool4 (lhs.x <= rhs, lhs.y <= rhs, lhs.z <= rhs, lhs.w <= rhs); }
 
         /// <summary>Returns the result of a componentwise less or equal operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise less or equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise less or equal.</param>
+        /// <returns>bool4 result of the componentwise less or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator <= (double lhs, double4 rhs) { return new bool4 (lhs <= rhs.x, lhs <= rhs.y, lhs <= rhs.z, lhs <= rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater than operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (double4 lhs, double4 rhs) { return new bool4 (lhs.x > rhs.x, lhs.y > rhs.y, lhs.z > rhs.z, lhs.w > rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (double4 lhs, double rhs) { return new bool4 (lhs.x > rhs, lhs.y > rhs, lhs.z > rhs, lhs.w > rhs); }
 
         /// <summary>Returns the result of a componentwise greater than operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater than.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise greater than.</param>
+        /// <returns>bool4 result of the componentwise greater than.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator > (double lhs, double4 rhs) { return new bool4 (lhs > rhs.x, lhs > rhs.y, lhs > rhs.z, lhs > rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise greater or equal operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (double4 lhs, double4 rhs) { return new bool4 (lhs.x >= rhs.x, lhs.y >= rhs.y, lhs.z >= rhs.z, lhs.w >= rhs.w); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (double4 lhs, double rhs) { return new bool4 (lhs.x >= rhs, lhs.y >= rhs, lhs.z >= rhs, lhs.w >= rhs); }
 
         /// <summary>Returns the result of a componentwise greater or equal operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise greater or equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise greater or equal.</param>
+        /// <returns>bool4 result of the componentwise greater or equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator >= (double lhs, double4 rhs) { return new bool4 (lhs >= rhs.x, lhs >= rhs.y, lhs >= rhs.z, lhs >= rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise unary minus operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary minus.</param>
+        /// <returns>double4 result of the componentwise unary minus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator - (double4 val) { return new double4 (-val.x, -val.y, -val.z, -val.w); }
 
 
         /// <summary>Returns the result of a componentwise unary plus operation on a double4 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise unary plus.</param>
+        /// <returns>double4 result of the componentwise unary plus.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 operator + (double4 val) { return new double4 (+val.x, +val.y, +val.z, +val.w); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (double4 lhs, double4 rhs) { return new bool4 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z, lhs.w == rhs.w); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (double4 lhs, double rhs) { return new bool4 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs, lhs.w == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise equality.</param>
+        /// <returns>bool4 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator == (double lhs, double4 rhs) { return new bool4 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z, lhs == rhs.w); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two double4 vectors.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (double4 lhs, double4 rhs) { return new bool4 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z, lhs.w != rhs.w); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double4 vector and a double value.</summary>
+        /// <param name="lhs">Left hand side double4 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (double4 lhs, double rhs) { return new bool4 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs, lhs.w != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a double value and a double4 vector.</summary>
+        /// <param name="lhs">Left hand side double to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side double4 to use to compute componentwise not equal.</param>
+        /// <returns>bool4 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool4 operator != (double lhs, double4 rhs) { return new bool4 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z, lhs != rhs.w); }
 
 
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxx
         {
@@ -437,6 +603,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxy
         {
@@ -445,6 +612,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxz
         {
@@ -453,6 +621,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxxw
         {
@@ -461,6 +630,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyx
         {
@@ -469,6 +639,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyy
         {
@@ -477,6 +648,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyz
         {
@@ -485,6 +657,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxyw
         {
@@ -493,6 +666,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxzx
         {
@@ -501,6 +675,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxzy
         {
@@ -509,6 +684,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxzz
         {
@@ -517,6 +693,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxzw
         {
@@ -525,6 +702,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxwx
         {
@@ -533,6 +711,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxwy
         {
@@ -541,6 +720,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxwz
         {
@@ -549,6 +729,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xxww
         {
@@ -557,6 +738,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxx
         {
@@ -565,6 +747,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxy
         {
@@ -573,6 +756,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxz
         {
@@ -581,6 +765,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyxw
         {
@@ -589,6 +774,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyx
         {
@@ -597,6 +783,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyy
         {
@@ -605,6 +792,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyz
         {
@@ -613,6 +801,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyyw
         {
@@ -621,6 +810,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyzx
         {
@@ -629,6 +819,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyzy
         {
@@ -637,6 +828,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyzz
         {
@@ -645,6 +837,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyzw
         {
@@ -655,6 +848,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xywx
         {
@@ -663,6 +857,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xywy
         {
@@ -671,6 +866,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xywz
         {
@@ -681,6 +877,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xyww
         {
@@ -689,6 +886,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzxx
         {
@@ -697,6 +895,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzxy
         {
@@ -705,6 +904,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzxz
         {
@@ -713,6 +913,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzxw
         {
@@ -721,6 +922,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzyx
         {
@@ -729,6 +931,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzyy
         {
@@ -737,6 +940,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzyz
         {
@@ -745,6 +949,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzyw
         {
@@ -755,6 +960,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzzx
         {
@@ -763,6 +969,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzzy
         {
@@ -771,6 +978,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzzz
         {
@@ -779,6 +987,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzzw
         {
@@ -787,6 +996,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzwx
         {
@@ -795,6 +1005,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzwy
         {
@@ -805,6 +1016,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzwz
         {
@@ -813,6 +1025,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xzww
         {
@@ -821,6 +1034,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwxx
         {
@@ -829,6 +1043,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwxy
         {
@@ -837,6 +1052,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwxz
         {
@@ -845,6 +1061,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwxw
         {
@@ -853,6 +1070,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwyx
         {
@@ -861,6 +1079,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwyy
         {
@@ -869,6 +1088,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwyz
         {
@@ -879,6 +1099,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwyw
         {
@@ -887,6 +1108,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwzx
         {
@@ -895,6 +1117,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwzy
         {
@@ -905,6 +1128,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwzz
         {
@@ -913,6 +1137,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwzw
         {
@@ -921,6 +1146,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwwx
         {
@@ -929,6 +1155,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwwy
         {
@@ -937,6 +1164,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwwz
         {
@@ -945,6 +1173,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 xwww
         {
@@ -953,6 +1182,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxx
         {
@@ -961,6 +1191,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxy
         {
@@ -969,6 +1200,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxz
         {
@@ -977,6 +1209,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxxw
         {
@@ -985,6 +1218,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyx
         {
@@ -993,6 +1227,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyy
         {
@@ -1001,6 +1236,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyz
         {
@@ -1009,6 +1245,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxyw
         {
@@ -1017,6 +1254,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxzx
         {
@@ -1025,6 +1263,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxzy
         {
@@ -1033,6 +1272,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxzz
         {
@@ -1041,6 +1281,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxzw
         {
@@ -1051,6 +1292,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxwx
         {
@@ -1059,6 +1301,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxwy
         {
@@ -1067,6 +1310,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxwz
         {
@@ -1077,6 +1321,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yxww
         {
@@ -1085,6 +1330,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxx
         {
@@ -1093,6 +1339,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxy
         {
@@ -1101,6 +1348,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxz
         {
@@ -1109,6 +1357,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyxw
         {
@@ -1117,6 +1366,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyx
         {
@@ -1125,6 +1375,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyy
         {
@@ -1133,6 +1384,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyz
         {
@@ -1141,6 +1393,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyyw
         {
@@ -1149,6 +1402,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyzx
         {
@@ -1157,6 +1411,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyzy
         {
@@ -1165,6 +1420,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyzz
         {
@@ -1173,6 +1429,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyzw
         {
@@ -1181,6 +1438,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yywx
         {
@@ -1189,6 +1447,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yywy
         {
@@ -1197,6 +1456,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yywz
         {
@@ -1205,6 +1465,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yyww
         {
@@ -1213,6 +1474,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzxx
         {
@@ -1221,6 +1483,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzxy
         {
@@ -1229,6 +1492,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzxz
         {
@@ -1237,6 +1501,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzxw
         {
@@ -1247,6 +1512,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzyx
         {
@@ -1255,6 +1521,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzyy
         {
@@ -1263,6 +1530,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzyz
         {
@@ -1271,6 +1539,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzyw
         {
@@ -1279,6 +1548,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzzx
         {
@@ -1287,6 +1557,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzzy
         {
@@ -1295,6 +1566,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzzz
         {
@@ -1303,6 +1575,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzzw
         {
@@ -1311,6 +1584,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzwx
         {
@@ -1321,6 +1595,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzwy
         {
@@ -1329,6 +1604,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzwz
         {
@@ -1337,6 +1613,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 yzww
         {
@@ -1345,6 +1622,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywxx
         {
@@ -1353,6 +1631,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywxy
         {
@@ -1361,6 +1640,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywxz
         {
@@ -1371,6 +1651,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywxw
         {
@@ -1379,6 +1660,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywyx
         {
@@ -1387,6 +1669,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywyy
         {
@@ -1395,6 +1678,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywyz
         {
@@ -1403,6 +1687,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywyw
         {
@@ -1411,6 +1696,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywzx
         {
@@ -1421,6 +1707,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywzy
         {
@@ -1429,6 +1716,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywzz
         {
@@ -1437,6 +1725,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywzw
         {
@@ -1445,6 +1734,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywwx
         {
@@ -1453,6 +1743,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywwy
         {
@@ -1461,6 +1752,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywwz
         {
@@ -1469,6 +1761,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 ywww
         {
@@ -1477,6 +1770,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxxx
         {
@@ -1485,6 +1779,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxxy
         {
@@ -1493,6 +1788,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxxz
         {
@@ -1501,6 +1797,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxxw
         {
@@ -1509,6 +1806,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxyx
         {
@@ -1517,6 +1815,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxyy
         {
@@ -1525,6 +1824,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxyz
         {
@@ -1533,6 +1833,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxyw
         {
@@ -1543,6 +1844,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxzx
         {
@@ -1551,6 +1853,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxzy
         {
@@ -1559,6 +1862,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxzz
         {
@@ -1567,6 +1871,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxzw
         {
@@ -1575,6 +1880,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxwx
         {
@@ -1583,6 +1889,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxwy
         {
@@ -1593,6 +1900,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxwz
         {
@@ -1601,6 +1909,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zxww
         {
@@ -1609,6 +1918,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyxx
         {
@@ -1617,6 +1927,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyxy
         {
@@ -1625,6 +1936,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyxz
         {
@@ -1633,6 +1945,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyxw
         {
@@ -1643,6 +1956,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyyx
         {
@@ -1651,6 +1965,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyyy
         {
@@ -1659,6 +1974,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyyz
         {
@@ -1667,6 +1983,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyyw
         {
@@ -1675,6 +1992,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyzx
         {
@@ -1683,6 +2001,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyzy
         {
@@ -1691,6 +2010,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyzz
         {
@@ -1699,6 +2019,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyzw
         {
@@ -1707,6 +2028,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zywx
         {
@@ -1717,6 +2039,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zywy
         {
@@ -1725,6 +2048,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zywz
         {
@@ -1733,6 +2057,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zyww
         {
@@ -1741,6 +2066,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzxx
         {
@@ -1749,6 +2075,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzxy
         {
@@ -1757,6 +2084,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzxz
         {
@@ -1765,6 +2093,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzxw
         {
@@ -1773,6 +2102,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzyx
         {
@@ -1781,6 +2111,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzyy
         {
@@ -1789,6 +2120,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzyz
         {
@@ -1797,6 +2129,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzyw
         {
@@ -1805,6 +2138,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzzx
         {
@@ -1813,6 +2147,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzzy
         {
@@ -1821,6 +2156,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzzz
         {
@@ -1829,6 +2165,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzzw
         {
@@ -1837,6 +2174,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzwx
         {
@@ -1845,6 +2183,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzwy
         {
@@ -1853,6 +2192,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzwz
         {
@@ -1861,6 +2201,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zzww
         {
@@ -1869,6 +2210,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwxx
         {
@@ -1877,6 +2219,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwxy
         {
@@ -1887,6 +2230,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwxz
         {
@@ -1895,6 +2239,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwxw
         {
@@ -1903,6 +2248,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwyx
         {
@@ -1913,6 +2259,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwyy
         {
@@ -1921,6 +2268,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwyz
         {
@@ -1929,6 +2277,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwyw
         {
@@ -1937,6 +2286,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwzx
         {
@@ -1945,6 +2295,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwzy
         {
@@ -1953,6 +2304,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwzz
         {
@@ -1961,6 +2313,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwzw
         {
@@ -1969,6 +2322,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwwx
         {
@@ -1977,6 +2331,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwwy
         {
@@ -1985,6 +2340,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwwz
         {
@@ -1993,6 +2349,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 zwww
         {
@@ -2001,6 +2358,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxxx
         {
@@ -2009,6 +2367,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxxy
         {
@@ -2017,6 +2376,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxxz
         {
@@ -2025,6 +2385,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxxw
         {
@@ -2033,6 +2394,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxyx
         {
@@ -2041,6 +2403,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxyy
         {
@@ -2049,6 +2412,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxyz
         {
@@ -2059,6 +2423,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxyw
         {
@@ -2067,6 +2432,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxzx
         {
@@ -2075,6 +2441,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxzy
         {
@@ -2085,6 +2452,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxzz
         {
@@ -2093,6 +2461,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxzw
         {
@@ -2101,6 +2470,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxwx
         {
@@ -2109,6 +2479,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxwy
         {
@@ -2117,6 +2488,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxwz
         {
@@ -2125,6 +2497,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wxww
         {
@@ -2133,6 +2506,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyxx
         {
@@ -2141,6 +2515,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyxy
         {
@@ -2149,6 +2524,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyxz
         {
@@ -2159,6 +2535,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyxw
         {
@@ -2167,6 +2544,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyyx
         {
@@ -2175,6 +2553,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyyy
         {
@@ -2183,6 +2562,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyyz
         {
@@ -2191,6 +2571,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyyw
         {
@@ -2199,6 +2580,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyzx
         {
@@ -2209,6 +2591,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyzy
         {
@@ -2217,6 +2600,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyzz
         {
@@ -2225,6 +2609,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyzw
         {
@@ -2233,6 +2618,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wywx
         {
@@ -2241,6 +2627,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wywy
         {
@@ -2249,6 +2636,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wywz
         {
@@ -2257,6 +2645,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wyww
         {
@@ -2265,6 +2654,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzxx
         {
@@ -2273,6 +2663,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzxy
         {
@@ -2283,6 +2674,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzxz
         {
@@ -2291,6 +2683,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzxw
         {
@@ -2299,6 +2692,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzyx
         {
@@ -2309,6 +2703,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzyy
         {
@@ -2317,6 +2712,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzyz
         {
@@ -2325,6 +2721,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzyw
         {
@@ -2333,6 +2730,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzzx
         {
@@ -2341,6 +2739,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzzy
         {
@@ -2349,6 +2748,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzzz
         {
@@ -2357,6 +2757,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzzw
         {
@@ -2365,6 +2766,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzwx
         {
@@ -2373,6 +2775,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzwy
         {
@@ -2381,6 +2784,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzwz
         {
@@ -2389,6 +2793,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wzww
         {
@@ -2397,6 +2802,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwxx
         {
@@ -2405,6 +2811,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwxy
         {
@@ -2413,6 +2820,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwxz
         {
@@ -2421,6 +2829,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwxw
         {
@@ -2429,6 +2838,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwyx
         {
@@ -2437,6 +2847,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwyy
         {
@@ -2445,6 +2856,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwyz
         {
@@ -2453,6 +2865,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwyw
         {
@@ -2461,6 +2874,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwzx
         {
@@ -2469,6 +2883,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwzy
         {
@@ -2477,6 +2892,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwzz
         {
@@ -2485,6 +2901,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwzw
         {
@@ -2493,6 +2910,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwwx
         {
@@ -2501,6 +2919,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwwy
         {
@@ -2509,6 +2928,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwwz
         {
@@ -2517,6 +2937,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double4 wwww
         {
@@ -2525,6 +2946,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxx
         {
@@ -2533,6 +2955,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxy
         {
@@ -2541,6 +2964,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxz
         {
@@ -2549,6 +2973,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xxw
         {
@@ -2557,6 +2982,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyx
         {
@@ -2565,6 +2991,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyy
         {
@@ -2573,6 +3000,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyz
         {
@@ -2583,6 +3011,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xyw
         {
@@ -2593,6 +3022,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xzx
         {
@@ -2601,6 +3031,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xzy
         {
@@ -2611,6 +3042,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xzz
         {
@@ -2619,6 +3051,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xzw
         {
@@ -2629,6 +3062,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xwx
         {
@@ -2637,6 +3071,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xwy
         {
@@ -2647,6 +3082,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xwz
         {
@@ -2657,6 +3093,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 xww
         {
@@ -2665,6 +3102,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxx
         {
@@ -2673,6 +3111,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxy
         {
@@ -2681,6 +3120,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxz
         {
@@ -2691,6 +3131,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yxw
         {
@@ -2701,6 +3142,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyx
         {
@@ -2709,6 +3151,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyy
         {
@@ -2717,6 +3160,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyz
         {
@@ -2725,6 +3169,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yyw
         {
@@ -2733,6 +3178,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yzx
         {
@@ -2743,6 +3189,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yzy
         {
@@ -2751,6 +3198,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yzz
         {
@@ -2759,6 +3207,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yzw
         {
@@ -2769,6 +3218,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 ywx
         {
@@ -2779,6 +3229,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 ywy
         {
@@ -2787,6 +3238,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 ywz
         {
@@ -2797,6 +3249,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 yww
         {
@@ -2805,6 +3258,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zxx
         {
@@ -2813,6 +3267,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zxy
         {
@@ -2823,6 +3278,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zxz
         {
@@ -2831,6 +3287,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zxw
         {
@@ -2841,6 +3298,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zyx
         {
@@ -2851,6 +3309,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zyy
         {
@@ -2859,6 +3318,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zyz
         {
@@ -2867,6 +3327,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zyw
         {
@@ -2877,6 +3338,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zzx
         {
@@ -2885,6 +3347,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zzy
         {
@@ -2893,6 +3356,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zzz
         {
@@ -2901,6 +3365,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zzw
         {
@@ -2909,6 +3374,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zwx
         {
@@ -2919,6 +3385,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zwy
         {
@@ -2929,6 +3396,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zwz
         {
@@ -2937,6 +3405,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 zww
         {
@@ -2945,6 +3414,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wxx
         {
@@ -2953,6 +3423,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wxy
         {
@@ -2963,6 +3434,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wxz
         {
@@ -2973,6 +3445,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wxw
         {
@@ -2981,6 +3454,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wyx
         {
@@ -2991,6 +3465,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wyy
         {
@@ -2999,6 +3474,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wyz
         {
@@ -3009,6 +3485,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wyw
         {
@@ -3017,6 +3494,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wzx
         {
@@ -3027,6 +3505,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wzy
         {
@@ -3037,6 +3516,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wzz
         {
@@ -3045,6 +3525,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wzw
         {
@@ -3053,6 +3534,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wwx
         {
@@ -3061,6 +3543,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wwy
         {
@@ -3069,6 +3552,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 wwz
         {
@@ -3077,6 +3561,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double3 www
         {
@@ -3085,6 +3570,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xx
         {
@@ -3093,6 +3579,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xy
         {
@@ -3103,6 +3590,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xz
         {
@@ -3113,6 +3601,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 xw
         {
@@ -3123,6 +3612,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yx
         {
@@ -3133,6 +3623,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yy
         {
@@ -3141,6 +3632,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yz
         {
@@ -3151,6 +3643,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 yw
         {
@@ -3161,6 +3654,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 zx
         {
@@ -3171,6 +3665,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 zy
         {
@@ -3181,6 +3676,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 zz
         {
@@ -3189,6 +3685,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 zw
         {
@@ -3199,6 +3696,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 wx
         {
@@ -3209,6 +3707,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 wy
         {
@@ -3219,6 +3718,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 wz
         {
@@ -3229,6 +3729,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public double2 ww
         {
@@ -3260,19 +3761,25 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the double4 is equal to a given double4, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(double4 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z && w == rhs.w; }
 
         /// <summary>Returns true if the double4 is equal to a given double4, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is double4 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the double4.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
         /// <summary>Returns a string representation of the double4.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -3280,6 +3787,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a string representation of the double4 using a specified format and culture-specific format information.</summary>
+        /// <param name="format">Format string to use during string formatting.</param>
+        /// <param name="formatProvider">Format provider to use during string formatting.</param>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public string ToString(string format, IFormatProvider formatProvider)
         {
@@ -3306,82 +3816,134 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a double4 vector constructed from four double values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double y, double z, double w) { return new double4(x, y, z, w); }
 
         /// <summary>Returns a double4 vector constructed from two double values and a double2 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double y, double2 zw) { return new double4(x, y, zw); }
 
         /// <summary>Returns a double4 vector constructed from a double value, a double2 vector and a double value.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double2 yz, double w) { return new double4(x, yz, w); }
 
         /// <summary>Returns a double4 vector constructed from a double value and a double3 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yzw">The constructed vector's yzw components will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double x, double3 yzw) { return new double4(x, yzw); }
 
         /// <summary>Returns a double4 vector constructed from a double2 vector and two double values.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double2 xy, double z, double w) { return new double4(xy, z, w); }
 
         /// <summary>Returns a double4 vector constructed from two double2 vectors.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="zw">The constructed vector's zw components will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double2 xy, double2 zw) { return new double4(xy, zw); }
 
         /// <summary>Returns a double4 vector constructed from a double3 vector and a double value.</summary>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <param name="w">The constructed vector's w component will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double3 xyz, double w) { return new double4(xyz, w); }
 
         /// <summary>Returns a double4 vector constructed from a double4 vector.</summary>
+        /// <param name="xyzw">The constructed vector's xyzw components will be set to this value.</param>
+        /// <returns>double4 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double4 xyzw) { return new double4(xyzw); }
 
         /// <summary>Returns a double4 vector constructed from a single double value by assigning it to every component.</summary>
+        /// <param name="v">double to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(double v) { return new double4(v); }
 
         /// <summary>Returns a double4 vector constructed from a single bool value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">bool to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(bool v) { return new double4(v); }
 
         /// <summary>Return a double4 vector constructed from a bool4 vector by componentwise conversion.</summary>
+        /// <param name="v">bool4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(bool4 v) { return new double4(v); }
 
         /// <summary>Returns a double4 vector constructed from a single int value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">int to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(int v) { return new double4(v); }
 
         /// <summary>Return a double4 vector constructed from a int4 vector by componentwise conversion.</summary>
+        /// <param name="v">int4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(int4 v) { return new double4(v); }
 
         /// <summary>Returns a double4 vector constructed from a single uint value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">uint to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(uint v) { return new double4(v); }
 
         /// <summary>Return a double4 vector constructed from a uint4 vector by componentwise conversion.</summary>
+        /// <param name="v">uint4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(uint4 v) { return new double4(v); }
 
         /// <summary>Returns a double4 vector constructed from a single half value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">half to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(half v) { return new double4(v); }
 
         /// <summary>Return a double4 vector constructed from a half4 vector by componentwise conversion.</summary>
+        /// <param name="v">half4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(half4 v) { return new double4(v); }
 
         /// <summary>Returns a double4 vector constructed from a single float value by converting it to double and assigning it to every component.</summary>
+        /// <param name="v">float to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(float v) { return new double4(v); }
 
         /// <summary>Return a double4 vector constructed from a float4 vector by componentwise conversion.</summary>
+        /// <param name="v">float4 to convert to double4</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 double4(float4 v) { return new double4(v); }
 
         /// <summary>Returns a uint hash code of a double4 vector.</summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(double4 v)
         {
@@ -3393,6 +3955,8 @@ namespace Unity.Mathematics
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint4 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint4 hashwide(double4 v)
         {
@@ -3400,40 +3964,62 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double4 vectors into a double value.</summary>
+        /// <param name="left">double4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double.</param>
+        /// <returns>double result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double shuffle(double4 a, double4 b, ShuffleComponent x)
+        public static double shuffle(double4 left, double4 right, ShuffleComponent x)
         {
-            return select_shuffle_component(a, b, x);
+            return select_shuffle_component(left, right, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double4 vectors into a double2 vector.</summary>
+        /// <param name="left">double4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double2 y component.</param>
+        /// <returns>double2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 shuffle(double4 a, double4 b, ShuffleComponent x, ShuffleComponent y)
+        public static double2 shuffle(double4 left, double4 right, ShuffleComponent x, ShuffleComponent y)
         {
             return double2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double4 vectors into a double3 vector.</summary>
+        /// <param name="left">double4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting double3 z component.</param>
+        /// <returns>double3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 shuffle(double4 a, double4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static double3 shuffle(double4 left, double4 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return double3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two double4 vectors into a double4 vector.</summary>
+        /// <param name="left">double4 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">double4 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting double4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting double4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting double4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting double4 w component.</param>
+        /// <returns>double4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 shuffle(double4 a, double4 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static double4 shuffle(double4 left, double4 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return double4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z),
+                select_shuffle_component(left, right, w));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]

@@ -24,6 +24,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float2x2 matrix representing a uniform scaling of both axes by s.</summary>
+        /// <param name="s">The scaling factor.</param>
+        /// <returns>The float2x2 matrix representing uniform scale by s.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 Scale(float s)
         {
@@ -32,6 +34,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float2x2 matrix representing a non-uniform axis scaling by x and y.</summary>
+        /// <param name="x">The x-axis scaling factor.</param>
+        /// <param name="y">The y-axis scaling factor.</param>
+        /// <returns>The float2x2 matrix representing a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 Scale(float x, float y)
         {
@@ -40,6 +45,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float2x2 matrix representing a non-uniform axis scaling by the components of the float2 vector v.</summary>
+        /// <param name="v">The float2 containing the x and y axis scaling factors.</param>
+        /// <returns>The float2x2 matrix representing a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float2x2 Scale(float2 v)
         {
@@ -61,6 +68,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float3x3 matrix from a unit quaternion.</summary>
+        /// <param name="q">The quaternion rotation.</param>
         public float3x3(quaternion q)
         {
             float4 v = q.value;
@@ -78,6 +86,9 @@ namespace Unity.Mathematics
         /// Returns a float3x3 matrix representing a rotation around a unit axis by an angle in radians.
         /// The rotation direction is clockwise when looking along the rotation axis towards the origin.
         /// </summary>
+        /// <param name="axis">The rotation axis.</param>
+        /// <param name="angle">The angle of rotation in radians.</param>
+        /// <returns>The float3x3 matrix representing the rotation around an axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 AxisAngle(float3 axis, float angle)
         {
@@ -113,6 +124,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in x-y-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerXYZ(float3 xyz)
         {
@@ -131,6 +143,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in x-z-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerXZY(float3 xyz)
         {
@@ -149,6 +162,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in y-x-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerYXZ(float3 xyz)
         {
@@ -167,6 +181,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in y-z-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerYZX(float3 xyz)
         {
@@ -186,6 +201,7 @@ namespace Unity.Mathematics
         /// This is the default order rotation order in Unity.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in z-x-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerZXY(float3 xyz)
         {
@@ -204,6 +220,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in z-y-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerZYX(float3 xyz)
         {
@@ -224,6 +241,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in x-y-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerXYZ(float x, float y, float z) { return EulerXYZ(float3(x, y, z)); }
 
@@ -234,6 +252,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in x-z-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerXZY(float x, float y, float z) { return EulerXZY(float3(x, y, z)); }
 
@@ -244,6 +263,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in y-x-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerYXZ(float x, float y, float z) { return EulerYXZ(float3(x, y, z)); }
 
@@ -254,6 +274,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in y-z-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerYZX(float x, float y, float z) { return EulerYZX(float3(x, y, z)); }
 
@@ -265,6 +286,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in z-x-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerZXY(float x, float y, float z) { return EulerZXY(float3(x, y, z)); }
 
@@ -275,6 +297,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in z-y-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 EulerZYX(float x, float y, float z) { return EulerZYX(float3(x, y, z)); }
 
@@ -286,6 +309,7 @@ namespace Unity.Mathematics
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in the given order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 Euler(float3 xyz, RotationOrder order = RotationOrder.Default)
         {
@@ -318,14 +342,16 @@ namespace Unity.Mathematics
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
+        /// <returns>The float3x3 rotation matrix representing the rotation by Euler angles in the given order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 Euler(float x, float y, float z, RotationOrder order = RotationOrder.Default)
         {
             return Euler(float3(x, y, z), order);
         }
 
-        /// <summary>Returns a float4x4 matrix that rotates around the x-axis by a given number of radians.</summary>
+        /// <summary>Returns a float3x3 matrix that rotates around the x-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the x-axis towards the origin in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing a rotation around the x-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 RotateX(float angle)
         {
@@ -337,8 +363,9 @@ namespace Unity.Mathematics
                             0.0f, s,    c);
         }
 
-        /// <summary>Returns a float4x4 matrix that rotates around the y-axis by a given number of radians.</summary>
+        /// <summary>Returns a float3x3 matrix that rotates around the y-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the y-axis towards the origin in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing a rotation around the y-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 RotateY(float angle)
         {
@@ -350,8 +377,9 @@ namespace Unity.Mathematics
                             -s,   0.0f, c);
         }
 
-        /// <summary>Returns a float4x4 matrix that rotates around the z-axis by a given number of radians.</summary>
+        /// <summary>Returns a float3x3 matrix that rotates around the z-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the z-axis towards the origin in radians.</param>
+        /// <returns>The float3x3 rotation matrix representing a rotation around the z-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 RotateZ(float angle)
         {
@@ -363,7 +391,9 @@ namespace Unity.Mathematics
                             0.0f, 0.0f, 1.0f);
         }
 
-        //<summary>Returns a float3x3 matrix representing a uniform scaling of all axes by s.</summary>
+        /// <summary>Returns a float3x3 matrix representing a uniform scaling of all axes by s.</summary>
+        /// <param name="s">The uniform scaling factor.</param>
+        /// <returns>The float3x3 matrix representing a uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 Scale(float s)
         {
@@ -373,6 +403,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float3x3 matrix representing a non-uniform axis scaling by x, y and z.</summary>
+        /// <param name="x">The x-axis scaling factor.</param>
+        /// <param name="y">The y-axis scaling factor.</param>
+        /// <param name="z">The z-axis scaling factor.</param>
+        /// <returns>The float3x3 rotation matrix representing a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 Scale(float x, float y, float z)
         {
@@ -382,6 +416,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float3x3 matrix representing a non-uniform axis scaling by the components of the float3 vector v.</summary>
+        /// <param name="v">The vector containing non-uniform scaling factors.</param>
+        /// <returns>The float3x3 rotation matrix representing a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 Scale(float3 v)
         {
@@ -393,6 +429,9 @@ namespace Unity.Mathematics
         /// The two input vectors are assumed to be unit length and not collinear.
         /// If these assumptions are not met use float3x3.LookRotationSafe instead.
         /// </summary>
+        /// <param name="forward">The forward vector to align the center of view with.</param>
+        /// <param name="up">The up vector to point top of view toward.</param>
+        /// <returns>The float3x3 view rotation matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 LookRotation(float3 forward, float3 up)
         {
@@ -406,6 +445,9 @@ namespace Unity.Mathematics
         /// If the magnitude of either of the vectors is so extreme that the calculation cannot be carried out reliably or the vectors are collinear,
         /// the identity will be returned instead.
         /// </summary>
+        /// <param name="forward">The forward vector to align the center of view with.</param>
+        /// <param name="up">The up vector to point top of view toward.</param>
+        /// <returns>The float3x3 view rotation matrix or the identity matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 LookRotationSafe(float3 forward, float3 up)
         {
@@ -429,12 +471,19 @@ namespace Unity.Mathematics
                 select(float3(0,0,1), forward, accept));
         }
 
+        /// <summary>
+        /// Converts a float4x4 to a float3x3.
+        /// </summary>
+        /// <param name="f4x4">The float4x4 to convert to a float3x3.</param>
+        /// <returns>The float3x3 constructed from the upper left 3x3 of the input float4x4 matrix.</returns>
         public static explicit operator float3x3(float4x4 f4x4) => new float3x3(f4x4);
     }
 
     public partial struct float4x4
     {
         /// <summary>Constructs a float4x4 from a float3x3 rotation matrix and a float3 translation vector.</summary>
+        /// <param name="rotation">The float3x3 rotation matrix.</param>
+        /// <param name="translation">The translation vector.</param>
         public float4x4(float3x3 rotation, float3 translation)
         {
             c0 = float4(rotation.c0, 0.0f);
@@ -444,6 +493,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float4x4 from a quaternion and a float3 translation vector.</summary>
+        /// <param name="rotation">The quaternion rotation.</param>
+        /// <param name="translation">The translation vector.</param>
         public float4x4(quaternion rotation, float3 translation)
         {
             float3x3 rot = float3x3(rotation);
@@ -454,6 +505,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a float4x4 from a RigidTransform.</summary>
+        /// <param name="transform">The RigidTransform.</param>
         public float4x4(RigidTransform transform)
         {
             float3x3 rot = float3x3(transform.rot);
@@ -467,6 +519,9 @@ namespace Unity.Mathematics
         /// Returns a float4x4 matrix representing a rotation around a unit axis by an angle in radians.
         /// The rotation direction is clockwise when looking along the rotation axis towards the origin.
         /// </summary>
+        /// <param name="axis">The axis of rotation.</param>
+        /// <param name="angle">The angle of rotation in radians.</param>
+        /// <returns>The float4x4 matrix representing the rotation about an axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 AxisAngle(float3 axis, float angle)
         {
@@ -498,6 +553,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in x-y-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerXYZ(float3 xyz)
         {
@@ -517,6 +573,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in x-z-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerXZY(float3 xyz)
         {
@@ -536,6 +593,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in y-x-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerYXZ(float3 xyz)
         {
@@ -555,6 +613,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in y-z-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerYZX(float3 xyz)
         {
@@ -575,6 +634,7 @@ namespace Unity.Mathematics
         /// This is the default order rotation order in Unity.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in z-x-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerZXY(float3 xyz)
         {
@@ -594,6 +654,7 @@ namespace Unity.Mathematics
         /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
         /// </summary>
         /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in z-y-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerZYX(float3 xyz)
         {
@@ -615,6 +676,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in x-y-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerXYZ(float x, float y, float z) { return EulerXYZ(float3(x, y, z)); }
 
@@ -625,6 +687,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in x-z-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerXZY(float x, float y, float z) { return EulerXZY(float3(x, y, z)); }
 
@@ -635,6 +698,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in y-x-z order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerYXZ(float x, float y, float z) { return EulerYXZ(float3(x, y, z)); }
 
@@ -645,6 +709,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in y-z-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerYZX(float x, float y, float z) { return EulerYZX(float3(x, y, z)); }
 
@@ -656,6 +721,7 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in z-x-y order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerZXY(float x, float y, float z) { return EulerZXY(float3(x, y, z)); }
 
@@ -666,9 +732,19 @@ namespace Unity.Mathematics
         /// <param name="x">The rotation angle around the x-axis in radians.</param>
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in z-y-x order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 EulerZYX(float x, float y, float z) { return EulerZYX(float3(x, y, z)); }
 
+        /// <summary>
+        /// Returns a float4x4 constructed by first performing 3 rotations around the principal axes in a given order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// When the rotation order is known at compile time, it is recommended for performance reasons to use specific
+        /// Euler rotation constructors such as EulerZXY(...).
+        /// </summary>
+        /// <param name="xyz">A float3 vector containing the rotation angles around the x-, y- and z-axis measures in radians.</param>
+        /// <param name="order">The order in which the rotations are applied.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in given order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Euler(float3 xyz, RotationOrder order = RotationOrder.Default)
         {
@@ -701,6 +777,7 @@ namespace Unity.Mathematics
         /// <param name="y">The rotation angle around the y-axis in radians.</param>
         /// <param name="z">The rotation angle around the z-axis in radians.</param>
         /// <param name="order">The order in which the rotations are applied.</param>
+        /// <returns>The float4x4 rotation matrix of the Euler angle rotation in given order.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Euler(float x, float y, float z, RotationOrder order = RotationOrder.Default)
         {
@@ -709,6 +786,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float4x4 matrix that rotates around the x-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the x-axis towards the origin in radians.</param>
+        /// <returns>The float4x4 rotation matrix that rotates around the x-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 RotateX(float angle)
         {
@@ -724,6 +802,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float4x4 matrix that rotates around the y-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the y-axis towards the origin in radians.</param>
+        /// <returns>The float4x4 rotation matrix that rotates around the y-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 RotateY(float angle)
         {
@@ -739,6 +818,7 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a float4x4 matrix that rotates around the z-axis by a given number of radians.</summary>
         /// <param name="angle">The clockwise rotation angle when looking along the z-axis towards the origin in radians.</param>
+        /// <returns>The float4x4 rotation matrix that rotates around the z-axis.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 RotateZ(float angle)
         {
@@ -753,6 +833,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 scale matrix given 3 axis scales.</summary>
+        /// <param name="s">The uniform scaling factor.</param>
+        /// <returns>The float4x4 matrix that represents a uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Scale(float s)
         {
@@ -763,6 +845,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 scale matrix given a float3 vector containing the 3 axis scales.</summary>
+        /// <param name="x">The x-axis scaling factor.</param>
+        /// <param name="y">The y-axis scaling factor.</param>
+        /// <param name="z">The z-axis scaling factor.</param>
+        /// <returns>The float4x4 matrix that represents a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Scale(float x, float y, float z)
         {
@@ -773,6 +859,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 scale matrix given a float3 vector containing the 3 axis scales.</summary>
+        /// <param name="scales">The vector containing scale factors for each axis.</param>
+        /// <returns>The float4x4 matrix that represents a non-uniform scale.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Scale(float3 scales)
         {
@@ -780,6 +868,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 translation matrix given a float3 translation vector.</summary>
+        /// <param name="vector">The translation vector.</param>
+        /// <returns>The float4x4 translation matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Translate(float3 vector)
         {
@@ -795,6 +885,10 @@ namespace Unity.Mathematics
         /// the vector between them is assumes to be collinear with the up vector.
         /// If these assumptions are not met use float4x4.LookRotationSafe instead.
         /// </summary>
+        /// <param name="eye">The eye position.</param>
+        /// <param name="target">The view target position.</param>
+        /// <param name="up">The eye up direction.</param>
+        /// <returns>The float4x4 view matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 LookAt(float3 eye, float3 target, float3 up)
         {
@@ -815,6 +909,7 @@ namespace Unity.Mathematics
         /// <param name="height">The height of the view volume.</param>
         /// <param name="near">The distance to the near plane.</param>
         /// <param name="far">The distance to the far plane.</param>
+        /// <returns>The float4x4 centered orthographic projection matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 Ortho(float width, float height, float near, float far)
         {
@@ -839,6 +934,7 @@ namespace Unity.Mathematics
         /// <param name="top">The minimum y-coordinate of the view volume.</param>
         /// <param name="near">The distance to the near plane.</param>
         /// <param name="far">The distance to the far plane.</param>
+        /// <returns>The float4x4 off-center orthographic projection matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 OrthoOffCenter(float left, float right, float bottom, float top, float near, float far)
         {
@@ -861,6 +957,7 @@ namespace Unity.Mathematics
         /// <param name="aspect">X:Y aspect ratio.</param>
         /// <param name="near">Distance to near plane. Must be greater than zero.</param>
         /// <param name="far">Distance to far plane. Must be greater than zero.</param>
+        /// <returns>The float4x4 perspective projection matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 PerspectiveFov(float verticalFov, float aspect, float near, float far)
         {
@@ -884,6 +981,7 @@ namespace Unity.Mathematics
         /// <param name="top">The y-coordinate of the top side of the clipping frustum at the near plane.</param>
         /// <param name="near">Distance to the near plane. Must be greater than zero.</param>
         /// <param name="far">Distance to the far plane. Must be greater than zero.</param>
+        /// <returns>The float4x4 off-center perspective projection matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 PerspectiveOffCenter(float left, float right, float bottom, float top, float near, float far)
         {
@@ -903,6 +1001,10 @@ namespace Unity.Mathematics
         /// Returns a float4x4 matrix representing a combined scale-, rotation- and translation transform.
         /// Equivalent to mul(translationTransform, mul(rotationTransform, scaleTransform)).
         /// </summary>
+        /// <param name="translation">The translation vector.</param>
+        /// <param name="rotation">The quaternion rotation.</param>
+        /// <param name="scale">The scaling factors of each axis.</param>
+        /// <returns>The float4x4 matrix representing the translation, rotation, and scale by the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 TRS(float3 translation, quaternion rotation, float3 scale)
         {
@@ -928,6 +1030,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float3x3 matrix constructed from a quaternion.</summary>
+        /// <param name="rotation">The quaternion representing a rotation.</param>
+        /// <returns>The float3x3 constructed from a quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 float3x3(quaternion rotation)
         {
@@ -935,6 +1039,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a float3x3 rotation matrix and a float3 translation vector.</summary>
+        /// <param name="rotation">The float3x3 rotation matrix.</param>
+        /// <param name="translation">The translation vector.</param>
+        /// <returns>The float4x4 constructed from a rotation and translation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(float3x3 rotation, float3 translation)
         {
@@ -942,6 +1049,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a quaternion and a float3 translation vector.</summary>
+        /// <param name="rotation">The quaternion rotation.</param>
+        /// <param name="translation">The translation vector.</param>
+        /// <returns>The float4x4 constructed from a rotation and translation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(quaternion rotation, float3 translation)
         {
@@ -949,6 +1059,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a float4x4 constructed from a RigidTransform.</summary>
+        /// <param name="transform">The rigid transformation.</param>
+        /// <returns>The float4x4 constructed from a RigidTransform.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(RigidTransform transform)
         {
@@ -956,6 +1068,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns an orthonormalized version of a float3x3 matrix.</summary>
+        /// <param name="i">The float3x3 to be orthonormalized.</param>
+        /// <returns>The orthonormalized float3x3 matrix.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 orthonormalize(float3x3 i)
         {

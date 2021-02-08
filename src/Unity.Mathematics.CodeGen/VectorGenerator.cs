@@ -282,12 +282,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {
                 string columnType = ToTypeName(m_BaseType, m_Rows, 1);
                 for (int i = 0; i < m_Columns; i++)
+                {
+                    str.AppendFormat($"\t\t/// <summary>Column {i} of the matrix.</summary>\n");
                     str.AppendFormat("\t\tpublic {0} {1};\n", columnType, matrixFields[i]);
+                }
             }
             else
             {
                 for (int i = 0; i < m_Rows; i++)
                 {
+                    str.AppendFormat($"\t\t/// <summary>{vectorFields[i]} component of the vector.</summary>\n");
                     if (m_Columns == 1 && m_BaseType == "bool")
                         str.Append("\t\t[MarshalAs(UnmanagedType.U1)]\n");
                     str.AppendFormat("\t\tpublic {0} {1};\n", m_BaseType, vectorFields[i]);
@@ -367,14 +371,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if(sourceBaseType != m_BaseType)
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by converting it to {3} and assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType, m_BaseType);
+                    mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by converting it to {4} and assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory, m_BaseType);
+                    opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
                 else
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from a single {2} value by assigning it to every component.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     opStr.AppendFormat("\t\t/// <summary>{0} converts a single {1} value to a {2} {3} by assigning it to every component.</summary>\n", plicitlyString, sourceType, m_TypeName, dstTypeCategory);
+                    opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
             }
             else
@@ -382,8 +396,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 if (sourceBaseType != m_BaseType)
                 {
                     str.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    str.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     mathStr.AppendFormat("\t\t/// <summary>Return a {0} {1} constructed from a {2} {1} by componentwise conversion.</summary>\n", m_TypeName, dstTypeCategory, sourceType);
+                    mathStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
+
                     opStr.AppendFormat("\t\t/// <summary>{0} converts a {1} {2} to a {3} {2} by componentwise conversion.</summary>\n", plicitlyString, sourceType, dstTypeCategory, m_TypeName);
+                    opStr.AppendFormat($"\t\t/// <param name=\"v\">{sourceType} to convert to {m_TypeName}</param>\n");
                 }
             }
 
@@ -414,9 +433,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             str.Append("\t\t}\n\n");
 
+            mathStr.Append("\t\t/// <returns>Converted value.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.AppendFormat("\t\tpublic static {0} {0}({1} v) {{ return new {0}(v); }}\n\n", m_TypeName, sourceType);
 
+            opStr.Append("\t\t/// <returns>Converted value.</returns>\n");
             opStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             opStr.AppendFormat("\t\tpublic static {0} operator {1}({2} v) {{ return new {1}(v); }}\n\n", isExplicit ? "explicit" : "implicit", m_TypeName, sourceType);
         }
@@ -512,6 +533,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("namespace Unity.Mathematics\n");
             str.Append("{\n");
 
+            if (m_Columns > 1)
+            {
+                str.Append($"\t/// <summary>A {m_Rows}x{m_Columns} matrix of {m_BaseType}s.</summary>\n");
+            }
+            else
+            {
+                str.Append($"\t/// <summary>A {m_Rows} component vector of {m_BaseType}s.</summary>\n");
+            }
+
             if (m_Columns == 1)
                 str.AppendFormat("\t[DebuggerTypeProxy(typeof({0}.DebuggerProxy))]\n", m_TypeName);
             str.Append("\t[System.Serializable]\n");
@@ -536,10 +566,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if(m_Rows == 4 && m_Columns == 4 && (m_BaseType == "float" || m_BaseType == "double"))
             {
 
-                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false,
-                    string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
-                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true,
-                    string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, 3, 1), ToTypeName(m_BaseType, 4, 4)));
+                GenerateMulImplementation("rotate", m_BaseType, mathStr, 4, 4, 3, 1, false, GenerateMulType.Rotate);
+                GenerateMulImplementation("transform", m_BaseType, mathStr, 4, 4, 3, 1, true, GenerateMulType.Transform);
             }
 
             GenerateTransposeFunction(mathStr);
@@ -625,8 +653,24 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
                 str.AppendFormat("\t\t/// <summary>Returns the result of specified shuffling of the components from {0} into {1}.</summary>\n",
                     ToValueDescription(m_BaseType, m_Rows, m_Columns, 2), ToValueDescription(m_BaseType, resultComponents, m_Columns, 1));
+                str.AppendFormat($"\t\t/// <param name=\"left\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the left argument of the shuffle operation.</param>\n");
+                str.AppendFormat($"\t\t/// <param name=\"right\">{ToTypeName(m_BaseType, m_Rows, m_Columns)} to use as the right argument of the shuffle operation.</param>\n");
+
+                if (resultComponents == 1)
+                {
+                    str.AppendFormat($"\t\t/// <param name=\"{vectorFields[0]}\">The ShuffleComponent to use when setting the resulting {resultType}.</param>\n");
+                }
+                else
+                {
+                    for (int i = 0; i < resultComponents; ++i)
+                    {
+                        str.AppendFormat($"\t\t/// <param name=\"{vectorFields[i]}\">The ShuffleComponent to use when setting the resulting {resultType} {vectorFields[i]} component.</param>\n");
+                    }
+                }
+
+                str.AppendFormat($"\t\t/// <returns>{resultType} result of the shuffle operation.</returns>\n");
                 str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
-                str.AppendFormat("\t\tpublic static {0} shuffle({1} a, {2} b", resultType, m_TypeName, m_TypeName);
+                str.AppendFormat("\t\tpublic static {0} shuffle({1} left, {2} right", resultType, m_TypeName, m_TypeName);
                 for(int i = 0; i < resultComponents; i++)
                 {
                     str.AppendFormat(", ShuffleComponent {0}", vectorFields[i]);
@@ -644,7 +688,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                     if (resultComponents != 1)
                         str.Append("\t\t\t\t");
 
-                    str.AppendFormat("select_shuffle_component(a, b, {0})", vectorFields[i]);
+                    str.AppendFormat("select_shuffle_component(left, right, {0})", vectorFields[i]);
                     if(i != resultComponents - 1)
                         str.Append(",\n");
                 }
@@ -658,7 +702,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
         }
 
-        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation, string desc)
+        enum GenerateMulType
+        {
+            Mul,
+            Rotate,
+            Transform
+        }
+
+        private void GenerateMulImplementation(string name, string baseType, StringBuilder str, int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, bool doTranslation, GenerateMulType mulType)
         {
             // mul(a,b): if a is vector it is treated as a row vector. if b is a vector it is treaded as a column vector.
             bool isResultRowVector = (lhsRows == 1 && lhsColumns > 1);
@@ -668,18 +719,33 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string rhsType = ToTypeName(baseType, rhsRows, rhsColumns);
 
             bool isScalarResult = (resultRows == 1 && rhsColumns == 1);
+
+            switch (mulType)
+            {
+                case GenerateMulType.Mul:
+                    str.AppendFormat("\t\t/// <summary>Returns the {0} result of a matrix multiplication between {1} and {2}.</summary>\n",
+                        ToValueDescription(baseType, resultRows, rhsColumns, 0, true),
+                        ToValueDescription(baseType, lhsRows, lhsColumns, 1, true),
+                        ToValueDescription(baseType, rhsRows, rhsColumns, 1, true));
+                    str.AppendFormat("\t\t/// <param name=\"a\">Left hand side argument of the matrix multiply.</param>\n");
+                    str.AppendFormat("\t\t/// <param name=\"b\">Right hand side argument of the matrix multiply.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The computed matrix multiplication.</returns>\n");
+                    break;
+                case GenerateMulType.Rotate:
+                    str.AppendFormat("\t\t/// <summary>{0}</summary>\n", string.Format("Return the result of rotating a {0} vector by a {1} matrix", ToTypeName(m_BaseType, rhsRows, rhsColumns), ToTypeName(m_BaseType, lhsRows, lhsColumns)));
+                    str.AppendFormat("\t\t/// <param name =\"a\">Left hand side matrix argument that specifies the rotation.</param>\n");
+                    str.AppendFormat("\t\t/// <param name =\"b\">Right hand side vector argument to be rotated.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The rotated vector.</returns>\n");
+                    break;
+                case GenerateMulType.Transform:
+                    str.AppendFormat("\t\t/// <summary>{0}</summary>\n", string.Format("Return the result of transforming a {0} point by a {1} matrix", ToTypeName(m_BaseType, rhsRows, rhsColumns), ToTypeName(m_BaseType, lhsRows, lhsColumns)));
+                    str.AppendFormat("\t\t/// <param name =\"a\">Left hand side matrix argument that specifies the transformation.</param>\n");
+                    str.AppendFormat("\t\t/// <param name =\"b\">Right hand side point argument to be transformed.</param>\n");
+                    str.AppendFormat("\t\t/// <returns>The transformed point.</returns>\n");
+                    break;
+            }
+
             bool needsSwizzle = (resultRows != lhsRows);
-            if(desc == "")
-            {
-                str.AppendFormat("\t\t/// <summary>Returns the {0} result of a matrix multiplication between {1} and {2}.</summary>\n",
-                    ToValueDescription(baseType, resultRows, rhsColumns, 0, true),
-                    ToValueDescription(baseType, lhsRows, lhsColumns, 1, true),
-                    ToValueDescription(baseType, rhsRows, rhsColumns, 1, true));
-            }
-            else
-            {
-                str.AppendFormat("\t\t/// <summary>{0}</summary>\n", desc);
-            }
 
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {1} {0}({2} a, {3} b)\n", name, resultType, lhsType, rhsType);
@@ -755,7 +821,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                         if (m == 1 && k > 1)
                             continue;   // rhs cannot be row vector
 
-                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false, "");
+                        GenerateMulImplementation("mul", baseType, str, n, m, m, k, false, GenerateMulType.Mul);
                     }
                 }
             }
@@ -826,12 +892,35 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
 
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} {1} from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
+
+            int componentIndex = 0;
+            for (int i = 0; i < numParameters; ++i)
+            {
+                int paramComponents = parameterComponents[i];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+                string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
+                constructorStr.Append($"\t\t/// <param name=\"{componentString}\">The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                componentIndex += paramComponents;
+            }
+
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
 
             mathStr.AppendFormat("\t\t/// <summary>Returns a {0} {1} constructed from {2}.</summary>\n", m_TypeName, dstTypeCategory, descriptionStr.ToString());
+
+            componentIndex = 0;
+            for (int i = 0; i < numParameters; ++i)
+            {
+                int paramComponents = parameterComponents[i];
+                string componentString = GenerateComponentRangeString(componentIndex, paramComponents);
+                string componentPluralOrSingular = paramComponents > 1 ? "components" : "component";
+                mathStr.Append($"\t\t/// <param name=\"{componentString}\">The constructed vector's {componentString} {componentPluralOrSingular} will be set to this value.</param>\n");
+                componentIndex += paramComponents;
+            }
+
+            mathStr.Append($"\t\t/// <returns>{m_TypeName} constructed from arguments.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -839,7 +928,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             mathStr.Append(m_TypeName);
             mathStr.Append("(");
 
-            int componentIndex = 0;
+            componentIndex = 0;
             for (int i = 0; i < numParameters; i++)
             {
                 if (i != 0)
@@ -921,12 +1010,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string columnType = ToTypeName(m_BaseType, m_Rows, 1);
             string columnDescription = ToValueDescription(m_BaseType, m_Rows, 1, m_Columns);
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1}.</summary>\n", m_TypeName, columnDescription);
+
+            for (int col = 0; col < m_Columns; ++col)
+            {
+                constructorStr.Append($"\t\t/// <param name=\"{matrixFields[col]}\">The matrix column {matrixFields[col]} will be set to this value.</param>\n");
+            }
+
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
 
             mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from {1}.</summary>\n", m_TypeName, columnDescription);
+
+            for (int col = 0; col < m_Columns; ++col)
+            {
+                mathStr.Append($"\t\t/// <param name=\"{matrixFields[col]}\">The matrix column {matrixFields[col]} will be set to this value.</param>\n");
+            }
+
+            mathStr.Append($"\t\t/// <returns>{m_TypeName} constructed from arguments.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -981,11 +1083,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             // Generate signatures
             constructorStr.AppendFormat("\t\t/// <summary>Constructs a {0} matrix from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
+
+            for (int row = 0; row < m_Rows; ++row)
+            {
+                for (int col = 0; col < m_Columns; ++col)
+                {
+                    constructorStr.Append($"\t\t/// <param name=\"m{row}{col}\">The matrix at row {row}, column {col} will be set to this value.</param>\n");
+                }
+            }
+
             constructorStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             constructorStr.Append("\t\tpublic ");
             constructorStr.Append(m_TypeName);
             constructorStr.Append("(");
             mathStr.AppendFormat("\t\t/// <summary>Returns a {0} matrix constructed from from {1} {2} values given in row-major order.</summary>\n", m_TypeName, m_Rows * m_Columns, m_BaseType);
+
+            for (int row = 0; row < m_Rows; ++row)
+            {
+                for (int col = 0; col < m_Columns; ++col)
+                {
+                    mathStr.Append($"\t\t/// <param name=\"m{row}{col}\">The matrix at row {row}, column {col} will be set to this value.</param>\n");
+                }
+            }
+
+            mathStr.Append($"\t\t/// <returns>{m_TypeName} constructed from arguments.</returns>\n");
             mathStr.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             mathStr.Append("\t\tpublic static ");
             mathStr.Append(m_TypeName);
@@ -1163,6 +1284,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             string resultType = ToTypeName(m_BaseType, m_Columns, m_Rows);
             str.AppendFormat("\t\t/// <summary>Return the {0} transpose of a {1} matrix.</summary>\n", resultType, m_TypeName);
+            str.Append($"\t\t/// <param name=\"v\">Value to transpose.</param>\n");
+            str.Append($"\t\t/// <returns>Transposed value.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} transpose({1} v)\n", resultType, m_TypeName);
             str.Append("\t\t{\n");
@@ -1197,9 +1320,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Rows == 2)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}2x2 full inverse of a {0}2x2 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat("        /// <summary>Returns the {0}2x2 full inverse of a {0}2x2 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0}2x2 inverse({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1217,9 +1341,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if(m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>
-        public static {0}3x3 inverse({0}3x3 m)
+                str.AppendFormat("        /// <summary>Returns the {0}3x3 full inverse of a {0}3x3 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}3x3 inverse({0}3x3 m)
         {{
             {0}3 c0 = m.c0;
             {0}3 c1 = m.c1;
@@ -1242,9 +1367,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if(m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the {0}4x4 full inverse of a {0}4x4 matrix.</summary>
-        public static {0}4x4 inverse({0}4x4 m)
+                str.AppendFormat("        /// <summary>Returns the {0}4x4 full inverse of a {0}4x4 matrix.</summary>\n", m_BaseType);
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}4x4 inverse({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;
@@ -1322,9 +1448,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             if(m_Columns == 4 && m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
-        public static {0}3x4 fastinverse({0}3x4 m)
+                str.AppendFormat("        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>\n");
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}3x4 fastinverse({0}3x4 m)
         {{
             {0}3 c0 = m.c0;
             {0}3 c1 = m.c1;
@@ -1345,9 +1472,10 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             } else if(m_Columns == 4 && m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        // Fast matrix inverse for rigid transforms (Orthonormal basis and translation)
-        public static {0}4x4 fastinverse({0}4x4 m)
+                str.AppendFormat("        /// <summary>Fast matrix inverse for rigid transforms (orthonormal basis and translation)</summary>\n");
+                str.AppendFormat("        /// <param name=\"m\">Matrix to invert.</param>\n");
+                str.AppendFormat("        /// <returns>The inverted matrix.</returns>\n");
+                str.AppendFormat(@"        public static {0}4x4 fastinverse({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;
@@ -1386,11 +1514,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             if (m_BaseType != "float" && m_BaseType != "double" && m_BaseType != "int")
                 return;
 
+            str.Append($"\t\t/// <summary>Returns the determinant of a {ToTypeName(m_BaseType, m_Rows, m_Columns)} matrix.</summary>\n");
+            str.Append($"\t\t/// <param name=\"m\">Matrix to use when computing determinant.</param>\n");
+            str.Append($"\t\t/// <returns>The determinant of the matrix.</returns>\n");
+
             if (m_Rows == 2)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}2x2 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}2x2 m)
         {{
             {0} a = m.c0.x;
@@ -1406,9 +1536,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_Rows == 3)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}3x3 matrix.</summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+                str.AppendFormat(@"        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static {0} determinant({0}3x3 m)
         {{
             {0}3 c0 = m.c0;
@@ -1427,9 +1555,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
             else if (m_Rows == 4)
             {
-                str.AppendFormat(
-                    @"        /// <summary>Returns the determinant of a {0}4x4 matrix.</summary>
-        public static {0} determinant({0}4x4 m)
+                str.AppendFormat(@"        public static {0} determinant({0}4x4 m)
         {{
             {0}4 c0 = m.c0;
             {0}4 c1 = m.c1;
@@ -1455,21 +1581,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             string returnType = wide ? ToTypeName("uint", m_Rows, 1) : "uint";
             string functionName = wide ? "hashwide" : "hash";
+            string matrixOrVector = m_Columns > 1 ? "matrix" : "vector";
+            string capitalMatrixOrVector = m_Columns > 1 ? "Matrix" : "Vector";
 
             if(wide)
             {
                 str.AppendFormat("\t\t/// <summary>\n" +
-                            "\t\t/// Returns a {0} vector hash code of a {1} vector.\n" +
+                            "\t\t/// Returns a {0} vector hash code of a {1} {2}.\n" +
                             "\t\t/// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash\n" +
                             "\t\t/// that are only reduced to a narrow uint hash at the very end instead of at every step.\n" +
-                            "\t\t/// </summary>\n", returnType, m_TypeName);
+                            "\t\t/// </summary>\n", returnType, m_TypeName, matrixOrVector);
+                str.Append($"\t\t/// <param name=\"v\">{capitalMatrixOrVector} value to hash.</param>\n");
             }
             else
             {
-                str.AppendFormat("\t\t/// <summary>Returns a uint hash code of a {0} vector.</summary>\n", m_TypeName);
+                str.AppendFormat("\t\t/// <summary>Returns a uint hash code of a {0} {1}.</summary>\n", m_TypeName, matrixOrVector);
+                str.Append($"\t\t/// <param name=\"v\">{capitalMatrixOrVector} value to hash.</param>\n");
             }
 
-
+            str.Append($"\t\t/// <returns>{returnType} hash of the argument.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} {1}({2} v)\n", returnType, functionName, m_TypeName);
             str.Append("\t\t{\n");
@@ -1532,11 +1662,16 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         public void GenerateToStringFunction(StringBuilder str, bool useFormat)
         {
-            if(useFormat)
+            if (useFormat)
+            {
                 str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0} using a specified format and culture-specific format information.</summary>\n", m_TypeName);
+                str.AppendFormat("\t\t/// <param name=\"format\">Format string to use during string formatting.</param>\n");
+                str.AppendFormat("\t\t/// <param name=\"formatProvider\">Format provider to use during string formatting.</param>\n");
+            }
             else
                 str.AppendFormat("\t\t/// <summary>Returns a string representation of the {0}.</summary>\n", m_TypeName);
 
+            str.Append("\t\t/// <returns>String representation of the value.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             if(useFormat)
                 str.Append("\t\tpublic string ToString(string format, IFormatProvider formatProvider)\n\t\t{\n");
@@ -1592,11 +1727,14 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
         void GenerateBinaryOperator(int lhsRows, int lhsColumns, int rhsRows, int rhsColumns, string op, string resultType, int resultRows, int resultColumns, StringBuilder str, string opDesc)
         {
-            if(lhsRows == rhsRows && lhsColumns == rhsColumns)
+            if (lhsRows == rhsRows && lhsColumns == rhsColumns)
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 2));
             else
                 str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} and {2}.</summary>\n", opDesc, ToValueDescription(m_BaseType, lhsRows, lhsColumns, 1), ToValueDescription(m_BaseType, rhsRows, rhsColumns, 1));
 
+            str.AppendFormat($"\t\t/// <param name=\"lhs\">Left hand side {ToTypeName(m_BaseType, lhsRows, lhsColumns)} to use to compute componentwise {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <param name=\"rhs\">Right hand side {ToTypeName(m_BaseType, rhsRows, rhsColumns)} to use to compute componentwise {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <returns>{ToTypeName(resultType, resultRows, resultColumns)} result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({2} lhs, {3} rhs)", ToTypeName(resultType, resultRows, resultColumns), op, ToTypeName(m_BaseType, lhsRows, lhsColumns), ToTypeName(m_BaseType, rhsRows, rhsColumns));
             str.Append(" { ");
@@ -1694,6 +1832,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <param name=\"rhs\">Right hand side argument to compare equality with.</param>\n");
+            str.AppendFormat("\t\t/// <returns>The result of the equality comparison.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic bool Equals({0} rhs) {{ return ", m_TypeName);
 
@@ -1710,12 +1850,15 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.Append("; }\n\n");
 
             str.AppendFormat("\t\t/// <summary>Returns true if the {0} is equal to a given {0}, false otherwise.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <param name=\"o\">Right hand side argument to compare equality with.</param>\n");
+            str.AppendFormat("\t\t/// <returns>The result of the equality comparison.</returns>\n");
             str.AppendFormat("\t\tpublic override bool Equals(object o) {{ return o is {0} converted && Equals(converted); }}\n\n", m_TypeName);
         }
 
         void GenerateGetHashCode(StringBuilder str)
         {
             str.AppendFormat("\t\t/// <summary>Returns a hash code for the {0}.</summary>\n", m_TypeName);
+            str.AppendFormat("\t\t/// <returns>The computed hash code.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.Append("\t\tpublic override int GetHashCode() { return (int)math.hash(this); }\n\n");
         }
@@ -1726,8 +1869,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             string[] fields = (m_Columns > 1) ? matrixFields : vectorFields;
             int resultCount = (m_Columns > 1) ? m_Columns : m_Rows;
 
+            string matrixOrVector = m_Columns > 1 ? "matrix" : "vector";
             string resultType = ToTypeName(resultBaseType, resultCount, 1);
             str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1} by a number of bits specified by a single int.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
+            str.AppendFormat($"\t\t/// <param name=\"x\">The {matrixOrVector} to {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <param name=\"n\">The number of bits to {opDesc}.</param>\n");
+            str.AppendFormat($"\t\t/// <returns>The result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} x, int n)", m_TypeName, op);
             str.Append(" { ");
@@ -1756,6 +1903,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         void GenerateUnaryOperator(string op, StringBuilder str, string opDesc)
         {
             str.AppendFormat("\t\t/// <summary>Returns the result of a componentwise {0} operation on {1}.</summary>\n", opDesc, ToValueDescription(m_BaseType, m_Rows, m_Columns, 1));
+            str.Append($"\t\t/// <param name=\"val\">Value to use when computing the componentwise {opDesc}.</param>\n");
+            str.Append($"\t\t/// <returns>{m_TypeName} result of the componentwise {opDesc}.</returns>\n");
             str.Append("\t\t[MethodImpl(MethodImplOptions.AggressiveInlining)]\n");
             str.AppendFormat("\t\tpublic static {0} operator {1} ({0} val)", m_TypeName, op);
             str.Append(" { ");
@@ -1852,6 +2001,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             }
 
             bool hideAutoComplete = true;
+
+            str.Append("\t\t/// <summary>Swizzles the vector.</summary>\n");
 
             if (hideAutoComplete)
                 str.Append("\t\t[System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]\n");

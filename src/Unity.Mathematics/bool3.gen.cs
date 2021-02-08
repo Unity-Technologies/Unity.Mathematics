@@ -16,20 +16,27 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
+    /// <summary>A 3 component vector of bools.</summary>
     [DebuggerTypeProxy(typeof(bool3.DebuggerProxy))]
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
     public partial struct bool3 : System.IEquatable<bool3>
     {
+        /// <summary>x component of the vector.</summary>
         [MarshalAs(UnmanagedType.U1)]
         public bool x;
+        /// <summary>y component of the vector.</summary>
         [MarshalAs(UnmanagedType.U1)]
         public bool y;
+        /// <summary>z component of the vector.</summary>
         [MarshalAs(UnmanagedType.U1)]
         public bool z;
 
 
         /// <summary>Constructs a bool3 vector from three bool values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool y, bool z)
         {
@@ -39,6 +46,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool value and a bool2 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool x, bool2 yz)
         {
@@ -48,6 +57,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool2 vector and a bool value.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool2 xy, bool z)
         {
@@ -57,6 +68,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a bool3 vector.</summary>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool3 xyz)
         {
@@ -66,6 +78,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a bool3 vector from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3(bool v)
         {
@@ -76,82 +89,132 @@ namespace Unity.Mathematics
 
 
         /// <summary>Implicitly converts a single bool value to a bool3 vector by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator bool3(bool v) { return new bool3(v); }
 
 
         /// <summary>Returns the result of a componentwise equality operation on two bool3 vectors.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x == rhs.x, lhs.y == rhs.y, lhs.z == rhs.z); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool3 vector and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (bool3 lhs, bool rhs) { return new bool3 (lhs.x == rhs, lhs.y == rhs, lhs.z == rhs); }
 
         /// <summary>Returns the result of a componentwise equality operation on a bool value and a bool3 vector.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise equality.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise equality.</param>
+        /// <returns>bool3 result of the componentwise equality.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator == (bool lhs, bool3 rhs) { return new bool3 (lhs == rhs.x, lhs == rhs.y, lhs == rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not equal operation on two bool3 vectors.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x != rhs.x, lhs.y != rhs.y, lhs.z != rhs.z); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool3 vector and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (bool3 lhs, bool rhs) { return new bool3 (lhs.x != rhs, lhs.y != rhs, lhs.z != rhs); }
 
         /// <summary>Returns the result of a componentwise not equal operation on a bool value and a bool3 vector.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise not equal.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise not equal.</param>
+        /// <returns>bool3 result of the componentwise not equal.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator != (bool lhs, bool3 rhs) { return new bool3 (lhs != rhs.x, lhs != rhs.y, lhs != rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise not operation on a bool3 vector.</summary>
+        /// <param name="val">Value to use when computing the componentwise not.</param>
+        /// <returns>bool3 result of the componentwise not.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator ! (bool3 val) { return new bool3 (!val.x, !val.y, !val.z); }
 
 
         /// <summary>Returns the result of a componentwise bitwise and operation on two bool3 vectors.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator & (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x & rhs.x, lhs.y & rhs.y, lhs.z & rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool3 vector and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator & (bool3 lhs, bool rhs) { return new bool3 (lhs.x & rhs, lhs.y & rhs, lhs.z & rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise and operation on a bool value and a bool3 vector.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise and.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise and.</param>
+        /// <returns>bool3 result of the componentwise bitwise and.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator & (bool lhs, bool3 rhs) { return new bool3 (lhs & rhs.x, lhs & rhs.y, lhs & rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise bitwise or operation on two bool3 vectors.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator | (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x | rhs.x, lhs.y | rhs.y, lhs.z | rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool3 vector and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator | (bool3 lhs, bool rhs) { return new bool3 (lhs.x | rhs, lhs.y | rhs, lhs.z | rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise or operation on a bool value and a bool3 vector.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise or.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise or.</param>
+        /// <returns>bool3 result of the componentwise bitwise or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator | (bool lhs, bool3 rhs) { return new bool3 (lhs | rhs.x, lhs | rhs.y, lhs | rhs.z); }
 
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on two bool3 vectors.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator ^ (bool3 lhs, bool3 rhs) { return new bool3 (lhs.x ^ rhs.x, lhs.y ^ rhs.y, lhs.z ^ rhs.z); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool3 vector and a bool value.</summary>
+        /// <param name="lhs">Left hand side bool3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator ^ (bool3 lhs, bool rhs) { return new bool3 (lhs.x ^ rhs, lhs.y ^ rhs, lhs.z ^ rhs); }
 
         /// <summary>Returns the result of a componentwise bitwise exclusive or operation on a bool value and a bool3 vector.</summary>
+        /// <param name="lhs">Left hand side bool to use to compute componentwise bitwise exclusive or.</param>
+        /// <param name="rhs">Right hand side bool3 to use to compute componentwise bitwise exclusive or.</param>
+        /// <returns>bool3 result of the componentwise bitwise exclusive or.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 operator ^ (bool lhs, bool3 rhs) { return new bool3 (lhs ^ rhs.x, lhs ^ rhs.y, lhs ^ rhs.z); }
 
 
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxxx
         {
@@ -160,6 +223,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxxy
         {
@@ -168,6 +232,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxxz
         {
@@ -176,6 +241,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxyx
         {
@@ -184,6 +250,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxyy
         {
@@ -192,6 +259,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxyz
         {
@@ -200,6 +268,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxzx
         {
@@ -208,6 +277,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxzy
         {
@@ -216,6 +286,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xxzz
         {
@@ -224,6 +295,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyxx
         {
@@ -232,6 +304,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyxy
         {
@@ -240,6 +313,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyxz
         {
@@ -248,6 +322,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyyx
         {
@@ -256,6 +331,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyyy
         {
@@ -264,6 +340,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyyz
         {
@@ -272,6 +349,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyzx
         {
@@ -280,6 +358,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyzy
         {
@@ -288,6 +367,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xyzz
         {
@@ -296,6 +376,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzxx
         {
@@ -304,6 +385,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzxy
         {
@@ -312,6 +394,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzxz
         {
@@ -320,6 +403,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzyx
         {
@@ -328,6 +412,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzyy
         {
@@ -336,6 +421,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzyz
         {
@@ -344,6 +430,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzzx
         {
@@ -352,6 +439,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzzy
         {
@@ -360,6 +448,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 xzzz
         {
@@ -368,6 +457,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxxx
         {
@@ -376,6 +466,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxxy
         {
@@ -384,6 +475,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxxz
         {
@@ -392,6 +484,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxyx
         {
@@ -400,6 +493,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxyy
         {
@@ -408,6 +502,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxyz
         {
@@ -416,6 +511,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxzx
         {
@@ -424,6 +520,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxzy
         {
@@ -432,6 +529,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yxzz
         {
@@ -440,6 +538,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyxx
         {
@@ -448,6 +547,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyxy
         {
@@ -456,6 +556,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyxz
         {
@@ -464,6 +565,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyyx
         {
@@ -472,6 +574,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyyy
         {
@@ -480,6 +583,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyyz
         {
@@ -488,6 +592,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyzx
         {
@@ -496,6 +601,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyzy
         {
@@ -504,6 +610,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yyzz
         {
@@ -512,6 +619,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzxx
         {
@@ -520,6 +628,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzxy
         {
@@ -528,6 +637,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzxz
         {
@@ -536,6 +646,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzyx
         {
@@ -544,6 +655,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzyy
         {
@@ -552,6 +664,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzyz
         {
@@ -560,6 +673,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzzx
         {
@@ -568,6 +682,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzzy
         {
@@ -576,6 +691,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 yzzz
         {
@@ -584,6 +700,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxxx
         {
@@ -592,6 +709,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxxy
         {
@@ -600,6 +718,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxxz
         {
@@ -608,6 +727,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxyx
         {
@@ -616,6 +736,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxyy
         {
@@ -624,6 +745,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxyz
         {
@@ -632,6 +754,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxzx
         {
@@ -640,6 +763,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxzy
         {
@@ -648,6 +772,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zxzz
         {
@@ -656,6 +781,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyxx
         {
@@ -664,6 +790,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyxy
         {
@@ -672,6 +799,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyxz
         {
@@ -680,6 +808,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyyx
         {
@@ -688,6 +817,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyyy
         {
@@ -696,6 +826,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyyz
         {
@@ -704,6 +835,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyzx
         {
@@ -712,6 +844,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyzy
         {
@@ -720,6 +853,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zyzz
         {
@@ -728,6 +862,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzxx
         {
@@ -736,6 +871,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzxy
         {
@@ -744,6 +880,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzxz
         {
@@ -752,6 +889,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzyx
         {
@@ -760,6 +898,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzyy
         {
@@ -768,6 +907,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzyz
         {
@@ -776,6 +916,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzzx
         {
@@ -784,6 +925,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzzy
         {
@@ -792,6 +934,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool4 zzzz
         {
@@ -800,6 +943,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xxx
         {
@@ -808,6 +952,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xxy
         {
@@ -816,6 +961,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xxz
         {
@@ -824,6 +970,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xyx
         {
@@ -832,6 +979,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xyy
         {
@@ -840,6 +988,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xyz
         {
@@ -850,6 +999,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xzx
         {
@@ -858,6 +1008,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xzy
         {
@@ -868,6 +1019,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 xzz
         {
@@ -876,6 +1028,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yxx
         {
@@ -884,6 +1037,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yxy
         {
@@ -892,6 +1046,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yxz
         {
@@ -902,6 +1057,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yyx
         {
@@ -910,6 +1066,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yyy
         {
@@ -918,6 +1075,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yyz
         {
@@ -926,6 +1084,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yzx
         {
@@ -936,6 +1095,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yzy
         {
@@ -944,6 +1104,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 yzz
         {
@@ -952,6 +1113,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zxx
         {
@@ -960,6 +1122,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zxy
         {
@@ -970,6 +1133,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zxz
         {
@@ -978,6 +1142,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zyx
         {
@@ -988,6 +1153,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zyy
         {
@@ -996,6 +1162,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zyz
         {
@@ -1004,6 +1171,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zzx
         {
@@ -1012,6 +1180,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zzy
         {
@@ -1020,6 +1189,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool3 zzz
         {
@@ -1028,6 +1198,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 xx
         {
@@ -1036,6 +1207,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 xy
         {
@@ -1046,6 +1218,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 xz
         {
@@ -1056,6 +1229,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 yx
         {
@@ -1066,6 +1240,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 yy
         {
@@ -1074,6 +1249,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 yz
         {
@@ -1084,6 +1260,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 zx
         {
@@ -1094,6 +1271,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 zy
         {
@@ -1104,6 +1282,7 @@ namespace Unity.Mathematics
         }
 
 
+        /// <summary>Swizzles the vector.</summary>
         [System.ComponentModel.EditorBrowsable(System.ComponentModel.EditorBrowsableState.Never)]
         public bool2 zz
         {
@@ -1135,19 +1314,25 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns true if the bool3 is equal to a given bool3, false otherwise.</summary>
+        /// <param name="rhs">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(bool3 rhs) { return x == rhs.x && y == rhs.y && z == rhs.z; }
 
         /// <summary>Returns true if the bool3 is equal to a given bool3, false otherwise.</summary>
+        /// <param name="o">Right hand side argument to compare equality with.</param>
+        /// <returns>The result of the equality comparison.</returns>
         public override bool Equals(object o) { return o is bool3 converted && Equals(converted); }
 
 
         /// <summary>Returns a hash code for the bool3.</summary>
+        /// <returns>The computed hash code.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override int GetHashCode() { return (int)math.hash(this); }
 
 
         /// <summary>Returns a string representation of the bool3.</summary>
+        /// <returns>String representation of the value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
         {
@@ -1172,26 +1357,42 @@ namespace Unity.Mathematics
     public static partial class math
     {
         /// <summary>Returns a bool3 vector constructed from three bool values.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="y">The constructed vector's y component will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool y, bool z) { return new bool3(x, y, z); }
 
         /// <summary>Returns a bool3 vector constructed from a bool value and a bool2 vector.</summary>
+        /// <param name="x">The constructed vector's x component will be set to this value.</param>
+        /// <param name="yz">The constructed vector's yz components will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool x, bool2 yz) { return new bool3(x, yz); }
 
         /// <summary>Returns a bool3 vector constructed from a bool2 vector and a bool value.</summary>
+        /// <param name="xy">The constructed vector's xy components will be set to this value.</param>
+        /// <param name="z">The constructed vector's z component will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool2 xy, bool z) { return new bool3(xy, z); }
 
         /// <summary>Returns a bool3 vector constructed from a bool3 vector.</summary>
+        /// <param name="xyz">The constructed vector's xyz components will be set to this value.</param>
+        /// <returns>bool3 constructed from arguments.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool3 xyz) { return new bool3(xyz); }
 
         /// <summary>Returns a bool3 vector constructed from a single bool value by assigning it to every component.</summary>
+        /// <param name="v">bool to convert to bool3</param>
+        /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static bool3 bool3(bool v) { return new bool3(v); }
 
         /// <summary>Returns a uint hash code of a bool3 vector.</summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint hash(bool3 v)
         {
@@ -1203,6 +1404,8 @@ namespace Unity.Mathematics
         /// When multiple elements are to be hashes together, it can more efficient to calculate and combine wide hash
         /// that are only reduced to a narrow uint hash at the very end instead of at every step.
         /// </summary>
+        /// <param name="v">Vector value to hash.</param>
+        /// <returns>uint3 hash of the argument.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static uint3 hashwide(bool3 v)
         {
@@ -1210,40 +1413,62 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool value.</summary>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool.</param>
+        /// <returns>bool result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool shuffle(bool3 a, bool3 b, ShuffleComponent x)
+        public static bool shuffle(bool3 left, bool3 right, ShuffleComponent x)
         {
-            return select_shuffle_component(a, b, x);
+            return select_shuffle_component(left, right, x);
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool2 vector.</summary>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool2 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool2 y component.</param>
+        /// <returns>bool2 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool2 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y)
+        public static bool2 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y)
         {
             return bool2(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool3 vector.</summary>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool3 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool3 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting bool3 z component.</param>
+        /// <returns>bool3 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool3 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
+        public static bool3 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z)
         {
             return bool3(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z));
         }
 
         /// <summary>Returns the result of specified shuffling of the components from two bool3 vectors into a bool4 vector.</summary>
+        /// <param name="left">bool3 to use as the left argument of the shuffle operation.</param>
+        /// <param name="right">bool3 to use as the right argument of the shuffle operation.</param>
+        /// <param name="x">The ShuffleComponent to use when setting the resulting bool4 x component.</param>
+        /// <param name="y">The ShuffleComponent to use when setting the resulting bool4 y component.</param>
+        /// <param name="z">The ShuffleComponent to use when setting the resulting bool4 z component.</param>
+        /// <param name="w">The ShuffleComponent to use when setting the resulting bool4 w component.</param>
+        /// <returns>bool4 result of the shuffle operation.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static bool4 shuffle(bool3 a, bool3 b, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
+        public static bool4 shuffle(bool3 left, bool3 right, ShuffleComponent x, ShuffleComponent y, ShuffleComponent z, ShuffleComponent w)
         {
             return bool4(
-                select_shuffle_component(a, b, x),
-                select_shuffle_component(a, b, y),
-                select_shuffle_component(a, b, z),
-                select_shuffle_component(a, b, w));
+                select_shuffle_component(left, right, x),
+                select_shuffle_component(left, right, y),
+                select_shuffle_component(left, right, z),
+                select_shuffle_component(left, right, w));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
