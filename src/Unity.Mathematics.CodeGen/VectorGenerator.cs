@@ -3781,10 +3781,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t\tvar args = new {0}.Arguments();\n", testName);
             str.AppendFormat("\t\t\targs.Init();\n");
             str.AppendFormat("\n");
+            str.AppendFormat("\t\t\tvar monoSampleGroup = new SampleGroup(\"Mono\", SampleUnit.Microsecond);");
             str.AppendFormat("\t\t\tMeasure.Method(() =>\n");
             str.AppendFormat("\t\t\t{{\n");
             str.AppendFormat("\t\t\t\ttestFunction.Invoke(ref args);\n");
             str.AppendFormat("\t\t\t}})\n");
+            str.AppendFormat("\t\t\t.SampleGroup(monoSampleGroup)\n");
             str.AppendFormat("\t\t\t.WarmupCount(1)\n");
             str.AppendFormat("\t\t\t.MeasurementCount(10)\n");
             str.AppendFormat("\t\t\t.Run();\n");
@@ -3797,10 +3799,12 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t\tvar args = new {0}.Arguments();\n", testName);
             str.AppendFormat("\t\t\targs.Init();\n");
             str.AppendFormat("\n");
+            str.AppendFormat("\t\t\tvar burstSampleGroup = new SampleGroup(\"Burst\", SampleUnit.Microsecond);");
             str.AppendFormat("\t\t\tMeasure.Method(() =>\n");
             str.AppendFormat("\t\t\t{{\n");
             str.AppendFormat("\t\t\t    testFunction.Invoke(ref args);\n");
             str.AppendFormat("\t\t\t}})\n");
+            str.AppendFormat("\t\t\t.SampleGroup(burstSampleGroup)\n");
             str.AppendFormat("\t\t\t.WarmupCount(1)\n");
             str.AppendFormat("\t\t\t.MeasurementCount(10)\n");
             str.AppendFormat("\t\t\t.Run();\n");

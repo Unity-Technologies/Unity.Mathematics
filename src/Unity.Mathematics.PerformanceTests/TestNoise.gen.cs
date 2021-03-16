@@ -70,10 +70,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -87,10 +88,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -148,10 +150,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -165,10 +168,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -226,10 +230,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -243,10 +248,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -312,10 +318,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise3Dgrad.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -329,10 +336,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new snoise3Dgrad.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -390,10 +398,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -407,10 +416,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -468,10 +478,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -485,10 +496,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -546,10 +558,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -563,10 +576,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cnoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -624,10 +638,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -641,10 +656,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -702,10 +718,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -719,10 +736,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -780,10 +798,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -797,10 +816,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new pnoise4D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -858,10 +878,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -875,10 +896,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -936,10 +958,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -953,10 +976,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular3D.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1014,10 +1038,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2x2.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1031,10 +1056,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2x2.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1092,10 +1118,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2x2x2.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1109,10 +1136,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new cellular2x2x2.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1170,10 +1198,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new psrdnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1187,10 +1216,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new psrdnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1248,10 +1278,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new psrnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1265,10 +1296,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new psrnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1326,10 +1358,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new srdnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1343,10 +1376,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new srdnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1404,10 +1438,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new srnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -1421,10 +1456,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new srnoise.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();

@@ -7,7 +7,7 @@
     "com.unity.package-validation-suite": "0.8.1-preview",
     "com.unity.properties": "0.10.4-preview",
     "com.unity.test-framework": "1.1.11",
-    "com.unity.test-framework.performance": "2.6.0-preview"
+    "com.unity.test-framework.performance": "2.8.0-preview"
   },
   "testables": [
     "com.unity.mathematics"

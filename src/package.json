@@ -8,6 +8,7 @@
         "unity"
     ],
     "dependencies": {
+        "com.unity.test-framework.performance": "2.8-preview"
     },
     "repository": {
         "type": "git",

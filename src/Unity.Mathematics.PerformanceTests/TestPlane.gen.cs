@@ -70,10 +70,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new Normalize_Plane.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -87,10 +88,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new Normalize_Plane.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();

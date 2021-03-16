@@ -94,10 +94,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new orthonormal_basis_float.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -111,10 +112,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new orthonormal_basis_float.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -196,10 +198,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new orthonormal_basis_double.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(monoSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
@@ -213,10 +216,11 @@ namespace Unity.Mathematics.PerformanceTests
             var args = new orthonormal_basis_double.Arguments();
             args.Init();
 
-            Measure.Method(() =>
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
             {
                 testFunction.Invoke(ref args);
             })
+            .SampleGroup(burstSampleGroup)
             .WarmupCount(1)
             .MeasurementCount(10)
             .Run();
