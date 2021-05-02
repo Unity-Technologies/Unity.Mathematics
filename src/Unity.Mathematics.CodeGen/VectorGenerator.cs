@@ -1482,7 +1482,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {0}4 c2 = m.c2;
             {0}4 pos = m.c3;
 
-            {0}4 zero = {0}4(0);
+            {0}4 zero = {0}4({1});
 
             {0}4 t0 = unpacklo(c0, c2);
             {0}4 t1 = unpacklo(c1, zero);
@@ -1494,7 +1494,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             {0}4 r2 = unpacklo(t2, t3);
 
             pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
-            pos.w = 1.0f;
+            pos.w = {2};
 
             return {0}4x4(r0, r1, r2, pos);
         }}
