@@ -27,6 +27,8 @@ upmci_platforms:
     flavor: b1.large
 
 editor_versions:
+  - version: "2018.3"
+    display_name: "2018.3"
   - version: "2018.4"
     display_name: "2018.4"
   - version: "2019.2"
