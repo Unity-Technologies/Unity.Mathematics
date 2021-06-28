@@ -2,6 +2,13 @@
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+## [1.2.2] - 2021-06-28
+### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
 
 ### Changed
@@ -13,8 +20,7 @@
 * Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
 * Fixed incorrect `math.tzcnt` documentation which mentioned leading zero counts instead of trailing zero counts.
 * Fixed `float2x2.Rotate` documentation to mention radians instead of degrees.
-
-### Internal (Not ready for production)
+* Fixed documentation for methods and properties that were previously undocumented.
 
 ## [1.2.1] - 2020-08-06
 
