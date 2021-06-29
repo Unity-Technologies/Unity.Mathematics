@@ -93,7 +93,7 @@ validate_package_{{platform.name}}_{{editor.display_name}}:
     flavor: {{platform.flavor}}
   commands:
   {% if editor.version == "2018.3" %}
-    - npm install upm-ci-utils@1.10.0 --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+    - npm install upm-ci-utils@1.11.0 --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
   {% else %}
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
   {% endif %}
