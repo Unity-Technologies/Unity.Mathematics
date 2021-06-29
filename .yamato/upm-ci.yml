@@ -92,7 +92,11 @@ validate_package_{{platform.name}}_{{editor.display_name}}:
     type: {{platform.type}}
     flavor: {{platform.flavor}}
   commands:
+  {% if editor.version == "2018.3" %}
+    - npm install upm-ci-utils@1.11.0 --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+  {% else %}
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
+  {% endif %}
     - upm-ci package pack --package-path src/
     - upm-ci package test --package-path src/ --unity-version {{ editor.version }}
   artifacts:
