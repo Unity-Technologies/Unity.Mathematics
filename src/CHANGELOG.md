@@ -7,6 +7,11 @@
 ### Removed
 ### Fixed
 
+## [1.2.3] - 2021-09-02
+
+### Changed
+* License file updated.
+
 ## [1.2.2] - 2021-06-28
 ### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
