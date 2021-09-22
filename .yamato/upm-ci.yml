@@ -140,7 +140,7 @@ publish:
         - "upm-ci~/packages/**/*"
   dependencies:
     {% for platform in build_platforms %}
-      {% for editor in editor_versions %}
+      {% for editor in validate_editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.display_name}}
       {% endfor %}
     {% endfor %}
