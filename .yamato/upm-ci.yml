@@ -26,15 +26,21 @@ upmci_platforms:
     type: Unity::VM::osx
     flavor: b1.large
 
-editor_versions:
+validate_editor_versions:
   - version: "2018.4"
     display_name: "2018.4"
-  - version: "2019.2"
-    display_name: "2019.2"
-  - version: "2019.3"
-    display_name: "2019.3"
-  - version: "2020.2/partner/staging"
-    display_name: "2020.2_partner_staging"
+  - version: "2019.4"
+    display_name: "2019.4"
+  - version: "2020.3"
+    display_name: "2020.3"
+  - version: "2021.1"
+    display_name: "2021.1"
+  - version: "2021.2"
+    display_name: "2021.2"
+  - version: "2022.1"
+    display_name: "2022.1"
+  - version: "2020.3/partner/staging"
+    display_name: "2020.3_partner_staging"
   - version: "trunk"
     display_name: "trunk"
 ---
@@ -66,7 +72,7 @@ validate_package_minimal:
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
-    - upm-ci package test --package-path src/ --unity-version 2019.1
+    - upm-ci package test --package-path src/ --unity-version 2019.4
   artifacts:
     packages:
       paths:
@@ -82,7 +88,7 @@ validate_package_minimal:
     {% endfor %}
 
   {% for platform in upmci_platforms %}
-  {% for editor in editor_versions %}
+  {% for editor in validate_editor_versions %}
 validate_package_{{platform.name}}_{{editor.display_name}}:
   name: Validate package {{platform.name}} {{editor.display_name}}
   agent:
@@ -166,7 +172,7 @@ nightly_ci:
         frequency: daily
   dependencies:
     {% for platform in build_platforms %}
-      {% for editor in editor_versions %}
+      {% for editor in validate_editor_versions %}
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.display_name}}
       {% endfor %}
     {% endfor %}
