@@ -115,6 +115,15 @@ validate_package_{{platform.name}}_{{editor.display_name}}:
   {% endfor %}
   {% endfor %}
 
+validate_package_all:
+  name: Validate package all
+  dependencies:
+    {% for platform in upmci_platforms %}
+    {% for editor in validate_editor_versions %}
+    - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.display_name}}
+    {% endfor %}
+    {% endfor %}
+
 
 publish:
   name: Publish
@@ -171,12 +180,7 @@ nightly_ci:
       - branch: master
         frequency: daily
   dependencies:
-    {% for platform in build_platforms %}
-      {% for editor in validate_editor_versions %}
-      - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.display_name}}
-      {% endfor %}
-    {% endfor %}
-
+    - .yamato/upm-ci.yml#validate_package_all
 
 commit_ci:
   name: all CI pipeline
