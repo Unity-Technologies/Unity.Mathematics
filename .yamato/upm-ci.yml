@@ -71,7 +71,7 @@ package_tests_editor_versions:
 {% for platform in upmci_platforms %}
 {% for editor in package_tests_editor_versions %}
 package_tests_{{platform.name}}_{{editor.display_name}}:
-  name: Package test {{platform.name}} {{editor.display_name}}
+  name: Package tests {{platform.name}} {{editor.display_name}}
   agent:
     image: {{platform.image}}
     type: {{platform.type}}
@@ -83,8 +83,17 @@ package_tests_{{platform.name}}_{{editor.display_name}}:
 {% endfor %}
 {% endfor %}
 
+package_tests_all:
+  name: Package tests all
+  dependencies:
+    {% for platform in upmci_platforms %}
+    {% for editor in package_tests_editor_versions %}
+    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_{{editor.display_name}}
+    {% endfor %}
+    {% endfor %}
+
 package_tests_minimal:
-  name: Package test minimal
+  name: Package tests minimal
   dependencies:
   {% for platform in upmci_platforms %}
     - .yamato/upm-ci.yml#package_tests_{{platform.name}}_2018.3
