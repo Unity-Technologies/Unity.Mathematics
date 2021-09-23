@@ -69,7 +69,7 @@ package_test_editor_versions:
 ---
 
 {% for platform in upmci_platforms %}
-{% for editor in validate_editor_versions %}
+{% for editor in package_test_editor_versions %}
 package_test_{{platform.name}}_{{editor.display_name}}:
   name: Package test {{platform.name}} {{editor.display_name}}
   agent:
