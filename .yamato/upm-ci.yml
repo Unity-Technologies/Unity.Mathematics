@@ -44,7 +44,7 @@ validate_editor_versions:
   - version: "trunk"
     display_name: "trunk"
 
-package_test_editor_versions:
+package_tests_editor_versions:
   # 2018.3 shows up here but not under validate_editor_versions because package validation is no longer
   # supported on 2018.3 but Mathematics still supports it so we need to be able to test it. CI jobs
   # from this list will run package tests only instead of the full validation suite.
@@ -69,8 +69,8 @@ package_test_editor_versions:
 ---
 
 {% for platform in upmci_platforms %}
-{% for editor in package_test_editor_versions %}
-package_test_{{platform.name}}_{{editor.display_name}}:
+{% for editor in package_tests_editor_versions %}
+package_tests_{{platform.name}}_{{editor.display_name}}:
   name: Package test {{platform.name}} {{editor.display_name}}
   agent:
     image: {{platform.image}}
@@ -79,15 +79,15 @@ package_test_{{platform.name}}_{{editor.display_name}}:
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
-    - upm-ci package test --type package-test --package-path src/ --unity-version {{ editor.version }}
+    - upm-ci package test --type package-tests --package-path src/ --unity-version {{ editor.version }}
 {% endfor %}
 {% endfor %}
 
-package_test_minimal:
+package_tests_minimal:
   name: Package test minimal
   dependencies:
   {% for platform in upmci_platforms %}
-    - .yamato/upm-ci.yml#package_test_{{platform.name}}_2018.3
+    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_2018.3
   {% endfor %}
 
 validate_package_minimal:
@@ -202,4 +202,4 @@ commit_ci:
       only:
         - "/.*/"
   dependencies:
-    - .yamato/upm-ci.yml#package_test_minimal
+    - .yamato/upm-ci.yml#package_tests_minimal
