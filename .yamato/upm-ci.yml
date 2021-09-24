@@ -80,6 +80,10 @@ package_tests_{{platform.name}}_{{editor.display_name}}:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
     - upm-ci package test --type package-tests --package-path src/ --unity-version {{ editor.version }}
+  artifacts:
+    test_results:
+      paths:
+          - "upm-ci~/**/*"
 {% endfor %}
 {% endfor %}
 
