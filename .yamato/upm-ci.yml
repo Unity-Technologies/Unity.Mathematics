@@ -171,7 +171,7 @@ publish:
       - .yamato/upm-ci.yml#validate_package_{{platform.name}}_{{editor.display_name}}
       {% endfor %}
     {% endfor %}
-    - .yamato/upm-ci.yml#package_tests_minimal
+      - .yamato/upm-ci.yml#package_tests_minimal
 
 promote:
   name: Promote
