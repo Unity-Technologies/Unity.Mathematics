@@ -2,22 +2,29 @@
 
 ## [Unreleased]
 ### Added
-* Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
 * Added `math.square()` to compute the square (x * x).
 * Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
 * Added `math.sign(x)` for int, int2, int3 and int4.
 
 ### Changed
-* Changed noise documentation in comments to xmldoc comments.
+### Deprecated
+### Removed
+### Fixed
 
+## [1.2.4] - 2021-09-22
+### Added
+* Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
+
+### Changed
+* License file updated to satisfy Unity's package validation tests.
+* Changed noise documentation in comments to xmldoc comments.
 ### Deprecated
 ### Removed
 ### Fixed
 * Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
 * Fixed incorrect `math.tzcnt` documentation which mentioned leading zero counts instead of trailing zero counts.
 * Fixed `float2x2.Rotate` documentation to mention radians instead of degrees.
-
-### Internal (Not ready for production)
+* Fixed documentation for methods and properties that were previously undocumented.
 
 ## [1.2.1] - 2020-08-06
 
