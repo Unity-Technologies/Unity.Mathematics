@@ -2627,7 +2627,6 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 rcp(double4 x) { return 1.0 / x; }
 
-
         /// <summary>Returns the sign of a int value. -1 if it is less than zero, 0 if it is zero and 1 if it greater than zero.</summary>
         /// <param name="x">Input value.</param>
         /// <returns>The sign of the input.</returns>
@@ -2651,7 +2650,6 @@ namespace Unity.Mathematics
         /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 sign(int4 x) { return new int4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
-
 
         /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
         /// <param name="x">Input value.</param>
