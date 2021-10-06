@@ -89,8 +89,39 @@ namespace Unity.Mathematics.Editor
             if (attribute is DoNotNormalizeAttribute && string.IsNullOrEmpty(label.tooltip))
                 label.tooltip = Content.doNotNormalizeTooltip;
 
-            EditorGUI.BeginProperty(position, label, property);
-            EditorGUI.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
+            label = EditorGUI.BeginProperty(position, label, property);
+
+            {
+                // This code is basically EditorGUI.MultiPropertyField(Rect, GUIContent[], SerializedProperty, GUIContent), but with the
+                // property visibility assumed to be "All" instead of "OnlyVisible". We really want to have "All" because
+                // it's possible for someone to hide something in the inspector with [HideInInspector] but then manually
+                // draw it themselves later. In this case, if you called EditorGUI.MultiPropertyField() directly, you'd
+                // end up with some fields that point to some unrelated visible property.
+                position = EditorGUI.PrefixLabel(position, label);
+                position.height = 18f;
+                int length = subLabels.Length;
+                float num = (position.width - (length - 1) * 4f) / length;
+                Rect position1 = new Rect(position)
+                {
+                    width = num
+                };
+                var child = property.FindPropertyRelative(startIter);
+                float labelWidth = EditorGUIUtility.labelWidth;
+                int indentLevel = EditorGUI.indentLevel;
+                EditorGUI.indentLevel = 0;
+
+                for (int index = 0; index < subLabels.Length; ++index)
+                {
+                    EditorGUIUtility.labelWidth = EditorStyles.label.CalcSize(subLabels[index]).x;
+                    EditorGUI.PropertyField(position1, child, subLabels[index]);
+                    position1.x += num + 4f;
+                    child.Next(false);
+                }
+
+                EditorGUIUtility.labelWidth = labelWidth;
+                EditorGUI.indentLevel = indentLevel;
+            }
+
             EditorGUI.EndProperty();
         }
     }
