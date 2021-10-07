@@ -97,9 +97,17 @@ namespace Unity.Mathematics.Editor
 
     internal class EditorGUICopy
     {
-        internal const float kSingleLineHeight = 18.0f;
-        internal const float kSpacingSubLabel = 4.0f;
+        internal const float kSingleLineHeight = 18f;
+        internal const float kSpacingSubLabel = 4;
+        private const float kIndentPerLevel = 15;
+        internal const float kPrefixPaddingRight = 2;
         internal static int indentLevel = 0;
+        private static readonly int s_FoldoutHash = "Foldout".GetHashCode();
+
+        // internal static readonly SVC<float> kVerticalSpacingMultiField = new SVC<float>("--theme-multifield-vertical-spacing", 0.0f);
+        // kVerticalSpacingMultiField should actually look like the above line ^^^ but we don't have access to SVC<T>,
+        // so instead we just set this value to what is observed in the debugger with the Unity dark theme.
+        internal const float kVerticalSpacingMultiField = 2;
 
         internal enum PropertyVisibility
         {
@@ -114,7 +122,8 @@ namespace Unity.Mathematics.Editor
         // end up with some fields that point to some unrelated visible property.
         public static void MultiPropertyField(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, GUIContent label)
         {
-            position = EditorGUI.PrefixLabel(position, label);
+            int id = GUIUtility.GetControlID(s_FoldoutHash, FocusType.Keyboard, position);
+            position = MultiFieldPrefixLabel(position, id, label, subLabels.Length);
             position.height = kSingleLineHeight;
             MultiPropertyFieldInternal(position, subLabels, valuesIterator, PropertyVisibility.All);
         }
@@ -168,6 +177,53 @@ namespace Unity.Mathematics.Editor
             }
             EditorGUIUtility.labelWidth = t;
             indentLevel = l;
+        }
+
+        internal static bool LabelHasContent(GUIContent label)
+        {
+            if (label == null)
+            {
+                return true;
+            }
+            // @TODO: find out why checking for GUIContent.none doesn't work
+            return label.text != string.Empty || label.image != null;
+        }
+
+        internal static float indent => indentLevel * kIndentPerLevel;
+
+        internal static Rect MultiFieldPrefixLabel(Rect totalPosition, int id, GUIContent label, int columns)
+        {
+            if (!LabelHasContent(label))
+            {
+                return EditorGUI.IndentedRect(totalPosition);
+            }
+
+            if (EditorGUIUtility.wideMode)
+            {
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, EditorGUIUtility.labelWidth - indent, kSingleLineHeight);
+                Rect fieldPosition = totalPosition;
+                fieldPosition.xMin += EditorGUIUtility.labelWidth + kPrefixPaddingRight;
+
+                // If there are 2 columns we use the same column widths as if there had been 3 columns
+                // in order to make columns line up neatly.
+                if (columns == 2)
+                {
+                    float columnWidth = (fieldPosition.width - (3 - 1) * kSpacingSubLabel) / 3f;
+                    fieldPosition.xMax -= (columnWidth + kSpacingSubLabel);
+                }
+
+                EditorGUI.HandlePrefixLabel(totalPosition, labelPosition, label, id);
+                return fieldPosition;
+            }
+            else
+            {
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, totalPosition.width - indent, kSingleLineHeight);
+                Rect fieldPosition = totalPosition;
+                fieldPosition.xMin += indent + kIndentPerLevel;
+                fieldPosition.yMin += kSingleLineHeight + kVerticalSpacingMultiField;
+                EditorGUI.HandlePrefixLabel(totalPosition, labelPosition, label, id);
+                return fieldPosition;
+            }
         }
     }
 }
