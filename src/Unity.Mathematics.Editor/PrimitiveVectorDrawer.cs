@@ -90,39 +90,84 @@ namespace Unity.Mathematics.Editor
                 label.tooltip = Content.doNotNormalizeTooltip;
 
             label = EditorGUI.BeginProperty(position, label, property);
-
-            {
-                // This code is basically EditorGUI.MultiPropertyField(Rect, GUIContent[], SerializedProperty, GUIContent), but with the
-                // property visibility assumed to be "All" instead of "OnlyVisible". We really want to have "All" because
-                // it's possible for someone to hide something in the inspector with [HideInInspector] but then manually
-                // draw it themselves later. In this case, if you called EditorGUI.MultiPropertyField() directly, you'd
-                // end up with some fields that point to some unrelated visible property.
-                position = EditorGUI.PrefixLabel(position, label);
-                position.height = 18f;
-                int length = subLabels.Length;
-                float num = (position.width - (length - 1) * 4f) / length;
-                Rect position1 = new Rect(position)
-                {
-                    width = num
-                };
-                var child = property.FindPropertyRelative(startIter);
-                float labelWidth = EditorGUIUtility.labelWidth;
-                int indentLevel = EditorGUI.indentLevel;
-                EditorGUI.indentLevel = 0;
-
-                for (int index = 0; index < subLabels.Length; ++index)
-                {
-                    EditorGUIUtility.labelWidth = EditorStyles.label.CalcSize(subLabels[index]).x;
-                    EditorGUI.PropertyField(position1, child, subLabels[index]);
-                    position1.x += num + 4f;
-                    child.Next(false);
-                }
-
-                EditorGUIUtility.labelWidth = labelWidth;
-                EditorGUI.indentLevel = indentLevel;
-            }
-
+            EditorGUICopy.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
             EditorGUI.EndProperty();
+        }
+    }
+
+    internal class EditorGUICopy
+    {
+        internal const float kSingleLineHeight = 18.0f;
+        internal const float kSpacingSubLabel = 4.0f;
+        internal static int indentLevel = 0;
+
+        internal enum PropertyVisibility
+        {
+            All,
+            OnlyVisible
+        }
+
+        // This code is basically EditorGUI.MultiPropertyField(Rect, GUIContent[], SerializedProperty, GUIContent),
+        // but with the property visibility assumed to be "All" instead of "OnlyVisible". We really want to have "All"
+        // because it's possible for someone to hide something in the inspector with [HideInInspector] but then manually
+        // draw it themselves later. In this case, if you called EditorGUI.MultiPropertyField() directly, you'd
+        // end up with some fields that point to some unrelated visible property.
+        public static void MultiPropertyField(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, GUIContent label)
+        {
+            position = EditorGUI.PrefixLabel(position, label);
+            position.height = kSingleLineHeight;
+            MultiPropertyFieldInternal(position, subLabels, valuesIterator, PropertyVisibility.All);
+        }
+
+        internal static void BeginDisabled(bool disabled)
+        {
+            // Unused, but left here to minimize changes in EditorGUICopy.MultiPropertyFieldInternal().
+        }
+
+        internal static void EndDisabled()
+        {
+            // Unused, but left here to minimize changes in EditorGUICopy.MultiPropertyFieldInternal().
+        }
+
+        internal static float CalcPrefixLabelWidth(GUIContent label, GUIStyle style = null)
+        {
+            if (style == null)
+                style = EditorStyles.label;
+            return style.CalcSize(label).x;
+        }
+
+        internal static void MultiPropertyFieldInternal(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, PropertyVisibility visibility, bool[] disabledMask = null, float prefixLabelWidth = -1)
+        {
+            int eCount = subLabels.Length;
+            float w = (position.width - (eCount - 1) * kSpacingSubLabel) / eCount;
+            Rect nr = new Rect(position) {width = w};
+            float t = EditorGUIUtility.labelWidth;
+            int l = indentLevel;
+            indentLevel = 0;
+            for (int i = 0; i < subLabels.Length; i++)
+            {
+                EditorGUIUtility.labelWidth = prefixLabelWidth > 0 ? prefixLabelWidth : CalcPrefixLabelWidth(subLabels[i]);
+
+                if (disabledMask != null)
+                    BeginDisabled(disabledMask[i]);
+                EditorGUI.PropertyField(nr, valuesIterator, subLabels[i]);
+                if (disabledMask != null)
+                    EndDisabled();
+                nr.x += w + kSpacingSubLabel;
+
+                switch (visibility)
+                {
+                    case PropertyVisibility.All:
+                        valuesIterator.Next(false);
+                        break;
+
+                    case PropertyVisibility.OnlyVisible:
+                        valuesIterator.NextVisible(false);
+                        break;
+                }
+            }
+            EditorGUIUtility.labelWidth = t;
+            indentLevel = l;
         }
     }
 }
