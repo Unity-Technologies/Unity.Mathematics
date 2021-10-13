@@ -10,8 +10,11 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        // Cellular noise, returning F1 and F2 in a float2.
-        // Standard 3x3 search window for good F1 and F2 values
+        /// <summary>
+        /// 2D Cellular noise ("Worley noise") with standard 3x3 search window for good feature point values.
+        /// </summary>
+        /// <param name="P">A point in 2D space.</param>
+        /// <returns>Feature points. F1 is in the x component, F2 in the y component.</returns>
         public static float2 cellular(float2 P)
         {
             const float K = 0.142857142857f; // 1/7

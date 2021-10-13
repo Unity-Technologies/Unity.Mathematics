@@ -49,7 +49,7 @@ namespace Unity.Mathematics.Tests
             const int N = 4096;
 
             double2 sum = 0.0;
-            var values = new double2[N]; 
+            var values = new double2[N];
             for(int i = 0; i < N; i++)
             {
                 values[i] = func();
@@ -136,7 +136,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool2().xy)));
         }
-        
+
         [TestCompiler]
         public static void bool3_uniform()
         {
@@ -1112,7 +1112,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
                 float2 dir = rnd.NextFloat2Direction();
-                TestUtils.AreEqual(1.0f, length(dir), 0.001f);
+                TestUtils.AreEqual(length(dir), 1.0f, 0.001f);
                 return atan2(dir.x, dir.y) / (2.0f * PI) + 0.5f;
             });
         }
@@ -1123,7 +1123,7 @@ namespace Unity.Mathematics.Tests
             var rnd = new Random(0x6E624EB7u);
             ks_test(() => {
                 double2 dir = rnd.NextFloat2Direction();
-                TestUtils.AreEqual(1.0, length(dir), 0.000001);
+                TestUtils.AreEqual(length(dir), 1.0, 0.000001);
                 return atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
             });
         }
@@ -1137,7 +1137,7 @@ namespace Unity.Mathematics.Tests
             {
                 float3 dir = rnd.NextFloat3Direction();
                 float r = length(dir);
-                TestUtils.AreEqual(1.0f, r, 0.001f);
+                TestUtils.AreEqual(r, 1.0f, 0.001f);
 
                 float phi = atan2(dir.y, dir.x) / (2.0f * PI) + 0.5f;
                 float z = saturate(dir.z / r * 0.5f + 0.5f);
@@ -1153,7 +1153,7 @@ namespace Unity.Mathematics.Tests
             {
                 double3 dir = rnd.NextDouble3Direction();
                 double r = length(dir);
-                TestUtils.AreEqual(1.0, r, 0.00001);
+                TestUtils.AreEqual(r, 1.0, 0.00001);
 
                 double phi = atan2(dir.y, dir.x) / (2.0 * PI_DBL) + 0.5;
                 double z = saturate(dir.z / r * 0.5 + 0.5);
@@ -1168,19 +1168,106 @@ namespace Unity.Mathematics.Tests
             ks_test(() =>
             {
                 quaternion q = rnd.NextQuaternionRotation();
-                TestUtils.AreEqual(1.0, dot(q, q), 0.00001f);
+                TestUtils.AreEqual(dot(q, q), 1.0, 0.00001f);
                 Assert.GreaterOrEqual(q.value.w, 0.0f);
                 float3 p = float3(1.0f, 2.0f, 3.0f);
 
                 float3 qp = mul(q, p);
 
-                TestUtils.AreEqual(length(p), length(qp), 0.0001f);
+                TestUtils.AreEqual(length(qp), length(p), 0.0001f);
                 float r = length(qp);
 
                 double phi = atan2(qp.y, qp.x) / (2.0 * PI_DBL) + 0.5;
                 double z = saturate(qp.z / r * 0.5 + 0.5);
                 return double2(phi, z);
             });
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = i;
+                uint seed2 = i + 1;
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_r_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds has no correlation.
+            for (uint i = 0; i < 128; ++i)
+            {
+                uint seed1 = 0x6E624EB7u + i;
+                uint seed2 = 0x6E624EB8u + i;
+                r_test(() => new double2(Random.CreateFromIndex(seed1++).NextUInt(), Random.CreateFromIndex(seed2++).NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0;
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void consecutive_seeds_ks_test2()
+        {
+            // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
+            uint seed = 0x6E624EB7u;
+            ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
+        }
+
+        [TestCompiler]
+        public static void similar_seeds()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 1; i <= 1024; ++i)
+            {
+                var rnd1 = new Random(i);
+                var rnd2 = new Random(i + 1);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void similar_seeds2()
+        {
+            // Check to see that two consecutive seeds have no correlation when drawing
+            // many numbers from them.
+            for (uint i = 0; i < 1024; ++i)
+            {
+                var rnd1 = new Random(0x6E624EB7u + i);
+                var rnd2 = new Random(0x6E624EB8u + i);
+                r_test(() => new double2(rnd1.NextUInt(), rnd2.NextUInt()));
+            }
+        }
+
+        [TestCompiler]
+        public static void wang_hash()
+        {
+            TestUtils.AreEqual(3232319850u, Random.WangHash(0u));
+            TestUtils.AreEqual(663891101u, Random.WangHash(1u));
+            TestUtils.AreEqual(3329832309u, Random.WangHash(2u));
+            TestUtils.AreEqual(2278584254u, Random.WangHash(3u));
+            TestUtils.AreEqual(3427349084u, Random.WangHash(4u));
+            TestUtils.AreEqual(3322605197u, Random.WangHash(5u));
+            TestUtils.AreEqual(1902946834u, Random.WangHash(6u));
+            TestUtils.AreEqual(851741419u, Random.WangHash(7u));
+            TestUtils.AreEqual(0u, Random.WangHash(61u));
+
+            unchecked
+            {
+                // Random.CreateFromIndex() takes zero as a valid input and makes uint.MaxValue invalid
+                // so check that we can make uint.MaxValue hash to zero.
+                TestUtils.AreEqual(0u, Random.WangHash(uint.MaxValue + 62u));
+            }
         }
     }
 }

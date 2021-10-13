@@ -10,9 +10,11 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        // Cellular noise, returning F1 and F2 in a float2.
-        // 3x3x3 search region for good F2 everywhere, but a lot
-        // slower than the 2x2x2 version.
+        /// <summary>
+        /// 3D Cellular noise ("Worley noise") with 3x3x3 search region for good F2 everywhere, but a lot slower than the 2x2x2 version.
+        /// </summary>
+        /// <param name="P">A point in 2D space.</param>
+        /// <returns>Feature points. F1 is in the x component, F2 in the y component.</returns>
         // The code below is a bit scary even to its author,
         // but it has at least half decent performance on a
         // math.modern GPU. In any case, it beats any software

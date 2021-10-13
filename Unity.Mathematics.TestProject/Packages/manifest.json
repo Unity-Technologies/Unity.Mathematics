@@ -1,10 +1,15 @@
 {
   "dependencies": {
-    "com.unity.mathematics": "file:../../package",
-    "com.unity.properties": "0.4.0-preview"
+    "com.unity.burst": "1.2.3",
+    "com.unity.ide.rider": "1.1.4",
+    "com.unity.ide.vscode": "1.1.4",
+    "com.unity.mathematics": "file:../../src",
+    "com.unity.package-validation-suite": "0.8.1-preview",
+    "com.unity.properties": "0.10.4-preview",
+    "com.unity.test-framework": "1.1.11",
+    "com.unity.test-framework.performance": "2.8.0-preview"
   },
   "testables": [
     "com.unity.mathematics"
-  ],
-  "registry": "https://staging-packages.unity.com"
+  ]
 }

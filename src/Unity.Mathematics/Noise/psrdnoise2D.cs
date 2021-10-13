@@ -73,11 +73,13 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        //
-        // 2-D tiling simplex noise with rotating gradients and analytical derivative.
-        // The first component of the 3-element return vector is the noise value,
-        // and the second and third components are the x and y partial derivatives.
-        //
+        /// <summary>
+        /// 2-D tiling simplex noise with rotating gradients and analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="per">The x and y period, where per.x is a positive integer and per.y is a positive even integer.</param>
+        /// <param name="rot">Angle to rotate the gradients.</param>
+        /// <returns>The first component of the 3-element return vector is the noise value, and the second and third components are the x and y partial derivatives.</returns>
         public static float3 psrdnoise(float2 pos, float2 per, float rot)
         {
             // Hack: offset y slightly to hide some rare artifacts
@@ -166,21 +168,24 @@ namespace Unity.Mathematics
             return 11.0f * float3(n, dn0 + dn1 + dn2);
         }
 
-        //
-        // 2-D tiling simplex noise with fixed gradients
-        // and analytical derivative.
-        // This function is implemented as a wrapper to "psrdnoise",
-        // at the math.minimal math.cost of three extra additions.
-        //
+        /// <summary>
+        /// 2-D tiling simplex noise with fixed gradients and analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="per">The x and y period, where per.x is a positive integer and per.y is a positive even integer.</param>
+        /// <returns>The first component of the 3-element return vector is the noise value, and the second and third components are the x and y partial derivatives.</returns>
         public static float3 psrdnoise(float2 pos, float2 per)
         {
             return psrdnoise(pos, per, 0.0f);
         }
 
-        //
-        // 2-D tiling simplex noise with rotating gradients,
-        // but without the analytical derivative.
-        //
+        /// <summary>
+        /// 2-D tiling simplex noise with rotating gradients, but without the analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="per">The x and y period, where per.x is a positive integer and per.y is a positive even integer.</param>
+        /// <param name="rot">Angle to rotate the gradients.</param>
+        /// <returns>Noise value.</returns>
         public static float psrnoise(float2 pos, float2 per, float rot)
         {
             // Offset y slightly to hide some rare artifacts
@@ -240,22 +245,23 @@ namespace Unity.Mathematics
             return 11.0f * n;
         }
 
-        //
-        // 2-D tiling simplex noise with fixed gradients,
-        // without the analytical derivative.
-        // This function is implemented as a wrapper to "psrnoise",
-        // at the math.minimal math.cost of three extra additions.
-        //
+        /// <summary>
+        /// 2-D tiling simplex noise with fixed gradients, without the analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="per">The x and y period, where per.x is a positive integer and per.y is a positive even integer.</param>
+        /// <returns>Noise value.</returns>
         public static float psrnoise(float2 pos, float2 per)
         {
             return psrnoise(pos, per, 0.0f);
         }
 
-        //
-        // 2-D non-tiling simplex noise with rotating gradients and analytical derivative.
-        // The first component of the 3-element return vector is the noise value,
-        // and the second and third components are the x and y partial derivatives.
-        //
+        /// <summary>
+        /// 2-D non-tiling simplex noise with rotating gradients and analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="rot">Angle to rotate the gradients.</param>
+        /// <returns>The first component of the 3-element return vector is the noise value, and the second and third components are the x and y partial derivatives.</returns>
         public static float3 srdnoise(float2 pos, float rot)
         {
             // Offset y slightly to hide some rare artifacts
@@ -346,20 +352,22 @@ namespace Unity.Mathematics
             return 11.0f * float3(n, dn0 + dn1 + dn2);
         }
 
-        //
-        // 2-D non-tiling simplex noise with fixed gradients and analytical derivative.
-        // This function is implemented as a wrapper to "srdnoise",
-        // at the math.minimal math.cost of three extra additions.
-        //
+        /// <summary>
+        /// 2-D non-tiling simplex noise with fixed gradients and analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <returns>The first component of the 3-element return vector is the noise value, and the second and third components are the x and y partial derivatives.</returns>
         public static float3 srdnoise(float2 pos)
         {
             return srdnoise(pos, 0.0f);
         }
 
-        //
-        // 2-D non-tiling simplex noise with rotating gradients,
-        // without the analytical derivative.
-        //
+        /// <summary>
+        /// 2-D non-tiling simplex noise with rotating gradients, without the analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <param name="rot">Angle to rotate the gradients.</param>
+        /// <returns>Noise value.</returns>
         public static float srnoise(float2 pos, float rot)
         {
             // Offset y slightly to hide some rare artifacts
@@ -421,16 +429,11 @@ namespace Unity.Mathematics
             return 11.0f * n;
         }
 
-        //
-        // 2-D non-tiling simplex noise with fixed gradients,
-        // without the analytical derivative.
-        // This function is implemented as a wrapper to "srnoise",
-        // at the math.minimal math.cost of three extra additions.
-        // Note: if this kind of noise is all you want, there are faster
-        // GLSL implementations of non-tiling simplex noise out there.
-        // This one is included mainly for completeness and compatibility
-        // with the other functions in the file.
-        //
+        /// <summary>
+        /// 2-D non-tiling simplex noise with fixed gradients, without the analytical derivative.
+        /// </summary>
+        /// <param name="pos">Input (x,y) coordinate.</param>
+        /// <returns>Noise value.</returns>
         public static float srnoise(float2 pos)
         {
             return srnoise(pos, 0.0f);

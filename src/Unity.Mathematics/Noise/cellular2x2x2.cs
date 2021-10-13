@@ -10,11 +10,14 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
-        // Cellular noise, returning F1 and F2 in a float2.
-        // Speeded up by umath.sing 2x2x2 search window instead of 3x3x3,
-        // at the expense of some pattern artifacts.
-        // F2 is often wrong and has sharp discontinuities.
-        // If you need a good F2, use the slower 3x3x3 version.
+        /// <summary>
+        /// 3D Cellular noise ("Worley noise") with a 2x2x2 search window.
+        /// </summary>
+        /// <remarks>
+        /// Faster than using 3x3x3, at the expense of some pattern artifacts. F2 is often wrong and has sharp discontinuities. If you need a smooth F2, use the slower 3x3x3 version.
+        /// </remarks>
+        /// <param name="P">A point in 3D space.</param>
+        /// <returns>Feature points. F1 is in the x component, F2 in the y component.</returns>
         public static float2 cellular2x2x2(float3 P)
         {
             const float K = 0.142857142857f; // 1/7
@@ -23,7 +26,7 @@ namespace Unity.Mathematics
             const float Kz = 0.166666666667f; // 1/6
             const float Kzo = 0.416666666667f; // 1/2-1/6*2
             const float jitter = 0.8f; // smaller jitter gives less errors in F2
-            
+
             float3 Pi = mod289(floor(P));
             float3 Pf = frac(P);
             float4 Pfx = Pf.x + float4(0.0f, -1.0f, 0.0f, -1.0f);
@@ -48,7 +51,7 @@ namespace Unity.Mathematics
             float4 d2 = dx2 * dx2 + dy2 * dy2 + dz2 * dz2; // z+1
 
             // Sort out the two smallest distances (F1, F2)
-            
+
             // Do it right and sort out both F1 and F2
             float4 d = min(d1,d2); // F1 is now in d
             d2 = max(d1,d2); // Make sure we keep all candidates for F2

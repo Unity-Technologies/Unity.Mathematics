@@ -13,10 +13,10 @@ namespace Unity.Mathematics.Tests
             float2x2 a = float2x2(float2(1.0f, 2.0f),
                                   float2(3.0f, 4.0f));
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c0.y, 2.0f);
-            TestUtils.AreEqual(a.c1.x, 3.0f);
-            TestUtils.AreEqual(a.c1.y, 4.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c0.y);
+            TestUtils.AreEqual(3.0f, a.c1.x);
+            TestUtils.AreEqual(4.0f, a.c1.y);
         }
 
         [TestCompiler]
@@ -26,15 +26,15 @@ namespace Unity.Mathematics.Tests
                                   float3(4.0f, 5.0f, 6.0f),
                                   float3(7.0f, 8.0f, 9.0f));
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c0.y, 2.0f);
-            TestUtils.AreEqual(a.c0.z, 3.0f);
-            TestUtils.AreEqual(a.c1.x, 4.0f);
-            TestUtils.AreEqual(a.c1.y, 5.0f);
-            TestUtils.AreEqual(a.c1.z, 6.0f);
-            TestUtils.AreEqual(a.c2.x, 7.0f);
-            TestUtils.AreEqual(a.c2.y, 8.0f);
-            TestUtils.AreEqual(a.c2.z, 9.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c0.y);
+            TestUtils.AreEqual(3.0f, a.c0.z);
+            TestUtils.AreEqual(4.0f, a.c1.x);
+            TestUtils.AreEqual(5.0f, a.c1.y);
+            TestUtils.AreEqual(6.0f, a.c1.z);
+            TestUtils.AreEqual(7.0f, a.c2.x);
+            TestUtils.AreEqual(8.0f, a.c2.y);
+            TestUtils.AreEqual(9.0f, a.c2.z);
         }
 
         [TestCompiler]
@@ -45,22 +45,22 @@ namespace Unity.Mathematics.Tests
                                   float4( 9.0f, 10.0f, 11.0f, 12.0f),
                                   float4(13.0f, 14.0f, 15.0f, 16.0f));
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c0.y, 2.0f);
-            TestUtils.AreEqual(a.c0.z, 3.0f);
-            TestUtils.AreEqual(a.c0.w, 4.0f);
-            TestUtils.AreEqual(a.c1.x, 5.0f);
-            TestUtils.AreEqual(a.c1.y, 6.0f);
-            TestUtils.AreEqual(a.c1.z, 7.0f);
-            TestUtils.AreEqual(a.c1.w, 8.0f);
-            TestUtils.AreEqual(a.c2.x, 9.0f);
-            TestUtils.AreEqual(a.c2.y, 10.0f);
-            TestUtils.AreEqual(a.c2.z, 11.0f);
-            TestUtils.AreEqual(a.c2.w, 12.0f);
-            TestUtils.AreEqual(a.c3.x, 13.0f);
-            TestUtils.AreEqual(a.c3.y, 14.0f);
-            TestUtils.AreEqual(a.c3.z, 15.0f);
-            TestUtils.AreEqual(a.c3.w, 16.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c0.y);
+            TestUtils.AreEqual(3.0f, a.c0.z);
+            TestUtils.AreEqual(4.0f, a.c0.w);
+            TestUtils.AreEqual(5.0f, a.c1.x);
+            TestUtils.AreEqual(6.0f, a.c1.y);
+            TestUtils.AreEqual(7.0f, a.c1.z);
+            TestUtils.AreEqual(8.0f, a.c1.w);
+            TestUtils.AreEqual(9.0f, a.c2.x);
+            TestUtils.AreEqual(10.0f, a.c2.y);
+            TestUtils.AreEqual(11.0f, a.c2.z);
+            TestUtils.AreEqual(12.0f, a.c2.w);
+            TestUtils.AreEqual(13.0f, a.c3.x);
+            TestUtils.AreEqual(14.0f, a.c3.y);
+            TestUtils.AreEqual(15.0f, a.c3.z);
+            TestUtils.AreEqual(16.0f, a.c3.w);
         }
 
         [TestCompiler]
@@ -69,10 +69,10 @@ namespace Unity.Mathematics.Tests
             float2x2 a = float2x2(1.0f, 2.0f,
                                   3.0f, 4.0f);
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 2.0f);
-            TestUtils.AreEqual(a.c0.y, 3.0f);
-            TestUtils.AreEqual(a.c1.y, 4.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c1.x);
+            TestUtils.AreEqual(3.0f, a.c0.y);
+            TestUtils.AreEqual(4.0f, a.c1.y);
         }
 
         [TestCompiler]
@@ -82,15 +82,15 @@ namespace Unity.Mathematics.Tests
                                   4.0f, 5.0f, 6.0f,
                                   7.0f, 8.0f, 9.0f);
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 2.0f);
-            TestUtils.AreEqual(a.c2.x, 3.0f);
-            TestUtils.AreEqual(a.c0.y, 4.0f);
-            TestUtils.AreEqual(a.c1.y, 5.0f);
-            TestUtils.AreEqual(a.c2.y, 6.0f);
-            TestUtils.AreEqual(a.c0.z, 7.0f);
-            TestUtils.AreEqual(a.c1.z, 8.0f);
-            TestUtils.AreEqual(a.c2.z, 9.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c1.x);
+            TestUtils.AreEqual(3.0f, a.c2.x);
+            TestUtils.AreEqual(4.0f, a.c0.y);
+            TestUtils.AreEqual(5.0f, a.c1.y);
+            TestUtils.AreEqual(6.0f, a.c2.y);
+            TestUtils.AreEqual(7.0f, a.c0.z);
+            TestUtils.AreEqual(8.0f, a.c1.z);
+            TestUtils.AreEqual(9.0f, a.c2.z);
         }
 
         [TestCompiler]
@@ -101,22 +101,22 @@ namespace Unity.Mathematics.Tests
                                    9.0f, 10.0f, 11.0f, 12.0f,
                                   13.0f, 14.0f, 15.0f, 16.0f);
 
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 2.0f);
-            TestUtils.AreEqual(a.c2.x, 3.0f);
-            TestUtils.AreEqual(a.c3.x, 4.0f);
-            TestUtils.AreEqual(a.c0.y, 5.0f);
-            TestUtils.AreEqual(a.c1.y, 6.0f);
-            TestUtils.AreEqual(a.c2.y, 7.0f);
-            TestUtils.AreEqual(a.c3.y, 8.0f);
-            TestUtils.AreEqual(a.c0.z, 9.0f);
-            TestUtils.AreEqual(a.c1.z, 10.0f);
-            TestUtils.AreEqual(a.c2.z, 11.0f);
-            TestUtils.AreEqual(a.c3.z, 12.0f);
-            TestUtils.AreEqual(a.c0.w, 13.0f);
-            TestUtils.AreEqual(a.c1.w, 14.0f);
-            TestUtils.AreEqual(a.c2.w, 15.0f);
-            TestUtils.AreEqual(a.c3.w, 16.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(2.0f, a.c1.x);
+            TestUtils.AreEqual(3.0f, a.c2.x);
+            TestUtils.AreEqual(4.0f, a.c3.x);
+            TestUtils.AreEqual(5.0f, a.c0.y);
+            TestUtils.AreEqual(6.0f, a.c1.y);
+            TestUtils.AreEqual(7.0f, a.c2.y);
+            TestUtils.AreEqual(8.0f, a.c3.y);
+            TestUtils.AreEqual(9.0f, a.c0.z);
+            TestUtils.AreEqual(10.0f, a.c1.z);
+            TestUtils.AreEqual(11.0f, a.c2.z);
+            TestUtils.AreEqual(12.0f, a.c3.z);
+            TestUtils.AreEqual(13.0f, a.c0.w);
+            TestUtils.AreEqual(14.0f, a.c1.w);
+            TestUtils.AreEqual(15.0f, a.c2.w);
+            TestUtils.AreEqual(16.0f, a.c3.w);
         }
 
         [TestCompiler]
@@ -132,7 +132,7 @@ namespace Unity.Mathematics.Tests
                                   4.0f, 5.0f, 6.0f, 11.0f,
                                   7.0f, 8.0f, 9.0f, 12.0f,
                                   0.0f, 0.0f, 0.0f, 1.0f);
-            TestUtils.AreEqual(m, r);
+            TestUtils.AreEqual(r, m);
         }
 
 
@@ -145,7 +145,7 @@ namespace Unity.Mathematics.Tests
                                    0.89975f,  0.39491f, 0.18575f,
                                   -0.41730f,  0.65394f, 0.63104f);
 
-            TestUtils.AreEqual(m, r, 0.0001f);
+            TestUtils.AreEqual(r, m, 0.0001f);
         }
 
         [TestCompiler]
@@ -158,54 +158,54 @@ namespace Unity.Mathematics.Tests
                                   -0.41730f,  0.65394f, 0.63104f, 3.0f,
                                    0.0f,      0.0f,     0.0f,     1.0f);
 
-            TestUtils.AreEqual(m, r, 0.0001f);
+            TestUtils.AreEqual(r, m, 0.0001f);
         }
 
         [TestCompiler]
         public static void float2x2_identity()
         {
             float2x2 a = float2x2.identity;
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 0.0f);
-            TestUtils.AreEqual(a.c0.y, 0.0f);
-            TestUtils.AreEqual(a.c1.y, 1.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(0.0f, a.c1.x);
+            TestUtils.AreEqual(0.0f, a.c0.y);
+            TestUtils.AreEqual(1.0f, a.c1.y);
         }
 
         [TestCompiler]
         public static void float3x3_identity()
         {
             float3x3 a = float3x3.identity;
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 0.0f);
-            TestUtils.AreEqual(a.c2.x, 0.0f);
-            TestUtils.AreEqual(a.c0.y, 0.0f);
-            TestUtils.AreEqual(a.c1.y, 1.0f);
-            TestUtils.AreEqual(a.c2.y, 0.0f);
-            TestUtils.AreEqual(a.c0.z, 0.0f);
-            TestUtils.AreEqual(a.c1.z, 0.0f);
-            TestUtils.AreEqual(a.c2.z, 1.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(0.0f, a.c1.x);
+            TestUtils.AreEqual(0.0f, a.c2.x);
+            TestUtils.AreEqual(0.0f, a.c0.y);
+            TestUtils.AreEqual(1.0f, a.c1.y);
+            TestUtils.AreEqual(0.0f, a.c2.y);
+            TestUtils.AreEqual(0.0f, a.c0.z);
+            TestUtils.AreEqual(0.0f, a.c1.z);
+            TestUtils.AreEqual(1.0f, a.c2.z);
         }
 
         [TestCompiler]
         public static void float4x4_identity()
         {
             float4x4 a = float4x4.identity;
-            TestUtils.AreEqual(a.c0.x, 1.0f);
-            TestUtils.AreEqual(a.c1.x, 0.0f);
-            TestUtils.AreEqual(a.c2.x, 0.0f);
-            TestUtils.AreEqual(a.c3.x, 0.0f);
-            TestUtils.AreEqual(a.c0.y, 0.0f);
-            TestUtils.AreEqual(a.c1.y, 1.0f);
-            TestUtils.AreEqual(a.c2.y, 0.0f);
-            TestUtils.AreEqual(a.c3.y, 0.0f);
-            TestUtils.AreEqual(a.c0.z, 0.0f);
-            TestUtils.AreEqual(a.c1.z, 0.0f);
-            TestUtils.AreEqual(a.c2.z, 1.0f);
-            TestUtils.AreEqual(a.c3.z, 0.0f);
-            TestUtils.AreEqual(a.c0.w, 0.0f);
-            TestUtils.AreEqual(a.c1.w, 0.0f);
-            TestUtils.AreEqual(a.c2.w, 0.0f);
-            TestUtils.AreEqual(a.c3.w, 1.0f);
+            TestUtils.AreEqual(1.0f, a.c0.x);
+            TestUtils.AreEqual(0.0f, a.c1.x);
+            TestUtils.AreEqual(0.0f, a.c2.x);
+            TestUtils.AreEqual(0.0f, a.c3.x);
+            TestUtils.AreEqual(0.0f, a.c0.y);
+            TestUtils.AreEqual(1.0f, a.c1.y);
+            TestUtils.AreEqual(0.0f, a.c2.y);
+            TestUtils.AreEqual(0.0f, a.c3.y);
+            TestUtils.AreEqual(0.0f, a.c0.z);
+            TestUtils.AreEqual(0.0f, a.c1.z);
+            TestUtils.AreEqual(1.0f, a.c2.z);
+            TestUtils.AreEqual(0.0f, a.c3.z);
+            TestUtils.AreEqual(0.0f, a.c0.w);
+            TestUtils.AreEqual(0.0f, a.c1.w);
+            TestUtils.AreEqual(0.0f, a.c2.w);
+            TestUtils.AreEqual(1.0f, a.c3.w);
         }
 
         [TestCompiler]
@@ -214,10 +214,10 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float2x2 m = float2x2.Rotate(angle);
-            TestUtils.AreEqual(m.c0.x, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c0.y, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.x, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.y, cos(angle), epsilon);
+            TestUtils.AreEqual(cos(angle), m.c0.x, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c0.y, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c1.x, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c1.y, epsilon);
         }
 
         [TestCompiler]
@@ -228,15 +228,15 @@ namespace Unity.Mathematics.Tests
 
             float3x3 r = float3x3(quaternion.AxisAngle(axis, angle));
             float3x3 m = float3x3.AxisAngle(axis, angle);
-            TestUtils.AreEqual(m, r, 0.00001f);
+            TestUtils.AreEqual(r, m, 0.00001f);
         }
 
         [TestCompiler]
         public static void float3x3_axis_angle_consistency()
         {
-            TestUtils.AreEqual(float3x3.AxisAngle(float3(1, 0, 0), 1.0f), float3x3.RotateX(1.0f), 0.001f);
-            TestUtils.AreEqual(float3x3.AxisAngle(float3(0, 1, 0), 1.0f), float3x3.RotateY(1.0f), 0.001f);
-            TestUtils.AreEqual(float3x3.AxisAngle(float3(0, 0, 1), 1.0f), float3x3.RotateZ(1.0f), 0.001f);
+            TestUtils.AreEqual(float3x3.RotateX(1.0f), float3x3.AxisAngle(float3(1, 0, 0), 1.0f), 0.001f);
+            TestUtils.AreEqual(float3x3.RotateY(1.0f), float3x3.AxisAngle(float3(0, 1, 0), 1.0f), 0.001f);
+            TestUtils.AreEqual(float3x3.RotateZ(1.0f), float3x3.AxisAngle(float3(0, 0, 1), 1.0f), 0.001f);
         }
 
         [TestCompiler]
@@ -245,15 +245,15 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float3x3 m = float3x3.RotateX(angle);
-            TestUtils.AreEqual(m.c0.x, 1.0f, epsilon);
-            TestUtils.AreEqual(m.c0.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.y, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c1.z, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c2.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.y, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c2.z, cos(angle), epsilon);
+            TestUtils.AreEqual(1.0f, m.c0.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.x, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c1.y, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c1.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.x, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c2.y, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c2.z, epsilon);
         }
 
         [TestCompiler]
@@ -262,15 +262,15 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float3x3 m = float3x3.RotateY(angle);
-            TestUtils.AreEqual(m.c0.x, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c0.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.z, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.y, 1.0f, epsilon);
-            TestUtils.AreEqual(m.c1.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.x, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c2.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.z, cos(angle), epsilon);
+            TestUtils.AreEqual(cos(angle), m.c0.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.y, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c0.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.x, epsilon);
+            TestUtils.AreEqual(1.0f, m.c1.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.z, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c2.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.y, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c2.z, epsilon);
         }
 
         [TestCompiler]
@@ -279,15 +279,15 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float3x3 m = float3x3.RotateZ(angle);
-            TestUtils.AreEqual(m.c0.x, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c0.y, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c0.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.x, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.y, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c1.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.z, 1.0f, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c0.x, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c0.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.z, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c1.x, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c1.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.y, epsilon);
+            TestUtils.AreEqual(1.0f, m.c2.z, epsilon);
         }
 
         [TestCompiler]
@@ -297,7 +297,7 @@ namespace Unity.Mathematics.Tests
             float3x3 m = float3x3.RotateX(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).x;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
 
@@ -308,7 +308,7 @@ namespace Unity.Mathematics.Tests
             float3x3 m = float3x3.RotateY(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).y;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
         [TestCompiler]
@@ -318,7 +318,7 @@ namespace Unity.Mathematics.Tests
             float3x3 m = float3x3.RotateZ(0.3f);
             float3 b = mul(m, a);
             float w = cross(a, b).z;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
         [TestCompiler]
@@ -329,15 +329,15 @@ namespace Unity.Mathematics.Tests
 
             float4x4 r = float4x4(quaternion.AxisAngle(axis, angle), float3.zero);
             float4x4 m = float4x4.AxisAngle(axis, angle);
-            TestUtils.AreEqual(m, r, 0.00001f);
+            TestUtils.AreEqual(r, m, 0.00001f);
         }
 
         [TestCompiler]
         public static void float4x4_axis_angle_consistency()
         {
-            TestUtils.AreEqual(float4x4.AxisAngle(float3(1, 0, 0), 1.0f), float4x4.RotateX(1.0f), 0.001f);
-            TestUtils.AreEqual(float4x4.AxisAngle(float3(0, 1, 0), 1.0f), float4x4.RotateY(1.0f), 0.001f);
-            TestUtils.AreEqual(float4x4.AxisAngle(float3(0, 0, 1), 1.0f), float4x4.RotateZ(1.0f), 0.001f);
+            TestUtils.AreEqual(float4x4.RotateX(1.0f), float4x4.AxisAngle(float3(1, 0, 0), 1.0f), 0.001f);
+            TestUtils.AreEqual(float4x4.RotateY(1.0f), float4x4.AxisAngle(float3(0, 1, 0), 1.0f), 0.001f);
+            TestUtils.AreEqual(float4x4.RotateZ(1.0f), float4x4.AxisAngle(float3(0, 0, 1), 1.0f), 0.001f);
         }
 
         [TestCompiler]
@@ -346,22 +346,22 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float4x4 m = float4x4.RotateX(angle);
-            TestUtils.AreEqual(m.c0.x, 1.0f, epsilon);
-            TestUtils.AreEqual(m.c0.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.y, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c1.z, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.y, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c2.z, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c2.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.w, 1.0f, epsilon);
+            TestUtils.AreEqual(1.0f, m.c0.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.x, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c1.y, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c1.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.x, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c2.y, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c2.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.z, epsilon);
+            TestUtils.AreEqual(1.0f, m.c3.w, epsilon);
         }
 
         [TestCompiler]
@@ -370,22 +370,22 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float4x4 m = float4x4.RotateY(angle);
-            TestUtils.AreEqual(m.c0.x, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c0.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.z, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c0.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.y, 1.0f, epsilon);
-            TestUtils.AreEqual(m.c1.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.x, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c2.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.z, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c2.w, 0.0f);
-            TestUtils.AreEqual(m.c3.x, 0.0f);
-            TestUtils.AreEqual(m.c3.y, 0.0f);
-            TestUtils.AreEqual(m.c3.z, 0.0f);
-            TestUtils.AreEqual(m.c3.w, 1.0f);
+            TestUtils.AreEqual(cos(angle), m.c0.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.y, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c0.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.x, epsilon);
+            TestUtils.AreEqual(1.0f, m.c1.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.w, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c2.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.y, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c2.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.w);
+            TestUtils.AreEqual(0.0f, m.c3.x);
+            TestUtils.AreEqual(0.0f, m.c3.y);
+            TestUtils.AreEqual(0.0f, m.c3.z);
+            TestUtils.AreEqual(1.0f, m.c3.w);
         }
 
         [TestCompiler]
@@ -394,22 +394,22 @@ namespace Unity.Mathematics.Tests
             float epsilon = 0.0001f;
             float angle = 10.3f;
             float4x4 m = float4x4.RotateZ(angle);
-            TestUtils.AreEqual(m.c0.x, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c0.y, sin(angle), epsilon);
-            TestUtils.AreEqual(m.c0.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c0.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.x, -sin(angle), epsilon);
-            TestUtils.AreEqual(m.c1.y, cos(angle), epsilon);
-            TestUtils.AreEqual(m.c1.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c1.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c2.z, 1.0f, epsilon);
-            TestUtils.AreEqual(m.c2.w, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.x, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.y, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.z, 0.0f, epsilon);
-            TestUtils.AreEqual(m.c3.w, 1.0f, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c0.x, epsilon);
+            TestUtils.AreEqual(sin(angle), m.c0.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c0.w, epsilon);
+            TestUtils.AreEqual(-sin(angle), m.c1.x, epsilon);
+            TestUtils.AreEqual(cos(angle), m.c1.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c1.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.y, epsilon);
+            TestUtils.AreEqual(1.0f, m.c2.z, epsilon);
+            TestUtils.AreEqual(0.0f, m.c2.w, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.x, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.y, epsilon);
+            TestUtils.AreEqual(0.0f, m.c3.z, epsilon);
+            TestUtils.AreEqual(1.0f, m.c3.w, epsilon);
         }
 
         [TestCompiler]
@@ -419,7 +419,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m = float4x4.RotateX(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).x;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
 
@@ -430,7 +430,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m = float4x4.RotateY(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).y;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
         [TestCompiler]
@@ -440,7 +440,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m = float4x4.RotateZ(0.3f);
             float3 b = rotate(m, a);
             float w = cross(a, b).z;
-            TestUtils.AreEqual(true, w > 0.0f);
+            TestUtils.AreEqual(w > 0.0f, true);
         }
 
 
@@ -515,36 +515,36 @@ namespace Unity.Mathematics.Tests
             float3x3 m3_zyx = float3x3.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
 
-            TestUtils.AreEqual(m0_xyz, test3x3_xyz, 0.0001f);
-            TestUtils.AreEqual(m0_yzx, test3x3_yzx, 0.0001f);
-            TestUtils.AreEqual(m0_zxy, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m0_xzy, test3x3_xzy, 0.0001f);
-            TestUtils.AreEqual(m0_yxz, test3x3_yxz, 0.0001f);
-            TestUtils.AreEqual(m0_zyx, test3x3_zyx, 0.0001f);
+            TestUtils.AreEqual(test3x3_xyz, m0_xyz, 0.0001f);
+            TestUtils.AreEqual(test3x3_yzx, m0_yzx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m0_zxy, 0.0001f);
+            TestUtils.AreEqual(test3x3_xzy, m0_xzy, 0.0001f);
+            TestUtils.AreEqual(test3x3_yxz, m0_yxz, 0.0001f);
+            TestUtils.AreEqual(test3x3_zyx, m0_zyx, 0.0001f);
 
-            TestUtils.AreEqual(m1, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m1_xyz, test3x3_xyz, 0.0001f);
-            TestUtils.AreEqual(m1_yzx, test3x3_yzx, 0.0001f);
-            TestUtils.AreEqual(m1_zxy, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m1_xzy, test3x3_xzy, 0.0001f);
-            TestUtils.AreEqual(m1_yxz, test3x3_yxz, 0.0001f);
-            TestUtils.AreEqual(m1_zyx, test3x3_zyx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m1, 0.0001f);
+            TestUtils.AreEqual(test3x3_xyz, m1_xyz, 0.0001f);
+            TestUtils.AreEqual(test3x3_yzx, m1_yzx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m1_zxy, 0.0001f);
+            TestUtils.AreEqual(test3x3_xzy, m1_xzy, 0.0001f);
+            TestUtils.AreEqual(test3x3_yxz, m1_yxz, 0.0001f);
+            TestUtils.AreEqual(test3x3_zyx, m1_zyx, 0.0001f);
 
 
-            TestUtils.AreEqual(m2_xyz, test3x3_xyz, 0.0001f);
-            TestUtils.AreEqual(m2_yzx, test3x3_yzx, 0.0001f);
-            TestUtils.AreEqual(m2_zxy, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m2_xzy, test3x3_xzy, 0.0001f);
-            TestUtils.AreEqual(m2_yxz, test3x3_yxz, 0.0001f);
-            TestUtils.AreEqual(m2_zyx, test3x3_zyx, 0.0001f);
+            TestUtils.AreEqual(test3x3_xyz, m2_xyz, 0.0001f);
+            TestUtils.AreEqual(test3x3_yzx, m2_yzx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m2_zxy, 0.0001f);
+            TestUtils.AreEqual(test3x3_xzy, m2_xzy, 0.0001f);
+            TestUtils.AreEqual(test3x3_yxz, m2_yxz, 0.0001f);
+            TestUtils.AreEqual(test3x3_zyx, m2_zyx, 0.0001f);
 
-            TestUtils.AreEqual(m3, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m3_xyz, test3x3_xyz, 0.0001f);
-            TestUtils.AreEqual(m3_yzx, test3x3_yzx, 0.0001f);
-            TestUtils.AreEqual(m3_zxy, test3x3_zxy, 0.0001f);
-            TestUtils.AreEqual(m3_xzy, test3x3_xzy, 0.0001f);
-            TestUtils.AreEqual(m3_yxz, test3x3_yxz, 0.0001f);
-            TestUtils.AreEqual(m3_zyx, test3x3_zyx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m3, 0.0001f);
+            TestUtils.AreEqual(test3x3_xyz, m3_xyz, 0.0001f);
+            TestUtils.AreEqual(test3x3_yzx, m3_yzx, 0.0001f);
+            TestUtils.AreEqual(test3x3_zxy, m3_zxy, 0.0001f);
+            TestUtils.AreEqual(test3x3_xzy, m3_xzy, 0.0001f);
+            TestUtils.AreEqual(test3x3_yxz, m3_yxz, 0.0001f);
+            TestUtils.AreEqual(test3x3_zyx, m3_zyx, 0.0001f);
         }
 
         [TestCompiler]
@@ -565,7 +565,7 @@ namespace Unity.Mathematics.Tests
             float4x4 m1_zxy = float4x4.Euler(test_angles, RotationOrder.ZXY);
             float4x4 m1_zyx = float4x4.Euler(test_angles, RotationOrder.ZYX);
 
-            
+
             float4x4 m2_xyz = float4x4.EulerXYZ(test_angles.x, test_angles.y, test_angles.z);
             float4x4 m2_xzy = float4x4.EulerXZY(test_angles.x, test_angles.y, test_angles.z);
             float4x4 m2_yxz = float4x4.EulerYXZ(test_angles.x, test_angles.y, test_angles.z);
@@ -581,37 +581,37 @@ namespace Unity.Mathematics.Tests
             float4x4 m3_zxy = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZXY);
             float4x4 m3_zyx = float4x4.Euler(test_angles.x, test_angles.y, test_angles.z, RotationOrder.ZYX);
 
-            
-            TestUtils.AreEqual(m0_xyz, test4x4_xyz, 0.0001f);
-            TestUtils.AreEqual(m0_yzx, test4x4_yzx, 0.0001f);
-            TestUtils.AreEqual(m0_zxy, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m0_xzy, test4x4_xzy, 0.0001f);
-            TestUtils.AreEqual(m0_yxz, test4x4_yxz, 0.0001f);
-            TestUtils.AreEqual(m0_zyx, test4x4_zyx, 0.0001f);
 
-            TestUtils.AreEqual(m1, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m1_xyz, test4x4_xyz, 0.0001f);
-            TestUtils.AreEqual(m1_yzx, test4x4_yzx, 0.0001f);
-            TestUtils.AreEqual(m1_zxy, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m1_xzy, test4x4_xzy, 0.0001f);
-            TestUtils.AreEqual(m1_yxz, test4x4_yxz, 0.0001f);
-            TestUtils.AreEqual(m1_zyx, test4x4_zyx, 0.0001f);
+            TestUtils.AreEqual(test4x4_xyz, m0_xyz, 0.0001f);
+            TestUtils.AreEqual(test4x4_yzx, m0_yzx, 0.0001f);
+            TestUtils.AreEqual(test4x4_zxy, m0_zxy, 0.0001f);
+            TestUtils.AreEqual(test4x4_xzy, m0_xzy, 0.0001f);
+            TestUtils.AreEqual(test4x4_yxz, m0_yxz, 0.0001f);
+            TestUtils.AreEqual(test4x4_zyx, m0_zyx, 0.0001f);
 
-            
-            TestUtils.AreEqual(m2_xyz, test4x4_xyz, 0.0001f);
-            TestUtils.AreEqual(m2_yzx, test4x4_yzx, 0.0001f);
-            TestUtils.AreEqual(m2_zxy, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m2_xzy, test4x4_xzy, 0.0001f);
-            TestUtils.AreEqual(m2_yxz, test4x4_yxz, 0.0001f);
-            TestUtils.AreEqual(m2_zyx, test4x4_zyx, 0.0001f);
+            TestUtils.AreEqual(test4x4_zxy, m1, 0.0001f);
+            TestUtils.AreEqual(test4x4_xyz, m1_xyz, 0.0001f);
+            TestUtils.AreEqual(test4x4_yzx, m1_yzx, 0.0001f);
+            TestUtils.AreEqual(test4x4_zxy, m1_zxy, 0.0001f);
+            TestUtils.AreEqual(test4x4_xzy, m1_xzy, 0.0001f);
+            TestUtils.AreEqual(test4x4_yxz, m1_yxz, 0.0001f);
+            TestUtils.AreEqual(test4x4_zyx, m1_zyx, 0.0001f);
 
-            TestUtils.AreEqual(m3, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m3_xyz, test4x4_xyz, 0.0001f);
-            TestUtils.AreEqual(m3_yzx, test4x4_yzx, 0.0001f);
-            TestUtils.AreEqual(m3_zxy, test4x4_zxy, 0.0001f);
-            TestUtils.AreEqual(m3_xzy, test4x4_xzy, 0.0001f);
-            TestUtils.AreEqual(m3_yxz, test4x4_yxz, 0.0001f);
-            TestUtils.AreEqual(m3_zyx, test4x4_zyx, 0.0001f);
+
+            TestUtils.AreEqual(test4x4_xyz, m2_xyz, 0.0001f);
+            TestUtils.AreEqual(test4x4_yzx, m2_yzx, 0.0001f);
+            TestUtils.AreEqual(test4x4_zxy, m2_zxy, 0.0001f);
+            TestUtils.AreEqual(test4x4_xzy, m2_xzy, 0.0001f);
+            TestUtils.AreEqual(test4x4_yxz, m2_yxz, 0.0001f);
+            TestUtils.AreEqual(test4x4_zyx, m2_zyx, 0.0001f);
+
+            TestUtils.AreEqual(test4x4_zxy, m3, 0.0001f);
+            TestUtils.AreEqual(test4x4_xyz, m3_xyz, 0.0001f);
+            TestUtils.AreEqual(test4x4_yzx, m3_yzx, 0.0001f);
+            TestUtils.AreEqual(test4x4_zxy, m3_zxy, 0.0001f);
+            TestUtils.AreEqual(test4x4_xzy, m3_xzy, 0.0001f);
+            TestUtils.AreEqual(test4x4_yxz, m3_yxz, 0.0001f);
+            TestUtils.AreEqual(test4x4_zyx, m3_zyx, 0.0001f);
         }
 
         [TestCompiler]
@@ -630,9 +630,9 @@ namespace Unity.Mathematics.Tests
             float2x2 b = mul(float2x2.Scale(2.0f, 3.0f), m);
             float2x2 c = mul(float2x2.Scale(2.0f, 3.0f), m);
 
-            TestUtils.AreEqual(a, r0);
-            TestUtils.AreEqual(b, r1);
-            TestUtils.AreEqual(c, r1);
+            TestUtils.AreEqual(r0, a);
+            TestUtils.AreEqual(r1, b);
+            TestUtils.AreEqual(r1, c);
         }
 
         [TestCompiler]
@@ -656,9 +656,9 @@ namespace Unity.Mathematics.Tests
             float3x3 b = mul(float3x3.Scale(2.0f, 3.0f, 4.0f), m);
             float3x3 c = mul(float3x3.Scale(2.0f, 3.0f, 4.0f), m);
 
-            TestUtils.AreEqual(a, r0);
-            TestUtils.AreEqual(b, r1);
-            TestUtils.AreEqual(c, r1);
+            TestUtils.AreEqual(r0, a);
+            TestUtils.AreEqual(r1, b);
+            TestUtils.AreEqual(r1, c);
         }
 
         [TestCompiler]
@@ -683,9 +683,9 @@ namespace Unity.Mathematics.Tests
             float4x4 b = mul(float4x4.Scale(2.0f, 3.0f, 4.0f), m);
             float4x4 c = mul(float4x4.Scale(2.0f, 3.0f, 4.0f), m);
 
-            TestUtils.AreEqual(a, r0);
-            TestUtils.AreEqual(b, r1);
-            TestUtils.AreEqual(c, r1);
+            TestUtils.AreEqual(r0, a);
+            TestUtils.AreEqual(r1, b);
+            TestUtils.AreEqual(r1, c);
         }
 
         [TestCompiler]
@@ -699,11 +699,11 @@ namespace Unity.Mathematics.Tests
                                   23.0f, 24.0f);
 
             float2x2 c = mul(a, b);
-            TestUtils.AreEqual(c.c0.x, 67.0f);
-            TestUtils.AreEqual(c.c1.x, 70.0f);
+            TestUtils.AreEqual(67.0f, c.c0.x);
+            TestUtils.AreEqual(70.0f, c.c1.x);
 
-            TestUtils.AreEqual(c.c0.y, 155.0f);
-            TestUtils.AreEqual(c.c1.y, 162.0f);
+            TestUtils.AreEqual(155.0f, c.c0.y);
+            TestUtils.AreEqual(162.0f, c.c1.y);
         }
 
         [TestCompiler]
@@ -719,17 +719,17 @@ namespace Unity.Mathematics.Tests
                                   27.0f, 28.0f, 29.0f);
 
             float3x3 c = mul(a, b);
-            TestUtils.AreEqual(c.c0.x, 150.0f);
-            TestUtils.AreEqual(c.c1.x, 156.0f);
-            TestUtils.AreEqual(c.c2.x, 162.0f);
+            TestUtils.AreEqual(150.0f, c.c0.x);
+            TestUtils.AreEqual(156.0f, c.c1.x);
+            TestUtils.AreEqual(162.0f, c.c2.x);
 
-            TestUtils.AreEqual(c.c0.y, 366.0f);
-            TestUtils.AreEqual(c.c1.y, 381.0f);
-            TestUtils.AreEqual(c.c2.y, 396.0f);
+            TestUtils.AreEqual(366.0f, c.c0.y);
+            TestUtils.AreEqual(381.0f, c.c1.y);
+            TestUtils.AreEqual(396.0f, c.c2.y);
 
-            TestUtils.AreEqual(c.c0.z, 582.0f);
-            TestUtils.AreEqual(c.c1.z, 606.0f);
-            TestUtils.AreEqual(c.c2.z, 630.0f);
+            TestUtils.AreEqual(582.0f, c.c0.z);
+            TestUtils.AreEqual(606.0f, c.c1.z);
+            TestUtils.AreEqual(630.0f, c.c2.z);
         }
 
         [TestCompiler]
@@ -748,25 +748,25 @@ namespace Unity.Mathematics.Tests
                                   33.0f,34.0f,35.0f,36.0f);
 
             float4x4 c = mul(a, b);
-            TestUtils.AreEqual(c.c0.x, 290.0f);
-            TestUtils.AreEqual(c.c1.x, 300.0f);
-            TestUtils.AreEqual(c.c2.x, 310.0f);
-            TestUtils.AreEqual(c.c3.x, 320.0f);
+            TestUtils.AreEqual(290.0f, c.c0.x);
+            TestUtils.AreEqual(300.0f, c.c1.x);
+            TestUtils.AreEqual(310.0f, c.c2.x);
+            TestUtils.AreEqual(320.0f, c.c3.x);
 
-            TestUtils.AreEqual(c.c0.y, 722.0f);
-            TestUtils.AreEqual(c.c1.y, 748.0f);
-            TestUtils.AreEqual(c.c2.y, 774.0f);
-            TestUtils.AreEqual(c.c3.y, 800.0f);
+            TestUtils.AreEqual(722.0f, c.c0.y);
+            TestUtils.AreEqual(748.0f, c.c1.y);
+            TestUtils.AreEqual(774.0f, c.c2.y);
+            TestUtils.AreEqual(800.0f, c.c3.y);
 
-            TestUtils.AreEqual(c.c0.z, 1154.0f);
-            TestUtils.AreEqual(c.c1.z, 1196.0f);
-            TestUtils.AreEqual(c.c2.z, 1238.0f);
-            TestUtils.AreEqual(c.c3.z, 1280.0f);
+            TestUtils.AreEqual(1154.0f, c.c0.z);
+            TestUtils.AreEqual(1196.0f, c.c1.z);
+            TestUtils.AreEqual(1238.0f, c.c2.z);
+            TestUtils.AreEqual(1280.0f, c.c3.z);
 
-            TestUtils.AreEqual(c.c0.w, 1586.0f);
-            TestUtils.AreEqual(c.c1.w, 1644.0f);
-            TestUtils.AreEqual(c.c2.w, 1702.0f);
-            TestUtils.AreEqual(c.c3.w, 1760.0f);
+            TestUtils.AreEqual(1586.0f, c.c0.w);
+            TestUtils.AreEqual(1644.0f, c.c1.w);
+            TestUtils.AreEqual(1702.0f, c.c2.w);
+            TestUtils.AreEqual(1760.0f, c.c3.w);
         }
 
         [TestCompiler]
@@ -777,10 +777,10 @@ namespace Unity.Mathematics.Tests
 
             float2x2 b = transpose(a);
 
-            TestUtils.AreEqual(b.c0.x, 1.0f);
-            TestUtils.AreEqual(b.c1.x, 3.0f);
-            TestUtils.AreEqual(b.c0.y, 2.0f);
-            TestUtils.AreEqual(b.c1.y, 4.0f);
+            TestUtils.AreEqual(1.0f, b.c0.x);
+            TestUtils.AreEqual(3.0f, b.c1.x);
+            TestUtils.AreEqual(2.0f, b.c0.y);
+            TestUtils.AreEqual(4.0f, b.c1.y);
         }
 
         [TestCompiler]
@@ -792,15 +792,15 @@ namespace Unity.Mathematics.Tests
 
             float3x3 b = transpose(a);
 
-            TestUtils.AreEqual(b.c0.x, 1.0f);
-            TestUtils.AreEqual(b.c1.x, 4.0f);
-            TestUtils.AreEqual(b.c2.x, 7.0f);
-            TestUtils.AreEqual(b.c0.y, 2.0f);
-            TestUtils.AreEqual(b.c1.y, 5.0f);
-            TestUtils.AreEqual(b.c2.y, 8.0f);
-            TestUtils.AreEqual(b.c0.z, 3.0f);
-            TestUtils.AreEqual(b.c1.z, 6.0f);
-            TestUtils.AreEqual(b.c2.z, 9.0f);
+            TestUtils.AreEqual(1.0f, b.c0.x);
+            TestUtils.AreEqual(4.0f, b.c1.x);
+            TestUtils.AreEqual(7.0f, b.c2.x);
+            TestUtils.AreEqual(2.0f, b.c0.y);
+            TestUtils.AreEqual(5.0f, b.c1.y);
+            TestUtils.AreEqual(8.0f, b.c2.y);
+            TestUtils.AreEqual(3.0f, b.c0.z);
+            TestUtils.AreEqual(6.0f, b.c1.z);
+            TestUtils.AreEqual(9.0f, b.c2.z);
         }
 
         [TestCompiler]
@@ -813,22 +813,22 @@ namespace Unity.Mathematics.Tests
 
             float4x4 b = transpose(a);
 
-            TestUtils.AreEqual(b.c0.x, 1.0f);
-            TestUtils.AreEqual(b.c1.x, 5.0f);
-            TestUtils.AreEqual(b.c2.x, 9.0f);
-            TestUtils.AreEqual(b.c3.x, 13.0f);
-            TestUtils.AreEqual(b.c0.y, 2.0f);
-            TestUtils.AreEqual(b.c1.y, 6.0f);
-            TestUtils.AreEqual(b.c2.y, 10.0f);
-            TestUtils.AreEqual(b.c3.y, 14.0f);
-            TestUtils.AreEqual(b.c0.z, 3.0f);
-            TestUtils.AreEqual(b.c1.z, 7.0f);
-            TestUtils.AreEqual(b.c2.z, 11.0f);
-            TestUtils.AreEqual(b.c3.z, 15.0f);
-            TestUtils.AreEqual(b.c0.w, 4.0f);
-            TestUtils.AreEqual(b.c1.w, 8.0f);
-            TestUtils.AreEqual(b.c2.w, 12.0f);
-            TestUtils.AreEqual(b.c3.w, 16.0f);
+            TestUtils.AreEqual(1.0f, b.c0.x);
+            TestUtils.AreEqual(5.0f, b.c1.x);
+            TestUtils.AreEqual(9.0f, b.c2.x);
+            TestUtils.AreEqual(13.0f, b.c3.x);
+            TestUtils.AreEqual(2.0f, b.c0.y);
+            TestUtils.AreEqual(6.0f, b.c1.y);
+            TestUtils.AreEqual(10.0f, b.c2.y);
+            TestUtils.AreEqual(14.0f, b.c3.y);
+            TestUtils.AreEqual(3.0f, b.c0.z);
+            TestUtils.AreEqual(7.0f, b.c1.z);
+            TestUtils.AreEqual(11.0f, b.c2.z);
+            TestUtils.AreEqual(15.0f, b.c3.z);
+            TestUtils.AreEqual(4.0f, b.c0.w);
+            TestUtils.AreEqual(8.0f, b.c1.w);
+            TestUtils.AreEqual(12.0f, b.c2.w);
+            TestUtils.AreEqual(16.0f, b.c3.w);
         }
 
         [TestCompiler]
@@ -843,11 +843,11 @@ namespace Unity.Mathematics.Tests
             float2x2 r = inverse(a);
 
             float epsilon = 0.0001f;
-            TestUtils.AreEqual(invA.c0.x, r.c0.x, epsilon);
-            TestUtils.AreEqual(invA.c1.x, r.c1.x, epsilon);
+            TestUtils.AreEqual(r.c0.x, invA.c0.x, epsilon);
+            TestUtils.AreEqual(r.c1.x, invA.c1.x, epsilon);
 
-            TestUtils.AreEqual(invA.c0.y, r.c0.y, epsilon);
-            TestUtils.AreEqual(invA.c1.y, r.c1.y, epsilon);
+            TestUtils.AreEqual(r.c0.y, invA.c0.y, epsilon);
+            TestUtils.AreEqual(r.c1.y, invA.c1.y, epsilon);
         }
 
         [TestCompiler]
@@ -864,17 +864,17 @@ namespace Unity.Mathematics.Tests
             float3x3 r = inverse(a);
 
             float epsilon = 0.0001f;
-            TestUtils.AreEqual(invA.c0.x, r.c0.x, epsilon);
-            TestUtils.AreEqual(invA.c1.x, r.c1.x, epsilon);
-            TestUtils.AreEqual(invA.c2.x, r.c2.x, epsilon);
+            TestUtils.AreEqual(r.c0.x, invA.c0.x, epsilon);
+            TestUtils.AreEqual(r.c1.x, invA.c1.x, epsilon);
+            TestUtils.AreEqual(r.c2.x, invA.c2.x, epsilon);
 
-            TestUtils.AreEqual(invA.c0.y, r.c0.y, epsilon);
-            TestUtils.AreEqual(invA.c1.y, r.c1.y, epsilon);
-            TestUtils.AreEqual(invA.c2.y, r.c2.y, epsilon);
+            TestUtils.AreEqual(r.c0.y, invA.c0.y, epsilon);
+            TestUtils.AreEqual(r.c1.y, invA.c1.y, epsilon);
+            TestUtils.AreEqual(r.c2.y, invA.c2.y, epsilon);
 
-            TestUtils.AreEqual(invA.c0.z, r.c0.z, epsilon);
-            TestUtils.AreEqual(invA.c1.z, r.c1.z, epsilon);
-            TestUtils.AreEqual(invA.c2.z, r.c2.z, epsilon);
+            TestUtils.AreEqual(r.c0.z, invA.c0.z, epsilon);
+            TestUtils.AreEqual(r.c1.z, invA.c1.z, epsilon);
+            TestUtils.AreEqual(r.c2.z, invA.c2.z, epsilon);
         }
 
         [TestCompiler]
@@ -893,25 +893,25 @@ namespace Unity.Mathematics.Tests
             float4x4 r = inverse(a);
 
             float epsilon = 0.0001f;
-            TestUtils.AreEqual(invA.c0.x, r.c0.x, epsilon);
-            TestUtils.AreEqual(invA.c1.x, r.c1.x, epsilon);
-            TestUtils.AreEqual(invA.c2.x, r.c2.x, epsilon);
-            TestUtils.AreEqual(invA.c3.x, r.c3.x, epsilon);
+            TestUtils.AreEqual(r.c0.x, invA.c0.x, epsilon);
+            TestUtils.AreEqual(r.c1.x, invA.c1.x, epsilon);
+            TestUtils.AreEqual(r.c2.x, invA.c2.x, epsilon);
+            TestUtils.AreEqual(r.c3.x, invA.c3.x, epsilon);
 
-            TestUtils.AreEqual(invA.c0.y, r.c0.y, epsilon);
-            TestUtils.AreEqual(invA.c1.y, r.c1.y, epsilon);
-            TestUtils.AreEqual(invA.c2.y, r.c2.y, epsilon);
-            TestUtils.AreEqual(invA.c3.y, r.c3.y, epsilon);
+            TestUtils.AreEqual(r.c0.y, invA.c0.y, epsilon);
+            TestUtils.AreEqual(r.c1.y, invA.c1.y, epsilon);
+            TestUtils.AreEqual(r.c2.y, invA.c2.y, epsilon);
+            TestUtils.AreEqual(r.c3.y, invA.c3.y, epsilon);
 
-            TestUtils.AreEqual(invA.c0.z, r.c0.z, epsilon);
-            TestUtils.AreEqual(invA.c1.z, r.c1.z, epsilon);
-            TestUtils.AreEqual(invA.c2.z, r.c2.z, epsilon);
-            TestUtils.AreEqual(invA.c3.z, r.c3.z, epsilon);
+            TestUtils.AreEqual(r.c0.z, invA.c0.z, epsilon);
+            TestUtils.AreEqual(r.c1.z, invA.c1.z, epsilon);
+            TestUtils.AreEqual(r.c2.z, invA.c2.z, epsilon);
+            TestUtils.AreEqual(r.c3.z, invA.c3.z, epsilon);
 
-            TestUtils.AreEqual(invA.c0.w, r.c0.w, epsilon);
-            TestUtils.AreEqual(invA.c1.w, r.c1.w, epsilon);
-            TestUtils.AreEqual(invA.c2.w, r.c2.w, epsilon);
-            TestUtils.AreEqual(invA.c3.w, r.c3.w, epsilon);
+            TestUtils.AreEqual(r.c0.w, invA.c0.w, epsilon);
+            TestUtils.AreEqual(r.c1.w, invA.c1.w, epsilon);
+            TestUtils.AreEqual(r.c2.w, invA.c2.w, epsilon);
+            TestUtils.AreEqual(r.c3.w, invA.c3.w, epsilon);
         }
 
         [TestCompiler]
@@ -925,10 +925,10 @@ namespace Unity.Mathematics.Tests
             float4x4 invA = inverse(a);
             float3x4 fastInvB = fastinverse(b);
 
-            TestUtils.AreEqual(fastInvB.c0.xyz, invA.c0.xyz, 0.0001f);
-            TestUtils.AreEqual(fastInvB.c1.xyz, invA.c1.xyz, 0.0001f);
-            TestUtils.AreEqual(fastInvB.c2.xyz, invA.c2.xyz, 0.0001f);
-            TestUtils.AreEqual(fastInvB.c3.xyz, invA.c3.xyz, 0.0001f);
+            TestUtils.AreEqual(invA.c0.xyz, fastInvB.c0.xyz, 0.0001f);
+            TestUtils.AreEqual(invA.c1.xyz, fastInvB.c1.xyz, 0.0001f);
+            TestUtils.AreEqual(invA.c2.xyz, fastInvB.c2.xyz, 0.0001f);
+            TestUtils.AreEqual(invA.c3.xyz, fastInvB.c3.xyz, 0.0001f);
         }
 
         [TestCompiler]
@@ -940,7 +940,7 @@ namespace Unity.Mathematics.Tests
             float4x4 invA = inverse(a);
             float4x4 fastInvA = fastinverse(a);
 
-            TestUtils.AreEqual(fastInvA, invA, 0.0001f);
+            TestUtils.AreEqual(invA, fastInvA, 0.0001f);
         }
 
         [TestCompiler]
@@ -950,7 +950,7 @@ namespace Unity.Mathematics.Tests
                                   -0.270153f, -0.912324f);
 
             float det = determinant(a);
-            TestUtils.AreEqual(det, -0.2610378f, 0.0001f);
+            TestUtils.AreEqual(-0.2610378f, det, 0.0001f);
         }
 
         [TestCompiler]
@@ -961,7 +961,7 @@ namespace Unity.Mathematics.Tests
                                    0.816727f,  0.905933f, 0.902392f);
 
             float det = determinant(a);
-            TestUtils.AreEqual(det, 0.06019618f, 0.0001f);
+            TestUtils.AreEqual(0.06019618f, det, 0.0001f);
         }
 
         [TestCompiler]
@@ -973,7 +973,7 @@ namespace Unity.Mathematics.Tests
                                   -0.254780f,  0.604543f, 0.563340f, -0.383911f);
 
             float det = determinant(a);
-            TestUtils.AreEqual(det, 0.5838502f, 0.0001f);
+            TestUtils.AreEqual(0.5838502f, det, 0.0001f);
         }
 
         [TestCompiler]
@@ -982,38 +982,34 @@ namespace Unity.Mathematics.Tests
             float3 forward0 = normalize(float3(1.0f, 2.0f, 3.0f));
             float3 up0 = float3(0.0f, 1.0f, 0.0f);
             float3x3 m0 = float3x3.LookRotation(forward0, up0);
-            TestUtils.AreEqual(m0,
-                float3x3( 0.948683f, -0.169031f, 0.267261f,
+            TestUtils.AreEqual(float3x3( 0.948683f, -0.169031f, 0.267261f,
                           0.000000f,  0.845154f, 0.534523f,
-                         -0.316228f, -0.507093f, 0.801784f), 0.001f);
-            TestUtils.AreEqual(m0, float3x3(quaternion.LookRotation(forward0, up0)), 0.001f);
+                         -0.316228f, -0.507093f, 0.801784f), m0, 0.001f);
+            TestUtils.AreEqual(float3x3(quaternion.LookRotation(forward0, up0)), m0, 0.001f);
 
             float3 forward1 = normalize(float3(-3.2f, 2.3f, -1.3f));
             float3 up1 = normalize(float3(1.0f, -3.2f, -1.5f));
             float3x3 m1 = float3x3.LookRotation(forward1, up1);
-            TestUtils.AreEqual(m1,
-                float3x3( 0.605102f, -0.197976f, -0.771140f,
+            TestUtils.AreEqual(float3x3( 0.605102f, -0.197976f, -0.771140f,
                           0.485036f, -0.676417f,  0.554257f,
-                         -0.631342f, -0.709413f, -0.313276f), 0.001f);
-            TestUtils.AreEqual(m1, float3x3(quaternion.LookRotation(forward1, up1)), 0.001f);
+                         -0.631342f, -0.709413f, -0.313276f), m1, 0.001f);
+            TestUtils.AreEqual(float3x3(quaternion.LookRotation(forward1, up1)), m1, 0.001f);
 
             float3 forward2 = normalize(float3(-2.6f, -5.2f, -1.1f));
             float3 up2 = normalize(float3(-4.2f, -1.2f, -4.5f));
             float3x3 m2 = float3x3.LookRotation(forward2, up2);
-            TestUtils.AreEqual(m2,
-                float3x3(-0.740918f, -0.507890f, -0.439418f,
+            TestUtils.AreEqual(float3x3(-0.740918f, -0.507890f, -0.439418f,
                           0.237577f,  0.413771f, -0.878835f,
-                          0.628170f, -0.755540f, -0.185907f), 0.001f);
-            TestUtils.AreEqual(m2, float3x3(quaternion.LookRotation(forward2, up2)), 0.001f);
+                          0.628170f, -0.755540f, -0.185907f), m2, 0.001f);
+            TestUtils.AreEqual(float3x3(quaternion.LookRotation(forward2, up2)), m2, 0.001f);
 
             float3 forward3 = normalize(float3(1.3f, 2.1f, 3.4f));
             float3 up3 = normalize(float3(0.2f, -1.0f, 0.3f));
             float3x3 m3 = float3x3.LookRotation(forward3, up3);
-            TestUtils.AreEqual(m3,
-                float3x3(-0.917727f,  0.249162f, 0.309349f,
+            TestUtils.AreEqual(float3x3(-0.917727f,  0.249162f, 0.309349f,
                          -0.066040f, -0.863668f, 0.499717f,
-                          0.391685f,  0.438174f, 0.809065f), 0.001f);
-            TestUtils.AreEqual(m3, float3x3(quaternion.LookRotation(forward3, up3)), 0.001f);
+                          0.391685f,  0.438174f, 0.809065f), m3, 0.001f);
+            TestUtils.AreEqual(float3x3(quaternion.LookRotation(forward3, up3)), m3, 0.001f);
         }
 
         [TestCompiler]
@@ -1022,15 +1018,14 @@ namespace Unity.Mathematics.Tests
             float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
             float3 up0 = float3(1.0f, -3.2f, -1.5f) * 1e10f;
             float3x3 m0 = float3x3.LookRotationSafe(forward0, up0);
-            TestUtils.AreEqual(m0,
-                float3x3(0.605102f, -0.197976f, -0.771140f,
+            TestUtils.AreEqual(float3x3(0.605102f, -0.197976f, -0.771140f,
                           0.485036f, -0.676417f, 0.554257f,
-                         -0.631342f, -0.709413f, -0.313276f), 0.001f);
+                         -0.631342f, -0.709413f, -0.313276f), m0, 0.001f);
 
             float3 forward1 = float3(-3.2f, 2.3f, -1.3f) * 1e-30f;
             float3 up1 = float3(1.0f, -3.2f, -1.5f);
             float3x3 m1 = float3x3.LookRotationSafe(forward1, up1);
-            TestUtils.AreEqual(m1, float3x3.identity, 0.001f);
+            TestUtils.AreEqual(float3x3.identity, m1, 0.001f);
         }
 
 
@@ -1044,7 +1039,7 @@ namespace Unity.Mathematics.Tests
                 -0.26862f, -0.76624f, -0.58371f,  3.00000f,
                  0.00000f,  0.00000f,  0.00000f,  1.00000f
                 );
-            TestUtils.AreEqual(m, r, 0.001f);
+            TestUtils.AreEqual(r, m, 0.001f);
         }
 
 
@@ -1058,7 +1053,7 @@ namespace Unity.Mathematics.Tests
                 0.00000f, 0.00000f, -0.20000f, -0.40000f,
                 0.00000f, 0.00000f,  0.00000f,  1.00000f
                 );
-            TestUtils.AreEqual(m, r, 0.001f);
+            TestUtils.AreEqual(r, m, 0.001f);
         }
 
         [TestCompiler]
@@ -1071,7 +1066,7 @@ namespace Unity.Mathematics.Tests
                 0.00000f, 0.00000f, -0.20000f, -0.40000f,
                 0.00000f, 0.00000f,  0.00000f,  1.00000f
                 );
-            TestUtils.AreEqual(m, r, 0.001f);
+            TestUtils.AreEqual(r, m, 0.001f);
         }
 
         [TestCompiler]
@@ -1092,15 +1087,15 @@ namespace Unity.Mathematics.Tests
                 0.00000f, 0.00000f, -1.00200f, -0.20020f,
                 0.00000f, 0.00000f, -1.00000f,  0.00000f
                 );
-            TestUtils.AreEqual(m, r, 0.001f);
+            TestUtils.AreEqual(r, m, 0.001f);
 
             float4 p0 = mul(m, float4(-width, -height, -near, 1.0f));
             float4 pp0 = p0 / p0.w;
-            TestUtils.AreEqual(pp0.xyz, float3(-1.0f, -1.0f, -1.0f), 0.001f);
+            TestUtils.AreEqual(float3(-1.0f, -1.0f, -1.0f), pp0.xyz, 0.001f);
 
             float4 p1 = mul(m, float4(width / near * far, height / near * far, -far, 1.0f));
             float4 pp1 = p1 / p1.w;
-            TestUtils.AreEqual(pp1.xyz, float3(1.0f, 1.0f, 1.0f), 0.001f);
+            TestUtils.AreEqual(float3(1.0f, 1.0f, 1.0f), pp1.xyz, 0.001f);
         }
 
         [TestCompiler]
@@ -1110,15 +1105,15 @@ namespace Unity.Mathematics.Tests
             float aspect = 1.3333f;
             float near = 0.1f;
             float far = 100.0f;
-            
+
             float4x4 r0 = float4x4.PerspectiveFov(fovy, aspect, near, far);
 
             float height = tan(fovy * 0.5f) * near;
             float width = height * 1.3333f;
 
             float4x4 m0 = float4x4.PerspectiveOffCenter(-width, width, -height, height, 0.1f, 100.0f);
-            TestUtils.AreEqual(m0, r0, 0.001f);
-            
+            TestUtils.AreEqual(r0, m0, 0.001f);
+
             float left = -0.3f;
             float right = -0.1f;
             float bottom = -0.2f;
@@ -1126,15 +1121,15 @@ namespace Unity.Mathematics.Tests
             float4x4 m1 = float4x4.PerspectiveOffCenter(left, right, bottom, top, near, far);
             float4 p0 = mul(m1, float4(left, bottom, -near, 1.0f));
             float4 pp0 = p0 / p0.w;
-            TestUtils.AreEqual(pp0.xyz, float3(-1.0f, -1.0f, -1.0f), 0.001f);
+            TestUtils.AreEqual(float3(-1.0f, -1.0f, -1.0f), pp0.xyz, 0.001f);
 
             float4 p1 = mul(m1, float4(right, top, -near, 1.0f));
             float4 pp1 = p1 / p1.w;
-            TestUtils.AreEqual(pp1.xyz, float3(1.0f, 1.0f, -1.0f), 0.001f);
+            TestUtils.AreEqual(float3(1.0f, 1.0f, -1.0f), pp1.xyz, 0.001f);
 
             float4 p2 = mul(m1, float4(left*far/near, top * far / near, -far, 1.0f));
             float4 pp2 = p2 / p2.w;
-            TestUtils.AreEqual(pp2.xyz, float3(-1.0f,  1.0f, 1.0f), 0.001f);
+            TestUtils.AreEqual(float3(-1.0f,  1.0f, 1.0f), pp2.xyz, 0.001f);
         }
 
         [TestCompiler]
@@ -1145,8 +1140,34 @@ namespace Unity.Mathematics.Tests
             float3 translation = float3(12.3f, -4.3f, 135.99f);
             float4x4 r0 = mul(float4x4(quaternion.identity, translation), mul(float4x4(rotation, float3.zero), float4x4.Scale(scale)));
             float4x4 m0 = float4x4.TRS(translation, rotation, scale);
-            TestUtils.AreEqual(m0, r0, 0.001f);
+            TestUtils.AreEqual(r0, m0, 0.001f);
         }
 
+        [TestCompiler]
+        public static void float3x3_constructor_float4x4()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, new float3x3(f4x4));
+        }
+
+        [TestCompiler]
+        public static void float3x3_explicit_cast_float4x4()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, (float3x3)f4x4);
+        }
+
+        [TestCompiler]
+        public static void float3x3_from_float4x4_without_new()
+        {
+            var f4x4 = new float4x4(new float4(1, 2, 3, 4), new float4(5, 6, 7, 8), new float4(9, 10, 11, 12), new float4(13, 14, 15, 16));
+            var expected = new float3x3(new float3(1, 2, 3), new float3(5, 6, 7), new float3(9, 10, 11));
+
+            TestUtils.AreEqual(expected, float3x3(f4x4));
+        }
     }
 }

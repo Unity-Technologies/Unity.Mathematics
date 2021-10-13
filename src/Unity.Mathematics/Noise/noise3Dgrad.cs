@@ -1,5 +1,5 @@
 //
-// Description : Array and textureless GLSL 2D/3D/4D simplex 
+// Description : Array and textureless GLSL 2D/3D/4D simplex
 //               noise functions.
 //      Author : Ian McEwan, Ashima Arts.
 //  Maintainer : stegu
@@ -8,7 +8,7 @@
 //               Distributed under the MIT License. See LICENSE file.
 //               https://github.com/ashima/webgl-noise
 //               https://github.com/stegu/webgl-noise
-// 
+//
 
 using static Unity.Mathematics.math;
 
@@ -16,6 +16,12 @@ namespace Unity.Mathematics
 {
     public static partial class noise
     {
+        /// <summary>
+        /// Simplex noise.
+        /// </summary>
+        /// <param name="v">Input coordinate.</param>
+        /// <param name="gradient">Output 3D noise gradient.</param>
+        /// <returns>Noise value.</returns>
         public static float snoise(float3 v, out float3 gradient)
         {
             float2 C = float2(1.0f / 6.0f, 1.0f / 3.0f);

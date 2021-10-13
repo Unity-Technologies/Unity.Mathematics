@@ -2,6 +2,7 @@ using System;
 using System.Runtime.CompilerServices;
 using static Unity.Mathematics.math;
 using System.Diagnostics;
+using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
@@ -11,14 +12,19 @@ namespace Unity.Mathematics
     /// Core functionality is integer multiplication free to improve vectorization
     /// on less capable SIMD instruction sets.
     /// </summary>
+    [Il2CppEagerStaticClassConstruction]
     [Serializable]
     public partial struct Random
     {
+        /// <summary>
+        /// The random number generator state. It should not be zero.
+        /// </summary>
         public uint state;
 
         /// <summary>
         /// Constructs a Random instance with a given seed value. The seed must be non-zero.
         /// </summary>
+        /// <param name="seed">The seed to initialize with.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public Random(uint seed)
         {
@@ -28,8 +34,56 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
+        /// Constructs a <see cref="Random"/> instance with an index that gets hashed.  The index must not be uint.MaxValue.
+        /// </summary>
+        /// <remarks>
+        /// Use this function when you expect to create several Random instances in a loop.
+        /// </remarks>
+        /// <example>
+        /// <code>
+        /// for (uint i = 0; i &lt; 4096; ++i)
+        /// {
+        ///     Random rand = Random.CreateFromIndex(i);
+        ///
+        ///     // Random numbers drawn from loop iteration j will be very different
+        ///     // from every other loop iteration k.
+        ///     rand.NextUInt();
+        /// }
+        /// </code>
+        /// </example>
+        /// <param name="index">An index that will be hashed for Random creation.  Must not be uint.MaxValue.</param>
+        /// <returns><see cref="Random"/> created from an index.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static Random CreateFromIndex(uint index)
+        {
+            CheckIndexForHash(index);
+
+            // Wang hash will hash 61 to zero but we want uint.MaxValue to hash to zero.  To make this happen
+            // we must offset by 62.
+            return new Random(WangHash(index + 62u));
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        internal static uint WangHash(uint n)
+        {
+            // https://gist.github.com/badboy/6267743#hash-function-construction-principles
+            // Wang hash: this has the property that none of the outputs will
+            // collide with each other, which is important for the purposes of
+            // seeding a random number generator.  This was verified empirically
+            // by checking all 2^32 uints.
+            n = (n ^ 61u) ^ (n >> 16);
+            n *= 9u;
+            n = n ^ (n >> 4);
+            n *= 0x27d4eb2du;
+            n = n ^ (n >> 15);
+
+            return n;
+        }
+
+        /// <summary>
         /// Initialized the state of the Random instance with a given seed value. The seed must be non-zero.
         /// </summary>
+        /// <param name="seed">The seed to initialize with.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public void InitState(uint seed = 0x6E624EB7u)
         {
@@ -38,6 +92,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random bool value.</summary>
+        /// <returns>A uniformly random boolean value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool NextBool()
         {
@@ -45,6 +100,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random bool2 value.</summary>
+        /// <returns>A uniformly random bool2 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool2 NextBool2()
         {
@@ -53,6 +109,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random bool3 value.</summary>
+        /// <returns>A uniformly random bool3 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool3 NextBool3()
         {
@@ -61,6 +118,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random bool4 value.</summary>
+        /// <returns>A uniformly random bool4 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool4 NextBool4()
         {
@@ -70,6 +128,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a uniformly random int value in the interval [-2147483647, 2147483647].</summary>
+        /// <returns>A uniformly random integer value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int NextInt()
         {
@@ -77,6 +136,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int2 value with all components in the interval [-2147483647, 2147483647].</summary>
+        /// <returns>A uniformly random int2 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2 NextInt2()
         {
@@ -84,6 +144,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int3 value with all components in the interval [-2147483647, 2147483647].</summary>
+        /// <returns>A uniformly random int3 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3 NextInt3()
         {
@@ -91,6 +152,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int4 value with all components in the interval [-2147483647, 2147483647].</summary>
+        /// <returns>A uniformly random int4 value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4 NextInt4()
         {
@@ -98,6 +160,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int value in the interval [0, max).</summary>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int NextInt(int max)
         {
@@ -106,6 +170,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int2 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int2 value with all components in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2 NextInt2(int2 max)
         {
@@ -116,6 +182,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int3 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int3 value with all components in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3 NextInt3(int3 max)
         {
@@ -128,6 +196,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int4 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int4 value with all components in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4 NextInt4(int4 max)
         {
@@ -142,6 +212,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int value in the interval [min, max).</summary>
+        /// <param name="min">The minimum value to generate, inclusive.</param>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random integer between [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int NextInt(int min, int max)
         {
@@ -151,6 +224,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int2 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int2 between [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int2 NextInt2(int2 min, int2 max)
         {
@@ -162,6 +238,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int3 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int3 between [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int3 NextInt3(int3 min, int3 max)
         {
@@ -175,6 +254,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random int4 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random int4 between [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public int4 NextInt4(int4 min, int4 max)
         {
@@ -190,6 +272,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint value in the interval [0, 4294967294].</summary>
+        /// <returns>A uniformly random unsigned integer.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt()
         {
@@ -197,6 +280,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint2 value with all components in the interval [0, 4294967294].</summary>
+        /// <returns>A uniformly random uint2.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2 NextUInt2()
         {
@@ -204,6 +288,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint3 value with all components in the interval [0, 4294967294].</summary>
+        /// <returns>A uniformly random uint3.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3 NextUInt3()
         {
@@ -211,6 +296,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint4 value with all components in the interval [0, 4294967294].</summary>
+        /// <returns>A uniformly random uint4.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4 NextUInt4()
         {
@@ -219,6 +305,8 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a uniformly random uint value in the interval [0, max).</summary>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random unsigned integer in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt(uint max)
         {
@@ -226,6 +314,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint2 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint2 in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2 NextUInt2(uint2 max)
         {
@@ -234,6 +324,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint3 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint3 in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3 NextUInt3(uint3 max)
         {
@@ -243,6 +335,8 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint4 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint4 in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4 NextUInt4(uint4 max)
         {
@@ -253,6 +347,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint value in the interval [min, max).</summary>
+        /// <param name="min">The minimum value to generate, inclusive.</param>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random unsigned integer in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint NextUInt(uint min, uint max)
         {
@@ -262,6 +359,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint2 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint2 in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint2 NextUInt2(uint2 min, uint2 max)
         {
@@ -273,6 +373,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint3 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint3 in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint3 NextUInt3(uint3 min, uint3 max)
         {
@@ -286,6 +389,9 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random uint4 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random uint4 in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public uint4 NextUInt4(uint4 min, uint4 max)
         {
@@ -301,6 +407,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random float value in the interval [0, 1).</summary>
+        /// <returns>A uniformly random float value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float NextFloat()
         {
@@ -308,6 +415,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random float2 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random float2 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2()
         {
@@ -315,6 +423,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random float3 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random float3 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3 NextFloat3()
         {
@@ -322,6 +431,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random float4 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random float4 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4 NextFloat4()
         {
@@ -330,41 +440,62 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a uniformly random float value in the interval [0, max).</summary>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float NextFloat(float max) { return NextFloat() * max; }
 
         /// <summary>Returns a uniformly random float2 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float2 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2(float2 max) { return NextFloat2() * max; }
 
         /// <summary>Returns a uniformly random float3 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float3 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3 NextFloat3(float3 max) { return NextFloat3() * max; }
 
         /// <summary>Returns a uniformly random float4 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float4 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4 NextFloat4(float4 max) { return NextFloat4() * max; }
 
 
         /// <summary>Returns a uniformly random float value in the interval [min, max).</summary>
+        /// <param name="min">The minimum value to generate, inclusive.</param>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float NextFloat(float min, float max) { return NextFloat() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random float2 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float2 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2(float2 min, float2 max) { return NextFloat2() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random float3 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float3 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3 NextFloat3(float3 min, float3 max) { return NextFloat3() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random float4 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random float4 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float4 NextFloat4(float4 min, float4 max) { return NextFloat4() * (max - min) + min; }
 
 
 
         /// <summary>Returns a uniformly random double value in the interval [0, 1).</summary>
+        /// <returns>A uniformly random double value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double NextDouble()
         {
@@ -373,6 +504,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random double2 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random double2 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2 NextDouble2()
         {
@@ -383,6 +515,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random double3 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random double3 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3 NextDouble3()
         {
@@ -395,6 +528,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a uniformly random double4 value with all components in the interval [0, 1).</summary>
+        /// <returns>A uniformly random double4 value in the range [0, 1).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4 NextDouble4()
         {
@@ -410,39 +544,60 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns a uniformly random double value in the interval [0, max).</summary>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double NextDouble(double max) { return NextDouble() * max; }
 
         /// <summary>Returns a uniformly random double2 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double2 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2 NextDouble2(double2 max) { return NextDouble2() * max; }
 
         /// <summary>Returns a uniformly random double3 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double3 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3 NextDouble3(double3 max) { return NextDouble3() * max; }
 
         /// <summary>Returns a uniformly random double4 value with all components in the interval [0, max).</summary>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double4 value in the range [0, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4 NextDouble4(double4 max) { return NextDouble4() * max; }
 
 
         /// <summary>Returns a uniformly random double value in the interval [min, max).</summary>
+        /// <param name="min">The minimum value to generate, inclusive.</param>
+        /// <param name="max">The maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double NextDouble(double min, double max) { return NextDouble() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random double2 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double2 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2 NextDouble2(double2 min, double2 max) { return NextDouble2() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random double3 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double3 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3 NextDouble3(double3 min, double3 max) { return NextDouble3() * (max - min) + min; }
 
         /// <summary>Returns a uniformly random double4 value with all components in the interval [min, max).</summary>
+        /// <param name="min">The componentwise minimum value to generate, inclusive.</param>
+        /// <param name="max">The componentwise maximum value to generate, exclusive.</param>
+        /// <returns>A uniformly random double4 value in the range [min, max).</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double4 NextDouble4(double4 min, double4 max) { return NextDouble4() * (max - min) + min; }
 
         /// <summary>Returns a unit length float2 vector representing a uniformly random 2D direction.</summary>
+        /// <returns>A uniformly random unit length float2 vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float2 NextFloat2Direction()
         {
@@ -453,6 +608,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a unit length double2 vector representing a uniformly random 2D direction.</summary>
+        /// <returns>A uniformly random unit length double2 vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double2 NextDouble2Direction()
         {
@@ -463,6 +619,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a unit length float3 vector representing a uniformly random 3D direction.</summary>
+        /// <returns>A uniformly random unit length float3 vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public float3 NextFloat3Direction()
         {
@@ -476,6 +633,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a unit length double3 vector representing a uniformly random 3D direction.</summary>
+        /// <returns>A uniformly random unit length double3 vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3 NextDouble3Direction()
         {
@@ -489,13 +647,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns a unit length quaternion representing a uniformly 3D rotation.</summary>
+        /// <returns>A uniformly random unit length quaternion.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public quaternion NextQuaternionRotation()
         {
             float3 rnd = NextFloat3(float3(2.0f * PI, 2.0f * PI, 1.0f));
             float u1 = rnd.z;
             float2 theta_rho = rnd.xy;
-            
+
             float i = sqrt(1.0f - u1);
             float j = sqrt(u1);
 
@@ -526,7 +685,14 @@ namespace Unity.Mathematics
                 throw new System.ArgumentException("Seed must be non-zero");
 #endif
         }
-        
+
+        [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
+        static void CheckIndexForHash(uint index)
+        {
+            if (index == uint.MaxValue)
+                throw new System.ArgumentException("Index must not be uint.MaxValue");
+        }
+
         [Conditional("ENABLE_UNITY_COLLECTIONS_CHECKS")]
         private void CheckState()
         {
