@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Unity</RootNamespace>
     <AssemblyName>Unity.Mathematics</AssemblyName>
-    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <TargetFramework>net471</TargetFramework>
     <FileAlignment>512</FileAlignment>
     <!--Version must remain to 1.0.0.0 for Burst unit tests-->
     <Version>1.0.0.0</Version> 
@@ -26,8 +26,6 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <!--Version must remain to 1.0.0.0 for Burst unit tests-->
-    <Version>1.0.0.0</Version> 
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -39,8 +37,6 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <!--Version must remain to 1.0.0.0 for Burst unit tests-->
-    <Version>1.0.0.0</Version> 
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x64' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -53,8 +49,6 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <!--Version must remain to 1.0.0.0 for Burst unit tests-->
-    <Version>1.0.0.0</Version> 
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x64' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,8 +60,6 @@
     <WarningLevel>4</WarningLevel>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
-    <!--Version must remain to 1.0.0.0 for Burst unit tests-->
-    <Version>1.0.0.0</Version> 
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
