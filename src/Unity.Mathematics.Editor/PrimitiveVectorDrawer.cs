@@ -90,11 +90,22 @@ namespace Unity.Mathematics.Editor
                 label.tooltip = Content.doNotNormalizeTooltip;
 
             label = EditorGUI.BeginProperty(position, label, property);
-            EditorGUICopy.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
+            var valuesIterator = property.FindPropertyRelative(startIter);
+            MultiPropertyField(position, subLabels, valuesIterator, label);
             EditorGUI.EndProperty();
+        }
+
+        void MultiPropertyField(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, GUIContent label)
+        {
+#if UNITY_2022_1_OR_NEWER
+            EditorGUI.MultiPropertyField(position, subLabels, valuesIterator, label, EditorGUI.PropertyVisibility.All);
+#else
+            EditorGUICopy.MultiPropertyField(position, subLabels, valuesIterator, label);
+#endif
         }
     }
 
+#if !UNITY_2022_1_OR_NEWER
     internal class EditorGUICopy
     {
         internal const float kSingleLineHeight = 18f;
@@ -226,4 +237,5 @@ namespace Unity.Mathematics.Editor
             }
         }
     }
+#endif
 }
