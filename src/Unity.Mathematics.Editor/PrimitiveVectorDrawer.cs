@@ -108,7 +108,6 @@ namespace Unity.Mathematics.Editor
 #if !UNITY_2022_1_OR_NEWER
     internal class EditorGUICopy
     {
-        internal const float kSingleLineHeight = 18f;
         internal const float kSpacingSubLabel = 4;
         private const float kIndentPerLevel = 15;
         internal const float kPrefixPaddingRight = 2;
@@ -135,7 +134,7 @@ namespace Unity.Mathematics.Editor
         {
             int id = GUIUtility.GetControlID(s_FoldoutHash, FocusType.Keyboard, position);
             position = MultiFieldPrefixLabel(position, id, label, subLabels.Length);
-            position.height = kSingleLineHeight;
+            position.height = EditorGUIUtility.singleLineHeight;
             MultiPropertyFieldInternal(position, subLabels, valuesIterator, PropertyVisibility.All);
         }
 
@@ -211,7 +210,7 @@ namespace Unity.Mathematics.Editor
 
             if (EditorGUIUtility.wideMode)
             {
-                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, EditorGUIUtility.labelWidth - indent, kSingleLineHeight);
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, EditorGUIUtility.labelWidth - indent, EditorGUIUtility.singleLineHeight);
                 Rect fieldPosition = totalPosition;
                 fieldPosition.xMin += EditorGUIUtility.labelWidth + kPrefixPaddingRight;
 
@@ -228,10 +227,10 @@ namespace Unity.Mathematics.Editor
             }
             else
             {
-                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, totalPosition.width - indent, kSingleLineHeight);
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, totalPosition.width - indent, EditorGUIUtility.singleLineHeight);
                 Rect fieldPosition = totalPosition;
                 fieldPosition.xMin += indent + kIndentPerLevel;
-                fieldPosition.yMin += kSingleLineHeight + kVerticalSpacingMultiField;
+                fieldPosition.yMin += EditorGUIUtility.singleLineHeight + kVerticalSpacingMultiField;
                 EditorGUI.HandlePrefixLabel(totalPosition, labelPosition, label, id);
                 return fieldPosition;
             }
