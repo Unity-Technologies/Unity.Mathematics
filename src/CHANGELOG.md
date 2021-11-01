@@ -10,6 +10,7 @@
 ### Deprecated
 ### Removed
 ### Fixed
+* Fixed property drawing when manually drawing a property that was hidden with [HideInInspector].
 
 ## [1.2.4] - 2021-09-22
 ### Added
