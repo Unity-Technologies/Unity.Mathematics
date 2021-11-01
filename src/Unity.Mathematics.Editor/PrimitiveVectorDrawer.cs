@@ -89,9 +89,152 @@ namespace Unity.Mathematics.Editor
             if (attribute is DoNotNormalizeAttribute && string.IsNullOrEmpty(label.tooltip))
                 label.tooltip = Content.doNotNormalizeTooltip;
 
-            EditorGUI.BeginProperty(position, label, property);
-            EditorGUI.MultiPropertyField(position, subLabels, property.FindPropertyRelative(startIter), label);
+            label = EditorGUI.BeginProperty(position, label, property);
+            var valuesIterator = property.FindPropertyRelative(startIter);
+            MultiPropertyField(position, subLabels, valuesIterator, label);
             EditorGUI.EndProperty();
         }
+
+        void MultiPropertyField(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, GUIContent label)
+        {
+#if UNITY_2022_1_OR_NEWER
+            EditorGUI.MultiPropertyField(position, subLabels, valuesIterator, label, EditorGUI.PropertyVisibility.All);
+#else
+            EditorGUICopy.MultiPropertyField(position, subLabels, valuesIterator, label);
+#endif
+        }
     }
+
+#if !UNITY_2022_1_OR_NEWER
+    internal class EditorGUICopy
+    {
+        internal const float kSpacingSubLabel = 4;
+        private const float kIndentPerLevel = 15;
+        internal const float kPrefixPaddingRight = 2;
+        internal static int indentLevel = 0;
+        private static readonly int s_FoldoutHash = "Foldout".GetHashCode();
+
+        // internal static readonly SVC<float> kVerticalSpacingMultiField = new SVC<float>("--theme-multifield-vertical-spacing", 0.0f);
+        // kVerticalSpacingMultiField should actually look like the above line ^^^ but we don't have access to SVC<T>,
+        // so instead we just set this value to what is observed in the debugger with the Unity dark theme.
+        internal const float kVerticalSpacingMultiField = 2;
+
+        internal enum PropertyVisibility
+        {
+            All,
+            OnlyVisible
+        }
+
+        // This code is basically EditorGUI.MultiPropertyField(Rect, GUIContent[], SerializedProperty, GUIContent),
+        // but with the property visibility assumed to be "All" instead of "OnlyVisible". We really want to have "All"
+        // because it's possible for someone to hide something in the inspector with [HideInInspector] but then manually
+        // draw it themselves later. In this case, if you called EditorGUI.MultiPropertyField() directly, you'd
+        // end up with some fields that point to some unrelated visible property.
+        public static void MultiPropertyField(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, GUIContent label)
+        {
+            int id = GUIUtility.GetControlID(s_FoldoutHash, FocusType.Keyboard, position);
+            position = MultiFieldPrefixLabel(position, id, label, subLabels.Length);
+            position.height = EditorGUIUtility.singleLineHeight;
+            MultiPropertyFieldInternal(position, subLabels, valuesIterator, PropertyVisibility.All);
+        }
+
+        internal static void BeginDisabled(bool disabled)
+        {
+            // Unused, but left here to minimize changes in EditorGUICopy.MultiPropertyFieldInternal().
+        }
+
+        internal static void EndDisabled()
+        {
+            // Unused, but left here to minimize changes in EditorGUICopy.MultiPropertyFieldInternal().
+        }
+
+        internal static float CalcPrefixLabelWidth(GUIContent label, GUIStyle style = null)
+        {
+            if (style == null)
+                style = EditorStyles.label;
+            return style.CalcSize(label).x;
+        }
+
+        internal static void MultiPropertyFieldInternal(Rect position, GUIContent[] subLabels, SerializedProperty valuesIterator, PropertyVisibility visibility, bool[] disabledMask = null, float prefixLabelWidth = -1)
+        {
+            int eCount = subLabels.Length;
+            float w = (position.width - (eCount - 1) * kSpacingSubLabel) / eCount;
+            Rect nr = new Rect(position) {width = w};
+            float t = EditorGUIUtility.labelWidth;
+            int l = indentLevel;
+            indentLevel = 0;
+            for (int i = 0; i < subLabels.Length; i++)
+            {
+                EditorGUIUtility.labelWidth = prefixLabelWidth > 0 ? prefixLabelWidth : CalcPrefixLabelWidth(subLabels[i]);
+
+                if (disabledMask != null)
+                    BeginDisabled(disabledMask[i]);
+                EditorGUI.PropertyField(nr, valuesIterator, subLabels[i]);
+                if (disabledMask != null)
+                    EndDisabled();
+                nr.x += w + kSpacingSubLabel;
+
+                switch (visibility)
+                {
+                    case PropertyVisibility.All:
+                        valuesIterator.Next(false);
+                        break;
+
+                    case PropertyVisibility.OnlyVisible:
+                        valuesIterator.NextVisible(false);
+                        break;
+                }
+            }
+            EditorGUIUtility.labelWidth = t;
+            indentLevel = l;
+        }
+
+        internal static bool LabelHasContent(GUIContent label)
+        {
+            if (label == null)
+            {
+                return true;
+            }
+            // @TODO: find out why checking for GUIContent.none doesn't work
+            return label.text != string.Empty || label.image != null;
+        }
+
+        internal static float indent => indentLevel * kIndentPerLevel;
+
+        internal static Rect MultiFieldPrefixLabel(Rect totalPosition, int id, GUIContent label, int columns)
+        {
+            if (!LabelHasContent(label))
+            {
+                return EditorGUI.IndentedRect(totalPosition);
+            }
+
+            if (EditorGUIUtility.wideMode)
+            {
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, EditorGUIUtility.labelWidth - indent, EditorGUIUtility.singleLineHeight);
+                Rect fieldPosition = totalPosition;
+                fieldPosition.xMin += EditorGUIUtility.labelWidth + kPrefixPaddingRight;
+
+                // If there are 2 columns we use the same column widths as if there had been 3 columns
+                // in order to make columns line up neatly.
+                if (columns == 2)
+                {
+                    float columnWidth = (fieldPosition.width - (3 - 1) * kSpacingSubLabel) / 3f;
+                    fieldPosition.xMax -= (columnWidth + kSpacingSubLabel);
+                }
+
+                EditorGUI.HandlePrefixLabel(totalPosition, labelPosition, label, id);
+                return fieldPosition;
+            }
+            else
+            {
+                Rect labelPosition = new Rect(totalPosition.x + indent, totalPosition.y, totalPosition.width - indent, EditorGUIUtility.singleLineHeight);
+                Rect fieldPosition = totalPosition;
+                fieldPosition.xMin += indent + kIndentPerLevel;
+                fieldPosition.yMin += EditorGUIUtility.singleLineHeight + kVerticalSpacingMultiField;
+                EditorGUI.HandlePrefixLabel(totalPosition, labelPosition, label, id);
+                return fieldPosition;
+            }
+        }
+    }
+#endif
 }

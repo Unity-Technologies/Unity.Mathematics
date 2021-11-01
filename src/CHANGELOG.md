@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.5] - 2021-11-01
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+* Fixed property drawing when manually drawing a property that was hidden with [HideInInspector].
+
 ## [1.2.4] - 2021-09-22
 ### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
