@@ -3838,5 +3838,48 @@ namespace Unity.Mathematics.Tests
                 TestUtils.IsTrue(OrthonormalBasisSquaredError(v1, v2, v3) < kOrthonormalBasisSqErrorTolerance);
             }
         }
+
+        [TestCompiler]
+        public static void chgsign_float()
+        {
+            float c = chgsign(1f, -1f);
+            TestUtils.IsTrue(c == -1f);
+
+            c = chgsign(1f, 1f);
+            TestUtils.IsTrue(c == 1f);
+
+            c = chgsign(-1f, -1f);
+            TestUtils.IsTrue(c == 1f);
+
+            c = chgsign(-1f, 1f);
+            TestUtils.IsTrue(c == -1f);
+
+            c = chgsign(-1f, 0f);
+            TestUtils.IsTrue(c == -1f);
+
+            c = chgsign(-1f, -0f);
+            TestUtils.IsTrue(c == 1f);
+        }
+
+        [TestCompiler]
+        public static void chgsign_float2()
+        {
+            float2 c = chgsign(float2(1f, -2f), float2(-1f, 23.548f));
+            TestUtils.IsTrue(all(c == float2(-1f, -2f)));
+        }
+
+        [TestCompiler]
+        public static void chgsign_float3()
+        {
+            float3 c = chgsign(float3(1f, -2f, 3f), float3(-1f, 23.548f, -0f));
+            TestUtils.IsTrue(all(c == float3(-1f, -2f, -3f)));
+        }
+
+        [TestCompiler]
+        public static void chgsign_float4()
+        {
+            float4 c = chgsign(float4(1f, 2f, 3f, -4f), float4(-1f, 0f, -0f, -23.56f));
+            TestUtils.IsTrue(all(c == float4(-1f, 2f, -3f, 4f)));
+        }
     }
 }

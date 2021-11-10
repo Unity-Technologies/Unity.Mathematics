@@ -6471,10 +6471,44 @@ namespace Unity.Mathematics
             basis2.z = -normal.y;
         }
 
+        /// <summary>Change sign of x based on the most signaficant bit of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float to change the sign.</param>
+        /// <param name="y">The single precision float used to test the most significant bit.</param>
+        /// <returns>Returns x with changed sign based on y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static float4 chgsign(float4 x, float4 sign)
+        public static float chgsign(float x, float y)
         {
-            return asfloat(asuint(x) ^ (asuint(sign) & 0x80000000));
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 chgsign(float2 x, float2 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 chgsign(float3 x, float3 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 chgsign(float4 x, float4 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
         }
 
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
