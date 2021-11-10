@@ -13,7 +13,7 @@ using Burst.Compiler.IL.Tests;
 namespace Unity.Mathematics.Tests
 {
     [TestFixture]
-    public class TestFloat3
+    public partial class TestFloat3
     {
         [TestCompiler]
         public static void float3_zero()

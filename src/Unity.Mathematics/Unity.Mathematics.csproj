@@ -87,6 +87,7 @@
     <Compile Include="double4x2.gen.cs" />
     <Compile Include="double4x3.gen.cs" />
     <Compile Include="double4x4.gen.cs" />
+    <Compile Include="float3.cs" />
     <Compile Include="Geometry\MinMaxAABB.cs" />
     <Compile Include="Geometry\Plane.cs" />
     <Compile Include="float2.gen.cs" />
