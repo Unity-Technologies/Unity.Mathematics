@@ -6471,6 +6471,12 @@ namespace Unity.Mathematics
             basis2.z = -normal.y;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static float4 chgsign(float4 x, float4 sign)
+        {
+            return asfloat(asuint(x) ^ (asuint(sign) & 0x80000000));
+        }
+
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>

@@ -893,12 +893,6 @@ namespace Unity.Mathematics
             return quaternion(float4(q.value.xyz * s, 0.5f * log(q_len_sq)));
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static float4 chgsign(float4 val, float4 sign)
-        {
-            return asfloat(asuint(val) ^ (asuint(sign) & 0x80000000));
-        }
-
         /// <summary>Returns the result of transforming the quaternion b by the quaternion a.</summary>
         /// <param name="a">The quaternion on the left.</param>
         /// <param name="b">The quaternion on the right.</param>
