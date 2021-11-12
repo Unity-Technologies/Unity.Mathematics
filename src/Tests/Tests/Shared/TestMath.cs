@@ -3843,22 +3843,58 @@ namespace Unity.Mathematics.Tests
         public static void chgsign_float()
         {
             float c = chgsign(1f, -1f);
-            TestUtils.IsTrue(c == -1f);
+            TestUtils.AreEqual(-1f, c);
 
             c = chgsign(1f, 1f);
-            TestUtils.IsTrue(c == 1f);
+            TestUtils.AreEqual(1f, c);
 
             c = chgsign(-1f, -1f);
-            TestUtils.IsTrue(c == 1f);
+            TestUtils.AreEqual(1f, c);
 
             c = chgsign(-1f, 1f);
-            TestUtils.IsTrue(c == -1f);
+            TestUtils.AreEqual(-1f, c);
 
             c = chgsign(-1f, 0f);
-            TestUtils.IsTrue(c == -1f);
+            TestUtils.AreEqual(-1f, c);
 
             c = chgsign(-1f, -0f);
-            TestUtils.IsTrue(c == 1f);
+            TestUtils.AreEqual(1f, c);
+
+            c = chgsign(1f, TestUtils.SignedFloatQNaN());
+            TestUtils.AreEqual(-1f, c);
+
+            c = chgsign(-1f, TestUtils.SignedFloatQNaN());
+            TestUtils.AreEqual(1f, c);
+
+            c = chgsign(1f, TestUtils.UnsignedFloatQNaN());
+            TestUtils.AreEqual(1f, c);
+
+            c = chgsign(-1f, TestUtils.UnsignedFloatQNaN());
+            TestUtils.AreEqual(-1f, c);
+
+            c = chgsign(1f, INFINITY);
+            TestUtils.AreEqual(1f, c);
+
+            c = chgsign(-1f, INFINITY);
+            TestUtils.AreEqual(-1f, c);
+
+            c = chgsign(1f, -INFINITY);
+            TestUtils.AreEqual(-1f, c);
+
+            c = chgsign(-1f, -INFINITY);
+            TestUtils.AreEqual(1f, c);
+
+            c = chgsign(NAN, 1f);
+            TestUtils.IsTrue(isnan(c));
+
+            c = chgsign(NAN, -1f);
+            TestUtils.IsTrue(isnan(c));
+
+            c = chgsign(0f, 1f);
+            TestUtils.AreEqual(0u, asuint(c));
+
+            c = chgsign(0f, -1f);
+            TestUtils.AreEqual(asuint(TestUtils.SignedFloatZero()), asuint(c));
         }
 
         [TestCompiler]
