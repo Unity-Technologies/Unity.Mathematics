@@ -3884,16 +3884,20 @@ namespace Unity.Mathematics.Tests
             c = chgsign(-1f, -INFINITY);
             TestUtils.AreEqual(1f, c);
 
-            c = chgsign(NAN, 1f);
+            c = chgsign(TestUtils.UnsignedFloatQNaN(), 1f);
             TestUtils.IsTrue(isnan(c));
+            TestUtils.AreEqual(asuint(TestUtils.UnsignedFloatQNaN()), asuint(c));
 
-            c = chgsign(NAN, -1f);
+            c = chgsign(TestUtils.UnsignedFloatQNaN(), -1f);
             TestUtils.IsTrue(isnan(c));
+            TestUtils.AreEqual(asuint(TestUtils.SignedFloatQNaN()), asuint(c));
 
             c = chgsign(0f, 1f);
+            TestUtils.AreEqual(0f, c);
             TestUtils.AreEqual(0u, asuint(c));
 
             c = chgsign(0f, -1f);
+            TestUtils.AreEqual(0f, c);
             TestUtils.AreEqual(asuint(TestUtils.SignedFloatZero()), asuint(c));
         }
 
@@ -3902,6 +3906,34 @@ namespace Unity.Mathematics.Tests
         {
             float2 c = chgsign(float2(1f, -2f), float2(-1f, 23.548f));
             TestUtils.AreEqual(float2(-1f, -2f), c);
+
+            c = chgsign(float2(-1f), float2(-1f, 1f));
+            TestUtils.AreEqual(float2(1f, -1f), c);
+
+            c = chgsign(float2(-1f), float2(1f, -1f));
+            TestUtils.AreEqual(float2(-1f, 1f), c);
+
+            c = chgsign(float2(-1f), float2(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()));
+            TestUtils.AreEqual(float2(1f, -1f), c);
+
+            c = chgsign(float2(-1f), float2(TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN()));
+            TestUtils.AreEqual(float2(-1f, 1f), c);
+
+            c = chgsign(float2(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()), float2(-1f, 1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float2(TestUtils.UnsignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float2(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()), float2(1f, -1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float2(TestUtils.SignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float2(TestUtils.SignedFloatZero(), 0f), float2(TestUtils.SignedFloatZero(), 0f));
+            TestUtils.AreEqual(float2.zero, c);
+            TestUtils.AreEqual(uint2.zero, asuint(c));
+
+            c = chgsign(float2(TestUtils.SignedFloatZero(), 0f), float2(0f, TestUtils.SignedFloatZero()));
+            TestUtils.AreEqual(float2.zero, c);
+            TestUtils.AreEqual(asuint(math.float2(TestUtils.SignedFloatZero())), asuint(c));
         }
 
         [TestCompiler]
@@ -3909,6 +3941,34 @@ namespace Unity.Mathematics.Tests
         {
             float3 c = chgsign(float3(1f, -2f, 3f), float3(-1f, 23.548f, -0f));
             TestUtils.AreEqual(float3(-1f, -2f, -3f), c);
+
+            c = chgsign(float3(-1f), float3(-1f, 1f, -1f));
+            TestUtils.AreEqual(float3(1f, -1f, 1f), c);
+
+            c = chgsign(float3(-1f), float3(1f, -1f, 1f));
+            TestUtils.AreEqual(float3(-1f, 1f, -1f), c);
+
+            c = chgsign(float3(-1f), float3(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN()));
+            TestUtils.AreEqual(float3(1f, -1f, 1f), c);
+
+            c = chgsign(float3(-1f), float3(TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()));
+            TestUtils.AreEqual(float3(-1f, 1f, -1f), c);
+
+            c = chgsign(float3(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN()), float3(-1f, 1f, -1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float3(TestUtils.UnsignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float3(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN()), float3(1f, -1f, 1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float3(TestUtils.SignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float3(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero()), float3(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero()));
+            TestUtils.AreEqual(float3.zero, c);
+            TestUtils.AreEqual(uint3.zero, asuint(c));
+
+            c = chgsign(float3(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero()), float3(0f, TestUtils.SignedFloatZero(), 0f));
+            TestUtils.AreEqual(float3.zero, c);
+            TestUtils.AreEqual(asuint(math.float3(TestUtils.SignedFloatZero())), asuint(c));
         }
 
         [TestCompiler]
@@ -3916,6 +3976,34 @@ namespace Unity.Mathematics.Tests
         {
             float4 c = chgsign(float4(1f, 2f, 3f, -4f), float4(-1f, 0f, -0f, -23.56f));
             TestUtils.AreEqual(float4(-1f, 2f, -3f, 4f), c);
+
+            c = chgsign(float4(-1f), float4(-1f, 1f, -1f, 1f));
+            TestUtils.AreEqual(float4(1f, -1f, 1f, -1f), c);
+
+            c = chgsign(float4(-1f), float4(1f, -1f, 1f, -1f));
+            TestUtils.AreEqual(float4(-1f, 1f, -1f, 1f), c);
+
+            c = chgsign(float4(-1f), float4(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()));
+            TestUtils.AreEqual(float4(1f, -1f, 1f, -1f), c);
+
+            c = chgsign(float4(-1f), float4(TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN()));
+            TestUtils.AreEqual(float4(-1f, 1f, -1f, 1f), c);
+
+            c = chgsign(float4(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()), float4(-1f, 1f, -1f, 1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float4(TestUtils.UnsignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float4(TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.SignedFloatQNaN(), TestUtils.UnsignedFloatQNaN()), float4(1f, -1f, 1f, -1f));
+            TestUtils.IsTrue(all(isnan(c)));
+            TestUtils.AreEqual(asuint(float4(TestUtils.SignedFloatQNaN())), asuint(c));
+
+            c = chgsign(float4(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero(), 0f), float4(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero(), 0f));
+            TestUtils.AreEqual(float4.zero, c);
+            TestUtils.AreEqual(uint4.zero, asuint(c));
+
+            c = chgsign(float4(TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero(), 0f), float4(0f, TestUtils.SignedFloatZero(), 0f, TestUtils.SignedFloatZero()));
+            TestUtils.AreEqual(float4.zero, c);
+            TestUtils.AreEqual(asuint(math.float4(TestUtils.SignedFloatZero())), asuint(c));
         }
 
         [TestCompiler]
