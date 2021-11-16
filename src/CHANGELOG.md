@@ -5,7 +5,13 @@
 * Added `math.square()` to compute the square (x * x).
 * Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
 * Added `math.sign(x)` for int, int2, int3 and int4.
+### Changed
+### Deprecated
+### Removed
+### Fixed
 
+## [1.2.5] - 2021-11-01
+### Added
 ### Changed
 ### Deprecated
 ### Removed
@@ -15,7 +21,6 @@
 ## [1.2.4] - 2021-09-22
 ### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
-
 ### Changed
 * License file updated to satisfy Unity's package validation tests.
 * Changed noise documentation in comments to xmldoc comments.
