@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
@@ -28,14 +30,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 100000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -51,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -109,6 +111,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -116,14 +120,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 100000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -139,7 +143,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -197,6 +201,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float4* v;
@@ -204,14 +210,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 100000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -227,7 +233,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -285,6 +291,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double2_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public double2* v;
@@ -292,14 +300,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (double2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2>() * 100000, UnsafeUtility.AlignOf<double2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (double2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2>() * iterations, UnsafeUtility.AlignOf<double2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new double2(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -315,7 +323,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -373,6 +381,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double3_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public double3* v;
@@ -380,14 +390,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * 100000, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new double3(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -403,7 +413,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -461,6 +471,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double4_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public double4* v;
@@ -468,14 +480,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (double4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4>() * 100000, UnsafeUtility.AlignOf<double4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (double4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4>() * iterations, UnsafeUtility.AlignOf<double4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new double4(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -491,7 +503,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -549,6 +561,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float2x2* v;
@@ -556,14 +570,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 100000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2x2(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -579,7 +593,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -637,6 +651,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float3x3* v;
@@ -644,14 +660,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 100000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3x3(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -667,7 +683,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -725,6 +741,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_hash
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float4x4* v;
@@ -732,14 +750,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 100000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4x4(1.0f);
                     }
 
-                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * 100000, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -755,7 +773,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hash(args.v[i]);
                 }
@@ -813,6 +831,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_hashwide
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float2x2* v;
@@ -820,14 +840,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 100000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2x2(1.0f);
                     }
 
-                    hash = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * 100000, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * iterations, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -843,7 +863,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hashwide(args.v[i]);
                 }
@@ -901,6 +921,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_hashwide
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float3x3* v;
@@ -908,14 +930,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 100000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3x3(1.0f);
                     }
 
-                    hash = (uint3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint3>() * 100000, UnsafeUtility.AlignOf<uint3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint3>() * iterations, UnsafeUtility.AlignOf<uint3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -931,7 +953,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hashwide(args.v[i]);
                 }
@@ -989,6 +1011,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_hashwide
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float4x4* v;
@@ -996,14 +1020,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 100000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4x4(1.0f);
                     }
 
-                    hash = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * 100000, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * iterations, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = 0;
                     }
@@ -1019,7 +1043,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hashwide(args.v[i]);
                 }
@@ -1077,6 +1101,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_hashwide
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
@@ -1084,14 +1110,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 100000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2(1.0f);
                     }
 
-                    hash = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * 100000, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    hash = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * iterations, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         hash[i] = new uint2();
                     }
@@ -1107,7 +1133,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.hash[i] = math.hashwide(args.v[i]);
                 }

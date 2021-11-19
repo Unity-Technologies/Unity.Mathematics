@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_to_float3x3
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
@@ -28,14 +30,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
 
-                    f3x3 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f3x3 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f3x3[i] = float3x3.identity;
                     }
@@ -51,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.f3x3[i] = new float3x3(args.q[i]);
                 }
@@ -109,6 +111,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_to_quaternion
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
@@ -116,14 +120,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
 
-                    f3x3 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f3x3 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f3x3[i] = float3x3.identity;
                     }
@@ -139,7 +143,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.q[i] = new quaternion(args.f3x3[i]);
                 }
@@ -197,6 +201,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_to_half4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* f4;
@@ -204,14 +210,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4[i] = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     }
 
-                    h4 = (half4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<half4>() * 10000, UnsafeUtility.AlignOf<half4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    h4 = (half4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<half4>() * iterations, UnsafeUtility.AlignOf<half4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         h4[i] = new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f));
                     }
@@ -227,7 +233,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.h4[i] = new half4(args.f4[i]);
                 }
@@ -285,6 +291,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class half4_to_float4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* f4;
@@ -292,14 +300,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4[i] = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     }
 
-                    h4 = (half4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<half4>() * 10000, UnsafeUtility.AlignOf<half4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    h4 = (half4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<half4>() * iterations, UnsafeUtility.AlignOf<half4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         h4[i] = new half4(new float4(-1.0f, -2.0f, -3.0f, -4.0f));
                     }
@@ -315,7 +323,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.f4[i] = new float4(args.h4[i]);
                 }
@@ -373,6 +381,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_to_RigidTransform
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
@@ -381,20 +391,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
 
-                    rt = (RigidTransform*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<RigidTransform>() * 10000, UnsafeUtility.AlignOf<RigidTransform>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rt = (RigidTransform*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<RigidTransform>() * iterations, UnsafeUtility.AlignOf<RigidTransform>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         rt[i] = RigidTransform.identity;
                     }
 
-                    pos = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    pos = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         pos[i] = new float3();
                     }
@@ -411,7 +421,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.rt[i] = new RigidTransform(args.q[i], args.pos[i]);
                 }
@@ -469,6 +479,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_to_float4x4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
@@ -476,14 +488,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
 
-                    f4x4 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4x4 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4x4[i] = float4x4.identity;
                     }
@@ -499,7 +511,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.q[i] = new quaternion(args.f4x4[i]);
                 }
@@ -557,6 +569,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_to_quaternion
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
@@ -565,20 +579,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
 
-                    f4x4 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4x4 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4x4[i] = float4x4.identity;
                     }
 
-                    f3 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f3 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f3[i] = new float3();
                     }
@@ -595,7 +609,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.f4x4[i] = new float4x4(args.q[i], args.f3[i]);
                 }
@@ -653,6 +667,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_to_uint4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* f4;
@@ -660,14 +676,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4[i] = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     }
 
-                    u4 = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * 10000, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    u4 = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * iterations, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         u4[i] = new uint4(100, 101, 102, 103);
                     }
@@ -683,7 +699,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.u4[i] = new uint4(args.f4[i]);
                 }
@@ -741,6 +757,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class uint4_to_float4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* f4;
@@ -748,14 +766,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         f4[i] = new float4(1.0f, 2.0f, 3.0f, 4.0f);
                     }
 
-                    u4 = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * 10000, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    u4 = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * iterations, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         u4[i] = new uint4(100, 101, 102, 103);
                     }
@@ -771,7 +789,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.f4[i] = new float4(args.u4[i]);
                 }

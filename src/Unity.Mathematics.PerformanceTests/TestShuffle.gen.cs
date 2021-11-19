@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_shuffle
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v1;
@@ -29,20 +31,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v1 = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 100000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v1 = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v1[i] = new float2(1.0f);
                     }
 
-                    v2 = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 100000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v2 = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v2[i] = new float2(2.0f);
                     }
 
-                    result = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 100000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    result = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         result[i] = new float2(1.0f);
                     }
@@ -59,7 +61,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftY);
                 }
@@ -117,6 +119,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3_shuffle
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v1;
@@ -125,20 +129,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 100000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v1[i] = new float3(1.0f);
                     }
 
-                    v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 100000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v2[i] = new float3(2.0f);
                     }
 
-                    result = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 100000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    result = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         result[i] = new float3(1.0f);
                     }
@@ -155,7 +159,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftZ, math.ShuffleComponent.LeftX);
                 }
@@ -213,6 +217,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_shuffle
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public float4* v1;
@@ -221,20 +227,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v1 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 100000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v1 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v1[i] = new float4(1.0f);
                     }
 
-                    v2 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 100000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    v2 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v2[i] = new float4(2.0f);
                     }
 
-                    result = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 100000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    result = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         result[i] = new float4(1.0f);
                     }
@@ -251,7 +257,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.result[i] = math.shuffle(args.v1[i], args.v2[i], math.ShuffleComponent.RightX, math.ShuffleComponent.LeftZ, math.ShuffleComponent.LeftX, math.ShuffleComponent.RightY);
                 }
