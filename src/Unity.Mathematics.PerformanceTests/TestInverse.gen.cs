@@ -21,14 +21,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float4x4.identity;
                     }
@@ -43,7 +45,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -101,14 +103,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3x3* m1;
 
                 public void Init()
                 {
-                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float3x3.identity;
                     }
@@ -123,7 +127,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -181,14 +185,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2x2* m1;
 
                 public void Init()
                 {
-                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float2x2.identity;
                     }
@@ -203,7 +209,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -261,14 +267,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double4x4_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * 10000, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * iterations, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double4x4.identity;
                     }
@@ -283,7 +291,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -341,14 +349,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double3x3_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double3x3* m1;
 
                 public void Init()
                 {
-                    m1 = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * 10000, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * iterations, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double3x3.identity;
                     }
@@ -363,7 +373,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -421,14 +431,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double2x2_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double2x2* m1;
 
                 public void Init()
                 {
-                    m1 = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * 10000, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * iterations, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double2x2.identity;
                     }
@@ -443,7 +455,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -501,14 +513,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public quaternion* q;
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
@@ -523,7 +537,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.q[i] = math.inverse(args.q[i]);
                 }

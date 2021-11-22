@@ -21,14 +21,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise2D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -43,7 +45,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.snoise(args.v[i]);
                 }
@@ -101,14 +103,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise3D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
@@ -123,7 +127,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.snoise(args.v[i]);
                 }
@@ -181,14 +185,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise4D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* v;
 
                 public void Init()
                 {
-                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4();
                     }
@@ -203,7 +209,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.snoise(args.v[i]);
                 }
@@ -261,6 +267,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class snoise3Dgrad
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -268,14 +276,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
 
-                    gradient = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    gradient = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         gradient[i] = new float3();
                     }
@@ -291,7 +299,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.snoise(args.v[i], out args.gradient[i]);
                 }
@@ -349,14 +357,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise2D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -371,7 +381,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.cnoise(args.v[i]);
                 }
@@ -429,14 +439,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise3D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
@@ -451,7 +463,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.cnoise(args.v[i]);
                 }
@@ -509,14 +521,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cnoise4D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* v;
 
                 public void Init()
                 {
-                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4();
                     }
@@ -531,7 +545,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.cnoise(args.v[i]);
                 }
@@ -589,14 +603,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise2D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -611,7 +627,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.pnoise(args.v[i], args.v[i]);
                 }
@@ -669,14 +685,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise3D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
@@ -691,7 +709,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.pnoise(args.v[i], args.v[i]);
                 }
@@ -749,14 +767,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class pnoise4D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* v;
 
                 public void Init()
                 {
-                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float4();
                     }
@@ -771,7 +791,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.pnoise(args.v[i], args.v[i]);
                 }
@@ -829,14 +849,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -851,7 +873,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i] = noise.cellular(args.v[i]);
                 }
@@ -909,14 +931,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular3D
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
@@ -931,7 +955,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].xy = noise.cellular(args.v[i]);
                 }
@@ -989,14 +1013,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2x2
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -1011,7 +1037,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i] = noise.cellular2x2(args.v[i]);
                 }
@@ -1069,14 +1095,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class cellular2x2x2
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3();
                     }
@@ -1091,7 +1119,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].xy = noise.cellular2x2x2(args.v[i]);
                 }
@@ -1149,14 +1177,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class psrdnoise
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -1171,7 +1201,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i] = noise.psrdnoise(args.v[i], args.v[i], args.v[i].y).xy;
                 }
@@ -1229,14 +1259,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class psrnoise
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -1251,7 +1283,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.psrnoise(args.v[i], args.v[i], args.v[i].y);
                 }
@@ -1309,14 +1341,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class srdnoise
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -1331,7 +1365,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i] = noise.srdnoise(args.v[i], args.v[i].y).xy;
                 }
@@ -1389,14 +1423,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class srnoise
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* v;
 
                 public void Init()
                 {
-                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float2();
                     }
@@ -1411,7 +1447,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.v[i].x = noise.srnoise(args.v[i], args.v[i].y);
                 }

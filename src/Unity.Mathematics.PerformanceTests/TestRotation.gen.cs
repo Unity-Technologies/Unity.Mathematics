@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_EulerXYZ
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -28,14 +30,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3(1.0f);
                     }
 
-                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float4x4.identity;
                     }
@@ -51,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float4x4.EulerXYZ(args.v[i]);
                 }
@@ -109,6 +111,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_EulerXYZ
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -116,14 +120,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = new float3(1.0f);
                     }
 
-                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float3x3.identity;
                     }
@@ -139,7 +143,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float3x3.EulerXYZ(args.v[i]);
                 }
@@ -197,6 +201,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_AxisAngle
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -205,20 +211,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = math.normalize(new float3(1.0f));
                     }
 
-                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float4x4.identity;
                     }
 
-                    angle = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * 10000, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    angle = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         angle[i] = 1.0f;
                     }
@@ -235,7 +241,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float4x4.AxisAngle(args.v[i], args.angle[i]);
                 }
@@ -293,6 +299,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_AxisAngle
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* v;
@@ -301,20 +309,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v[i] = math.normalize(new float3(1.0f));
                     }
 
-                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float3x3.identity;
                     }
 
-                    angle = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * 10000, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    angle = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         angle[i] = 1.0f;
                     }
@@ -331,7 +339,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float3x3.AxisAngle(args.v[i], args.angle[i]);
                 }
@@ -389,6 +397,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_LookRotation
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* forward;
@@ -397,20 +407,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         forward[i] = math.normalize(new float3(1.0f));
                     }
 
-                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         up[i] = math.normalize(new float3(0.0f, 1.0f, 0.0f));
                     }
 
-                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float3x3.identity;
                     }
@@ -427,7 +437,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float3x3.LookRotation(args.forward[i], args.up[i]);
                 }
@@ -485,6 +495,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_LookRotationSafe
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* forward;
@@ -493,20 +505,20 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         forward[i] = math.normalize(new float3(1.0f));
                     }
 
-                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         up[i] = math.normalize(new float3(0.0f, 1.0f, 0.0f));
                     }
 
-                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float3x3.identity;
                     }
@@ -523,7 +535,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float3x3.LookRotationSafe(args.forward[i], args.up[i]);
                 }
@@ -581,6 +593,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_LookAt
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* eye;
@@ -590,26 +604,26 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    eye = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    eye = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         eye[i] = math.normalize(new float3(1.0f));
                     }
 
-                    target = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    target = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         target[i] = math.normalize(new float3(0.0f, 1.0f, 0.0f));
                     }
 
-                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    up = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         up[i] = math.normalize(new float3(-5.0f, 2.0f, 3.0f));
                     }
 
-                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float4x4.identity;
                     }
@@ -627,7 +641,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = float4x4.LookAt(args.eye[i], args.target[i], args.up[i]);
                 }

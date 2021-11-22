@@ -21,14 +21,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class Transform_float4x4
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public Geometry.MinMaxAABB* a;
 
                 public void Init()
                 {
-                    a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * 100000, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * iterations, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         a[i] = new Geometry.MinMaxAABB();
                     }
@@ -43,7 +45,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.a[i] = Geometry.Math.Transform(float4x4.identity, args.a[i]);
                 }
@@ -101,14 +103,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class Transform_float3x3
         {
+            public const int iterations = 100000;
+
             public struct Arguments : IDisposable
             {
                 public Geometry.MinMaxAABB* a;
 
                 public void Init()
                 {
-                    a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * 100000, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
-                    for (int i = 0; i < 100000; ++i)
+                    a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * iterations, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         a[i] = new Geometry.MinMaxAABB();
                     }
@@ -123,7 +127,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 100000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.a[i] = Geometry.Math.Transform(float3x3.identity, args.a[i]);
                 }

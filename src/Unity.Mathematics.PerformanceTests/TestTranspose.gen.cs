@@ -21,14 +21,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float4x4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4x4* m;
 
                 public void Init()
                 {
-                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float4x4.identity;
                     }
@@ -43,7 +45,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }
@@ -101,14 +103,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float3x3
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3x3* m;
 
                 public void Init()
                 {
-                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float3x3.identity;
                     }
@@ -123,7 +127,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }
@@ -181,14 +185,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_float2x2
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2x2* m;
 
                 public void Init()
                 {
-                    m = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = float2x2.identity;
                     }
@@ -203,7 +209,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }
@@ -261,14 +267,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double4x4
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double4x4* m;
 
                 public void Init()
                 {
-                    m = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * 10000, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * iterations, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = double4x4.identity;
                     }
@@ -283,7 +291,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }
@@ -341,14 +349,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double3x3
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double3x3* m;
 
                 public void Init()
                 {
-                    m = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * 10000, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * iterations, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = double3x3.identity;
                     }
@@ -363,7 +373,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }
@@ -421,14 +431,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class transpose_double2x2
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double2x2* m;
 
                 public void Init()
                 {
-                    m = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * 10000, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * iterations, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m[i] = double2x2.identity;
                     }
@@ -443,7 +455,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m[i] = math.transpose(args.m[i]);
                 }

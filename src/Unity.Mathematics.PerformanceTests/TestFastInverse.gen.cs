@@ -21,14 +21,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_fastinverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float4x4.identity;
                     }
@@ -43,7 +45,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.fastinverse(args.m1[i]);
                 }
@@ -101,14 +103,16 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double4x4_fastinverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public double4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * 10000, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * iterations, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double4x4.identity;
                     }
@@ -123,7 +127,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.fastinverse(args.m1[i]);
                 }
