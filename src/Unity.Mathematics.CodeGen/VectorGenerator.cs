@@ -3707,6 +3707,42 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "double3", m_MemberName = "v3", m_ElementInitializer = "new double()" },
             }, "math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);", 1000000);
 
+            GeneratePerformanceTest(str, "chgsign_float", new PerformanceTestArrayArgument[]
+            {
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "f", m_ElementInitializer = "1.0f" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "sign", m_ElementInitializer = "rng[0].NextFloat(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "result", m_ElementInitializer = "0.0f" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float2", new PerformanceTestArrayArgument[]
+            {
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "f", m_ElementInitializer = "new float2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "sign", m_ElementInitializer = "rng[0].NextFloat2(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "result", m_ElementInitializer = "new float2()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float3", new PerformanceTestArrayArgument[]
+            {
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "sign", m_ElementInitializer = "rng[0].NextFloat3(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "result", m_ElementInitializer = "new float3()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float4", new PerformanceTestArrayArgument[]
+            {
+                // This rng array is totally wasteful since we create loopIterations of them when we just need one.
+                new PerformanceTestArrayArgument { m_ElementType = "Random", m_MemberName = "rng", m_ElementInitializer = "new Random(1234u)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f", m_ElementInitializer = "new float4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "sign", m_ElementInitializer = "rng[0].NextFloat4(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "result", m_ElementInitializer = "new float4()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
             EndPerformanceTestCodeGen(str);
         }
 
