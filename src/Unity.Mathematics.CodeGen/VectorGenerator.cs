@@ -3722,6 +3722,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             str.AppendFormat("\t\t[BurstCompile(CompileSynchronously = true)]\n");
             str.AppendFormat("\t\tpublic unsafe class {0}\n", testName);
             str.AppendFormat("\t\t{{\n");
+            str.AppendFormat("\t\t\tpublic const int iterations = {0};\n\n", loopIterations);
             str.AppendFormat("\t\t\tpublic struct Arguments : IDisposable\n");
             str.AppendFormat("\t\t\t{{\n");
 
@@ -3736,8 +3737,8 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             foreach (var argument in testArguments)
             {
-                str.AppendFormat("\t\t\t\t\t{0} = ({1}*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<{1}>() * {2}, UnsafeUtility.AlignOf<{1}>(), Allocator.Persistent);\n", argument.m_MemberName, argument.m_ElementType, loopIterations);
-                str.AppendFormat("\t\t\t\t\tfor (int i = 0; i < {0}; ++i)\n", loopIterations);
+                str.AppendFormat("\t\t\t\t\t{0} = ({1}*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<{1}>() * iterations, UnsafeUtility.AlignOf<{1}>(), Allocator.Persistent);\n", argument.m_MemberName, argument.m_ElementType);
+                str.AppendFormat("\t\t\t\t\tfor (int i = 0; i < iterations; ++i)\n");
                 str.AppendFormat("\t\t\t\t\t{{\n");
                 str.AppendFormat("\t\t\t\t\t    {0}[i] = {1};\n", argument.m_MemberName, argument.m_ElementInitializer);
                 str.AppendFormat("\t\t\t\t\t}}\n\n");
@@ -3758,7 +3759,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
 
             str.AppendFormat("\t\t\tpublic static void CommonTestFunction(ref Arguments args)\n");
             str.AppendFormat("\t\t\t{{\n");
-            str.AppendFormat("\t\t\t\tfor (int i = 0; i < {0}; ++i)\n", loopIterations);
+            str.AppendFormat("\t\t\t\tfor (int i = 0; i < iterations; ++i)\n");
             str.AppendFormat("\t\t\t\t{{\n");
             str.AppendFormat("\t\t\t\t\t{0}\n", loopBody);
             str.AppendFormat("\t\t\t\t}}\n");

@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float_sincos
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float* sin;
@@ -28,14 +30,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    sin = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * 10000, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    sin = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         sin[i] = 0.0f;
                     }
 
-                    cos = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * 10000, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    cos = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         cos[i] = 1.0f;
                     }
@@ -51,7 +53,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);
                 }
@@ -109,6 +111,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2_sincos
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float2* sin;
@@ -116,14 +120,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    sin = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    sin = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         sin[i] = new float2(0.0f);
                     }
 
-                    cos = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * 10000, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    cos = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         cos[i] = new float2(1.0f);
                     }
@@ -139,7 +143,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);
                 }
@@ -197,6 +201,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3_sincos
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float3* sin;
@@ -204,14 +210,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    sin = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    sin = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         sin[i] = new float3(0.0f);
                     }
 
-                    cos = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 10000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    cos = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         cos[i] = new float3(1.0f);
                     }
@@ -227,7 +233,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);
                 }
@@ -285,6 +291,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4_sincos
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
                 public float4* sin;
@@ -292,14 +300,14 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    sin = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    sin = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         sin[i] = new float4(0.0f);
                     }
 
-                    cos = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * 10000, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    cos = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         cos[i] = new float4(1.0f);
                     }
@@ -315,7 +323,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.sincos(args.sin[i], out args.sin[i], out args.cos[i]);
                 }

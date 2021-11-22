@@ -21,6 +21,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class orthonormal_basis_float
         {
+            public const int iterations = 1000000;
+
             public struct Arguments : IDisposable
             {
                 public Random* rng;
@@ -30,26 +32,26 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 1000000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * iterations, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         rng[i] = new Random(1234u);
                     }
 
-                    v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 1000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v1[i] = rng[0].NextFloat3Direction();
                     }
 
-                    v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 1000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v2[i] = new float3();
                     }
 
-                    v3 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * 1000000, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v3 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v3[i] = new float3();
                     }
@@ -67,7 +69,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 1000000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);
                 }
@@ -125,6 +127,8 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class orthonormal_basis_double
         {
+            public const int iterations = 1000000;
+
             public struct Arguments : IDisposable
             {
                 public Random* rng;
@@ -134,26 +138,26 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
-                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * 1000000, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * iterations, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         rng[i] = new Random(1234u);
                     }
 
-                    v1 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * 1000000, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v1 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v1[i] = rng[0].NextDouble3Direction();
                     }
 
-                    v2 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * 1000000, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v2 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v2[i] = new double();
                     }
 
-                    v3 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * 1000000, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
-                    for (int i = 0; i < 1000000; ++i)
+                    v3 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         v3[i] = new double();
                     }
@@ -171,7 +175,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 1000000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     math.orthonormal_basis(args.v1[i], out args.v2[i], out args.v3[i]);
                 }
