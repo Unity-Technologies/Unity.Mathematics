@@ -152,26 +152,49 @@ namespace Unity.Mathematics
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int asint(uint x) { return (int)x; }
+        public static int asint(uint x)
+        {
+            unsafe
+            {
+                return *(int*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as an int2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 asint(uint2 x) { return int2((int)x.x, (int)x.y); }
+        public static int2 asint(uint2 x)
+        {
+            unsafe
+            {
+                return *(int2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as an int3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 asint(uint3 x) { return int3((int)x.x, (int)x.y, (int)x.z); }
+        public static int3 asint(uint3 x)
+        {
+            unsafe
+            {
+                return *(int3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as an int4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 asint(uint4 x) { return int4((int)x.x, (int)x.y, (int)x.z, (int)x.w); }
-
+        public static int4 asint(uint4 x)
+        {
+            unsafe
+            {
+                return *(int4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float as an int.</summary>
         /// <param name="x">The float bits to copy.</param>
