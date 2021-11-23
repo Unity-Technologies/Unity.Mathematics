@@ -250,26 +250,49 @@ namespace Unity.Mathematics
         /// <param name="x">The float bits to copy.</param>
         /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float x) { return (uint)asint(x); }
+        public static uint asuint(float x)
+        {
+            unsafe
+            {
+                return *(uint*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
         /// <param name="x">The float2 bits to copy.</param>
         /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
+        public static uint2 asuint(float2 x)
+        {
+            unsafe
+            {
+                return *(uint2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
         /// <param name="x">The float3 bits to copy.</param>
         /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
+        public static uint3 asuint(float3 x)
+        {
+            unsafe
+            {
+                return *(uint3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
         /// <param name="x">The float4 bits to copy.</param>
         /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
-
+        public static uint4 asuint(float4 x)
+        {
+            unsafe
+            {
+                return *(uint4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
         /// <param name="x">The ulong bits to copy.</param>
