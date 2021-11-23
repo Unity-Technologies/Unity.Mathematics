@@ -3697,7 +3697,25 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "f", m_ElementInitializer = "rng.NextFloat(-1.0f, 1.0f)" },
             }, "args.result[i] = math.asuint(args.f[i]);", 400000);
 
-                EndPerformanceTestCodeGen(str);
+            GeneratePerformanceTest(str, "asuint_float2", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "result", m_ElementInitializer = "new uint2()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "f", m_ElementInitializer = "rng.NextFloat2(-1.0f, 1.0f)" },
+            }, "args.result[i] = math.asuint(args.f[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asuint_float3", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint3", m_MemberName = "result", m_ElementInitializer = "new uint3()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f", m_ElementInitializer = "rng.NextFloat3(-1.0f, 1.0f)" },
+            }, "args.result[i] = math.asuint(args.f[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asuint_float4", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "result", m_ElementInitializer = "new uint4()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f", m_ElementInitializer = "rng.NextFloat4(-1.0f, 1.0f)" },
+            }, "args.result[i] = math.asuint(args.f[i]);", 400000);
+
+            EndPerformanceTestCodeGen(str);
         }
 
         public struct PerformanceTestArrayArgument
