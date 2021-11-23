@@ -25,10 +25,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public Plane* p;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     p = (Plane*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Plane>() * iterations, UnsafeUtility.AlignOf<Plane>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {

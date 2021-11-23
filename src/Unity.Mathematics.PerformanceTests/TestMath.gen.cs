@@ -25,23 +25,18 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
-                public Random* rng;
+                public Random rng;
                 public float3* v1;
                 public float3* v2;
                 public float3* v3;
 
                 public void Init()
                 {
-                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * iterations, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
-                    for (int i = 0; i < iterations; ++i)
-                    {
-                        rng[i] = new Random(1234u);
-                    }
-
+                    rng = new Random(1);
                     v1 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
-                        v1[i] = rng[0].NextFloat3Direction();
+                        v1[i] = rng.NextFloat3Direction();
                     }
 
                     v2 = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
@@ -60,7 +55,6 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Dispose()
                 {
-                    UnsafeUtility.Free(rng, Allocator.Persistent);
                     UnsafeUtility.Free(v1, Allocator.Persistent);
                     UnsafeUtility.Free(v2, Allocator.Persistent);
                     UnsafeUtility.Free(v3, Allocator.Persistent);
@@ -131,23 +125,18 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
-                public Random* rng;
+                public Random rng;
                 public double3* v1;
                 public double3* v2;
                 public double3* v3;
 
                 public void Init()
                 {
-                    rng = (Random*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Random>() * iterations, UnsafeUtility.AlignOf<Random>(), Allocator.Persistent);
-                    for (int i = 0; i < iterations; ++i)
-                    {
-                        rng[i] = new Random(1234u);
-                    }
-
+                    rng = new Random(1);
                     v1 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
-                        v1[i] = rng[0].NextDouble3Direction();
+                        v1[i] = rng.NextDouble3Direction();
                     }
 
                     v2 = (double3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3>() * iterations, UnsafeUtility.AlignOf<double3>(), Allocator.Persistent);
@@ -166,7 +155,6 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Dispose()
                 {
-                    UnsafeUtility.Free(rng, Allocator.Persistent);
                     UnsafeUtility.Free(v1, Allocator.Persistent);
                     UnsafeUtility.Free(v2, Allocator.Persistent);
                     UnsafeUtility.Free(v3, Allocator.Persistent);
@@ -218,6 +206,98 @@ namespace Unity.Mathematics.PerformanceTests
         {
             FunctionPointer<orthonormal_basis_double.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<orthonormal_basis_double.TestFunction>(orthonormal_basis_double.BurstTestFunction);
             var args = new orthonormal_basis_double.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asuint_float
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public uint* result;
+                public float* f;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new uint();
+                    }
+
+                    f = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        f[i] = rng.NextFloat(-1.0f, 1.0f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(f, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asuint(args.f[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asuint_float_mono()
+        {
+            asuint_float.TestFunction testFunction = asuint_float.MonoTestFunction;
+            var args = new asuint_float.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asuint_float_burst()
+        {
+            FunctionPointer<asuint_float.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asuint_float.TestFunction>(asuint_float.BurstTestFunction);
+            var args = new asuint_float.Arguments();
             args.Init();
 
             var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>

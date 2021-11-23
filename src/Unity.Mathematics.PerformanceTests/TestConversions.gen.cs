@@ -25,11 +25,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
                 public float3x3* f3x3;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -115,11 +117,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
                 public float3x3* f3x3;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -205,11 +209,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* f4;
                 public half4* h4;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -295,11 +301,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* f4;
                 public half4* h4;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -385,12 +393,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
                 public RigidTransform* rt;
                 public float3* pos;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -483,11 +493,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
                 public float4x4* f4x4;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -573,12 +585,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
                 public float4x4* f4x4;
                 public float3* f3;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -671,11 +685,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* f4;
                 public uint4* u4;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -761,11 +777,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* f4;
                 public uint4* u4;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     f4 = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
