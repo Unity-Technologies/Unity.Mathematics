@@ -6471,7 +6471,7 @@ namespace Unity.Mathematics
             basis2.z = -normal.y;
         }
 
-        /// <summary>Change sign of x based on the most signaficant bit of y [msb(y) ? -x : x].</summary>
+        /// <summary>Change the sign of x based on the most significant bit of y [msb(y) ? -x : x].</summary>
         /// <param name="x">The single precision float to change the sign.</param>
         /// <param name="y">The single precision float used to test the most significant bit.</param>
         /// <returns>Returns x with changed sign based on y.</returns>
@@ -6481,7 +6481,7 @@ namespace Unity.Mathematics
             return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
         }
 
-        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
         /// <param name="x">The single precision float vector to change the sign.</param>
         /// <param name="y">The single precision float vector used to test the most significant bit.</param>
         /// <returns>Returns vector x with changed sign based on vector y.</returns>
@@ -6491,7 +6491,7 @@ namespace Unity.Mathematics
             return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
         }
 
-        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
         /// <param name="x">The single precision float vector to change the sign.</param>
         /// <param name="y">The single precision float vector used to test the most significant bit.</param>
         /// <returns>Returns vector x with changed sign based on vector y.</returns>
@@ -6501,7 +6501,7 @@ namespace Unity.Mathematics
             return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
         }
 
-        /// <summary>Change sign of components of x based on the most signaficant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
         /// <param name="x">The single precision float vector to change the sign.</param>
         /// <param name="y">The single precision float vector used to test the most significant bit.</param>
         /// <returns>Returns vector x with changed sign based on vector y.</returns>
@@ -6857,10 +6857,10 @@ namespace Unity.Mathematics
         }
 
         /// <summary>
-        /// Returns the Euler angle representation of the quaternion. Angles returned depend on the specified order to apply the
-        /// 3 rotations around the principal axes. All rotation angles are in radians and clockwise when looking along the
+        /// Returns the Euler angle representation of the quaternion. The returned angles depend on the specified order to apply the
+        /// three rotations around the principal axes. All rotation angles are in radians and clockwise when looking along the
         /// rotation axis towards the origin.
-        /// When the rotation order is known at compile time, it is recommended for performance reasons to use specific
+        /// When the rotation order is known at compile time, to get the best performance you should use the specific
         /// Euler rotation constructors such as EulerZXY(...).
         /// </summary>
         /// <param name="q">The quaternion to convert to Euler angles.</param>
