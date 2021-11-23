@@ -401,25 +401,49 @@ namespace Unity.Mathematics
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The float with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float  asfloat(uint x) { return asfloat((int)x); }
+        public static float asfloat(uint x)
+        {
+            unsafe
+            {
+                return *(float*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static float2 asfloat(uint2 x)
+        {
+            unsafe
+            {
+                return *(float2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static float3 asfloat(uint3 x)
+        {
+            unsafe
+            {
+                return *(float3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static float4 asfloat(uint4 x)
+        {
+            unsafe
+            {
+                return *(float4*)&x;
+            }
+        }
 
         /// <summary>
         /// Returns a bitmask representation of a bool4. Storing one 1 bit per component
