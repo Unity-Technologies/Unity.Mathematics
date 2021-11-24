@@ -352,12 +352,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(double x)
         {
-            LongDoubleUnion u;
-            u.longValue = 0;
-            u.doubleValue = x;
-            return u.longValue;
+            unsafe
+            {
+                return *(long*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a long as a ulong.</summary>
         /// <param name="x">The long bits to copy.</param>
@@ -369,8 +368,13 @@ namespace Unity.Mathematics
         /// <param name="x">The double bits to copy.</param>
         /// <returns>The ulong with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong asulong(double x) { return (ulong) aslong(x); }
-
+        public static ulong asulong(double x)
+        {
+            unsafe
+            {
+                return *(ulong*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int as a float.</summary>
         /// <param name="x">The int bits to copy.</param>
@@ -495,19 +499,23 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asdouble(long x)
         {
-            LongDoubleUnion u;
-            u.doubleValue = 0;
-            u.longValue = x;
-            return u.doubleValue;
+            unsafe
+            {
+                return *(double*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a ulong as a double.</summary>
         /// <param name="x">The ulong bits to copy.</param>
         /// <returns>The double with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double asdouble(ulong x) { return asdouble((long)x); }
-
+        public static double asdouble(ulong x)
+        {
+            unsafe
+            {
+                return *(double*)&x;
+            }
+        }
 
         /// <summary>Returns true if the input float is a finite floating point value, false otherwise.</summary>
         /// <param name="x">The float value to test.</param>
