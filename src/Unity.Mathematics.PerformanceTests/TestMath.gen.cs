@@ -1690,5 +1690,373 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asdouble_ulong
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public double* result;
+                public ulong* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (double*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double>() * iterations, UnsafeUtility.AlignOf<double>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new double();
+                    }
+
+                    v = (ulong*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<ulong>() * iterations, UnsafeUtility.AlignOf<ulong>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextUInt();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asdouble(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asdouble_ulong_mono()
+        {
+            asdouble_ulong.TestFunction testFunction = asdouble_ulong.MonoTestFunction;
+            var args = new asdouble_ulong.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asdouble_ulong_burst()
+        {
+            FunctionPointer<asdouble_ulong.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asdouble_ulong.TestFunction>(asdouble_ulong.BurstTestFunction);
+            var args = new asdouble_ulong.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asdouble_long
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public double* result;
+                public long* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (double*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double>() * iterations, UnsafeUtility.AlignOf<double>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new double();
+                    }
+
+                    v = (long*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<long>() * iterations, UnsafeUtility.AlignOf<long>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextInt();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asdouble(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asdouble_long_mono()
+        {
+            asdouble_long.TestFunction testFunction = asdouble_long.MonoTestFunction;
+            var args = new asdouble_long.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asdouble_long_burst()
+        {
+            FunctionPointer<asdouble_long.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asdouble_long.TestFunction>(asdouble_long.BurstTestFunction);
+            var args = new asdouble_long.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class aslong_double
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public long* result;
+                public double* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (long*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<long>() * iterations, UnsafeUtility.AlignOf<long>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new long();
+                    }
+
+                    v = (double*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double>() * iterations, UnsafeUtility.AlignOf<double>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextDouble(-1.0, 1.0);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.aslong(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void aslong_double_mono()
+        {
+            aslong_double.TestFunction testFunction = aslong_double.MonoTestFunction;
+            var args = new aslong_double.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void aslong_double_burst()
+        {
+            FunctionPointer<aslong_double.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<aslong_double.TestFunction>(aslong_double.BurstTestFunction);
+            var args = new aslong_double.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asulong_double
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public ulong* result;
+                public double* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (ulong*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<ulong>() * iterations, UnsafeUtility.AlignOf<ulong>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new ulong();
+                    }
+
+                    v = (double*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double>() * iterations, UnsafeUtility.AlignOf<double>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextDouble(-1.0, 1.0);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asulong(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asulong_double_mono()
+        {
+            asulong_double.TestFunction testFunction = asulong_double.MonoTestFunction;
+            var args = new asulong_double.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asulong_double_burst()
+        {
+            FunctionPointer<asulong_double.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asulong_double.TestFunction>(asulong_double.BurstTestFunction);
+            var args = new asulong_double.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
     }
 }

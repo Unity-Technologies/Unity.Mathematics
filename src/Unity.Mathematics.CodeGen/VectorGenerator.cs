@@ -3787,6 +3787,30 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "int4", m_MemberName = "v", m_ElementInitializer = "rng.NextInt4()" },
             }, "args.result[i] = math.asfloat(args.v[i]);", 400000);
 
+            GeneratePerformanceTest(str, "asdouble_ulong", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "result", m_ElementInitializer = "new double()" },
+                new PerformanceTestArrayArgument { m_ElementType = "ulong", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt()" },
+            }, "args.result[i] = math.asdouble(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asdouble_long", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "result", m_ElementInitializer = "new double()" },
+                new PerformanceTestArrayArgument { m_ElementType = "long", m_MemberName = "v", m_ElementInitializer = "rng.NextInt()" },
+            }, "args.result[i] = math.asdouble(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "aslong_double", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "long", m_MemberName = "result", m_ElementInitializer = "new long()" },
+                new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "v", m_ElementInitializer = "rng.NextDouble(-1.0, 1.0)" },
+            }, "args.result[i] = math.aslong(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asulong_double", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "ulong", m_MemberName = "result", m_ElementInitializer = "new ulong()" },
+                new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "v", m_ElementInitializer = "rng.NextDouble(-1.0, 1.0)" },
+            }, "args.result[i] = math.asulong(args.v[i]);", 400000);
+
             EndPerformanceTestCodeGen(str);
         }
 
