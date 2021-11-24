@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.s-schoener.asmexplorer": "file:/Users/dale/code/unity-asm-explorer-package/Packages/com.s-schoener.asmexplorer",
     "com.unity.burst": "1.2.3",
     "com.unity.ide.rider": "1.1.4",
     "com.unity.ide.vscode": "1.1.4",
