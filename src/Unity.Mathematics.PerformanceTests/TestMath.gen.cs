@@ -2058,5 +2058,741 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asuint_int
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public uint* result;
+                public int* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new uint();
+                    }
+
+                    v = (int*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int>() * iterations, UnsafeUtility.AlignOf<int>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextInt();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asuint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asuint_int_mono()
+        {
+            asuint_int.TestFunction testFunction = asuint_int.MonoTestFunction;
+            var args = new asuint_int.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asuint_int_burst()
+        {
+            FunctionPointer<asuint_int.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asuint_int.TestFunction>(asuint_int.BurstTestFunction);
+            var args = new asuint_int.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asuint_int2
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public uint2* result;
+                public int2* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * iterations, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new uint2();
+                    }
+
+                    v = (int2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int2>() * iterations, UnsafeUtility.AlignOf<int2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextInt2();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asuint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asuint_int2_mono()
+        {
+            asuint_int2.TestFunction testFunction = asuint_int2.MonoTestFunction;
+            var args = new asuint_int2.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asuint_int2_burst()
+        {
+            FunctionPointer<asuint_int2.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asuint_int2.TestFunction>(asuint_int2.BurstTestFunction);
+            var args = new asuint_int2.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asuint_int3
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public uint3* result;
+                public int3* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (uint3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint3>() * iterations, UnsafeUtility.AlignOf<uint3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new uint3();
+                    }
+
+                    v = (int3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int3>() * iterations, UnsafeUtility.AlignOf<int3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextInt3();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asuint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asuint_int3_mono()
+        {
+            asuint_int3.TestFunction testFunction = asuint_int3.MonoTestFunction;
+            var args = new asuint_int3.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asuint_int3_burst()
+        {
+            FunctionPointer<asuint_int3.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asuint_int3.TestFunction>(asuint_int3.BurstTestFunction);
+            var args = new asuint_int3.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asuint_int4
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public uint4* result;
+                public int4* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * iterations, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new uint4();
+                    }
+
+                    v = (int4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int4>() * iterations, UnsafeUtility.AlignOf<int4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextInt4();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asuint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asuint_int4_mono()
+        {
+            asuint_int4.TestFunction testFunction = asuint_int4.MonoTestFunction;
+            var args = new asuint_int4.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asuint_int4_burst()
+        {
+            FunctionPointer<asuint_int4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asuint_int4.TestFunction>(asuint_int4.BurstTestFunction);
+            var args = new asuint_int4.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asint_uint
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public int* result;
+                public uint* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (int*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int>() * iterations, UnsafeUtility.AlignOf<int>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new int();
+                    }
+
+                    v = (uint*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint>() * iterations, UnsafeUtility.AlignOf<uint>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextUInt();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asint_uint_mono()
+        {
+            asint_uint.TestFunction testFunction = asint_uint.MonoTestFunction;
+            var args = new asint_uint.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asint_uint_burst()
+        {
+            FunctionPointer<asint_uint.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asint_uint.TestFunction>(asint_uint.BurstTestFunction);
+            var args = new asint_uint.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asint_uint2
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public int2* result;
+                public uint2* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (int2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int2>() * iterations, UnsafeUtility.AlignOf<int2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new int2();
+                    }
+
+                    v = (uint2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint2>() * iterations, UnsafeUtility.AlignOf<uint2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextUInt2();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asint_uint2_mono()
+        {
+            asint_uint2.TestFunction testFunction = asint_uint2.MonoTestFunction;
+            var args = new asint_uint2.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asint_uint2_burst()
+        {
+            FunctionPointer<asint_uint2.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asint_uint2.TestFunction>(asint_uint2.BurstTestFunction);
+            var args = new asint_uint2.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asint_uint3
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public int3* result;
+                public uint3* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (int3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int3>() * iterations, UnsafeUtility.AlignOf<int3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new int3();
+                    }
+
+                    v = (uint3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint3>() * iterations, UnsafeUtility.AlignOf<uint3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextUInt3();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asint_uint3_mono()
+        {
+            asint_uint3.TestFunction testFunction = asint_uint3.MonoTestFunction;
+            var args = new asint_uint3.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asint_uint3_burst()
+        {
+            FunctionPointer<asint_uint3.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asint_uint3.TestFunction>(asint_uint3.BurstTestFunction);
+            var args = new asint_uint3.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class asint_uint4
+        {
+            public const int iterations = 400000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public int4* result;
+                public uint4* v;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    result = (int4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<int4>() * iterations, UnsafeUtility.AlignOf<int4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new int4();
+                    }
+
+                    v = (uint4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<uint4>() * iterations, UnsafeUtility.AlignOf<uint4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        v[i] = rng.NextUInt4();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                    UnsafeUtility.Free(v, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.asint(args.v[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void asint_uint4_mono()
+        {
+            asint_uint4.TestFunction testFunction = asint_uint4.MonoTestFunction;
+            var args = new asint_uint4.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void asint_uint4_burst()
+        {
+            FunctionPointer<asint_uint4.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<asint_uint4.TestFunction>(asint_uint4.BurstTestFunction);
+            var args = new asint_uint4.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
     }
 }

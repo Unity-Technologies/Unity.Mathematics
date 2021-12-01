@@ -3811,6 +3811,54 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "double", m_MemberName = "v", m_ElementInitializer = "rng.NextDouble(-1.0, 1.0)" },
             }, "args.result[i] = math.asulong(args.v[i]);", 400000);
 
+            GeneratePerformanceTest(str, "asuint_int", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "result", m_ElementInitializer = "new uint()" },
+                new PerformanceTestArrayArgument { m_ElementType = "int", m_MemberName = "v", m_ElementInitializer = "rng.NextInt()" },
+            }, "args.result[i] = math.asuint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asuint_int2", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "result", m_ElementInitializer = "new uint2()" },
+                new PerformanceTestArrayArgument { m_ElementType = "int2", m_MemberName = "v", m_ElementInitializer = "rng.NextInt2()" },
+            }, "args.result[i] = math.asuint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asuint_int3", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint3", m_MemberName = "result", m_ElementInitializer = "new uint3()" },
+                new PerformanceTestArrayArgument { m_ElementType = "int3", m_MemberName = "v", m_ElementInitializer = "rng.NextInt3()" },
+            }, "args.result[i] = math.asuint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asuint_int4", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "result", m_ElementInitializer = "new uint4()" },
+                new PerformanceTestArrayArgument { m_ElementType = "int4", m_MemberName = "v", m_ElementInitializer = "rng.NextInt4()" },
+            }, "args.result[i] = math.asuint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asint_uint", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "int", m_MemberName = "result", m_ElementInitializer = "new int()" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt()" },
+            }, "args.result[i] = math.asint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asint_uint2", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "int2", m_MemberName = "result", m_ElementInitializer = "new int2()" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint2", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt2()" },
+            }, "args.result[i] = math.asint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asint_uint3", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "int3", m_MemberName = "result", m_ElementInitializer = "new int3()" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint3", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt3()" },
+            }, "args.result[i] = math.asint(args.v[i]);", 400000);
+
+            GeneratePerformanceTest(str, "asint_uint4", new[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "int4", m_MemberName = "result", m_ElementInitializer = "new int4()" },
+                new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt4()" },
+            }, "args.result[i] = math.asint(args.v[i]);", 400000);
+
             EndPerformanceTestCodeGen(str);
         }
 
