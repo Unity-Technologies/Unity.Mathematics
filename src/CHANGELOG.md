@@ -7,7 +7,7 @@
 * Added `math.sign` for int, int2, int3 and int4.
 * Added `math.chgsign` for float, float2, float3, and float4.
 * Added `math.Euler` to convert a quaternion to Euler angles.
-* Added `quaternion.angle` to compute the angle between two unit quaternions.
+* Added `math.angle` to compute the angle between two unit quaternions.
 ### Changed
 * Modified `quaternion.nlerp` to be branchless.
 ### Deprecated
