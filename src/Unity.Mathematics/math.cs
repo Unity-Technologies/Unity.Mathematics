@@ -248,13 +248,7 @@ namespace Unity.Mathematics
         /// <param name="x">The int bits to copy.</param>
         /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(int x)
-        {
-            unsafe
-            {
-                return *(uint*)&x;
-            }
-        }
+        public static uint asuint(int x) { return (uint)x; }
 
         /// <summary>Returns the bit pattern of an int2 as a uint2.</summary>
         /// <param name="x">The int2 bits to copy.</param>
