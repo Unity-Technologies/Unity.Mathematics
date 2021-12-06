@@ -152,56 +152,97 @@ namespace Unity.Mathematics
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int asint(uint x) { return (int)x; }
+        public static int asint(uint x)
+        {
+            unsafe
+            {
+                return *(int*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as an int2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 asint(uint2 x) { return int2((int)x.x, (int)x.y); }
+        public static int2 asint(uint2 x)
+        {
+            unsafe
+            {
+                return *(int2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as an int3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 asint(uint3 x) { return int3((int)x.x, (int)x.y, (int)x.z); }
+        public static int3 asint(uint3 x)
+        {
+            unsafe
+            {
+                return *(int3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as an int4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 asint(uint4 x) { return int4((int)x.x, (int)x.y, (int)x.z, (int)x.w); }
-
+        public static int4 asint(uint4 x)
+        {
+            unsafe
+            {
+                return *(int4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float as an int.</summary>
         /// <param name="x">The float bits to copy.</param>
         /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int asint(float x) {
-            IntFloatUnion u;
-            u.intValue = 0;
-            u.floatValue = x;
-            return u.intValue;
+        public static int asint(float x)
+        {
+            unsafe
+            {
+                return *(int*)&x;
+            }
         }
 
         /// <summary>Returns the bit pattern of a float2 as an int2.</summary>
         /// <param name="x">The float2 bits to copy.</param>
         /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 asint(float2 x) { return int2(asint(x.x), asint(x.y)); }
+        public static int2 asint(float2 x)
+        {
+            unsafe
+            {
+                return *(int2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float3 as an int3.</summary>
         /// <param name="x">The float3 bits to copy.</param>
         /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 asint(float3 x) { return int3(asint(x.x), asint(x.y), asint(x.z)); }
+        public static int3 asint(float3 x)
+        {
+            unsafe
+            {
+                return *(int3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float4 as an int4.</summary>
         /// <param name="x">The float4 bits to copy.</param>
         /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 asint(float4 x) { return int4(asint(x.x), asint(x.y), asint(x.z), asint(x.w)); }
-
+        public static int4 asint(float4 x)
+        {
+            unsafe
+            {
+                return *(int4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int as a uint.</summary>
         /// <param name="x">The int bits to copy.</param>
@@ -213,45 +254,85 @@ namespace Unity.Mathematics
         /// <param name="x">The int2 bits to copy.</param>
         /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(int2 x) { return uint2((uint)x.x, (uint)x.y); }
+        public static uint2 asuint(int2 x)
+        {
+            unsafe
+            {
+                return *(uint2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int3 as a uint3.</summary>
         /// <param name="x">The int3 bits to copy.</param>
         /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(int3 x) { return uint3((uint)x.x, (uint)x.y, (uint)x.z); }
+        public static uint3 asuint(int3 x)
+        {
+            unsafe
+            {
+                return *(uint3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int4 as a uint4.</summary>
         /// <param name="x">The int4 bits to copy.</param>
         /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(int4 x) { return uint4((uint)x.x, (uint)x.y, (uint)x.z, (uint)x.w); }
-
+        public static uint4 asuint(int4 x)
+        {
+            unsafe
+            {
+                return *(uint4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float as a uint.</summary>
         /// <param name="x">The float bits to copy.</param>
         /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float x) { return (uint)asint(x); }
+        public static uint asuint(float x)
+        {
+            unsafe
+            {
+                return *(uint*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
         /// <param name="x">The float2 bits to copy.</param>
         /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
+        public static uint2 asuint(float2 x)
+        {
+            unsafe
+            {
+                return *(uint2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
         /// <param name="x">The float3 bits to copy.</param>
         /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
+        public static uint3 asuint(float3 x)
+        {
+            unsafe
+            {
+                return *(uint3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
         /// <param name="x">The float4 bits to copy.</param>
         /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
-
+        public static uint4 asuint(float4 x)
+        {
+            unsafe
+            {
+                return *(uint4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
         /// <param name="x">The ulong bits to copy.</param>
@@ -265,12 +346,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(double x)
         {
-            LongDoubleUnion u;
-            u.longValue = 0;
-            u.doubleValue = x;
-            return u.longValue;
+            unsafe
+            {
+                return *(long*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a long as a ulong.</summary>
         /// <param name="x">The long bits to copy.</param>
@@ -282,8 +362,13 @@ namespace Unity.Mathematics
         /// <param name="x">The double bits to copy.</param>
         /// <returns>The ulong with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong asulong(double x) { return (ulong) aslong(x); }
-
+        public static ulong asulong(double x)
+        {
+            unsafe
+            {
+                return *(ulong*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int as a float.</summary>
         /// <param name="x">The int bits to copy.</param>
@@ -291,55 +376,95 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float asfloat(int x)
         {
-            IntFloatUnion u;
-            u.floatValue = 0;
-            u.intValue = x;
-
-            return u.floatValue;
+            unsafe
+            {
+                return *(float*)&x;
+            }
         }
 
         /// <summary>Returns the bit pattern of an int2 as a float2.</summary>
         /// <param name="x">The int2 bits to copy.</param>
         /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(int2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static float2 asfloat(int2 x)
+        {
+            unsafe
+            {
+                return *(float2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int3 as a float3.</summary>
         /// <param name="x">The int3 bits to copy.</param>
         /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(int3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static float3 asfloat(int3 x)
+        {
+            unsafe
+            {
+                return *(float3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int4 as a float4.</summary>
         /// <param name="x">The int4 bits to copy.</param>
         /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(int4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
-
+        public static float4 asfloat(int4 x)
+        {
+            unsafe
+            {
+                return *(float4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint as a float.</summary>
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The float with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float  asfloat(uint x) { return asfloat((int)x); }
+        public static float asfloat(uint x)
+        {
+            unsafe
+            {
+                return *(float*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static float2 asfloat(uint2 x)
+        {
+            unsafe
+            {
+                return *(float2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static float3 asfloat(uint3 x)
+        {
+            unsafe
+            {
+                return *(float3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static float4 asfloat(uint4 x)
+        {
+            unsafe
+            {
+                return *(float4*)&x;
+            }
+        }
 
         /// <summary>
         /// Returns a bitmask representation of a bool4. Storing one 1 bit per component
@@ -368,19 +493,23 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asdouble(long x)
         {
-            LongDoubleUnion u;
-            u.doubleValue = 0;
-            u.longValue = x;
-            return u.doubleValue;
+            unsafe
+            {
+                return *(double*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a ulong as a double.</summary>
         /// <param name="x">The ulong bits to copy.</param>
         /// <returns>The double with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double asdouble(ulong x) { return asdouble((long)x); }
-
+        public static double asdouble(ulong x)
+        {
+            unsafe
+            {
+                return *(double*)&x;
+            }
+        }
 
         /// <summary>Returns true if the input float is a finite floating point value, false otherwise.</summary>
         /// <param name="x">The float value to test.</param>
@@ -6646,15 +6775,6 @@ namespace Unity.Mathematics
         internal static uint3 fold_to_uint(double3 x) { return uint3(fold_to_uint(x.x), fold_to_uint(x.y), fold_to_uint(x.z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static uint4 fold_to_uint(double4 x) { return uint4(fold_to_uint(x.x), fold_to_uint(x.y), fold_to_uint(x.z), fold_to_uint(x.w)); }
-
-        [StructLayout(LayoutKind.Explicit)]
-        internal struct IntFloatUnion
-        {
-            [FieldOffset(0)]
-            public int intValue;
-            [FieldOffset(0)]
-            public float floatValue;
-        }
 
         [StructLayout(LayoutKind.Explicit)]
         internal struct LongDoubleUnion

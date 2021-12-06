@@ -25,10 +25,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4x4* m1;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -107,10 +109,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public double4x4* m1;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * iterations, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {

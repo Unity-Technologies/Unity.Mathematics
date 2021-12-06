@@ -6,6 +6,7 @@
 * Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
 * Added `math.sign(x)` for int, int2, int3 and int4.
 ### Changed
+* `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
 ### Deprecated
 ### Removed
 ### Fixed

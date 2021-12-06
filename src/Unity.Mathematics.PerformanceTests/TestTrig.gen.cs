@@ -25,11 +25,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float* sin;
                 public float* cos;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     sin = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -115,11 +117,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* sin;
                 public float2* cos;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     sin = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -205,11 +209,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* sin;
                 public float3* cos;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     sin = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -295,11 +301,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* sin;
                 public float4* cos;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     sin = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {

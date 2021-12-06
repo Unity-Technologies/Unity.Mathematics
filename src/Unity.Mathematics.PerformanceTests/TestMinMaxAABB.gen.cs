@@ -25,10 +25,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public Geometry.MinMaxAABB* a;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * iterations, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -107,10 +109,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public Geometry.MinMaxAABB* a;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     a = (Geometry.MinMaxAABB*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Geometry.MinMaxAABB>() * iterations, UnsafeUtility.AlignOf<Geometry.MinMaxAABB>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
