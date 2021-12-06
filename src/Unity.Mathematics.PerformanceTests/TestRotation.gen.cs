@@ -25,11 +25,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
                 public float4x4* m;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -115,11 +117,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
                 public float3x3* m;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -205,12 +209,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
                 public float4x4* m;
                 public float* angle;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -303,12 +309,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
                 public float3x3* m;
                 public float* angle;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -401,12 +409,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* forward;
                 public float3* up;
                 public float3x3* m;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -499,12 +509,14 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* forward;
                 public float3* up;
                 public float3x3* m;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     forward = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -597,6 +609,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* eye;
                 public float3* target;
                 public float3* up;
@@ -604,6 +617,7 @@ namespace Unity.Mathematics.PerformanceTests
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     eye = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {

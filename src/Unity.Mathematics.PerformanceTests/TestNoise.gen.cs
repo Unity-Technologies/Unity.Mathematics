@@ -25,10 +25,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -107,10 +109,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -189,10 +193,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -271,11 +277,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
                 public float3* gradient;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -361,10 +369,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -443,10 +453,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -525,10 +537,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -607,10 +621,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -689,10 +705,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -771,10 +789,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4>() * iterations, UnsafeUtility.AlignOf<float4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -853,10 +873,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -935,10 +957,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1017,10 +1041,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1099,10 +1125,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3>() * iterations, UnsafeUtility.AlignOf<float3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1181,10 +1209,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1263,10 +1293,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1345,10 +1377,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -1427,10 +1461,12 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2* v;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     v = (float2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2>() * iterations, UnsafeUtility.AlignOf<float2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {

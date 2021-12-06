@@ -25,11 +25,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4x4* m1;
                 public float4x4* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -115,11 +117,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4x4* m1;
                 public float4* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -205,11 +209,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q1;
                 public quaternion* q2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     q1 = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -295,11 +301,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3x3* m1;
                 public float3x3* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -385,11 +393,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2x2* m1;
                 public float2x2* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -475,11 +485,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3x3* m1;
                 public float3* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
@@ -565,11 +577,13 @@ namespace Unity.Mathematics.PerformanceTests
 
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2x2* m1;
                 public float2* m2;
 
                 public void Init()
                 {
+                    rng = new Random(1);
                     m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
                     for (int i = 0; i < iterations; ++i)
                     {
