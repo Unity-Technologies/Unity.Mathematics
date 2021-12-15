@@ -3887,6 +3887,13 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "result", m_ElementInitializer = "new float4()" },
             }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
 
+            GeneratePerformanceTest(str, "angle_quaternion_quaternion", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q1", m_ElementInitializer = "rng.NextQuaternionRotation()" },
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q2", m_ElementInitializer = "rng.NextQuaternionRotation()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "result", m_ElementInitializer = "new float()" },
+            }, "args.result[i] = math.angle(args.q1[i], args.q2[i]);", 10000);
+
             EndPerformanceTestCodeGen(str);
         }
 

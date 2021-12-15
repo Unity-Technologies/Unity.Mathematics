@@ -3194,5 +3194,105 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class angle_quaternion_quaternion
+        {
+            public const int iterations = 10000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public quaternion* q1;
+                public quaternion* q2;
+                public float* result;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    q1 = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        q1[i] = rng.NextQuaternionRotation();
+                    }
+
+                    q2 = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        q2[i] = rng.NextQuaternionRotation();
+                    }
+
+                    result = (float*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float>() * iterations, UnsafeUtility.AlignOf<float>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        result[i] = new float();
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(q1, Allocator.Persistent);
+                    UnsafeUtility.Free(q2, Allocator.Persistent);
+                    UnsafeUtility.Free(result, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.result[i] = math.angle(args.q1[i], args.q2[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void angle_quaternion_quaternion_mono()
+        {
+            angle_quaternion_quaternion.TestFunction testFunction = angle_quaternion_quaternion.MonoTestFunction;
+            var args = new angle_quaternion_quaternion.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void angle_quaternion_quaternion_burst()
+        {
+            FunctionPointer<angle_quaternion_quaternion.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<angle_quaternion_quaternion.TestFunction>(angle_quaternion_quaternion.BurstTestFunction);
+            var args = new angle_quaternion_quaternion.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
     }
 }
