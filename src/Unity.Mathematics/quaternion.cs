@@ -629,7 +629,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion mul(quaternion a, quaternion b)
         {
-            return chgsign((a.value.ywzx * b.value.xwyz - a.value.wxyz * b.value.zxzx - a.value.zzww * b.value.wzxy - a.value.xyxy * b.value.yyww).zwxy, float4(-1f, -1f, -1f, 1f));
+            return quaternion(a.value.wwww * b.value + (a.value.xyzx * b.value.wwwx + a.value.yzxy * b.value.zxyy) * float4(1.0f, 1.0f, 1.0f, -1.0f) - a.value.zxyz * b.value.yzxz);
         }
 
         /// <summary>Returns the result of transforming a vector by a quaternion.</summary>
