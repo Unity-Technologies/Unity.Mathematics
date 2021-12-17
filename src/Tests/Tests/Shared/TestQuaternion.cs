@@ -89,7 +89,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public static void quaternion_euler()
+        public static void euler_to_quaternion()
         {
             float3 test_angles = TestMatrix.test_angles;
             quaternion q0 = quaternion.Euler(test_angles);
@@ -343,6 +343,42 @@ namespace Unity.Mathematics.Tests
         {
             TestUtils.IsFalse(new quaternion().Equals((object) new int()));
             TestUtils.IsTrue(new quaternion().Equals((object) new quaternion()));
+        }
+
+        [TestCase]
+        public static void quaternion_angle()
+        {
+            // Test variations of angles
+            for (int i = 0; i < 18; ++i)
+            {
+                for (int j = 0; j < 18; ++j)
+                {
+                    float angle1 = radians(i * 10f);
+                    float angle2 = radians(j * 10f);
+
+                    quaternion q1 = quaternion.Euler(0f, angle1, 0f);
+                    quaternion q2 = quaternion.Euler(0f, angle2, 0f);
+                    TestUtils.AreEqual(abs(angle2 - angle1), math.angle(q1, q2), 1e-5f);
+                }
+            }
+
+            quaternion q = quaternion.identity;
+            float angle = math.angle(q, q);
+            TestUtils.AreEqual(0f, angle);
+
+            quaternion nq = -q.value;
+            angle = math.angle(q, nq);
+            TestUtils.AreEqual(0f, angle);
+
+            // Nearly normalized quaternion to self is zero
+            q = new quaternion(0.6244676f, -0.7761726f, -0.06790633f, -0.05463386f); // dot(q, q) = 0.999999816753
+            angle = math.angle(q, q);
+            TestUtils.AreEqual(0f, angle);
+
+            // Nearly normalized quaternion to negative self is zero
+            nq = -q.value; // dot(q, nq) = -0.999999816753
+            angle = math.angle(q, nq);
+            TestUtils.AreEqual(0f, angle);
         }
     }
 }

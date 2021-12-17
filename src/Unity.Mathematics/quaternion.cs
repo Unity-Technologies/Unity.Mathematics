@@ -666,13 +666,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion nlerp(quaternion q1, quaternion q2, float t)
         {
-            float dt = dot(q1, q2);
-            if(dt < 0.0f)
-            {
-                q2.value = -q2.value;
-            }
-
-            return normalize(quaternion(lerp(q1.value, q2.value, t)));
+            return normalize(q1.value + t * (chgsign(q2.value, dot(q1, q2)) - q1.value));
         }
 
         /// <summary>Returns the result of a spherical interpolation between two quaternions q1 and a2 using an interpolation parameter t.</summary>
@@ -703,6 +697,17 @@ namespace Unity.Mathematics
                 // if the angle is small, use linear interpolation
                 return nlerp(q1, q2, t);
             }
+        }
+
+        /// <summary>Returns the angle in radians between two unit quaternions.</summary>
+        /// <param name="q1">The first quaternion.</param>
+        /// <param name="q2">The second quaternion.</param>
+        /// <returns>The angle between two unit quaternions.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float angle(quaternion q1, quaternion q2)
+        {
+            float diff = asin(length(normalize(mul(conjugate(q1), q2)).value.xyz));
+            return diff + diff;
         }
 
         /// <summary>Returns a uint hash code of a quaternion.</summary>

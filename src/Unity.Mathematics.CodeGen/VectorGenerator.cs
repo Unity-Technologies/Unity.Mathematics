@@ -3859,6 +3859,41 @@ namespace Unity.Mathematics.Mathematics.CodeGen
                 new PerformanceTestArrayArgument { m_ElementType = "uint4", m_MemberName = "v", m_ElementInitializer = "rng.NextUInt4()" },
             }, "args.result[i] = math.asint(args.v[i]);", 400000);
 
+            GeneratePerformanceTest(str, "chgsign_float", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "f", m_ElementInitializer = "1.0f" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "sign", m_ElementInitializer = "rng.NextFloat(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "result", m_ElementInitializer = "0.0f" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float2", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "f", m_ElementInitializer = "new float2(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "sign", m_ElementInitializer = "rng.NextFloat2(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float2", m_MemberName = "result", m_ElementInitializer = "new float2()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float3", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "f", m_ElementInitializer = "new float3(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "sign", m_ElementInitializer = "rng.NextFloat3(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float3", m_MemberName = "result", m_ElementInitializer = "new float3()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "chgsign_float4", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "f", m_ElementInitializer = "new float4(1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "sign", m_ElementInitializer = "rng.NextFloat4(-1.0f, 1.0f)" },
+                new PerformanceTestArrayArgument { m_ElementType = "float4", m_MemberName = "result", m_ElementInitializer = "new float4()" },
+            }, "args.result[i] = math.chgsign(args.f[i], args.sign[i]);", 100000);
+
+            GeneratePerformanceTest(str, "angle_quaternion_quaternion", new PerformanceTestArrayArgument[]
+            {
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q1", m_ElementInitializer = "rng.NextQuaternionRotation()" },
+                new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q2", m_ElementInitializer = "rng.NextQuaternionRotation()" },
+                new PerformanceTestArrayArgument { m_ElementType = "float", m_MemberName = "result", m_ElementInitializer = "new float()" },
+            }, "args.result[i] = math.angle(args.q1[i], args.q2[i]);", 10000);
+
             EndPerformanceTestCodeGen(str);
         }
 

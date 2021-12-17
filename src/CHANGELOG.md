@@ -2,11 +2,15 @@
 
 ## [Unreleased]
 ### Added
-* Added `math.square()` to compute the square (x * x).
-* Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
-* Added `math.sign(x)` for int, int2, int3 and int4.
+* Added `math.square` to compute the square (x * x).
+* Added `math.orthonormal_basis` to compute an orthonormal basis from a single unit length vector.
+* Added `math.sign` for int, int2, int3 and int4.
+* Added `math.chgsign` for float, float2, float3, and float4.
+* Added `math.Euler` to convert a quaternion to Euler angles.
+* Added `math.angle` to compute the angle between two unit quaternions.
 ### Changed
 * `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
+* Modified `quaternion.nlerp` to be branchless.
 ### Deprecated
 ### Removed
 ### Fixed
