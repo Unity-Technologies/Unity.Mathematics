@@ -4,53 +4,28 @@ using Burst.Compiler.IL.Tests;
 
 namespace Unity.Mathematics.Tests
 {
-    class FloatAbsoluteEqualityComparer : IEqualityComparer<float>
-    {
-        readonly float m_AllowedError;
-
-        public FloatAbsoluteEqualityComparer(float allowedError) =>
-            m_AllowedError = allowedError;
-
-        public bool Equals(float expected, float actual) =>
-            math.abs(expected - actual) < m_AllowedError;
-
-        public int GetHashCode(float value) => 0;
-    }
-
-    class QuaternionAbsoluteEqualityComparer : IEqualityComparer<quaternion>
-    {
-        readonly float m_AllowedError;
-
-        public QuaternionAbsoluteEqualityComparer(float allowedError) =>
-            m_AllowedError = allowedError;
-
-        public bool Equals(quaternion expected, quaternion actual) =>
-            (math.lengthsq(expected) == 0f && math.lengthsq(actual) == 0f) || math.abs(math.dot(expected, actual)) > (1f - m_AllowedError);
-
-        public int GetHashCode(quaternion value) => 0;
-    }
-
     [TestFixture]
     public class TestSvd
     {
         const float k_SVDTolerance = 1e-4f;
-        static readonly FloatAbsoluteEqualityComparer k_FloatComparer = new FloatAbsoluteEqualityComparer(k_SVDTolerance);
-        static readonly QuaternionAbsoluteEqualityComparer k_QuaternionComparer = new QuaternionAbsoluteEqualityComparer(k_SVDTolerance);
+
+        static bool QuaternionEquals(quaternion expected, quaternion actual, float tolerance) =>
+            (math.lengthsq(expected) == 0f && math.lengthsq(actual) == 0f) || math.abs(math.dot(expected, actual)) > (1f - tolerance);
 
         // Validate Penrose condition that [aba = a]
         static void ValidatePenrose1(in float3x3 a, in float3x3 b)
         {
             var testA = math.mul(math.mul(a, b), a);
 
-            Assert.That(testA.c0.x, Is.EqualTo(a.c0.x).Using(k_FloatComparer));
-            Assert.That(testA.c0.y, Is.EqualTo(a.c0.y).Using(k_FloatComparer));
-            Assert.That(testA.c0.z, Is.EqualTo(a.c0.z).Using(k_FloatComparer));
-            Assert.That(testA.c1.x, Is.EqualTo(a.c1.x).Using(k_FloatComparer));
-            Assert.That(testA.c1.y, Is.EqualTo(a.c1.y).Using(k_FloatComparer));
-            Assert.That(testA.c1.z, Is.EqualTo(a.c1.z).Using(k_FloatComparer));
-            Assert.That(testA.c2.x, Is.EqualTo(a.c2.x).Using(k_FloatComparer));
-            Assert.That(testA.c2.y, Is.EqualTo(a.c2.y).Using(k_FloatComparer));
-            Assert.That(testA.c2.z, Is.EqualTo(a.c2.z).Using(k_FloatComparer));
+            TestUtils.AreEqual(a.c0.x, testA.c0.x, k_SVDTolerance);
+            TestUtils.AreEqual(a.c0.y, testA.c0.y, k_SVDTolerance);
+            TestUtils.AreEqual(a.c0.z, testA.c0.z, k_SVDTolerance);
+            TestUtils.AreEqual(a.c1.x, testA.c1.x, k_SVDTolerance);
+            TestUtils.AreEqual(a.c1.y, testA.c1.y, k_SVDTolerance);
+            TestUtils.AreEqual(a.c1.z, testA.c1.z, k_SVDTolerance);
+            TestUtils.AreEqual(a.c2.x, testA.c2.x, k_SVDTolerance);
+            TestUtils.AreEqual(a.c2.y, testA.c2.y, k_SVDTolerance);
+            TestUtils.AreEqual(a.c2.z, testA.c2.z, k_SVDTolerance);
         }
 
         // Validate Penrose condition that [transpose(ab) = ab]
@@ -59,22 +34,22 @@ namespace Unity.Mathematics.Tests
             var ab = math.mul(a, b);
             var testAB = math.transpose(ab);
 
-            Assert.That(testAB.c0.x, Is.EqualTo(ab.c0.x).Using(k_FloatComparer));
-            Assert.That(testAB.c0.y, Is.EqualTo(ab.c0.y).Using(k_FloatComparer));
-            Assert.That(testAB.c0.z, Is.EqualTo(ab.c0.z).Using(k_FloatComparer));
-            Assert.That(testAB.c1.x, Is.EqualTo(ab.c1.x).Using(k_FloatComparer));
-            Assert.That(testAB.c1.y, Is.EqualTo(ab.c1.y).Using(k_FloatComparer));
-            Assert.That(testAB.c1.z, Is.EqualTo(ab.c1.z).Using(k_FloatComparer));
-            Assert.That(testAB.c2.x, Is.EqualTo(ab.c2.x).Using(k_FloatComparer));
-            Assert.That(testAB.c2.y, Is.EqualTo(ab.c2.y).Using(k_FloatComparer));
-            Assert.That(testAB.c2.z, Is.EqualTo(ab.c2.z).Using(k_FloatComparer));
+            TestUtils.AreEqual(ab.c0.x, testAB.c0.x, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c0.y, testAB.c0.y, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c0.z, testAB.c0.z, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c1.x, testAB.c1.x, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c1.y, testAB.c1.y, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c1.z, testAB.c1.z, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c2.x, testAB.c2.x, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c2.y, testAB.c2.y, k_SVDTolerance);
+            TestUtils.AreEqual(ab.c2.z, testAB.c2.z, k_SVDTolerance);
         }
 
         static void ValidateSingular(in float3x3 a) =>
-            Assert.That(math.determinant(a), Is.EqualTo(0f).Using(k_FloatComparer));
+            TestUtils.AreEqual(0.0f, math.determinant(a), k_SVDTolerance);
 
         [TestCompiler]
-        public void CanSVDInverseNonSingularFloat3x3()
+        public static void CanSVDInverseNonSingularFloat3x3()
         {
             var mat = math.float3x3(
                 math.float3(9f, 1f, 2f),
@@ -85,19 +60,19 @@ namespace Unity.Mathematics.Tests
             var inv = svd.svdInverse(mat);
             var testIdentity = math.mul(mat, inv);
 
-            Assert.That(testIdentity.c0.x, Is.EqualTo(1f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c0.y, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c0.z, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c1.x, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c1.y, Is.EqualTo(1f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c1.z, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c2.x, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c2.y, Is.EqualTo(0f).Using(k_FloatComparer));
-            Assert.That(testIdentity.c2.z, Is.EqualTo(1f).Using(k_FloatComparer));
+            TestUtils.AreEqual(1f, testIdentity.c0.x, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c0.y, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c0.z, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c1.x, k_SVDTolerance);
+            TestUtils.AreEqual(1f, testIdentity.c1.y, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c1.z, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c2.x, k_SVDTolerance);
+            TestUtils.AreEqual(0f, testIdentity.c2.y, k_SVDTolerance);
+            TestUtils.AreEqual(1f, testIdentity.c2.z, k_SVDTolerance);
         }
 
         [TestCompiler]
-        public void CanSVDInverseFloat3x3With_NullColumn()
+        public static void CanSVDInverseFloat3x3With_NullColumn()
         {
             var mat = math.float3x3(
                 math.float3(9f, 1f, 0f),
@@ -115,7 +90,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void CanSVDInverseFloat3x3With_NullRow()
+        public static void CanSVDInverseFloat3x3With_NullRow()
         {
             var mat = math.float3x3(
                 math.float3(9f, 1f, 2f),
@@ -133,7 +108,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void CanSVDInverseFloat3x3With_LinearDependentColumn()
+        public static void CanSVDInverseFloat3x3With_LinearDependentColumn()
         {
             var mat = math.float3x3(
                 math.float3(9f, 4f, 2f),
@@ -151,7 +126,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void CanSVDInverseFloat3x3With_LinearDependentRow()
+        public static void CanSVDInverseFloat3x3With_LinearDependentRow()
         {
             var mat = math.float3x3(
                 math.float3(9f, 1f, 2f),
@@ -169,7 +144,7 @@ namespace Unity.Mathematics.Tests
         }
 
         [TestCompiler]
-        public void CanSVDInverseFloat3x3With_RotatedZeroScale()
+        public static void CanSVDInverseFloat3x3With_RotatedZeroScale()
         {
             var m102030 = math.float3x3(quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f)));
             var parent  = svd.mulScale(m102030, math.float3(1f, 1f, 0f));
@@ -186,17 +161,17 @@ namespace Unity.Mathematics.Tests
 
         // Case 928598: The errors appear, when GameObject has a child with ParticleSystem which is rotated along the y-axis to -180 and is moved
         [TestCompiler]
-        public void CanExtractSVDRotationFromFloat3x3With_X180_Y0_Z181()
+        public static void CanExtractSVDRotationFromFloat3x3With_X180_Y0_Z181()
         {
             var q = quaternion.Euler(math.radians(180f), math.radians(0f), math.radians(181f));
             var qSVD = svd.svdRotation(math.float3x3(q));
 
-            Assert.That(qSVD, Is.EqualTo(q).Using(k_QuaternionComparer));
+            TestUtils.IsTrue(QuaternionEquals(q, qSVD, k_SVDTolerance));
         }
 
         // Case 938548: Assertion failed on expression: 'CompareApproximately(det, 1.0F, .005f)' when scaling system to 0 on at least 2 axes
         [TestCompiler]
-        public void CanExtractSVDRotationFromFloat3x3With_ZeroScaleXY()
+        public static void CanExtractSVDRotationFromFloat3x3With_ZeroScaleXY()
         {
             var q0 = quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f));
             var m0 = math.float3x3(q0);
@@ -204,7 +179,7 @@ namespace Unity.Mathematics.Tests
             var q1 = svd.svdRotation(m0Scaled);
             var m1 = math.float3x3(q1);
 
-            Assert.That(math.length(m0.c0 - m1.c0), Is.EqualTo(0f).Using(k_FloatComparer));
+            TestUtils.AreEqual(0.0f, math.length(m0.c0 - m1.c0), k_SVDTolerance);
         }
     }
 }
