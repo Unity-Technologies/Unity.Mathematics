@@ -710,6 +710,67 @@ namespace Unity.Mathematics
             return diff + diff;
         }
 
+        /// <summary>
+        /// Extracts the rotation from a matrix that potentially has scale.
+        /// </summary>
+        /// <param name="a">Matrix to extract rotation from</param>
+        /// <returns>Extracted rotation</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion rotation(float3x3 m)
+        {
+            float det = math.determinant(m);
+            if (math.abs(1f - det) < svd.k_EpsilonDeterminant)
+                return math.quaternion(m);
+
+            if (math.abs(det) > svd.k_EpsilonDeterminant)
+            {
+                float3x3 tmp = svd.mulScale(m, math.rsqrt(math.float3(math.lengthsq(m.c0), math.lengthsq(m.c1), math.lengthsq(m.c2))));
+                if (math.abs(1f - math.determinant(tmp)) < svd.k_EpsilonDeterminant)
+                    return math.quaternion(tmp);
+            }
+
+            return svd.svdRotation(m);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static float3x3 adj(float3x3 m, out float det)
+        {
+            float3x3 adjT;
+            adjT.c0 = math.cross(m.c1, m.c2);
+            adjT.c1 = math.cross(m.c2, m.c0);
+            adjT.c2 = math.cross(m.c0, m.c1);
+            det = math.dot(m.c0, adjT.c0);
+
+            return math.transpose(adjT);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static bool adjInverse(float3x3 m, out float3x3 i, float epsilon = svd.k_EpsilonNormal)
+        {
+            i = adj(m, out float det);
+            bool c = math.abs(det) > epsilon;
+            float3 detInv = math.select(math.float3(1f), math.rcp(det), c);
+            i = svd.scaleMul(detInv, i);
+            return c;
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 pseudoinverse(float3x3 m)
+        {
+            float scaleSq = 0.333333f * (math.lengthsq(m.c0) + math.lengthsq(m.c1) + math.lengthsq(m.c2));
+            if (scaleSq < svd.k_EpsilonNormal)
+                return Mathematics.float3x3.zero;
+
+            float3 scaleInv = math.rsqrt(scaleSq);
+            float3x3 ms = svd.mulScale(m, scaleInv);
+            if (!adjInverse(ms, out float3x3 i, svd.k_EpsilonDeterminant))
+            {
+                i = svd.svdInverse(ms);
+            }
+
+            return svd.mulScale(i, scaleInv);
+        }
+
         /// <summary>Returns a uint hash code of a quaternion.</summary>
         /// <param name="q">The quaternion to hash.</param>
         /// <returns>The hash code for the input quaternion.</returns>
@@ -731,7 +792,6 @@ namespace Unity.Mathematics
         {
             return hashwide(q.value);
         }
-
 
         /// <summary>
         /// Transforms the forward vector by a quaternion.

@@ -141,9 +141,10 @@ namespace Unity.Mathematics
             return math.float3(e.c0.x, e.c1.y, e.c2.z);
         }
 
-        const float k_EpsilonDeterminant = 1e-6f;
-        const float k_EpsilonRCP = 1e-9f;
-        const float k_EpsilonNormalSqrt = 1e-15f;
+        public const float k_EpsilonDeterminant = 1e-6f;
+        public const float k_EpsilonRCP = 1e-9f;
+        public const float k_EpsilonNormalSqrt = 1e-15f;
+        public const float k_EpsilonNormal = 1e-30f;
 
         /// <summary>
         /// Matrix columns multiplied by scale components
@@ -161,7 +162,7 @@ namespace Unity.Mathematics
         /// m.c0.z * s.z | m.c1.z * s.z | m.c2.z * s.z
         /// </summary>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        static float3x3 scaleMul(float3 s, float3x3 m) => new float3x3(m.c0 * s, m.c1 * s, m.c2 * s);
+        public static float3x3 scaleMul(float3 s, float3x3 m) => new float3x3(m.c0 * s, m.c1 * s, m.c2 * s);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static float3 rcpsafe(float3 x, float epsilon = k_EpsilonRCP) =>
