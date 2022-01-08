@@ -754,23 +754,6 @@ namespace Unity.Mathematics
             return c;
         }
 
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3x3 pseudoinverse(float3x3 m)
-        {
-            float scaleSq = 0.333333f * (math.lengthsq(m.c0) + math.lengthsq(m.c1) + math.lengthsq(m.c2));
-            if (scaleSq < svd.k_EpsilonNormal)
-                return Mathematics.float3x3.zero;
-
-            float3 scaleInv = math.rsqrt(scaleSq);
-            float3x3 ms = svd.mulScale(m, scaleInv);
-            if (!adjInverse(ms, out float3x3 i, svd.k_EpsilonDeterminant))
-            {
-                i = svd.svdInverse(ms);
-            }
-
-            return svd.mulScale(i, scaleInv);
-        }
-
         /// <summary>Returns a uint hash code of a quaternion.</summary>
         /// <param name="q">The quaternion to hash.</param>
         /// <returns>The hash code for the input quaternion.</returns>
