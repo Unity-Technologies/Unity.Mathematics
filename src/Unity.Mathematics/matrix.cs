@@ -1090,6 +1090,11 @@ namespace Unity.Mathematics
             return o;
         }
 
+        /// <summary>
+        /// Computes the pseudoinverse of a matrix.
+        /// </summary>
+        /// <param name="m">Matrix to invert.</param>
+        /// <returns>The pseudoinverse of m.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3x3 pseudoinverse(float3x3 m)
         {
