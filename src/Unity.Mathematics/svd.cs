@@ -3,7 +3,7 @@ using Unity.IL2CPP.CompilerServices;
 
 namespace Unity.Mathematics
 {
-    // SVD algorithm as decribed in:
+    // SVD algorithm as described in:
     // Computing the singular value decomposition of 3x3 matrices with minimal branching and elementary floating point operations,
     // A.McAdams, A.Selle, R.Tamstorf, J.Teran and E.Sifakis, University of Wisconsin - Madison technical report TR1690, May 2011
     [Il2CppEagerStaticClassConstruction]
