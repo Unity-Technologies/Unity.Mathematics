@@ -380,5 +380,85 @@ namespace Unity.Mathematics.Tests
             angle = math.angle(q, nq);
             TestUtils.AreEqual(0f, angle);
         }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_identity()
+        {
+            const float tolerance = 1e-5f;
+            var q = rotation(float3x3.identity);
+            TestUtils.AreEqual(quaternion.identity, q, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_uniform_scale()
+        {
+            const float tolerance = 1e-5f;
+            var random = new Random(6173u);
+            var expectedQuaternion = random.NextQuaternionRotation();
+            var m = new float3x3(expectedQuaternion);
+            m = mul(m, float3x3.Scale(5.18f));
+            var actualQuaternion = rotation(m);
+            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_nonuniform_scale()
+        {
+            const float tolerance = 1e-5f;
+            var m = new float3x3(
+                2.0f, 0.0f, 0.0f,
+                0.0f, 1.5f, 0.0f,
+                0.0f, 0.0f, 3.1f);
+            var q = rotation(m);
+            TestUtils.AreEqual(quaternion.identity, q, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_negative_scale_x()
+        {
+            const float tolerance = 1e-5f;
+            var random = new Random(281u);
+            var expectedQuaternion = random.NextQuaternionRotation();
+            var m = new float3x3(expectedQuaternion);
+            m = mul(m, float3x3.Scale(-1.5f, 0.2f, 51.281f));
+            var actualQuaternion = rotation(m);
+            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_negative_scale_y()
+        {
+            const float tolerance = 1e-5f;
+            var random = new Random(10000u);
+            var expectedQuaternion = random.NextQuaternionRotation();
+            var m = new float3x3(expectedQuaternion);
+            m = mul(m, float3x3.Scale(1.5f, -0.2f, 51.281f));
+            var actualQuaternion = rotation(m);
+            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_negative_scale_z()
+        {
+            const float tolerance = 1e-5f;
+            var random = new Random(9891712u);
+            var expectedQuaternion = random.NextQuaternionRotation();
+            var m = new float3x3(expectedQuaternion);
+            m = mul(m, float3x3.Scale(1.5f, 0.2f, -51.281f));
+            var actualQuaternion = rotation(m);
+            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
+        }
+
+        [TestCompiler]
+        public static void quaternion_rotation_from_3x3_with_negative_nonuniform_scale()
+        {
+            const float tolerance = 1e-5f;
+            var random = new Random(912u);
+            var expectedQuaternion = random.NextQuaternionRotation();
+            var m = new float3x3(expectedQuaternion);
+            m = mul(m, float3x3.Scale(-1.5f, -0.2f, -51.281f));
+            var actualQuaternion = rotation(m);
+            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
+        }
     }
 }
