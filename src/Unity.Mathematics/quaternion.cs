@@ -713,7 +713,7 @@ namespace Unity.Mathematics
         /// <summary>
         /// Extracts the rotation from a matrix that potentially has scale.
         /// </summary>
-        /// <param name="a">Matrix to extract rotation from</param>
+        /// <param name="m">Matrix to extract rotation from</param>
         /// <returns>Extracted rotation</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static quaternion rotation(float3x3 m)
