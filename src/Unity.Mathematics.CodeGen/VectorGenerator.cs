@@ -3224,6 +3224,9 @@ namespace Unity.Mathematics.Mathematics.CodeGen
             GeneratePerformanceTest(str, "quaternion_inverse", new PerformanceTestArrayArgument[] {
                 new PerformanceTestArrayArgument { m_ElementType = "quaternion", m_MemberName = "q", m_ElementInitializer = "quaternion.identity" },
             }, "args.q[i] = math.inverse(args.q[i]);", 10000);
+            GeneratePerformanceTest(str, "pseudoinverse", new PerformanceTestArrayArgument[] {
+                new PerformanceTestArrayArgument { m_ElementType = "float3x3", m_MemberName = "m", m_ElementInitializer = "new float3x3(0.054824f, 0.462398f, 0.050136f, 0.054824f, 0.462398f, 0.050136f, 0.938166f, 0.542226f, 0.106844f)" },
+            }, "args.m[i] = math.pseudoinverse(args.m[i]);", 1000);
 
             EndPerformanceTestCodeGen(str);
         }
