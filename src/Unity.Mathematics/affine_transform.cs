@@ -35,7 +35,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public AffineTransform(float3 t, quaternion r)
         {
-            this.rs = math.float3x3(r);
+            this.rs = float3x3(r);
             this.t = t;
         }
 
@@ -75,10 +75,10 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float3x4(AffineTransform m) { return new float3x4(m.rs.c0, m.rs.c1, m.rs.c2, m.t); }
+        public static implicit operator float3x4(AffineTransform m) { return float3x4(m.rs.c0, m.rs.c1, m.rs.c2, m.t); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static implicit operator float4x4(AffineTransform m) { return new float4x4(new float4(m.rs.c0, 0f), new float4(m.rs.c1, 0f), new float4(m.rs.c2, 0f), new float4(m.t, 1f)); }
+        public static implicit operator float4x4(AffineTransform m) { return float4x4(float4(m.rs.c0, 0f), float4(m.rs.c1, 0f), float4(m.rs.c2, 0f), float4(m.t, 1f)); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public bool Equals(AffineTransform x) { return rs.Equals(x.rs) && t.Equals(x.t); }
@@ -86,7 +86,7 @@ namespace Unity.Mathematics
         public override bool Equals(object o) { return o is AffineTransform converted && Equals(converted); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public override int GetHashCode() { return (int)math.hash(this); }
+        public override int GetHashCode() { return (int)hash(this); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public override string ToString()
@@ -114,22 +114,22 @@ namespace Unity.Mathematics
         public static AffineTransform AffineTransform(float3 translation, quaternion rotation) { return AffineTransform(translation, rotation); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AffineTransform AffineTransform(float3 translation, float3x3 rs) { return new AffineTransform(translation, rs); }
+        public static AffineTransform AffineTransform(float3 translation, float3x3 rs) { return AffineTransform(translation, rs); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AffineTransform AffineTransform(float4x4 m) { return new AffineTransform(m); }
+        public static AffineTransform AffineTransform(float4x4 m) { return AffineTransform(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AffineTransform AffineTransform(float3x4 m) { return new AffineTransform(m); }
+        public static AffineTransform AffineTransform(float3x4 m) { return AffineTransform(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AffineTransform AffineTransform(float3 translation, quaternion rotation, float3 scale) { return new AffineTransform(translation, rotation, scale); }
+        public static AffineTransform AffineTransform(float3 translation, quaternion rotation, float3 scale) { return AffineTransform(translation, rotation, scale); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4x4 float4x4(AffineTransform transform) { return new float4x4(new float4(transform.rs.c0, 0f), new float4(transform.rs.c1, 0f), new float4(transform.rs.c2, 0f), new float4(transform.t, 1f)); }
+        public static float4x4 float4x4(AffineTransform transform) { return float4x4(float4(transform.rs.c0, 0f), float4(transform.rs.c1, 0f), float4(transform.rs.c2, 0f), float4(transform.t, 1f)); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3x4 float3x4(AffineTransform transform) { return new float3x4(transform.rs.c0, transform.rs.c1, transform.rs.c2, transform.t); }
+        public static float3x4 float3x4(AffineTransform transform) { return float3x4(transform.rs.c0, transform.rs.c1, transform.rs.c2, transform.t); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 mul(AffineTransform a, float3 v)
