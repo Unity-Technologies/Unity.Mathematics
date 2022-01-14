@@ -114,6 +114,9 @@ namespace Unity.Mathematics
         public static AffineTransform AffineTransform(float3 translation, quaternion rotation) { return AffineTransform(translation, rotation); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AffineTransform AffineTransform(float3 translation, quaternion rotation, float3 scale) { return AffineTransform(translation, rotation, scale); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AffineTransform AffineTransform(float3 translation, float3x3 rs) { return AffineTransform(translation, rs); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -123,7 +126,10 @@ namespace Unity.Mathematics
         public static AffineTransform AffineTransform(float3x4 m) { return AffineTransform(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static AffineTransform AffineTransform(float3 translation, quaternion rotation, float3 scale) { return AffineTransform(translation, rotation, scale); }
+        public static AffineTransform AffineTransform(float3x3 m) { return AffineTransform(m); }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static AffineTransform AffineTransform(RigidTransform m) { return AffineTransform(m); }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float4x4 float4x4(AffineTransform transform) { return float4x4(float4(transform.rs.c0, 0f), float4(transform.rs.c1, 0f), float4(transform.rs.c2, 0f), float4(transform.t, 1f)); }
