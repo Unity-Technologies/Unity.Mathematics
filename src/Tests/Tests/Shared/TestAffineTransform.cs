@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
             var tx = AffineTransform(float3(5, 6, 7), normalize(math.float4(1, 2, 3, 4)), float3(2, 3, 4));
             var invTx = inverse(tx);
 
-            TestUtils.AreEqual(float4x4.identity, float4x4(mul(tx, invTx)), tolerance);
+            TestUtils.AreEqual(float4x4.identity, mul(tx, invTx), tolerance);
         }
 
         [TestCompiler]
@@ -26,7 +26,7 @@ namespace Unity.Mathematics.Tests
             var tx = AffineTransform(float3(5, 6, 7), normalize(float4(1, 2, 3, 4)), float3.zero);
             var invTx = inverse(tx);
 
-            TestUtils.AreEqual(float4x4.zero, invTx, tolerance);
+            TestUtils.AreEqual(float3x4.zero, invTx, tolerance);
         }
 
         [TestCompiler]
@@ -38,7 +38,7 @@ namespace Unity.Mathematics.Tests
             var tx = AffineTransform(float3(5, 6, 7), normalize(float4(1, 2, 3, 4)), float3(1e-12f, 1e-12f, 1e-12f));
             var invTx = inverse(tx);
 
-            TestUtils.AreEqual(float4x4.identity, float4x4(mul(tx, invTx)), tolerance);
+            TestUtils.AreEqual(float4x4.identity, mul(tx, invTx), tolerance);
         }
 
         [TestCompiler]
