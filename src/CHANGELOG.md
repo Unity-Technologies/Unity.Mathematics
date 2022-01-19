@@ -8,6 +8,9 @@
 * Added `math.chgsign` for float, float2, float3, and float4.
 * Added `math.Euler` to convert a quaternion to Euler angles.
 * Added `math.angle` to compute the angle between two unit quaternions.
+* Added `math.rotation` to extract a quaternion rotation from a float3x3 (that may have scale).
+* Added `svd.mulScale` to scale columns of a float3x3 with scaling coefficients in a float3.
+* Added `svd.scaleMul` to scale rows of a float3x3 with scaling coefficients in a float3.
 ### Changed
 * `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
 * Modified `quaternion.nlerp` to be branchless.

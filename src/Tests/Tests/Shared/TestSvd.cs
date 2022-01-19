@@ -181,5 +181,49 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(0.0f, math.length(m0.c0 - m1.c0), k_SVDTolerance);
         }
+
+        [TestCompiler]
+        public static void mulScale()
+        {
+            var tolerance = 1e-5f;
+
+            // Random matrix.
+            var m = new float3x3(
+                0.891724169254302978516f, 0.156217902898788452148f, 0.492261469364166259766f,
+                0.562758803367614746094f, 0.00122839550022035837173f, 0.437942296266555786133f,
+                0.2576503753662109375f, 0.200372591614723205566f, 0.515525519847869873047f);
+
+            // Random scale.
+            var scale = new float3(0.235540181398391723633f, 0.215966641902923583984f, 0.533130943775177001953f);
+            var actual = svd.mulScale(m, scale);
+            var expected = new float3x3(
+                0.210036873817443847656f, 0.0337378568947315216064f, 0.262439817190170288086f,
+                0.132552310824394226074f, 0.000265292444964870810509f, 0.233480587601661682129f,
+                0.0606870166957378387451f, 0.043273795396089553833f, 0.274842619895935058594f);
+
+            TestUtils.AreEqual(expected, actual, 1e-5);
+        }
+
+        [TestCompiler]
+        public static void scaleMul()
+        {
+            var tolerance = 1e-5f;
+
+            // Random matrix, same as in mulScale test.
+            var m = new float3x3(
+                0.891724169254302978516f, 0.156217902898788452148f, 0.492261469364166259766f,
+                0.562758803367614746094f, 0.00122839550022035837173f, 0.437942296266555786133f,
+                0.2576503753662109375f, 0.200372591614723205566f, 0.515525519847869873047f);
+
+            // Random scale, same as in mulScale test.
+            var scale = new float3(0.235540181398391723633f, 0.215966641902923583984f, 0.533130943775177001953f);
+            var actual = svd.scaleMul(scale, m);
+            var expected = new float3x3(
+                0.210036873817443847656f, 0.0367955937981605529785f, 0.115947358310222625732f,
+                0.121537126600742340088f, 0.000265292444964870810509f, 0.0945809260010719299316f,
+                0.137361392378807067871f, 0.106824830174446105957f, 0.274842619895935058594f);
+
+            TestUtils.AreEqual(expected, actual, tolerance);
+        }
     }
 }
