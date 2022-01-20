@@ -724,7 +724,7 @@ namespace Unity.Mathematics
 
             if (math.abs(det) > svd.k_EpsilonDeterminant)
             {
-                float3x3 tmp = svd.mulScale(m, math.rsqrt(math.float3(math.lengthsq(m.c0), math.lengthsq(m.c1), math.lengthsq(m.c2))));
+                float3x3 tmp = mulScale(m, math.rsqrt(math.float3(math.lengthsq(m.c0), math.lengthsq(m.c1), math.lengthsq(m.c2))));
                 if (math.abs(1f - math.determinant(tmp)) < svd.k_EpsilonDeterminant)
                     return math.quaternion(tmp);
             }
@@ -750,7 +750,7 @@ namespace Unity.Mathematics
             i = adj(m, out float det);
             bool c = math.abs(det) > epsilon;
             float3 detInv = math.select(math.float3(1f), math.rcp(det), c);
-            i = svd.scaleMul(detInv, i);
+            i = scaleMul(detInv, i);
             return c;
         }
 

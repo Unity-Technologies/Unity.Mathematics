@@ -1103,13 +1103,13 @@ namespace Unity.Mathematics
                 return Mathematics.float3x3.zero;
 
             float3 scaleInv = math.rsqrt(scaleSq);
-            float3x3 ms = svd.mulScale(m, scaleInv);
+            float3x3 ms = mulScale(m, scaleInv);
             if (!adjInverse(ms, out float3x3 i, svd.k_EpsilonDeterminant))
             {
                 i = svd.svdInverse(ms);
             }
 
-            return svd.mulScale(i, scaleInv);
+            return mulScale(i, scaleInv);
         }
     }
 }

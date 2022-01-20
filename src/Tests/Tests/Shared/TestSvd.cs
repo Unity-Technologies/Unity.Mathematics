@@ -147,7 +147,7 @@ namespace Unity.Mathematics.Tests
         public static void CanSVDInverseFloat3x3With_RotatedZeroScale()
         {
             var m102030 = math.float3x3(quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f)));
-            var parent  = svd.mulScale(m102030, math.float3(1f, 1f, 0f));
+            var parent  = math.mulScale(m102030, math.float3(1f, 1f, 0f));
             var mat     = math.mul(parent, m102030);
 
             ValidateSingular(mat);
@@ -175,7 +175,7 @@ namespace Unity.Mathematics.Tests
         {
             var q0 = quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f));
             var m0 = math.float3x3(q0);
-            var m0Scaled = svd.mulScale(m0, math.float3(1f, 0f, 0f));
+            var m0Scaled = math.mulScale(m0, math.float3(1f, 0f, 0f));
             var q1 = svd.svdRotation(m0Scaled);
             var m1 = math.float3x3(q1);
 
