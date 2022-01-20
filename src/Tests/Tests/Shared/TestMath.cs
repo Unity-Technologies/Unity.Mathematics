@@ -4079,7 +4079,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-                [TestCompiler]
+        [TestCompiler]
         public static void mulScale()
         {
             var tolerance = 1e-5f;
