@@ -42,7 +42,7 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public AffineTransform(float3 translation, quaternion rotation, float3 scale)
         {
-            rs = svd.mulScale(math.float3x3(rotation), scale);
+            rs = mulScale(math.float3x3(rotation), scale);
             t = translation;
         }
 
