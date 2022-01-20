@@ -7017,6 +7017,30 @@ namespace Unity.Mathematics
             }
         }
 
+        /// <summary>
+        /// Matrix columns multiplied by scale components
+        /// m.c0.x * s.x | m.c1.x * s.y | m.c2.x * s.z
+        /// m.c0.y * s.x | m.c1.y * s.y | m.c2.y * s.z
+        /// m.c0.z * s.x | m.c1.z * s.y | m.c2.z * s.z
+        /// </summary>
+        /// <param name="m">Matrix to scale.</param>
+        /// <param name="s">Scaling coefficients for each column.</param>
+        /// <returns>The scaled matrix.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 mulScale(float3x3 m, float3 s) => new float3x3(m.c0 * s.x, m.c1 * s.y, m.c2 * s.z);
+
+        /// <summary>
+        /// Matrix rows multiplied by scale components
+        /// m.c0.x * s.x | m.c1.x * s.x | m.c2.x * s.x
+        /// m.c0.y * s.y | m.c1.y * s.y | m.c2.y * s.y
+        /// m.c0.z * s.z | m.c1.z * s.z | m.c2.z * s.z
+        /// </summary>
+        /// <param name="s">Scaling coefficients for each row.</param>
+        /// <param name="m">Matrix to scale.</param>
+        /// <returns>The scaled matrix.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 scaleMul(float3 s, float3x3 m) => new float3x3(m.c0 * s, m.c1 * s, m.c2 * s);
+
         // Internal
 
         // SSE shuffles

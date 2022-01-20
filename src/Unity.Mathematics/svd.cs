@@ -7,7 +7,7 @@ namespace Unity.Mathematics
     // Computing the singular value decomposition of 3x3 matrices with minimal branching and elementary floating point operations,
     // A.McAdams, A.Selle, R.Tamstorf, J.Teran and E.Sifakis, University of Wisconsin - Madison technical report TR1690, May 2011
     [Il2CppEagerStaticClassConstruction]
-    class svd
+    static class svd
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void condSwap(bool c, ref float x, ref float y)
@@ -146,24 +146,6 @@ namespace Unity.Mathematics
         public const float k_EpsilonNormalSqrt = 1e-15f;
         public const float k_EpsilonNormal = 1e-30f;
 
-        /// <summary>
-        /// Matrix columns multiplied by scale components
-        /// m.c0.x * s.x | m.c1.x * s.y | m.c2.x * s.z
-        /// m.c0.y * s.x | m.c1.y * s.y | m.c2.y * s.z
-        /// m.c0.z * s.x | m.c1.z * s.y | m.c2.z * s.z
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3x3 mulScale(float3x3 m, float3 s) => new float3x3(m.c0 * s.x, m.c1 * s.y, m.c2 * s.z);
-
-        /// <summary>
-        /// Matrix rows multiplied by scale components
-        /// m.c0.x * s.x | m.c1.x * s.x | m.c2.x * s.x
-        /// m.c0.y * s.y | m.c1.y * s.y | m.c2.y * s.y
-        /// m.c0.z * s.z | m.c1.z * s.z | m.c2.z * s.z
-        /// </summary>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3x3 scaleMul(float3 s, float3x3 m) => new float3x3(m.c0 * s, m.c1 * s, m.c2 * s);
-
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static float3 rcpsafe(float3 x, float epsilon = k_EpsilonRCP) =>
             math.select(math.rcp(x), float3.zero, math.abs(x) < epsilon);
@@ -175,7 +157,7 @@ namespace Unity.Mathematics
             var um = math.float3x3(u);
             var vm = math.float3x3(v);
 
-            return math.mul(vm, scaleMul(rcpsafe(e, k_EpsilonDeterminant), math.transpose(um)));
+            return math.mul(vm, math.scaleMul(rcpsafe(e, k_EpsilonDeterminant), math.transpose(um)));
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
