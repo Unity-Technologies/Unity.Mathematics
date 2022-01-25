@@ -710,6 +710,51 @@ namespace Unity.Mathematics
             return diff + diff;
         }
 
+        /// <summary>
+        /// Extracts the rotation from a matrix.
+        /// </summary>
+        /// <remarks>This method supports any type of rotation matrix: if the matrix has a non uniform scale you should use this method.</remarks>
+        /// <param name="m">Matrix to extract rotation from</param>
+        /// <returns>Extracted rotation</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static quaternion rotation(float3x3 m)
+        {
+            float det = math.determinant(m);
+            if (math.abs(1f - det) < svd.k_EpsilonDeterminant)
+                return math.quaternion(m);
+
+            if (math.abs(det) > svd.k_EpsilonDeterminant)
+            {
+                float3x3 tmp = mulScale(m, math.rsqrt(math.float3(math.lengthsq(m.c0), math.lengthsq(m.c1), math.lengthsq(m.c2))));
+                if (math.abs(1f - math.determinant(tmp)) < svd.k_EpsilonDeterminant)
+                    return math.quaternion(tmp);
+            }
+
+            return svd.svdRotation(m);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static float3x3 adj(float3x3 m, out float det)
+        {
+            float3x3 adjT;
+            adjT.c0 = math.cross(m.c1, m.c2);
+            adjT.c1 = math.cross(m.c2, m.c0);
+            adjT.c2 = math.cross(m.c0, m.c1);
+            det = math.dot(m.c0, adjT.c0);
+
+            return math.transpose(adjT);
+        }
+
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        static bool adjInverse(float3x3 m, out float3x3 i, float epsilon = svd.k_EpsilonNormal)
+        {
+            i = adj(m, out float det);
+            bool c = math.abs(det) > epsilon;
+            float3 detInv = math.select(math.float3(1f), math.rcp(det), c);
+            i = scaleMul(detInv, i);
+            return c;
+        }
+
         /// <summary>Returns a uint hash code of a quaternion.</summary>
         /// <param name="q">The quaternion to hash.</param>
         /// <returns>The hash code for the input quaternion.</returns>
@@ -731,7 +776,6 @@ namespace Unity.Mathematics
         {
             return hashwide(q.value);
         }
-
 
         /// <summary>
         /// Transforms the forward vector by a quaternion.

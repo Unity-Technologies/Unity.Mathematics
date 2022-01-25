@@ -1169,5 +1169,46 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(expected, float3x3(f4x4));
         }
+
+        [TestCompiler]
+        public static void float3x3_pseudoinverse_non_singular()
+        {
+            const float kTolerance = 1e-5f;
+
+            // A random 3x3 matrix, non-singular, generated from octave.
+            var a = new float3x3(
+                0.806710600852966308594f, 0.985506594181060791016f, 0.593669593334197998047f,
+                0.0869068726897239685059f, 0.754145503044128417969f, 0.222692146897315979004f,
+                0.917483031749725341797f, 0.443894535303115844727f, 0.138771042227745056152f);
+
+            // The regular inverse of a, as computed by octave.
+            var expected = new float3x3(
+                -0.0299495235085487365723f, -0.654392063617706298828f, 1.17825806140899658203f,
+                -0.992458224296569824219f, 2.23384380340576171875f, 0.661037027835845947266f,
+                3.37264156341552734375f, -2.81901407241821289063f, -2.69841933250427246094f);
+
+            TestUtils.AreEqual(expected, pseudoinverse(a), kTolerance);
+            TestUtils.AreEqual(expected, inverse(a), kTolerance);
+        }
+
+        [TestCompiler]
+        public static void float3x3_pseudoinverse_singular()
+        {
+            const float kTolerance = 1e-5f;
+
+            // A singular matrix.
+            var a = new float3x3(
+                0.0548239313066005706787f, 0.462397903203964233398f, 0.0501357726752758026123f,
+                0.0548239313066005706787f, 0.462397903203964233398f, 0.0501357726752758026123f,
+                0.938165545463562011719f, 0.542225778102874755859f, 0.10684439539909362793f);
+
+            // The pseudoinverse computed by octave.
+            var expected = new float3x3(
+                -0.675357639789581298828f, -0.675357699394226074219f, 1.14166188240051269531f,
+                1.15268361568450927734f, 1.15268361568450927734f, -0.140613287687301635742f,
+                0.0803283303976058959961f, 0.0803283303976058959961f, 0.0484490357339382171631f);
+
+            TestUtils.AreEqual(expected, pseudoinverse(a), kTolerance);
+        }
     }
 }

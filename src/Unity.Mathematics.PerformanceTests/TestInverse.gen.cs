@@ -606,5 +606,89 @@ namespace Unity.Mathematics.PerformanceTests
             .Run();
             args.Dispose();
         }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class pseudoinverse
+        {
+            public const int iterations = 1000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public float3x3* m;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        m[i] = new float3x3(0.054824f, 0.462398f, 0.050136f, 0.054824f, 0.462398f, 0.050136f, 0.938166f, 0.542226f, 0.106844f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.m[i] = math.pseudoinverse(args.m[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void pseudoinverse_mono()
+        {
+            pseudoinverse.TestFunction testFunction = pseudoinverse.MonoTestFunction;
+            var args = new pseudoinverse.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void pseudoinverse_burst()
+        {
+            FunctionPointer<pseudoinverse.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<pseudoinverse.TestFunction>(pseudoinverse.BurstTestFunction);
+            var args = new pseudoinverse.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
     }
 }
