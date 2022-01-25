@@ -460,17 +460,5 @@ namespace Unity.Mathematics.Tests
             var actualQuaternion = rotation(m);
             TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
         }
-
-        [TestCompiler]
-        public static void quaternion_rotation_from_3x3_with_tiny_scale()
-        {
-            const float tolerance = 1e-5f;
-            var random = new Random(561887u);
-            var expectedQuaternion = random.NextQuaternionRotation();
-            var m = new float3x3(expectedQuaternion);
-            m = mul(m, float3x3.Scale(1e-12f, 1e-12f, 1e-12f));
-            var actualQuaternion = rotation(m);
-            TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
-        }
     }
 }
