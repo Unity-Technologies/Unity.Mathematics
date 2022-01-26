@@ -4098,7 +4098,7 @@ namespace Unity.Mathematics.Tests
                 0.132552310824394226074f, 0.000265292444964870810509f, 0.233480587601661682129f,
                 0.0606870166957378387451f, 0.043273795396089553833f, 0.274842619895935058594f);
 
-            TestUtils.AreEqual(expected, actual, 1e-5);
+            TestUtils.AreEqual(expected, actual, tolerance);
         }
 
         [TestCompiler]
