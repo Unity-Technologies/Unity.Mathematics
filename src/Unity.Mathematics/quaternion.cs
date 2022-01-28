@@ -710,6 +710,7 @@ namespace Unity.Mathematics
             return diff + diff;
         }
 
+        /// <summary>
         /// Extracts the rotation from a matrix.
         /// </summary>
         /// <remarks>This method supports any type of rotation matrix: if the matrix has a non uniform scale you should use this method.</remarks>
