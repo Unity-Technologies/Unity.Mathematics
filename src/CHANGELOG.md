@@ -11,6 +11,7 @@
 * Added `math.rotation` to extract a quaternion rotation from a float3x3 (that may have scale).
 * Added `math.mulScale` to scale columns of a float3x3 with scaling coefficients in a float3.
 * Added `math.scaleMul` to scale rows of a float3x3 with scaling coefficients in a float3.
+* Added `AffineTransform` type.
 ### Changed
 * `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
 * Modified `quaternion.nlerp` to be branchless.

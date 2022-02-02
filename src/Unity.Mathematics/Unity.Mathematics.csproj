@@ -63,6 +63,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="affine_transform.cs" />
     <Compile Include="bool2.gen.cs" />
     <Compile Include="bool2x2.gen.cs" />
     <Compile Include="bool2x3.gen.cs" />
