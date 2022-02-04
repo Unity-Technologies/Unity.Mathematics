@@ -7,7 +7,7 @@ namespace Unity.IL2CPP.CompilerServices
     /// rather than lazily at runtime.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct, Inherited = false, AllowMultiple = false)]
-    public class Il2CppEagerStaticClassConstructionAttribute : Attribute
+    internal class Il2CppEagerStaticClassConstructionAttribute : Attribute
     {
     }
 }
