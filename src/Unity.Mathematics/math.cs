@@ -1216,69 +1216,69 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The first endpoint of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float unlerp(float a, float b, float x) { return (x - a) / (b - a); }
+        public static float unlerp(float start, float end, float x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 unlerp(float2 a, float2 b, float2 x) { return (x - a) / (b - a); }
+        public static float2 unlerp(float2 start, float2 end, float2 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 unlerp(float3 a, float3 b, float3 x) { return (x - a) / (b - a); }
+        public static float3 unlerp(float3 start, float3 end, float3 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 unlerp(float4 a, float4 b, float4 x) { return (x - a) / (b - a); }
+        public static float4 unlerp(float4 start, float4 end, float4 x) { return (x - start) / (end - start); }
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double unlerp(double a, double b, double x) { return (x - a) / (b - a); }
+        public static double unlerp(double start, double end, double x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 unlerp(double2 a, double2 b, double2 x) { return (x - a) / (b - a); }
+        public static double2 unlerp(double2 start, double2 end, double2 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 unlerp(double3 a, double3 b, double3 x) { return (x - a) / (b - a); }
+        public static double3 unlerp(double3 start, double3 end, double3 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 unlerp(double4 a, double4 b, double4 x) { return (x - a) / (b - a); }
+        public static double4 unlerp(double4 start, double4 end, double4 x) { return (x - start) / (end - start); }
 
 
         /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
