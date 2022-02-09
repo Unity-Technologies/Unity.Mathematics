@@ -70,6 +70,33 @@ namespace Unity.Mathematics
         /// <summary>The mathematical constant pi. Approximately 3.14. This is a f64/double precision constant.</summary>
         public const double PI_DBL = 3.14159265358979323846;
 
+        /// <summary>
+        /// The mathematical constant (2 * pi). Approximately 6.28. This is a f64/double precision constant. Also known as <see cref="TAU_DBL"/>.
+        /// </summary>
+        public const double PI2_DBL = PI_DBL * 2.0;
+
+        /// <summary>
+        /// The mathematical constant (pi / 2). Approximately 1.57. This is a f64/double precision constant.
+        /// </summary>
+        public const double PIHALF_DBL = PI_DBL * 0.5;
+
+        /// <summary>
+        /// The mathematical constant tau. Approximately 6.28. This is a f64/double precision constant. Also known as <see cref="PI2_DBL"/>.
+        /// </summary>
+        public const double TAU_DBL = PI2_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert radians to degrees. Multiply the radian value by this constant to get degrees.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.degrees(double)"/>.</remarks>
+        public const double TODEGREES_DBL = 57.29577951308232;
+
+        /// <summary>
+        /// The conversion constant used to convert degrees to radians. Multiply the degree value by this constant to get radians.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.radians(double)"/>.</remarks>
+        public const double TORADIANS_DBL = 0.017453292519943296;
+
         /// <summary>The square root 2. Approximately 1.41. This is a f64/double precision constant.</summary>
         public const double SQRT2_DBL = 1.41421356237309504880;
 
@@ -120,6 +147,33 @@ namespace Unity.Mathematics
 
         /// <summary>The mathematical constant pi. Approximately 3.14.</summary>
         public const float PI = (float)PI_DBL;
+
+        /// <summary>
+        /// The mathematical constant (2 * pi). Approximately 6.28. Also known as <see cref="TAU"/>.
+        /// </summary>
+        public const float PI2 = (float)PI2_DBL;
+
+        /// <summary>
+        /// The mathematical constant (pi / 2). Approximately 1.57.
+        /// </summary>
+        public const float PIHALF = (float)PIHALF_DBL;
+
+        /// <summary>
+        /// The mathematical constant tau. Approximately 6.28. Also known as <see cref="PI2"/>.
+        /// </summary>
+        public const float TAU = (float)PI2_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert radians to degrees. Multiply the radian value by this constant to get degrees.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.degrees(float)"/>.</remarks>
+        public const float TODEGREES = (float)TODEGREES_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert degrees to radians. Multiply the degree value by this constant to get radians.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.radians(float)"/>.</remarks>
+        public const float TORADIANS = (float)TORADIANS_DBL;
 
         /// <summary>The square root 2. Approximately 1.41.</summary>
         public const float SQRT2 = (float)SQRT2_DBL;
