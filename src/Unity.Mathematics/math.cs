@@ -4064,288 +4064,288 @@ namespace Unity.Mathematics
         public static bool all(double4 x) { return x.x != 0.0 && x.y != 0.0 && x.z != 0.0 && x.w != 0.0; }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int select(int a, int b, bool c)    { return c ? b : a; }
+        public static int select(int falseValue, int trueValue, bool test)    { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 select(int2 a, int2 b, bool c) { return c ? b : a; }
+        public static int2 select(int2 falseValue, int2 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 select(int3 a, int3 b, bool c) { return c ? b : a; }
+        public static int3 select(int3 falseValue, int3 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 select(int4 a, int4 b, bool c) { return c ? b : a; }
+        public static int4 select(int4 falseValue, int4 trueValue, bool test) { return test ? trueValue : falseValue; }
 
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 select(int2 a, int2 b, bool2 c) { return new int2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static int2 select(int2 falseValue, int2 trueValue, bool2 test) { return new int2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 select(int3 a, int3 b, bool3 c) { return new int3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static int3 select(int3 falseValue, int3 trueValue, bool3 test) { return new int3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 select(int4 a, int4 b, bool4 c) { return new int4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static int4 select(int4 falseValue, int4 trueValue, bool4 test) { return new int4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint select(uint a, uint b, bool c) { return c ? b : a; }
+        public static uint select(uint falseValue, uint trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 select(uint2 a, uint2 b, bool c) { return c ? b : a; }
+        public static uint2 select(uint2 falseValue, uint2 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 select(uint3 a, uint3 b, bool c) { return c ? b : a; }
+        public static uint3 select(uint3 falseValue, uint3 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 select(uint4 a, uint4 b, bool c) { return c ? b : a; }
-
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 select(uint2 a, uint2 b, bool2 c) { return new uint2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 select(uint3 a, uint3 b, bool3 c) { return new uint3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 select(uint4 a, uint4 b, bool4 c) { return new uint4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
-
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long select(long a, long b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong select(ulong a, ulong b, bool c) { return c ? b : a; }
-
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float select(float a, float b, bool c)    { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 select(float2 a, float2 b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 select(float3 a, float3 b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 select(float4 a, float4 b, bool c) { return c ? b : a; }
+        public static uint4 select(uint4 falseValue, uint4 trueValue, bool test) { return test ? trueValue : falseValue; }
 
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 select(float2 a, float2 b, bool2 c) { return new float2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static uint2 select(uint2 falseValue, uint2 trueValue, bool2 test) { return new uint2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 select(float3 a, float3 b, bool3 c) { return new float3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static uint3 select(uint3 falseValue, uint3 trueValue, bool3 test) { return new uint3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 select(float4 a, float4 b, bool4 c) { return new float4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static uint4 select(uint4 falseValue, uint4 trueValue, bool4 test) { return new uint4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double select(double a, double b, bool c) { return c ? b : a; }
+        public static long select(long falseValue, long trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 select(double2 a, double2 b, bool c) { return c ? b : a; }
+        public static ulong select(ulong falseValue, ulong trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 select(double3 a, double3 b, bool c) { return c ? b : a; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 select(double4 a, double4 b, bool c) { return c ? b : a; }
+        public static float select(float falseValue, float trueValue, bool test)    { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 select(float2 falseValue, float2 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 select(float3 falseValue, float3 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 select(float4 falseValue, float4 trueValue, bool test) { return test ? trueValue : falseValue; }
+
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 select(double2 a, double2 b, bool2 c) { return new double2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static float2 select(float2 falseValue, float2 trueValue, bool2 test) { return new float2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 select(double3 a, double3 b, bool3 c) { return new double3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static float3 select(float3 falseValue, float3 trueValue, bool3 test) { return new float3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 select(double4 a, double4 b, bool4 c) { return new double4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static float4 select(float4 falseValue, float4 trueValue, bool4 test) { return new float4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
+
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double select(double falseValue, double trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 select(double2 falseValue, double2 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 select(double3 falseValue, double3 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 select(double4 falseValue, double4 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 select(double2 falseValue, double2 trueValue, bool2 test) { return new double2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
+
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 select(double3 falseValue, double3 trueValue, bool3 test) { return new double3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
+
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 select(double4 falseValue, double4 trueValue, bool4 test) { return new double4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
         /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
