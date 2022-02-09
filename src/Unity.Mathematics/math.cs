@@ -3776,100 +3776,100 @@ namespace Unity.Mathematics
         public static double3 cross(double3 x, double3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
 
-        /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float smoothstep(float a, float b, float x)
+        public static float smoothstep(float xMin, float xMax, float x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 smoothstep(float2 a, float2 b, float2 x)
+        public static float2 smoothstep(float2 xMin, float2 xMax, float2 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 smoothstep(float3 a, float3 b, float3 x)
+        public static float3 smoothstep(float3 xMin, float3 xMax, float3 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 smoothstep(float4 a, float4 b, float4 x)
+        public static float4 smoothstep(float4 xMin, float4 xMax, float4 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
 
-        /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double smoothstep(double a, double b, double x)
+        public static double smoothstep(double xMin, double xMax, double x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 smoothstep(double2 a, double2 b, double2 x)
+        public static double2 smoothstep(double2 xMin, double2 xMax, double2 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 smoothstep(double3 a, double3 b, double3 x)
+        public static double3 smoothstep(double3 xMin, double3 xMax, double3 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 smoothstep(double4 a, double4 b, double4 x)
+        public static double4 smoothstep(double4 xMin, double4 xMax, double4 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
