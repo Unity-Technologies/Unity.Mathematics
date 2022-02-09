@@ -4539,12 +4539,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 project(float2 a, float2 b)
+        public static float2 project(float2 a, float2 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4557,12 +4557,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 project(float3 a, float3 b)
+        public static float3 project(float3 a, float3 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4575,12 +4575,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 project(float4 a, float4 b)
+        public static float4 project(float4 a, float4 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4593,13 +4593,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 projectsafe(float2 a, float2 b, float2 defaultValue = new float2())
+        public static float2 projectsafe(float2 a, float2 ontoB, float2 defaultValue = new float2())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4614,13 +4614,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 projectsafe(float3 a, float3 b, float3 defaultValue = new float3())
+        public static float3 projectsafe(float3 a, float3 ontoB, float3 defaultValue = new float3())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4635,13 +4635,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 projectsafe(float4 a, float4 b, float4 defaultValue = new float4())
+        public static float4 projectsafe(float4 a, float4 ontoB, float4 defaultValue = new float4())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4656,12 +4656,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 project(double2 a, double2 b)
+        public static double2 project(double2 a, double2 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4674,12 +4674,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 project(double3 a, double3 b)
+        public static double3 project(double3 a, double3 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4692,12 +4692,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 project(double4 a, double4 b)
+        public static double4 project(double4 a, double4 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4710,13 +4710,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 projectsafe(double2 a, double2 b, double2 defaultValue = new double2())
+        public static double2 projectsafe(double2 a, double2 ontoB, double2 defaultValue = new double2())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4731,13 +4731,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 projectsafe(double3 a, double3 b, double3 defaultValue = new double3())
+        public static double3 projectsafe(double3 a, double3 ontoB, double3 defaultValue = new double3())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4752,13 +4752,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 projectsafe(double4 a, double4 b, double4 defaultValue = new double4())
+        public static double4 projectsafe(double4 a, double4 ontoB, double4 defaultValue = new double4())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
