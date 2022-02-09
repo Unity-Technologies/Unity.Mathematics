@@ -1553,153 +1553,153 @@ namespace Unity.Mathematics
         public static double4 mad(double4 mulA, double4 mulB, double4 addC) { return mulA * mulB + addC; }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are int values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are int values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int clamp(int x, int a, int b) { return max(a, min(b, x)); }
+        public static int clamp(int valueToClamp, int lowerBound, int upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int2 x into the interval [a, b], where a and b are int2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 clamp(int2 x, int2 a, int2 b) { return max(a, min(b, x)); }
+        public static int2 clamp(int2 valueToClamp, int2 lowerBound, int2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int3 x into the interval [a, b], where x, a and b are int3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 clamp(int3 x, int3 a, int3 b) { return max(a, min(b, x)); }
+        public static int3 clamp(int3 valueToClamp, int3 lowerBound, int3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are int4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are int4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 clamp(int4 x, int4 a, int4 b) { return max(a, min(b, x)); }
+        public static int4 clamp(int4 valueToClamp, int4 lowerBound, int4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are uint values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint clamp(uint x, uint a, uint b) { return max(a, min(b, x)); }
+        public static uint clamp(uint valueToClamp, uint lowerBound, uint upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 clamp(uint2 x, uint2 a, uint2 b) { return max(a, min(b, x)); }
+        public static uint2 clamp(uint2 valueToClamp, uint2 lowerBound, uint2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 clamp(uint3 x, uint3 a, uint3 b) { return max(a, min(b, x)); }
+        public static uint3 clamp(uint3 valueToClamp, uint3 lowerBound, uint3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
+        public static uint4 clamp(uint4 valueToClamp, uint4 lowerBound, uint4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are long values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are long values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long clamp(long x, long a, long b) { return max(a, min(b, x)); }
+        public static long clamp(long valueToClamp, long lowerBound, long upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are ulong values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are ulong values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong clamp(ulong x, ulong a, ulong b) { return max(a, min(b, x)); }
+        public static ulong clamp(ulong valueToClamp, ulong lowerBound, ulong upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are float values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float clamp(float x, float a, float b) { return max(a, min(b, x)); }
+        public static float clamp(float valueToClamp, float lowerBound, float upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 clamp(float2 x, float2 a, float2 b) { return max(a, min(b, x)); }
+        public static float2 clamp(float2 valueToClamp, float2 lowerBound, float2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 clamp(float3 x, float3 a, float3 b) { return max(a, min(b, x)); }
+        public static float3 clamp(float3 valueToClamp, float3 lowerBound, float3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 clamp(float4 x, float4 a, float4 b) { return max(a, min(b, x)); }
+        public static float4 clamp(float4 valueToClamp, float4 lowerBound, float4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are double values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double clamp(double x, double a, double b) { return max(a, min(b, x)); }
+        public static double clamp(double valueToClamp, double lowerBound, double upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 clamp(double2 x, double2 a, double2 b) { return max(a, min(b, x)); }
+        public static double2 clamp(double2 valueToClamp, double2 lowerBound, double2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 clamp(double3 x, double3 a, double3 b) { return max(a, min(b, x)); }
+        public static double3 clamp(double3 valueToClamp, double3 lowerBound, double3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 clamp(double4 x, double4 a, double4 b) { return max(a, min(b, x)); }
+        public static double4 clamp(double4 valueToClamp, double4 lowerBound, double4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
         /// <summary>Returns the result of clamping the float value x into the interval [0, 1].</summary>
