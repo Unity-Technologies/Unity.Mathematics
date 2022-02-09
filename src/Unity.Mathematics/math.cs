@@ -4450,83 +4450,83 @@ namespace Unity.Mathematics
         public static double4 reflect(double4 i, double4 n) { return i - 2 * n * dot(i, n); }
 
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 refract(float2 i, float2 n, float eta)
+        public static float2 refract(float2 i, float2 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 refract(float3 i, float3 n, float eta)
+        public static float3 refract(float3 i, float3 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 refract(float4 i, float4 n, float eta)
+        public static float4 refract(float4 i, float4 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 refract(double2 i, double2 n, double eta)
+        public static double2 refract(double2 i, double2 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 refract(double3 i, double3 n, double eta)
+        public static double3 refract(double3 i, double3 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 refract(double4 i, double4 n, double eta)
+        public static double4 refract(double4 i, double4 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
         /// <summary>
