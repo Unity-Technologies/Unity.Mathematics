@@ -1216,7 +1216,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="start">The first endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
         /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
@@ -1281,170 +1281,170 @@ namespace Unity.Mathematics
         public static double4 unlerp(double4 start, double4 end, double4 x) { return (x - start) / (end - start); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float remap(float a, float b, float c, float d, float x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float remap(float srcStart, float srcEnd, float dstStart, float dstEnd, float x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 remap(float2 a, float2 b, float2 c, float2 d, float2 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float2 remap(float2 srcStart, float2 srcEnd, float2 dstStart, float2 dstEnd, float2 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 remap(float3 a, float3 b, float3 c, float3 d, float3 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float3 remap(float3 srcStart, float3 srcEnd, float3 dstStart, float3 dstEnd, float3 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 remap(float4 a, float4 b, float4 c, float4 d, float4 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float4 remap(float4 srcStart, float4 srcEnd, float4 dstStart, float4 dstEnd, float4 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double remap(double a, double b, double c, double d, double x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double remap(double srcStart, double srcEnd, double dstStart, double dstEnd, double x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 remap(double2 a, double2 b, double2 c, double2 d, double2 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double2 remap(double2 srcStart, double2 srcEnd, double2 dstStart, double2 dstEnd, double2 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 remap(double3 a, double3 b, double3 c, double3 d, double3 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double3 remap(double3 srcStart, double3 srcEnd, double3 dstStart, double3 dstEnd, double3 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 remap(double4 a, double4 b, double4 c, double4 d, double4 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double4 remap(double4 srcStart, double4 srcEnd, double4 dstStart, double4 dstEnd, double4 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 int values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int mad(int a, int b, int c) { return a * b + c; }
+        public static int mad(int mulA, int mulB, int addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int2 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 mad(int2 a, int2 b, int2 c) { return a * b + c; }
+        public static int2 mad(int2 mulA, int2 mulB, int2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int3 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 mad(int3 a, int3 b, int3 c) { return a * b + c; }
+        public static int3 mad(int3 mulA, int3 mulB, int3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int4 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 mad(int4 a, int4 b, int4 c) { return a * b + c; }
+        public static int4 mad(int4 mulA, int4 mulB, int4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 uint values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint mad(uint a, uint b, uint c) { return a * b + c; }
+        public static uint mad(uint mulA, uint mulB, uint addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint2 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 mad(uint2 a, uint2 b, uint2 c) { return a * b + c; }
+        public static uint2 mad(uint2 mulA, uint2 mulB, uint2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint3 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 mad(uint3 a, uint3 b, uint3 c) { return a * b + c; }
+        public static uint3 mad(uint3 mulA, uint3 mulB, uint3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint4 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 mad(uint4 a, uint4 b, uint4 c) { return a * b + c; }
+        public static uint4 mad(uint4 mulA, uint4 mulB, uint4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 long values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long mad(long a, long b, long c) { return a * b + c; }
+        public static long mad(long mulA, long mulB, long addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 ulong values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong mad(ulong a, ulong b, ulong c) { return a * b + c; }
+        public static ulong mad(ulong mulA, ulong mulB, ulong addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 float values.</summary>
@@ -1453,12 +1453,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float mad(float a, float b, float c) { return a * b + c; }
+        public static float mad(float mulA, float mulB, float addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float2 vectors.</summary>
         /// <remarks>
@@ -1466,12 +1466,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 mad(float2 a, float2 b, float2 c) { return a * b + c; }
+        public static float2 mad(float2 mulA, float2 mulB, float2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float3 vectors.</summary>
         /// <remarks>
@@ -1479,12 +1479,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mad(float3 a, float3 b, float3 c) { return a * b + c; }
+        public static float3 mad(float3 mulA, float3 mulB, float3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float4 vectors.</summary>
         /// <remarks>
@@ -1492,12 +1492,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 mad(float4 a, float4 b, float4 c) { return a * b + c; }
+        public static float4 mad(float4 mulA, float4 mulB, float4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 double values.</summary>
@@ -1506,12 +1506,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double mad(double a, double b, double c) { return a * b + c; }
+        public static double mad(double mulA, double mulB, double addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double2 vectors.</summary>
         /// <remarks>
@@ -1519,12 +1519,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 mad(double2 a, double2 b, double2 c) { return a * b + c; }
+        public static double2 mad(double2 mulA, double2 mulB, double2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double3 vectors.</summary>
         /// <remarks>
@@ -1532,12 +1532,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 mad(double3 a, double3 b, double3 c) { return a * b + c; }
+        public static double3 mad(double3 mulA, double3 mulB, double3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double4 vectors.</summary>
         /// <remarks>
@@ -1545,12 +1545,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 mad(double4 a, double4 b, double4 c) { return a * b + c; }
+        public static double4 mad(double4 mulA, double4 mulB, double4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are int values.</summary>
