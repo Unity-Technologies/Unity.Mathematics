@@ -1057,162 +1057,162 @@ namespace Unity.Mathematics
         public static double4 max(double4 x, double4 y) { return new double4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
-        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of linearly interpolating from start to end using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The interpolation from start to end.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float lerp(float start, float end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 lerp(float2 start, float2 end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 lerp(float3 start, float3 end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 lerp(float4 start, float4 end, float t) { return start + t * (end - start); }
+
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 lerp(float2 start, float2 end, float2 t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 lerp(float3 start, float3 end, float3 t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 lerp(float4 start, float4 end, float4 t) { return start + t * (end - start); }
+
+
+        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float lerp(float x, float y, float s) { return x + s * (y - x); }
+        public static double lerp(double start, double end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 lerp(float2 x, float2 y, float s) { return x + s * (y - x); }
+        public static double2 lerp(double2 start, double2 end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 lerp(float3 x, float3 y, float s) { return x + s * (y - x); }
+        public static double3 lerp(double3 start, double3 end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 lerp(float4 x, float4 y, float s) { return x + s * (y - x); }
+        public static double4 lerp(double4 start, double4 end, double t) { return start + t * (end - start); }
 
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 lerp(float2 x, float2 y, float2 s) { return x + s * (y - x); }
+        public static double2 lerp(double2 start, double2 end, double2 t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 lerp(float3 x, float3 y, float3 s) { return x + s * (y - x); }
+        public static double3 lerp(double3 start, double3 end, double3 t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 lerp(float4 x, float4 y, float4 s) { return x + s * (y - x); }
-
-
-        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double lerp(double x, double y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 lerp(double2 x, double2 y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 lerp(double3 x, double3 y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 lerp(double4 x, double4 y, double s) { return x + s * (y - x); }
-
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 lerp(double2 x, double2 y, double2 s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 lerp(double3 x, double3 y, double3 s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 lerp(double4 x, double4 y, double4 s) { return x + s * (y - x); }
+        public static double4 lerp(double4 start, double4 end, double4 t) { return start + t * (end - start); }
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
