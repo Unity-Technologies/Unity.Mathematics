@@ -4122,5 +4122,79 @@ namespace Unity.Mathematics.Tests
 
             TestUtils.AreEqual(expected, actual, tolerance);
         }
+
+        [TestCompiler]
+        public static void piDoubleConstants()
+        {
+            var expectedPi = 3.141592653589793116;
+            TestUtils.AreEqual(expectedPi, PI_DBL);
+            TestUtils.AreEqual(expectedPi * 0.5, PIHALF_DBL);
+            TestUtils.AreEqual(expectedPi * 2.0, PI2_DBL);
+            TestUtils.AreEqual(expectedPi * 2.0, TAU_DBL);
+        }
+
+        [TestCompiler]
+        public static void piSingleConstants()
+        {
+            var expectedPi = 3.141592653589793116f;
+            TestUtils.AreEqual(expectedPi, PI);
+            TestUtils.AreEqual(expectedPi * 0.5f, PIHALF);
+            TestUtils.AreEqual(expectedPi * 2.0f, PI2);
+            TestUtils.AreEqual(expectedPi * 2.0f, TAU);
+        }
+
+        [TestCompiler]
+        public static void toDegreesConstants()
+        {
+            TestUtils.AreEqual(360.0, PI2_DBL * TODEGREES_DBL);
+            TestUtils.AreEqual(360.0, TAU_DBL * TODEGREES_DBL);
+            TestUtils.AreEqual(180.0, PI_DBL * TODEGREES_DBL);
+            TestUtils.AreEqual(90.0, PIHALF_DBL * TODEGREES_DBL);
+
+            TestUtils.AreEqual(360.0f, PI2 * TODEGREES);
+            TestUtils.AreEqual(360.0f, TAU * TODEGREES);
+            TestUtils.AreEqual(180.0f, PI * TODEGREES);
+            TestUtils.AreEqual(90.0f, PIHALF * TODEGREES);
+        }
+
+        [TestCompiler]
+        public static void toRadiansConstants()
+        {
+            TestUtils.AreEqual(PI2_DBL, 360.0 * TORADIANS_DBL);
+            TestUtils.AreEqual(TAU_DBL, 360.0 * TORADIANS_DBL);
+            TestUtils.AreEqual(PI_DBL, 180.0 * TORADIANS_DBL);
+            TestUtils.AreEqual(PIHALF_DBL, 90.0 * TORADIANS_DBL);
+
+            TestUtils.AreEqual(PI2, 360.0f * TORADIANS);
+            TestUtils.AreEqual(TAU, 360.0f * TORADIANS);
+            TestUtils.AreEqual(PI, 180.0f * TORADIANS);
+            TestUtils.AreEqual(PIHALF, 90.0f * TORADIANS);
+        }
+
+        [TestCompiler]
+        public static void degreesConversionGivesSameResult()
+        {
+            int n = 360;
+
+            for (int i = 0; i <= n; ++i)
+            {
+                double radians = math.unlerp((double)0, (double)n, (double)i) * PI_DBL;
+                TestUtils.AreEqual(math.degrees(radians), radians * TODEGREES_DBL);
+                TestUtils.AreEqual(math.degrees((float)radians), (float)radians * TODEGREES);
+            }
+        }
+
+        [TestCompiler]
+        public static void radiansConversionGivesSameResult()
+        {
+            int n = 360;
+
+            for (int i = 0; i <= n; ++i)
+            {
+                double degrees = (double)i;
+                TestUtils.AreEqual(math.radians(degrees), degrees * TORADIANS_DBL);
+                TestUtils.AreEqual(math.radians((float)degrees), (float)degrees * TORADIANS);
+            }
+        }
     }
 }
