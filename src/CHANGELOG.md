@@ -16,6 +16,7 @@
 ### Changed
 * `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
 * Modified `quaternion.nlerp` to be branchless.
+* More descriptive parameter names for many methods in `math` class.
 ### Deprecated
 ### Removed
 ### Fixed
