@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.6] - 2022-02-11
+### Added
+### Changed
+* Made `Il2CppEagerStaticClassConstructionAttribute` internal to avoid conflicts with other definitions outside of the package.
+### Deprecated
+### Removed
+### Fixed
+
 ## [1.2.5] - 2021-11-01
 ### Added
 ### Changed
