@@ -10,7 +10,6 @@ QAReport.md
 QAReport.md.meta
 Unity.Mathematics.CodeGen*
 Unity.Mathematics.PerformanceTests*
-Unity.Mathematics.Shaders*
 *.sln*
 *.db*
 **/*.csproj*
