@@ -4,7 +4,7 @@ build_platforms:
     image: sdet/burst-devimage:stable
     flavor: b1.large
   - name: linux
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu:v3.5.0
     type: Unity::VM
     flavor: b1.large
   - name: macOS
@@ -18,7 +18,7 @@ upmci_platforms:
     image: package-ci/win10:stable
     flavor: b1.large
   - name: linux
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu:v3.5.0
     type: Unity::VM
     flavor: b1.large
   - name: macOS
@@ -106,7 +106,7 @@ package_tests_minimal:
 validate_package_minimal:
   name: Validate Package Linux Minimal
   agent:
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu:v3.5.0
     type: Unity::VM
     flavor: b1.large
   commands:
