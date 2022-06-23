@@ -1,4 +1,4 @@
-# Unity.Mathematics
+# Unity.Mathematics d
 
 A C# math library providing vector types and math functions with a shader like
 syntax. Used by the Burst compiler to compile C#/IL to highly efficient
