@@ -5,7 +5,7 @@ If you want to Burst-compile your project, it's best practice to use the Unity M
 >[!IMPORTANT]
 >For performance reasons, if your project uses the Mono compiler, you should continue to use the mathematical operations in `Mathf`, rather than Unity Mathematics.
 
-You can use both `Mathf` and Unity Mathematics methods in your project, but it might impact on the performance of your project because the conversions between the `UnityEngine` and `Unity.Mathematics` types such as `Vector3` to `float3` and vice-versa are performance-intensive. 
+You can use both `Mathf` and Unity Mathematics methods in your project, but it might impact on the performance of your application because the conversions between the `UnityEngine` and `Unity.Mathematics` types such as `Vector3` to `float3` and vice-versa are performance-intensive. 
 
 ## Porting `UnityEngine` code to `Unity.Mathematics`
 
