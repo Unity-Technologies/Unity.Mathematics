@@ -2,7 +2,7 @@
 
 To generate random numbers, you must create and manage the random number generator state yourself. This means you can control the random number generator state explicitly, which is useful it you're using parallel code, or if you want to make sure that one source of random numbers is seeded differently than another source.
 
-Once you set up the state, use [`NextFloat`](xref:Unity.Mathematics.Random.NextFloat) to get random floats. By default it returns random numbers between `[0, 1]`, exclusive:
+Once you set up the state, use [`NextFloat`](xref:Unity.Mathematics.Random.NextFloat) to get random floats. By default it returns random numbers between `[0, 1)`, exclusive:
 
 ```c#
 // Unity Mathematics example
