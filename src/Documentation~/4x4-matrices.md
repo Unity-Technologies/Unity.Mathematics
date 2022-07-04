@@ -36,7 +36,7 @@ void OperatorMultiply4x4UnityMathematics()
 
 Use the [`math.mul`](xref:Unity.Mathematics.math.mul*) method to multiply a 4×4 matrix and a 4D vector. If you supply a `float4x4` as the first parameter and a `float4` as the second, it performs a 4×4 matrix multiplication with a 4×1 column vector, which returns a 4×1 column vector as a `float4`.
 
-`math.mul` can also multiply a 1×4 row vector by a 4×4 matrix to produce a 1×4  row vector by taking a `float4` as the first parameter and a `float4×4` as the second. Unity Mathematics stores the row vector in a `float4` and it isn't treated as a separate type.
+`math.mul` can also multiply a 1×4 row vector by a 4×4 matrix to produce a 1×4 row vector by taking a `float4` as the first parameter and a `float4×4` as the second. Unity Mathematics stores the row vector in a `float4` and it isn't treated as a separate type.
 
 ```c#
 // Unity Mathematics example
