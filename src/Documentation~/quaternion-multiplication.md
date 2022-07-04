@@ -1,6 +1,6 @@
 # Quaternion multiplication
 
-To rotate a quaternion, use the [`AxisAngle`](xref:Unity.Mathematics.quaternion.AxisAngle*) method. You specify the axis of rotation and the rotation around that axis, but supply the axis first and the angle second. Also, all the angles are in radians rather than degrees. `math.mul` multiplies the quaternion, just as with [matrices](4x4-matrices.md) and vectors.
+To rotate a quaternion, use the [`AxisAngle`](xref:Unity.Mathematics.quaternion.AxisAngle*) method. You need to specify the axis of rotation and the angle of rotation, in that order. All are in radians rather than degrees. `math.mul` multiplies the quaternion, just as with [matrices](4x4-matrices.md) and vectors.
 
 ```c#
 // Unity Mathematics example
