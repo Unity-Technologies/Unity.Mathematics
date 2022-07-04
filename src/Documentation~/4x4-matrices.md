@@ -17,7 +17,7 @@ void Build4x4UnityMathematics()
 
 ## Multiplying a 4×4 matrix
 
-Unity Mathematics defines the `*` operator differently to `UnityEngine`. The `*` operator for [`float4x4`](xref:Unity.Mathematics.float4x4) implements componentwise multiplication. If you multiply a `float4x4` of all 1s with 0.5 on the diagonal, you get back the half identity because the upper and lower triangles of the matrix are multiplied by the respective zero entries from `f4x4_HalfIdentity`:
+Unity Mathematics and `UnityEngine` define the `*` operator differently. The `*` operator for [`float4x4`](xref:Unity.Mathematics.float4x4) implements componentwise multiplication. If you multiply a `float4x4` of all 1s with 0.5 on the diagonal, you get back the half identity because the upper and lower triangles of the matrix are multiplied by the respective zero entries from `f4x4_HalfIdentity`:
 
 ```c#
 // Unity Mathematics example
