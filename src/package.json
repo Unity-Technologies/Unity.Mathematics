@@ -8,10 +8,5 @@
         "unity"
     ],
     "dependencies": {
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/Unity-Technologies/Unity.Mathematics",
-        "revision":""
     }
 }

@@ -8,7 +8,6 @@ Library
 obj
 obj.meta
 # User-specific files
-*.csproj.meta
 *.csproj.user
 *.suo
 *.user
