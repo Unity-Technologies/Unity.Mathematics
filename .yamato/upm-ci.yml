@@ -226,9 +226,8 @@ msbuild_solution_ci:
   name: msbuild solution
   agent:
     type: Unity::VM
-    image: package-ci/ubuntu:stable
+    image: package-ci/win10:stable
     flavor: b1.large
   commands:
-    - choco install nuget.commandline
     - nuget restore src/Unity.Mathematics.sln
     - msbuild src/Unity.Mathematics.sln
