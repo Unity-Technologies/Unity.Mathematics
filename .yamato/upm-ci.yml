@@ -229,5 +229,6 @@ msbuild_solution_ci:
     image: package-ci/ubuntu:stable
     flavor: b1.large
   commands:
+    - choco install nuget.commandline
     - nuget restore src/Unity.Mathematics.sln
     - msbuild src/Unity.Mathematics.sln
