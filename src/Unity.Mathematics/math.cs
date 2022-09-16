@@ -5514,6 +5514,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5529,6 +5530,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5544,6 +5546,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5559,6 +5562,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5575,6 +5579,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5590,6 +5595,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5605,6 +5611,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5620,6 +5627,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5636,6 +5644,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5653,6 +5662,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
