@@ -229,5 +229,5 @@ msbuild_solution_ci:
     image: package-ci/win10:stable
     flavor: b1.large
   commands:
-    - nuget restore src/Unity.Mathematics.sln
+    - nuget.exe restore src/Unity.Mathematics.sln
     - msbuild src/Unity.Mathematics.sln
