@@ -6545,6 +6545,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result converting a float value to its nearest half-precision floating point representation.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="x">The single precision float.</param>
         /// <returns>The half precision float representation of the single precision float.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -6561,6 +6562,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float2 vector to its nearest half-precision floating point representation.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="x">The single precision float vector.</param>
         /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -6577,6 +6579,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float3 vector to its nearest half-precision floating point representation.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="x">The single precision float vector.</param>
         /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -6593,6 +6596,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise conversion of a float4 vector to its nearest half-precision floating point representation.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="x">The single precision float vector.</param>
         /// <returns>The half precision float vector representation of the single precision float vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
