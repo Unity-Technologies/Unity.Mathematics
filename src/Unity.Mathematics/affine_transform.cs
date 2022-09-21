@@ -25,6 +25,11 @@ namespace Unity.Mathematics
         /// <summary>An AffineTransform representing the identity transform.</summary>
         public static readonly AffineTransform identity = new AffineTransform(float3.zero, float3x3.identity);
 
+        /// <summary>
+        /// An AffineTransform zero value.
+        /// </summary>
+        public static readonly AffineTransform zero;
+
         /// <summary>Constructs an AffineTransform from a translation represented by a float3 vector and rotation represented by a unit quaternion.</summary>
         /// <param name="translation">The translation vector.</param>
         /// <param name="rotation">The rotation quaternion.</param>
