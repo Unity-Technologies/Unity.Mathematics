@@ -226,8 +226,9 @@ msbuild_solution_ci:
   name: msbuild solution
   agent:
     type: Unity::VM
-    image: package-ci/win10:stable
+    image: test-platform/test-platform-win10-build:v0.2.7-828903
     flavor: b1.large
   commands:
     - choco install -y netfx-4.7.1-devpack
-    - msbuild src/Unity.Mathematics.sln
+    - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat"
+    - devenv /build src/Unity.Mathematics.sln
