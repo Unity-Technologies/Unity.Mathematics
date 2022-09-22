@@ -229,5 +229,5 @@ msbuild_solution_ci:
     image: package-ci/win10:stable
     flavor: b1.large
   commands:
-    - nuget.exe restore src/Unity.Mathematics.sln
+    - choco install -y netfx-4.7.1-devpack
     - msbuild src/Unity.Mathematics.sln
