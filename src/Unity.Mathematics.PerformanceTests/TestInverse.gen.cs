@@ -21,14 +21,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float4x4_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * 10000, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (float4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float4x4>() * iterations, UnsafeUtility.AlignOf<float4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float4x4.identity;
                     }
@@ -43,7 +47,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -101,14 +105,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float3x3_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float3x3* m1;
 
                 public void Init()
                 {
-                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * 10000, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float3x3.identity;
                     }
@@ -123,7 +131,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -181,14 +189,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class float2x2_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public float2x2* m1;
 
                 public void Init()
                 {
-                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * 10000, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (float2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float2x2>() * iterations, UnsafeUtility.AlignOf<float2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = float2x2.identity;
                     }
@@ -203,7 +215,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -261,14 +273,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double4x4_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public double4x4* m1;
 
                 public void Init()
                 {
-                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * 10000, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (double4x4*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double4x4>() * iterations, UnsafeUtility.AlignOf<double4x4>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double4x4.identity;
                     }
@@ -283,7 +299,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -341,14 +357,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double3x3_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public double3x3* m1;
 
                 public void Init()
                 {
-                    m1 = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * 10000, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (double3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double3x3>() * iterations, UnsafeUtility.AlignOf<double3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double3x3.identity;
                     }
@@ -363,7 +383,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -421,14 +441,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class double2x2_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public double2x2* m1;
 
                 public void Init()
                 {
-                    m1 = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * 10000, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    m1 = (double2x2*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<double2x2>() * iterations, UnsafeUtility.AlignOf<double2x2>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         m1[i] = double2x2.identity;
                     }
@@ -443,7 +467,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.m1[i] = math.inverse(args.m1[i]);
                 }
@@ -501,14 +525,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class quaternion_inverse
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public quaternion* q;
 
                 public void Init()
                 {
-                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * 10000, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    q = (quaternion*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<quaternion>() * iterations, UnsafeUtility.AlignOf<quaternion>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         q[i] = quaternion.identity;
                     }
@@ -523,7 +551,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.q[i] = math.inverse(args.q[i]);
                 }
@@ -566,6 +594,90 @@ namespace Unity.Mathematics.PerformanceTests
         {
             FunctionPointer<quaternion_inverse.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<quaternion_inverse.TestFunction>(quaternion_inverse.BurstTestFunction);
             var args = new quaternion_inverse.Arguments();
+            args.Init();
+
+            var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(burstSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+        [BurstCompile(CompileSynchronously = true)]
+        public unsafe class pseudoinverse
+        {
+            public const int iterations = 1000;
+
+            public struct Arguments : IDisposable
+            {
+                public Random rng;
+                public float3x3* m;
+
+                public void Init()
+                {
+                    rng = new Random(1);
+                    m = (float3x3*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<float3x3>() * iterations, UnsafeUtility.AlignOf<float3x3>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
+                    {
+                        m[i] = new float3x3(0.054824f, 0.462398f, 0.050136f, 0.054824f, 0.462398f, 0.050136f, 0.938166f, 0.542226f, 0.106844f);
+                    }
+
+                }
+
+                public void Dispose()
+                {
+                    UnsafeUtility.Free(m, Allocator.Persistent);
+                }
+            }
+
+            public static void CommonTestFunction(ref Arguments args)
+            {
+                for (int i = 0; i < iterations; ++i)
+                {
+                    args.m[i] = math.pseudoinverse(args.m[i]);
+                }
+            }
+
+            public static void MonoTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            [BurstCompile(CompileSynchronously = true)]
+            public static void BurstTestFunction(ref Arguments args)
+            {
+                CommonTestFunction(ref args);
+            }
+
+            public delegate void TestFunction(ref Arguments args);
+        }
+
+        [Test, Performance]
+        public void pseudoinverse_mono()
+        {
+            pseudoinverse.TestFunction testFunction = pseudoinverse.MonoTestFunction;
+            var args = new pseudoinverse.Arguments();
+            args.Init();
+
+            var monoSampleGroup = new SampleGroup("Mono", SampleUnit.Microsecond);            Measure.Method(() =>
+            {
+                testFunction.Invoke(ref args);
+            })
+            .SampleGroup(monoSampleGroup)
+            .WarmupCount(1)
+            .MeasurementCount(10)
+            .Run();
+            args.Dispose();
+        }
+
+        [Test, Performance]
+        public void pseudoinverse_burst()
+        {
+            FunctionPointer<pseudoinverse.TestFunction> testFunction = BurstCompiler.CompileFunctionPointer<pseudoinverse.TestFunction>(pseudoinverse.BurstTestFunction);
+            var args = new pseudoinverse.Arguments();
             args.Init();
 
             var burstSampleGroup = new SampleGroup("Burst", SampleUnit.Microsecond);            Measure.Method(() =>

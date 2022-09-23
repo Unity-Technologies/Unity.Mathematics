@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -49,6 +50,7 @@
   <ItemGroup>
     <Compile Include="TestCompilerAttribute.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tests\Shared\TestAffineTransform.cs" />
     <Compile Include="Tests\Shared\TestBitmanipulation.cs" />
     <Compile Include="Tests\Shared\TestBool2.gen.cs" />
     <Compile Include="Tests\Shared\TestBool2x2.gen.cs" />
@@ -106,6 +108,7 @@
     <Compile Include="Tests\Shared\TestPlane.cs" />
     <Compile Include="Tests\Shared\TestQuaternion.cs" />
     <Compile Include="Tests\Shared\TestRigidTransform.cs" />
+    <Compile Include="Tests\Shared\TestSvd.cs" />
     <Compile Include="Tests\TestMath2.cs" />
     <Compile Include="Tests\TestRandom.cs" />
     <Compile Include="Tests\Shared\TestUint2.gen.cs" />

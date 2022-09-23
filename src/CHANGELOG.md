@@ -2,22 +2,47 @@
 
 ## [Unreleased]
 ### Added
-* Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
-* Added `math.square()` to compute the square (x * x).
-* Added `math.orthonormal_basis()` to compute an orthonormal basis from a single unit length vector.
-* Added `math.sign(x)` for int, int2, int3 and int4.
-
+* Added `math.square` to compute the square (x * x).
+* Added `math.orthonormal_basis` to compute an orthonormal basis from a single unit length vector.
+* Added `math.sign` for int, int2, int3 and int4.
+* Added `math.chgsign` for float, float2, float3, and float4.
+* Added `math.Euler` to convert a quaternion to Euler angles.
+* Added `math.angle` to compute the angle between two unit quaternions.
+* Added `math.rotation` to extract a quaternion rotation from a float3x3 (that may have scale).
+* Added `math.mulScale` to scale columns of a float3x3 with scaling coefficients in a float3.
+* Added `math.scaleMul` to scale rows of a float3x3 with scaling coefficients in a float3.
+* Added `AffineTransform` type.
+* Added `PI2`, `PIHALF`, `TAU`, `TODEGREES` and `TORADIANS` constants.
 ### Changed
-* Changed noise documentation in comments to xmldoc comments.
+* `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
+* Modified `quaternion.nlerp` to be branchless.
+* More descriptive parameter names for many methods in `math` class.
+* Made `Il2CppEagerStaticClassConstructionAttribute` internal to avoid conflicts with other definitions outside of the package.
+### Deprecated
+### Removed
+### Fixed
 
+## [1.2.5] - 2021-11-01
+### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+* Fixed property drawing when manually drawing a property that was hidden with [HideInInspector].
+
+## [1.2.4] - 2021-09-22
+### Added
+* Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
+### Changed
+* License file updated to satisfy Unity's package validation tests.
+* Changed noise documentation in comments to xmldoc comments.
 ### Deprecated
 ### Removed
 ### Fixed
 * Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
 * Fixed incorrect `math.tzcnt` documentation which mentioned leading zero counts instead of trailing zero counts.
 * Fixed `float2x2.Rotate` documentation to mention radians instead of degrees.
-
-### Internal (Not ready for production)
+* Fixed documentation for methods and properties that were previously undocumented.
 
 ## [1.2.1] - 2020-08-06
 

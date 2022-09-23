@@ -21,14 +21,18 @@ namespace Unity.Mathematics.PerformanceTests
         [BurstCompile(CompileSynchronously = true)]
         public unsafe class Normalize_Plane
         {
+            public const int iterations = 10000;
+
             public struct Arguments : IDisposable
             {
+                public Random rng;
                 public Plane* p;
 
                 public void Init()
                 {
-                    p = (Plane*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Plane>() * 10000, UnsafeUtility.AlignOf<Plane>(), Allocator.Persistent);
-                    for (int i = 0; i < 10000; ++i)
+                    rng = new Random(1);
+                    p = (Plane*)UnsafeUtility.Malloc(UnsafeUtility.SizeOf<Plane>() * iterations, UnsafeUtility.AlignOf<Plane>(), Allocator.Persistent);
+                    for (int i = 0; i < iterations; ++i)
                     {
                         p[i] = new Plane { NormalAndDistance = new float4(1.0f) };
                     }
@@ -43,7 +47,7 @@ namespace Unity.Mathematics.PerformanceTests
 
             public static void CommonTestFunction(ref Arguments args)
             {
-                for (int i = 0; i < 10000; ++i)
+                for (int i = 0; i < iterations; ++i)
                 {
                     args.p[i] = Plane.Normalize(args.p[i]);
                 }

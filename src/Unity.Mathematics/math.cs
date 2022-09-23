@@ -70,6 +70,33 @@ namespace Unity.Mathematics
         /// <summary>The mathematical constant pi. Approximately 3.14. This is a f64/double precision constant.</summary>
         public const double PI_DBL = 3.14159265358979323846;
 
+        /// <summary>
+        /// The mathematical constant (2 * pi). Approximately 6.28. This is a f64/double precision constant. Also known as <see cref="TAU_DBL"/>.
+        /// </summary>
+        public const double PI2_DBL = PI_DBL * 2.0;
+
+        /// <summary>
+        /// The mathematical constant (pi / 2). Approximately 1.57. This is a f64/double precision constant.
+        /// </summary>
+        public const double PIHALF_DBL = PI_DBL * 0.5;
+
+        /// <summary>
+        /// The mathematical constant tau. Approximately 6.28. This is a f64/double precision constant. Also known as <see cref="PI2_DBL"/>.
+        /// </summary>
+        public const double TAU_DBL = PI2_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert radians to degrees. Multiply the radian value by this constant to get degrees.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.degrees(double)"/>.</remarks>
+        public const double TODEGREES_DBL = 57.29577951308232;
+
+        /// <summary>
+        /// The conversion constant used to convert degrees to radians. Multiply the degree value by this constant to get radians.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.radians(double)"/>.</remarks>
+        public const double TORADIANS_DBL = 0.017453292519943296;
+
         /// <summary>The square root 2. Approximately 1.41. This is a f64/double precision constant.</summary>
         public const double SQRT2_DBL = 1.41421356237309504880;
 
@@ -121,6 +148,33 @@ namespace Unity.Mathematics
         /// <summary>The mathematical constant pi. Approximately 3.14.</summary>
         public const float PI = (float)PI_DBL;
 
+        /// <summary>
+        /// The mathematical constant (2 * pi). Approximately 6.28. Also known as <see cref="TAU"/>.
+        /// </summary>
+        public const float PI2 = (float)PI2_DBL;
+
+        /// <summary>
+        /// The mathematical constant (pi / 2). Approximately 1.57.
+        /// </summary>
+        public const float PIHALF = (float)PIHALF_DBL;
+
+        /// <summary>
+        /// The mathematical constant tau. Approximately 6.28. Also known as <see cref="PI2"/>.
+        /// </summary>
+        public const float TAU = (float)PI2_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert radians to degrees. Multiply the radian value by this constant to get degrees.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.degrees(float)"/>.</remarks>
+        public const float TODEGREES = (float)TODEGREES_DBL;
+
+        /// <summary>
+        /// The conversion constant used to convert degrees to radians. Multiply the degree value by this constant to get radians.
+        /// </summary>
+        /// <remarks>Multiplying by this constant is equivalent to using <see cref="math.radians(float)"/>.</remarks>
+        public const float TORADIANS = (float)TORADIANS_DBL;
+
         /// <summary>The square root 2. Approximately 1.41.</summary>
         public const float SQRT2 = (float)SQRT2_DBL;
 
@@ -152,56 +206,97 @@ namespace Unity.Mathematics
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int asint(uint x) { return (int)x; }
+        public static int asint(uint x)
+        {
+            unsafe
+            {
+                return *(int*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as an int2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 asint(uint2 x) { return int2((int)x.x, (int)x.y); }
+        public static int2 asint(uint2 x)
+        {
+            unsafe
+            {
+                return *(int2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as an int3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 asint(uint3 x) { return int3((int)x.x, (int)x.y, (int)x.z); }
+        public static int3 asint(uint3 x)
+        {
+            unsafe
+            {
+                return *(int3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as an int4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 asint(uint4 x) { return int4((int)x.x, (int)x.y, (int)x.z, (int)x.w); }
-
+        public static int4 asint(uint4 x)
+        {
+            unsafe
+            {
+                return *(int4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float as an int.</summary>
         /// <param name="x">The float bits to copy.</param>
         /// <returns>The int with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int asint(float x) {
-            IntFloatUnion u;
-            u.intValue = 0;
-            u.floatValue = x;
-            return u.intValue;
+        public static int asint(float x)
+        {
+            unsafe
+            {
+                return *(int*)&x;
+            }
         }
 
         /// <summary>Returns the bit pattern of a float2 as an int2.</summary>
         /// <param name="x">The float2 bits to copy.</param>
         /// <returns>The int2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 asint(float2 x) { return int2(asint(x.x), asint(x.y)); }
+        public static int2 asint(float2 x)
+        {
+            unsafe
+            {
+                return *(int2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float3 as an int3.</summary>
         /// <param name="x">The float3 bits to copy.</param>
         /// <returns>The int3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 asint(float3 x) { return int3(asint(x.x), asint(x.y), asint(x.z)); }
+        public static int3 asint(float3 x)
+        {
+            unsafe
+            {
+                return *(int3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float4 as an int4.</summary>
         /// <param name="x">The float4 bits to copy.</param>
         /// <returns>The int4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 asint(float4 x) { return int4(asint(x.x), asint(x.y), asint(x.z), asint(x.w)); }
-
+        public static int4 asint(float4 x)
+        {
+            unsafe
+            {
+                return *(int4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int as a uint.</summary>
         /// <param name="x">The int bits to copy.</param>
@@ -213,45 +308,85 @@ namespace Unity.Mathematics
         /// <param name="x">The int2 bits to copy.</param>
         /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(int2 x) { return uint2((uint)x.x, (uint)x.y); }
+        public static uint2 asuint(int2 x)
+        {
+            unsafe
+            {
+                return *(uint2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int3 as a uint3.</summary>
         /// <param name="x">The int3 bits to copy.</param>
         /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(int3 x) { return uint3((uint)x.x, (uint)x.y, (uint)x.z); }
+        public static uint3 asuint(int3 x)
+        {
+            unsafe
+            {
+                return *(uint3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int4 as a uint4.</summary>
         /// <param name="x">The int4 bits to copy.</param>
         /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(int4 x) { return uint4((uint)x.x, (uint)x.y, (uint)x.z, (uint)x.w); }
-
+        public static uint4 asuint(int4 x)
+        {
+            unsafe
+            {
+                return *(uint4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float as a uint.</summary>
         /// <param name="x">The float bits to copy.</param>
         /// <returns>The uint with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint asuint(float x) { return (uint)asint(x); }
+        public static uint asuint(float x)
+        {
+            unsafe
+            {
+                return *(uint*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float2 as a uint2.</summary>
         /// <param name="x">The float2 bits to copy.</param>
         /// <returns>The uint2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 asuint(float2 x) { return uint2(asuint(x.x), asuint(x.y)); }
+        public static uint2 asuint(float2 x)
+        {
+            unsafe
+            {
+                return *(uint2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float3 as a uint3.</summary>
         /// <param name="x">The float3 bits to copy.</param>
         /// <returns>The uint3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 asuint(float3 x) { return uint3(asuint(x.x), asuint(x.y), asuint(x.z)); }
+        public static uint3 asuint(float3 x)
+        {
+            unsafe
+            {
+                return *(uint3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a float4 as a uint4.</summary>
         /// <param name="x">The float4 bits to copy.</param>
         /// <returns>The uint4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 asuint(float4 x) { return uint4(asuint(x.x), asuint(x.y), asuint(x.z), asuint(x.w)); }
-
+        public static uint4 asuint(float4 x)
+        {
+            unsafe
+            {
+                return *(uint4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a ulong as a long.</summary>
         /// <param name="x">The ulong bits to copy.</param>
@@ -265,12 +400,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static long aslong(double x)
         {
-            LongDoubleUnion u;
-            u.longValue = 0;
-            u.doubleValue = x;
-            return u.longValue;
+            unsafe
+            {
+                return *(long*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a long as a ulong.</summary>
         /// <param name="x">The long bits to copy.</param>
@@ -282,8 +416,13 @@ namespace Unity.Mathematics
         /// <param name="x">The double bits to copy.</param>
         /// <returns>The ulong with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong asulong(double x) { return (ulong) aslong(x); }
-
+        public static ulong asulong(double x)
+        {
+            unsafe
+            {
+                return *(ulong*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int as a float.</summary>
         /// <param name="x">The int bits to copy.</param>
@@ -291,55 +430,95 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float asfloat(int x)
         {
-            IntFloatUnion u;
-            u.floatValue = 0;
-            u.intValue = x;
-
-            return u.floatValue;
+            unsafe
+            {
+                return *(float*)&x;
+            }
         }
 
         /// <summary>Returns the bit pattern of an int2 as a float2.</summary>
         /// <param name="x">The int2 bits to copy.</param>
         /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(int2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static float2 asfloat(int2 x)
+        {
+            unsafe
+            {
+                return *(float2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int3 as a float3.</summary>
         /// <param name="x">The int3 bits to copy.</param>
         /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(int3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static float3 asfloat(int3 x)
+        {
+            unsafe
+            {
+                return *(float3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of an int4 as a float4.</summary>
         /// <param name="x">The int4 bits to copy.</param>
         /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(int4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
-
+        public static float4 asfloat(int4 x)
+        {
+            unsafe
+            {
+                return *(float4*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint as a float.</summary>
         /// <param name="x">The uint bits to copy.</param>
         /// <returns>The float with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float  asfloat(uint x) { return asfloat((int)x); }
+        public static float asfloat(uint x)
+        {
+            unsafe
+            {
+                return *(float*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint2 as a float2.</summary>
         /// <param name="x">The uint2 bits to copy.</param>
         /// <returns>The float2 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 asfloat(uint2 x) { return float2(asfloat(x.x), asfloat(x.y)); }
+        public static float2 asfloat(uint2 x)
+        {
+            unsafe
+            {
+                return *(float2*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint3 as a float3.</summary>
         /// <param name="x">The uint3 bits to copy.</param>
         /// <returns>The float3 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 asfloat(uint3 x) { return float3(asfloat(x.x), asfloat(x.y), asfloat(x.z)); }
+        public static float3 asfloat(uint3 x)
+        {
+            unsafe
+            {
+                return *(float3*)&x;
+            }
+        }
 
         /// <summary>Returns the bit pattern of a uint4 as a float4.</summary>
         /// <param name="x">The uint4 bits to copy.</param>
         /// <returns>The float4 with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 asfloat(uint4 x) { return float4(asfloat(x.x), asfloat(x.y), asfloat(x.z), asfloat(x.w)); }
+        public static float4 asfloat(uint4 x)
+        {
+            unsafe
+            {
+                return *(float4*)&x;
+            }
+        }
 
         /// <summary>
         /// Returns a bitmask representation of a bool4. Storing one 1 bit per component
@@ -368,19 +547,23 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double asdouble(long x)
         {
-            LongDoubleUnion u;
-            u.doubleValue = 0;
-            u.longValue = x;
-            return u.doubleValue;
+            unsafe
+            {
+                return *(double*)&x;
+            }
         }
-
 
         /// <summary>Returns the bit pattern of a ulong as a double.</summary>
         /// <param name="x">The ulong bits to copy.</param>
         /// <returns>The double with the same bit pattern as the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double asdouble(ulong x) { return asdouble((long)x); }
-
+        public static double asdouble(ulong x)
+        {
+            unsafe
+            {
+                return *(double*)&x;
+            }
+        }
 
         /// <summary>Returns true if the input float is a finite floating point value, false otherwise.</summary>
         /// <param name="x">The float value to test.</param>
@@ -928,394 +1111,394 @@ namespace Unity.Mathematics
         public static double4 max(double4 x, double4 y) { return new double4(max(x.x, y.x), max(x.y, y.y), max(x.z, y.z), max(x.w, y.w)); }
 
 
-        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of linearly interpolating from start to end using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The interpolation from start to end.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float lerp(float start, float end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 lerp(float2 start, float2 end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 lerp(float3 start, float3 end, float t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 lerp(float4 start, float4 end, float t) { return start + t * (end - start); }
+
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 lerp(float2 start, float2 end, float2 t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 lerp(float3 start, float3 end, float3 t) { return start + t * (end - start); }
+
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <returns>The componentwise interpolation from x to y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 lerp(float4 start, float4 end, float4 t) { return start + t * (end - start); }
+
+
+        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter t.</summary>
+        /// <remarks>
+        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
+        /// </remarks>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float lerp(float x, float y, float s) { return x + s * (y - x); }
+        public static double lerp(double start, double end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 lerp(float2 x, float2 y, float s) { return x + s * (y - x); }
+        public static double2 lerp(double2 start, double2 end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 lerp(float3 x, float3 y, float s) { return x + s * (y - x); }
+        public static double3 lerp(double3 start, double3 end, double t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 lerp(float4 x, float4 y, float s) { return x + s * (y - x); }
+        public static double4 lerp(double4 start, double4 end, double t) { return start + t * (end - start); }
 
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 lerp(float2 x, float2 y, float2 s) { return x + s * (y - x); }
+        public static double2 lerp(double2 start, double2 end, double2 t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 lerp(float3 x, float3 y, float3 s) { return x + s * (y - x); }
+        public static double3 lerp(double3 start, double3 end, double3 t) { return start + t * (end - start); }
 
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
+        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter t.</summary>
         /// <remarks>
         /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
         /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
+        /// <param name="start">The start point, corresponding to the interpolation parameter value of 0.</param>
+        /// <param name="end">The end point, corresponding to the interpolation parameter value of 1.</param>
+        /// <param name="t">The interpolation parameter. May be a value outside the interval [0, 1].</param>
         /// <returns>The componentwise interpolation from x to y.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 lerp(float4 x, float4 y, float4 s) { return x + s * (y - x); }
-
-
-        /// <summary>Returns the result of linearly interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double lerp(double x, double y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 lerp(double2 x, double2 y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 lerp(double3 x, double3 y, double s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 lerp(double4 x, double4 y, double s) { return x + s * (y - x); }
-
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 lerp(double2 x, double2 y, double2 s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 lerp(double3 x, double3 y, double3 s) { return x + s * (y - x); }
-
-        /// <summary>Returns the result of a componentwise linear interpolating from x to y using the corresponding components of the interpolation parameter s.</summary>
-        /// <remarks>
-        /// If the interpolation parameter is not in the range [0, 1], then this function extrapolates.
-        /// </remarks>
-        /// <param name="x">The first endpoint, corresponding to the interpolation parameter value of 0.</param>
-        /// <param name="y">The second endpoint, corresponding to the interpolation parameter value of 1.</param>
-        /// <param name="s">The interpolation parameter. May be a value outside the interval [0, 1].</param>
-        /// <returns>The componentwise interpolation from x to y.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 lerp(double4 x, double4 y, double4 s) { return x + s * (y - x); }
+        public static double4 lerp(double4 start, double4 end, double4 t) { return start + t * (end - start); }
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float unlerp(float a, float b, float x) { return (x - a) / (b - a); }
+        public static float unlerp(float start, float end, float x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 unlerp(float2 a, float2 b, float2 x) { return (x - a) / (b - a); }
+        public static float2 unlerp(float2 start, float2 end, float2 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 unlerp(float3 a, float3 b, float3 x) { return (x - a) / (b - a); }
+        public static float3 unlerp(float3 start, float3 end, float3 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 unlerp(float4 a, float4 b, float4 x) { return (x - a) / (b - a); }
+        public static float4 unlerp(float4 start, float4 end, float4 x) { return (x - start) / (end - start); }
 
 
         /// <summary>Returns the result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double unlerp(double a, double b, double x) { return (x - a) / (b - a); }
+        public static double unlerp(double start, double end, double x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 unlerp(double2 a, double2 b, double2 x) { return (x - a) / (b - a); }
+        public static double2 unlerp(double2 start, double2 end, double2 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 unlerp(double3 a, double3 b, double3 x) { return (x - a) / (b - a); }
+        public static double3 unlerp(double3 start, double3 end, double3 x) { return (x - start) / (end - start); }
 
         /// <summary>Returns the componentwise result of normalizing a floating point value x to a range [a, b]. The opposite of lerp. Equivalent to (x - a) / (b - a).</summary>
-        /// <param name="a">The first endpoint of the range.</param>
-        /// <param name="b">The second endpoint of the range.</param>
+        /// <param name="start">The start point of the range.</param>
+        /// <param name="end">The end point of the range.</param>
         /// <param name="x">The value to normalize to the range.</param>
         /// <returns>The componentwise interpolation parameter of x with respect to the input range [a, b].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 unlerp(double4 a, double4 b, double4 x) { return (x - a) / (b - a); }
+        public static double4 unlerp(double4 start, double4 end, double4 x) { return (x - start) / (end - start); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float remap(float a, float b, float c, float d, float x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float remap(float srcStart, float srcEnd, float dstStart, float dstEnd, float x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 remap(float2 a, float2 b, float2 c, float2 d, float2 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float2 remap(float2 srcStart, float2 srcEnd, float2 dstStart, float2 dstEnd, float2 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 remap(float3 a, float3 b, float3 c, float3 d, float3 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float3 remap(float3 srcStart, float3 srcEnd, float3 dstStart, float3 dstEnd, float3 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 remap(float4 a, float4 b, float4 c, float4 d, float4 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static float4 remap(float4 srcStart, float4 srcEnd, float4 dstStart, float4 dstEnd, float4 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
 
-        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double remap(double a, double b, double c, double d, double x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double remap(double srcStart, double srcEnd, double dstStart, double dstEnd, double x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 remap(double2 a, double2 b, double2 c, double2 d, double2 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double2 remap(double2 srcStart, double2 srcEnd, double2 dstStart, double2 dstEnd, double2 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 remap(double3 a, double3 b, double3 c, double3 d, double3 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double3 remap(double3 srcStart, double3 srcEnd, double3 dstStart, double3 dstEnd, double3 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
-        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [a, b] to the destination range [c, d].</summary>
-        /// <param name="a">The first endpoint of the source range [a,b].</param>
-        /// <param name="b">The second endpoint of the source range [a, b].</param>
-        /// <param name="c">The first endpoint of the destination range [c, d].</param>
-        /// <param name="d">The second endpoint of the destination range [c, d].</param>
+        /// <summary>Returns the componentwise result of a non-clamping linear remapping of a value x from source range [srcStart, srcEnd] to the destination range [dstStart, dstEnd].</summary>
+        /// <param name="srcStart">The start point of the source range [srcStart, srcEnd].</param>
+        /// <param name="srcEnd">The end point of the source range [srcStart, srcEnd].</param>
+        /// <param name="dstStart">The start point of the destination range [dstStart, dstEnd].</param>
+        /// <param name="dstEnd">The end point of the destination range [dstStart, dstEnd].</param>
         /// <param name="x">The value to remap from the source to destination range.</param>
         /// <returns>The componentwise remap of input x from the source range to the destination range.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 remap(double4 a, double4 b, double4 c, double4 d, double4 x) { return lerp(c, d, unlerp(a, b, x)); }
+        public static double4 remap(double4 srcStart, double4 srcEnd, double4 dstStart, double4 dstEnd, double4 x) { return lerp(dstStart, dstEnd, unlerp(srcStart, srcEnd, x)); }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 int values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int mad(int a, int b, int c) { return a * b + c; }
+        public static int mad(int mulA, int mulB, int addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int2 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 mad(int2 a, int2 b, int2 c) { return a * b + c; }
+        public static int2 mad(int2 mulA, int2 mulB, int2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int3 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 mad(int3 a, int3 b, int3 c) { return a * b + c; }
+        public static int3 mad(int3 mulA, int3 mulB, int3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 int4 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 mad(int4 a, int4 b, int4 c) { return a * b + c; }
+        public static int4 mad(int4 mulA, int4 mulB, int4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 uint values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint mad(uint a, uint b, uint c) { return a * b + c; }
+        public static uint mad(uint mulA, uint mulB, uint addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint2 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 mad(uint2 a, uint2 b, uint2 c) { return a * b + c; }
+        public static uint2 mad(uint2 mulA, uint2 mulB, uint2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint3 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 mad(uint3 a, uint3 b, uint3 c) { return a * b + c; }
+        public static uint3 mad(uint3 mulA, uint3 mulB, uint3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 uint4 vectors.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 mad(uint4 a, uint4 b, uint4 c) { return a * b + c; }
+        public static uint4 mad(uint4 mulA, uint4 mulB, uint4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 long values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long mad(long a, long b, long c) { return a * b + c; }
+        public static long mad(long mulA, long mulB, long addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 ulong values.</summary>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong mad(ulong a, ulong b, ulong c) { return a * b + c; }
+        public static ulong mad(ulong mulA, ulong mulB, ulong addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 float values.</summary>
@@ -1324,12 +1507,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float mad(float a, float b, float c) { return a * b + c; }
+        public static float mad(float mulA, float mulB, float addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float2 vectors.</summary>
         /// <remarks>
@@ -1337,12 +1520,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 mad(float2 a, float2 b, float2 c) { return a * b + c; }
+        public static float2 mad(float2 mulA, float2 mulB, float2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float3 vectors.</summary>
         /// <remarks>
@@ -1350,12 +1533,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 mad(float3 a, float3 b, float3 c) { return a * b + c; }
+        public static float3 mad(float3 mulA, float3 mulB, float3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 float4 vectors.</summary>
         /// <remarks>
@@ -1363,12 +1546,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 mad(float4 a, float4 b, float4 c) { return a * b + c; }
+        public static float4 mad(float4 mulA, float4 mulB, float4 addC) { return mulA * mulB + addC; }
 
 
         /// <summary>Returns the result of a multiply-add operation (a * b + c) on 3 double values.</summary>
@@ -1377,12 +1560,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double mad(double a, double b, double c) { return a * b + c; }
+        public static double mad(double mulA, double mulB, double addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double2 vectors.</summary>
         /// <remarks>
@@ -1390,12 +1573,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 mad(double2 a, double2 b, double2 c) { return a * b + c; }
+        public static double2 mad(double2 mulA, double2 mulB, double2 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double3 vectors.</summary>
         /// <remarks>
@@ -1403,12 +1586,12 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 mad(double3 a, double3 b, double3 c) { return a * b + c; }
+        public static double3 mad(double3 mulA, double3 mulB, double3 addC) { return mulA * mulB + addC; }
 
         /// <summary>Returns the result of a componentwise multiply-add operation (a * b + c) on 3 double4 vectors.</summary>
         /// <remarks>
@@ -1416,161 +1599,161 @@ namespace Unity.Mathematics
         /// FMA is more accurate due to rounding once at the end of the computation rather than twice that is required when
         /// this computation is not fused.
         /// </remarks>
-        /// <param name="a">First value to multiply.</param>
-        /// <param name="b">Second value to multiply.</param>
-        /// <param name="c">Third value to add to the product of a and b.</param>
+        /// <param name="mulA">First value to multiply.</param>
+        /// <param name="mulB">Second value to multiply.</param>
+        /// <param name="addC">Third value to add to the product of a and b.</param>
         /// <returns>The componentwise multiply-add of the inputs.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 mad(double4 a, double4 b, double4 c) { return a * b + c; }
+        public static double4 mad(double4 mulA, double4 mulB, double4 addC) { return mulA * mulB + addC; }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are int values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are int values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int clamp(int x, int a, int b) { return max(a, min(b, x)); }
+        public static int clamp(int valueToClamp, int lowerBound, int upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int2 x into the interval [a, b], where a and b are int2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 clamp(int2 x, int2 a, int2 b) { return max(a, min(b, x)); }
+        public static int2 clamp(int2 valueToClamp, int2 lowerBound, int2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
         /// <summary>Returns the result of a componentwise clamping of the int3 x into the interval [a, b], where x, a and b are int3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 clamp(int3 x, int3 a, int3 b) { return max(a, min(b, x)); }
+        public static int3 clamp(int3 valueToClamp, int3 lowerBound, int3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are int4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are int4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 clamp(int4 x, int4 a, int4 b) { return max(a, min(b, x)); }
+        public static int4 clamp(int4 valueToClamp, int4 lowerBound, int4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are uint values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint clamp(uint x, uint a, uint b) { return max(a, min(b, x)); }
+        public static uint clamp(uint valueToClamp, uint lowerBound, uint upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 clamp(uint2 x, uint2 a, uint2 b) { return max(a, min(b, x)); }
+        public static uint2 clamp(uint2 valueToClamp, uint2 lowerBound, uint2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 clamp(uint3 x, uint3 a, uint3 b) { return max(a, min(b, x)); }
+        public static uint3 clamp(uint3 valueToClamp, uint3 lowerBound, uint3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are uint4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are uint4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 clamp(uint4 x, uint4 a, uint4 b) { return max(a, min(b, x)); }
+        public static uint4 clamp(uint4 valueToClamp, uint4 lowerBound, uint4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are long values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are long values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long clamp(long x, long a, long b) { return max(a, min(b, x)); }
+        public static long clamp(long valueToClamp, long lowerBound, long upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are ulong values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are ulong values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong clamp(ulong x, ulong a, ulong b) { return max(a, min(b, x)); }
+        public static ulong clamp(ulong valueToClamp, ulong lowerBound, ulong upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are float values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float clamp(float x, float a, float b) { return max(a, min(b, x)); }
+        public static float clamp(float valueToClamp, float lowerBound, float upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 clamp(float2 x, float2 a, float2 b) { return max(a, min(b, x)); }
+        public static float2 clamp(float2 valueToClamp, float2 lowerBound, float2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 clamp(float3 x, float3 a, float3 b) { return max(a, min(b, x)); }
+        public static float3 clamp(float3 valueToClamp, float3 lowerBound, float3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are float4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are float4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 clamp(float4 x, float4 a, float4 b) { return max(a, min(b, x)); }
+        public static float4 clamp(float4 valueToClamp, float4 lowerBound, float4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
-        /// <summary>Returns the result of clamping the value x into the interval [a, b], where x, a and b are double values.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of clamping the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double values.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double clamp(double x, double a, double b) { return max(a, min(b, x)); }
+        public static double clamp(double valueToClamp, double lowerBound, double upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double2 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double2 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 clamp(double2 x, double2 a, double2 b) { return max(a, min(b, x)); }
+        public static double2 clamp(double2 valueToClamp, double2 lowerBound, double2 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double3 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double3 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 clamp(double3 x, double3 a, double3 b) { return max(a, min(b, x)); }
+        public static double3 clamp(double3 valueToClamp, double3 lowerBound, double3 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
-        /// <summary>Returns the result of a componentwise clamping of the value x into the interval [a, b], where x, a and b are double4 vectors.</summary>
-        /// <param name="x">Input value to be clamped.</param>
-        /// <param name="a">Lower bound of the interval.</param>
-        /// <param name="b">Upper bound of the interval.</param>
-        /// <returns>The componentwise clamping of the input x into the interval [a, b].</returns>
+        /// <summary>Returns the result of a componentwise clamping of the value valueToClamp into the interval (inclusive) [lowerBound, upperBound], where valueToClamp, lowerBound and upperBound are double4 vectors.</summary>
+        /// <param name="valueToClamp">Input value to be clamped.</param>
+        /// <param name="lowerBound">Lower bound of the interval.</param>
+        /// <param name="upperBound">Upper bound of the interval.</param>
+        /// <returns>The componentwise clamping of the input valueToClamp into the interval (inclusive) [lowerBound, upperBound].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 clamp(double4 x, double4 a, double4 b) { return max(a, min(b, x)); }
+        public static double4 clamp(double4 valueToClamp, double4 lowerBound, double4 upperBound) { return max(lowerBound, min(upperBound, valueToClamp)); }
 
 
         /// <summary>Returns the result of clamping the float value x into the interval [0, 1].</summary>
@@ -2627,7 +2810,6 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static double4 rcp(double4 x) { return 1.0 / x; }
 
-
         /// <summary>Returns the sign of a int value. -1 if it is less than zero, 0 if it is zero and 1 if it greater than zero.</summary>
         /// <param name="x">Input value.</param>
         /// <returns>The sign of the input.</returns>
@@ -2651,7 +2833,6 @@ namespace Unity.Mathematics
         /// <returns>The componentwise sign of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static int4 sign(int4 x) { return new int4(sign(x.x), sign(x.y), sign(x.z), sign(x.w)); }
-
 
         /// <summary>Returns the sign of a float value. -1.0f if it is less than zero, 0.0f if it is zero and 1.0f if it greater than zero.</summary>
         /// <param name="x">Input value.</param>
@@ -3649,100 +3830,100 @@ namespace Unity.Mathematics
         public static double3 cross(double3 x, double3 y) { return (x * y.yzx - x.yzx * y).yzx; }
 
 
-        /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float smoothstep(float a, float b, float x)
+        public static float smoothstep(float xMin, float xMax, float x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 smoothstep(float2 a, float2 b, float2 x)
+        public static float2 smoothstep(float2 xMin, float2 xMax, float2 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 smoothstep(float3 a, float3 b, float3 x)
+        public static float3 smoothstep(float3 xMin, float3 xMax, float3 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0f and 1.0f when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 smoothstep(float4 a, float4 b, float4 x)
+        public static float4 smoothstep(float4 xMin, float4 xMax, float4 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0f - (2.0f * t));
         }
 
 
-        /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns a value camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double smoothstep(double a, double b, double x)
+        public static double smoothstep(double xMin, double xMax, double x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 smoothstep(double2 a, double2 b, double2 x)
+        public static double2 smoothstep(double2 xMin, double2 xMax, double2 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 smoothstep(double3 a, double3 b, double3 x)
+        public static double3 smoothstep(double3 xMin, double3 xMax, double3 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
-        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in [a, b].</summary>
-        /// <param name="a">The minimum range of the x parameter.</param>
-        /// <param name="b">The maximum range of the x parameter.</param>
+        /// <summary>Returns a componentwise smooth Hermite interpolation between 0.0 and 1.0 when x is in the interval (inclusive) [xMin, xMax].</summary>
+        /// <param name="xMin">The minimum range of the x parameter.</param>
+        /// <param name="xMax">The maximum range of the x parameter.</param>
         /// <param name="x">The value to be interpolated.</param>
         /// <returns>Returns component values camped to the range [0, 1].</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 smoothstep(double4 a, double4 b, double4 x)
+        public static double4 smoothstep(double4 xMin, double4 xMax, double4 x)
         {
-            var t = saturate((x - a) / (b - a));
+            var t = saturate((x - xMin) / (xMax - xMin));
             return t * t * (3.0 - (2.0 * t));
         }
 
@@ -3937,346 +4118,346 @@ namespace Unity.Mathematics
         public static bool all(double4 x) { return x.x != 0.0 && x.y != 0.0 && x.z != 0.0 && x.w != 0.0; }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int select(int a, int b, bool c)    { return c ? b : a; }
+        public static int select(int falseValue, int trueValue, bool test)    { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 select(int2 a, int2 b, bool c) { return c ? b : a; }
+        public static int2 select(int2 falseValue, int2 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 select(int3 a, int3 b, bool c) { return c ? b : a; }
+        public static int3 select(int3 falseValue, int3 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 select(int4 a, int4 b, bool c) { return c ? b : a; }
+        public static int4 select(int4 falseValue, int4 trueValue, bool test) { return test ? trueValue : falseValue; }
 
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int2 select(int2 a, int2 b, bool2 c) { return new int2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static int2 select(int2 falseValue, int2 trueValue, bool2 test) { return new int2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int3 select(int3 a, int3 b, bool3 c) { return new int3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static int3 select(int3 falseValue, int3 trueValue, bool3 test) { return new int3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static int4 select(int4 a, int4 b, bool4 c) { return new int4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static int4 select(int4 falseValue, int4 trueValue, bool4 test) { return new int4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint select(uint a, uint b, bool c) { return c ? b : a; }
+        public static uint select(uint falseValue, uint trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 select(uint2 a, uint2 b, bool c) { return c ? b : a; }
+        public static uint2 select(uint2 falseValue, uint2 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 select(uint3 a, uint3 b, bool c) { return c ? b : a; }
+        public static uint3 select(uint3 falseValue, uint3 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 select(uint4 a, uint4 b, bool c) { return c ? b : a; }
-
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint2 select(uint2 a, uint2 b, bool2 c) { return new uint2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint3 select(uint3 a, uint3 b, bool3 c) { return new uint3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
-
-        /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
-        /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static uint4 select(uint4 a, uint4 b, bool4 c) { return new uint4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
-
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static long select(long a, long b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static ulong select(ulong a, ulong b, bool c) { return c ? b : a; }
-
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float select(float a, float b, bool c)    { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 select(float2 a, float2 b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 select(float3 a, float3 b, bool c) { return c ? b : a; }
-
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 select(float4 a, float4 b, bool c) { return c ? b : a; }
+        public static uint4 select(uint4 falseValue, uint4 trueValue, bool test) { return test ? trueValue : falseValue; }
 
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 select(float2 a, float2 b, bool2 c) { return new float2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static uint2 select(uint2 falseValue, uint2 trueValue, bool2 test) { return new uint2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 select(float3 a, float3 b, bool3 c) { return new float3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static uint3 select(uint3 falseValue, uint3 trueValue, bool3 test) { return new uint3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 select(float4 a, float4 b, bool4 c) { return new float4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static uint4 select(uint4 falseValue, uint4 trueValue, bool4 test) { return new uint4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double select(double a, double b, bool c) { return c ? b : a; }
+        public static long select(long falseValue, long trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 select(double2 a, double2 b, bool c) { return c ? b : a; }
+        public static ulong select(ulong falseValue, ulong trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
-        [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 select(double3 a, double3 b, bool c) { return c ? b : a; }
 
-        /// <summary>Returns b if c is true, a otherwise.</summary>
-        /// <param name="a">Value to use if c is false.</param>
-        /// <param name="b">Value to use if c is true.</param>
-        /// <param name="c">Bool value to choose between a and b.</param>
-        /// <returns>The selection between a and b according to bool c.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 select(double4 a, double4 b, bool c) { return c ? b : a; }
+        public static float select(float falseValue, float trueValue, bool test)    { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 select(float2 falseValue, float2 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 select(float3 falseValue, float3 trueValue, bool test) { return test ? trueValue : falseValue; }
+
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 select(float4 falseValue, float4 trueValue, bool test) { return test ? trueValue : falseValue; }
+
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 select(double2 a, double2 b, bool2 c) { return new double2(c.x ? b.x : a.x, c.y ? b.y : a.y); }
+        public static float2 select(float2 falseValue, float2 trueValue, bool2 test) { return new float2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 select(double3 a, double3 b, bool3 c) { return new double3(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z); }
+        public static float3 select(float3 falseValue, float3 trueValue, bool3 test) { return new float3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
         /// <summary>
-        /// Returns a componentwise selection between two double4 vectors a and b based on a bool4 selection mask c.
-        /// Per component, the component from b is selected when c is true, otherwise the component from a is selected.
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
         /// </summary>
-        /// <param name="a">Values to use if c is false.</param>
-        /// <param name="b">Values to use if c is true.</param>
-        /// <param name="c">Selection mask to choose between a and b.</param>
-        /// <returns>The componentwise selection between a and b according to selection mask c.</returns>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 select(double4 a, double4 b, bool4 c) { return new double4(c.x ? b.x : a.x, c.y ? b.y : a.y, c.z ? b.z : a.z, c.w ? b.w : a.w); }
+        public static float4 select(float4 falseValue, float4 trueValue, bool4 test) { return new float4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
 
-        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Value to be used as a threshold for returning 1.</param>
-        /// <param name="x">Value to compare against threshold y.</param>
-        /// <returns>1 if the comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float step(float y, float x) { return select(0.0f, 1.0f, x >= y); }
+        public static double select(double falseValue, double trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 step(float2 y, float2 x) { return select(float2(0.0f), float2(1.0f), x >= y); }
+        public static double2 select(double2 falseValue, double2 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 step(float3 y, float3 x) { return select(float3(0.0f), float3(1.0f), x >= y); }
+        public static double3 select(double3 falseValue, double3 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>Returns trueValue if test is true, falseValue otherwise.</summary>
+        /// <param name="falseValue">Value to use if test is false.</param>
+        /// <param name="trueValue">Value to use if test is true.</param>
+        /// <param name="test">Bool value to choose between falseValue and trueValue.</param>
+        /// <returns>The selection between falseValue and trueValue according to bool test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 step(float4 y, float4 x) { return select(float4(0.0f), float4(1.0f), x >= y); }
+        public static double4 select(double4 falseValue, double4 trueValue, bool test) { return test ? trueValue : falseValue; }
 
-
-        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Values to compare against threshold y.</param>
-        /// <returns>1 if the comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double step(double y, double x) { return select(0.0, 1.0, x >= y); }
+        public static double2 select(double2 falseValue, double2 trueValue, bool2 test) { return new double2(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 step(double2 y, double2 x) { return select(double2(0.0), double2(1.0), x >= y); }
+        public static double3 select(double3 falseValue, double3 trueValue, bool3 test) { return new double3(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+        /// <summary>
+        /// Returns a componentwise selection between two double4 vectors falseValue and trueValue based on a bool4 selection mask test.
+        /// Per component, the component from trueValue is selected when test is true, otherwise the component from falseValue is selected.
+        /// </summary>
+        /// <param name="falseValue">Values to use if test is false.</param>
+        /// <param name="trueValue">Values to use if test is true.</param>
+        /// <param name="test">Selection mask to choose between falseValue and trueValue.</param>
+        /// <returns>The componentwise selection between falseValue and trueValue according to selection mask test.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 step(double3 y, double3 x) { return select(double3(0.0), double3(1.0), x >= y); }
+        public static double4 select(double4 falseValue, double4 trueValue, bool4 test) { return new double4(test.x ? trueValue.x : falseValue.x, test.y ? trueValue.y : falseValue.y, test.z ? trueValue.z : falseValue.z, test.w ? trueValue.w : falseValue.w); }
 
-        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= y and 0.0f otherwise.</summary>
-        /// <param name="y">Vector of values to be used as a threshold for returning 1.</param>
-        /// <param name="x">Vector of values to compare against threshold y.</param>
-        /// <returns>1 if the componentwise comparison x &gt;= y is true, otherwise 0.</returns>
+
+        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Value to be used as a threshold for returning 1.</param>
+        /// <param name="x">Value to compare against threshold.</param>
+        /// <returns>1 if the comparison x &gt;= threshold is true, otherwise 0.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 step(double4 y, double4 x) { return select(double4(0.0), double4(1.0), x >= y); }
+        public static float step(float threshold, float x) { return select(0.0f, 1.0f, x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 step(float2 threshold, float2 x) { return select(float2(0.0f), float2(1.0f), x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 step(float3 threshold, float3 x) { return select(float3(0.0f), float3(1.0f), x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 step(float4 threshold, float4 x) { return select(float4(0.0f), float4(1.0f), x >= threshold); }
+
+
+        /// <summary>Returns the result of a step function where the result is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Value to compare against threshold.</param>
+        /// <returns>1 if the comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double step(double threshold, double x) { return select(0.0, 1.0, x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double2 step(double2 threshold, double2 x) { return select(double2(0.0), double2(1.0), x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double3 step(double3 threshold, double3 x) { return select(double3(0.0), double3(1.0), x >= threshold); }
+
+        /// <summary>Returns the result of a componentwise step function where each component is 1.0f when x &gt;= threshold and 0.0f otherwise.</summary>
+        /// <param name="threshold">Vector of values to be used as a threshold for returning 1.</param>
+        /// <param name="x">Vector of values to compare against threshold.</param>
+        /// <returns>1 if the componentwise comparison x &gt;= threshold is true, otherwise 0.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static double4 step(double4 threshold, double4 x) { return select(double4(0.0), double4(1.0), x >= threshold); }
 
 
         /// <summary>Given an incident vector i and a normal vector n, returns the reflection vector r = i - 2.0f * dot(i, n) * n.</summary>
@@ -4323,83 +4504,83 @@ namespace Unity.Mathematics
         public static double4 reflect(double4 i, double4 n) { return i - 2 * n * dot(i, n); }
 
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 refract(float2 i, float2 n, float eta)
+        public static float2 refract(float2 i, float2 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 refract(float3 i, float3 n, float eta)
+        public static float3 refract(float3 i, float3 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 refract(float4 i, float4 n, float eta)
+        public static float4 refract(float4 i, float4 n, float indexOfRefraction)
         {
             float ni = dot(n, i);
-            float k = 1.0f - eta * eta * (1.0f - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            float k = 1.0f - indexOfRefraction * indexOfRefraction * (1.0f - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 refract(double2 i, double2 n, double eta)
+        public static double2 refract(double2 i, double2 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 refract(double3 i, double3 n, double eta)
+        public static double3 refract(double3 i, double3 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
-        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index eta.</summary>
+        /// <summary>Returns the refraction vector given the incident vector i, the normal vector n and the refraction index.</summary>
         /// <param name="i">Incident vector.</param>
         /// <param name="n">Normal vector.</param>
-        /// <param name="eta">Index of refraction.</param>
+        /// <param name="indexOfRefraction">Index of refraction.</param>
         /// <returns>Refraction vector.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 refract(double4 i, double4 n, double eta)
+        public static double4 refract(double4 i, double4 n, double indexOfRefraction)
         {
             double ni = dot(n, i);
-            double k = 1.0 - eta * eta * (1.0 - ni * ni);
-            return select(0.0f, eta * i - (eta * ni + sqrt(k)) * n, k >= 0);
+            double k = 1.0 - indexOfRefraction * indexOfRefraction * (1.0 - ni * ni);
+            return select(0.0f, indexOfRefraction * i - (indexOfRefraction * ni + sqrt(k)) * n, k >= 0);
         }
 
         /// <summary>
@@ -4412,12 +4593,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 project(float2 a, float2 b)
+        public static float2 project(float2 a, float2 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4430,12 +4611,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 project(float3 a, float3 b)
+        public static float3 project(float3 a, float3 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4448,12 +4629,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 project(float4 a, float4 b)
+        public static float4 project(float4 a, float4 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4466,13 +4647,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 projectsafe(float2 a, float2 b, float2 defaultValue = new float2())
+        public static float2 projectsafe(float2 a, float2 ontoB, float2 defaultValue = new float2())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4487,13 +4668,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 projectsafe(float3 a, float3 b, float3 defaultValue = new float3())
+        public static float3 projectsafe(float3 a, float3 ontoB, float3 defaultValue = new float3())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4508,13 +4689,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 projectsafe(float4 a, float4 b, float4 defaultValue = new float4())
+        public static float4 projectsafe(float4 a, float4 ontoB, float4 defaultValue = new float4())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4529,12 +4710,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 project(double2 a, double2 b)
+        public static double2 project(double2 a, double2 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4547,12 +4728,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 project(double3 a, double3 b)
+        public static double3 project(double3 a, double3 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4565,12 +4746,12 @@ namespace Unity.Mathematics
         /// which will use a given default value if the result is not finite.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <returns>Vector projection of a onto b.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 project(double4 a, double4 b)
+        public static double4 project(double4 a, double4 ontoB)
         {
-            return (dot(a, b) / dot(b, b)) * b;
+            return (dot(a, ontoB) / dot(ontoB, ontoB)) * ontoB;
         }
 
         /// <summary>
@@ -4583,13 +4764,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 projectsafe(double2 a, double2 b, double2 defaultValue = new double2())
+        public static double2 projectsafe(double2 a, double2 ontoB, double2 defaultValue = new double2())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4604,13 +4785,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 projectsafe(double3 a, double3 b, double3 defaultValue = new double3())
+        public static double3 projectsafe(double3 a, double3 ontoB, double3 defaultValue = new double3())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -4625,13 +4806,13 @@ namespace Unity.Mathematics
         /// function.
         /// </remarks>
         /// <param name="a">Vector to project.</param>
-        /// <param name="b">Non-zero vector to project onto.</param>
+        /// <param name="ontoB">Non-zero vector to project onto.</param>
         /// <param name="defaultValue">Default value to return if projection is not finite.</param>
         /// <returns>Vector projection of a onto b or the default value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 projectsafe(double4 a, double4 b, double4 defaultValue = new double4())
+        public static double4 projectsafe(double4 a, double4 ontoB, double4 defaultValue = new double4())
         {
-            var proj = project(a, b);
+            var proj = project(a, ontoB);
 
             return select(defaultValue, proj, all(isfinite(proj)));
         }
@@ -5333,6 +5514,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5348,6 +5530,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5363,6 +5546,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5378,6 +5562,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5394,6 +5579,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5409,6 +5595,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5424,6 +5611,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5439,6 +5627,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the result of a componentwise calculation of the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The componentwise smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5455,6 +5644,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5472,6 +5662,7 @@ namespace Unity.Mathematics
 
 
         /// <summary>Returns the smallest power of two greater than or equal to the input.</summary>
+        /// <remarks>Also known as nextpow2.</remarks>
         /// <param name="x">Input value.</param>
         /// <returns>The smallest power of two greater than or equal to the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -5699,100 +5890,100 @@ namespace Unity.Mathematics
         /// <param name="x">Angle in degrees.</param>
         /// <returns>Angle converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float radians(float x) { return x * 0.0174532925f; }
+        public static float radians(float x) { return x * TORADIANS; }
 
         /// <summary>Returns the result of a componentwise conversion of a float2 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 radians(float2 x) { return x * 0.0174532925f; }
+        public static float2 radians(float2 x) { return x * TORADIANS; }
 
         /// <summary>Returns the result of a componentwise conversion of a float3 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 radians(float3 x) { return x * 0.0174532925f; }
+        public static float3 radians(float3 x) { return x * TORADIANS; }
 
         /// <summary>Returns the result of a componentwise conversion of a float4 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 radians(float4 x) { return x * 0.0174532925f; }
+        public static float4 radians(float4 x) { return x * TORADIANS; }
 
 
         /// <summary>Returns the result of converting a float value from degrees to radians.</summary>
         /// <param name="x">Angle in degrees.</param>
         /// <returns>Angle converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double radians(double x) { return x * 0.017453292519943296; }
+        public static double radians(double x) { return x * TORADIANS_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a float2 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 radians(double2 x) { return x * 0.017453292519943296; }
+        public static double2 radians(double2 x) { return x * TORADIANS_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a float3 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 radians(double3 x) { return x * 0.017453292519943296; }
+        public static double3 radians(double3 x) { return x * TORADIANS_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a float4 vector from degrees to radians.</summary>
         /// <param name="x">Vector containing angles in degrees.</param>
         /// <returns>Vector containing angles converted to radians.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 radians(double4 x) { return x * 0.017453292519943296; }
+        public static double4 radians(double4 x) { return x * TORADIANS_DBL; }
 
 
         /// <summary>Returns the result of converting a double value from radians to degrees.</summary>
         /// <param name="x">Angle in radians.</param>
         /// <returns>Angle converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float degrees(float x) { return x * 57.295779513f; }
+        public static float degrees(float x) { return x * TODEGREES; }
 
         /// <summary>Returns the result of a componentwise conversion of a double2 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing angles converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float2 degrees(float2 x) { return x * 57.295779513f; }
+        public static float2 degrees(float2 x) { return x * TODEGREES; }
 
         /// <summary>Returns the result of a componentwise conversion of a double3 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing angles converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float3 degrees(float3 x) { return x * 57.295779513f; }
+        public static float3 degrees(float3 x) { return x * TODEGREES; }
 
         /// <summary>Returns the result of a componentwise conversion of a double4 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing angles converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static float4 degrees(float4 x) { return x * 57.295779513f; }
+        public static float4 degrees(float4 x) { return x * TODEGREES; }
 
 
         /// <summary>Returns the result of converting a double value from radians to degrees.</summary>
         /// <param name="x">Angle in radians.</param>
         /// <returns>Angle converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double degrees(double x) { return x * 57.29577951308232; }
+        public static double degrees(double x) { return x * TODEGREES_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a double2 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing angles converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double2 degrees(double2 x) { return x * 57.29577951308232; }
+        public static double2 degrees(double2 x) { return x * TODEGREES_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a double3 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing values converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double3 degrees(double3 x) { return x * 57.29577951308232; }
+        public static double3 degrees(double3 x) { return x * TODEGREES_DBL; }
 
         /// <summary>Returns the result of a componentwise conversion of a double4 vector from radians to degrees.</summary>
         /// <param name="x">Vector containing angles in radians.</param>
         /// <returns>Vector containing angles converted to degrees.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        public static double4 degrees(double4 x) { return x * 57.29577951308232; }
+        public static double4 degrees(double4 x) { return x * TODEGREES_DBL; }
 
 
         /// <summary>Returns the minimum component of an int2 vector.</summary>
@@ -6473,6 +6664,46 @@ namespace Unity.Mathematics
             basis2.z = -normal.y;
         }
 
+        /// <summary>Change the sign of x based on the most significant bit of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float to change the sign.</param>
+        /// <param name="y">The single precision float used to test the most significant bit.</param>
+        /// <returns>Returns x with changed sign based on y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float chgsign(float x, float y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float2 chgsign(float2 x, float2 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 chgsign(float3 x, float3 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
+        /// <summary>Change the sign of components of x based on the most significant bit of components of y [msb(y) ? -x : x].</summary>
+        /// <param name="x">The single precision float vector to change the sign.</param>
+        /// <param name="y">The single precision float vector used to test the most significant bit.</param>
+        /// <returns>Returns vector x with changed sign based on vector y.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float4 chgsign(float4 x, float4 y)
+        {
+            return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
+        }
+
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>
@@ -6579,6 +6810,300 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static float3 right() { return new float3(1.0f, 0.0f, 0.0f); }
 
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the XYZ rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in XYZ order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerXYZ(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            // prepare the data
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.z - d1.y;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = d2.y + d1.x;
+                var x2 = d3.z + d3.w - d3.y - d3.x;
+                var z1 = d2.x + d1.z;
+                var z2 = d3.x + d3.w - d3.y - d3.z;
+                euler = float3(atan2(x1, x2), -asin(y1), atan2(z1, z2));
+            }
+            else //xzx
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.z, d1.y, d2.x, d1.z);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), -asin(y1), 0f);
+            }
+
+            return euler;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the XZY rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in XZY order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerXZY(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            // prepare the data
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.x + d1.z;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = -d2.y + d1.x;
+                var x2 = d3.y + d3.w - d3.z - d3.x;
+                var z1 = -d2.z + d1.y;
+                var z2 = d3.x + d3.w - d3.y - d3.z;
+                euler = float3(atan2(x1, x2), asin(y1), atan2(z1, z2));
+            }
+            else //xyx
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.x, d1.z, d2.z, d1.y);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), asin(y1), 0f);
+            }
+
+            return euler.xzy;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the YXZ rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in YXZ order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerYXZ(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            // prepare the data
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.y + d1.x;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = -d2.z + d1.y;
+                var x2 = d3.z + d3.w - d3.x - d3.y;
+                var z1 = -d2.x + d1.z;
+                var z2 = d3.y + d3.w - d3.z - d3.x;
+                euler = float3(atan2(x1, x2), asin(y1), atan2(z1, z2));
+            }
+            else //yzy
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.x, d1.z, d2.y, d1.x);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), asin(y1), 0f);
+            }
+
+            return euler.yxz;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the YZX rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in YZX order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerYZX(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            // prepare the data
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.x - d1.z;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = d2.z + d1.y;
+                var x2 = d3.x + d3.w - d3.z - d3.y;
+                var z1 = d2.y + d1.x;
+                var z2 = d3.y + d3.w - d3.x - d3.z;
+                euler = float3(atan2(x1, x2), -asin(y1), atan2(z1, z2));
+            }
+            else //yxy
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.x, d1.z, d2.y, d1.x);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), -asin(y1), 0f);
+            }
+
+            return euler.zxy;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the ZXY rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in ZXY order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerZXY(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            // prepare the data
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.y - d1.x;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = d2.x + d1.z;
+                var x2 = d3.y + d3.w - d3.x - d3.z;
+                var z1 = d2.z + d1.y;
+                var z2 = d3.z + d3.w - d3.x - d3.y;
+                euler = float3(atan2(x1, x2), -asin(y1), atan2(z1, z2));
+            }
+            else //zxz
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.z, d1.y, d2.y, d1.x);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), -asin(y1), 0f);
+            }
+
+            return euler.yzx;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion following the ZYX rotation order.
+        /// All rotation angles are in radians and clockwise when looking along the rotation axis towards the origin.
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <returns>The Euler angle representation of the quaternion in ZYX order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 EulerZYX(quaternion q)
+        {
+            const float epsilon = 1e-6f;
+            const float cutoff = (1f - 2f * epsilon) * (1f - 2f * epsilon);
+
+            var qv = q.value;
+            var d1 = qv * qv.wwww * float4(2f); //xw, yw, zw, ww
+            var d2 = qv * qv.yzxw * float4(2f); //xy, yz, zx, ww
+            var d3 = qv * qv;
+            var euler = Unity.Mathematics.float3.zero;
+
+            var y1 = d2.z + d1.y;
+            if (y1 * y1 < cutoff)
+            {
+                var x1 = -d2.x + d1.z;
+                var x2 = d3.x + d3.w - d3.y - d3.z;
+                var z1 = -d2.y + d1.x;
+                var z2 = d3.z + d3.w - d3.y - d3.x;
+                euler = float3(atan2(x1, x2), asin(y1), atan2(z1, z2));
+            }
+            else //zxz
+            {
+                y1 = clamp(y1, -1f, 1f);
+                var abcd = float4(d2.z, d1.y, d2.y, d1.x);
+                var x1 = 2f * (abcd.x * abcd.w + abcd.y * abcd.z); //2(ad+bc)
+                var x2 = csum(abcd * abcd * float4(-1f, 1f, -1f, 1f));
+                euler = float3(atan2(x1, x2), asin(y1), 0f);
+            }
+
+            return euler.zyx;
+        }
+
+        /// <summary>
+        /// Returns the Euler angle representation of the quaternion. The returned angles depend on the specified order to apply the
+        /// three rotations around the principal axes. All rotation angles are in radians and clockwise when looking along the
+        /// rotation axis towards the origin.
+        /// When the rotation order is known at compile time, to get the best performance you should use the specific
+        /// Euler rotation constructors such as EulerZXY(...).
+        /// </summary>
+        /// <param name="q">The quaternion to convert to Euler angles.</param>
+        /// <param name="order">The order in which the rotations are applied.</param>
+        /// <returns>The Euler angle representation of the quaternion in the specified order.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3 Euler(quaternion q, math.RotationOrder order = math.RotationOrder.Default)
+        {
+            switch (order)
+            {
+                case math.RotationOrder.XYZ:
+                    return EulerXYZ(q);
+                case math.RotationOrder.XZY:
+                    return EulerXZY(q);
+                case math.RotationOrder.YXZ:
+                    return EulerYXZ(q);
+                case math.RotationOrder.YZX:
+                    return EulerYZX(q);
+                case math.RotationOrder.ZXY:
+                    return EulerZXY(q);
+                case math.RotationOrder.ZYX:
+                    return EulerZYX(q);
+                default:
+                    return Unity.Mathematics.float3.zero;
+            }
+        }
+
+        /// <summary>
+        /// Matrix columns multiplied by scale components
+        /// m.c0.x * s.x | m.c1.x * s.y | m.c2.x * s.z
+        /// m.c0.y * s.x | m.c1.y * s.y | m.c2.y * s.z
+        /// m.c0.z * s.x | m.c1.z * s.y | m.c2.z * s.z
+        /// </summary>
+        /// <param name="m">Matrix to scale.</param>
+        /// <param name="s">Scaling coefficients for each column.</param>
+        /// <returns>The scaled matrix.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 mulScale(float3x3 m, float3 s) => new float3x3(m.c0 * s.x, m.c1 * s.y, m.c2 * s.z);
+
+        /// <summary>
+        /// Matrix rows multiplied by scale components
+        /// m.c0.x * s.x | m.c1.x * s.x | m.c2.x * s.x
+        /// m.c0.y * s.y | m.c1.y * s.y | m.c2.y * s.y
+        /// m.c0.z * s.z | m.c1.z * s.z | m.c2.z * s.z
+        /// </summary>
+        /// <param name="s">Scaling coefficients for each row.</param>
+        /// <param name="m">Matrix to scale.</param>
+        /// <returns>The scaled matrix.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public static float3x3 scaleMul(float3 s, float3x3 m) => new float3x3(m.c0 * s, m.c1 * s, m.c2 * s);
 
         // Internal
 
@@ -6648,15 +7173,6 @@ namespace Unity.Mathematics
         internal static uint3 fold_to_uint(double3 x) { return uint3(fold_to_uint(x.x), fold_to_uint(x.y), fold_to_uint(x.z)); }
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         internal static uint4 fold_to_uint(double4 x) { return uint4(fold_to_uint(x.x), fold_to_uint(x.y), fold_to_uint(x.z), fold_to_uint(x.w)); }
-
-        [StructLayout(LayoutKind.Explicit)]
-        internal struct IntFloatUnion
-        {
-            [FieldOffset(0)]
-            public int intValue;
-            [FieldOffset(0)]
-            public float floatValue;
-        }
 
         [StructLayout(LayoutKind.Explicit)]
         internal struct LongDoubleUnion
