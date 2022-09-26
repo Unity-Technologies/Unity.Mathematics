@@ -84,8 +84,6 @@ package_tests_{{platform.name}}_{{editor.display_name}}:
     test_results:
       paths:
           - "upm-ci~/**/*"
-  dependencies:
-    - .yamato/upm-ci.yml#msbuild_solution_ci
 {% endfor %}
 {% endfor %}
 
@@ -221,14 +219,3 @@ commit_ci:
         - "/.*/"
   dependencies:
     - .yamato/upm-ci.yml#package_tests_minimal
-
-msbuild_solution_ci:
-  name: msbuild solution
-  agent:
-    type: Unity::VM
-    image: test-platform/test-platform-win10-build:v0.2.7-828903
-    flavor: b1.large
-  commands:
-    - choco install -y netfx-4.7.1-devpack
-    - call "C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\Common7\Tools\VsDevCmd.bat"
-    - devenv /build src/Unity.Mathematics.sln
