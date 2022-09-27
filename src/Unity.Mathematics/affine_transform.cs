@@ -25,6 +25,11 @@ namespace Unity.Mathematics
         /// <summary>An AffineTransform representing the identity transform.</summary>
         public static readonly AffineTransform identity = new AffineTransform(float3.zero, float3x3.identity);
 
+        /// <summary>
+        /// An AffineTransform zero value.
+        /// </summary>
+        public static readonly AffineTransform zero;
+
         /// <summary>Constructs an AffineTransform from a translation represented by a float3 vector and rotation represented by a unit quaternion.</summary>
         /// <param name="translation">The translation vector.</param>
         /// <param name="rotation">The rotation quaternion.</param>
@@ -94,11 +99,13 @@ namespace Unity.Mathematics
 
         /// <summary>Implicit float3x4 cast operator.</summary>
         /// <param name="m">The AffineTransform.</param>
+        /// <returns>The converted AffineTransform.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float3x4(AffineTransform m) { return float3x4(m.rs.c0, m.rs.c1, m.rs.c2, m.t); }
 
         /// <summary>Implicit float4x4 cast operator.</summary>
         /// <param name="m">The AffineTransform.</param>
+        /// <returns>The converted AffineTransform.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static implicit operator float4x4(AffineTransform m) { return float4x4(float4(m.rs.c0, 0f), float4(m.rs.c1, 0f), float4(m.rs.c2, 0f), float4(m.t, 1f)); }
 
@@ -265,7 +272,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Returns the inverse of an AffineTransform.</summary>
-        /// <param name="t">The AffineTransform to invert.</param>
+        /// <param name="a">The AffineTransform to invert.</param>
         /// <returns>The inverse AffineTransform.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static AffineTransform inverse(AffineTransform a)
