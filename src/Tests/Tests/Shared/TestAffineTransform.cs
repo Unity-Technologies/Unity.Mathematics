@@ -162,5 +162,12 @@ namespace Unity.Mathematics.Tests
             float3 txPt0 = transform(tx, pt);
             TestUtils.AreEqual(mPt0, txPt0, 0.0001f);
         }
+
+        [TestCompiler]
+        public static void affine_transform_zero()
+        {
+            TestUtils.AreEqual(float3x3.zero, AffineTransform.zero.rs);
+            TestUtils.AreEqual(float3.zero, AffineTransform.zero.t);
+        }
     }
 }
