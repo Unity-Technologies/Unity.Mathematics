@@ -2,6 +2,15 @@
 
 ## [Unreleased]
 ### Added
+### Changed
+### Deprecated
+### Removed
+### Fixed
+
+
+## [1.3.0] 2023-07-12
+
+### Added
 * Added `math.square` to compute the square (x * x).
 * Added `math.orthonormal_basis` to compute an orthonormal basis from a single unit length vector.
 * Added `math.sign` for int, int2, int3 and int4.
@@ -13,31 +22,32 @@
 * Added `math.scaleMul` to scale rows of a float3x3 with scaling coefficients in a float3.
 * Added `AffineTransform` type.
 * Added `PI2`, `PIHALF`, `TAU`, `TODEGREES` and `TORADIANS` constants.
+
 ### Changed
 * `asfloat(uint)`, `asuint(float)`, `asint(float)` and other related methods are now faster in mono without Burst. Other methods which use these will see a performance improvement.
 * Modified `quaternion.nlerp` to be branchless.
 * More descriptive parameter names for many methods in `math` class.
 * Made `Il2CppEagerStaticClassConstructionAttribute` internal to avoid conflicts with other definitions outside of the package.
-### Deprecated
-### Removed
-### Fixed
+
+## [1.2.6] - 2022-02-11
+
+### Changed
+* Made Il2CppEagerStaticClassConstructionAttribute internal to avoid conflicts with other definitions outside of the package. 
 
 ## [1.2.5] - 2021-11-01
-### Added
-### Changed
-### Deprecated
-### Removed
+
 ### Fixed
 * Fixed property drawing when manually drawing a property that was hidden with [HideInInspector].
 
 ## [1.2.4] - 2021-09-22
+
 ### Added
 * Added `[Il2CppEagerStaticClassConstruction]` to Unity.Mathematics types to run static constructors at startup. This improves IL2CPP performance slightly for types that have static constructors.
+
 ### Changed
 * License file updated to satisfy Unity's package validation tests.
 * Changed noise documentation in comments to xmldoc comments.
-### Deprecated
-### Removed
+
 ### Fixed
 * Fixed Equals(object) override which did not check type before casting. This could cause exceptions to be thrown when the object did not match the expected type.
 * Fixed incorrect `math.tzcnt` documentation which mentioned leading zero counts instead of trailing zero counts.
@@ -46,10 +56,6 @@
 
 ## [1.2.1] - 2020-08-06
 
-### Added
-### Changed
-### Deprecated
-### Removed
 ### Fixed
 * Fixed warnings for meta files existing even though the files they represent did not exist.
 
@@ -73,9 +79,6 @@
 * Added some performance tests which can be run from the Unity test project.
 * Added `Random.CreateFromIndex()` to assist in creating Random instances from loop indices.
 
-### Changed
-### Deprecated
-### Removed
 ### Fixed
 * Fixed documentation bug where `quaternion.RotateX/Y/Z` referred to a `float4x4` instead of quaternion.
 * Fixed code generation bugs which could cause Windows and Mac to generate different test code.
