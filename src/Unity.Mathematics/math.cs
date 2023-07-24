@@ -6729,7 +6729,7 @@ namespace Unity.Mathematics
                     for (int i = 0; i < count; ++i)
                     {
                         state += *p++ * Prime2;
-                        state = (state << 13) | (state >> 19);
+                        state = rol(state, 13);
                         state *= Prime1;
                     }
 
