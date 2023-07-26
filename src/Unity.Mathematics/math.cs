@@ -6704,6 +6704,18 @@ namespace Unity.Mathematics
             return asfloat(asuint(x) ^ (asuint(y) & 0x80000000));
         }
 
+        /// <summary>
+        /// Read 32 bits of data in little endian format.
+        /// </summary>
+        /// <param name="pBuffer">Memory address to read from.</param>
+        /// <returns>32 bits in little endian format.</returns>
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        private static unsafe uint read32_little_endian(void* pBuffer)
+        {
+            byte* ptr = (byte*)pBuffer;
+            return (uint)ptr[0] | ((uint)ptr[1] << 8) | ((uint)ptr[2] << 16) | ((uint)ptr[3] << 24);
+        }
+
         /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
         /// <param name="pBuffer">A pointer to the beginning of the data.</param>
         /// <param name="numBytes">Number of bytes to hash.</param>
@@ -6711,54 +6723,113 @@ namespace Unity.Mathematics
         /// <returns>The 32 bit hash of the input data buffer.</returns>
         public static unsafe uint hash(void* pBuffer, int numBytes, uint seed = 0)
         {
-            unchecked
+            var p64 = (ulong)(UIntPtr)pBuffer;
+            bool isAligned16 = (p64 & 0xf) == 0;
+
+            if (isAligned16)
             {
-                const uint Prime1 = 2654435761;
-                const uint Prime2 = 2246822519;
-                const uint Prime3 = 3266489917;
-                const uint Prime4 = 668265263;
-                const uint Prime5 = 374761393;
-
-                uint4* p = (uint4*)pBuffer;
-                uint hash = seed + Prime5;
-                if (numBytes >= 16)
+                unchecked
                 {
-                    uint4 state = new uint4(Prime1 + Prime2, Prime2, 0, (uint)-Prime1) + seed;
+                    const uint Prime1 = 2654435761;
+                    const uint Prime2 = 2246822519;
+                    const uint Prime3 = 3266489917;
+                    const uint Prime4 = 668265263;
+                    const uint Prime5 = 374761393;
 
-                    int count = numBytes >> 4;
-                    for (int i = 0; i < count; ++i)
+                    uint4* p = (uint4*)pBuffer;
+                    uint hash = seed + Prime5;
+                    if (numBytes >= 16)
                     {
-                        state += *p++ * Prime2;
-                        state = rol(state, 13);
-                        state *= Prime1;
+                        uint4 state = new uint4(Prime1 + Prime2, Prime2, 0, (uint)-Prime1) + seed;
+
+                        int count = numBytes >> 4;
+                        for (int i = 0; i < count; ++i)
+                        {
+                            state += *p++ * Prime2;
+                            state = rol(state, 13);
+                            state *= Prime1;
+                        }
+
+                        hash = rol(state.x, 1) + rol(state.y, 7) + rol(state.z, 12) + rol(state.w, 18);
                     }
 
-                    hash = rol(state.x, 1) + rol(state.y, 7) + rol(state.z, 12) + rol(state.w, 18);
+                    hash += (uint)numBytes;
+
+                    uint* puint = (uint*)p;
+                    for (int i = 0; i < ((numBytes >> 2) & 3); ++i)
+                    {
+                        hash += *puint++ * Prime3;
+                        hash = rol(hash, 17) * Prime4;
+                    }
+
+                    byte* pbyte = (byte*)puint;
+                    for (int i = 0; i < ((numBytes) & 3); ++i)
+                    {
+                        hash += (*pbyte++) * Prime5;
+                        hash = rol(hash, 11) * Prime1;
+                    }
+
+                    hash ^= hash >> 15;
+                    hash *= Prime2;
+                    hash ^= hash >> 13;
+                    hash *= Prime3;
+                    hash ^= hash >> 16;
+
+                    return hash;
                 }
-
-                hash += (uint)numBytes;
-
-                uint* puint = (uint*)p;
-                for (int i = 0; i < ((numBytes >> 2) & 3); ++i)
+            }
+            else
+            {
+                unchecked
                 {
-                    hash += *puint++ * Prime3;
-                    hash = rol(hash, 17) * Prime4;
+                    const uint Prime1 = 2654435761;
+                    const uint Prime2 = 2246822519;
+                    const uint Prime3 = 3266489917;
+                    const uint Prime4 = 668265263;
+                    const uint Prime5 = 374761393;
+
+                    byte* p = (byte*)pBuffer;
+                    uint hash = seed + Prime5;
+                    if (numBytes >= 16)
+                    {
+                        uint4 state = new uint4(Prime1 + Prime2, Prime2, 0, (uint)-Prime1) + seed;
+
+                        int count = numBytes >> 4;
+                        for (int i = 0; i < count; ++i)
+                        {
+                            var data = new uint4(read32_little_endian(p), read32_little_endian(p + 4), read32_little_endian(p + 8), read32_little_endian(p + 12));
+                            state += data * Prime2;
+                            state = rol(state, 13);
+                            state *= Prime1;
+                            p += 16;
+                        }
+
+                        hash = rol(state.x, 1) + rol(state.y, 7) + rol(state.z, 12) + rol(state.w, 18);
+                    }
+
+                    hash += (uint)numBytes;
+
+                    for (int i = 0; i < ((numBytes >> 2) & 3); ++i)
+                    {
+                        hash += read32_little_endian(p) * Prime3;
+                        hash = rol(hash, 17) * Prime4;
+                        p += 4;
+                    }
+
+                    for (int i = 0; i < ((numBytes) & 3); ++i)
+                    {
+                        hash += (*p++) * Prime5;
+                        hash = rol(hash, 11) * Prime1;
+                    }
+
+                    hash ^= hash >> 15;
+                    hash *= Prime2;
+                    hash ^= hash >> 13;
+                    hash *= Prime3;
+                    hash ^= hash >> 16;
+
+                    return hash;
                 }
-
-                byte* pbyte = (byte*)puint;
-                for (int i = 0; i < ((numBytes) & 3); ++i)
-                {
-                    hash += (*pbyte++) * Prime5;
-                    hash = rol(hash, 11) * Prime1;
-                }
-
-                hash ^= hash >> 15;
-                hash *= Prime2;
-                hash ^= hash >> 13;
-                hash *= Prime3;
-                hash ^= hash >> 16;
-
-                return hash;
             }
         }
 
