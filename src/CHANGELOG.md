@@ -8,7 +8,7 @@
 ### Fixed
 
 
-## [1.3.0] 2023-07-12
+## [1.3.1] - 2023-07-12
 
 ### Added
 * Added `math.square` to compute the square (x * x).
