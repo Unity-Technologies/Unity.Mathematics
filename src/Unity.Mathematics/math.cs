@@ -6726,7 +6726,7 @@ namespace Unity.Mathematics
             var p64 = (ulong)(UIntPtr)pBuffer;
             bool isAligned16 = (p64 & 0xf) == 0;
 
-            if (isAligned16)
+            if (true || isAligned16)
             {
                 unchecked
                 {
