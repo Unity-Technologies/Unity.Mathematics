@@ -6,7 +6,7 @@
 ### Deprecated
 ### Removed
 ### Fixed
-
+* Fixed `math.hash` crash when using IL2CPP builds on Arm 32 bit devices.
 
 ## [1.3.0] 2023-07-12
 
