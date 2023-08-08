@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using static Unity.Mathematics.math;
 using Burst.Compiler.IL.Tests;
+using System;
 
 namespace Unity.Mathematics.Tests
 {
@@ -99,16 +100,29 @@ namespace Unity.Mathematics.Tests
                 0x1af38ea4, 0x460cb7e9, 0xf806e3a9, 0xec9b6b2e, 0x9972a843,
                 0x1ff06d2a, 0xe8c5007b, 0x37d8fc40, 0x0dc4f639, 0x36edff4f
             };
+
+            byte* buffer = stackalloc byte[testData.Length + 1];
             fixed (byte* p = testData)
             {
+                UIntPtr address = (UIntPtr)p;
+                bool isUnaligned = ((ulong)address & 1) > 0;
+                byte* unalignedPtr = buffer;
+
+                if (!isUnaligned)
+                {
+                    ++unalignedPtr;
+                }
+
+                Buffer.MemoryCopy(p, unalignedPtr, testData.Length + 1, testData.Length);
+
                 for (int i = 0; i < 50; ++i)
                 {
-                    TestUtils.AreEqual(hash(p, i, 0), resultsWithZeroSeed[i]);
+                    TestUtils.AreEqual(hash(unalignedPtr, i, 0), resultsWithZeroSeed[i]);
                 }
 
                 for (int i = 0; i < 50; ++i)
                 {
-                    TestUtils.AreEqual(hash(p, i, 0xeb69cf40), resultsWith_0xeb69cf40_seed[i]);
+                    TestUtils.AreEqual(hash(unalignedPtr, i, 0xeb69cf40), resultsWith_0xeb69cf40_seed[i]);
                 }
             }
         }
