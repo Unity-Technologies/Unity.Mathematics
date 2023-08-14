@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public partial class TestMath
     {
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public unsafe void hash_blob()
         {
             byte[] testData = {
@@ -61,7 +61,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public unsafe void hash_blob_unaligned()
         {
             byte[] testData = {

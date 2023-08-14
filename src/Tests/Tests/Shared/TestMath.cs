@@ -8,7 +8,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public partial class TestMath
     {
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_uint()
         {
             TestUtils.AreEqual(0, asint(0u));
@@ -19,7 +19,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1, asint(0xFFFFFFFFu));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_uint2()
         {
             TestUtils.AreEqual(int2(0, 0x12345678), asint(uint2(0u, 0x12345678u)));
@@ -27,21 +27,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int2(-2023406815, -1), asint(uint2(0x87654321u, 0xFFFFFFFFu)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_uint3()
         {
             TestUtils.AreEqual(int3(0, 0x12345678, 0x7FFFFFFF), asint(uint3(0u, 0x12345678u, 0x7FFFFFFFu)));
             TestUtils.AreEqual(int3(-2147483648, -2023406815, -1), asint(uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_uint4()
         {
             TestUtils.AreEqual(int4(0, 0x12345678, 0x7FFFFFFF, -2147483648), asint(uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u)));
             TestUtils.AreEqual(int4(-2023406815, -1, 0, 0), asint(uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_float()
         {
             TestUtils.AreEqual(0, asint(0.0f));
@@ -56,14 +56,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(unchecked((int)0xFF800000), asint(float.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float_signed_zero()
         {
             TestUtils.AreEqual(unchecked((int)0x80000000), asint(TestUtils.SignedFloatZero()));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_float2()
         {
             TestUtils.AreEqual(int2(0, 0x3F800000), asint(float2(0.0f, 1.0f)));
@@ -75,14 +75,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int2(0, 0), asint(float2(0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float2_signed_zero()
         {
             TestUtils.AreEqual(int2(unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_float3()
         {
             TestUtils.AreEqual(int3(0, 0x3F800000, 0x449A51EC), asint(float3(0.0f, 1.0f, 1234.56f)));
@@ -91,14 +91,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int3(unchecked((int)0xC49A51EC), unchecked((int)0xFF800000), 0), asint(float3(-1234.56f, float.NegativeInfinity, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float3_signed_zero()
         {
             TestUtils.AreEqual(int3(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asint_float4()
         {
             TestUtils.AreEqual(int4(0, 0x3F800000, 0x449A51EC, 0x7F800000), asint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)));
@@ -106,14 +106,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int4(unchecked((int)0x7FC00000), unchecked((int)0xBF800000), unchecked((int)0xC49A51EC), unchecked((int)0xFF800000)), asint(float4(TestUtils.UnsignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asint_float4_signed_zero()
         {
             TestUtils.AreEqual(int4(unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000), unchecked((int)0x80000000)), asint(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_int()
         {
             TestUtils.AreEqual(0u, asuint(0));
@@ -124,7 +124,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0xFFFFFFFFu, asuint(-1));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_int2()
         {
             TestUtils.AreEqual(uint2(0u, 0x12345678u), asuint(int2(0, 0x12345678)));
@@ -132,21 +132,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(0x87654321u, 0xFFFFFFFFu), asuint(int2(-2023406815, -1)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_int3()
         {
             TestUtils.AreEqual(uint3(0u, 0x12345678u, 0x7FFFFFFFu), asuint(int3(0, 0x12345678, 0x7FFFFFFF)));
             TestUtils.AreEqual(uint3(0x80000000u, 0x87654321u, 0xFFFFFFFFu), asuint(int3(-2147483648, -2023406815, -1)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_int4()
         {
             TestUtils.AreEqual(uint4(0u, 0x12345678u, 0x7FFFFFFFu, 0x80000000u), asuint(int4(0, 0x12345678, 0x7FFFFFFF, -2147483648)));
             TestUtils.AreEqual(uint4(0x87654321u, 0xFFFFFFFFu, 0u, 0u), asuint(int4(-2023406815, -1, 0, 0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_float()
         {
             TestUtils.AreEqual(0u, asuint(0.0f));
@@ -161,14 +161,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0xFF800000u, asuint(float.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float_signed_zero()
         {
             TestUtils.AreEqual(0x80000000u, asuint(TestUtils.SignedFloatZero()));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_float2()
         {
             TestUtils.AreEqual(uint2(0u, 0x3F800000u), asuint(float2(0.0f, 1.0f)));
@@ -179,14 +179,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(0xC49A51ECu, 0xFF800000u), asuint(float2(-1234.56f, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float2_signed_zero()
         {
             TestUtils.AreEqual(uint2(0x80000000u, 0x80000000u), asuint(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_float3()
         {
             TestUtils.AreEqual(uint3(0u, 0x3F800000u, 0x449A51ECu), asuint(float3(0.0f, 1.0f, 1234.56f)));
@@ -195,14 +195,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint3(0xC49A51ECu, 0xff800000u, 0u), asuint(float3(-1234.56f, float.NegativeInfinity, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float3_signed_zero()
         {
             TestUtils.AreEqual(uint3(0x80000000u, 0x80000000u, 0x80000000u), asuint(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asuint_float4()
         {
             TestUtils.AreEqual(uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u), asuint(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity)));
@@ -210,14 +210,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint4(0x7FC00000u, 0xBF800000u, 0xC49A51ECu, 0xFF800000u), asuint(float4(TestUtils.UnsignedFloatQNaN(), -1.0f, -1234.56f, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asuint_float4_singed_zero()
         {
             TestUtils.AreEqual(uint4(0x80000000u, 0x80000000u, 0x80000000u, 0x80000000u), asuint(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void aslong_ulong()
         {
             TestUtils.AreEqual(0L, aslong(0ul));
@@ -228,7 +228,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1L, aslong(0xFFFFFFFFFFFFFFFFul));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void aslong_double()
         {
             TestUtils.AreEqual(0L, aslong(0.0));
@@ -242,14 +242,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(unchecked((long)0xFFF0000000000000UL), aslong(double.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void aslong_double_signed_zero()
         {
             TestUtils.AreEqual(unchecked((long)0x8000000000000000UL), aslong(TestUtils.SignedDoubleZero()));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asulong_long()
         {
             TestUtils.AreEqual(0ul, asulong(0L));
@@ -260,7 +260,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0xFFFFFFFFFFFFFFFFul, asulong(-1L));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asulong_double()
         {
             TestUtils.AreEqual(0UL, asulong(0.0));
@@ -274,14 +274,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0xFFF0000000000000UL, asulong(double.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void asulong_double_signed_zero()
         {
             TestUtils.AreEqual(0x8000000000000000UL, asulong(TestUtils.SignedDoubleZero()));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_int()
         {
             TestUtils.AreEqual(0.0f, asfloat(0));
@@ -297,7 +297,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(TestUtils.UnsignedFloatQNaN()), asuint(asfloat(unchecked((int)0x7FC00000))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_int2()
         {
             TestUtils.AreEqual(float2(0.0f, 1.0f), asfloat(int2(0, 0x3F800000)));
@@ -309,7 +309,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float2(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int2(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_int3()
         {
             TestUtils.AreEqual(float3(0.0f, 1.0f, 1234.56f), asfloat(int3(0, 0x3F800000, 0x449A51EC)));
@@ -320,7 +320,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float3(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int3(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_int4()
         {
             TestUtils.AreEqual(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity), asfloat(int4(0, 0x3F800000, 0x449A51EC, 0x7F800000)));
@@ -330,7 +330,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float4(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(int4(unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000), unchecked((int)0x7FC00000)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_uint()
         {
             TestUtils.AreEqual(0.0f, asfloat(0u));
@@ -346,7 +346,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(TestUtils.UnsignedFloatQNaN()), asuint(asfloat(0x7FC00000u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_uint2()
         {
             TestUtils.AreEqual(float2(0.0f, 1.0f), asfloat(uint2(0u, 0x3F800000u)));
@@ -358,7 +358,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float2(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint2(0x7FC00000u, 0x7FC00000u))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_uint3()
         {
             TestUtils.AreEqual(float3(0.0f, 1.0f, 1234.56f), asfloat(uint3(0u, 0x3F800000u, 0x449A51ECu)));
@@ -369,7 +369,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float3(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint3(0x7FC00000u, 0x7FC00000u, 0x7FC00000u))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asfloat_uint4()
         {
             TestUtils.AreEqual(float4(0.0f, 1.0f, 1234.56f, float.PositiveInfinity), asfloat(uint4(0u, 0x3F800000u, 0x449A51ECu, 0x7F800000u)));
@@ -379,7 +379,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(float4(TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN(), TestUtils.UnsignedFloatQNaN())), asuint(asfloat(uint4(0x7FC00000u, 0x7FC00000u, 0x7FC00000u, 0x7FC00000u))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asdouble_long()
         {
             TestUtils.AreEqual(0.0, asdouble(0L));
@@ -394,7 +394,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, asdouble(unchecked((long)0xFFF0000000000000UL)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void asdouble_ulong()
         {
             TestUtils.AreEqual(0.0, asdouble(0UL));
@@ -409,7 +409,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, asdouble(0xFFF0000000000000UL));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_float2()
         {
             TestUtils.AreEqual(float2(-3.5f, 4.5f), faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2(3.0f, -4.0f)));
@@ -417,7 +417,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(-3.5f, 4.5f), faceforward(float2(3.5f, -4.5f), float2(1.0f, -2.0f), float2(0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_float3()
         {
             TestUtils.AreEqual(float3(-3.5f, 4.5f, -5.5f), faceforward(float3(3.5f, -4.5f, 5.5f), float3(1.0f, -2.0f, 3.0f), float3(3.0f, -4.0f, 5.0f)));
@@ -425,7 +425,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(-3.5f, 4.5f, -5.5f), faceforward(float3(3.5f, -4.5f, 5.5f), float3(1.0f, -2.0f, 3.0f), float3(0.0f, 0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_float4()
         {
             TestUtils.AreEqual(float4(-3.5f, 4.5f, -5.5f, 6.5f), faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4(3.0f, -4.0f, 5.0f, -6.0f)));
@@ -433,7 +433,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(-3.5f, 4.5f, -5.5f, 6.5f), faceforward(float4(3.5f, -4.5f, 5.5f, -6.5f), float4(1.0f, -2.0f, 3.0f, -4.0f), float4(0.0f, 0.0f, 0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_double2()
         {
             TestUtils.AreEqual(double2(-3.5, 4.5), faceforward(double2(3.5, -4.5), double2(1.0, -2.0), double2(3.0, -4.0)));
@@ -441,7 +441,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(-3.5, 4.5), faceforward(double2(3.5, -4.5), double2(1.0, -2.0), double2(0.0, 0.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_double3()
         {
             TestUtils.AreEqual(double3(-3.5, 4.5, -5.5), faceforward(double3(3.5, -4.5, 5.5), double3(1.0, -2.0, 3.0), double3(3.0, -4.0, 5.0)));
@@ -449,7 +449,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(-3.5, 4.5, -5.5), faceforward(double3(3.5, -4.5, 5.5), double3(1.0, -2.0, 3.0), double3(0.0, 0.0, 0.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void faceforward_double4()
         {
             TestUtils.AreEqual(double4(-3.5, 4.5, -5.5, 6.5), faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4(3.0, -4.0, 5.0, -6.0)));
@@ -457,7 +457,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(-3.5, 4.5, -5.5, 6.5), faceforward(double4(3.5, -4.5, 5.5, -6.5), double4(1.0, -2.0, 3.0, -4.0), double4(0.0, 0.0, 0.0, 0.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_float()
         {
             float f, i;
@@ -474,7 +474,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_float2()
         {
             float2 f, i;
@@ -487,7 +487,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(0.0f, 0.5f), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_float3()
         {
             float3 f, i;
@@ -496,7 +496,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(0.75f, -0.25f, 0.0f), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_float4()
         {
             float4 f, i;
@@ -505,7 +505,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(0.75f, -0.25f, 0.0f, 0.5f), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_double()
         {
             double f, i;
@@ -522,7 +522,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0, f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_double2()
         {
             double2 f, i;
@@ -535,7 +535,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(0.0, 0.5), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_double3()
         {
             double3 f, i;
@@ -544,7 +544,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(0.75, -0.25, 0.0), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void modf_double4()
         {
             double4 f, i;
@@ -553,21 +553,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(0.75, -0.25, 0.0, 0.5f), f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_float2()
         {
             TestUtils.AreEqual(float2(0.504883f, -0.863188f), normalize(float2(3.1f, -5.3f)), 0.0001f);
             TestUtils.AreEqual(true, all(isnan(normalize(float2(0.0f, 0.0f)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_float3()
         {
             TestUtils.AreEqual(float3(0.464916f, -0.794861f, 0.389932f), normalizesafe(float3(3.1f, -5.3f, 2.6f)), 0.0001f);
             TestUtils.AreEqual(true, all(isnan(normalize(float3(0.0f, 0.0f, 0.0f)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_float4()
         {
             TestUtils.AreEqual(float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), 0.0001f);
@@ -575,28 +575,28 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_double2()
         {
             TestUtils.AreEqual(double2(0.504883, -0.863188), normalize(double2(3.1, -5.3)), 0.0001);
             TestUtils.AreEqual(true, all(isnan(normalize(double2(0.0, 0.0)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_double3()
         {
             TestUtils.AreEqual(double3(0.464916, -0.794861, 0.389932), normalizesafe(double3(3.1, -5.3, 2.6)), 0.0001);
             TestUtils.AreEqual(true, all(isnan(normalize(double3(0.0, 0.0, 0.0)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_double4()
         {
             TestUtils.AreEqual(double4(0.234727, -0.401308, 0.196868, 0.863191), normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), 0.0001);
             TestUtils.AreEqual(true, all(isnan(normalize(double4(0.0, 0.0, 0.0, 0.0f)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalize_quaternion()
         {
             TestUtils.AreEqual(quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), 0.0001f);
@@ -604,7 +604,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_float2()
         {
             TestUtils.AreEqual(float2(0.504883f, -0.863188f), normalizesafe(float2(3.1f, -5.3f)), 0.0001f);
@@ -614,7 +614,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(1.0f, 2.0f), normalizesafe(float2(7.66e-20f, 7.66e-20f), float2(1.0f, 2.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_float3()
         {
             TestUtils.AreEqual(float3(0.464916f, -0.794861f, 0.389932f), normalizesafe(float3(3.1f, -5.3f, 2.6f)), 0.0001f);
@@ -624,7 +624,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(1.0f, 2.0f, 3.0f), normalizesafe(float3(6.25e-20f, 6.25e-20f, 6.25e-20f), float3(1.0f, 2.0f, 3.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_float4()
         {
             TestUtils.AreEqual(float4(0.234727f, -0.401308f, 0.196868f, 0.863191f), normalizesafe(float4(3.1f, -5.3f, 2.6f, 11.4f)), 0.0001f);
@@ -635,7 +635,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_double2()
         {
             TestUtils.AreEqual(double2(0.504883, -0.863188), normalizesafe(double2(3.1, -5.3)), 0.0001);
@@ -645,7 +645,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(1.0, 2.0), normalizesafe(double2(1.05e-154, 1.05e-154), double2(1.0, 2.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_double3()
         {
             TestUtils.AreEqual(double3(0.464916, -0.794861, 0.389932), normalizesafe(double3(3.1, -5.3, 2.6)), 0.0001);
@@ -655,7 +655,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(1.0, 2.0, 3.0), normalizesafe(double3(8.61e-155, 8.61e-155, 8.61e-155), double3(1.0, 2.0, 3.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_double4()
         {
             TestUtils.AreEqual(double4(0.234727, -0.401308, 0.196868, 0.863191), normalizesafe(double4(3.1, -5.3, 2.6, 11.4)), 0.0001);
@@ -665,7 +665,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(1.0, 2.0, 3.0, 4.0), normalizesafe(double4(7.45e-155, 7.45e-155, 7.45e-155, 7.45e-155), double4(1.0, 2.0, 3.0, 4.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void normalizesafe_quaternion()
         {
             TestUtils.AreEqual(quaternion(0.234727f, -0.401308f, 0.196868f, 0.863191f), normalizesafe(quaternion(3.1f, -5.3f, 2.6f, 11.4f)), 0.0001f);
@@ -675,7 +675,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion(1.0f, 2.0f, 3.0f, 4.0f), normalizesafe(quaternion(5.42e-20f, 5.42e-20f, 5.42e-20f, 5.42e-20f), quaternion(1.0f, 2.0f, 3.0f, 4.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f16tof32_float()
         {
             TestUtils.AreEqual(0x00000000, asuint(f16tof32(0x0000)));
@@ -693,7 +693,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, isnan(f16tof32(0xFC01)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f16tof32_float2()
         {
             TestUtils.AreEqual(uint2(0x00000000, 0x3800C000), asuint(f16tof32(uint2(0x0000, 0x0203))));
@@ -707,7 +707,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(isnan(f16tof32(uint2(0xFC01, 0xFC01)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f16tof32_float3()
         {
             TestUtils.AreEqual(uint3(0x00000000, 0x3800C000, 0x40642000), asuint(f16tof32(uint3(0x0000, 0x0203, 0x4321))));
@@ -719,7 +719,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(isnan(f16tof32(uint3(0xFC01, 0xFC01, 0xFC01)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f16tof32_float4()
         {
             TestUtils.AreEqual(uint4(0x00000000, 0x3800C000, 0x40642000, 0x477FE000), asuint(f16tof32(uint4(0x0000, 0x0203, 0x4321, 0x7BFF))));
@@ -731,7 +731,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(isnan(f16tof32(uint4(0xFC01, 0xFC01, 0xFC01, 0xFC01)))));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f32tof16_float()
         {
             TestUtils.AreEqual(0x0000, f32tof16(0.0f));
@@ -751,14 +751,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0xFC00, f32tof16(float.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float_signed_zero()
         {
             TestUtils.AreEqual(0x8000, f32tof16(TestUtils.SignedFloatZero()));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f32tof16_float2()
         {
             TestUtils.AreEqual(uint2(0x0000, 0x0000), f32tof16(float2(0.0f, 2.98e-08f)));
@@ -772,14 +772,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(0xFC00, 0x0000), f32tof16(float2(float.NegativeInfinity, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float2_signed_zero()
         {
             TestUtils.AreEqual(uint2(0x8000, 0x8000), f32tof16(float2(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f32tof16_float3()
         {
             TestUtils.AreEqual(uint3(0x0000, 0x0000, 0x0001), f32tof16(float3(0.0f, 2.98e-08f, 5.96046448e-08f)));
@@ -790,14 +790,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint3(0xFC00, 0xFC00, 0x0000), f32tof16(float3(-65520.0f, float.NegativeInfinity, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float3_signed_zero()
         {
             TestUtils.AreEqual(uint3(0x8000, 0x8000, 0x8000), f32tof16(float3(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void f32tof16_float4()
         {
             TestUtils.AreEqual(uint4(0x0000, 0x0000, 0x0001, 0x57B6), f32tof16(float4(0.0f, 2.98e-08f, 5.96046448e-08f, 123.4f)));
@@ -806,14 +806,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint4(0xFC00, 0xFC00, 0xFC00, 0x0000), f32tof16(float4(-65520.0f, float.NegativeInfinity, float.NegativeInfinity, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void f32tof16_float4_signed_zero()
         {
             TestUtils.AreEqual(uint4(0x8000, 0x8000, 0x8000, 0x8000), f32tof16(float4(TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero(), TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_float2()
         {
             TestUtils.AreEqual(float2(9.84f, -3.888f), reflect(float2(1.2f, 3.6f), float2(1.5f, -1.3f)), 8, false);
@@ -822,7 +822,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(0.0f, 0.0f), reflect(float2(0.0f, 0.0f), float2(-1.5f, -1.3f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_float3()
         {
             TestUtils.AreEqual(float3(35.88f, -26.456f, 68.872f), reflect(float3(1.2f, 3.6f, -2.8f), float3(1.5f, -1.3f, 3.1f)), 8, false);
@@ -831,7 +831,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(0.0f, 0.0f, 0.0f), reflect(float3(0.0f, 0.0f, 0.0f), float3(-1.5f, -1.3f, 3.1f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_float4()
         {
             TestUtils.AreEqual(float4(36.51f, -27.002f, 70.174f, -16.178f), reflect(float4(1.2f, 3.6f, -2.8f, 0.3f), float4(1.5f, -1.3f, 3.1f, -0.7f)), 8, false);
@@ -841,7 +841,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_double2()
         {
             TestUtils.AreEqual(double2(9.84, -3.888), reflect(double2(1.2, 3.6), double2(1.5, -1.3)), 8, false);
@@ -850,7 +850,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(0.0, 0.0), reflect(double2(0.0, 0.0), double2(-1.5, -1.3)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_double3()
         {
             TestUtils.AreEqual(double3(35.88, -26.456, 68.872), reflect(double3(1.2, 3.6, -2.8), double3(1.5, -1.3, 3.1)), 8, false);
@@ -859,7 +859,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(0.0, 0.0, 0.0), reflect(double3(0.0, 0.0, 0.0), double3(-1.5f, -1.3, 3.1)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void reflect_double4()
         {
             TestUtils.AreEqual(double4(36.51, -27.002, 70.174, -16.178), reflect(double4(1.2, 3.6, -2.8, 0.3), double4(1.5, -1.3, 3.1, -0.7)), 8, false);
@@ -869,7 +869,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_float2()
         {
             TestUtils.AreEqual(float2(-0.3676186f, 0.9299768f), refract(float2(0.316228f, 0.948683f), float2(0.755689f, -0.654931f), 0.5f), 8, false);
@@ -877,7 +877,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(0.0f, 0.0f), refract(float2(0.316228f, 0.948683f), float2(0.755689f, -0.654931f), 1.5f));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_float3()
         {
             TestUtils.AreEqual(float3(-0.2863437f, 0.8056898f, -0.5185286f), refract(float3(0.288375f, 0.865125f, -0.410365f), float3(0.662147f, -0.573861f, 0.481919f), 0.5f), 8, false);
@@ -885,7 +885,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(0.0f, 0.0f, 0.0f), refract(float3(0.288375f, 0.865125f, -0.410365f), float3(0.662147f, -0.573861f, 0.481919f), 1.5f));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_float4()
         {
             TestUtils.AreEqual(float4(-0.302029191645545f, 0.799522577847971f, -0.518952508802814f, -0.015196476378571f), refract(float4(0.278154f, 0.834461f, -0.39582f, -0.26388f), float4(0.652208f, -0.565247f, 0.474685f, -0.1726139f), 0.5f), 16, false);
@@ -894,7 +894,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_double2()
         {
             TestUtils.AreEqual(double2(-0.367618540673032, 0.929976739623085), refract(double2(0.316228, 0.948683), double2(0.755689, -0.654931), 0.5), 8, false);
@@ -902,7 +902,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(0.0, 0.0), refract(double2(0.316228, 0.948683), double2(0.755689, -0.654931), 1.5));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_double3()
         {
             TestUtils.AreEqual(double3(-0.286343746291412, 0.805689753507206, -0.518528611485079), refract(double3(0.288375, 0.865125, -0.410365), double3(0.662147, -0.573861, 0.481919), 0.5), 8, false);
@@ -910,7 +910,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(0.0, 0.0, 0.0), refract(double3(0.288375, 0.865125, -0.410365), double3(0.662147, -0.573861, 0.481919), 1.5));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void refract_double4()
         {
             TestUtils.AreEqual(double4(-0.302029191645545, 0.799522577847971, -0.518952508802814, -0.015196476378571), refract(double4(0.278154, 0.834461, -0.39582, -0.26388), double4(0.652208, -0.565247, 0.474685, -0.1726139), 0.5), 16, false);
@@ -918,7 +918,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(0.0, 0.0, 0.0, 0.0), refract(double4(0.278154, 0.834461, -0.39582, -0.26388), double4(0.652208, -0.565247, 0.474685, -0.172613), 1.5));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_float2()
         {
             var a = float2(-0.161021441221237182617f, 0.429202795028686523438f);
@@ -927,7 +927,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(1.0f, 0.0f), project(float2(1.0f), float2(1.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_float3()
         {
             var a = float3(0.394884318113327026367f, 0.148208647966384887695f, -0.264224529266357421875f);
@@ -936,7 +936,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), project(float3(1.0f), float3(1.0f, 0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_float4()
         {
             var a = float4(0.122686818242073059082f, 0.465182095766067504883f, -0.388583064079284667969f, -0.15201015770435333252f);
@@ -945,7 +945,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(1.0f, 0.0f, 0.0f, 0.0f), project(float4(1.0f), float4(1.0f, 0.0f, 0.0f, 0.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_float2()
         {
             var a = float2(-0.161021441221237182617f, 0.429202795028686523438f);
@@ -957,7 +957,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(4.0f), projectsafe(float2(NAN), float2(0.0f), float2(4.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_float3()
         {
             var a = float3(0.394884318113327026367f, 0.148208647966384887695f, -0.264224529266357421875f);
@@ -969,7 +969,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(4.0f), projectsafe(float3(NAN), float3(0.0f), float3(4.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_float4()
         {
             var a = float4(0.122686818242073059082f, 0.465182095766067504883f, -0.388583064079284667969f, -0.15201015770435333252f);
@@ -981,7 +981,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(4.0f), projectsafe(float4(NAN), float4(0.0f), float4(4.0f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_double2()
         {
             var a = double2(-0.435219509355847911092, -0.359623376546357509387);
@@ -991,7 +991,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2.zero, projectsafe(a, double2(DBL_MIN_NORMAL)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_double3()
         {
             var a = double3(-0.3102470377532390855, -0.255432695780735075086, -0.180834679740036918805);
@@ -1001,7 +1001,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3.zero, projectsafe(a, double3(DBL_MIN_NORMAL)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void project_double4()
         {
             var a = double4(0.452051837682779789063, -0.0365627422588526429514, 0.236716008642456676725, 0.397823192622046239997);
@@ -1011,7 +1011,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4.zero, projectsafe(a, double4(DBL_MIN_NORMAL)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_double2()
         {
             var a = double2(-0.435219509355847911092, -0.359623376546357509387);
@@ -1023,7 +1023,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(4.0), projectsafe(double2(NAN_DBL), double2(0.0), double2(4.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_double3()
         {
             var a = double3(-0.3102470377532390855, -0.255432695780735075086, -0.180834679740036918805);
@@ -1035,7 +1035,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(4.0), projectsafe(double3(NAN_DBL), double3(0.0), double3(4.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void projectsafe_double4()
         {
             var a = double4(0.452051837682779789063, -0.0365627422588526429514, 0.236716008642456676725, 0.397823192622046239997);
@@ -1047,7 +1047,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(4.0), projectsafe(double4(NAN_DBL), double4(0.0), double4(4.0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_float()
         {
             float s, c;
@@ -1086,7 +1086,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_float2()
         {
             float2 s, c;
@@ -1108,7 +1108,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(float.NaN, float.NaN), c, 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_float3()
         {
             float3 s, c;
@@ -1126,7 +1126,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(float.NaN, float.NaN, float.NaN), c, 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_float4()
         {
             float4 s, c;
@@ -1140,7 +1140,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4(0.936752141f, float.NaN, float.NaN, float.NaN), c, 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_double()
         {
             double s, c;
@@ -1177,7 +1177,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NaN, c, 32, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_double2()
         {
             double2 s, c;
@@ -1198,7 +1198,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(double.NaN, double.NaN), c, 32, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_double3()
         {
             double3 s, c;
@@ -1216,7 +1216,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(double.NaN, double.NaN, double.NaN), c, 32, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void sincos_double4()
         {
             double4 s, c;
@@ -1230,14 +1230,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double4(0.93675212753314474, double.NaN, double.NaN, double.NaN), c, 32, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_int()
         {
             TestUtils.AreEqual(-123456789, select(-123456789, 987654321, false));
             TestUtils.AreEqual(987654321, select(-123456789, 987654321, true));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_int2()
         {
             TestUtils.AreEqual(int2(-123456789, -123456790), select(int2(-123456789, -123456790), int2(987654321, 987654322), false));
@@ -1249,7 +1249,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int2(987654321, 987654322), select(int2(-123456789, -123456790), int2(987654321, 987654322), bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_int3()
         {
             TestUtils.AreEqual(int3(-123456789, -123456790, -123456791), select(int3(-123456789, -123456790, -123456791), int3(987654321, 987654322, 987654323), false));
@@ -1266,7 +1266,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int3(987654321, 987654322, 987654323), select(int3(-123456789, -123456790, -123456791), int3(987654321, 987654322, 987654323), bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_int4()
         {
             TestUtils.AreEqual(int4(-123456789, -123456790, -123456791, -123456792), select(int4(-123456789, -123456790, -123456791, -123456792), int4(987654321, 987654322, 987654323, 987654324), false));
@@ -1293,14 +1293,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int4(987654321, 987654322, 987654323, 987654324), select(int4(-123456789, -123456790, -123456791, -123456792), int4(987654321, 987654322, 987654323, 987654324), bool4(true, true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_uint()
         {
             TestUtils.AreEqual(123456789u, select(123456789u, 987654321u, false));
             TestUtils.AreEqual(987654321u, select(123456789u, 987654321u, true));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_uint2()
         {
             TestUtils.AreEqual(uint2(123456789u, 123456790u), select(uint2(123456789u, 123456790u), uint2(987654321u, 987654322u), false));
@@ -1312,7 +1312,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(987654321u, 987654322u), select(uint2(123456789u, 123456790u), uint2(987654321u, 987654322u), bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_uint3()
         {
             TestUtils.AreEqual(uint3(123456789u, 123456790u, 123456791u), select(uint3(123456789u, 123456790u, 123456791u), uint3(987654321u, 987654322u, 987654323u), false));
@@ -1329,7 +1329,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint3(987654321u, 987654322u, 987654323u), select(uint3(123456789u, 123456790u, 123456791u), uint3(987654321u, 987654322u, 987654323u), bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_uint4()
         {
             TestUtils.AreEqual(uint4(123456789u, 123456790u, 123456791u, 123456792u), select(uint4(123456789u, 123456790u, 123456791u, 123456792u), uint4(987654321u, 987654322u, 987654323u, 987654324u), false));
@@ -1356,14 +1356,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint4(987654321u, 987654322u, 987654323u, 987654324u), select(uint4(123456789u, 123456790u, 123456791u, 123456792u), uint4(987654321u, 987654322u, 987654323u, 987654324u), bool4(true, true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_long()
         {
             TestUtils.AreEqual(-12345678910111314L, select(-12345678910111314L, 987654321011121314L, false));
             TestUtils.AreEqual(987654321011121314L, select(-12345678910111314L, 987654321011121314L, true));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_ulong()
         {
             TestUtils.AreEqual(12345678910111314UL, select(12345678910111314UL, 987654321011121314UL, false));
@@ -1371,14 +1371,14 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_float()
         {
             TestUtils.AreEqual(-1234.5f, select(-1234.5f, 9876.25f, false));
             TestUtils.AreEqual(9876.25f, select(-1234.5f, 9876.25f, true));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_float2()
         {
             TestUtils.AreEqual(float2(-1234.5f, -1235.5f), select(float2(-1234.5f, -1235.5f), float2(9876.25f, 9877.25f), false));
@@ -1390,7 +1390,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(9876.25f, 9877.25f), select(float2(-1234.5f, -1235.5f), float2(9876.25f, 9877.25f), bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_float3()
         {
             TestUtils.AreEqual(float3(-1234.5f, -1235.5f, -1236.5f), select(float3(-1234.5f, -1235.5f, -1236.5f), float3(9876.25f, 9877.25f, 9878.25f), false));
@@ -1407,7 +1407,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(9876.25f, 9877.25f, 9878.25f), select(float3(-1234.5f, -1235.5f, -1236.5f), float3(9876.25f, 9877.25f, 9878.25f), bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_float4()
         {
             TestUtils.AreEqual(float4(-1234.5f, -1235.5f, -1236.5f, -1237.5f), select(float4(-1234.5f, -1235.5f, -1236.5f, -1237.5f), float4(9876.25f, 9877.25f, 9878.25f, 9879.25f), false));
@@ -1435,14 +1435,14 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_double()
         {
             TestUtils.AreEqual(-1234.5, select(-1234.5, 9876.25, false));
             TestUtils.AreEqual(9876.25, select(-1234.5, 9876.25, true));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_double2()
         {
             TestUtils.AreEqual(double2(-1234.5, -1235.5), select(double2(-1234.5, -1235.5), double2(9876.25, 9877.25), false));
@@ -1454,7 +1454,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double2(9876.25, 9877.25), select(double2(-1234.5, -1235.5), double2(9876.25, 9877.25), bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_double3()
         {
             TestUtils.AreEqual(double3(-1234.5, -1235.5, -1236.5), select(double3(-1234.5, -1235.5, -1236.5), double3(9876.25, 9877.25, 9878.25), false));
@@ -1471,7 +1471,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double3(9876.25, 9877.25, 9878.25), select(double3(-1234.5, -1235.5, -1236.5), double3(9876.25, 9877.25, 9878.25), bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void select_double4()
         {
             TestUtils.AreEqual(double4(-1234.5, -1235.5, -1236.5, -1237.5), select(double4(-1234.5, -1235.5, -1236.5, -1237.5), double4(9876.25, 9877.25, 9878.25, 9879.25), false));
@@ -1499,7 +1499,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_int()
         {
             TestUtils.AreEqual(133, dot(7, 19));
@@ -1508,7 +1508,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(667585376, dot(61031, 81312));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_int2()
         {
             TestUtils.AreEqual(322, dot(int2(7, 9), int2(19, 21)));
@@ -1517,7 +1517,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1840235232, dot(int2(61031, -12534), int2(-41312, -5312)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_int3()
         {
             TestUtils.AreEqual(582, dot(int3(7, 9, 13), int3(19, 21, 20)));
@@ -1526,7 +1526,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1636460279, dot(int3(61031, -12534, 9211), int3(-41312, -5312, -22123)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_int4()
         {
             TestUtils.AreEqual(990, dot(int4(7, 9, 13, 17), int4(19, 21, 20, 24)));
@@ -1536,28 +1536,28 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_uint()
         {
             TestUtils.AreEqual(133u, dot(7u, 19u));
             TestUtils.AreEqual(667585376u, dot(61031u, 81312u));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_uint2()
         {
             TestUtils.AreEqual(322, dot(uint2(7u, 9u), uint2(19u, 21u)));
             TestUtils.AreEqual(734165984u, dot(uint2(61031u, 12534u), uint2(81312u, 5312u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_uint3()
         {
             TestUtils.AreEqual(582u, dot(uint3(7u, 9u, 13u), uint3(19u, 21u, 20u)));
             TestUtils.AreEqual(937940937u, dot(uint3(61031u, 12534u, 9211u), uint3(81312u, 5312u, 22123u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_uint4()
         {
             TestUtils.AreEqual(990u, dot(uint4(7u, 9u, 13u, 17u), uint4(19u, 21u, 20u, 24u)));
@@ -1565,7 +1565,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_float()
         {
             TestUtils.AreEqual(7.32f, dot(1.2f, 6.1f), 1, false);
@@ -1576,7 +1576,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, dot(1.2e19f, -6.1e19f), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_float2()
         {
             TestUtils.AreEqual(57.92f, dot(float2(1.2f, 5.5f), float2(6.1f, 9.2f)), 1, false);
@@ -1587,7 +1587,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, dot(float2(-1.2e18f, 5.5e18f), float2(6.1e19f, -9.2e19f)), 1, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_float3()
         {
             TestUtils.AreEqual(67.1f, dot(float3(1.2f, 5.5f, 3.4f), float3(6.1f, 9.2f, 2.7f)), 8, false);
@@ -1598,7 +1598,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, dot(float3(-1.2e18f, 5.5e18f, 3.4e18f), float3(6.1e19f, -9.2e19f, -2.7e19f)), 1, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_float4()
         {
             TestUtils.AreEqual(68.57f, dot(float4(1.2f, 5.5f, 3.4f, 4.9f), float4(6.1f, 9.2f, 2.7f, 0.3f)), 8, false);
@@ -1620,7 +1620,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, dot(1.2e19, -6.1e19), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_double2()
         {
             TestUtils.AreEqual(57.92, dot(double2(1.2, 5.5), double2(6.1, 9.2)), 1, false);
@@ -1631,7 +1631,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, dot(double2(-1.2e153, 5.5e153), double2(6.1e154, -9.2e154)), 1, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_double3()
         {
             TestUtils.AreEqual(67.1, dot(double3(1.2, 5.5, 3.4), double3(6.1, 9.2, 2.7)), 8, false);
@@ -1642,7 +1642,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, dot(double3(-1.2e153, 5.5e153, 3.4e153), double3(6.1e154, -9.2e154, -2.7e154)), 1, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void dot_double4()
         {
             TestUtils.AreEqual(68.57, dot(double4(1.2, 5.5, 3.4, 4.9), double4(6.1, 9.2, 2.7, 0.3)), 8, false);
@@ -1653,7 +1653,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, dot(double4(-1.2e153, 5.5e153, 3.4e153, -4.9e153), double4(6.1e154, -9.2e154, -2.7e154, 3e153)), 1, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_int2()
         {
             TestUtils.AreEqual(100, cmin(int2(100, 200)));
@@ -1664,7 +1664,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_int3()
         {
             TestUtils.AreEqual(100, cmin(int3(100, 200, 300)));
@@ -1675,7 +1675,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_int4()
         {
             TestUtils.AreEqual(100, cmin(int4(100, 200, 300, 400)));
@@ -1685,7 +1685,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int.MinValue, cmin(int4(int.MaxValue, int.MinValue, 0, 19)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_uint2()
         {
             TestUtils.AreEqual(100u, cmin(uint2(100u, 200u)));
@@ -1694,7 +1694,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_uint3()
         {
             TestUtils.AreEqual(100u, cmin(uint3(100u, 200u, 300u)));
@@ -1703,7 +1703,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_uint4()
         {
             TestUtils.AreEqual(100u, cmin(uint4(100u, 200u, 300u, 400u)));
@@ -1711,7 +1711,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint.MinValue, cmin(uint4(19u, uint.MinValue, uint.MaxValue, 7u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_float2()
         {
             TestUtils.AreEqual(-0.5f, cmin(float2(5.2f, -0.5f)));
@@ -1730,7 +1730,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, cmin(float2(float.NaN, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_float3()
         {
             TestUtils.AreEqual(-1.2f, cmin(float3(5.2f, -0.5f, -1.2f)));
@@ -1750,7 +1750,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, cmin(float3(float.NaN, float.NaN, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_float4()
         {
             TestUtils.AreEqual(-1.2f, cmin(float4(5.2f, -0.5f, -1.2f, 2.3f)));
@@ -1773,7 +1773,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_double2()
         {
             TestUtils.AreEqual(-0.5, cmin(double2(5.2, -0.5)));
@@ -1793,7 +1793,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, cmin(double2(double.NaN, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_double3()
         {
             TestUtils.AreEqual(-1.2, cmin(double3(5.2, -0.5, -1.2)));
@@ -1814,7 +1814,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, cmin(double3(double.NaN, double.NaN, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmin_double4()
         {
             TestUtils.AreEqual(-1.2, cmin(double4(5.2, -0.5, -1.2, 2.3)));
@@ -1839,7 +1839,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_int2()
         {
             TestUtils.AreEqual(200, cmax(int2(100, 200)));
@@ -1850,7 +1850,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_int3()
         {
             TestUtils.AreEqual(300, cmax(int3(100, 200, 300)));
@@ -1861,7 +1861,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_int4()
         {
             TestUtils.AreEqual(400, cmax(int4(100, 200, 300, 400)));
@@ -1871,7 +1871,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(int.MaxValue, cmax(int4(int.MaxValue, int.MinValue, 0, 19)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_uint2()
         {
             TestUtils.AreEqual(200u, cmax(uint2(100u, 200u)));
@@ -1880,7 +1880,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_uint3()
         {
             TestUtils.AreEqual(300u, cmax(uint3(100u, 200u, 300u)));
@@ -1889,7 +1889,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_uint4()
         {
             TestUtils.AreEqual(400u, cmax(uint4(100u, 200u, 300u, 400u)));
@@ -1897,7 +1897,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint.MaxValue, cmax(uint4(19u, uint.MinValue, uint.MaxValue, 7u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_float2()
         {
             TestUtils.AreEqual(5.2f, cmax(float2(5.2f, -0.5f)));
@@ -1916,7 +1916,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, cmax(float2(float.NaN, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_float3()
         {
             TestUtils.AreEqual(5.2f, cmax(float3(5.2f, -0.5f, -1.2f)));
@@ -1936,7 +1936,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, cmax(float3(float.NaN, float.NaN, float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_float4()
         {
             TestUtils.AreEqual(5.2f, cmax(float4(5.2f, -0.5f, -1.2f, 2.3f)));
@@ -1959,7 +1959,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_double2()
         {
             TestUtils.AreEqual(5.2, cmax(double2(5.2, -0.5)));
@@ -1979,7 +1979,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, cmax(double2(double.NaN, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_double3()
         {
             TestUtils.AreEqual(5.2, cmax(double3(5.2, -0.5, -1.2)));
@@ -2000,7 +2000,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, cmax(double3(double.NaN, double.NaN, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void cmax_double4()
         {
             TestUtils.AreEqual(5.2, cmax(double4(5.2, -0.5, -1.2, 2.3)));
@@ -2024,7 +2024,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, cmax(double4(double.NaN, double.NaN, double.NaN, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_int2()
         {
             TestUtils.AreEqual(300, csum(int2(100, 200)));
@@ -2035,7 +2035,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_int3()
         {
             TestUtils.AreEqual(600, csum(int3(100, 200, 300)));
@@ -2046,7 +2046,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_int4()
         {
             TestUtils.AreEqual(1000, csum(int4(100, 200, 300, 400)));
@@ -2056,7 +2056,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1, csum(int4(int.MaxValue, int.MinValue, 0, 0)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_uint2()
         {
             TestUtils.AreEqual(300u, csum(uint2(100u, 200u)));
@@ -2064,7 +2064,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_uint3()
         {
             TestUtils.AreEqual(600u, csum(uint3(100u, 200u, 300u)));
@@ -2072,14 +2072,14 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_uint4()
         {
             TestUtils.AreEqual(1000u, csum(uint4(100u, 200u, 300u, 400u)));
             TestUtils.AreEqual(36u, csum(uint4(uint.MaxValue, 7u, 11u, 19u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_float2()
         {
             TestUtils.AreEqual(0.7f, csum(float2(2.2f, -1.5f)), 4, false);
@@ -2102,7 +2102,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, csum(float2(-1.0f, float.NegativeInfinity)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_float3()
         {
             TestUtils.AreEqual(1.9f, csum(float3(2.2f, -1.5f, 1.2f)), 4, false);
@@ -2126,7 +2126,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.NegativeInfinity, csum(float3(-2.0f, 1.0f, float.NegativeInfinity)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_float4()
         {
             TestUtils.AreEqual(1.2f, csum(float4(2.2f, -1.5f, 1.2f, -0.7f)), 4, false);
@@ -2153,7 +2153,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_double2()
         {
             TestUtils.AreEqual(0.7, csum(double2(2.2, -1.5)), 4, false);
@@ -2176,7 +2176,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, csum(double2(-1.0, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_double3()
         {
             TestUtils.AreEqual(1.9, csum(double3(2.2, -1.5, 1.2)), 4, false);
@@ -2200,7 +2200,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.NegativeInfinity, csum(double3(-2.0, 1.0, double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void csum_double4()
         {
             TestUtils.AreEqual(1.2, csum(double4(2.2, -1.5, 1.2, -0.7)), 4, false);
@@ -2227,7 +2227,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_bool2()
         {
             TestUtils.AreEqual(false, any(bool2(false, false)));
@@ -2236,7 +2236,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_bool3()
         {
             TestUtils.AreEqual(false, any(bool3(false, false, false)));
@@ -2250,7 +2250,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_bool4()
         {
             TestUtils.AreEqual(false, any(bool4(false, false, false, false)));
@@ -2274,7 +2274,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(bool4(true, true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_int2()
         {
             TestUtils.AreEqual(false, any(int2(0, 0)));
@@ -2284,7 +2284,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_int3()
         {
             TestUtils.AreEqual(false, any(int3(0, 0, 0)));
@@ -2298,7 +2298,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(int3(-121, 100, 322)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_int4()
         {
             TestUtils.AreEqual(false, any(int4(0, 0, 0, 0)));
@@ -2323,7 +2323,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_uint2()
         {
             TestUtils.AreEqual(false, any(uint2(0u, 0u)));
@@ -2333,7 +2333,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_uint3()
         {
             TestUtils.AreEqual(false, any(uint3(0u, 0u, 0u)));
@@ -2347,7 +2347,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(uint3(121u, 100u, 322u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_uint4()
         {
             TestUtils.AreEqual(false, any(uint4(0u, 0u, 0u, 0u)));
@@ -2372,7 +2372,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_float2()
         {
             //TestUtils.AreEqual(true, any(float2(0, float.NaN)));    // TODO: doesn't work with burst
@@ -2384,7 +2384,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_float3()
         {
             //TestUtils.AreEqual(true, any(float3(0.0f, float.NaN, 0.0f)));    // TODO: doesn't work with burst
@@ -2400,7 +2400,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(float3(121.2f, 100.0f, -32.2f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_float4()
         {
             TestUtils.AreEqual(false, any(float4(0.0f, 0.0f, 0.0f, 0.0f)));
@@ -2424,7 +2424,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(float4(55.0f, 66.0f, 5000.0f, 10000.2f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_double2()
         {
             //TestUtils.AreEqual(true, any(double2(0, double.NaN)));    // TODO: doesn't work with burst.
@@ -2436,7 +2436,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_double3()
         {
             //TestUtils.AreEqual(true, any(double3(0.0, double.NaN, 0.0)));    // TODO: doesn't work with burst
@@ -2452,7 +2452,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, any(double3(121.2, 100.0, -32.2)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void any_double4()
         {
             TestUtils.AreEqual(false, any(double4(0.0, 0.0, 0.0, 0.0)));
@@ -2477,7 +2477,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_bool2()
         {
             TestUtils.AreEqual(false, all(bool2(false, false)));
@@ -2486,7 +2486,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(bool2(true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_bool3()
         {
             TestUtils.AreEqual(false, all(bool3(false, false, false)));
@@ -2500,7 +2500,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(bool3(true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_bool4()
         {
             TestUtils.AreEqual(false, all(bool4(false, false, false, false)));
@@ -2524,7 +2524,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(bool4(true, true, true, true)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_int2()
         {
             TestUtils.AreEqual(false, all(int2(0, 0)));
@@ -2533,7 +2533,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(int2(2, int.MinValue)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_int3()
         {
             TestUtils.AreEqual(false, all(int3(0, 0, 0)));
@@ -2547,7 +2547,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(int3(-121, 100, 322)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_int4()
         {
             TestUtils.AreEqual(false, all(int4(0, 0, 0, 0)));
@@ -2572,7 +2572,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_uint2()
         {
             TestUtils.AreEqual(false, all(uint2(0u, 0u)));
@@ -2582,7 +2582,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_uint3()
         {
             TestUtils.AreEqual(false, all(uint3(0u, 0u, 0u)));
@@ -2596,7 +2596,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(uint3(121u, 100u, 322u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_uint4()
         {
             TestUtils.AreEqual(false, all(uint4(0u, 0u, 0u, 0u)));
@@ -2621,7 +2621,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_float2()
         {
             TestUtils.AreEqual(true, all(float2(float.NaN, float.NaN)));
@@ -2633,7 +2633,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_float3()
         {
             TestUtils.AreEqual(true, all(float3(float.NaN, float.NaN, float.NaN)));
@@ -2649,7 +2649,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(float3(121.2f, 100.0f, -32.2f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_float4()
         {
             TestUtils.AreEqual(true, all(float4(float.NaN, float.NaN, float.NaN, float.NaN)));
@@ -2675,7 +2675,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(float4(55.0f, 66.0f, 5000.0f, 10000.2f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_double2()
         {
             TestUtils.AreEqual(true, all(double2(double.NaN, double.NaN)));
@@ -2687,7 +2687,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_double3()
         {
             TestUtils.AreEqual(true, all(double3(double.NaN, double.NaN, double.NaN)));
@@ -2703,7 +2703,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(true, all(double3(121.2, 100.0, -32.2)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void all_double4()
         {
             TestUtils.AreEqual(true, all(double4(double.NaN, double.NaN, double.NaN, double.NaN)));
@@ -2730,7 +2730,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_float2()
         {
             TestUtils.AreEqual(0.0f, length(float2(0.0f, 0.0f)), 0, false);
@@ -2743,7 +2743,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, length(float2(-1.2e19f, -2.6e19f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_float3()
         {
             TestUtils.AreEqual(0.0f, length(float3(0.0f, 0.0f, 0.0f)), 0, false);
@@ -2756,7 +2756,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, length(float3(-1.2e19f, -2.6e19f, 2.2e19f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_float4()
         {
             TestUtils.AreEqual(0.0f, length(float4(0.0f, 0.0f, 0.0f, 0.0f)), 0, false);
@@ -2770,7 +2770,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_double2()
         {
             TestUtils.AreEqual(0.0, length(double2(0.0, 0.0)), 0, false);
@@ -2782,7 +2782,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(2.86356421265527063e153, length(double2(-1.2e153, 2.6e153)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_double3()
         {
             TestUtils.AreEqual(0.0, length(double3(0.0, 0.0, 0.0)), 0, false);
@@ -2794,7 +2794,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(3.6110940170535577e153, length(double3(-1.2e153, 2.6e153, 2.2e153)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void length_double4()
         {
             TestUtils.AreEqual(0.0, length(double4(0.0, 0.0, 0.0, 0.0)), 0, false);
@@ -2807,7 +2807,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_float2()
         {
             TestUtils.AreEqual(0.0f, lengthsq(float2(0.0f, 0.0f)), 0, false);
@@ -2819,7 +2819,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(8.2e36f, lengthsq(float2(-1.2e18f, 2.6e18f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_float3()
         {
             TestUtils.AreEqual(0.0f, lengthsq(float3(0.0f, 0.0f, 0.0f)), 0, false);
@@ -2832,7 +2832,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, lengthsq(float3(-1.2e19f, -2.6e19f, 2.2e19f)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_float4()
         {
             TestUtils.AreEqual(0.0f, lengthsq(float4(0.0f, 0.0f, 0.0f, 0.0f)), 0, false);
@@ -2846,7 +2846,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_double2()
         {
             TestUtils.AreEqual(0.0, lengthsq(double2(0.0, 0.0)), 0, false);
@@ -2859,7 +2859,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, lengthsq(double2(-1.2e154, -2.6e154)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_double3()
         {
             TestUtils.AreEqual(0.0, lengthsq(double3(0.0, 0.0, 0.0)), 0, false);
@@ -2872,7 +2872,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, lengthsq(double3(-1.2e154, -2.6e154, 2.2e154)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void lengthsq_double4()
         {
             TestUtils.AreEqual(0.0, lengthsq(double4(0.0, 0.0, 0.0, 0.0)), 0, false);
@@ -2888,7 +2888,7 @@ namespace Unity.Mathematics.Tests
 
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_float2()
         {
             TestUtils.AreEqual(0.0f, distance(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0, false);
@@ -2902,7 +2902,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, distance(float2(1.3f, float.NegativeInfinity), float2(-5.3f, 4.3f)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_float3()
         {
             TestUtils.AreEqual(0.0f, distance(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0, false);
@@ -2916,7 +2916,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, distance(float2(1.3f, float.NegativeInfinity), float2(-5.3f, 4.3f)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_float4()
         {
             TestUtils.AreEqual(0.0, distance(float4(1.3f, -2.4f, 5.7f, 3.1f), float4(1.3f, -2.4f, 5.7f, 3.1f)), 0, false);
@@ -2931,7 +2931,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_double2()
         {
             TestUtils.AreEqual(0.0, distance(double2(1.3, -2.4), double2(1.3, -2.4)), 0, false);
@@ -2944,7 +2944,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, distance(double2(1.3, -2.4), double2(-5.3, double.PositiveInfinity)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_double3()
         {
             TestUtils.AreEqual(0.0, distance(double2(1.3, -2.4), double2(1.3, -2.4)), 0, false);
@@ -2957,7 +2957,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, distance(double2(1.3, -2.4), double2(-5.3, double.PositiveInfinity)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distance_double4()
         {
             TestUtils.AreEqual(0.0, distance(double4(1.3, -2.4, 5.7, 3.1), double4(1.3, -2.4, 5.7, 3.1)), 0, false);
@@ -2970,7 +2970,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_float2()
         {
             TestUtils.AreEqual(0.0f, distancesq(float2(1.3f, -2.4f), float2(1.3f, -2.4f)), 0, false);
@@ -2982,7 +2982,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, distancesq(float2(1.3f, -2.4f), float2(-5.3f, float.PositiveInfinity)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_float3()
         {
             TestUtils.AreEqual(0.0f, distancesq(float3(1.3f, -2.4f, 5.7f), float3(1.3f, -2.4f, 5.7f)), 0, false);
@@ -2995,7 +2995,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, distancesq(float3(1.3f, -2.4f, 5.7f), float3(-5.3f, float.PositiveInfinity, 4.7f)), 0, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_float4()
         {
             TestUtils.AreEqual(0.0f, distancesq(float4(1.3f, -2.4f, 5.7f, 3.1f), float4(1.3f, -2.4f, 5.7f, 3.1f)), 0, false);
@@ -3008,7 +3008,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_double2()
         {
             TestUtils.AreEqual(0.0, distancesq(double2(1.3, -2.4), double2(1.3, -2.4)), 0, false);
@@ -3022,7 +3022,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, distancesq(double2(1.3, double.NegativeInfinity), double2(-5.3, 4.3)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_double3()
         {
             TestUtils.AreEqual(0.0, distancesq(double3(1.3, -2.4, 5.7), double3(1.3, -2.4, 5.7)), 0, false);
@@ -3036,7 +3036,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, distancesq(double3(1.3, double.NegativeInfinity, 5.7), double3(-5.3, 4.3, 4.7)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void distancesq_double4()
         {
             TestUtils.AreEqual(0.0, distancesq(double4(1.3, -2.4, 5.7, 3.1), double4(1.3, -2.4, 5.7, 3.1)), 0, false);
@@ -3050,7 +3050,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, distancesq(double4(1.3, double.NegativeInfinity, 5.7, 3.1), double4(-5.3, 4.3, 4.7, 0.3)), 8, false);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void epsilon_float()
         {
             float next = asfloat(asuint(1.0f) + 1);
@@ -3059,7 +3059,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(Single.Epsilon != EPSILON);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void epsilon_double()
         {
             double next = asdouble(aslong(1.0) + 1);
@@ -3068,7 +3068,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(Double.Epsilon != EPSILON_DBL);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void nan_float()
         {
             TestUtils.IsFalse(0.0f == NAN);
@@ -3093,7 +3093,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(nan1 != nan2);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void nan_double()
         {
             TestUtils.IsFalse(0.0 == NAN_DBL);
@@ -3118,7 +3118,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(nan1 != nan2);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void infinity_float()
         {
             TestUtils.IsTrue(-INFINITY != INFINITY);
@@ -3126,7 +3126,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(isfinite(INFINITY));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void infinity_double()
         {
             TestUtils.IsTrue(-INFINITY_DBL != INFINITY_DBL);
@@ -3134,7 +3134,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(isfinite(INFINITY_DBL));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void helper_axes()
         {
             TestUtils.AreEqual(float3(1.0f, 0.0f, 0.0f), right());
@@ -3145,7 +3145,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(0.0f, 0.0f, -1.0f), back());
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float_signed_zero()
         {
@@ -3153,21 +3153,21 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(TestUtils.SignedFloatZero(), rcp(float.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float2_signed_zero()
         {
             TestUtils.AreEqual(float2(float.NegativeInfinity, TestUtils.SignedFloatZero()), rcp(float2(TestUtils.SignedFloatZero(), float.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float3_signed_zero()
         {
             TestUtils.AreEqual(float3(float.NegativeInfinity, TestUtils.SignedFloatZero(), float.NegativeInfinity), rcp(float3(TestUtils.SignedFloatZero(), float.NegativeInfinity, TestUtils.SignedFloatZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_float4_signed_zero()
         {
@@ -3175,7 +3175,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double_signed_zero()
         {
@@ -3183,28 +3183,28 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(TestUtils.SignedDoubleZero(), rcp(double.NegativeInfinity));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double2_signed_zero()
         {
             TestUtils.AreEqual(double2(double.NegativeInfinity, TestUtils.SignedDoubleZero()), rcp(double2(TestUtils.SignedDoubleZero(), double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double3_signed_zero()
         {
             TestUtils.AreEqual(double3(double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity), rcp(double3(TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero())));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         [WindowsOnly("Mono on linux ignores signed zero.")]
         public static void rcp_double4_signed_zero()
         {
             TestUtils.AreEqual(double4(double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero()), rcp(double4(TestUtils.SignedDoubleZero(), double.NegativeInfinity, TestUtils.SignedDoubleZero(), double.NegativeInfinity)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         unsafe public static void compress_test()
         {
             int4 value = int4(0x12345678, 0x2468ACE0, 0x369BE147, 0x48C059D1);
@@ -3250,7 +3250,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         unsafe public static void compress_uint4_test()
         {
             uint4 value = uint4(0x12345678u, 0x2468ACE0u, 0x369BE147u, 0x48C059D1u);
@@ -3296,7 +3296,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         unsafe public static void compress_float4_test()
         {
             float4 value = float4(float.PositiveInfinity,  EPSILON, PI, -0.25f);
@@ -3342,7 +3342,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_float()
         {
             TestUtils.AreEqual(0.0f, math.square(0.0f));
@@ -3370,7 +3370,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float.PositiveInfinity, math.square(-18446744073709551616.0f));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_float2()
         {
             TestUtils.AreEqual(new float2(0.0f), math.square(new float2(0.0f)));
@@ -3401,7 +3401,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float2(0.272176146507263183594f, 96307.6015625f), math.square(new float2(0.521705031394958496094f, -310.33465576171875f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_float3()
         {
             TestUtils.AreEqual(new float3(0.0f), math.square(new float3(0.0f)));
@@ -3432,7 +3432,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.272176146507263183594f, 96307.6015625f, 5591.6337890625f), math.square(new float3(0.521705031394958496094f, -310.33465576171875f, -74.77722930908203125f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_float4()
         {
             TestUtils.AreEqual(new float4(0.0f), math.square(new float4(0.0f)));
@@ -3463,7 +3463,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float4(0.272176146507263183594f, 96307.6015625f, 5591.6337890625f, 152764.28125f), math.square(new float4(0.521705031394958496094f, -310.33465576171875f, -74.77722930908203125f, 390.8507080078125f)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_double()
         {
             TestUtils.AreEqual(0.0, math.square(0.0));
@@ -3491,7 +3491,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(double.PositiveInfinity, math.square(-1.34078079299425970996e+154));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_double2()
         {
             TestUtils.AreEqual(new double2(0.0), math.square(new double2(0.0)));
@@ -3522,7 +3522,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new double2(0.272176139782814630053, 96307.5985667444765568), math.square(new double2(0.521705031394958496094, -310.33465576171875)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_double3()
         {
             TestUtils.AreEqual(new double3(0.0), math.square(new double3(0.0)));
@@ -3553,7 +3553,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new double3(0.272176139782814630053, 96307.5985667444765568, 5591.63402314303675666), math.square(new double3(0.521705031394958496094, -310.33465576171875, -74.77722930908203125)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_double4()
         {
             TestUtils.AreEqual(new double4(0.0), math.square(new double4(0.0)));
@@ -3584,7 +3584,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new double4(0.272176139782814630053, 96307.5985667444765568 /*96307.5985667444765568*/, 5591.63402314303675666 /*5591.6337890625*/, 152764.275950208306313 /*152764.28125*/), math.square(new double4(0.521705031394958496094, -310.33465576171875, -74.77722930908203125, 390.8507080078125)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_int()
         {
             TestUtils.AreEqual(0, math.square(0));
@@ -3612,7 +3612,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0, math.square(-2147483648));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_int2()
         {
             TestUtils.AreEqual(new int2(0), math.square(new int2(0)));
@@ -3643,7 +3643,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new int2(2121580241, -685235535), math.square(new int2(-831443639, 1415191751)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_int3()
         {
             TestUtils.AreEqual(new int3(0), math.square(new int3(0)));
@@ -3674,7 +3674,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new int3(2121580241, -685235535, 468048505), math.square(new int3(-831443639, 1415191751, -178100469)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_int4()
         {
             TestUtils.AreEqual(new int4(0), math.square(new int4(0)));
@@ -3705,7 +3705,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new int4(2121580241, -685235535, 468048505, -1902728316), math.square(new int4(-831443639, 1415191751, -178100469, 1331775970)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_uint()
         {
             TestUtils.AreEqual(0u, math.square(0u));
@@ -3723,7 +3723,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(2356482048u, math.square(123456u));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_uint2()
         {
             TestUtils.AreEqual(new uint2(0u), math.square(new uint2(0u)));
@@ -3744,7 +3744,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new uint2(3982663844u, 503153673u), math.square(new uint2(779359642u, 2488899075u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_uint3()
         {
             TestUtils.AreEqual(new uint3(0u), math.square(new uint3(0u)));
@@ -3765,7 +3765,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new uint3(3982663844u, 503153673u, 4101817232u), math.square(new uint3(779359642u, 2488899075u, 407772844u)));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void square_uint4()
         {
             TestUtils.AreEqual(new uint4(0u), math.square(new uint4(0u)));
@@ -3809,7 +3809,7 @@ namespace Unity.Mathematics.Tests
         // "Building an Orthonormal Basis, Revisited" table 1.
         private const double kOrthonormalBasisSqErrorTolerance = 1.04e-7d;
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void orthonormal_basis_float()
         {
             var random = new Random(8189782u);
@@ -3824,7 +3824,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void orthonormal_basis_double()
         {
             var random = new Random(99917872u);
@@ -3839,7 +3839,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void chgsign_float()
         {
             float c = chgsign(1f, -1f);
@@ -3901,7 +3901,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(TestUtils.SignedFloatZero()), asuint(c));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void chgsign_float2()
         {
             float2 c = chgsign(float2(1f, -2f), float2(-1f, 23.548f));
@@ -3936,7 +3936,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(math.float2(TestUtils.SignedFloatZero())), asuint(c));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void chgsign_float3()
         {
             float3 c = chgsign(float3(1f, -2f, 3f), float3(-1f, 23.548f, -0f));
@@ -3971,7 +3971,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(math.float3(TestUtils.SignedFloatZero())), asuint(c));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void chgsign_float4()
         {
             float4 c = chgsign(float4(1f, 2f, 3f, -4f), float4(-1f, 0f, -0f, -23.56f));
@@ -4006,7 +4006,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(asuint(math.float4(TestUtils.SignedFloatZero())), asuint(c));
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static unsafe void quaternion_to_euler()
         {
             const float epsilon = 0.0045f;
@@ -4079,7 +4079,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void mulScale()
         {
             var tolerance = 1e-5f;
@@ -4101,7 +4101,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, actual, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void scaleMul()
         {
             var tolerance = 1e-5f;
@@ -4123,7 +4123,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, actual, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void piDoubleConstants()
         {
             var expectedPi = 3.141592653589793116;
@@ -4133,7 +4133,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedPi * 2.0, TAU_DBL);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void piSingleConstants()
         {
             var expectedPi = 3.141592653589793116f;
@@ -4143,7 +4143,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedPi * 2.0f, TAU);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void toDegreesConstants()
         {
             TestUtils.AreEqual(360.0, PI2_DBL * TODEGREES_DBL);
@@ -4157,7 +4157,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(90.0f, PIHALF * TODEGREES);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void toRadiansConstants()
         {
             TestUtils.AreEqual(PI2_DBL, 360.0 * TORADIANS_DBL);
@@ -4171,7 +4171,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(PIHALF, 90.0f * TORADIANS);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void degreesConversionGivesSameResult()
         {
             int n = 360;
@@ -4184,7 +4184,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void radiansConversionGivesSameResult()
         {
             int n = 360;
