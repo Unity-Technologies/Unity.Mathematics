@@ -6716,12 +6716,60 @@ namespace Unity.Mathematics
             return (uint)ptr[0] | ((uint)ptr[1] << 8) | ((uint)ptr[2] << 16) | ((uint)ptr[3] << 24);
         }
 
-        /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
-        /// <param name="pBuffer">A pointer to the beginning of the data.</param>
-        /// <param name="numBytes">Number of bytes to hash.</param>
-        /// <param name="seed">Starting seed value.</param>
-        /// <returns>The 32 bit hash of the input data buffer.</returns>
-        public static unsafe uint hash(void* pBuffer, int numBytes, uint seed = 0)
+        private static unsafe uint hash_with_unaligned_loads(void* pBuffer, int numBytes, uint seed)
+        {
+            unchecked
+            {
+                const uint Prime1 = 2654435761;
+                const uint Prime2 = 2246822519;
+                const uint Prime3 = 3266489917;
+                const uint Prime4 = 668265263;
+                const uint Prime5 = 374761393;
+
+                uint4* p = (uint4*)pBuffer;
+                uint hash = seed + Prime5;
+                if (numBytes >= 16)
+                {
+                    uint4 state = new uint4(Prime1 + Prime2, Prime2, 0, (uint)-Prime1) + seed;
+
+                    int count = numBytes >> 4;
+                    for (int i = 0; i < count; ++i)
+                    {
+                        state += *p++ * Prime2;
+                        state = (state << 13) | (state >> 19);
+                        state *= Prime1;
+                    }
+
+                    hash = rol(state.x, 1) + rol(state.y, 7) + rol(state.z, 12) + rol(state.w, 18);
+                }
+
+                hash += (uint)numBytes;
+
+                uint* puint = (uint*)p;
+                for (int i = 0; i < ((numBytes >> 2) & 3); ++i)
+                {
+                    hash += *puint++ * Prime3;
+                    hash = rol(hash, 17) * Prime4;
+                }
+
+                byte* pbyte = (byte*)puint;
+                for (int i = 0; i < ((numBytes) & 3); ++i)
+                {
+                    hash += (*pbyte++) * Prime5;
+                    hash = rol(hash, 11) * Prime1;
+                }
+
+                hash ^= hash >> 15;
+                hash *= Prime2;
+                hash ^= hash >> 13;
+                hash *= Prime3;
+                hash ^= hash >> 16;
+
+                return hash;
+            }
+        }
+
+        private static unsafe uint hash_without_unaligned_loads(void* pBuffer, int numBytes, uint seed)
         {
             unchecked
             {
@@ -6773,6 +6821,20 @@ namespace Unity.Mathematics
 
                 return hash;
             }
+        }
+
+        /// <summary>Returns a uint hash from a block of memory using the xxhash32 algorithm. Can only be used in an unsafe context.</summary>
+        /// <param name="pBuffer">A pointer to the beginning of the data.</param>
+        /// <param name="numBytes">Number of bytes to hash.</param>
+        /// <param name="seed">Starting seed value.</param>
+        /// <returns>The 32 bit hash of the input data buffer.</returns>
+        public static unsafe uint hash(void* pBuffer, int numBytes, uint seed = 0)
+        {
+#if !UNITY_64 && UNITY_ANDROID
+            return hash_without_unaligned_loads(pBuffer, numBytes, seed);
+#else
+            return hash_with_unaligned_loads(pBuffer, numBytes, seed);
+#endif
         }
 
         /// <summary>
