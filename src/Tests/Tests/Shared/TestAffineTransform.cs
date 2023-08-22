@@ -7,7 +7,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     class TestAffineTransform
     {
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_construct_from_float3x3()
         {
             const float tolerance = 1e-6f;
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m3x3, testM3x3, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_construct_from_float3x4()
         {
             const float tolerance = 1e-6f;
@@ -33,7 +33,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m3x4, testM3x4, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_construct_from_float4x4()
         {
             const float tolerance = 1e-6f;
@@ -46,7 +46,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m4x4, testM4x4, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_construct_from_RigidTransform()
         {
             const float tolerance = 1e-6f;
@@ -58,7 +58,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r.pos, tx.t, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_inverse()
         {
             const float tolerance = 1e-6f;
@@ -69,7 +69,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4x4.identity, mul(tx, invTx), tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_inverse_zero_rs_returns_zero()
         {
             const float tolerance = 1e-30f;
@@ -80,7 +80,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3x4.zero, invTx, tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_inverse_pico_scale()
         {
             // slightly larger tolerance (vs 1e-6f) for PS4
@@ -92,7 +92,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4x4.identity, mul(tx, invTx), tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_inverse_singular()
         {
             // it needs a bit larger tolerance for singular
@@ -107,7 +107,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4x4(tx), float4x4(testTx), tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_decompose()
         {
             const float tolerance = 1e-6f;
@@ -120,7 +120,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float4x4(tx), float4x4(testTx), tolerance);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_mul_vector()
         {
             float4x4 m = TestMatrix.test4x4_xyz;
@@ -137,7 +137,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(mvector1, txvector1, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_rotate_vector()
         {
             float3x3 m = TestMatrix.test3x3_xyz;
@@ -150,7 +150,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(mvector0, txvector0, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_transform_point()
         {
             float4x4 m = float4x4(TestMatrix.test3x3_zyx, float3(1f, 2f, 3f));
@@ -163,7 +163,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(mPt0, txPt0, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void affine_transform_zero()
         {
             TestUtils.AreEqual(float3x3.zero, AffineTransform.zero.rs);
