@@ -7,7 +7,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     class TestRigidTransform
     {
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_construct_from_matrix()
         {
             float4x4 m4x4 = TestMatrix.test4x4_zyx;
@@ -19,7 +19,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(m4x4, mq4x4, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_axisAngle()
         {
             RigidTransform q = RigidTransform.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
@@ -28,7 +28,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_euler()
         {
             float3 test_angles = TestMatrix.test_angles;
@@ -98,7 +98,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(TestMatrix.test3x3_zyx, m1_zyx, epsilon);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_rotateX()
         {
             float angle = 2.3f;
@@ -108,7 +108,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_rotateY()
         {
             float angle = 2.3f;
@@ -118,7 +118,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_rotateZ()
         {
             float angle = 2.3f;
@@ -133,7 +133,7 @@ namespace Unity.Mathematics.Tests
         static internal readonly quaternion test_q2 = new quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
         static internal readonly quaternion test_q3 = new quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_inverse()
         {
             RigidTransform q = RigidTransform(quaternion(1.0f, -2.0f, 3.0f, -4.0f), float3(1,2,3));
@@ -143,7 +143,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(RigidTransform.identity, qiq, 0.00001f);
         }
 
-        [TestCompiler]
+        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
         public static void rigid_transform_mul_vector()
         {
             float4x4 m = TestMatrix.test4x4_xyz;

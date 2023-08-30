@@ -2075,11 +2075,11 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             if (testCompiler)
             {
-                str.Append("\t\t[TestCompiler]\n");
+                str.Append("\t\t[TestCompiler /* For Burst testing */, TestCase /* For player builds */]\n");
             }
             else
             {
-                str.Append("\t\t[TestCase]\n");
+                str.Append("\t\t[TestCase /* For player builds */]\n");
             }
 
             str.AppendFormat("\t\tpublic static void {0}()\n", name);

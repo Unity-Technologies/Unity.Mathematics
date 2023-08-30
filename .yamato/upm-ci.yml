@@ -27,12 +27,6 @@ upmci_platforms:
     flavor: b1.large
 
 validate_editor_versions:
-  - version: "2018.4"
-    display_name: "2018.4"
-  - version: "2019.4"
-    display_name: "2019.4"
-  - version: "2020.3"
-    display_name: "2020.3"
   - version: "2021.3"
     display_name: "2021.3"
   - version: "2022.3"
@@ -43,17 +37,6 @@ validate_editor_versions:
     display_name: "trunk"
 
 package_tests_editor_versions:
-  # 2018.3 shows up here but not under validate_editor_versions because package validation is no longer
-  # supported on 2018.3 but Mathematics still supports it so we need to be able to test it. CI jobs
-  # from this list will run package tests only instead of the full validation suite.
-  - version: "2018.3"
-    display_name: "2018.3"
-  - version: "2018.4"
-    display_name: "2018.4"
-  - version: "2019.4"
-    display_name: "2019.4"
-  - version: "2020.3"
-    display_name: "2020.3"
   - version: "2021.3"
     display_name: "2021.3"
   - version: "2022.3"
@@ -96,7 +79,7 @@ package_tests_minimal:
   name: Package tests minimal
   dependencies:
   {% for platform in upmci_platforms %}
-    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_2018.3
+    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_2021.3
   {% endfor %}
 
 validate_package_minimal:
@@ -108,7 +91,7 @@ validate_package_minimal:
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
-    - upm-ci package test --package-path src/ --unity-version 2019.4
+    - upm-ci package test --package-path src/ --unity-version 2021.3
   artifacts:
     packages:
       paths:
