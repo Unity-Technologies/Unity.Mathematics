@@ -23,11 +23,12 @@ namespace Unity.Mathematics.Editor
     [CustomPropertyDrawer(typeof(uint4x2)), CustomPropertyDrawer(typeof(uint4x3)), CustomPropertyDrawer(typeof(uint4x4))]
     class MatrixDrawer : PropertyDrawer
     {
-        [Obsolete("CanCacheInspectorGUI has been deprecated, is no longer used and will be removed in later versions.", false)]
+#if !UNITY_2023_2_OR_NEWER
         public override bool CanCacheInspectorGUI(SerializedProperty property)
         {
             return false;
         }
+#endif
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

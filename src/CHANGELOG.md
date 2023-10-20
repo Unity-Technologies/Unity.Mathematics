@@ -2,11 +2,9 @@
 
 ## [Unreleased]
 
-### Deprecated
-* `MatrixDrawer.CanCacheInspectorGUI` and `PrimitiveVectorDrawer.CanCacheInspectorGUI` are now marked as `[Obsolete]`. These methods never did anything, and still do not. They will be removed in a future release.
-
 ### Fixed
 * Fixed `math.hash` crash when using IL2CPP builds on Arm 32 bit devices.
+* Fixed obsolete method usage warnings for `MatrixDrawer.CanCacheInspectorGUI` and `PrimitiveVectorDrawer.CanCacheInspectorGUI` in UNITY_2023_2_OR_NEWER.
 
 ## [1.3.1] - 2023-07-12
 
