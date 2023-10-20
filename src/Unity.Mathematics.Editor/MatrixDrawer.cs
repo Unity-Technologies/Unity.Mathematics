@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEditor;
@@ -23,10 +23,12 @@ namespace Unity.Mathematics.Editor
     [CustomPropertyDrawer(typeof(uint4x2)), CustomPropertyDrawer(typeof(uint4x3)), CustomPropertyDrawer(typeof(uint4x4))]
     class MatrixDrawer : PropertyDrawer
     {
+#if !UNITY_2023_2_OR_NEWER
         public override bool CanCacheInspectorGUI(SerializedProperty property)
         {
             return false;
         }
+#endif
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {

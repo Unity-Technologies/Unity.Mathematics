@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -44,10 +44,12 @@ namespace Unity.Mathematics.Editor
             public static readonly GUIContent[] labels4 = { new GUIContent("X"), new GUIContent("Y"), new GUIContent("Z"), new GUIContent("W") };
         }
 
+#if !UNITY_2023_2_OR_NEWER
         public override bool CanCacheInspectorGUI(SerializedProperty property)
         {
             return false;
         }
+#endif
 
         public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
         {
