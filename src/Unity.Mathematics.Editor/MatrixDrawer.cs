@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using UnityEditor;
@@ -23,6 +23,7 @@ namespace Unity.Mathematics.Editor
     [CustomPropertyDrawer(typeof(uint4x2)), CustomPropertyDrawer(typeof(uint4x3)), CustomPropertyDrawer(typeof(uint4x4))]
     class MatrixDrawer : PropertyDrawer
     {
+        [Obsolete("CanCacheInspectorGUI has been deprecated, is no longer used and will be removed in later versions.", false)]
         public override bool CanCacheInspectorGUI(SerializedProperty property)
         {
             return false;
