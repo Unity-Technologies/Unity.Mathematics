@@ -1,10 +1,10 @@
 # Changelog
 
 ## [Unreleased]
-### Added
-### Changed
+
 ### Deprecated
-### Removed
+* `MatrixDrawer.CanCacheInspectorGUI` and `PrimitiveVectorDrawer.CanCacheInspectorGUI` are now marked as `[Obsolete]`. These methods never did anything, and still do not. They will be removed in a future release.
+
 ### Fixed
 * Fixed `math.hash` crash when using IL2CPP builds on Arm 32 bit devices.
 
