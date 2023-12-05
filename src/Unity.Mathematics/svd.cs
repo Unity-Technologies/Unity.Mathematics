@@ -151,7 +151,7 @@ namespace Unity.Mathematics
             math.select(math.rcp(x), float3.zero, math.abs(x) < epsilon);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static float3x3 svdInverse(float3x3 a)
+        public static float3x3 svdInverse(float3x3 a)
         {
             var e = singularValuesDecomposition(a, out var u, out var v);
             var um = math.float3x3(u);
@@ -161,7 +161,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static quaternion svdRotation(float3x3 a)
+        public static quaternion svdRotation(float3x3 a)
         {
             singularValuesDecomposition(a, out var u, out var v);
             return math.mul(u, math.conjugate(v));

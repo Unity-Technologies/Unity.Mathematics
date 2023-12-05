@@ -16,8 +16,6 @@
     <!-- Allows targeting net471 on non-Windows platforms -->
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
     <InternalsVisibleTo Include="Unity.Mathematics.Tests" />
-    <InternalsVisibleTo Include="Burst.Compiler.IL.Tests" />
-    <InternalsVisibleTo Include="bcltests" />
   </ItemGroup>
   <ItemGroup />
 </Project>
