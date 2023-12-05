@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Geometry
     [DebuggerDisplay("{Normal}, {Distance}")]
     [Serializable]
     [Il2CppEagerStaticClassConstruction]
-    internal struct Plane
+    public struct Plane
     {
         /// <summary>
         /// A plane in the form Ax + By + Cz + Dw = 0.
