@@ -15,14 +15,14 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestFloat2
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_zero()
         {
             TestUtils.AreEqual(0.0f, float2.zero.x);
             TestUtils.AreEqual(0.0f, float2.zero.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_constructor()
         {
             float2 a = new float2(1, 2);
@@ -30,7 +30,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(2, a.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_scalar_constructor()
         {
             float2 a = new float2(17.0f);
@@ -38,7 +38,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(17.0f, a.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_static_constructor()
         {
             float2 a = float2(1, 2);
@@ -46,7 +46,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(2, a.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_static_scalar_constructor()
         {
             float2 a = float2(17.0f);
@@ -54,7 +54,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(17.0f, a.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_equal_wide_wide()
         {
             float2 a0 = float2(492.1576f, -495.206329f);
@@ -78,7 +78,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_equal_wide_scalar()
         {
             float2 a0 = float2(-303.230072f, 451.5263f);
@@ -102,7 +102,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_equal_scalar_wide()
         {
             float a0 = (-253.397278f);
@@ -126,7 +126,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_not_equal_wide_wide()
         {
             float2 a0 = float2(430.842529f, 104.69f);
@@ -150,7 +150,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_not_equal_wide_scalar()
         {
             float2 a0 = float2(-16.9145813f, 168.8341f);
@@ -174,7 +174,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_not_equal_scalar_wide()
         {
             float a0 = (275.795837f);
@@ -198,7 +198,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_wide_wide()
         {
             float2 a0 = float2(196.84259f, 336.4098f);
@@ -222,7 +222,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_wide_scalar()
         {
             float2 a0 = float2(-132.057312f, -192.465f);
@@ -246,7 +246,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_scalar_wide()
         {
             float a0 = (-423.1174f);
@@ -270,7 +270,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_wide_wide()
         {
             float2 a0 = float2(483.5014f, 310.8156f);
@@ -294,7 +294,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_wide_scalar()
         {
             float2 a0 = float2(64.31793f, -397.703461f);
@@ -318,7 +318,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_scalar_wide()
         {
             float a0 = (-282.6705f);
@@ -342,7 +342,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_equal_wide_wide()
         {
             float2 a0 = float2(-438.523132f, 210.489441f);
@@ -366,7 +366,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_equal_wide_scalar()
         {
             float2 a0 = float2(193.49585f, 168.915527f);
@@ -390,7 +390,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_less_equal_scalar_wide()
         {
             float a0 = (393.606262f);
@@ -414,7 +414,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_equal_wide_wide()
         {
             float2 a0 = float2(-507.9286f, 504.4975f);
@@ -438,7 +438,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_equal_wide_scalar()
         {
             float2 a0 = float2(465.152161f, -424.886078f);
@@ -462,7 +462,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_greater_equal_scalar_wide()
         {
             float a0 = (374.827026f);
@@ -486,7 +486,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_add_wide_wide()
         {
             float2 a0 = float2(506.129028f, -501.779816f);
@@ -510,7 +510,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_add_wide_scalar()
         {
             float2 a0 = float2(-194.514191f, 338.5484f);
@@ -534,7 +534,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_add_scalar_wide()
         {
             float a0 = (-340.354675f);
@@ -558,7 +558,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_sub_wide_wide()
         {
             float2 a0 = float2(160.492249f, 11.223938f);
@@ -582,7 +582,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_sub_wide_scalar()
         {
             float2 a0 = float2(207.389587f, 248.457764f);
@@ -606,7 +606,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_sub_scalar_wide()
         {
             float a0 = (-86.00824f);
@@ -630,7 +630,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mul_wide_wide()
         {
             float2 a0 = float2(-482.7138f, -407.2935f);
@@ -654,7 +654,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mul_wide_scalar()
         {
             float2 a0 = float2(-96.31882f, -277.142273f);
@@ -678,7 +678,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mul_scalar_wide()
         {
             float a0 = (37.43219f);
@@ -702,7 +702,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_div_wide_wide()
         {
             float2 a0 = float2(-353.131439f, -102.799866f);
@@ -726,7 +726,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_div_wide_scalar()
         {
             float2 a0 = float2(171.3424f, 0.103393555f);
@@ -750,7 +750,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_div_scalar_wide()
         {
             float a0 = (-264.4425f);
@@ -774,7 +774,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mod_wide_wide()
         {
             float2 a0 = float2(-388.8125f, 181.681213f);
@@ -798,7 +798,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mod_wide_scalar()
         {
             float2 a0 = float2(-244.499634f, -211.8193f);
@@ -822,7 +822,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_mod_scalar_wide()
         {
             float a0 = (-66.94504f);
@@ -846,7 +846,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_plus()
         {
             float2 a0 = float2(-418.829559f, -405.79895f);
@@ -866,7 +866,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, +a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_neg()
         {
             float2 a0 = float2(148.461731f, -467.122681f);
@@ -886,7 +886,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, -a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_prefix_inc()
         {
             float2 a0 = float2(-139.842072f, -56.7436523f);
@@ -906,7 +906,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ++a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_postfix_inc()
         {
             float2 a0 = float2(-396.669739f, 511.20752f);
@@ -926,7 +926,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3++);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_prefix_dec()
         {
             float2 a0 = float2(123.128723f, 256.84375f);
@@ -946,7 +946,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, --a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_operator_postfix_dec()
         {
             float2 a0 = float2(379.6883f, 302.692871f);
@@ -966,7 +966,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_shuffle_result_1()
         {
             float2 a = float2(0, 1);
@@ -978,7 +978,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual((3), shuffle(a, b, ShuffleComponent.RightY));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_shuffle_result_2()
         {
             float2 a = float2(0, 1);
@@ -1002,7 +1002,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float2(3, 3), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.RightY));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_shuffle_result_3()
         {
             float2 a = float2(0, 1);
@@ -1026,7 +1026,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3(3, 1, 1), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftY, ShuffleComponent.LeftY));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_shuffle_result_4()
         {
             float2 a = float2(0, 1);

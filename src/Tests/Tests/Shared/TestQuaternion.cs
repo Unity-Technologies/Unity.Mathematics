@@ -7,7 +7,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     class TestQuaternion
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_basic_constructors()
         {
             quaternion q = quaternion(1.0f, 2.0f, 3.0f, 4.0f);
@@ -23,7 +23,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(4.0f, q2.value.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_construct_from_matrix()
         {
             TestUtils.AreEqual(float3x3(quaternion(TestMatrix.test3x3_xyz)), TestMatrix.test3x3_xyz, 0.0001f);
@@ -45,7 +45,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_construct_from_matrix3x3_torture()
         {
             Random rnd = new Random(0x12345678);
@@ -58,7 +58,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_construct_from_matrix4x4_torture()
         {
             Random rnd = new Random(0x12345678);
@@ -71,7 +71,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_axis_angle()
         {
             quaternion q = quaternion.AxisAngle(normalize(float3(1.0f, 2.0f, 3.0f)), 10.0f);
@@ -80,7 +80,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_axis_angle_consistency()
         {
             TestUtils.AreEqual(quaternion.RotateX(1.0f), quaternion.AxisAngle(float3(1, 0, 0), 1.0f), 0.001f);
@@ -88,7 +88,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion.RotateZ(1.0f), quaternion.AxisAngle(float3(0, 0, 1), 1.0f), 0.001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void euler_to_quaternion()
         {
             float3 test_angles = TestMatrix.test_angles;
@@ -158,7 +158,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(TestMatrix.test3x3_zyx, m1_zyx, epsilon);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotateX()
         {
             float angle = 2.3f;
@@ -168,7 +168,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotateY()
         {
             float angle = 2.3f;
@@ -178,7 +178,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, q, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotateZ()
         {
             float angle = 2.3f;
@@ -193,7 +193,7 @@ namespace Unity.Mathematics.Tests
         static internal readonly quaternion test_q2 = new quaternion(-0.2316205f, -0.6022133f, -0.7411857f, -0.1852964f);
         static internal readonly quaternion test_q3 = new quaternion(0.3619499f, 0.8352691f, -0.1392115f, 0.3897922f);
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_conjugate()
         {
             quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
@@ -203,7 +203,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r, cq);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_inverse()
         {
             quaternion q = quaternion(1.0f, -2.0f, 3.0f, -4.0f);
@@ -213,7 +213,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion.identity, qiq, 0.00001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_dot()
         {
             float dot01 = dot(test_q0, test_q1);
@@ -223,7 +223,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-0.5795583f, dot02, 0.00001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_nlerp()
         {
             quaternion r0 = nlerp(test_q0, test_q1, 0.3f);
@@ -235,7 +235,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion(-0.4054004f, 0.06570576f, -0.7457358f, -0.5246059f), r2, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_slerp()
         {
             quaternion r0 = slerp(test_q0, test_q1, 0.3f);
@@ -247,7 +247,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion(0.2596942f, -0.4369303f, 0.7902023f, 0.34239f), r2, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_mul_vector()
         {
             float3x3 m = TestMatrix.test3x3_xyz;
@@ -261,7 +261,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(mvector, qvector, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_log_exp_identity()
         {
             quaternion q = quaternion(1.2f, -2.6f, 3.1f, 6.0f);
@@ -270,7 +270,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q, exp_log_q, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_log_exp_rotation()
         {
             quaternion q = quaternion(TestMatrix.test3x3_xyz);
@@ -280,7 +280,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q3, t, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_unitlog_unitexp_rotation()
         {
             quaternion q = quaternion(TestMatrix.test3x3_xyz);
@@ -290,7 +290,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(q3, t, 0.0001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_look_rotation()
         {
             // Exercise the 4 cases
@@ -319,7 +319,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3x3.LookRotation(forward3, up3), float3x3(q3), 0.001f);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_look_rotation_safe()
         {
             float3 forward0 = float3(-3.2f, 2.3f, -1.3f) * 1e-10f;
@@ -381,7 +381,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0f, angle);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_identity()
         {
             const float tolerance = 1e-5f;
@@ -389,7 +389,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion.identity, q, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_uniform_scale()
         {
             const float tolerance = 1e-5f;
@@ -401,7 +401,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_nonuniform_scale()
         {
             const float tolerance = 1e-5f;
@@ -413,7 +413,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(quaternion.identity, q, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_negative_scale_x()
         {
             const float tolerance = 1e-5f;
@@ -425,7 +425,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_negative_scale_y()
         {
             const float tolerance = 1e-5f;
@@ -437,7 +437,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_negative_scale_z()
         {
             const float tolerance = 1e-5f;
@@ -449,7 +449,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, angle(actualQuaternion, expectedQuaternion) % PI * 2.0f, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation_from_3x3_with_negative_nonuniform_scale()
         {
             const float tolerance = 1e-5f;

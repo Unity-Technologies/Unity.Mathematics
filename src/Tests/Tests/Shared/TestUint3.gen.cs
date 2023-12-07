@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestUint3
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_zero()
         {
             TestUtils.AreEqual(0u, uint3.zero.x);
@@ -23,7 +23,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0u, uint3.zero.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_constructor()
         {
             uint3 a = new uint3(1, 2, 3);
@@ -32,7 +32,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(3, a.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_scalar_constructor()
         {
             uint3 a = new uint3(17u);
@@ -41,7 +41,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(17u, a.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_static_constructor()
         {
             uint3 a = uint3(1, 2, 3);
@@ -50,7 +50,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(3, a.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_static_scalar_constructor()
         {
             uint3 a = uint3(17u);
@@ -59,7 +59,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(17u, a.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_equal_wide_wide()
         {
             uint3 a0 = uint3(2105871082, 35218899, 1550755093);
@@ -83,7 +83,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_equal_wide_scalar()
         {
             uint3 a0 = uint3(437822262, 2020661134, 541786900);
@@ -107,7 +107,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_equal_scalar_wide()
         {
             uint a0 = (542329200);
@@ -131,7 +131,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_not_equal_wide_wide()
         {
             uint3 a0 = uint3(1977284100, 1293292704, 1547283851);
@@ -155,7 +155,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_not_equal_wide_scalar()
         {
             uint3 a0 = uint3(1038269360, 1427812625, 103361237);
@@ -179,7 +179,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_not_equal_scalar_wide()
         {
             uint a0 = (1652127596);
@@ -203,7 +203,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_wide_wide()
         {
             uint3 a0 = uint3(1486550609, 1779244308, 1602148045);
@@ -227,7 +227,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_wide_scalar()
         {
             uint3 a0 = uint3(796797557, 670113454, 933579492);
@@ -251,7 +251,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_scalar_wide()
         {
             uint a0 = (186400299);
@@ -275,7 +275,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_wide_wide()
         {
             uint3 a0 = uint3(2087717754, 1725569452, 1298066182);
@@ -299,7 +299,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_wide_scalar()
         {
             uint3 a0 = uint3(1208626274, 239697208, 1979453345);
@@ -323,7 +323,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_scalar_wide()
         {
             uint a0 = (480938827);
@@ -347,7 +347,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_equal_wide_wide()
         {
             uint3 a0 = uint3(154092149, 1515170149, 1083970332);
@@ -371,7 +371,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_equal_wide_scalar()
         {
             uint3 a0 = uint3(1479531977, 1427983411, 415250630);
@@ -395,7 +395,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_less_equal_scalar_wide()
         {
             uint a0 = (1899193992);
@@ -419,7 +419,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_equal_wide_wide()
         {
             uint3 a0 = uint3(8538378, 2131749726, 265427108);
@@ -443,7 +443,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_equal_wide_scalar()
         {
             uint3 a0 = uint3(2049236663, 182691143, 634973382);
@@ -467,7 +467,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_greater_equal_scalar_wide()
         {
             uint a0 = (1859811087);
@@ -491,7 +491,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_add_wide_wide()
         {
             uint3 a0 = uint3(2135171378, 21433296, 1954723494);
@@ -515,7 +515,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_add_wide_scalar()
         {
             uint3 a0 = uint3(665815972, 1783729250, 1591678394);
@@ -539,7 +539,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_add_scalar_wide()
         {
             uint a0 = (359966320);
@@ -563,7 +563,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_sub_wide_wide()
         {
             uint3 a0 = uint3(1410318491, 1097280168, 1827039044);
@@ -587,7 +587,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_sub_wide_scalar()
         {
             uint3 a0 = uint3(1508669340, 1594795463, 266707545);
@@ -611,7 +611,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_sub_scalar_wide()
         {
             uint a0 = (893369501);
@@ -635,7 +635,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mul_wide_wide()
         {
             uint3 a0 = uint3(61417577, 219585476, 1362520891);
@@ -659,7 +659,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mul_wide_scalar()
         {
             uint3 a0 = uint3(871746615, 492532311, 570557670);
@@ -683,7 +683,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mul_scalar_wide()
         {
             uint a0 = (1152242766);
@@ -707,7 +707,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_div_wide_wide()
         {
             uint3 a0 = uint3(333171510, 858154903, 1181365836);
@@ -731,7 +731,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_div_wide_scalar()
         {
             uint3 a0 = uint3(1433072926, 1073958635, 1195142312);
@@ -755,7 +755,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_div_scalar_wide()
         {
             uint a0 = (519165704);
@@ -779,7 +779,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mod_wide_wide()
         {
             uint3 a0 = uint3(258342924, 1454754891, 723352342);
@@ -803,7 +803,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mod_wide_scalar()
         {
             uint3 a0 = uint3(560988938, 629524514, 767711194);
@@ -827,7 +827,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_mod_scalar_wide()
         {
             uint a0 = (933347930);
@@ -851,7 +851,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_plus()
         {
             uint3 a0 = uint3(195392567, 222719748, 1002351013);
@@ -871,7 +871,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, +a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_neg()
         {
             uint3 a0 = uint3(1385088677, 94114564, 1350664872);
@@ -891,7 +891,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, -a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_prefix_inc()
         {
             uint3 a0 = uint3(780471723, 954741756, 272723451);
@@ -911,7 +911,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ++a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_postfix_inc()
         {
             uint3 a0 = uint3(241865086, 2145821641, 1596166022);
@@ -931,7 +931,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3++);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_prefix_dec()
         {
             uint3 a0 = uint3(1331961415, 1612382200, 1401591249);
@@ -951,7 +951,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, --a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_postfix_dec()
         {
             uint3 a0 = uint3(1870005937, 1708534798, 704493460);
@@ -971,7 +971,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_and_wide_wide()
         {
             uint3 a0 = uint3(1055241304, 859321394, 1088358961);
@@ -995,7 +995,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_and_wide_scalar()
         {
             uint3 a0 = uint3(1513158868, 284695609, 734595037);
@@ -1019,7 +1019,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_and_scalar_wide()
         {
             uint a0 = (477163326);
@@ -1043,7 +1043,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_or_wide_wide()
         {
             uint3 a0 = uint3(1920951869, 1750772852, 1420019191);
@@ -1067,7 +1067,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_or_wide_scalar()
         {
             uint3 a0 = uint3(1295304853, 1307252624, 350194630);
@@ -1091,7 +1091,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_or_scalar_wide()
         {
             uint a0 = (1768627592);
@@ -1115,7 +1115,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_xor_wide_wide()
         {
             uint3 a0 = uint3(1843655608, 362425681, 640805534);
@@ -1139,7 +1139,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_xor_wide_scalar()
         {
             uint3 a0 = uint3(169345668, 176087064, 2084362901);
@@ -1163,7 +1163,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_xor_scalar_wide()
         {
             uint a0 = (1361775641);
@@ -1187,7 +1187,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_left_shift()
         {
             uint3 a0 = uint3(1129100049, 829482269, 1571297368);
@@ -1211,7 +1211,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 << b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_right_shift()
         {
             uint3 a0 = uint3(809126085, 908563670, 763568837);
@@ -1235,7 +1235,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >> b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_operator_bitwise_not()
         {
             uint3 a0 = uint3(111796841, 603562399, 745091931);
@@ -1255,7 +1255,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ~a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_shuffle_result_1()
         {
             uint3 a = uint3(0, 1, 2);
@@ -1269,7 +1269,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual((5), shuffle(a, b, ShuffleComponent.RightZ));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_shuffle_result_2()
         {
             uint3 a = uint3(0, 1, 2);
@@ -1293,7 +1293,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint2(1, 2), shuffle(a, b, ShuffleComponent.LeftY, ShuffleComponent.LeftZ));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_shuffle_result_3()
         {
             uint3 a = uint3(0, 1, 2);
@@ -1317,7 +1317,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(uint3(4, 0, 5), shuffle(a, b, ShuffleComponent.RightY, ShuffleComponent.LeftX, ShuffleComponent.RightZ));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_shuffle_result_4()
         {
             uint3 a = uint3(0, 1, 2);

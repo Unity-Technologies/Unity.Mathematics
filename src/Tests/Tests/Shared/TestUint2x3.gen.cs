@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestUint2x3
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_zero()
         {
             TestUtils.AreEqual(0u, uint2x3.zero.c0.x);
@@ -26,7 +26,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0u, uint2x3.zero.c2.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_equal_wide_wide()
         {
             uint2x3 a0 = uint2x3(2105871082, 35218899, 1550755093, 764676020, 606743782, 1208156098);
@@ -50,7 +50,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_equal_wide_scalar()
         {
             uint2x3 a0 = uint2x3(437822262, 2020661134, 541786900, 853113810, 23716499, 179951405);
@@ -74,7 +74,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_equal_scalar_wide()
         {
             uint a0 = (542329200);
@@ -98,7 +98,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_not_equal_wide_wide()
         {
             uint2x3 a0 = uint2x3(1977284100, 1293292704, 1547283851, 422428953, 195833190, 1711544892);
@@ -122,7 +122,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_not_equal_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1038269360, 1427812625, 103361237, 1347017023, 1523584313, 150442802);
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_not_equal_scalar_wide()
         {
             uint a0 = (1652127596);
@@ -170,7 +170,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_wide_wide()
         {
             uint2x3 a0 = uint2x3(1486550609, 1779244308, 1602148045, 1614085440, 1975613414, 942838342);
@@ -194,7 +194,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_wide_scalar()
         {
             uint2x3 a0 = uint2x3(796797557, 670113454, 933579492, 278884514, 318174822, 1117630673);
@@ -218,7 +218,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_scalar_wide()
         {
             uint a0 = (186400299);
@@ -242,7 +242,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_wide_wide()
         {
             uint2x3 a0 = uint2x3(2087717754, 1725569452, 1298066182, 1693943616, 1319019629, 70674491);
@@ -266,7 +266,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1208626274, 239697208, 1979453345, 1253474001, 1590192876, 1487911635);
@@ -290,7 +290,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_scalar_wide()
         {
             uint a0 = (480938827);
@@ -314,7 +314,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_equal_wide_wide()
         {
             uint2x3 a0 = uint2x3(154092149, 1515170149, 1083970332, 785807178, 1401094881, 310537627);
@@ -338,7 +338,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_equal_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1479531977, 1427983411, 415250630, 1245345407, 1112546666, 1072990632);
@@ -362,7 +362,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_less_equal_scalar_wide()
         {
             uint a0 = (1899193992);
@@ -386,7 +386,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_equal_wide_wide()
         {
             uint2x3 a0 = uint2x3(8538378, 2131749726, 265427108, 523609761, 994991818, 839709564);
@@ -410,7 +410,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_equal_wide_scalar()
         {
             uint2x3 a0 = uint2x3(2049236663, 182691143, 634973382, 1197012109, 439837565, 1367606469);
@@ -434,7 +434,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_greater_equal_scalar_wide()
         {
             uint a0 = (1859811087);
@@ -458,7 +458,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_add_wide_wide()
         {
             uint2x3 a0 = uint2x3(2135171378, 21433296, 1954723494, 683604307, 1054212315, 1762680995);
@@ -482,7 +482,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_add_wide_scalar()
         {
             uint2x3 a0 = uint2x3(665815972, 1783729250, 1591678394, 1284528538, 977850224, 71069732);
@@ -506,7 +506,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_add_scalar_wide()
         {
             uint a0 = (359966320);
@@ -530,7 +530,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_sub_wide_wide()
         {
             uint2x3 a0 = uint2x3(1410318491, 1097280168, 1827039044, 28881338, 328720965, 875487868);
@@ -554,7 +554,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_sub_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1508669340, 1594795463, 266707545, 643102647, 287705008, 1475644328);
@@ -578,7 +578,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_sub_scalar_wide()
         {
             uint a0 = (893369501);
@@ -602,7 +602,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mul_wide_wide()
         {
             uint2x3 a0 = uint2x3(61417577, 219585476, 1362520891, 1511084277, 1481211272, 58211871);
@@ -626,7 +626,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mul_wide_scalar()
         {
             uint2x3 a0 = uint2x3(871746615, 492532311, 570557670, 2142306629, 1610315153, 1526163563);
@@ -650,7 +650,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mul_scalar_wide()
         {
             uint a0 = (1152242766);
@@ -674,7 +674,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_div_wide_wide()
         {
             uint2x3 a0 = uint2x3(333171510, 858154903, 1181365836, 671357749, 1090606752, 803759420);
@@ -698,7 +698,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_div_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1433072926, 1073958635, 1195142312, 536596719, 1274375693, 464756346);
@@ -722,7 +722,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_div_scalar_wide()
         {
             uint a0 = (519165704);
@@ -746,7 +746,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mod_wide_wide()
         {
             uint2x3 a0 = uint2x3(258342924, 1454754891, 723352342, 1981431473, 531756042, 716993627);
@@ -770,7 +770,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mod_wide_scalar()
         {
             uint2x3 a0 = uint2x3(560988938, 629524514, 767711194, 434281967, 1399805893, 792916846);
@@ -794,7 +794,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_mod_scalar_wide()
         {
             uint a0 = (933347930);
@@ -818,7 +818,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_plus()
         {
             uint2x3 a0 = uint2x3(195392567, 222719748, 1002351013, 1570765263, 109389333, 1515950277);
@@ -838,7 +838,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, +a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_neg()
         {
             uint2x3 a0 = uint2x3(1385088677, 94114564, 1350664872, 1458616659, 2067164853, 218122493);
@@ -858,7 +858,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, -a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_prefix_inc()
         {
             uint2x3 a0 = uint2x3(780471723, 954741756, 272723451, 2142862245, 606294309, 1514814550);
@@ -878,7 +878,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ++a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_postfix_inc()
         {
             uint2x3 a0 = uint2x3(241865086, 2145821641, 1596166022, 803592338, 529551271, 1656767229);
@@ -898,7 +898,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3++);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_prefix_dec()
         {
             uint2x3 a0 = uint2x3(1331961415, 1612382200, 1401591249, 2042075388, 1757136546, 1895858159);
@@ -918,7 +918,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, --a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_postfix_dec()
         {
             uint2x3 a0 = uint2x3(1870005937, 1708534798, 704493460, 462940703, 2060593573, 228744869);
@@ -938,7 +938,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3--);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_and_wide_wide()
         {
             uint2x3 a0 = uint2x3(1055241304, 859321394, 1088358961, 2090949513, 300561740, 651904515);
@@ -962,7 +962,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_and_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1513158868, 284695609, 734595037, 1566510707, 1601252476, 84213838);
@@ -986,7 +986,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_and_scalar_wide()
         {
             uint a0 = (477163326);
@@ -1010,7 +1010,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_or_wide_wide()
         {
             uint2x3 a0 = uint2x3(1920951869, 1750772852, 1420019191, 732977093, 1169579447, 229437930);
@@ -1034,7 +1034,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_or_wide_scalar()
         {
             uint2x3 a0 = uint2x3(1295304853, 1307252624, 350194630, 1128063578, 1774824542, 2085245467);
@@ -1058,7 +1058,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_or_scalar_wide()
         {
             uint a0 = (1768627592);
@@ -1082,7 +1082,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_xor_wide_wide()
         {
             uint2x3 a0 = uint2x3(1843655608, 362425681, 640805534, 1342040268, 945678755, 980321850);
@@ -1106,7 +1106,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_xor_wide_scalar()
         {
             uint2x3 a0 = uint2x3(169345668, 176087064, 2084362901, 1663924004, 193851255, 517476661);
@@ -1130,7 +1130,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_xor_scalar_wide()
         {
             uint a0 = (1361775641);
@@ -1154,7 +1154,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_left_shift()
         {
             uint2x3 a0 = uint2x3(1129100049, 829482269, 1571297368, 443753193, 1872142968, 249554593);
@@ -1178,7 +1178,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 << b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_right_shift()
         {
             uint2x3 a0 = uint2x3(809126085, 908563670, 763568837, 1986717290, 1174507510, 646821842);
@@ -1202,7 +1202,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >> b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2x3_operator_bitwise_not()
         {
             uint2x3 a0 = uint2x3(111796841, 603562399, 745091931, 853183268, 1110916612, 381888399);
