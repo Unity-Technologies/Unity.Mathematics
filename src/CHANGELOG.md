@@ -5,6 +5,7 @@
 ### Fixed
 * Fixed `math.hash` crash when using IL2CPP builds on Arm 32 bit devices.
 * Fixed obsolete method usage warnings for `MatrixDrawer.CanCacheInspectorGUI` and `PrimitiveVectorDrawer.CanCacheInspectorGUI` in UNITY_2023_2_OR_NEWER.
+* Updated minimum editor version to 2021.3
 
 ## [1.3.1] - 2023-07-12
 
