@@ -1,28 +1,28 @@
 build_platforms:
   - name: windows
     type: Unity::VM
-    image: sdet/burst-devimage:stable
+    image: package-ci/win10:v4
     flavor: b1.large
   - name: linux
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu-22.04:v4
     type: Unity::VM
     flavor: b1.large
   - name: macOS
-    image: burst/burst_mac:stable
+    image: package-ci/macos-13:v4
     type: Unity::VM::osx
     flavor: b1.large
 
 upmci_platforms:
   - name: windows
     type: Unity::VM
-    image: package-ci/win10:stable
+    image: package-ci/win10:v4
     flavor: b1.large
   - name: linux
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu-22.04:v4
     type: Unity::VM
     flavor: b1.large
   - name: macOS
-    image: package-ci/mac:stable
+    image: package-ci/macos-13:v4
     type: Unity::VM::osx
     flavor: b1.large
 
@@ -85,7 +85,7 @@ package_tests_minimal:
 validate_package_minimal:
   name: Validate Package Linux Minimal
   agent:
-    image: package-ci/ubuntu:stable
+    image: package-ci/ubuntu-22.04:v4
     type: Unity::VM
     flavor: b1.large
   commands:
@@ -135,7 +135,7 @@ publish:
   name: Publish
   agent:
     type: Unity::VM
-    image: package-ci/win10:stable
+    image: package-ci/win10:v4
     flavor: b1.large
   variables:
     UPMCI_ENABLE_PACKAGE_SIGNING: 1
@@ -158,7 +158,7 @@ promote:
   name: Promote
   agent:
     type: Unity::VM
-    image: package-ci/win10:stable
+    image: package-ci/win10:v4
     flavor: b1.large
   variables:
     UPMCI_PROMOTION: 1

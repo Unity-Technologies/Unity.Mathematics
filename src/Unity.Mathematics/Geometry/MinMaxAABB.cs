@@ -16,7 +16,7 @@ namespace Unity.Mathematics.Geometry
     /// </remarks>
     [System.Serializable]
     [Il2CppEagerStaticClassConstruction]
-    internal struct MinMaxAABB : IEquatable<MinMaxAABB>
+    public struct MinMaxAABB : IEquatable<MinMaxAABB>
     {
         /// <summary>
         /// The minimum point contained by the AABB.
@@ -213,7 +213,7 @@ namespace Unity.Mathematics.Geometry
         }
     }
 
-    internal static partial class Math
+    public static partial class Math
     {
         /// <summary>
         /// Transforms the AABB with the given transform.

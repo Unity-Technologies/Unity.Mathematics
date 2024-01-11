@@ -48,7 +48,7 @@ namespace Unity.Mathematics.Tests
         static void ValidateSingular(in float3x3 a) =>
             TestUtils.AreEqual(0.0f, math.determinant(a), k_SVDTolerance);
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseNonSingularFloat3x3()
         {
             var mat = math.float3x3(
@@ -71,7 +71,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1f, testIdentity.c2.z, k_SVDTolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseFloat3x3With_NullColumn()
         {
             var mat = math.float3x3(
@@ -89,7 +89,7 @@ namespace Unity.Mathematics.Tests
             ValidatePenrose2(inv, mat);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseFloat3x3With_NullRow()
         {
             var mat = math.float3x3(
@@ -107,7 +107,7 @@ namespace Unity.Mathematics.Tests
             ValidatePenrose2(inv, mat);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseFloat3x3With_LinearDependentColumn()
         {
             var mat = math.float3x3(
@@ -125,7 +125,7 @@ namespace Unity.Mathematics.Tests
             ValidatePenrose2(inv, mat);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseFloat3x3With_LinearDependentRow()
         {
             var mat = math.float3x3(
@@ -143,7 +143,7 @@ namespace Unity.Mathematics.Tests
             ValidatePenrose2(inv, mat);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanSVDInverseFloat3x3With_RotatedZeroScale()
         {
             var m102030 = math.float3x3(quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f)));
@@ -160,7 +160,7 @@ namespace Unity.Mathematics.Tests
         }
 
         // Case 928598: The errors appear, when GameObject has a child with ParticleSystem which is rotated along the y-axis to -180 and is moved
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanExtractSVDRotationFromFloat3x3With_X180_Y0_Z181()
         {
             var q = quaternion.Euler(math.radians(180f), math.radians(0f), math.radians(181f));
@@ -170,7 +170,7 @@ namespace Unity.Mathematics.Tests
         }
 
         // Case 938548: Assertion failed on expression: 'CompareApproximately(det, 1.0F, .005f)' when scaling system to 0 on at least 2 axes
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CanExtractSVDRotationFromFloat3x3With_ZeroScaleXY()
         {
             var q0 = quaternion.Euler(math.radians(10f), math.radians(20f), math.radians(30f));

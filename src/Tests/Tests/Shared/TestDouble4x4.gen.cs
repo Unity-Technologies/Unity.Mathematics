@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestDouble4x4
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_zero()
         {
             TestUtils.AreEqual(0.0, double4x4.zero.c0.x);
@@ -36,7 +36,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0, double4x4.zero.c3.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_identity()
         {
             TestUtils.AreEqual(1.0, double4x4.identity.c0.x);
@@ -57,7 +57,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1.0, double4x4.identity.c3.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_equal_wide_wide()
         {
             double4x4 a0 = double4x4(492.15758275061728, -495.20632027797694, 227.45765195947968, -147.37405950733182, -222.68201909897942, 64.093720704360749, -23.890404473939157, -16.8197190839889, 163.23210890741655, -165.27101071424363, 470.87767980568003, -423.94255967808078, 109.63436918595539, 462.69031283943468, -335.38147727371262, 357.23446934168896);
@@ -81,7 +81,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_equal_wide_scalar()
         {
             double4x4 a0 = double4x4(-303.2300766926399, 451.52631327674089, -253.65587413201848, -105.20363502632995, -500.6910920090466, -426.19248338518315, 159.87609656149334, -59.558379439431405, -57.477391031327386, -182.04973968400139, 406.51375861024189, 370.88599866017978, -172.03530629539642, 455.40001198993991, -11.338988547836891, 363.93823044557973);
@@ -105,7 +105,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_equal_scalar_wide()
         {
             double a0 = (-253.39728534100453);
@@ -129,7 +129,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_not_equal_wide_wide()
         {
             double4x4 a0 = double4x4(430.8425316432689, 104.69001798736394, 225.80243478799355, -310.57017841496048, -418.61945815506363, 304.12820281839379, -509.32682561749908, -160.53807719076895, -203.30197606016975, -505.76325368590807, 162.17220623892365, 1.1561973100324394, 65.662074358045174, 102.78780250567377, 172.93008120960098, 26.621009123800832);
@@ -153,7 +153,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_not_equal_wide_scalar()
         {
             double4x4 a0 = double4x4(-16.914588697680529, 168.83411486858233, -462.71352145760949, 130.30776959765137, 214.50161443208424, -440.26328178879959, -197.12796053529155, -169.09985860115842, -386.61117595555783, -281.02101362916687, -270.26885593601912, -403.96372313236992, -269.80570877241234, 299.65422763473089, -71.750904831919286, -432.75573917513515);
@@ -177,7 +177,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_not_equal_scalar_wide()
         {
             double a0 = (275.79582823244664);
@@ -201,7 +201,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_wide_wide()
         {
             double4x4 a0 = double4x4(196.84256825076534, 336.40979997087732, 251.96372115424072, 257.65591466503963, 430.04588647840819, -62.419644146421774, 8.8392293494376872, -333.81671563434259, 164.67880662003472, -350.94487516532877, 3.84143662631584, 125.40972024081725, -111.12994127680076, 70.005523475820951, 448.19828173527412, -419.98711200244122);
@@ -225,7 +225,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_wide_scalar()
         {
             double4x4 a0 = double4x4(-132.05731708000292, -192.46500477216438, -66.834607870706634, -379.01750081545561, -360.28242199508588, 20.927834282129879, -158.24074537970159, 437.34587522845061, -20.452607402788772, 225.29148517609178, 307.48418607725023, 274.01523292903562, 373.54965584983563, 398.52368301829495, 105.0301654827922, -58.010895994496934);
@@ -249,7 +249,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_scalar_wide()
         {
             double a0 = (-423.117411095238);
@@ -273,7 +273,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_wide_wide()
         {
             double4x4 a0 = double4x4(483.50140141113729, 310.81563415695712, 106.9661896726891, 295.73526038589671, 116.95757179938141, -478.29977653841479, -14.897393471979228, -33.817441717636484, -24.740548383789417, 319.78262701620474, -120.15856581561201, -289.00857962714906, 455.85146662958505, 144.70691139283917, 63.931990891663304, -285.68304099034663);
@@ -297,7 +297,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_wide_scalar()
         {
             double4x4 a0 = double4x4(64.317918092160426, -397.70346445483318, 431.87690826499693, 85.702980796668157, 246.26305233978803, 197.49155602114809, 286.1994608781298, 280.81334818564972, -405.78459210218148, 171.56538661362856, -241.80727326209063, 333.57817498481745, 370.27919524269146, -413.70138116073861, -356.5923551789449, -353.03129522550444);
@@ -321,7 +321,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_scalar_wide()
         {
             double a0 = (-282.67049635698572);
@@ -345,7 +345,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_equal_wide_wide()
         {
             double4x4 a0 = double4x4(-438.52313753521219, 210.48942837980087, 4.8773329280677444, -137.29793817237857, 156.09410174009111, -363.92412035722475, -97.948485181642923, 437.29539009430232, 458.53029153241323, -294.06474675520542, 23.622613679441884, -34.284056441059363, 149.736484835733, -418.8866781754823, -197.50252899783783, -88.2055118494693);
@@ -369,7 +369,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_equal_wide_scalar()
         {
             double4x4 a0 = double4x4(193.4958237118534, 168.91555197952107, -313.9930695565385, 81.826965131716292, 18.503590830836288, -0.35819602029312136, 241.36115776810846, -463.81641242644582, -1.3577692515020203, -268.89945591096739, 398.9919504593089, -471.253072242836, -264.93778264938749, 82.258299150624453, 11.246050124636895, 424.7040156911612);
@@ -393,7 +393,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_less_equal_scalar_wide()
         {
             double a0 = (393.60626644343427);
@@ -417,7 +417,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_equal_wide_wide()
         {
             double4x4 a0 = double4x4(-507.92858409692, 504.49748181947393, -385.43449205226938, -262.32340944107784, -37.550928848586466, -111.59527759980193, -463.70202157632542, 387.44885772627265, 456.96878573716094, -211.01015506079892, 182.41135391146474, -53.596053863687473, -309.57021608463032, -136.02249127999994, 280.73629082401112, -96.9958942388165);
@@ -441,7 +441,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_equal_wide_scalar()
         {
             double4x4 a0 = double4x4(465.15218732559686, -424.8860745024337, -209.22109685150025, 58.779852656079356, -302.26910533675414, 140.12558252183976, 16.353385694489475, -344.55997316192838, 393.27804846003562, -315.70155086913218, 441.0115565923096, -509.78156757251435, -36.994287269652943, 494.82028865014217, -164.97393830352183, -466.12009046325466);
@@ -465,7 +465,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_greater_equal_scalar_wide()
         {
             double a0 = (374.82703393270594);
@@ -489,7 +489,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_add_wide_wide()
         {
             double4x4 a0 = double4x4(506.12905263627374, -501.77980803967444, 420.08479638587903, -186.03206476291274, -9.3123953385801883, 328.51179686585056, 424.34407659263536, 87.791079800478656, 462.41368148402012, -46.178705952213477, 401.17006296718966, -454.12414643453627, 69.195687564646732, -177.95734485329939, 299.60415544156183, 340.7048587001417);
@@ -513,7 +513,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_add_wide_scalar()
         {
             double4x4 a0 = double4x4(-194.51420387742769, 338.54838696985894, 246.97140252169754, 100.51093797595752, -45.724677822424439, -478.11131094308166, 30.916145577522116, 60.37435224483454, -242.1187475855084, 82.50134495762245, 6.7993848355483806, -484.69981287638649, -188.26501068298938, -213.52673087526426, -267.78430688929944, 189.25996669999324);
@@ -537,7 +537,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_add_scalar_wide()
         {
             double a0 = (-340.35468284243473);
@@ -561,7 +561,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_sub_wide_wide()
         {
             double4x4 a0 = double4x4(160.4922617229131, 11.223957305412682, 359.20010607279846, -498.22830485656311, -355.25362913462038, -94.534852787170053, -410.46404786150163, -401.38464398001537, 317.70681944382693, 447.0604133303558, -489.07414482956477, -230.00838218909149, 24.875419389864192, 366.61447136784648, -107.3741567634857, -219.0081404275299);
@@ -585,7 +585,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_sub_wide_scalar()
         {
             double4x4 a0 = double4x4(207.38960108877609, 248.45773684627272, -384.82393211164697, -205.34476122881506, -374.81156152058929, 191.64204820973896, 18.856238135535364, -44.96160151667965, 480.85798738936796, 16.338193185784917, -366.86545269883493, -35.523088233323335, 349.39776460705218, 439.07729336203886, 490.2222661870635, 195.02405104181923);
@@ -609,7 +609,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_sub_scalar_wide()
         {
             double a0 = (-86.008225719448262);
@@ -633,7 +633,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mul_wide_wide()
         {
             double4x4 a0 = double4x4(-482.71381710596097, -407.29348559272171, 137.70058995937029, 208.54113278563182, 194.296573967811, -484.24241684574747, 183.98730739578014, -241.33547770294149, 45.868758938214114, 363.32610266438041, -328.11893692990714, -471.02307413100408, -262.68257415605831, -379.26274674910246, -374.09058182970182, 481.44738720424812);
@@ -657,7 +657,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mul_wide_scalar()
         {
             double4x4 a0 = double4x4(-96.318821236639678, -277.14229239017811, -239.93690191951436, 509.53140544776409, 255.85810172551226, 215.73149667295229, -455.50827500573746, -389.24327367788334, -338.29248658674419, 53.796284939067618, 243.75734459783757, 135.35469991311186, -207.35010275959507, -383.93960946795517, -31.425238862366086, 42.676120539510634);
@@ -681,7 +681,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mul_scalar_wide()
         {
             double a0 = (37.432166355397612);
@@ -705,7 +705,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_div_wide_wide()
         {
             double4x4 a0 = double4x4(-353.13144390337703, -102.79985456485292, 51.319128298814917, -191.87167868012176, 8.0418245829836223, -128.73764210973758, -136.05959779399427, -370.4710053738537, -237.69456326109105, -432.54687496300176, 200.26549181727012, 361.44157068871039, -416.22613234828509, -450.01919362042992, -273.49744594911925, -286.90817011841955);
@@ -729,7 +729,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_div_wide_scalar()
         {
             double4x4 a0 = double4x4(171.34242184988341, 0.10338377957384637, 57.888263967767443, -256.13074529177078, 95.6696842162263, -290.38690461329509, -127.44869118903239, -79.7448890580539, 146.46688110496234, -499.84355687529012, 58.686315802245531, -453.20579859856787, -205.03382143985192, 481.73814247629514, 464.47907159499778, -293.46349753693841);
@@ -753,7 +753,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_div_scalar_wide()
         {
             double a0 = (-264.44250095283729);
@@ -777,7 +777,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mod_wide_wide()
         {
             double4x4 a0 = double4x4(-388.81249422059045, 181.68118842955732, -167.07872470052854, 432.82015319951813, -258.43895995730486, -170.11079629236406, 283.318293464984, 122.71651297561664, 335.27101413126616, -503.60851668920765, 191.02251848532933, 289.74269379756538, -124.03371745163281, 259.27395761165485, -274.35845030208975, -140.03080398404541);
@@ -801,7 +801,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mod_wide_scalar()
         {
             double4x4 a0 = double4x4(-244.49962889612635, -211.81931958525411, -145.92677576184587, -304.91822090042672, 155.47946436492703, -133.90778428591221, 281.30965412841624, -226.53575311719243, 335.16613046041039, 101.70649032560482, 319.47152033423606, -285.40231646476423, -355.84685985923136, 259.37800061860025, -330.87193957477433, -284.34358109363518);
@@ -825,7 +825,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_mod_scalar_wide()
         {
             double a0 = (-66.945025236785909);
@@ -849,7 +849,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_plus()
         {
             double4x4 a0 = double4x4(-418.82956357432045, -405.79894823851015, -34.041791216489742, 236.99924456188421, -459.83910129025537, 210.8614223985287, 293.74197902052754, -373.015422279488, -386.059833944803, 4.9544198536101476, -418.64524932328857, 504.47483062393724, -170.74650843941907, 439.55937572920664, -478.74939916969714, 116.40075665172219);
@@ -869,7 +869,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, +a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_neg()
         {
             double4x4 a0 = double4x4(148.46174890755753, -467.12267873581624, 132.04719954917539, 183.52262290917463, 473.7010145009034, -407.99109024926605, -54.958759571872065, -382.98981803608581, -299.09338893512887, -383.01406377508027, 407.70980305583669, 168.73550351370852, 466.44152829909763, 171.90249474900895, -280.55831564616335, -78.85761622286293);
@@ -889,7 +889,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, -a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_prefix_inc()
         {
             double4x4 a0 = double4x4(-139.84208137348389, -56.743654039103376, -381.955324589254, 509.79634380237962, -222.89634452708827, 210.31986556310198, -392.73151058365193, -300.19410218866267, 362.21273939787068, 401.614830919362, 130.90919429199266, -450.23016402229212, 243.54693114177644, 46.19202735190845, -41.497298975241051, 299.18547000511808);
@@ -909,7 +909,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ++a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_postfix_inc()
         {
             double4x4 a0 = double4x4(-396.6697396695007, 511.20749378167443, 249.11127030528678, -128.81731301584153, -259.49027669592306, 278.00817764830219, -81.393423356764686, 66.719732554033271, 167.85212691493894, 147.94395048354932, -326.10758486674524, 41.033564825092185, 128.5304239394751, 73.155582223625629, -60.132380275117384, -446.22976490772783);
@@ -929,7 +929,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3++);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_prefix_dec()
         {
             double4x4 a0 = double4x4(123.12869626056806, 256.8437465433235, 156.33078844674435, 461.73742530389563, 325.86799755965728, 392.01561731473339, 187.87412580655609, -236.2252043393558, 125.10963517292851, 469.8447313112415, 45.536655685648611, 376.04684680329956, -363.07547991493504, -22.028951416736902, 248.79012667797042, 168.0950144120003);
@@ -949,7 +949,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, --a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4x4_operator_postfix_dec()
         {
             double4x4 a0 = double4x4(379.68831723727669, 302.69287814884115, -176.07134040448409, -291.25267066212962, 470.56758401848731, -402.92594666170231, -63.655158787805192, 355.26110069605568, -27.889220489137415, -100.76183824462902, 156.14034969924967, 479.94519613680677, -200.30429491787419, -445.0269393609031, 407.42034907239508, 327.67032519340069);

@@ -9,7 +9,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestMinMaxAABB
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_trivial()
         {
             var aabb = new MinMaxAABB();
@@ -18,7 +18,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3.zero, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_max()
         {
             var aabb = new MinMaxAABB();
@@ -27,7 +27,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_min()
         {
             var aabb = new MinMaxAABB();
@@ -36,7 +36,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(-1.0f), aabb.Min);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_minx_maxyz()
         {
             var aabb = new MinMaxAABB();
@@ -45,7 +45,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 1.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_minxy_maxz()
         {
             var aabb = new MinMaxAABB();
@@ -54,7 +54,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 0.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_minxz_maxy()
         {
             var aabb = new MinMaxAABB();
@@ -63,7 +63,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 1.0f, 0.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_minz_maxxy()
         {
             var aabb = new MinMaxAABB();
@@ -72,7 +72,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f, 1.0f, 0.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_float3_new_miny_maxxz()
         {
             var aabb = new MinMaxAABB();
@@ -81,7 +81,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f, 0.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_trivial()
         {
             var aabb = new MinMaxAABB();
@@ -90,7 +90,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(float3.zero, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_max()
         {
             var aabb = new MinMaxAABB();
@@ -100,7 +100,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(p, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_min()
         {
             var aabb = new MinMaxAABB();
@@ -110,7 +110,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(p, aabb.Min);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_minx_maxyz()
         {
             var aabb = new MinMaxAABB();
@@ -119,7 +119,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 1.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_minxy_maxz()
         {
             var aabb = new MinMaxAABB();
@@ -128,7 +128,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 0.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_minxz_maxy()
         {
             var aabb = new MinMaxAABB();
@@ -137,7 +137,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(0.0f, 1.0f, 0.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_minz_maxxy()
         {
             var aabb = new MinMaxAABB();
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f, 1.0f, 0.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Encapsulate_MinMaxAABB_new_miny_maxxz()
         {
             var aabb = new MinMaxAABB();
@@ -155,14 +155,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f, 0.0f, 1.0f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_trivial()
         {
             MinMaxAABB aabb = new MinMaxAABB();
             TestUtils.IsTrue(aabb.Equals(aabb));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals()
         {
             MinMaxAABB aabb1 = new MinMaxAABB { Min = new float3(-123.0f, 0.5182f, 20.0f), Max = new float3(1.0f, -1.0f, 0.99191f) };
@@ -171,7 +171,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_minx()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -180,7 +180,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_miny()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -189,7 +189,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_minz()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -198,7 +198,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_maxx()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -207,7 +207,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_maxy()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -216,7 +216,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Equals_diff_maxz()
         {
             MinMaxAABB aabb1 = new MinMaxAABB();
@@ -225,7 +225,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Equals(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void SurfaceArea()
         {
             var min = new float3(-47.989063262939453125f, 28.037994384765625f, -9.756519317626953125f);
@@ -235,7 +235,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(14400.470703125f, aabb.SurfaceArea, 1, true);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Extents()
         {
             var min = new float3(48.152984619140625f, -33.58978271484375f, -37.498805999755859375f);
@@ -246,7 +246,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, aabb.Extents);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Center()
         {
             var min = new float3(47.902675628662109375f, -34.302494049072265625f, 22.7147884368896484375f);
@@ -257,7 +257,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, aabb.Center);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void HalfExtents()
         {
             var min = new float3(-14.3485383987426757813f, 28.68161773681640625f, -40.28060150146484375f);
@@ -268,7 +268,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, aabb.HalfExtents);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Constructor()
         {
             var min = new float3(38.95940399169921875f, -24.644245147705078125f, 27.7903194427490234375f);
@@ -279,7 +279,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(max, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ContainsPoint()
         {
             var aabb = new MinMaxAABB(new float3(-1), new float3(1));
@@ -301,7 +301,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb.Contains(new float3(-1.0f, -1.0f, -1.0f - EPSILON)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ContainsAabb_Trivial()
         {
             var aabb1 = new MinMaxAABB();
@@ -311,7 +311,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(aabb2.Contains(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ContainsAabb()
         {
             var aabb1 = new MinMaxAABB(new float3(-1.0f), new float3(1.0f));
@@ -321,7 +321,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb2.Contains(aabb1));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ContainsAabb_BarelyNotContained()
         {
             var aabb1 = new MinMaxAABB(new float3(-1.0f), new float3(1.0f));
@@ -340,7 +340,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(aabb1.Contains(aabb7));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Overlap_Trivial()
         {
             var aabb = new MinMaxAABB();
@@ -348,7 +348,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(aabb.Overlaps(aabb));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Overlap_Corner()
         {
             var aabb = new MinMaxAABB(new float3(-1.0f), new float3(1.0f));
@@ -389,7 +389,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsTrue(cornerAabb8.Overlaps(aabb));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void NoOverlap_Corner()
         {
             var aabb = new MinMaxAABB(new float3(-1.0f), new float3(1.0f));
@@ -430,7 +430,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(cornerAabb8.Overlaps(aabb));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Expand_PositiveDistance()
         {
             var aabb = new MinMaxAABB(new float3(-0.5f), new float3(0.5f));
@@ -440,7 +440,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.5f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Expand_NegativeDistance()
         {
             var aabb = new MinMaxAABB(new float3(-0.5f), new float3(0.5f));
@@ -450,7 +450,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(-0.5f), aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CreateFromCenterAndExtents()
         {
             var center = new float3(-29.2458133697509765625f, 1.21094369888305664063f, 34.281322479248046875f);
@@ -463,7 +463,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedMax, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CreateFromCenterAndHalfExtents()
         {
             var center = new float3(-29.2458133697509765625f, 1.21094369888305664063f, 34.281322479248046875f);
@@ -476,14 +476,14 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedMax, aabb.Max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void IsValid_Trivial()
         {
             TestUtils.IsTrue(new MinMaxAABB().IsValid);
             TestUtils.IsFalse(new MinMaxAABB(new float3(1.0f), new float3(-1.0f)).IsValid);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void IsValid_OneComponentInvalid()
         {
             TestUtils.IsFalse(new MinMaxAABB(float3.zero, new float3(-1.0f, 0.0f, 0.0f)).IsValid);
@@ -494,7 +494,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.IsFalse(new MinMaxAABB(new float3(0.0f, 0.0f, 1.0f), float3.zero).IsValid);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Transform_RigidTransform()
         {
             var t = new RigidTransform(quaternion.EulerXYZ(PI * 0.25f), new float3(1.0f, 1.0f, 1.0f));
@@ -507,7 +507,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedMax, aabb.Max, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Transform_float4x4()
         {
             var t = new float4x4(float3x3.EulerXYZ(PI * 0.25f), new float3(1.0f, 1.0f, 1.0f));
@@ -520,7 +520,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedMax, aabb.Max, tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Transform_float3x3()
         {
             var t = float3x3.EulerXYZ(PI * 0.25f);

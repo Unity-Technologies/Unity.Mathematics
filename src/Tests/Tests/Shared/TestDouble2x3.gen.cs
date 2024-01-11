@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestDouble2x3
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_zero()
         {
             TestUtils.AreEqual(0.0, double2x3.zero.c0.x);
@@ -26,7 +26,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0, double2x3.zero.c2.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_equal_wide_wide()
         {
             double2x3 a0 = double2x3(492.15758275061728, -495.20632027797694, 227.45765195947968, -147.37405950733182, -222.68201909897942, 64.093720704360749);
@@ -50,7 +50,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_equal_wide_scalar()
         {
             double2x3 a0 = double2x3(-303.2300766926399, 451.52631327674089, -253.65587413201848, -105.20363502632995, -500.6910920090466, -426.19248338518315);
@@ -74,7 +74,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_equal_scalar_wide()
         {
             double a0 = (-253.39728534100453);
@@ -98,7 +98,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_not_equal_wide_wide()
         {
             double2x3 a0 = double2x3(430.8425316432689, 104.69001798736394, 225.80243478799355, -310.57017841496048, -418.61945815506363, 304.12820281839379);
@@ -122,7 +122,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_not_equal_wide_scalar()
         {
             double2x3 a0 = double2x3(-16.914588697680529, 168.83411486858233, -462.71352145760949, 130.30776959765137, 214.50161443208424, -440.26328178879959);
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_not_equal_scalar_wide()
         {
             double a0 = (275.79582823244664);
@@ -170,7 +170,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_wide_wide()
         {
             double2x3 a0 = double2x3(196.84256825076534, 336.40979997087732, 251.96372115424072, 257.65591466503963, 430.04588647840819, -62.419644146421774);
@@ -194,7 +194,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_wide_scalar()
         {
             double2x3 a0 = double2x3(-132.05731708000292, -192.46500477216438, -66.834607870706634, -379.01750081545561, -360.28242199508588, 20.927834282129879);
@@ -218,7 +218,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_scalar_wide()
         {
             double a0 = (-423.117411095238);
@@ -242,7 +242,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 < b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_wide_wide()
         {
             double2x3 a0 = double2x3(483.50140141113729, 310.81563415695712, 106.9661896726891, 295.73526038589671, 116.95757179938141, -478.29977653841479);
@@ -266,7 +266,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_wide_scalar()
         {
             double2x3 a0 = double2x3(64.317918092160426, -397.70346445483318, 431.87690826499693, 85.702980796668157, 246.26305233978803, 197.49155602114809);
@@ -290,7 +290,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_scalar_wide()
         {
             double a0 = (-282.67049635698572);
@@ -314,7 +314,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 > b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_equal_wide_wide()
         {
             double2x3 a0 = double2x3(-438.52313753521219, 210.48942837980087, 4.8773329280677444, -137.29793817237857, 156.09410174009111, -363.92412035722475);
@@ -338,7 +338,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_equal_wide_scalar()
         {
             double2x3 a0 = double2x3(193.4958237118534, 168.91555197952107, -313.9930695565385, 81.826965131716292, 18.503590830836288, -0.35819602029312136);
@@ -362,7 +362,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_less_equal_scalar_wide()
         {
             double a0 = (393.60626644343427);
@@ -386,7 +386,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 <= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_equal_wide_wide()
         {
             double2x3 a0 = double2x3(-507.92858409692, 504.49748181947393, -385.43449205226938, -262.32340944107784, -37.550928848586466, -111.59527759980193);
@@ -410,7 +410,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_equal_wide_scalar()
         {
             double2x3 a0 = double2x3(465.15218732559686, -424.8860745024337, -209.22109685150025, 58.779852656079356, -302.26910533675414, 140.12558252183976);
@@ -434,7 +434,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_greater_equal_scalar_wide()
         {
             double a0 = (374.82703393270594);
@@ -458,7 +458,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 >= b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_add_wide_wide()
         {
             double2x3 a0 = double2x3(506.12905263627374, -501.77980803967444, 420.08479638587903, -186.03206476291274, -9.3123953385801883, 328.51179686585056);
@@ -482,7 +482,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_add_wide_scalar()
         {
             double2x3 a0 = double2x3(-194.51420387742769, 338.54838696985894, 246.97140252169754, 100.51093797595752, -45.724677822424439, -478.11131094308166);
@@ -506,7 +506,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_add_scalar_wide()
         {
             double a0 = (-340.35468284243473);
@@ -530,7 +530,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 + b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_sub_wide_wide()
         {
             double2x3 a0 = double2x3(160.4922617229131, 11.223957305412682, 359.20010607279846, -498.22830485656311, -355.25362913462038, -94.534852787170053);
@@ -554,7 +554,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_sub_wide_scalar()
         {
             double2x3 a0 = double2x3(207.38960108877609, 248.45773684627272, -384.82393211164697, -205.34476122881506, -374.81156152058929, 191.64204820973896);
@@ -578,7 +578,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_sub_scalar_wide()
         {
             double a0 = (-86.008225719448262);
@@ -602,7 +602,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 - b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mul_wide_wide()
         {
             double2x3 a0 = double2x3(-482.71381710596097, -407.29348559272171, 137.70058995937029, 208.54113278563182, 194.296573967811, -484.24241684574747);
@@ -626,7 +626,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mul_wide_scalar()
         {
             double2x3 a0 = double2x3(-96.318821236639678, -277.14229239017811, -239.93690191951436, 509.53140544776409, 255.85810172551226, 215.73149667295229);
@@ -650,7 +650,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mul_scalar_wide()
         {
             double a0 = (37.432166355397612);
@@ -674,7 +674,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 * b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_div_wide_wide()
         {
             double2x3 a0 = double2x3(-353.13144390337703, -102.79985456485292, 51.319128298814917, -191.87167868012176, 8.0418245829836223, -128.73764210973758);
@@ -698,7 +698,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_div_wide_scalar()
         {
             double2x3 a0 = double2x3(171.34242184988341, 0.10338377957384637, 57.888263967767443, -256.13074529177078, 95.6696842162263, -290.38690461329509);
@@ -722,7 +722,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_div_scalar_wide()
         {
             double a0 = (-264.44250095283729);
@@ -746,7 +746,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 / b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mod_wide_wide()
         {
             double2x3 a0 = double2x3(-388.81249422059045, 181.68118842955732, -167.07872470052854, 432.82015319951813, -258.43895995730486, -170.11079629236406);
@@ -770,7 +770,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mod_wide_scalar()
         {
             double2x3 a0 = double2x3(-244.49962889612635, -211.81931958525411, -145.92677576184587, -304.91822090042672, 155.47946436492703, -133.90778428591221);
@@ -794,7 +794,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_mod_scalar_wide()
         {
             double a0 = (-66.945025236785909);
@@ -818,7 +818,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 % b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_plus()
         {
             double2x3 a0 = double2x3(-418.82956357432045, -405.79894823851015, -34.041791216489742, 236.99924456188421, -459.83910129025537, 210.8614223985287);
@@ -838,7 +838,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, +a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_neg()
         {
             double2x3 a0 = double2x3(148.46174890755753, -467.12267873581624, 132.04719954917539, 183.52262290917463, 473.7010145009034, -407.99109024926605);
@@ -858,7 +858,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, -a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_prefix_inc()
         {
             double2x3 a0 = double2x3(-139.84208137348389, -56.743654039103376, -381.955324589254, 509.79634380237962, -222.89634452708827, 210.31986556310198);
@@ -878,7 +878,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, ++a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_postfix_inc()
         {
             double2x3 a0 = double2x3(-396.6697396695007, 511.20749378167443, 249.11127030528678, -128.81731301584153, -259.49027669592306, 278.00817764830219);
@@ -898,7 +898,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3++);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_prefix_dec()
         {
             double2x3 a0 = double2x3(123.12869626056806, 256.8437465433235, 156.33078844674435, 461.73742530389563, 325.86799755965728, 392.01561731473339);
@@ -918,7 +918,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, --a3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2x3_operator_postfix_dec()
         {
             double2x3 a0 = double2x3(379.68831723727669, 302.69287814884115, -176.07134040448409, -291.25267066212962, 470.56758401848731, -402.92594666170231);

@@ -15,7 +15,7 @@ namespace Unity.Mathematics.Tests
     [TestFixture]
     public class TestBool3x3
     {
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_equal_wide_wide()
         {
             bool3x3 a0 = bool3x3(true, false, true, false, false, true, false, false, true);
@@ -39,7 +39,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_equal_wide_scalar()
         {
             bool3x3 a0 = bool3x3(false, true, false, false, false, false, true, false, false);
@@ -63,7 +63,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_equal_scalar_wide()
         {
             bool a0 = (false);
@@ -87,7 +87,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 == b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_not_equal_wide_wide()
         {
             bool3x3 a0 = bool3x3(true, true, true, false, false, true, false, false, false);
@@ -111,7 +111,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_not_equal_wide_scalar()
         {
             bool3x3 a0 = bool3x3(false, true, false, true, true, false, false, false, false);
@@ -135,7 +135,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_not_equal_scalar_wide()
         {
             bool a0 = (true);
@@ -159,7 +159,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 != b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_and_wide_wide()
         {
             bool3x3 a0 = bool3x3(false, false, true, true, false, false, true, true, true);
@@ -183,7 +183,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_and_wide_scalar()
         {
             bool3x3 a0 = bool3x3(true, false, false, true, true, false, false, false, false);
@@ -207,7 +207,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_and_scalar_wide()
         {
             bool a0 = (false);
@@ -231,7 +231,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 & b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_or_wide_wide()
         {
             bool3x3 a0 = bool3x3(true, true, true, false, true, false, true, true, false);
@@ -255,7 +255,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_or_wide_scalar()
         {
             bool3x3 a0 = bool3x3(true, true, false, true, true, true, true, false, true);
@@ -279,7 +279,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_or_scalar_wide()
         {
             bool a0 = (true);
@@ -303,7 +303,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 | b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_xor_wide_wide()
         {
             bool3x3 a0 = bool3x3(true, false, false, true, false, false, false, true, false);
@@ -327,7 +327,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_xor_wide_scalar()
         {
             bool3x3 a0 = bool3x3(false, false, true, true, false, false, false, false, false);
@@ -351,7 +351,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_bitwise_xor_scalar_wide()
         {
             bool a0 = (true);
@@ -375,7 +375,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(r3, a3 ^ b3);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3x3_operator_logical_not()
         {
             bool3x3 a0 = bool3x3(true, true, false, false, true, false, true, false, true);

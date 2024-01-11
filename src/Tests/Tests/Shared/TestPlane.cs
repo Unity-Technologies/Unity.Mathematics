@@ -10,7 +10,7 @@ namespace Unity.Mathematics.Tests
         // An arbitrary tolerance.
         const float Tolerance = 0.0000025f;
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Empty()
         {
             var p = new Plane();
@@ -20,7 +20,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0.0f, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void GetNormal()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
@@ -28,7 +28,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(1.0f, 2.0f, 3.0f), p.Normal);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void GetDistance()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
@@ -36,7 +36,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(4.0f, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void SetNormal()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
@@ -45,7 +45,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float3(-1.0f, -2.0f, -3.0f), p.Normal);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void SetDistance()
         {
             var p = new Plane { NormalAndDistance = new float4(1.0f, 2.0f, 3.0f, 4.0f) };
@@ -54,7 +54,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-4.0f, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithNormalAndDistance()
         {
             var n = math.normalize(new float3(4.0f, -5.0f, 6.0f));
@@ -66,7 +66,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(d, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithCoefficients_NonUnitLengthNormal()
         {
             var abcd = new float4(4.0f, -5.0f, 6.0f, 123.0f);
@@ -78,7 +78,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected.w, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithNormalAndPointInPlane_NegativeDistance()
         {
             var n = math.up();
@@ -90,7 +90,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1.0f, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithNormalAndPointInPlane_PositiveDistance()
         {
             var n = math.down();
@@ -102,7 +102,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(1.0f, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithNormalAndPointInPlane()
         {
             var normal = new float3(2.0f, 2.0f, 2.0f);
@@ -116,7 +116,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expectedD, p.Distance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithTwoVectorsAndOrigin_Trivial()
         {
             var v1 = new float3(1.0f, 0.0f, 0.0f);
@@ -126,7 +126,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float4(0.0f, 0.0f, 1.0f, 0.0f), p);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ConstructWithTwoVectorsAndOrigin_NonZeroOrigin()
         {
             var v1 = new float3(5.0f, 0.0f, 0.0f);
@@ -136,7 +136,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float4(0.0f, 0.0f, -1.0f, 1.0f), p);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void SignedDistanceToPoint()
         {
             var vInPlane1 = new float3(2.0f, 1.0f, -0.18f);
@@ -152,7 +152,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(pointInPlane - n), Tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void SignedDistanceToPointTrivial()
         {
             var p = new Plane(math.up(), 0.0f);
@@ -174,7 +174,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(-1.0f, p.SignedDistanceToPoint(math.down() + math.forward()));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ProjectionTrivial()
         {
             var p = new Plane(math.up(), 0.0f);
@@ -183,7 +183,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, p.Projection(math.up() + expected));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Projection()
         {
             var normal = new float3(1.0f);
@@ -195,7 +195,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, p.Projection(expected), math.EPSILON);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void Flipped()
         {
             var normal = new float3(1.0f);
@@ -207,7 +207,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float4(expectedN, expectedD), p.Flipped, Tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void ImplicitToFloat4()
         {
             var normal = new float3(1.1f, -20.0f, 15.182f);
@@ -220,7 +220,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(new float4(expectedN, expectedD), p_as_float4, Tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void NormalizeFloat4()
         {
             var p = new float4(8.215876543024162e-01f, 2.786574280629829e-01f, 8.121669997361285e-01f, 9.352839276497152e-01f);
@@ -229,7 +229,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, Plane.Normalize(p), Tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void NormalizePlane()
         {
             var p = new Plane { NormalAndDistance = new float4(8.215876543024162e-01f, 2.786574280629829e-01f, 8.121669997361285e-01f, 9.352839276497152e-01f) };
@@ -241,7 +241,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected.w, normalized.Distance, Tolerance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CreateFromUnitNormalAndDistance()
         {
             var n = new float3(9.108767140247756e-02f, 3.966831912609620e-01f, 9.134251375397404e-01f);
@@ -252,7 +252,7 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(expected, p.NormalAndDistance);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void CreateFromUnitNormalAndPointInPlane()
         {
             var n = new float3(4.724920516359185e-01f, 1.444614284194820e-01f, 8.694148358751899e-01f);

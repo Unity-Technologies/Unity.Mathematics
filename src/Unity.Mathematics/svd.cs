@@ -7,7 +7,7 @@ namespace Unity.Mathematics
     // Computing the singular value decomposition of 3x3 matrices with minimal branching and elementary floating point operations,
     // A.McAdams, A.Selle, R.Tamstorf, J.Teran and E.Sifakis, University of Wisconsin - Madison technical report TR1690, May 2011
     [Il2CppEagerStaticClassConstruction]
-    static class svd
+    static public class svd
     {
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         static void condSwap(bool c, ref float x, ref float y)
@@ -151,7 +151,7 @@ namespace Unity.Mathematics
             math.select(math.rcp(x), float3.zero, math.abs(x) < epsilon);
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static float3x3 svdInverse(float3x3 a)
+        public static float3x3 svdInverse(float3x3 a)
         {
             var e = singularValuesDecomposition(a, out var u, out var v);
             var um = math.float3x3(u);
@@ -161,7 +161,7 @@ namespace Unity.Mathematics
         }
 
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
-        internal static quaternion svdRotation(float3x3 a)
+        public static quaternion svdRotation(float3x3 a)
         {
             singularValuesDecomposition(a, out var u, out var v);
             return math.mul(u, math.conjugate(v));

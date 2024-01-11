@@ -115,14 +115,14 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => rnd.NextBool() ? 0.75 : 0.25), 2);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -130,14 +130,14 @@ namespace Unity.Mathematics.Tests
             ks_test((() => rnd.NextBool2().y ? 0.75 : 0.25), 2);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool2().xy)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -146,7 +146,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => rnd.NextBool3().z ? 0.75 : 0.25), 2);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -155,7 +155,7 @@ namespace Unity.Mathematics.Tests
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool3().yz)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -165,7 +165,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => rnd.NextBool4().w ? 0.75 : 0.25), 2);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void bool4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -177,21 +177,21 @@ namespace Unity.Mathematics.Tests
             r_test((() => select(double2(0.25), double2(0.75), rnd.NextBool4().zw)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextInt() & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => (((uint)rnd.NextInt() >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -199,7 +199,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt(max), 0, max) + 0.5) / max), max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -207,7 +207,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt(max), 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -217,7 +217,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt(min, max), min, max) + 0.5 - min) / range), range);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -227,7 +227,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt(min, max), min, max) + 0.5 - min) / range), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -235,7 +235,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextInt2().y & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -243,7 +243,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (((uint)rnd.NextInt2().y >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -252,7 +252,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt2(max).y, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -263,7 +263,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt2(min, max).y, min.y, max.y) + 0.5 - min.y) / range.y), range.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -274,21 +274,21 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt2(min, max).y, min, max) + 0.5 - min) / range), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextInt2().xy & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int2_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => ((uint2)rnd.NextInt2().xy >> 24));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -297,7 +297,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextInt3().z & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -306,7 +306,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (((uint)rnd.NextInt3().z >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -316,7 +316,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((uint)range_check(rnd.NextInt3(max).z, 0, max.z) + 0.5) / max.z), max.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -326,7 +326,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((uint)range_check(rnd.NextInt3(max).z, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -338,7 +338,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt3(min, max).z, min.z, max.z) + 0.5 - min.z) / range.z), range.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -350,7 +350,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt3(min, max).z, min, max) + 0.5 - min) / range), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -359,7 +359,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextInt3().yz & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int3_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -368,7 +368,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => ((uint2)rnd.NextInt3().yz >> 24));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -378,7 +378,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextInt4().w & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -388,7 +388,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (((uint)rnd.NextInt4().w >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -399,7 +399,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt4(max).w, 0, max.w) + 0.5) / max.w), max.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -410,7 +410,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt4(max).w, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -423,7 +423,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt4(min, max).w, min.w, max.w) + 0.5 - min.w) / range.w), range.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -436,7 +436,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextInt4(min, max).w, min, max) + 0.5 - min) / range), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -448,7 +448,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextUInt4().zw & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void int4_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -461,21 +461,21 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt() & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => ((rnd.NextUInt() >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -483,7 +483,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt(max) + 0.5) / max), (int)max);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -491,7 +491,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt(max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -501,7 +501,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt(min, max), min, max) + 0.5 - min) / range), (int)range);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -509,7 +509,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt(0, max), 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -517,7 +517,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt2().y & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -525,7 +525,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt2().y >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -534,7 +534,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt2(max).y + 0.5) / max.y), (int)max.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -543,7 +543,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt2(max).y + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -554,7 +554,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt2(min, max).y, min.y, max.y) + 0.5 - min.y) / range.y), (int)range.y);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -563,21 +563,21 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt2(0, max).y, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt2().xy & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint2_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test(() => (rnd.NextUInt2().xy >> 24));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -586,7 +586,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt3().z & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -595,7 +595,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt3().z >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -605,7 +605,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt3(max).z + 0.5) / max.z), (int)max.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -615,7 +615,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt3(max).z + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -627,7 +627,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt3(min, max).z, min.z, max.z) + 0.5 - min.z) / range.z), (int)range.z);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -637,7 +637,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt3(0, max).z, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -646,7 +646,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextUInt3().yz & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint3_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -655,7 +655,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextUInt3().yz >> 24));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -665,7 +665,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt4().w & 255u) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -675,7 +675,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => ((rnd.NextUInt4().w >> 24) + 0.5) / 256.0), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -686,7 +686,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt4(max).w + 0.5) / max.w), (int)max.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -697,7 +697,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (rnd.NextUInt4(max).w + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -710,7 +710,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt4(min, max).w, min.w, max.w) + 0.5 - min.w) / range.w), (int)range.w);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_uniform_min_max_limit()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -721,7 +721,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextUInt4(0, max).w, 0, max) + 0.5) / max), 256);
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_independent_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -733,7 +733,7 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextUInt4().zw & 255));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void uint4_independent_high_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -745,21 +745,21 @@ namespace Unity.Mathematics.Tests
             r_test(() => (rnd.NextUInt4().zw >> 24));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextFloat())));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextFloat() * 65536.0f)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -767,7 +767,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextFloat(max), 0.0f, max) / max));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -777,7 +777,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextFloat(min, max), min, max) -min) / range));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -785,7 +785,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextFloat2().y)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -793,7 +793,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextFloat2().y * 65536.0f)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -802,7 +802,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextFloat2(max).y, 0.0f, max.y) / max.y));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -813,14 +813,14 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextFloat2(min, max).y, min.y, max.y) - min.y) / range.y));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextFloat2()));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -829,7 +829,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextFloat3().z)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -838,7 +838,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextFloat3().z * 65536.0f)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -848,7 +848,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextFloat3(max).z, 0.0f, max.z) / max.z));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -860,7 +860,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextFloat3(min, max).z, min.z, max.z) - min.z) / range.z));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -869,7 +869,7 @@ namespace Unity.Mathematics.Tests
             r_test((() => rnd.NextFloat3().yz));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -879,7 +879,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextFloat4().w)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -889,7 +889,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextFloat4().w * 65536.0f)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -900,7 +900,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextFloat4(max).w, 0.0f, max.w) / max.w));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -913,7 +913,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextFloat4(min, max).w, min.w, max.w) - min.w) / range.w));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -925,21 +925,21 @@ namespace Unity.Mathematics.Tests
             r_test((() => rnd.NextFloat4().zw));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => range_check01(rnd.NextDouble())));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
             ks_test((() => frac(rnd.NextDouble() * 35184372088832.0)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -947,7 +947,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextDouble(max), 0.0, max) / max));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -957,7 +957,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextDouble(min, max), min, max) - min) / range));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -965,7 +965,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextDouble2().y)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -973,7 +973,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextDouble2().y * 35184372088832.0)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -982,7 +982,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextDouble2(max).y, 0.0, max.y) / max.y));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -993,14 +993,14 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextDouble2(min, max).y, min.y, max.y) - min.y) / range.y));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_independent()
         {
             var rnd = new Random(0x6E624EB7u);
             r_test((() => rnd.NextDouble2()));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1009,7 +1009,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextDouble3().z)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1018,7 +1018,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextDouble3().z * 35184372088832.0)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1028,7 +1028,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextDouble3(max).z, 0.0, max.z) / max.z));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1041,7 +1041,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1050,7 +1050,7 @@ namespace Unity.Mathematics.Tests
             r_test((() => rnd.NextDouble3().yz));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4_uniform()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1060,7 +1060,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check01(rnd.NextDouble4().w)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4_uniform_low_bits()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1070,7 +1070,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => frac(rnd.NextDouble4().w * 35184372088832.0)));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4_uniform_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1081,7 +1081,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => range_check(rnd.NextDouble4(max).w, 0.0, max.w) / max.w));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4_uniform_min_max()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1094,7 +1094,7 @@ namespace Unity.Mathematics.Tests
             ks_test((() => (range_check(rnd.NextDouble4(min, max).w, min.w, max.w) - min.w) / range.w));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double4_independent()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1106,7 +1106,7 @@ namespace Unity.Mathematics.Tests
             r_test((() => rnd.NextDouble4().zw));
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float2_direction()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1117,7 +1117,7 @@ namespace Unity.Mathematics.Tests
             });
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double2_direction()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1129,7 +1129,7 @@ namespace Unity.Mathematics.Tests
         }
 
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void float3_direction()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1145,7 +1145,7 @@ namespace Unity.Mathematics.Tests
             });
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void double3_direction()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1161,7 +1161,7 @@ namespace Unity.Mathematics.Tests
             });
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void quaternion_rotation()
         {
             var rnd = new Random(0x6E624EB7u);
@@ -1183,7 +1183,7 @@ namespace Unity.Mathematics.Tests
             });
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void consecutive_seeds_r_test()
         {
             // Check that drawing 1 number from many consecutive seeds has no correlation.
@@ -1195,7 +1195,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void consecutive_seeds_r_test2()
         {
             // Check that drawing 1 number from many consecutive seeds has no correlation.
@@ -1207,7 +1207,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void consecutive_seeds_ks_test()
         {
             // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
@@ -1215,7 +1215,7 @@ namespace Unity.Mathematics.Tests
             ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void consecutive_seeds_ks_test2()
         {
             // Check that drawing 1 number from many consecutive seeds matches our expected distribution.
@@ -1223,7 +1223,7 @@ namespace Unity.Mathematics.Tests
             ks_test(() => Random.CreateFromIndex(seed++).NextDouble());
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void similar_seeds()
         {
             // Check to see that two consecutive seeds have no correlation when drawing
@@ -1236,7 +1236,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void similar_seeds2()
         {
             // Check to see that two consecutive seeds have no correlation when drawing
@@ -1249,7 +1249,7 @@ namespace Unity.Mathematics.Tests
             }
         }
 
-        [TestCompiler /* For Burst testing */, TestCase /* For player builds */]
+        [TestCompiler]
         public static void wang_hash()
         {
             TestUtils.AreEqual(3232319850u, Random.WangHash(0u));

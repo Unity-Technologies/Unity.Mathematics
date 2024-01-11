@@ -2075,7 +2075,7 @@ namespace Unity.Mathematics.Mathematics.CodeGen
         {
             if (testCompiler)
             {
-                str.Append("\t\t[TestCompiler /* For Burst testing */, TestCase /* For player builds */]\n");
+                str.Append("\t\t[TestCompiler]\n");
             }
             else
             {
