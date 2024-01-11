@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [1.3.2] - 2024-01-11
 
 ### Fixed
 * Fixed `math.hash` crash when using IL2CPP builds on Arm 32 bit devices.
