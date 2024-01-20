@@ -757,7 +757,7 @@ namespace Unity.Mathematics
             double4 c2 = m.c2;
             double4 pos = m.c3;
 
-            double4 zero = double4(0);
+            double4 zero = double4(0.0);
 
             double4 t0 = unpacklo(c0, c2);
             double4 t1 = unpacklo(c1, zero);
@@ -769,7 +769,7 @@ namespace Unity.Mathematics
             double4 r2 = unpacklo(t2, t3);
 
             pos = -(r0 * pos.x + r1 * pos.y + r2 * pos.z);
-            pos.w = 1.0f;
+            pos.w = 1.0;
 
             return double4x4(r0, r1, r2, pos);
         }
