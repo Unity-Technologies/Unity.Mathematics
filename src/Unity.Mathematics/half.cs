@@ -48,6 +48,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half value from a float value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The single precision float value to convert to half.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half(float v)
@@ -56,6 +57,7 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Constructs a half value from a double value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The double precision float value to convert to half.</param>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half(double v)
@@ -64,12 +66,14 @@ namespace Unity.Mathematics
         }
 
         /// <summary>Explicitly converts a float value to a half value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The single precision float value to convert to half.</param>
         /// <returns>The converted half value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half(float v) { return new half(v); }
 
         /// <summary>Explicitly converts a double value to a half value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The double precision float value to convert to half.</param>
         /// <returns>The converted half value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -147,12 +151,14 @@ namespace Unity.Mathematics
         public static half half(half x) { return new half(x); }
 
         /// <summary>Returns a half value constructed from a float value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The single precision float value to convert to half.</param>
         /// <returns>The constructed half value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half half(float v) { return new half(v); }
 
         /// <summary>Returns a half value constructed from a double value.</summary>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <param name="v">The double precision float value to convert to half.</param>
         /// <returns>The constructed half value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
