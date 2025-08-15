@@ -12,8 +12,10 @@ namespace Unity.Mathematics.Editor
     {
         static class Content
         {
-            public static readonly string tooltip =
-                L10n.Tr("Values you enter will be post-normalized. You will see the normalized result if you change selection and view the values again.");
+            public static readonly GUIContent Tooltip = new (
+                string.Empty, 
+                L10n.Tr("Values you enter will be post-normalized. You will see the normalized result if you "
+                    + "change selection and view the values again."));
         }
 
         class VectorPropertyGUIData
@@ -181,8 +183,12 @@ namespace Unity.Mathematics.Editor
                 return;
             }
 
+            // Avoid polluting the passed-in GUIContent - it might be static and shared.
             if (string.IsNullOrEmpty(label.tooltip))
-                label.tooltip = Content.tooltip;
+            {
+                Content.Tooltip.text = label.text;
+                label = Content.Tooltip;
+            }
 
             guiData.RebuildIfDirty();
             guiData.ApplyPreNormalizedValues();
