@@ -36,7 +36,7 @@ namespace Unity.Mathematics.Editor
             public static readonly string doNotNormalizeCompatibility = L10n.Tr(
                 $"{typeof(DoNotNormalizeAttribute).Name} only works with {typeof(quaternion)} and primitive vector types."
             );
-            public static readonly string doNotNormalizeContent = new GUIContent("", 
+            public static readonly GUIContent doNotNormalizeContent = new GUIContent("", 
                 L10n.Tr("This value is not normalized, which may produce unexpected results."));
 
             public static readonly GUIContent[] labels2 = { new GUIContent("X"), new GUIContent("Y") };
