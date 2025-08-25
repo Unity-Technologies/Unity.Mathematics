@@ -90,8 +90,8 @@ namespace Unity.Mathematics.Editor
 
             if (attribute is DoNotNormalizeAttribute && string.IsNullOrEmpty(label.tooltip))
             {
-                doNotNormalizeContent.text = label.text;
-                label = doNotNormalizeContent;
+                Content.doNotNormalizeContent.text = label.text;
+                label = Content.doNotNormalizeContent;
             }
             label = EditorGUI.BeginProperty(position, label, property);
             var valuesIterator = property.FindPropertyRelative(startIter);
