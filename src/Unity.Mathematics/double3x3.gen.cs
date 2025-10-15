@@ -157,11 +157,11 @@ namespace Unity.Mathematics
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public double3x3(double4x4 v)
         {
-            this.c0 = v.c0.xyz
-            this.c1 = v.c1.xyz
-            this.c2 = v.c2.xyz
+            this.c0 = v.c0.xyz;
+            this.c1 = v.c1.xyz;
+            this.c2 = v.c2.xyz;
         }
-        
+
         /// <summary>Implicitly converts a single double value to a double3x3 matrix by assigning it to every component.</summary>
         /// <param name="v">double to convert to double3x3</param>
         /// <returns>Converted value.</returns>
