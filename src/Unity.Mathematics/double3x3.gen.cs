@@ -154,6 +154,13 @@ namespace Unity.Mathematics
             this.c2 = v.c2;
         }
 
+        [MethodImpl(MethodImplOptions.AggressiveInlining)]
+        public double3x3(double4x4 v)
+        {
+            this.c0 = v.c0.xyz;
+            this.c1 = v.c1.xyz;
+            this.c2 = v.c2.xyz;
+        }
 
         /// <summary>Implicitly converts a single double value to a double3x3 matrix by assigning it to every component.</summary>
         /// <param name="v">double to convert to double3x3</param>
@@ -692,6 +699,7 @@ namespace Unity.Mathematics
                     fold_to_uint(v.c1) * uint3(0x5D19E1D5u, 0xFAAF07DDu, 0x625C45BDu) +
                     fold_to_uint(v.c2) * uint3(0xC9F27FCBu, 0x6D2523B1u, 0x6E2BF6A9u)) + 0xCC74B3B7u;
         }
+        
 
     }
 }
