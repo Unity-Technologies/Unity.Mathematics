@@ -27,24 +27,24 @@ upmci_platforms:
     flavor: b1.large
 
 validate_editor_versions:
-  - version: "2021.3"
-    display_name: "2021.3"
   - version: "2022.3"
     display_name: "2022.3"
-  - version: "2023.1"
-    display_name: "2023.1"
-  - version: "trunk"
-    display_name: "trunk"
+  - version: "6000.0"
+    display_name: "6000.0"
+  - version: "6000.3"
+    display_name: "6000.3"
+  - version: "6000.4"
+    display_name: "6000.4"
 
 package_tests_editor_versions:
-  - version: "2021.3"
-    display_name: "2021.3"
   - version: "2022.3"
     display_name: "2022.3"
-  - version: "2023.1"
-    display_name: "2023.1"
-  - version: "trunk"
-    display_name: "trunk"
+  - version: "6000.0"
+    display_name: "6000.0"
+  - version: "6000.3"
+    display_name: "6000.3"
+  - version: "6000.4"
+    display_name: "6000.4"
 ---
 
 {% for platform in upmci_platforms %}
