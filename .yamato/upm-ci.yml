@@ -79,7 +79,7 @@ package_tests_minimal:
   name: Package tests minimal
   dependencies:
   {% for platform in upmci_platforms %}
-    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_2021.3
+    - .yamato/upm-ci.yml#package_tests_{{platform.name}}_6000.3
   {% endfor %}
 
 validate_package_minimal:
@@ -91,7 +91,7 @@ validate_package_minimal:
   commands:
     - npm install upm-ci-utils@stable --registry https://artifactory.prd.cds.internal.unity3d.com/artifactory/api/npm/upm-npm -g
     - upm-ci package pack --package-path src/
-    - upm-ci package test --package-path src/ --unity-version 2021.3
+    - upm-ci package test --package-path src/ --unity-version 6000.3
   artifacts:
     packages:
       paths:
