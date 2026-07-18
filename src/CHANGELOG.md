@@ -1,5 +1,8 @@
 # Changelog
 
+## [Unreleased]
+* Added a documentation remark for Random NextFloat and NextDouble methods with a min and max parameter.
+
 ## [1.3.2] - 2024-01-11
 
 ### Fixed
