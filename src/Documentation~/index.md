@@ -16,6 +16,9 @@ Plus elementary functions:
 
 You can install the Mathematics package through Unity's Package Manager. For more information, see the Unity User Manual documentation on [Adding and removing packages](https://docs.unity3d.com/Manual/upm-ui-actions.html).
 
+>[!IMPORTANT]
+>From Unity 6.5, Unity Mathematics is a built-in module of the core Editor and Engine and its APIs are available to user code by default in the `Unity.Mathematics` namespace, with no package installation required. Accordingly, from Unity 6.5 the Unity Mathematics API documentation is part of the [core Scripting API reference](https://docs.unity3d.com/ScriptReference/Unity.Mathematics.math.html), and the user manual is integrated with [the core Unity user manual](https://docs.unity3d.com/Manual/unity-mathematics.html).
+
 ### Editor config
 
 Unity Mathematics uses [editorconfig](http://editorconfig.org/) to keep files formatted for EOL and spaces.

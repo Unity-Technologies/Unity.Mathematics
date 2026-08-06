@@ -2511,7 +2511,7 @@ namespace Unity.Mathematics
         public static double4 asin(double4 x) { return new double4(asin(x.x), asin(x.y), asin(x.z), asin(x.w)); }
 
 
-        /// <summary>Returns the result of rounding a float value up to the nearest integral value less or equal to the original value.</summary>
+        /// <summary>Returns the result of rounding a float value down to the nearest integral value less or equal to the original value.</summary>
         /// <param name="x">Input value.</param>
         /// <returns>The round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
@@ -2536,7 +2536,7 @@ namespace Unity.Mathematics
         public static float4 floor(float4 x) { return new float4(floor(x.x), floor(x.y), floor(x.z), floor(x.w)); }
 
 
-        /// <summary>Returns the result of rounding a double value up to the nearest integral value less or equal to the original value.</summary>
+        /// <summary>Returns the result of rounding a double value down to the nearest integral value less or equal to the original value.</summary>
         /// <param name="x">Input value.</param>
         /// <returns>The round down to nearest integral value of the input.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
