@@ -757,7 +757,7 @@ namespace Unity.Mathematics
             float4 c2 = m.c2;
             float4 pos = m.c3;
 
-            float4 zero = float4(0);
+            float4 zero = float4(0.0f);
 
             float4 t0 = unpacklo(c0, c2);
             float4 t1 = unpacklo(c1, zero);
