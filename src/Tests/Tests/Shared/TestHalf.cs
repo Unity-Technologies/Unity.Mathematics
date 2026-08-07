@@ -522,6 +522,212 @@ namespace Unity.Mathematics.Tests
             TestUtils.AreEqual(0x7bff, max.w.value);
         }
 
+        static void CheckAllComponentsForExpected(uint expected, half actual)
+        {
+            TestUtils.AreEqual(expected, actual.value);
+        }
+
+        static void CheckAllComponentsForExpected(uint expected, half2 actual)
+        {
+            TestUtils.AreEqual(expected, actual.x.value);
+            TestUtils.AreEqual(expected, actual.y.value);
+        }
+
+        static void CheckAllComponentsForExpected(uint expected, half3 actual)
+        {
+            TestUtils.AreEqual(expected, actual.x.value);
+            TestUtils.AreEqual(expected, actual.y.value);
+            TestUtils.AreEqual(expected, actual.z.value);
+        }
+
+        static void CheckAllComponentsForExpected(uint expected, half4 actual)
+        {
+            TestUtils.AreEqual(expected, actual.x.value);
+            TestUtils.AreEqual(expected, actual.y.value);
+            TestUtils.AreEqual(expected, actual.z.value);
+            TestUtils.AreEqual(expected, actual.w.value);
+        }
+
+        [TestCompiler]
+        public static void half_check_rounding()
+        {
+            // 1 ulp away from a representable half.
+            CheckAllComponentsForExpected(0x3c01, new half(1.00097668170928955078f));
+            CheckAllComponentsForExpected(0x3c01, new half(1.00097644329071044922f));
+
+            CheckAllComponentsForExpected(0x3c01, new half(1.00097668170928955078));
+            CheckAllComponentsForExpected(0x3c01, new half(1.00097644329071044922));
+
+            // 1 ulp away from the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x5c00, new half(256.124969482421875f));
+            CheckAllComponentsForExpected(0x5c01, new half(256.125030517578125f));
+            CheckAllComponentsForExpected(0x5c01, new half(256.374969482421875f));
+            CheckAllComponentsForExpected(0x5c02, new half(256.375030517578125f));
+            CheckAllComponentsForExpected(0xdc00, new half(-256.124969482421875f));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.125030517578125f));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.374969482421875f));
+            CheckAllComponentsForExpected(0xdc02, new half(-256.375030517578125f));
+
+            CheckAllComponentsForExpected(0x5c00, new half(256.124969482421875));
+            CheckAllComponentsForExpected(0x5c01, new half(256.125030517578125));
+            CheckAllComponentsForExpected(0x5c01, new half(256.374969482421875));
+            CheckAllComponentsForExpected(0x5c02, new half(256.375030517578125));
+            CheckAllComponentsForExpected(0xdc00, new half(-256.124969482421875));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.125030517578125));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.374969482421875));
+            CheckAllComponentsForExpected(0xdc02, new half(-256.375030517578125));
+
+            // At the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x3c01, new half(1.00048828125f));
+            CheckAllComponentsForExpected(0x5c01, new half(256.125f));
+            CheckAllComponentsForExpected(0x5c02, new half(256.375f));
+            CheckAllComponentsForExpected(0xbc01, new half(-1.00048828125f));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.125f));
+            CheckAllComponentsForExpected(0xdc02, new half(-256.375f));
+
+            CheckAllComponentsForExpected(0x3c01, new half(1.00048828125));
+            CheckAllComponentsForExpected(0x5c01, new half(256.125));
+            CheckAllComponentsForExpected(0x5c02, new half(256.375));
+            CheckAllComponentsForExpected(0xbc01, new half(-1.00048828125));
+            CheckAllComponentsForExpected(0xdc01, new half(-256.125));
+            CheckAllComponentsForExpected(0xdc02, new half(-256.375));
+        }
+
+        [TestCompiler]
+        public static void half2_check_rounding()
+        {
+            // 1 ulp away from a representable half.
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00097668170928955078f));
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00097644329071044922f));
+
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00097668170928955078));
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00097644329071044922));
+
+            // 1 ulp away from the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x5c00, new half2(256.124969482421875f));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.125030517578125f));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.374969482421875f));
+            CheckAllComponentsForExpected(0x5c02, new half2(256.375030517578125f));
+            CheckAllComponentsForExpected(0xdc00, new half2(-256.124969482421875f));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.125030517578125f));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.374969482421875f));
+            CheckAllComponentsForExpected(0xdc02, new half2(-256.375030517578125f));
+
+            CheckAllComponentsForExpected(0x5c00, new half2(256.124969482421875));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.125030517578125));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.374969482421875));
+            CheckAllComponentsForExpected(0x5c02, new half2(256.375030517578125));
+            CheckAllComponentsForExpected(0xdc00, new half2(-256.124969482421875));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.125030517578125));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.374969482421875));
+            CheckAllComponentsForExpected(0xdc02, new half2(-256.375030517578125));
+
+            // At the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00048828125f));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.125f));
+            CheckAllComponentsForExpected(0x5c02, new half2(256.375f));
+            CheckAllComponentsForExpected(0xbc01, new half2(-1.00048828125f));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.125f));
+            CheckAllComponentsForExpected(0xdc02, new half2(-256.375f));
+
+            CheckAllComponentsForExpected(0x3c01, new half2(1.00048828125));
+            CheckAllComponentsForExpected(0x5c01, new half2(256.125));
+            CheckAllComponentsForExpected(0x5c02, new half2(256.375));
+            CheckAllComponentsForExpected(0xbc01, new half2(-1.00048828125));
+            CheckAllComponentsForExpected(0xdc01, new half2(-256.125));
+            CheckAllComponentsForExpected(0xdc02, new half2(-256.375));
+        }
+
+        [TestCompiler]
+        public static void half3_check_rounding()
+        {
+            // 1 ulp away from a representable half.
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00097668170928955078f));
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00097644329071044922f));
+
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00097668170928955078));
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00097644329071044922));
+
+            // 1 ulp away from the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x5c00, new half3(256.124969482421875f));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.125030517578125f));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.374969482421875f));
+            CheckAllComponentsForExpected(0x5c02, new half3(256.375030517578125f));
+            CheckAllComponentsForExpected(0xdc00, new half3(-256.124969482421875f));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.125030517578125f));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.374969482421875f));
+            CheckAllComponentsForExpected(0xdc02, new half3(-256.375030517578125f));
+
+            CheckAllComponentsForExpected(0x5c00, new half3(256.124969482421875));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.125030517578125));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.374969482421875));
+            CheckAllComponentsForExpected(0x5c02, new half3(256.375030517578125));
+            CheckAllComponentsForExpected(0xdc00, new half3(-256.124969482421875));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.125030517578125));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.374969482421875));
+            CheckAllComponentsForExpected(0xdc02, new half3(-256.375030517578125));
+
+            // At the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00048828125f));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.125f));
+            CheckAllComponentsForExpected(0x5c02, new half3(256.375f));
+            CheckAllComponentsForExpected(0xbc01, new half3(-1.00048828125f));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.125f));
+            CheckAllComponentsForExpected(0xdc02, new half3(-256.375f));
+
+            CheckAllComponentsForExpected(0x3c01, new half3(1.00048828125));
+            CheckAllComponentsForExpected(0x5c01, new half3(256.125));
+            CheckAllComponentsForExpected(0x5c02, new half3(256.375));
+            CheckAllComponentsForExpected(0xbc01, new half3(-1.00048828125));
+            CheckAllComponentsForExpected(0xdc01, new half3(-256.125));
+            CheckAllComponentsForExpected(0xdc02, new half3(-256.375));
+        }
+
+        [TestCompiler]
+        public static void half4_check_rounding()
+        {
+            // 1 ulp away from a representable half.
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00097668170928955078f));
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00097644329071044922f));
+
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00097668170928955078));
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00097644329071044922));
+
+            // 1 ulp away from the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x5c00, new half4(256.124969482421875f));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.125030517578125f));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.374969482421875f));
+            CheckAllComponentsForExpected(0x5c02, new half4(256.375030517578125f));
+            CheckAllComponentsForExpected(0xdc00, new half4(-256.124969482421875f));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.125030517578125f));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.374969482421875f));
+            CheckAllComponentsForExpected(0xdc02, new half4(-256.375030517578125f));
+
+            CheckAllComponentsForExpected(0x5c00, new half4(256.124969482421875));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.125030517578125));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.374969482421875));
+            CheckAllComponentsForExpected(0x5c02, new half4(256.375030517578125));
+            CheckAllComponentsForExpected(0xdc00, new half4(-256.124969482421875));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.125030517578125));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.374969482421875));
+            CheckAllComponentsForExpected(0xdc02, new half4(-256.375030517578125));
+
+            // At the midpoint between two representable halfs.
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00048828125f));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.125f));
+            CheckAllComponentsForExpected(0x5c02, new half4(256.375f));
+            CheckAllComponentsForExpected(0xbc01, new half4(-1.00048828125f));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.125f));
+            CheckAllComponentsForExpected(0xdc02, new half4(-256.375f));
+
+            CheckAllComponentsForExpected(0x3c01, new half4(1.00048828125));
+            CheckAllComponentsForExpected(0x5c01, new half4(256.125));
+            CheckAllComponentsForExpected(0x5c02, new half4(256.375));
+            CheckAllComponentsForExpected(0xbc01, new half4(-1.00048828125));
+            CheckAllComponentsForExpected(0xdc01, new half4(-256.125));
+            CheckAllComponentsForExpected(0xdc02, new half4(-256.375));
+        }
+
         [TestCase]
         public static void half_EqualsObjectOverride()
         {

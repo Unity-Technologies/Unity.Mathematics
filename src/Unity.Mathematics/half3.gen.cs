@@ -87,6 +87,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a single float value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">float to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half3(float v)
         {
@@ -97,6 +98,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a float3 vector by componentwise conversion.</summary>
         /// <param name="v">float3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half3(float3 v)
         {
@@ -107,6 +109,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a single double value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">double to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half3(double v)
         {
@@ -117,6 +120,7 @@ namespace Unity.Mathematics
 
         /// <summary>Constructs a half3 vector from a double3 vector by componentwise conversion.</summary>
         /// <param name="v">double3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public half3(double3 v)
         {
@@ -134,24 +138,28 @@ namespace Unity.Mathematics
 
         /// <summary>Explicitly converts a single float value to a half3 vector by converting it to half and assigning it to every component.</summary>
         /// <param name="v">float to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half3(float v) { return new half3(v); }
 
         /// <summary>Explicitly converts a float3 vector to a half3 vector by componentwise conversion.</summary>
         /// <param name="v">float3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half3(float3 v) { return new half3(v); }
 
         /// <summary>Explicitly converts a single double value to a half3 vector by converting it to half and assigning it to every component.</summary>
         /// <param name="v">double to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half3(double v) { return new half3(v); }
 
         /// <summary>Explicitly converts a double3 vector to a half3 vector by componentwise conversion.</summary>
         /// <param name="v">double3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static explicit operator half3(double3 v) { return new half3(v); }
@@ -1391,24 +1399,28 @@ namespace Unity.Mathematics
 
         /// <summary>Returns a half3 vector constructed from a single float value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">float to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half3 half3(float v) { return new half3(v); }
 
         /// <summary>Return a half3 vector constructed from a float3 vector by componentwise conversion.</summary>
         /// <param name="v">float3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half3 half3(float3 v) { return new half3(v); }
 
         /// <summary>Returns a half3 vector constructed from a single double value by converting it to half and assigning it to every component.</summary>
         /// <param name="v">double to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half3 half3(double v) { return new half3(v); }
 
         /// <summary>Return a half3 vector constructed from a double3 vector by componentwise conversion.</summary>
         /// <param name="v">double3 to convert to half3</param>
+        /// <remarks>The rounding mode for this conversion is round away from zero (toward infinity).</remarks>
         /// <returns>Converted value.</returns>
         [MethodImpl(MethodImplOptions.AggressiveInlining)]
         public static half3 half3(double3 v) { return new half3(v); }
